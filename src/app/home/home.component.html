@@ -1,0 +1,16 @@
+<h1 class="display-4 text-center">Your Business Name Here</h1>
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <label>Hero image here</label>
+    <input
+      name="HeroImageURL"
+      #HeroImageURL="ngModel"
+      [(ngModel)]="service.formData.HeroImageURL"
+      class="form-control"
+    />
+  </div>
+  <div class="form-control">
+    <input type="submit" value="SUBMIT" class="btn btn-lg btn-block" />
+  </div>
+</form>
