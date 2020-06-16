@@ -1,8 +1,16 @@
-<h1 class="display-4 text-center">Your Business Name Here</h1>
+<h1 class="display-4 text-center">Content Management System</h1>
+
+<div *ngFor="let item of service.webContentList">
+  {{ item.HeroImageURL }}
+
+  <img src="{{ item.HeroImageURL }}" />
+
+  <h1>HELLO</h1>
+</div>
 
 <form #form="ngForm" (submit)="onSubmit(form)">
   <div class="form-group">
-    <label>Hero image here</label>
+    <label>Header Image URL</label>
     <input
       name="HeroImageURL"
       #HeroImageURL="ngModel"
@@ -10,7 +18,38 @@
       class="form-control"
     />
   </div>
+
+  <div class="form-group">
+    <label>Header</label>
+    <input
+      name="Header"
+      #Header="ngModel"
+      [(ngModel)]="service.formData.Header"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Text Box</label>
+    <input
+      name="Textbox1"
+      #Textbox1="ngModel"
+      [(ngModel)]="service.formData.Textbox1"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Secondary Image URL</label>
+    <input
+      name="GalleryImageURL"
+      #GalleryImageURL="ngModel"
+      [(ngModel)]="service.formData.GalleryImageURL"
+      class="form-control"
+    />
+  </div>
+
   <div class="form-control">
-    <input type="submit" value="SUBMIT" class="btn btn-lg btn-block" />
+    <input type="submit" value="SUBMIT" class="btn btn-primary btn-block" />
   </div>
 </form>

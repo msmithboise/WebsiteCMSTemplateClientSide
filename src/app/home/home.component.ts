@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebpageService } from '../shared/webpage.service';
 import { NgForm } from '@angular/forms';
+import { Webpage } from '../shared/webpage.model';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
+    this.service.refreshList();
   }
 
   resetForm(form?: NgForm) {
