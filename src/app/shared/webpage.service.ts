@@ -30,4 +30,15 @@ export class WebpageService {
       this.imageUrl = element.HeroImageURL;
     });
   }
+
+  putWebPageContent(formData: Webpage) {
+    return this.http.put(
+      this.rootURL + '/HomePage/' + formData.UserID,
+      formData
+    );
+  }
+
+  deleteWebPageContent(id: number) {
+    return this.http.delete(this.rootURL + '/HomePage/' + id);
+  }
 }

@@ -34,12 +34,31 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.insertRecord(form);
+    if (form.value.UserID == null) this.insertRecord(form);
+    else this.updateRecord(form);
   }
 
   insertRecord(form: NgForm) {
     this.service.postWebPageContent(form.value).subscribe((res) => {
       this.resetForm(form);
+      this.service.refreshList();
+    });
+  }
+
+  populateForm(item: Webpage) {
+    this.service.formData = Object.assign({}, item);
+  }
+
+  updateRecord(form: NgForm) {
+    this.service.putWebPageContent(form.value).subscribe((res) => {
+      this.resetForm(form);
+      this.service.refreshList();
+    });
+  }
+
+  onDelete(id: number) {
+    this.service.deleteWebPageContent(id).subscribe((res) => {
+      this.service.refreshList();
     });
   }
 }
