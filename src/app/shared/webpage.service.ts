@@ -12,6 +12,6 @@ export class WebpageService {
   constructor(public http: HttpClient) {}
 
   postWebPageContent(formData: Webpage) {
-    return this.http.post(this.rootURL + '/WebPage', formData);
+    return this.http.post(this.rootURL + '/HomePage', formData);
   }
 }

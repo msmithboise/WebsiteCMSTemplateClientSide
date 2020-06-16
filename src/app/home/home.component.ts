@@ -18,9 +18,16 @@ export class HomeComponent implements OnInit {
     if (form != null) form.resetForm();
     this.service.formData = {
       UserID: null,
+      Header: '',
       HeroImageURL: '',
-      Content: '',
+      Textbox1: '',
+      Textbox2: '',
+      Textbox3: '',
+      Textbox4: '',
+      Textbox5: '',
+      Textbox6: '',
       GalleryImageURL: '',
+      Footer: '',
     };
   }
 
