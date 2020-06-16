@@ -1,11 +1,9 @@
-<h1 class="display-4 text-center">Content Management System</h1>
-
 <div *ngFor="let item of service.webContentList">
-  {{ item.HeroImageURL }}
-  <!-- <button(click)="populateForm(item)">Edit
-</button> -->
+  <h1 class="display-4 text-center">{{ item.Header }}</h1>
+  <!-- {{ item.HeroImageURL }} -->
 
   <img src="{{ item.HeroImageURL }}" />
+  <img src="{{ item.GalleryImageURL }}" />
   <button (click)="onDelete(item.UserID)" class="btn btn-sm btn-outline-danger">
     Delete
   </button>
