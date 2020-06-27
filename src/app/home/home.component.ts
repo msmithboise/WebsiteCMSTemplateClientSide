@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WebpageService } from '../shared/webpage.service';
 import { NgForm } from '@angular/forms';
 import { Webpage } from '../shared/webpage.model';
+import { NgForOf } from '@angular/common';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -46,6 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   populateForm(item: Webpage) {
+    //this.service.formData = item;
     this.service.formData = Object.assign({}, item);
   }
 

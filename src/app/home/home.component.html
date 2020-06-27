@@ -1,9 +1,12 @@
 <div *ngFor="let item of service.webContentList">
-  <h1 class="display-4 text-center">{{ item.Header }}</h1>
+  <h1 (click)="populateForm(item)" class="display-4 text-center">
+    {{ item.Header }}
+  </h1>
   <!-- {{ item.HeroImageURL }} -->
 
-  <img src="{{ item.HeroImageURL }}" />
-  <img src="{{ item.GalleryImageURL }}" />
+  <img src="{{ item.HeroImageURL }}" (click)="populateForm(item)" />
+  <p>{{ item.Textbox1 }}</p>
+  <img src="{{ item.GalleryImageURL }}" (click)="populateForm(item)" />
   <button (click)="onDelete(item.UserID)" class="btn btn-sm btn-outline-danger">
     Delete
   </button>
@@ -12,14 +15,16 @@
   </button>
 </div>
 
-<input
-  type="hidden"
-  name="UserID"
-  #UserID="ngModel"
-  [(ngModel)]="service.formData.UserID"
-/>
-
 <form #form="ngForm" (submit)="onSubmit(form)">
+  <div>
+    <input
+      type="hidden"
+      name="UserID"
+      #UserID="ngModel"
+      [(ngModel)]="service.formData.UserID"
+    />
+  </div>
+
   <div class="form-group">
     <label>Header Image URL</label>
     <input
@@ -60,7 +65,7 @@
     />
   </div>
 
-  <div class="form-control">
+  <div class="form-group">
     <input type="submit" value="SUBMIT" class="btn btn-primary btn-block" />
   </div>
 </form>

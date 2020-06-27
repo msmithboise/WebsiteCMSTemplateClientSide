@@ -14,10 +14,12 @@ export class WebpageService {
 
   constructor(public http: HttpClient) {}
 
+  //Post
   postWebPageContent(formData: Webpage) {
     return this.http.post(this.rootURL + '/HomePage', formData);
   }
 
+  //Get
   refreshList() {
     this.http
       .get(this.rootURL + '/HomePage')
@@ -25,19 +27,16 @@ export class WebpageService {
       .then((res) => (this.webContentList = res as Webpage[]));
   }
 
-  getImageUrl() {
-    this.webContentList.forEach((element) => {
-      this.imageUrl = element.HeroImageURL;
-    });
-  }
-
+  //Put
   putWebPageContent(formData: Webpage) {
-    return this.http.put(
+    console.log(formData);
+    return this.http.post(
       this.rootURL + '/HomePage/' + formData.UserID,
       formData
     );
   }
 
+  //Delete
   deleteWebPageContent(id: number) {
     return this.http.delete(this.rootURL + '/HomePage/' + id);
   }
