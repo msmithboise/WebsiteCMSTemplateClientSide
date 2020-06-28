@@ -13,7 +13,7 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class HomeComponent implements OnInit {
   WebContentArray: string[];
-  newHeroImage: string;
+
   constructor(public service: WebpageService) {}
 
   ngOnInit(): void {
@@ -68,10 +68,14 @@ export class HomeComponent implements OnInit {
       this.service.getWebPageContent();
     });
   }
+
+  // newHeroImage = this.setWebContentToArray();
+
   myHeroImage = {
     height: '1000px',
-    width: '1500px',
-    'background-image': this.setWebContentToArray(),
+    //   width: '1500px',
+    //   'background-image': this.newHeroImage,
+    //   'background-attachment': 'fixed',
   };
 
   setWebContentToArray() {
@@ -81,6 +85,7 @@ export class HomeComponent implements OnInit {
       var webContent = this.WebContentArray.map(function (item) {
         return item['HeroImageURL'];
       });
+      console.log(webContent);
     });
   }
 }

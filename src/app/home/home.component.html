@@ -7,6 +7,7 @@
   <img
     src="{{ item.HeroImageURL }}"
     [ngStyle]="myHeroImage"
+    [style.background-attachment]="'fixed'"
     (click)="populateForm(item)"
     class="hero-image"
   />
