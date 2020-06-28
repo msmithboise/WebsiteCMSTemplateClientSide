@@ -8,7 +8,7 @@ import { NgForOf } from '@angular/common';
 })
 export class WebpageService {
   formData: Webpage;
-  webContentList: Webpage[];
+  public webContentList: Webpage[];
   readonly rootURL = 'http://localhost:54704/api';
   imageUrl: string;
 
@@ -19,12 +19,17 @@ export class WebpageService {
     return this.http.post(this.rootURL + '/HomePage', formData);
   }
 
-  //Get
-  refreshList() {
+  //Get All
+  getWebPageContent() {
     this.http
       .get(this.rootURL + '/HomePage')
       .toPromise()
       .then((res) => (this.webContentList = res as Webpage[]));
+  }
+
+  //Get All
+  getWebPageHeroImage() {
+    return this.http.get(this.rootURL + '/HomePage');
   }
 
   //Put

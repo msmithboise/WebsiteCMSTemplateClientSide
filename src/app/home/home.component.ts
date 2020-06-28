@@ -3,7 +3,8 @@ import { WebpageService } from '../shared/webpage.service';
 import { NgForm } from '@angular/forms';
 import { Webpage } from '../shared/webpage.model';
 import { NgForOf } from '@angular/common';
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,14 @@ import { from } from 'rxjs';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  WebContentArray: string[];
+  newHeroImage: string;
   constructor(public service: WebpageService) {}
 
   ngOnInit(): void {
     this.resetForm();
-    this.service.refreshList();
+    this.service.getWebPageContent();
+    this.setWebContentToArray();
   }
 
   resetForm(form?: NgForm) {
@@ -43,7 +47,7 @@ export class HomeComponent implements OnInit {
   insertRecord(form: NgForm) {
     this.service.postWebPageContent(form.value).subscribe((res) => {
       this.resetForm(form);
-      this.service.refreshList();
+      this.service.getWebPageContent();
     });
   }
 
@@ -55,13 +59,28 @@ export class HomeComponent implements OnInit {
   updateRecord(form: NgForm) {
     this.service.putWebPageContent(form.value).subscribe((res) => {
       this.resetForm(form);
-      this.service.refreshList();
+      this.service.getWebPageContent();
     });
   }
 
   onDelete(id: number) {
     this.service.deleteWebPageContent(id).subscribe((res) => {
-      this.service.refreshList();
+      this.service.getWebPageContent();
+    });
+  }
+  myHeroImage = {
+    height: '1000px',
+    width: '1500px',
+    'background-image': this.setWebContentToArray(),
+  };
+
+  setWebContentToArray() {
+    this.service.getWebPageHeroImage().subscribe((res) => {
+      this.WebContentArray = res as string[];
+
+      var webContent = this.WebContentArray.map(function (item) {
+        return item['HeroImageURL'];
+      });
     });
   }
 }

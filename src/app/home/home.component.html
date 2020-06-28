@@ -4,7 +4,12 @@
   </h1>
   <!-- {{ item.HeroImageURL }} -->
 
-  <img src="{{ item.HeroImageURL }}" (click)="populateForm(item)" />
+  <img
+    src="{{ item.HeroImageURL }}"
+    [ngStyle]="myHeroImage"
+    (click)="populateForm(item)"
+    class="hero-image"
+  />
   <p>{{ item.Textbox1 }}</p>
   <img src="{{ item.GalleryImageURL }}" (click)="populateForm(item)" />
   <button (click)="onDelete(item.UserID)" class="btn btn-sm btn-outline-danger">
