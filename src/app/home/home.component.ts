@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { WebpageService } from '../shared/webpage.service';
 import { NgForm } from '@angular/forms';
 import { Webpage } from '../shared/webpage.model';
-import { NgForOf } from '@angular/common';
+import { NgForOf, JsonPipe } from '@angular/common';
 import { from, Observable } from 'rxjs';
 import { isNgTemplate } from '@angular/compiler';
+import { promise } from 'protractor';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +14,15 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class HomeComponent implements OnInit {
   WebContentArray: string[];
+  newHeroImageUrl: string;
 
   constructor(public service: WebpageService) {}
 
   ngOnInit(): void {
     this.resetForm();
     this.service.getWebPageContent();
-    this.setWebContentToArray();
+    // this.asyncCall();
+    this.getImageCall();
   }
 
   resetForm(form?: NgForm) {
@@ -69,23 +72,32 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // newHeroImage = this.setWebContentToArray();
-
   myHeroImage = {
     height: '1000px',
     //   width: '1500px',
-    //   'background-image': this.newHeroImage,
-    //   'background-attachment': 'fixed',
+    'background-image': this.newHeroImageUrl,
+    'background-attachment': 'fixed',
   };
 
-  setWebContentToArray() {
-    this.service.getWebPageHeroImage().subscribe((res) => {
-      this.WebContentArray = res as string[];
+  async getImage() {
+    //saying this newHeroImageUrl value will be set to the response that service.getHeroImageUrl() retrieves
+    console.log('I am first (I get the data)');
+    var data = await this.service.getHeroImageUrl();
+    console.log(data);
+    this.assignVariable(data);
+  }
 
-      var webContent = this.WebContentArray.map(function (item) {
-        return item['HeroImageURL'];
-      });
-      console.log(webContent);
-    });
+  assignVariable(data: string) {
+    console.log('I am second (I assign the data to a property)');
+    console.log(data);
+
+    var newArr = data.split(',');
+    console.log(newArr);
+
+    this.newHeroImageUrl = newArr[2];
+    console.log(this.newHeroImageUrl);
+  }
+  getImageCall() {
+    this.getImage();
   }
 }
