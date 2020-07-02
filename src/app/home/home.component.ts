@@ -112,9 +112,9 @@ export class HomeComponent implements OnInit {
     console.log('Here is the image url: ');
     console.log(this.newHeroImageUrl);
 
-    //this.myHeroImage['background-image'] = this.newHeroImageUrl;
-    this.myHeroImage['background-image'] =
-      'https://images.unsplash.com/photo-1537301696988-4a82a4959466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+    this.myHeroImage['background-image'] = this.newHeroImageUrl;
+    // this.myHeroImage['background-image'] =
+    //   'https://images.unsplash.com/photo-1537301696988-4a82a4959466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
 
     console.log(this.myHeroImage['background-image']);
 
