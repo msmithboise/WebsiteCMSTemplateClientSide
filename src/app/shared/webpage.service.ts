@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { NgForOf } from '@angular/common';
 import { kMaxLength } from 'buffer';
 import { HomeComponent } from '../home/home.component';
+import { stringify } from 'querystring';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,7 @@ import { HomeComponent } from '../home/home.component';
 export class WebpageService {
   formData: Webpage;
   webContentList: Webpage[];
+  webContent: [];
 
   readonly rootURL = 'http://localhost:54704/api';
   imageUrl: string;
@@ -30,21 +33,15 @@ export class WebpageService {
       .then((res) => (this.webContentList = res as Webpage[]));
   }
 
-  // async getPrice(currency: string): Promise<number> {
-  //   const response = await this.http.get(this.currentPriceUrl).toPromise();
-  //   return response.json().bpi[currency].rate;
-  // }
-
   //Get for imageUrl
-  async getHeroImageUrl() {
+  getContent(): Observable<Webpage[]> {
     //console.log('(getting the data...)');
-    const response = await this.http
-      .get(this.rootURL + '/HomePage')
-      .toPromise();
-    //console.log('Response after get method:');
-    //console.log(response);
-    return response[0];
+    return this.http.get<Webpage[]>(this.rootURL + '/HomePage');
   }
+
+  //console.log('Response after get method:');
+  //console.log(response);
+  //return response[0];
 
   //Put
   putWebPageContent(formData: Webpage) {
