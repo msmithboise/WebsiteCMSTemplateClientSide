@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.showWebContentList();
     //this.populateFormOnLoad();
     //this.manageWebContentArray();
+    this.editContentCss();
   }
 
   resetForm(form?: NgForm) {
@@ -79,6 +80,43 @@ export class HomeComponent implements OnInit {
     };
   }
 
+  //use camel case instead of dashes.. example text-align would need to be textAlign
+
+  myTextBox = {
+    color: '',
+    fontSize: '',
+    textAlign: '',
+  };
+
+  myHeroImage = {
+    height: '',
+    width: '',
+    backgroundPosition: '',
+    opacity: '',
+    backgroundSize: '',
+    position: '',
+  };
+
+  editContentCss() {
+    this.changeTextBoxOneStyling();
+    this.changeHeroImageStyling();
+  }
+
+  changeTextBoxOneStyling() {
+    this.myTextBox.color = 'blue';
+    this.myTextBox.fontSize = '40px';
+    this.myTextBox.textAlign = 'center';
+  }
+
+  changeHeroImageStyling() {
+    //this.myHeroImage.height = '1000px';
+    //this.myHeroImage.width = '3000px';
+    //this.myHeroImage.backgroundPosition = 'center';
+    //this.myHeroImage.opacity = '0.9';
+    //this.myHeroImage.backgroundSize = 'cover';
+    this.myHeroImage.position = 'relative';
+  }
+
   updateRecord(form: NgForm) {
     this.service.putWebPageContent(form.value).subscribe((res) => {
       //this.resetForm(form);
@@ -107,11 +145,4 @@ export class HomeComponent implements OnInit {
 
     this.populateFormOnLoad();
   }
-
-  myHeroImage = {
-    height: '1000px',
-    //   width: '1500px',
-    'background-image': '',
-    'background-attachment': 'fixed',
-  };
 }
