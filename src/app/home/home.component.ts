@@ -94,6 +94,18 @@ export class HomeComponent implements OnInit {
     lineHeight: '',
   };
 
+  myTextBoxTwo = {
+    color: '',
+    fontSize: '',
+    textAlign: '',
+    paddingTop: '',
+    paddingBottom: '',
+    bottom: '',
+    left: '',
+    right: '',
+    lineHeight: '',
+  };
+
   myHeroImage = {
     height: '',
     width: '',
@@ -101,6 +113,7 @@ export class HomeComponent implements OnInit {
     opacity: '',
     backgroundSize: '',
     position: '',
+    backgroundImage: '',
   };
 
   myHeader = {
@@ -121,22 +134,41 @@ export class HomeComponent implements OnInit {
     backgroundSize: '',
     position: '',
     paddingBottom: '',
+    paddingTop: '',
+  };
+
+  myGeneralSettings = {
+    backgroundColor: '',
   };
 
   editContentCss() {
     this.changeTextBoxOneStyling();
+    this.changeTextBoxTwoStyling();
     this.changeHeroImageStyling();
     this.changeHeaderStyling();
     this.changeGalleryImageStyling();
   }
 
+  changeGeneralSettings() {
+    this.myGeneralSettings.backgroundColor = '#f8f8ff';
+  }
+
   changeTextBoxOneStyling() {
-    this.myTextBox.color = 'black';
-    this.myTextBox.fontSize = '25px';
+    this.myTextBox.color = '#505049';
+    this.myTextBox.fontSize = '28px';
     this.myTextBox.textAlign = 'center';
     this.myTextBox.paddingTop = '50px';
     this.myTextBox.lineHeight = 'normal';
-    this.myTextBox.paddingBottom = '50px';
+    this.myTextBox.paddingBottom = '5px';
+  }
+
+  changeTextBoxTwoStyling() {
+    this.myTextBoxTwo.color = '#505049';
+    this.myTextBoxTwo.fontSize = '20px';
+    this.myTextBoxTwo.textAlign = 'center';
+    this.myTextBoxTwo.paddingTop = '50px';
+    this.myTextBoxTwo.lineHeight = 'normal';
+    this.myTextBoxTwo.paddingBottom = '5px';
   }
 
   changeHeaderStyling() {
@@ -145,7 +177,7 @@ export class HomeComponent implements OnInit {
     this.myHeader.top = '50%';
     this.myHeader.left = '50%';
     this.myHeader.transform = 'translate(-50%, -50%)';
-    this.myHeader.color = 'white';
+    this.myHeader.color = '#f8f8ff';
     this.myHeader.fontSize = '60px';
   }
 
@@ -156,6 +188,8 @@ export class HomeComponent implements OnInit {
     //this.myHeroImage.opacity = '0.9';
     this.myHeroImage.backgroundSize = 'cover';
     //this.myHeroImage.position = 'fixed';
+    this.myHeroImage.backgroundImage =
+      'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))';
   }
 
   changeGalleryImageStyling() {
@@ -166,6 +200,7 @@ export class HomeComponent implements OnInit {
     this.myGalleryImage.backgroundSize = 'cover';
     //this.myHeroImage.position = 'fixed';
     this.myGalleryImage.paddingBottom = '50px';
+    this.myGalleryImage.paddingTop = '50px';
   }
 
   updateRecord(form: NgForm) {
