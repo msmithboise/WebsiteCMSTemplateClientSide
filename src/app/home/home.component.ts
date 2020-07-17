@@ -115,7 +115,8 @@ export class HomeComponent implements OnInit {
     opacity: '',
     backgroundSize: '',
     position: '',
-    backgroundImage: '',
+    background: '',
+    boxShadow: '',
   };
 
   myHeader = {
@@ -188,14 +189,13 @@ export class HomeComponent implements OnInit {
   }
 
   changeHeroImageStyling() {
-    //this.myHeroImage.height = '1000px';
-    //this.myHeroImage.width = '3000px';
+    this.myHeroImage.height = '1000px';
+    this.myHeroImage.width = '2000px';
     this.myHeroImage.backgroundPosition = 'center';
     //this.myHeroImage.opacity = '0.9';
     this.myHeroImage.backgroundSize = 'cover';
     //this.myHeroImage.position = 'fixed';
-    this.myHeroImage.backgroundImage =
-      'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))';
+    this.myHeroImage.boxShadow = 'inset 0 0 0 2000px rgba(255, 0, 150, 0.3);';
   }
 
   changeGalleryImageStyling() {
