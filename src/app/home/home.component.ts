@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
     left: '',
     right: '',
     lineHeight: '',
+    fontFamily: '',
   };
 
   myTextBoxTwo = {
@@ -104,6 +105,7 @@ export class HomeComponent implements OnInit {
     left: '',
     right: '',
     lineHeight: '',
+    fontFamily: '',
   };
 
   myHeroImage = {
@@ -124,6 +126,7 @@ export class HomeComponent implements OnInit {
     transform: '',
     color: '',
     fontSize: '',
+    fontFamily: '',
   };
 
   myGalleryImage = {
@@ -160,6 +163,7 @@ export class HomeComponent implements OnInit {
     this.myTextBox.paddingTop = '50px';
     this.myTextBox.lineHeight = 'normal';
     this.myTextBox.paddingBottom = '5px';
+    this.myTextBox.fontFamily = 'Lucida Sans Unicode';
   }
 
   changeTextBoxTwoStyling() {
@@ -169,6 +173,7 @@ export class HomeComponent implements OnInit {
     this.myTextBoxTwo.paddingTop = '50px';
     this.myTextBoxTwo.lineHeight = 'normal';
     this.myTextBoxTwo.paddingBottom = '5px';
+    this.myTextBoxTwo.fontFamily = 'Lucida Sans Unicode';
   }
 
   changeHeaderStyling() {
@@ -179,6 +184,7 @@ export class HomeComponent implements OnInit {
     this.myHeader.transform = 'translate(-50%, -50%)';
     this.myHeader.color = '#f8f8ff';
     this.myHeader.fontSize = '60px';
+    this.myHeader.fontFamily = 'Lucida Sans Unicode';
   }
 
   changeHeroImageStyling() {
