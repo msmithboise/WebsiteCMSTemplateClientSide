@@ -86,6 +86,12 @@ export class HomeComponent implements OnInit {
     color: '',
     fontSize: '',
     textAlign: '',
+    paddingTop: '',
+    paddingBottom: '',
+    bottom: '',
+    left: '',
+    right: '',
+    lineHeight: '',
   };
 
   myHeroImage = {
@@ -97,24 +103,69 @@ export class HomeComponent implements OnInit {
     position: '',
   };
 
+  myHeader = {
+    textAlign: '',
+    position: '',
+    top: '',
+    left: '',
+    transform: '',
+    color: '',
+    fontSize: '',
+  };
+
+  myGalleryImage = {
+    height: '',
+    width: '',
+    backgroundPosition: '',
+    opacity: '',
+    backgroundSize: '',
+    position: '',
+    paddingBottom: '',
+  };
+
   editContentCss() {
     this.changeTextBoxOneStyling();
     this.changeHeroImageStyling();
+    this.changeHeaderStyling();
+    this.changeGalleryImageStyling();
   }
 
   changeTextBoxOneStyling() {
-    this.myTextBox.color = 'blue';
-    this.myTextBox.fontSize = '40px';
+    this.myTextBox.color = 'black';
+    this.myTextBox.fontSize = '25px';
     this.myTextBox.textAlign = 'center';
+    this.myTextBox.paddingTop = '50px';
+    this.myTextBox.lineHeight = 'normal';
+    this.myTextBox.paddingBottom = '50px';
+  }
+
+  changeHeaderStyling() {
+    this.myHeader.textAlign = 'center';
+    this.myHeader.position = 'absolute';
+    this.myHeader.top = '50%';
+    this.myHeader.left = '50%';
+    this.myHeader.transform = 'translate(-50%, -50%)';
+    this.myHeader.color = 'white';
+    this.myHeader.fontSize = '60px';
   }
 
   changeHeroImageStyling() {
     //this.myHeroImage.height = '1000px';
     //this.myHeroImage.width = '3000px';
-    //this.myHeroImage.backgroundPosition = 'center';
+    this.myHeroImage.backgroundPosition = 'center';
     //this.myHeroImage.opacity = '0.9';
-    //this.myHeroImage.backgroundSize = 'cover';
-    this.myHeroImage.position = 'relative';
+    this.myHeroImage.backgroundSize = 'cover';
+    //this.myHeroImage.position = 'fixed';
+  }
+
+  changeGalleryImageStyling() {
+    this.myGalleryImage.height = '600px';
+    this.myGalleryImage.width = '2000px';
+    this.myGalleryImage.backgroundPosition = 'center';
+    //this.myHeroImage.opacity = '0.9';
+    this.myGalleryImage.backgroundSize = 'cover';
+    //this.myHeroImage.position = 'fixed';
+    this.myGalleryImage.paddingBottom = '50px';
   }
 
   updateRecord(form: NgForm) {
@@ -127,6 +178,7 @@ export class HomeComponent implements OnInit {
   onDelete(id: number) {
     this.service.deleteWebPageContent(id).subscribe((res) => {
       this.service.getWebPageContent();
+      this.resetForm();
     });
   }
 

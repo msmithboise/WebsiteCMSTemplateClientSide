@@ -1,79 +1,91 @@
 <div *ngFor="let item of service.webContentList">
-  <h1 (click)="populateForm(item)" class="display-4 text-center">
+  <h1 [ngStyle]="myHeader" (click)="populateForm(item)">
     {{ this.service.formData.Header }}
   </h1>
-  <!-- {{ item.HeroImageURL }} -->
 
   <img
-    class="hero-image"
     src="{{ this.service.formData.HeroImageURL }}"
     [ngStyle]="myHeroImage"
     (click)="populateForm(item)"
   />
-  <p [ngStyle]="myTextBox">{{ this.service.formData.Textbox1 }}</p>
+
+  <div class="container">
+    <p [ngStyle]="myTextBox">{{ this.service.formData.Textbox1 }}</p>
+  </div>
+
   <img
     src="{{ this.service.formData.GalleryImageURL }}"
+    [ngStyle]="myGalleryImage"
     (click)="populateForm(item)"
   />
-  <button (click)="onDelete(item.UserID)" class="btn btn-sm btn-outline-danger">
-    Delete
-  </button>
-  <button (click)="populateForm(item)" class="btn btn-sm btn-outline-primary">
-    Edit
-  </button>
+
+  <!-- <div>
+    <button
+      (click)="onDelete(item.UserID)"
+      class="btn btn-sm btn-outline-danger"
+    >
+      Delete
+    </button>
+    <button (click)="populateForm(item)" class="btn btn-sm btn-outline-primary">
+      Edit
+    </button>
+  </div>
+</div> -->
+
+  <div class="container">
+    <form #form="ngForm" (submit)="onSubmit(form)">
+      <div>
+        <input
+          type="hidden"
+          name="UserID"
+          #UserID="ngModel"
+          [(ngModel)]="service.formData.UserID"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Header Image URL</label>
+        <input
+          name="HeroImageURL"
+          #HeroImageURL="ngModel"
+          [(ngModel)]="service.formData.HeroImageURL"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Header</label>
+        <input
+          name="Header"
+          #Header="ngModel"
+          [(ngModel)]="service.formData.Header"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Text Box</label>
+        <input
+          name="Textbox1"
+          #Textbox1="ngModel"
+          [(ngModel)]="service.formData.Textbox1"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Secondary Image URL</label>
+        <input
+          name="GalleryImageURL"
+          #GalleryImageURL="ngModel"
+          [(ngModel)]="service.formData.GalleryImageURL"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="SUBMIT" class="btn btn-primary btn-block" />
+      </div>
+    </form>
+  </div>
 </div>
-
-<form #form="ngForm" (submit)="onSubmit(form)">
-  <div>
-    <input
-      type="hidden"
-      name="UserID"
-      #UserID="ngModel"
-      [(ngModel)]="service.formData.UserID"
-    />
-  </div>
-
-  <div class="form-group">
-    <label>Header Image URL</label>
-    <input
-      name="HeroImageURL"
-      #HeroImageURL="ngModel"
-      [(ngModel)]="service.formData.HeroImageURL"
-      class="form-control"
-    />
-  </div>
-
-  <div class="form-group">
-    <label>Header</label>
-    <input
-      name="Header"
-      #Header="ngModel"
-      [(ngModel)]="service.formData.Header"
-      class="form-control"
-    />
-  </div>
-
-  <div class="form-group">
-    <label>Text Box</label>
-    <input
-      name="Textbox1"
-      #Textbox1="ngModel"
-      [(ngModel)]="service.formData.Textbox1"
-      class="form-control"
-    />
-  </div>
-
-  <div class="form-group">
-    <label>Secondary Image URL</label>
-    <input
-      name="GalleryImageURL"
-      #GalleryImageURL="ngModel"
-      [(ngModel)]="service.formData.GalleryImageURL"
-      class="form-control"
-    />
-  </div>
-
-  <div class="form-group">
-    <input type="submit" value="SUBMIT" class="btn btn-primary btn-block" />
-  </div>
-</form>
