@@ -88,11 +88,20 @@ export class HomeComponent implements OnInit {
     textAlign: '',
     paddingTop: '',
     paddingBottom: '',
+    paddingLeft: '',
+    paddingRight: '',
+    top,
     bottom: '',
     left: '',
     right: '',
+    marginTop: '',
+    marginBottom: '',
+    marginLeft: '',
+    marginRight: '',
     lineHeight: '',
     fontFamily: '',
+    border: '',
+    borderStyle: '',
   };
 
   myTextBoxTwo = {
@@ -117,6 +126,8 @@ export class HomeComponent implements OnInit {
     position: '',
     background: '',
     boxShadow: '',
+    backgroundAttachment: '',
+    backgroundRepeat: '',
   };
 
   myHeader = {
@@ -191,10 +202,12 @@ export class HomeComponent implements OnInit {
   changeHeroImageStyling() {
     this.myHeroImage.height = '1000px';
     this.myHeroImage.width = '2000px';
+    this.myHeroImage.backgroundAttachment = 'fixed';
     this.myHeroImage.backgroundPosition = 'center';
-    //this.myHeroImage.opacity = '0.9';
+    this.myHeroImage.backgroundRepeat = 'no-repeat';
     this.myHeroImage.backgroundSize = 'cover';
-    //this.myHeroImage.position = 'fixed';
+    //this.myHeroImage.opacity = '0.9';
+    // this.myHeroImage.position = 'center';
     this.myHeroImage.boxShadow = 'inset 0 0 0 2000px rgba(255, 0, 150, 0.3);';
   }
 
@@ -204,7 +217,7 @@ export class HomeComponent implements OnInit {
     this.myGalleryImage.backgroundPosition = 'center';
     //this.myHeroImage.opacity = '0.9';
     this.myGalleryImage.backgroundSize = 'cover';
-    //this.myHeroImage.position = 'fixed';
+    //this.myHeroImage.position = '';
     this.myGalleryImage.paddingBottom = '50px';
     this.myGalleryImage.paddingTop = '50px';
   }
