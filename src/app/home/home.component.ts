@@ -239,15 +239,15 @@ export class HomeComponent implements OnInit {
   showWebContentList() {
     this.service.getContent().subscribe((res: Webpage[]) => {
       this.WebContentArray = res;
-      console.log('the data set to the web content array');
-      console.log(this.WebContentArray);
+      // console.log('the data set to the web content array');
+      // console.log(this.WebContentArray);
       this.manageWebContentArray();
     });
   }
 
   manageWebContentArray() {
-    console.log('should be filled with properties');
-    console.log(this.WebContentArray[0].Header);
+    // console.log('should be filled with properties');
+    // console.log(this.WebContentArray[0].Header);
 
     this.populateFormOnLoad();
   }

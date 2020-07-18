@@ -9,9 +9,10 @@ import { WebpageService } from './shared/webpage.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TextboxComponent } from './components/textbox/textbox.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent],
   imports: [
     BrowserModule,
     FormsModule,
