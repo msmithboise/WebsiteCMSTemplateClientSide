@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     //this.populateFormOnLoad();
     //this.manageWebContentArray();
     this.editContentCss();
+    //this.service.proxy();
   }
 
   resetForm(form?: NgForm) {
