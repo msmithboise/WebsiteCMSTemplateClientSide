@@ -8,6 +8,9 @@ import { isNgTemplate } from '@angular/compiler';
 import { promise, Key } from 'protractor';
 import { Console } from 'console';
 import { parse } from 'path';
+import { TextboxComponent } from '../components/textbox/textbox.component';
+import { Textbox } from '../textbox.model';
+import { TextboxService } from '../shared/textbox.service';
 
 @Component({
   selector: 'app-home',

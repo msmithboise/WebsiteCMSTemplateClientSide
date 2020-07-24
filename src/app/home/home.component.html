@@ -1,7 +1,5 @@
 <app-navbar></app-navbar>
 
-<app-textbox></app-textbox>
-
 <div class="general" [ngStyle]="myGeneralSettings">
   <div *ngFor="let item of service.webContentList">
     <h1 [ngStyle]="myHeader" (click)="populateForm(item)">
@@ -83,6 +81,8 @@
           class="form-control"
         />
       </div>
+
+      <app-textbox></app-textbox>
 
       <div class="form-group">
         <label>Text Box 2</label>

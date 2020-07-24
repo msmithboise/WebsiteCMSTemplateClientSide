@@ -94,4 +94,17 @@ export class TextboxComponent implements OnInit {
       borderStyle: this.TextBoxContentArray[0].borderStyle,
     };
   }
+
+  insertTextBoxOneRecord(form: NgForm) {
+    this.service.postTextBoxOneContent(form.value).subscribe((res) => {
+      //this.resetForm(form);
+      this.service.getTextBoxOneContent();
+    });
+  }
+
+  onTextBoxOneSubmit(form: NgForm) {
+    // if (form.value.UserID == null) this.insertTextBoxOneRecord(form);
+    // else this.updateRecord(form);
+    this.insertTextBoxOneRecord(form);
+  }
 }
