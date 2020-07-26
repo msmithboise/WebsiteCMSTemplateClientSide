@@ -11,6 +11,7 @@ import { parse } from 'path';
 import { TextboxComponent } from '../components/textbox/textbox.component';
 import { Textbox } from '../textbox.model';
 import { TextboxService } from '../shared/textbox.service';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-home',
@@ -21,17 +22,29 @@ export class HomeComponent implements OnInit {
   WebContentArray: Webpage[];
   newHeroImageUrl: string;
   newHeader: string;
+  textBoxOneInstance: any;
 
-  constructor(public service: WebpageService) {}
+  //adding multiple services into constructor (dependency injection)
+  constructor(
+    public service: WebpageService,
+    public textBoxService: TextboxService
+  ) {}
 
   ngOnInit(): void {
     this.resetForm();
     this.service.getWebPageContent();
     this.showWebContentList();
+
     //this.populateFormOnLoad();
     //this.manageWebContentArray();
     this.editContentCss();
     //this.service.proxy();
+  }
+
+  //example of how to call from one component to another
+  oTextBox = new TextboxComponent(this.textBoxService);
+  textBoxOneImport() {
+    this.oTextBox.myTextBoxOne;
   }
 
   resetForm(form?: NgForm) {

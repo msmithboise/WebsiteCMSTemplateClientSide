@@ -22,4 +22,13 @@ export class TextboxService {
   postTextBoxOneContent(textBoxOneFormData: Textbox) {
     return this.http.post(this.rootURL + '/TextBoxOne', textBoxOneFormData);
   }
+
+  //Update
+  updateTextBoxOneContent(textBoxOneFormData: Textbox) {
+    console.log(textBoxOneFormData);
+    return this.http.post(
+      this.rootURL + '/TextBoxOne/' + textBoxOneFormData.Id,
+      this.textBoxOneFormData
+    );
+  }
 }

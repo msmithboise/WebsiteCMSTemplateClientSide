@@ -1,19 +1,28 @@
-<p>Text Box 1 Settings:</p>
+<p>Text Box Style Settings:</p>
 
 <form #form="ngForm" (submit)="onTextBoxOneSubmit(form)">
   <div>
     <label>Color</label>
     <input
-      name="color"
-      #color="ngModel"
-      [(ngModel)]="service.textBoxOneFormData.color"
+      name="Color"
+      #Color="ngModel"
+      [(ngModel)]="textBoxOneService.textBoxOneFormData.Color"
+    />
+  </div>
+
+  <div>
+    <label>Font Size</label>
+    <input
+      name="FontSize"
+      #FontSize="ngModel"
+      [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
     />
   </div>
 
   <div class="form-group">
     <input
       type="submit"
-      value="Save Changes"
+      value="Save Settings"
       class="btn btn-primary btn-block"
     />
   </div>
