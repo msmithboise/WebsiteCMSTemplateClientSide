@@ -2,6 +2,9 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { TextboxService } from 'src/app/shared/textbox.service';
 import { Textbox } from 'src/app/textbox.model';
 import { NgForm } from '@angular/forms';
+import { HomeComponent } from 'src/app/home/home.component';
+import { WebpageService } from 'src/app/shared/webpage.service';
+import { Webpage } from 'src/app/shared/webpage.model';
 
 @Component({
   selector: 'app-textbox',
@@ -12,6 +15,7 @@ import { NgForm } from '@angular/forms';
 export class TextboxComponent implements OnInit {
   TextBoxContentArray: Textbox[];
   textBoxService: any;
+  webPageService: WebpageService;
   constructor(public textBoxOneService: TextboxService) {
     // this.textBoxService = TextboxService;
   }

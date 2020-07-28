@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   newHeroImageUrl: string;
   newHeader: string;
   textBoxOneInstance: any;
+  TextBoxContentArray: Textbox[];
 
   //adding multiple services into constructor (dependency injection)
   constructor(
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
     this.resetForm();
     this.service.getWebPageContent();
     this.showWebContentList();
+    this.callTextBoxService();
 
     //this.populateFormOnLoad();
     //this.manageWebContentArray();
@@ -42,9 +44,49 @@ export class HomeComponent implements OnInit {
   }
 
   //example of how to call from one component to another
+
+  //Call data from textboxOne Service
   oTextBox = new TextboxComponent(this.textBoxService);
-  textBoxOneImport() {
-    this.oTextBox.myTextBoxOne;
+
+  callTextBoxService() {
+    this.textBoxService.getTextBoxOneContent().subscribe((res: Textbox[]) => {
+      this.TextBoxContentArray = res;
+      console.log(
+        'the data set to the textbox content array from the home component'
+      );
+      console.log(this.TextBoxContentArray);
+
+      this.manageTextBoxStyling();
+    });
+  }
+
+  manageTextBoxStyling() {
+    this.editTextBoxOneStyling();
+    console.log('this is the textbox color from the home component:');
+    console.log(this.myTextBoxOne.color);
+  }
+
+  editTextBoxOneStyling() {
+    this.myTextBoxOne.color = this.TextBoxContentArray[0].Color;
+
+    this.myTextBoxOne.fontSize = this.TextBoxContentArray[0].FontSize;
+    this.myTextBoxOne.textAlign = this.TextBoxContentArray[0].TextAlign;
+    this.myTextBoxOne.paddingTop = this.TextBoxContentArray[0].PaddingTop;
+    this.myTextBoxOne.paddingBottom = this.TextBoxContentArray[0].PaddingBottom;
+    this.myTextBoxOne.paddingLeft = this.TextBoxContentArray[0].PaddingLeft;
+    this.myTextBoxOne.paddingRight = this.TextBoxContentArray[0].PaddingRight;
+    //this.myTextBoxOne.top = this.TextBoxContentArray[0].top;
+    this.myTextBoxOne.bottom = this.TextBoxContentArray[0].Bottom;
+    this.myTextBoxOne.left = this.TextBoxContentArray[0].Left;
+    this.myTextBoxOne.right = this.TextBoxContentArray[0].Right;
+    this.myTextBoxOne.marginTop = this.TextBoxContentArray[0].MarginTop;
+    this.myTextBoxOne.marginBottom = this.TextBoxContentArray[0].MarginBottom;
+    this.myTextBoxOne.marginLeft = this.TextBoxContentArray[0].MarginLeft;
+    this.myTextBoxOne.marginRight = this.TextBoxContentArray[0].MarginRight;
+    this.myTextBoxOne.lineHeight = this.TextBoxContentArray[0].LineHeight;
+    this.myTextBoxOne.fontFamily = this.TextBoxContentArray[0].FontFamily;
+    this.myTextBoxOne.border = this.TextBoxContentArray[0].Border;
+    this.myTextBoxOne.borderStyle = this.TextBoxContentArray[0].BorderStyle;
   }
 
   resetForm(form?: NgForm) {
@@ -99,7 +141,7 @@ export class HomeComponent implements OnInit {
 
   //use camel case instead of dashes.. example text-align would need to be textAlign
 
-  myTextBox = {
+  myTextBoxOne = {
     color: '',
     fontSize: '',
     textAlign: '',
@@ -174,7 +216,8 @@ export class HomeComponent implements OnInit {
   };
 
   editContentCss() {
-    this.changeTextBoxOneStyling();
+    //this.changeTextBoxOneStyling();
+    //this.oTextBox.editTextBoxOneStyling();
     this.changeTextBoxTwoStyling();
     this.changeHeroImageStyling();
     this.changeHeaderStyling();
@@ -185,15 +228,15 @@ export class HomeComponent implements OnInit {
     this.myGeneralSettings.backgroundColor = '#f8f8ff';
   }
 
-  changeTextBoxOneStyling() {
-    this.myTextBox.color = '#505049';
-    this.myTextBox.fontSize = '28px';
-    this.myTextBox.textAlign = 'center';
-    this.myTextBox.paddingTop = '50px';
-    this.myTextBox.lineHeight = 'normal';
-    this.myTextBox.paddingBottom = '5px';
-    this.myTextBox.fontFamily = 'Lucida Sans Unicode';
-  }
+  // changeTextBoxOneStyling() {
+  //   this.myTextBox.color = '#505049';
+  //   this.myTextBox.fontSize = '28px';
+  //   this.myTextBox.textAlign = 'center';
+  //   this.myTextBox.paddingTop = '50px';
+  //   this.myTextBox.lineHeight = 'normal';
+  //   this.myTextBox.paddingBottom = '5px';
+  //   this.myTextBox.fontFamily = 'Lucida Sans Unicode';
+  // }
 
   changeTextBoxTwoStyling() {
     this.myTextBoxTwo.color = '#505049';
