@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
   //Call data from textboxOne Service
   oTextBox = new TextboxComponent(this.textBoxService);
 
+  //Get
   callTextBoxService() {
     this.textBoxService.getTextBoxOneContent().subscribe((res: Textbox[]) => {
       this.TextBoxContentArray = res;
@@ -60,10 +61,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  //Post
+  postTextBoxData() {
+    this.textBoxService
+      .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.service.getTextBoxOneContent();
+      });
+  }
+
   manageTextBoxStyling() {
     this.editTextBoxOneStyling();
+
     console.log('this is the textbox color from the home component:');
     console.log(this.myTextBoxOne.color);
+    this.resetTextBoxOneContent();
   }
 
   editTextBoxOneStyling() {
@@ -87,6 +100,10 @@ export class HomeComponent implements OnInit {
     this.myTextBoxOne.fontFamily = this.TextBoxContentArray[0].FontFamily;
     this.myTextBoxOne.border = this.TextBoxContentArray[0].Border;
     this.myTextBoxOne.borderStyle = this.TextBoxContentArray[0].BorderStyle;
+  }
+
+  resetTextBoxOneContent() {
+    this.service.getTextBoxOneContent();
   }
 
   resetForm(form?: NgForm) {

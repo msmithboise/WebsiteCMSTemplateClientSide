@@ -6,6 +6,7 @@ import { kMaxLength } from 'buffer';
 import { HomeComponent } from '../home/home.component';
 import { stringify } from 'querystring';
 import { Observable } from 'rxjs';
+import { Textbox } from '../textbox.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ import { Observable } from 'rxjs';
 export class WebpageService {
   formData: Webpage;
   webContentList: Webpage[];
+  textBoxOneContent: Textbox[];
   webContent: [];
 
   readonly rootURL = 'http://localhost:54704/api';
@@ -31,6 +33,13 @@ export class WebpageService {
       .get(this.rootURL + '/HomePage')
       .toPromise()
       .then((res) => (this.webContentList = res as Webpage[]));
+  }
+
+  getTextBoxOneContent() {
+    this.http
+      .get(this.rootURL + '/TextBoxOne')
+      .toPromise()
+      .then((res) => (this.textBoxOneContent = res as Textbox[]));
   }
 
   //Get for imageUrl
