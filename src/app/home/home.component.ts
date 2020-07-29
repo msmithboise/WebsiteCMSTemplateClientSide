@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   //Call data from textboxOne Service
   oTextBox = new TextboxComponent(this.textBoxService);
 
-  //Get
+  //Get Text box one
   callTextBoxService() {
     this.textBoxService.getTextBoxOneContent().subscribe((res: Textbox[]) => {
       this.textBoxService.textBoxContentArray = res;
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  //Post
+  //Post text box one
   postTextBoxData() {
     this.textBoxService
       .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
@@ -68,6 +68,13 @@ export class HomeComponent implements OnInit {
         //this.resetForm(form);
       });
     this.callTextBoxService();
+  }
+
+  //Submit text box one
+  submitTextBoxOneFormData(form: NgForm) {
+    if (this.textBoxService.textBoxOneFormData.Id == null)
+      this.oTextBox.insertTextBoxOneRecord(form);
+    else this.oTextBox.updateTextBoxOneRecord(form);
   }
 
   //Sets TextBoxOne settings to the data retrieved from the textbox service get.
@@ -119,9 +126,7 @@ export class HomeComponent implements OnInit {
     else this.updateRecord(form);
 
     //Submit for textbox one content
-    if (this.textBoxService.textBoxOneFormData.Id == null)
-      this.oTextBox.insertTextBoxOneRecord(form);
-    else this.oTextBox.updateTextBoxOneRecord(form);
+    this.submitTextBoxOneFormData(form);
   }
 
   insertRecord(form: NgForm) {
