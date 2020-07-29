@@ -60,22 +60,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  resetTextBox() {
-    this.textBoxService.getTextBoxOneData();
-    this.TextBoxContentArray = this.textBoxService.textBoxContentArray;
-  }
-
   //Post
   postTextBoxData() {
     this.textBoxService
       .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
       .subscribe((res) => {
         //this.resetForm(form);
-        this.callTextBoxService();
       });
+    this.callTextBoxService();
   }
 
-  //Sets TextBoxOne settings to the data retrieved from the get.
+  //Sets TextBoxOne settings to the data retrieved from the textbox service get.
   editTextBoxOneStyling() {
     this.myTextBoxOne.color = this.textBoxService.textBoxContentArray[0].Color;
 
@@ -127,7 +122,6 @@ export class HomeComponent implements OnInit {
     if (this.textBoxService.textBoxOneFormData.Id == null)
       this.oTextBox.insertTextBoxOneRecord(form);
     else this.oTextBox.updateTextBoxOneRecord(form);
-    this.resetTextBox();
   }
 
   insertRecord(form: NgForm) {
@@ -247,6 +241,7 @@ export class HomeComponent implements OnInit {
     this.myGeneralSettings.backgroundColor = '#f8f8ff';
   }
 
+  //This will be a default setting
   // changeTextBoxOneStyling() {
   //   this.myTextBox.color = '#505049';
   //   this.myTextBox.fontSize = '28px';
@@ -318,16 +313,7 @@ export class HomeComponent implements OnInit {
   showWebContentList() {
     this.service.getContent().subscribe((res: Webpage[]) => {
       this.WebContentArray = res;
-      // console.log('the data set to the web content array');
-      // console.log(this.WebContentArray);
-      this.manageWebContentArray();
+      this.populateFormOnLoad();
     });
-  }
-
-  manageWebContentArray() {
-    // console.log('should be filled with properties');
-    // console.log(this.WebContentArray[0].Header);
-
-    this.populateFormOnLoad();
   }
 }
