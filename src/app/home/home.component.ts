@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   TextBoxContentArray: Textbox[];
 
   //adding multiple services into constructor (dependency injection)
+  //For each service added, it must be added to the home constructor to communicate with the component
   constructor(
     public service: WebpageService,
     public textBoxService: TextboxService
@@ -36,15 +37,13 @@ export class HomeComponent implements OnInit {
     this.service.getWebPageContent();
     this.showWebContentList();
     this.callTextBoxService();
-
-    //this.populateFormOnLoad();
-    //this.manageWebContentArray();
     this.editContentCss();
-    //this.service.proxy();
   }
 
-  //example of how to call from one component to another
+  //TEXT BOX ONE METHODS
+  //--------------------------------------------------------------------------------
 
+  //example of how to call from one component to another
   //Call data from textboxOne Service
   oTextBox = new TextboxComponent(this.textBoxService);
 
@@ -57,8 +56,13 @@ export class HomeComponent implements OnInit {
       );
       console.log(this.TextBoxContentArray);
 
-      this.manageTextBoxStyling();
+      this.editTextBoxOneStyling();
     });
+  }
+
+  resetTextBox() {
+    this.textBoxService.getTextBoxOneData();
+    this.TextBoxContentArray = this.textBoxService.textBoxContentArray;
   }
 
   //Post
@@ -67,18 +71,11 @@ export class HomeComponent implements OnInit {
       .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
       .subscribe((res) => {
         //this.resetForm(form);
-        this.service.getTextBoxOneContent();
+        this.callTextBoxService();
       });
   }
 
-  manageTextBoxStyling() {
-    this.editTextBoxOneStyling();
-
-    console.log('this is the textbox color from the home component:');
-    console.log(this.myTextBoxOne.color);
-    this.resetTextBoxOneContent();
-  }
-
+  //Sets TextBoxOne settings to the data retrieved from the get.
   editTextBoxOneStyling() {
     this.myTextBoxOne.color = this.TextBoxContentArray[0].Color;
 
@@ -102,10 +99,8 @@ export class HomeComponent implements OnInit {
     this.myTextBoxOne.borderStyle = this.TextBoxContentArray[0].BorderStyle;
   }
 
-  resetTextBoxOneContent() {
-    this.service.getTextBoxOneContent();
-  }
-
+  //HOME PAGE METHODS
+  //-----------------------------------------------------------------------------------------
   resetForm(form?: NgForm) {
     if (form != null) form.resetForm();
     this.service.formData = {
@@ -132,6 +127,7 @@ export class HomeComponent implements OnInit {
     if (this.textBoxService.textBoxOneFormData.Id == null)
       this.oTextBox.insertTextBoxOneRecord(form);
     else this.oTextBox.updateTextBoxOneRecord(form);
+    this.resetTextBox();
   }
 
   insertRecord(form: NgForm) {

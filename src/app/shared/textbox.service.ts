@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TextboxService {
-  textBoxContent = [];
+  textBoxContentArray = [];
   textBoxOneFormData: Textbox;
   readonly rootURL = 'http://localhost:54704/api';
 
@@ -16,6 +16,15 @@ export class TextboxService {
   //Get
   getTextBoxOneContent(): Observable<Textbox[]> {
     return this.http.get<Textbox[]>(this.rootURL + '/TextBoxOne');
+  }
+
+  //Get all
+
+  getTextBoxOneData() {
+    this.http
+      .get(this.rootURL + '/TextBoxOne')
+      .toPromise()
+      .then((res) => (this.textBoxContentArray = res as Textbox[]));
   }
 
   //Post
