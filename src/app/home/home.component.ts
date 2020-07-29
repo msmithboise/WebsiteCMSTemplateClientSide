@@ -124,8 +124,14 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    //Submit for homepage content
     if (form.value.UserID == null) this.insertRecord(form);
     else this.updateRecord(form);
+
+    //Submit for textbox one content
+    if (this.textBoxService.textBoxOneFormData.Id == null)
+      this.oTextBox.insertTextBoxOneRecord(form);
+    else this.oTextBox.updateTextBoxOneRecord(form);
   }
 
   insertRecord(form: NgForm) {

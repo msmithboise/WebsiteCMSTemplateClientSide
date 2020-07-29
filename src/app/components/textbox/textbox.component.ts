@@ -37,8 +37,10 @@ export class TextboxComponent implements OnInit {
   }
 
   manageTextBoxStyling() {
-    this.populateTextBoxOneFormOnLoad();
+    //Sets myTextBoxOne to TexBoxContentArray data
     this.editTextBoxOneStyling();
+    //The form resets to whatever the user types in.
+    this.populateTextBoxOneFormOnLoad();
   }
 
   editTextBoxOneStyling() {
@@ -116,7 +118,7 @@ export class TextboxComponent implements OnInit {
     console.log(this.textBoxOneService.textBoxOneFormData.FontSize);
   }
 
-  //Insert
+  //Insert - TextBoxOne
   insertTextBoxOneRecord(form: NgForm) {
     this.textBoxOneService
       .postTextBoxOneContent(form.value)
