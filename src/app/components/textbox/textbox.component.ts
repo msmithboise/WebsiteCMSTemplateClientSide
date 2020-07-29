@@ -21,7 +21,9 @@ export class TextboxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showTextBoxContentList();
+    //this.showTextBoxContentList();
+    this.manageTextBoxStyling();
+    this.populateTextBoxOneFormOnLoad();
   }
 
   showTextBoxContentList() {
@@ -33,8 +35,6 @@ export class TextboxComponent implements OnInit {
           'the data set to the textbox content array from within the textbox service'
         );
         console.log(this.textBoxOneService.textBoxContentArray);
-
-        this.manageTextBoxStyling();
       });
   }
 
