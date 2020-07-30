@@ -14,9 +14,9 @@
 
     <!-- Color -->
     <div class="row">
-      <div class="col-2">
+      <div class="col-3">
         <div>
-          <label>Color </label>
+          <label><b>Color </b></label>
           <input
             name="Color"
             #Color="ngModel"
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="col-2">
+      <div class="col-3">
         <div class="form-group">
           <label for="Color"></label>
           <select
@@ -34,31 +34,525 @@
             [(ngModel)]="textBoxOneService.textBoxOneFormData.Color"
             class="form-control"
           >
-            <option value="red">Red</option>
-            <option value="pink">Pink</option>
-            <option value="black">Black</option>
-            <option value="blue">Blue</option>
+            <option value="red">red</option>
+            <option value="pink">pink</option>
+            <option value="black">black</option>
+            <option value="blue">blue</option>
           </select>
         </div>
       </div>
-      <div class="col-8"></div>
+      <div class="col-6"></div>
     </div>
 
-    <div>
-      <label>Font Size</label>
-      <input
-        name="FontSize"
-        #FontSize="ngModel"
-        [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
-      />
+    <!-- Font Size -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Font Size </b></label>
+          <input
+            name="FontSize"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="FontSize"></label>
+          <select
+            id="FontSize"
+            name="FontSize"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
+            class="form-control"
+          >
+            <option value="12px">12px</option>
+            <option value="16px">16px</option>
+            <option value="20px">20px</option>
+            <option value="24px">24px</option>
+            <option value="36px">36px</option>
+            <option value="42px">42px</option>
+            <option value="74px">74px</option>
+            <option value="90px">90px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
     </div>
 
-    <!-- <div class="form-group">
-    <input
-      type="submit"
-      value="Save Settings"
-      class="btn btn-primary btn-block"
-    />
-  </div> -->
+    <!-- Text Align -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Text Align </b></label>
+          <input
+            name="TextAlign"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.TextAlign"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="TextAlign"></label>
+          <select
+            id="TextAlign"
+            name="TextAlign"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.TextAlign"
+            class="form-control"
+          >
+            <option value="left">left</option>
+            <option value="right">right</option>
+            <option value="center">center</option>
+            <option value="justify">justify</option>
+            <option value="initial">initial</option>
+            <option value="inherit">inherit</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Padding Top -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Padding Top</b></label>
+          <input
+            name="PaddingTop"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingTop"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="PaddingTop"></label>
+          <select
+            id="PaddingTop"
+            name="PaddingTop"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingTop"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Padding Bottom -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Padding Bottom</b></label>
+          <input
+            name="PaddingBottom"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingBottom"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="PaddingBottom"></label>
+          <select
+            id="PaddingBottom"
+            name="PaddingBottom"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingBottom"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Padding Left -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Padding Left</b></label>
+          <input
+            name="PaddingLeft"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingLeft"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="PaddingLeft"></label>
+          <select
+            id="PaddingLeft"
+            name="PaddingLeft"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingLeft"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Padding Right -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Padding Right</b></label>
+          <input
+            name="PaddingRight"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingRight"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="PaddingRight"></label>
+          <select
+            id="PaddingRight"
+            name="PaddingRight"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.PaddingRight"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Margin Top -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Margin Top</b></label>
+          <input
+            name="MarginTop"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginTop"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="MarginTop"></label>
+          <select
+            id="MarginTop"
+            name="MarginTop"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginTop"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Margin Bottom -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Margin Bottom</b></label>
+          <input
+            name="MarginBottom"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginBottom"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="MarginBottom"></label>
+          <select
+            id="MarginBottom"
+            name="MarginBottom"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginBottom"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Margin Left -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Margin Left</b></label>
+          <input
+            name="MarginLeft"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginLeft"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="MarginLeft"></label>
+          <select
+            id="MarginLeft"
+            name="MarginLeft"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginLeft"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Margin Right -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Margin Right</b></label>
+          <input
+            name="MarginRight"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginRight"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="MarginRight"></label>
+          <select
+            id="MarginRight"
+            name="MarginRight"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.MarginRight"
+            class="form-control"
+          >
+            <option value="5px">5px</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="60px">60px</option>
+            <option value="80px">80px</option>
+            <option value="100px">100px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Line Height -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Line Height</b></label>
+          <input
+            name="LineHeight"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.LineHeight"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="LineHeight"></label>
+          <select
+            id="LineHeight"
+            name="LineHeight"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.LineHeight"
+            class="form-control"
+          >
+            <option value="1px">1px</option>
+            <option value="2px">2px</option>
+            <option value="3px">3px</option>
+            <option value="4px">4px</option>
+            <option value="5px">5px</option>
+            <option value="6px">6px</option>
+            <option value="7px">7px</option>
+            <option value="8px">8px</option>
+            <option value="9px">9px</option>
+            <option value="10px">10px</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Font Family -->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Font Family</b></label>
+          <input
+            name="FontFamily"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.FontFamily"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="FontFamily"></label>
+          <select
+            id="FontFamily"
+            name="FontFamily"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.FontFamily"
+            class="form-control"
+          >
+            <!-- Serif Fonts -->
+            <option value="Georgia">Georgia</option>
+            <option value="serif">serif</option>
+            <option value="Palatino Linotype">Palatino Linotype</option>
+            <option value="Book Antiqua">Book Antiqua</option>
+            <option value="Palatino">Palatino</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Arial">Arial</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="sans-serif">sans-serif</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Gadget">Gadget</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="cursive">cursive</option>
+            <option value="Impact">Impact</option>
+            <option value="Charcoal">Charcoal</option>
+            <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+            <option value="Lucida Grande">Lucida Grande</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Geneva">Geneva</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Courier">Courier</option>
+            <option value="monospace">monospace</option>
+            <option value="Lucida Console">Lucida Console</option>
+            <option value="Monaco">Monaco</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Border-->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Border</b></label>
+          <input
+            name="Border"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.Border"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="Border"></label>
+          <select
+            id="Border"
+            name="Border"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.Border"
+            class="form-control"
+          >
+            <option value="5px solid red">5px solid red</option>
+            <option value="4px dotted blue">4px dotted blue</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <!-- Border Style-->
+    <div class="row">
+      <div class="col-3">
+        <div>
+          <label><b>Border Style</b></label>
+          <input
+            name="BorderStyle"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.BorderStyle"
+          />
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="BorderStyle"></label>
+          <select
+            id="BorderStyle"
+            name="BorderStyle"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.BorderStyle"
+            class="form-control"
+          >
+            <option value="none">none</option>
+            <option value="dotted">dotted</option>
+            <option value="dashed">dashed</option>
+            <option value="solid">solid</option>
+            <option value="double">double</option>
+            <option value="groove">groove</option>
+            <option value="ridge">ridge</option>
+            <option value="inset">inset</option>
+            <option value="outset">outset</option>
+            <option value="hidden">hidden</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6"></div>
+    </div>
   </form>
 </div>
