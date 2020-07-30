@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { WebpageService } from '../shared/webpage.service';
 import { NgForm } from '@angular/forms';
 import { Webpage } from '../shared/webpage.model';
@@ -18,12 +18,20 @@ import { typeWithParameters } from '@angular/compiler/src/render3/util';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
   WebContentArray: Webpage[];
   newHeroImageUrl: string;
   newHeader: string;
   textBoxOneInstance: any;
   TextBoxContentArray: Textbox[];
+
+  ngOnChanges() {
+    this.resetForm();
+    this.service.getWebPageContent();
+    this.showWebContentList();
+    this.callTextBoxService();
+    this.editContentCss();
+  }
 
   //adding multiple services into constructor (dependency injection)
   //For each service added, it must be added to the home constructor to communicate with the component
@@ -34,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
+    this.resetTextBoxOneForm();
     this.service.getWebPageContent();
     this.showWebContentList();
     this.callTextBoxService();
@@ -51,23 +60,28 @@ export class HomeComponent implements OnInit {
   callTextBoxService() {
     this.textBoxService.getTextBoxOneContent().subscribe((res: Textbox[]) => {
       this.textBoxService.textBoxContentArray = res;
-      console.log(
-        'the data set to the textbox content array from the home component'
-      );
-      console.log(this.textBoxService.textBoxContentArray);
       this.oTextBox.populateTextBoxOneFormOnLoad();
       this.editTextBoxOneStyling();
     });
   }
 
+  // populateTextBoxForm(item: Textbox) {
+  //   this.textBoxService.textBoxOneFormData = item;
+  //   //this.service.formData = Object.assign({}, item);
+  // }
+
   //Post text box one
   postTextBoxData() {
     this.textBoxService
       .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
-      .subscribe((res) => {
-        //this.resetForm(form);
+      .subscribe((res: Textbox[]) => {
+        this.textBoxService.textBoxContentArray = res;
       });
-    this.callTextBoxService();
+  }
+
+  updateSubmitedTextBoxOneData() {
+    this.textBoxService.getTextBoxOneData();
+    this.editTextBoxOneStyling();
   }
 
   //Submit text box one
@@ -99,6 +113,32 @@ export class HomeComponent implements OnInit {
     this.myTextBoxOne.fontFamily = this.textBoxService.textBoxContentArray[0].FontFamily;
     this.myTextBoxOne.border = this.textBoxService.textBoxContentArray[0].Border;
     this.myTextBoxOne.borderStyle = this.textBoxService.textBoxContentArray[0].BorderStyle;
+  }
+
+  resetTextBoxOneForm(form?: NgForm) {
+    if (form != null) form.resetForm();
+    this.textBoxService.textBoxOneFormData = {
+      Id: null,
+      Color: '',
+      FontSize: '',
+      TextAlign: '',
+      PaddingTop: '',
+      PaddingBottom: '',
+      PaddingLeft: '',
+      PaddingRight: '',
+      Top: '',
+      Bottom: '',
+      Left: '',
+      Right: '',
+      MarginTop: '',
+      MarginBottom: '',
+      MarginLeft: '',
+      MarginRight: '',
+      LineHeight: '',
+      FontFamily: '',
+      Border: '',
+      BorderStyle: '',
+    };
   }
 
   //HOME PAGE METHODS
