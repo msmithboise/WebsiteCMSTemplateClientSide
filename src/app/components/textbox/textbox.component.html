@@ -1,39 +1,64 @@
 <p>Text Box Style Settings:</p>
 
-<form #form="ngForm" (submit)="onTextBoxOneSubmit(form)">
-  <!-- id:  Note*  Form has to have an Id to update. -->
-  <div>
-    <input
-      type="hidden"
-      name="Id"
-      #UserID="ngModel"
-      [(ngModel)]="textBoxOneService.textBoxOneFormData.Id"
-    />
-  </div>
+<div class="container-fluid">
+  <form #form="ngForm" (submit)="onTextBoxOneSubmit(form)">
+    <!-- id:  Note*  Form has to have an Id to update. -->
+    <div>
+      <input
+        type="hidden"
+        name="Id"
+        #UserID="ngModel"
+        [(ngModel)]="textBoxOneService.textBoxOneFormData.Id"
+      />
+    </div>
 
-  <div>
-    <label>Color</label>
-    <input
-      name="Color"
-      #Color="ngModel"
-      [(ngModel)]="textBoxOneService.textBoxOneFormData.Color"
-    />
-  </div>
+    <!-- Color -->
+    <div class="row">
+      <div class="col-2">
+        <div>
+          <label>Color </label>
+          <input
+            name="Color"
+            #Color="ngModel"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.Color"
+          />
+        </div>
+      </div>
 
-  <div>
-    <label>Font Size</label>
-    <input
-      name="FontSize"
-      #FontSize="ngModel"
-      [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
-    />
-  </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="Color"></label>
+          <select
+            id="Color"
+            name="Color"
+            [(ngModel)]="textBoxOneService.textBoxOneFormData.Color"
+            class="form-control"
+          >
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="black">Black</option>
+            <option value="blue">Blue</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-8"></div>
+    </div>
 
-  <!-- <div class="form-group">
+    <div>
+      <label>Font Size</label>
+      <input
+        name="FontSize"
+        #FontSize="ngModel"
+        [(ngModel)]="textBoxOneService.textBoxOneFormData.FontSize"
+      />
+    </div>
+
+    <!-- <div class="form-group">
     <input
       type="submit"
       value="Save Settings"
       class="btn btn-primary btn-block"
     />
   </div> -->
-</form>
+  </form>
+</div>
