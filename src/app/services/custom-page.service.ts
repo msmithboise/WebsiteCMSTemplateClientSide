@@ -1,9 +1,32 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CustomPage } from '../models/custom-page.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomPageService {
+  constructor(public http: HttpClient) {}
 
-  constructor() { }
+  public customPageArray: CustomPage[];
+  readonly webApi = 'http://localhost:54704/api';
+
+  //Get form data
+  getCustomPageData() {
+    this.http
+      .get(this.webApi + '/CustomPages')
+      .toPromise()
+      .then((res) => (this.customPageArray = res as CustomPage[]));
+    console.log(this.customPageArray);
+  }
+
+  //Get
+  getCustomPageContent(): Observable<CustomPage[]> {
+    return this.http.get<CustomPage[]>(this.webApi + '/CustomPages');
+  }
+
+  //Post/Update
+
+  //Delete
 }
