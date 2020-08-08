@@ -11,6 +11,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TextboxComponent } from './components/textbox/textbox.component';
 import { CustomPageComponent } from './customPage/custom-page/custom-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent],
@@ -20,6 +21,7 @@ import { CustomPageComponent } from './customPage/custom-page/custom-page.compon
     HttpClientModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    AppRoutingModule,
   ],
   providers: [WebpageService],
   bootstrap: [AppComponent],
