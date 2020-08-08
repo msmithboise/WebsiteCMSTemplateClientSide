@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TextboxComponent } from './components/textbox/textbox.component';
+import { CustomPageComponent } from './customPage/custom-page/custom-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent],
   imports: [
     BrowserModule,
     FormsModule,
