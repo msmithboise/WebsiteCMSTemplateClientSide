@@ -1,7 +1,3 @@
-<app-navbar></app-navbar>
-
-<app-custom-page></app-custom-page>
-
 <div class="general" [ngStyle]="myGeneralSettings">
   <div *ngFor="let item of service.webContentList">
     <h1 [ngStyle]="myHeader" (click)="populateForm(item)">
