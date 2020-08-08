@@ -11,15 +11,16 @@ export class CustomPageService {
 
   public customPageArray: CustomPage[];
   readonly webApi = 'http://localhost:54704/api';
+  customPageFormData: CustomPage;
 
-  //Get form data
-  getCustomPageData() {
-    this.http
-      .get(this.webApi + '/CustomPages')
-      .toPromise()
-      .then((res) => (this.customPageArray = res as CustomPage[]));
-    console.log(this.customPageArray);
-  }
+  // //Get form data
+  // getCustomPageData() {
+  //   this.http
+  //     .get(this.webApi + '/CustomPages')
+  //     .toPromise()
+  //     .then((res) => (this.customPageArray = res as CustomPage[]));
+  //   console.log(this.customPageArray);
+  // }
 
   //Get
   getCustomPageContent(): Observable<CustomPage[]> {
@@ -27,6 +28,13 @@ export class CustomPageService {
   }
 
   //Post/Update
+  //Put
+  createCustomPage(customPageFormData: CustomPage) {
+    return this.http.post(
+      this.webApi + '/CustomPages/' + customPageFormData.PageId,
+      customPageFormData
+    );
+  }
 
   //Delete
 }

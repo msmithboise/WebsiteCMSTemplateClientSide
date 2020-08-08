@@ -1,1 +1,29 @@
 <p>custom-page works!</p>
+<button>Add new page</button>
+
+<div *ngFor="let item of customPageService.customPageArray">
+  <h1>Page Description: {{ item.PageDescription }}</h1>
+</div>
+
+<div class="container">
+  <form #form="ngForm" (submit)="onCustomPageSubmit(form)">
+    <div>
+      <input
+        type="hidden"
+        name="PageId"
+        #PageId="ngModel"
+        [(ngModel)]="customPageService.customPageArray.PageId"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Page Description</label>
+      <input
+        name="PageDescription"
+        #PageDescription="ngModel"
+        [(ngModel)]="customPageService.customPageArray.PageDescription"
+        class="form-control"
+      />
+    </div>
+  </form>
+</div>
