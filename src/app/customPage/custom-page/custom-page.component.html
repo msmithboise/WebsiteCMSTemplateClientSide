@@ -12,7 +12,7 @@
         type="hidden"
         name="PageId"
         #PageId="ngModel"
-        [(ngModel)]="customPageService.customPageArray.PageId"
+        [(ngModel)]="customPageService.customPageArray[0].PageId"
       />
     </div>
 
@@ -21,7 +21,7 @@
       <input
         name="PageDescription"
         #PageDescription="ngModel"
-        [(ngModel)]="customPageService.customPageArray.PageDescription"
+        [(ngModel)]="customPageService.customPageArray[0].PageDescription"
         class="form-control"
       />
     </div>
