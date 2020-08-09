@@ -4,8 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { CustomPageComponent } from './customPage/custom-page/custom-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'customPage/:pageId', component: CustomPageComponent },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'customPage/:pageDescription/:pageId',
+    component: CustomPageComponent,
+  },
 ];
 
 // const AppRouting: Routes = [

@@ -10,6 +10,7 @@ export class CustomPageService {
   constructor(public http: HttpClient) {}
 
   public customPageArray: CustomPage[];
+  public customPageArrayById: CustomPage;
   readonly webApi = 'http://localhost:54704/api';
   customPageFormData: CustomPage;
 
@@ -27,7 +28,18 @@ export class CustomPageService {
     return this.http.get<CustomPage[]>(this.webApi + '/CustomPages');
   }
 
-  //Post/Update
+  //get by page id
+
+  getPageById(id: number): Observable<CustomPage> {
+    // const url = `${this.webApi}/'CustomPages/'${id}`;
+
+    return this.http.get<CustomPage>(this.webApi + '/CustomPages/' + id);
+  }
+
+  selectPageId(pageId: string): string {
+    //console.log(pageId);
+    return pageId;
+  }
   //Put
   createCustomPage(customPageFormData: CustomPage) {
     return this.http.post(
