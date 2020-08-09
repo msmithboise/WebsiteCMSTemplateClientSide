@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string) {
-    //this.router.navigate(['/customPage', pageId]);
+    this.router.navigate(['/customPage', pageId]);
     console.log('here is your page id:');
     console.log(pageId);
   }
