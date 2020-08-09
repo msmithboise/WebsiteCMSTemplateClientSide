@@ -5,7 +5,7 @@ import { CustomPageComponent } from './customPage/custom-page/custom-page.compon
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'NewPage', component: CustomPageComponent },
+  { path: 'customPage/:PageId', component: CustomPageComponent },
 ];
 
 // const AppRouting: Routes = [
