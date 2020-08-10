@@ -12,9 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TextboxComponent } from './components/textbox/textbox.component';
 import { CustomPageComponent } from './customPage/custom-page/custom-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CustomImageComponent } from './custom-image/custom-image.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent],
   imports: [
     BrowserModule,
     FormsModule,
