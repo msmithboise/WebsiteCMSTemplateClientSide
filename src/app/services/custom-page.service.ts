@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CustomPage } from '../models/custom-page.model';
 import { Observable } from 'rxjs';
+import { CustomImage } from '../models/custom-image.model';
 
 @Injectable({
   providedIn: 'root',

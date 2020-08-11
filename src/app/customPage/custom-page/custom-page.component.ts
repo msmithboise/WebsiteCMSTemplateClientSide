@@ -3,6 +3,9 @@ import { CustomPageService } from 'src/app/services/custom-page.service';
 import { CustomPage } from 'src/app/models/custom-page.model';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CustomImageService } from 'src/app/services/custom-image.service';
+import { CustomImage } from 'src/app/models/custom-image.model';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-custom-page',
@@ -12,27 +15,44 @@ import { ActivatedRoute } from '@angular/router';
 export class CustomPageComponent implements OnInit {
   constructor(
     public customPageService: CustomPageService,
+    public customImageService: CustomImageService,
     private route: ActivatedRoute
   ) {}
 
   customPageArray: CustomPage[];
-
+  pageIdSnapshot: number;
+  imagesByPageIdArray: CustomImage[];
   selectedPageId: number;
+  filteredImageArray: CustomImage[];
 
   ngOnInit(): void {
     this.callCustomPageService();
-    const id = +this.route.snapshot.paramMap.get('pageId');
+    this.takePageIdSnapshot();
+    this.grabAllImagesByPageId();
+  }
 
-    this.customPageService.getPageById(id).subscribe((res: CustomPage) => {
-      this.customPageService.customPageArrayById = res;
-      console.log(this.customPageService.customPageArrayById);
-    });
+  grabAllImagesByPageId() {
+    this.customImageService
+      .getCustomImageContent()
+      .subscribe((res: CustomImage[]) => {
+        this.imagesByPageIdArray = res;
+        //console.log(this.imagesByPageIdArray);
+      });
+  }
+
+  takePageIdSnapshot() {
+    this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
+
+    this.customPageService
+      .getPageById(this.pageIdSnapshot)
+      .subscribe((res: CustomPage) => {
+        this.customPageService.customPageArrayById = res;
+      });
   }
 
   activatePagesById() {
     const pageId = this.route.snapshot.params['pageId'];
     this.selectedPageId = +this.getCustomPageById(pageId);
-    0;
   }
 
   //Set Custom Page data to customPage service array
