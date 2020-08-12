@@ -6,7 +6,9 @@
   {{ this.customPageService.customPageArrayById.PageDescription }} Page!
 </h1>
 
-<img src="{{ this.imagesByPageIdArray[0].ImageUrl }}" />
+<div *ngFor="let image of this.imagesByPageIdArray">
+  <img src="{{ image.ImageUrl }}" />
+</div>
 
 <!-- <p>custom-page works!</p>
 <button>Add new page</button>
