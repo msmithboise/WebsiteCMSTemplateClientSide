@@ -3,12 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { CustomPage } from '../models/custom-page.model';
 import { Observable } from 'rxjs';
 import { CustomImage } from '../models/custom-image.model';
+import { CustomImageService } from './custom-image.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomPageService {
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public customImageService: CustomImageService
+  ) {}
 
   public customPageArray: CustomPage[];
   public customPageArrayById: CustomPage;
