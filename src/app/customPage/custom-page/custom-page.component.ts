@@ -33,10 +33,11 @@ export class CustomPageComponent implements OnInit {
 
   grabAllImagesByPageId() {
     this.customImageService
-      .getCustomImageContent()
+      .getImagesByPageId(this.pageIdSnapshot)
       .subscribe((res: CustomImage[]) => {
         this.imagesByPageIdArray = res;
-        //console.log(this.imagesByPageIdArray);
+        console.log('Here is the images based on page id: ');
+        console.log(this.imagesByPageIdArray);
       });
   }
 

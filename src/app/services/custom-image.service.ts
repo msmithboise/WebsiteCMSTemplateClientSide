@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CustomImage } from '../models/custom-image.model';
-import { Observable } from 'rxjs';
+import { Observable, pairs } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -15,5 +15,14 @@ export class CustomImageService {
   //Get Image array
   getCustomImageContent(): Observable<CustomImage[]> {
     return this.http.get<CustomImage[]>(this.webApi + '/CustomImages');
+  }
+
+  //Get Images by page id
+  getImagesByPageId(pageId: number) {
+    console.log('pageId: ');
+    console.log(pageId);
+    return this.http.get<CustomImage[]>(
+      this.webApi + '/CustomImages/' + pageId
+    );
   }
 }
