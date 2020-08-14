@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CustomImageService } from 'src/app/services/custom-image.service';
 import { CustomImage } from 'src/app/models/custom-image.model';
 import { Key } from 'protractor';
+import { CustomTextService } from 'src/app/services/custom-text.service';
+import { CustomText } from 'src/app/models/custom-text.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -16,12 +18,14 @@ export class CustomPageComponent implements OnInit {
   constructor(
     public customPageService: CustomPageService,
     public customImageService: CustomImageService,
+    public customTextService: CustomTextService,
     private route: ActivatedRoute
   ) {}
 
   customPageArray: CustomPage[];
   pageIdSnapshot: number;
   imagesByPageIdArray: CustomImage[];
+  textByPageIdArray: CustomText[];
   selectedPageId: number;
   filteredImageArray: CustomImage[];
 
@@ -29,6 +33,7 @@ export class CustomPageComponent implements OnInit {
     this.callCustomPageService();
     this.takePageIdSnapshot();
     this.grabAllImagesByPageId();
+    this.grabAllTextByPageId();
   }
 
   grabAllImagesByPageId() {
@@ -38,6 +43,16 @@ export class CustomPageComponent implements OnInit {
         this.imagesByPageIdArray = res;
         console.log('Here is the images based on page id: ');
         console.log(this.imagesByPageIdArray);
+      });
+  }
+
+  grabAllTextByPageId() {
+    this.customTextService
+      .getImagesByPageId(this.pageIdSnapshot)
+      .subscribe((res: CustomText[]) => {
+        this.textByPageIdArray = res;
+        console.log('Here is the text based on page id: ');
+        console.log(this.textByPageIdArray);
       });
   }
 
