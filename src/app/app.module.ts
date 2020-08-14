@@ -14,9 +14,10 @@ import { CustomPageComponent } from './customPage/custom-page/custom-page.compon
 import { AppRoutingModule } from './app-routing.module';
 import { CustomImageComponent } from './custom-image/custom-image.component';
 import { CustomTextComponent } from './custom-text/custom-text.component';
+import { CustomTextModalComponent } from './modals/custom-text-modal/custom-text-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent, CustomTextComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent, CustomTextComponent, CustomTextModalComponent],
   imports: [
     BrowserModule,
     FormsModule,
