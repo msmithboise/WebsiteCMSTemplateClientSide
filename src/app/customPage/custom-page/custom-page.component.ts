@@ -36,6 +36,30 @@ export class CustomPageComponent implements OnInit {
     this.grabAllTextByPageId();
   }
 
+  onSubmit(form: NgForm) {
+    //Submit for homepage content
+    if (form.value.TextId == null) this.insertRecord(form);
+    else this.updateRecord(form);
+  }
+
+  insertRecord(form: NgForm) {
+    this.customTextService
+      .postTextByPageId(form.value, this.pageIdSnapshot)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllTextByPageId();
+      });
+  }
+
+  updateRecord(form: NgForm) {
+    this.customTextService
+      .postTextByPageId(form.value, this.pageIdSnapshot)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllTextByPageId();
+      });
+  }
+
   grabAllImagesByPageId() {
     this.customImageService
       .getImagesByPageId(this.pageIdSnapshot)
@@ -48,11 +72,22 @@ export class CustomPageComponent implements OnInit {
 
   grabAllTextByPageId() {
     this.customTextService
-      .getImagesByPageId(this.pageIdSnapshot)
+      .getTextByPageId(this.pageIdSnapshot)
       .subscribe((res: CustomText[]) => {
         this.textByPageIdArray = res;
         console.log('Here is the text based on page id: ');
         console.log(this.textByPageIdArray);
+      });
+  }
+
+  postTextByPageId() {
+    this.customTextService
+      .postTextByPageId(
+        this.customTextService.textFormData,
+        this.pageIdSnapshot
+      )
+      .subscribe((res: CustomText[]) => {
+        this.textByPageIdArray = res;
       });
   }
 

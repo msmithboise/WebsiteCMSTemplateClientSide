@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Text Settings</h4>
     <button
       type="button"
       class="close"
@@ -13,7 +13,7 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <label for="dateOfBirth">Date of birth</label>
+        <label for="dateOfBirth">Text Body</label>
         <div class="input-group">
           <input
             id="dateOfBirth"
@@ -23,6 +23,20 @@
             ngbDatepicker
             #dp="ngbDatepicker"
           />
+
+          <div class="container">
+            <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
+              <div>
+                <input
+                  type="hidden"
+                  name="TextId"
+                  #TextId="ngModel"
+                  [(ngModel)]="customTextService.textFormData.TextId"
+                />
+              </div>
+            </form>
+          </div>
+
           <div class="input-group-append">
             <button
               class="btn btn-outline-secondary calendar"
@@ -46,7 +60,7 @@
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-  Launch demo modal
+  Edit Text
 </button>
 
 <hr />

@@ -8,12 +8,20 @@ import { CustomText } from '../models/custom-text.model';
 export class CustomTextService {
   readonly webApi = 'http://localhost:54704/api';
   public customImageArray: CustomText[];
+  textFormData: CustomText;
 
   constructor(private http: HttpClient) {}
 
-  getImagesByPageId(pageId: number) {
+  //Get text by page id
+  getTextByPageId(pageId: number) {
     console.log('pageId: ');
     console.log(pageId);
     return this.http.get<CustomText[]>(this.webApi + '/CustomText/' + pageId);
+  }
+
+  //post text by page id
+
+  postTextByPageId(textFormData: CustomText, pageId: number) {
+    return this.http.post(this.webApi + '/CustomText/' + pageId, textFormData);
   }
 }

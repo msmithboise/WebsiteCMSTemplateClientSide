@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { CustomTextService } from 'src/app/services/custom-text.service';
+import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -9,7 +11,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class CustomTextModalComponent implements OnInit {
   closeResult = '';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    public customTextService: CustomTextService,
+    public customPageComponent: CustomPageComponent
+  ) {}
 
   open(content) {
     this.modalService
