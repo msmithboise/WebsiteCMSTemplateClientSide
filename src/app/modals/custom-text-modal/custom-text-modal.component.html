@@ -11,40 +11,25 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="dateOfBirth">Text Body</label>
-        <div class="input-group">
-          <input
-            id="dateOfBirth"
-            class="form-control"
-            placeholder="yyyy-mm-dd"
-            name="dp"
-            ngbDatepicker
-            #dp="ngbDatepicker"
-          />
+    <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
+      <label>Text Body</label>
+      <div class="input-group">
+        <input placeholder="Enter text here" />
 
-          <div class="container">
-            <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
-              <div>
-                <input
-                  type="hidden"
-                  name="TextId"
-                  #TextId="ngModel"
-                  [(ngModel)]="customTextService.textFormData.TextId"
-                />
-              </div>
-            </form>
-          </div>
+        <!-- <div class="container">
+          <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
+            <div>
+              <input
+                type="hidden"
+                name="TextId"
+                #TextId="ngModel"
+                [(ngModel)]="customTextService.textFormData.TextId"
+              />
+            </div>
+          </form>
+        </div> -->
 
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary calendar"
-              (click)="dp.toggle()"
-              type="button"
-            ></button>
-          </div>
-        </div>
+        <div class="input-group-append"></div>
       </div>
     </form>
   </div>

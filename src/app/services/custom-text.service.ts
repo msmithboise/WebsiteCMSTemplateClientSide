@@ -7,7 +7,7 @@ import { CustomText } from '../models/custom-text.model';
 })
 export class CustomTextService {
   readonly webApi = 'http://localhost:54704/api';
-  public customImageArray: CustomText[];
+  public customTextArray: CustomText[];
   textFormData: CustomText;
 
   constructor(private http: HttpClient) {}
@@ -17,6 +17,15 @@ export class CustomTextService {
     console.log('pageId: ');
     console.log(pageId);
     return this.http.get<CustomText[]>(this.webApi + '/CustomText/' + pageId);
+  }
+
+  //Get all
+
+  setTextDataToArray(pageId: number) {
+    this.http
+      .get(this.webApi + '/CustomText/' + pageId)
+      .toPromise()
+      .then((res) => (this.customTextArray = res as CustomText[]));
   }
 
   //post text by page id
