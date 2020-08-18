@@ -13,10 +13,19 @@
   <div class="modal-body">
     <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
       <label>Text Body</label>
-      <div class="input-group">
-        <input placeholder="Enter text here" />
+      <div class="input-group"></div>
+      <input
+        name="customPageComponent.textByPageIdArray.TextId"
+        #TextId="ngModel"
+        [(ngModel)]="customPageComponent.textByPageIdArray[0].TextId"
+        placeholder="Enter text here"
+      />
 
-        <!-- <div class="container">
+      <div *ngFor="let t of customPageComponent.textByPageIdArray">
+        <p>{{ t.TextId }}</p>
+      </div>
+
+      <!-- <div class="container">
           <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
             <div>
               <input
@@ -29,8 +38,7 @@
           </form>
         </div> -->
 
-        <div class="input-group-append"></div>
-      </div>
+      <div class="input-group-append"></div>
     </form>
   </div>
   <div class="modal-footer">

@@ -34,7 +34,7 @@ export class CustomPageComponent implements OnInit {
     this.takePageIdSnapshot();
     this.grabAllImagesByPageId();
     this.grabAllTextByPageId();
-    this.populateTextModalOnLoad();
+
     this.grabTextDataFromService();
   }
 
@@ -165,9 +165,6 @@ export class CustomPageComponent implements OnInit {
       animation: this.textByPageIdArray[0].animation,
       customField: this.textByPageIdArray[0].customField,
     };
-
-    console.log('here is your text form data: ');
-    console.log(this.textByPageIdArray[0].TextId);
   }
 
   onSubmit(form: NgForm) {
@@ -216,6 +213,7 @@ export class CustomPageComponent implements OnInit {
         // console.log('Here is the text based on page id: ');
         // console.log(this.textByPageIdArray);
       });
+    this.populateTextModalOnLoad();
   }
 
   postTextByPageId() {
