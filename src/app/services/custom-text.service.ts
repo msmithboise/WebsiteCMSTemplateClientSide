@@ -30,7 +30,15 @@ export class CustomTextService {
 
   //post text by page id
 
-  postTextByPageId(textFormData: CustomText, pageId: number) {
-    return this.http.post(this.webApi + '/CustomText/' + pageId, textFormData);
+  postTextByPageId(textFormData: CustomText, textId: number) {
+    return this.http.post(this.webApi + '/CustomText/' + textId, textFormData);
   }
+
+  // putWebPageContent(formData: Webpage) {
+  //   console.log(formData);
+  //   return this.http.post(
+  //     this.rootURL + '/HomePage/' + formData.UserID,
+  //     formData
+  //   );
+  // }
 }

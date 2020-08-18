@@ -171,6 +171,7 @@ export class CustomPageComponent implements OnInit {
     //Submit for homepage content
     if (form.value.TextId == null) this.insertRecord(form);
     else this.updateRecord(form);
+    console.log('SUBMITTTTT!');
   }
 
   insertRecord(form: NgForm) {
