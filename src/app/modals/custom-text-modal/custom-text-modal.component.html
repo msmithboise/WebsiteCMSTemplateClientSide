@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Text Settings</h4>
+    <h1 class="modal-title" id="modal-basic-title">Edit Text Settings</h1>
     <button
       type="button"
       class="close"
@@ -12,32 +12,22 @@
   </div>
   <div class="modal-body">
     <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
-      <label>Text Body</label>
       <div class="input-group"></div>
       <input
         name="customPageComponent.textByPageIdArray.TextId"
+        type="hidden"
         #TextId="ngModel"
         [(ngModel)]="customPageComponent.textByPageIdArray[0].TextId"
-        placeholder="Enter text here"
       />
+      <div class="input-group-append"></div>
 
-      <div *ngFor="let t of customPageComponent.textByPageIdArray">
-        <p>{{ t.TextId }}</p>
-      </div>
-
-      <!-- <div class="container">
-          <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
-            <div>
-              <input
-                type="hidden"
-                name="TextId"
-                #TextId="ngModel"
-                [(ngModel)]="customTextService.textFormData.TextId"
-              />
-            </div>
-          </form>
-        </div> -->
-
+      <label>Text Body</label>
+      <div class="input-group"></div>
+      <input
+        name="customPageComponent.textByPageIdArray.TextBody"
+        #TextId="ngModel"
+        [(ngModel)]="customPageComponent.textByPageIdArray[0].TextBody"
+      />
       <div class="input-group-append"></div>
     </form>
   </div>
