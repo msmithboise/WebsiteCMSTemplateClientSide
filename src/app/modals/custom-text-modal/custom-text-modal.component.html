@@ -14,6 +14,8 @@
     <div class="modal-body">
       <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
         <div class="input-group"></div>
+
+        <!-- Text Body -->
         <input
           name="customPageComponent.textByPageIdArray.TextId"
           type="hidden"
@@ -26,9 +28,14 @@
         <div class="input-group"></div>
         <input
           name="text.TextBody"
-          #TextId="ngModel"
+          #TextBody="ngModel"
           [(ngModel)]="text.TextBody"
         />
+        <div class="input-group-append"></div>
+        <!-- Color -->
+        <label>Color</label>
+        <div class="input-group"></div>
+        <input name="text.color" #color="ngModel" [(ngModel)]="text.color" />
         <div class="input-group-append"></div>
       </form>
     </div>
