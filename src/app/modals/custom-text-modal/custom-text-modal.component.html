@@ -9,7 +9,30 @@
     >
       <span aria-hidden="true">&times;</span>
     </button>
+    <div class="container">
+      <button (click)="customPageComponent.toggle()" class="alignRight" id="bt">
+        +
+      </button>
+    </div>
   </div>
+
+  <ng-container *ngIf="customPageComponent.show">
+    <div style="margin: 0 auto; text-align: left;">
+      <div>
+        <label>Name:</label>
+        <div><input id="tbname" name="yourname" /></div>
+      </div>
+      <div>
+        <label>Email Address:</label>
+        <div><input name="email" id="email" /></div>
+      </div>
+      <div>
+        <label>Additional Information (optional):</label>
+        <div><textarea rows="5" cols="46"></textarea></div>
+      </div>
+    </div>
+  </ng-container>
+
   <div
     *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
   >

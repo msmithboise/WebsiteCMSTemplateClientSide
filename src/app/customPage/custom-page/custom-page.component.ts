@@ -28,6 +28,8 @@ export class CustomPageComponent implements OnInit {
   textByPageIdArray: CustomText[];
   selectedPageId: number;
   filteredImageArray: CustomImage[];
+  public show: boolean = false;
+  public buttonName: any = 'Show';
 
   ngOnInit(): void {
     this.callCustomPageService();
@@ -36,6 +38,14 @@ export class CustomPageComponent implements OnInit {
     this.grabAllTextByPageId();
 
     this.grabTextDataFromService();
+  }
+
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show) this.buttonName = 'Hide';
+    else this.buttonName = 'Show';
   }
 
   populateTextModalOnLoad() {
