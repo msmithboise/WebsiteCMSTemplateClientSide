@@ -14,7 +14,11 @@
     *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
   >
     <div class="modal-body">
-      <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
+      <form
+        #form="ngForm"
+        (submit)="customPageComponent.onSubmit(form)"
+        id="myForm"
+      >
         <div class="input-group"></div>
 
         <!-- Text Id -->

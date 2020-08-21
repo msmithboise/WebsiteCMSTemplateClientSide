@@ -169,15 +169,19 @@ export class CustomPageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     //Submit for homepage content
-    this.appendPageId();
-    this.insertTextRecord(form);
-    console.log('We are inserting this form: ');
+    var newForm = this.appendPageId(form);
 
-    console.log(form);
+    this.insertTextRecord(newForm);
   }
 
-  appendPageId() {
-    console.log('appending page id...');
+  appendPageId(form: NgForm) {
+    var userForm = document.getElementById('myForm');
+
+    userForm.append('PageId', this.pageIdSnapshot.toString());
+
+    console.log('Here is the user form with new page id appended to it');
+    console.log(userForm);
+    return form;
   }
 
   insertTextRecord(form: NgForm) {
