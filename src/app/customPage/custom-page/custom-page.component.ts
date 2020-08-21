@@ -169,29 +169,23 @@ export class CustomPageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     //Submit for homepage content
-    if (form.value.TextId == null) this.insertRecord(form);
-    else this.updateRecord(form);
-    console.log('SUBMITTTTT!');
+
+    this.insertTextRecord(form);
+    console.log('We are inserting this form: ');
+
+    console.log(form);
   }
 
-  insertRecord(form: NgForm) {
+  insertTextRecord(form: NgForm) {
     this.customTextService
-      .postTextByPageId(form.value, this.pageIdSnapshot)
+      .postSubmittedTextByPageId(form.value)
       .subscribe((res) => {
         //this.resetForm(form);
         this.grabAllTextByPageId();
       });
   }
 
-  updateRecord(form: NgForm) {
-    this.customTextService
-      .postTextByPageId(form.value, this.pageIdSnapshot)
-      .subscribe((res) => {
-        //this.resetForm(form);
-        this.grabAllTextByPageId();
-      });
-  }
-
+  //calls a get() and sets data to this.customTextService.customTextArray
   grabTextDataFromService() {
     this.customTextService.setTextDataToArray(this.pageIdSnapshot);
   }

@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit, OnChanges {
       .postTextBoxOneContent(this.textBoxService.textBoxOneFormData)
       .subscribe((res: Textbox[]) => {
         this.textBoxService.textBoxContentArray = res;
+        console.log(this.textBoxService.textBoxOneFormData);
       });
   }
 

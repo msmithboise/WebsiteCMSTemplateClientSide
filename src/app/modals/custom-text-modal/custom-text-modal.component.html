@@ -10,32 +10,23 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div *ngFor="let text of customPageComponent.textByPageIdArray">
+  <div
+    *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
+  >
     <div class="modal-body">
       <form #form="ngForm" (submit)="customPageComponent.onSubmit(form)">
         <div class="input-group"></div>
-
-        <!-- Text Body -->
         <input
-          name="customPageComponent.textByPageIdArray.TextId"
+          name="TextId"
           type="hidden"
           #TextId="ngModel"
-          [(ngModel)]="customPageComponent.textByPageIdArray[0].TextId"
+          [(ngModel)]="text.TextId"
         />
         <div class="input-group-append"></div>
 
         <label>Text Body</label>
         <div class="input-group"></div>
-        <input
-          name="text.TextBody"
-          #TextBody="ngModel"
-          [(ngModel)]="text.TextBody"
-        />
-        <div class="input-group-append"></div>
-        <!-- Color -->
-        <label>Color</label>
-        <div class="input-group"></div>
-        <input name="text.color" #color="ngModel" [(ngModel)]="text.color" />
+        <input name="TextBody" #TextId="ngModel" [(ngModel)]="text.TextBody" />
         <div class="input-group-append"></div>
       </form>
     </div>

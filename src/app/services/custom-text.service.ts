@@ -30,8 +30,12 @@ export class CustomTextService {
 
   //post text by page id
 
+  postSubmittedTextByPageId(textFormData: CustomText) {
+    return this.http.post(this.webApi + '/CustomText', textFormData);
+  }
+
   postTextByPageId(textFormData: CustomText, textId: number) {
-    return this.http.post(this.webApi + '/CustomText/' + textId, textFormData);
+    return this.http.post(this.webApi + '/CustomText', textFormData);
   }
 
   // putWebPageContent(formData: Webpage) {
