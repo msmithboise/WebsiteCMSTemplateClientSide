@@ -40,12 +40,9 @@ export class CustomPageComponent implements OnInit {
     this.grabTextDataFromService();
   }
 
-  toggle() {
+  toggleAddButton() {
     this.show = !this.show;
-
-    // CHANGE THE NAME OF THE BUTTON.
-    if (this.show) this.buttonName = 'Hide';
-    else this.buttonName = 'Show';
+    console.log('adding text...');
   }
 
   populateTextModalOnLoad() {
