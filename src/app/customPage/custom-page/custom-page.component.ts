@@ -314,7 +314,7 @@ export class CustomPageComponent implements OnInit {
     console.log('got yo hamster son....');
     console.log(form.value);
 
-    this.insertTextRecord(form);
+    this.insertNewTextRecord(form);
   }
 
   // appendPageId(form: NgForm) {
@@ -326,6 +326,17 @@ export class CustomPageComponent implements OnInit {
   //   console.log(userForm);
   //   return form;
   // }
+
+  insertNewTextRecord(form: NgForm) {
+    console.log('hamster should be here in insertRecord..');
+    console.log(form.value);
+    this.customTextService
+      .postSubmittedTextByPageId(form.value)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllTextByPageId();
+      });
+  }
 
   insertTextRecord(form: NgForm) {
     console.log('hamster should be here in insertRecord..');
@@ -361,7 +372,6 @@ export class CustomPageComponent implements OnInit {
         // console.log('Here is the text based on page id: ');
         // console.log(this.textByPageIdArray);
       });
-    this.populateTextModalOnLoad();
   }
 
   postTextByPageId() {

@@ -22,12 +22,10 @@
 
   <ng-container>
     <div>
-      <p>"Add Text"</p>
-      <p>{{ customPageComponent.pageIdSnapshot }}</p>
-
       <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
         <input
           name="TextBody"
+          placeholder="Enter Text Here"
           type="text"
           #TextBody="ngModel"
           [(ngModel)]="customTextService.textFormData"
