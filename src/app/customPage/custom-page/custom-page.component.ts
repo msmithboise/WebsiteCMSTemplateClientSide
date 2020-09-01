@@ -313,6 +313,8 @@ export class CustomPageComponent implements OnInit {
   submitNewTextData(form: NgForm) {
     console.log('got yo hamster son....');
     console.log(form.value);
+
+    this.insertTextRecord(form);
   }
 
   // appendPageId(form: NgForm) {
@@ -326,6 +328,8 @@ export class CustomPageComponent implements OnInit {
   // }
 
   insertTextRecord(form: NgForm) {
+    console.log('hamster should be here in insertRecord..');
+    console.log(form.value);
     this.customTextService
       .postSubmittedTextByPageId(form.value)
       .subscribe((res) => {
