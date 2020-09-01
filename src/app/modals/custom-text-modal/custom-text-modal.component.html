@@ -23,6 +23,7 @@
   <ng-container>
     <div>
       <p>"Add Text"</p>
+      <p>{{ customPageComponent.pageIdSnapshot }}</p>
 
       <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
         <input
@@ -30,6 +31,12 @@
           type="text"
           #TextBody="ngModel"
           [(ngModel)]="customTextService.textFormData"
+        />
+        <input
+          type="hidden"
+          name="PageId"
+          #PageId="ngModel"
+          [(ngModel)]="customPageComponent.pageIdSnapshot"
         />
       </form>
     </div>
