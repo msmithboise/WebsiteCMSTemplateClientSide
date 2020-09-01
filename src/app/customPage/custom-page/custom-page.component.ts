@@ -311,7 +311,8 @@ export class CustomPageComponent implements OnInit {
   }
 
   submitNewTextData(form: NgForm) {
-    console.log('submitting new text....');
+    console.log('got yo hamster son....');
+    console.log(form.value);
   }
 
   // appendPageId(form: NgForm) {

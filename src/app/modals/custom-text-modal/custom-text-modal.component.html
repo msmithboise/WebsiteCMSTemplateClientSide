@@ -23,8 +23,14 @@
   <ng-container>
     <div>
       <p>"Add Text"</p>
-      <form #f="ngForm" (ngSubmit)="customPageComponent.submitNewTextData(f)">
-        <input name="TextBody" type="text" />
+
+      <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
+        <input
+          name="TextBody"
+          type="text"
+          #TextBody="ngModel"
+          [(ngModel)]="customTextService.textFormData"
+        />
       </form>
     </div>
     <div

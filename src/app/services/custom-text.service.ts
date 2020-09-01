@@ -8,7 +8,7 @@ import { CustomText } from '../models/custom-text.model';
 export class CustomTextService {
   readonly webApi = 'http://localhost:54704/api';
   public customTextArray: CustomText[];
-  textFormData: CustomText;
+  public textFormData: CustomText;
 
   constructor(private http: HttpClient) {}
 
