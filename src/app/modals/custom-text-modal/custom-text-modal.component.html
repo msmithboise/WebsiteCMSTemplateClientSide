@@ -20,61 +20,59 @@
     </div>
   </div>
 
-  <ng-container *ngIf="customPageComponent.show"> </ng-container>
-
-  <div
-    *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
-  >
-    <div class="modal-body">
-      <form
-        #form="ngForm"
-        (submit)="customPageComponent.onSubmit(form)"
-        id="myForm"
-      >
-        <div class="input-group"></div>
-
-        <!-- Text Id -->
-        <input
-          name="TextId"
-          type="hidden"
-          #TextId="ngModel"
-          [(ngModel)]="text.TextId"
-        />
-        <div class="input-group-append"></div>
-
-        <!-- Text Body -->
-
-        <label>Text Body</label>
-        <div class="input-group"></div>
-        <input
-          name="TextBody"
-          #TextBody="ngModel"
-          [(ngModel)]="text.TextBody"
-        />
-        <div class="input-group-append"></div>
-
-        <!-- PageId -->
-
-        <div class="input-group"></div>
-        <input
-          name="PageId"
-          type="hidden"
-          #PageId="ngModel"
-          [(ngModel)]="text.PageId"
-        />
-        <div class="input-group-append"></div>
+  <ng-container>
+    <div>
+      <p>"Add Text"</p>
+      <form>
+        <input name="TextBody" type="text" />
       </form>
     </div>
-    <div class="modal-footer"></div>
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-      (submit)="customPageComponent.onSubmit(form)"
+    <div
+      *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
     >
-      Save
-    </button>
-  </div>
+      <div class="modal-body">
+        <form
+          #form="ngForm"
+          (submit)="customPageComponent.onSubmit(form)"
+          id="myForm"
+        >
+          <div class="input-group"></div>
+
+          <!-- Text Id -->
+          <input
+            name="TextId"
+            type="hidden"
+            #TextId="ngModel"
+            [(ngModel)]="text.TextId"
+          />
+          <div class="input-group-append"></div>
+
+          <!-- Text Body -->
+
+          <label>Text Body</label>
+          <div class="input-group"></div>
+          <input
+            name="TextBody"
+            #TextBody="ngModel"
+            [(ngModel)]="text.TextBody"
+          />
+          <div class="input-group-append"></div>
+
+          <!-- PageId -->
+
+          <div class="input-group"></div>
+          <input
+            name="PageId"
+            type="hidden"
+            #PageId="ngModel"
+            [(ngModel)]="text.PageId"
+          />
+          <div class="input-group-append"></div>
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </ng-container>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">

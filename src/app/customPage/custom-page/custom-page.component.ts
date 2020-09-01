@@ -36,13 +36,143 @@ export class CustomPageComponent implements OnInit {
     this.takePageIdSnapshot();
     this.grabAllImagesByPageId();
     this.grabAllTextByPageId();
-
+    this.resetTextForm();
     this.grabTextDataFromService();
   }
 
   toggleAddButton() {
     this.show = !this.show;
     console.log('adding text...');
+  }
+
+  resetTextForm() {
+    if (this.textByPageIdArray[0] == null) {
+      this.customTextService.textFormData = {
+        TextId: null,
+        PageId: null,
+        color: '',
+        fontSize: '',
+        textAlign: '',
+        paddingTop: '',
+        paddingBottom: '',
+        paddingLeft: '',
+        paddingRight: '',
+        marginTop: '',
+        marginBottom: '',
+        marginLeft: '',
+        marginRight: '',
+        lineHeight: '',
+        fontFamily: '',
+        border: '',
+        borderStyle: '',
+        isText: '',
+        TextBody: '',
+        borderBottom: '',
+        borderBottomColor: '',
+        borderBottomStyle: '',
+        borderBottomWidth: '',
+        borderColor: '',
+        borderLeftStyle: '',
+        borderLeftColor: '',
+        borderLeftWidth: '',
+        borderRight: '',
+        borderRightColor: '',
+        borderRightStyle: '',
+        borderTop: '',
+        borderTopColor: '',
+        borderTopStyle: '',
+        borderTopWidth: '',
+        borderWidth: '',
+        clear: '',
+        clip: '',
+        cursor: '',
+        font: '',
+        fontVariant: '',
+        fontWeight: '',
+        height: '',
+        left: '',
+        letterSpacing: '',
+        listStyle: '',
+        listStyleImage: '',
+        listStyleType: '',
+        margin: '',
+        pageBreakAfter: '',
+        pageBreakBefore: '',
+        position: '',
+        strokeDasharray: '',
+        strokeDashoffset: '',
+        strokeWidth: '',
+        textDecoration: '',
+        textIndent: '',
+        textTransform: '',
+        top: '',
+        right: '',
+        bottom: '',
+        verticalAlign: '',
+        visibility: '',
+        width: '',
+        zIndex: '',
+        display: '',
+        cssFloat: '',
+        filter: '',
+        backgroundColor: '',
+        backgroundPosition: '',
+        backgroundRepeat: '',
+        lineBreak: '',
+        opacity: '',
+        outline: '',
+        outlineColor: '',
+        outlineOffset: '',
+        outlineStyle: '',
+        outlineWidth: '',
+        padding: '',
+        paddingBlock: '',
+        paddingBlockEnd: '',
+        paddingBlockStart: '',
+        paddingInlineEnd: '',
+        paddingInlineStart: '',
+        pageBreakInside: '',
+        rotate: '',
+        textAlignLast: '',
+        textCombineUpright: '',
+        textDecorationColor: '',
+        textDecorationLine: '',
+        textDecorationSkipInk: '',
+        textDecorationStyle: '',
+        textDecorationThickness: '',
+        textEmphasis: '',
+        textEmphasisColor: '',
+        textEmphasisPosition: '',
+        textEmphasisStyle: '',
+        textJustify: '',
+        textOrientation: '',
+        textOverflow: '',
+        textRendering: '',
+        textShadow: '',
+        textUnderlineOffset: '',
+        textUnderlinePosition: '',
+        transformBox: '',
+        transformOrigin: '',
+        transition: '',
+        transitionDelay: '',
+        transitionDuration: '',
+        transitionProperty: '',
+        transitionTimingFunction: '',
+
+        translate: '',
+        whiteSpace: '',
+        wordBreak: '',
+        wordSpacing: '',
+        wordWrap: '',
+        writingMode: '',
+        flex: '',
+        alignContent: '',
+        alignItems: '',
+        alignSelf: '',
+        animation: '',
+        customField: '',
+      };
+    }
   }
 
   populateTextModalOnLoad() {
@@ -176,20 +306,21 @@ export class CustomPageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     //Submit for homepage content
-    var newForm = this.appendPageId(form);
+    console.log('submitting...');
+    console.log(form);
 
-    this.insertTextRecord(newForm);
+    this.insertTextRecord(form);
   }
 
-  appendPageId(form: NgForm) {
-    var userForm = document.getElementById('myForm');
+  // appendPageId(form: NgForm) {
+  //   var userForm = document.getElementById('myForm');
 
-    userForm.append('PageId', this.pageIdSnapshot.toString());
+  //   userForm.append('PageId', this.pageIdSnapshot.toString());
 
-    console.log('Here is the user form with new page id appended to it');
-    console.log(userForm);
-    return form;
-  }
+  //   console.log('Here is the user form with new page id appended to it');
+  //   console.log(userForm);
+  //   return form;
+  // }
 
   insertTextRecord(form: NgForm) {
     this.customTextService
