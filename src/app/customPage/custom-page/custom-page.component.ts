@@ -306,10 +306,12 @@ export class CustomPageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     //Submit for homepage content
-    console.log('submitting...');
-    console.log(form);
 
     this.insertTextRecord(form);
+  }
+
+  submitNewTextData(form: NgForm) {
+    console.log('submitting new text....');
   }
 
   // appendPageId(form: NgForm) {
