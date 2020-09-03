@@ -7,14 +7,14 @@
   {{ this.customPageService.customPageArrayById.PageDescription }} Page!
 </h1>
 
-<div *ngFor="let text of this.textByPageIdArray">
-  <h1>{{ text.TextBody }}</h1>
+<div *ngFor="let content of this.webContentByPageIdArray">
+  <h1>{{ content.TextBody }}</h1>
 </div>
 
 <app-custom-text-modal></app-custom-text-modal>
 
-<div *ngFor="let image of this.imagesByPageIdArray">
-  <img src="{{ image.ImageUrl }}" />
+<div *ngFor="let content of this.webContentByPageIdArray">
+  <img src="{{ content.ImageUrl }}" />
 </div>
 
 <!-- <p>custom-page works!</p>

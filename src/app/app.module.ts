@@ -16,9 +16,10 @@ import { CustomImageComponent } from './custom-image/custom-image.component';
 import { CustomTextComponent } from './custom-text/custom-text.component';
 import { CustomTextModalComponent } from './modals/custom-text-modal/custom-text-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WebcontentComponent } from './WebContent/webcontent/webcontent.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent, CustomTextComponent, CustomTextModalComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent, CustomTextComponent, CustomTextModalComponent, WebcontentComponent],
   imports: [
     BrowserModule,
     FormsModule,

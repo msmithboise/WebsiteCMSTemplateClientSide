@@ -8,6 +8,8 @@ import { CustomImage } from 'src/app/models/custom-image.model';
 import { Key } from 'protractor';
 import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomText } from 'src/app/models/custom-text.model';
+import { WebcontentService } from 'src/app/WebContent/webcontent.service';
+import { Webcontent } from 'src/app/WebContent/webcontent.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -19,6 +21,7 @@ export class CustomPageComponent implements OnInit {
     public customPageService: CustomPageService,
     public customImageService: CustomImageService,
     public customTextService: CustomTextService,
+    public webContentService: WebcontentService,
     private route: ActivatedRoute
   ) {}
 
@@ -26,6 +29,7 @@ export class CustomPageComponent implements OnInit {
   pageIdSnapshot: number;
   imagesByPageIdArray: CustomImage[];
   textByPageIdArray: CustomText[];
+  webContentByPageIdArray: Webcontent[];
   selectedPageId: number;
   filteredImageArray: CustomImage[];
   public show: boolean = false;
@@ -34,8 +38,8 @@ export class CustomPageComponent implements OnInit {
   ngOnInit(): void {
     this.callCustomPageService();
     this.takePageIdSnapshot();
-    this.grabAllImagesByPageId();
-    this.grabAllTextByPageId();
+    this.grabAllContentByPageId();
+
     this.resetTextForm();
     this.grabTextDataFromService();
   }
@@ -354,11 +358,11 @@ export class CustomPageComponent implements OnInit {
     this.customTextService.setTextDataToArray(this.pageIdSnapshot);
   }
 
-  grabAllImagesByPageId() {
+  grabAllContentByPageId() {
     this.customImageService
-      .getImagesByPageId(this.pageIdSnapshot)
-      .subscribe((res: CustomImage[]) => {
-        this.imagesByPageIdArray = res;
+      .getWebContentByPageId(this.pageIdSnapshot)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentByPageIdArray = res;
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
