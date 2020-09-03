@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
+import { WebcontentService } from 'src/app/WebContent/webcontent.service';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -14,7 +15,8 @@ export class CustomTextModalComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     public customTextService: CustomTextService,
-    public customPageComponent: CustomPageComponent
+    public customPageComponent: CustomPageComponent,
+    public webContentService: WebcontentService
   ) {}
 
   open(content) {

@@ -28,7 +28,7 @@
           placeholder="Enter Text Here"
           type="text"
           #TextBody="ngModel"
-          [(ngModel)]="customTextService.textFormData"
+          [(ngModel)]="webContentService.formData"
         />
         <input
           type="hidden"
@@ -39,7 +39,10 @@
       </form>
     </div>
     <div
-      *ngFor="let text of customPageComponent.textByPageIdArray; let i = index"
+      *ngFor="
+        let text of customPageComponent.webContentByPageIdArray;
+        let i = index
+      "
     >
       <div class="modal-body">
         <form
@@ -60,14 +63,16 @@
 
           <!-- Text Body -->
 
-          <label>Text Body</label>
-          <div class="input-group"></div>
-          <input
-            name="TextBody"
-            #TextBody="ngModel"
-            [(ngModel)]="text.TextBody"
-          />
-          <div class="input-group-append"></div>
+          <div *ngIf="text.TextBody">
+            <label>Text Body</label>
+            <div class="input-group"></div>
+            <input
+              name="TextBody"
+              #TextBody="ngModel"
+              [(ngModel)]="text.TextBody"
+            />
+            <div class="input-group-append"></div>
+          </div>
 
           <!-- PageId -->
 
@@ -79,6 +84,20 @@
             [(ngModel)]="text.PageId"
           />
           <div class="input-group-append"></div>
+
+          <!-- ImageUrl -->
+          <div *ngIf="text.ImageUrl">
+            <label>Image Url</label>
+            <div class="input-group"></div>
+            <input
+              name="ImageUrl"
+              #ImageUrl="ngModel"
+              [(ngModel)]="text.ImageUrl"
+            />
+            <div class="input-group-append"></div>
+          </div>
+
+          <!-- --------------------------------------------------------------------------- -->
         </form>
       </div>
       <div class="modal-footer"></div>

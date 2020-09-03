@@ -8,12 +8,19 @@ import { Webcontent } from './webcontent.model';
 export class WebcontentService {
   readonly webApi = 'http://localhost:54704/api';
   public webContentArray: Webcontent[];
+  public formData: Webcontent;
 
   constructor(private http: HttpClient) {}
 
+  //Get all content by page id
   getWebContentByPageId(pageId: number) {
     console.log('pageId: ');
     console.log(pageId);
     return this.http.get<Webcontent[]>(this.webApi + '/WebContent/' + pageId);
+  }
+
+  //Post webcontent
+  postWebContentByPageId(formData: Webcontent) {
+    return this.http.post(this.webApi + '/WebContent', formData);
   }
 }

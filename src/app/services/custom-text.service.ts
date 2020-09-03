@@ -29,20 +29,4 @@ export class CustomTextService {
   }
 
   //post text by page id
-
-  postSubmittedTextByPageId(textFormData: CustomText) {
-    return this.http.post(this.webApi + '/CustomText', textFormData);
-  }
-
-  postTextByPageId(textFormData: CustomText, textId: number) {
-    return this.http.post(this.webApi + '/CustomText', textFormData);
-  }
-
-  // putWebPageContent(formData: Webpage) {
-  //   console.log(formData);
-  //   return this.http.post(
-  //     this.rootURL + '/HomePage/' + formData.UserID,
-  //     formData
-  //   );
-  // }
 }

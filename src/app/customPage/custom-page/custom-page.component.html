@@ -7,39 +7,8 @@
   {{ this.customPageService.customPageArrayById.PageDescription }} Page!
 </h1>
 
+<app-custom-text-modal></app-custom-text-modal>
 <div *ngFor="let content of this.webContentByPageIdArray">
   <h1>{{ content.TextBody }}</h1>
   <img src="{{ content.ImageUrl }}" />
 </div>
-
-<app-custom-text-modal></app-custom-text-modal>
-
-<!-- <p>custom-page works!</p>
-<button>Add new page</button>
-
-<div *ngFor="let item of customPageService.customPageArray">
-  <h1>Page Description: {{ item.PageDescription }}</h1>
-</div>
-
-<div class="container">
-  <form #form="ngForm" (submit)="onCustomPageSubmit(form)">
-    <div>
-      <input
-        type="hidden"
-        name="PageId"
-        #PageId="ngModel"
-        [(ngModel)]="customPageService.customPageArray[0].PageId"
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Page Description</label>
-      <input
-        name="PageDescription"
-        #PageDescription="ngModel"
-        [(ngModel)]="customPageService.customPageArray[0].PageDescription"
-        class="form-control"
-      />
-    </div>
-  </form>
-</div> -->
