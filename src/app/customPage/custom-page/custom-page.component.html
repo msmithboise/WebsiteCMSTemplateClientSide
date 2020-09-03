@@ -9,13 +9,10 @@
 
 <div *ngFor="let content of this.webContentByPageIdArray">
   <h1>{{ content.TextBody }}</h1>
+  <img src="{{ content.ImageUrl }}" />
 </div>
 
 <app-custom-text-modal></app-custom-text-modal>
-
-<div *ngFor="let content of this.webContentByPageIdArray">
-  <img src="{{ content.ImageUrl }}" />
-</div>
 
 <!-- <p>custom-page works!</p>
 <button>Add new page</button>
