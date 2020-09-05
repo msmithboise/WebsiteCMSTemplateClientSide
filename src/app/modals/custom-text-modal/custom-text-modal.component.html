@@ -11,6 +11,27 @@
     </button>
   </div>
 
+  <div class="container">
+    <form #imageForm="ngForm" (ngSubmit)="onImageSubmit(Image)">
+      <div class="form-group">
+        <label for="file">Choose File</label>
+        <input
+          type="file"
+          #Image
+          accept="image/*"
+          (change)="handleFileInput($event.target.files)"
+        />
+        <button
+          type="submit"
+          class="btn-large btn-submit"
+          [disabled]="Image.value == '' || !imageForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
   <ng-container>
     <div>
       <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">

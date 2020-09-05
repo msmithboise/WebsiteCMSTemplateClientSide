@@ -8,9 +8,11 @@ import { WebcontentService } from 'src/app/WebContent/webcontent.service';
   selector: 'app-custom-text-modal',
   templateUrl: './custom-text-modal.component.html',
   styleUrls: ['./custom-text-modal.component.css'],
+  providers: [WebcontentService],
 })
 export class CustomTextModalComponent implements OnInit {
   closeResult = '';
+  public fileToUpload: File = null;
 
   constructor(
     private modalService: NgbModal,
@@ -40,6 +42,17 @@ export class CustomTextModalComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+  }
+
+  onImageSubmit(Image: File) {
+    console.log(Image);
+    this.webContentService.postFile(this.fileToUpload).subscribe((data) => {
+      console.log('done!');
+    });
   }
 
   ngOnInit(): void {}

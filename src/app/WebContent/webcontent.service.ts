@@ -23,4 +23,10 @@ export class WebcontentService {
   postWebContentByPageId(formData: Webcontent) {
     return this.http.post(this.webApi + '/WebContent', formData);
   }
+
+  postFile(fileToUpload: File) {
+    const fd: FormData = new FormData();
+    fd.append('Image', fileToUpload, fileToUpload.name);
+    return this.http.post(this.webApi + '/UploadImage', fd);
+  }
 }
