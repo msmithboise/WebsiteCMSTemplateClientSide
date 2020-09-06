@@ -3,6 +3,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 import { WebcontentService } from 'src/app/WebContent/webcontent.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -54,6 +55,11 @@ export class CustomTextModalComponent implements OnInit {
       console.log('done!');
     });
   }
+
+  formTemplate = new FormGroup({
+    imageUrl: new FormControl(''),
+    pageId: new FormControl(''),
+  });
 
   ngOnInit(): void {}
 }

@@ -10,8 +10,8 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
-  <div class="container">
+  <!-- Old upload file form -->
+  <!-- <div class="container">
     <form #imageForm="ngForm" (ngSubmit)="onImageSubmit(Image)">
       <div class="form-group">
         <label for="file">Choose File</label>
@@ -30,6 +30,26 @@
         </button>
       </div>
     </form>
+  </div> -->
+
+  <!-- New Upload File Form -->
+  <div class="card" style="width: 25rem">
+    <div class="card-body">
+      <form [formGroup]="formTemplate">
+        <div class="form-group">
+          <label>Select file to upload.</label>
+          <input type="file" class="form-control" formControlName="imageUrl" />
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="pageId" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success float-right">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <ng-container>
