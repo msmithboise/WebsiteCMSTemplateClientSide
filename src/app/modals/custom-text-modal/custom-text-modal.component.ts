@@ -3,7 +3,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 import { WebcontentService } from 'src/app/WebContent/webcontent.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -16,6 +16,7 @@ export class CustomTextModalComponent implements OnInit {
   public fileToUpload: File = null;
   imgSrc: string = '/assets/placeholder.jpg';
   selectedImage: any = null;
+  isSubmitted: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -59,7 +60,7 @@ export class CustomTextModalComponent implements OnInit {
   }
 
   formTemplate = new FormGroup({
-    imageUrl: new FormControl(''),
+    imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
   });
 
@@ -71,6 +72,17 @@ export class CustomTextModalComponent implements OnInit {
       reader.onload = (e: any) => (this.imgSrc = e.target.result);
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
+    } else {
+      this.imgSrc = '/assets/placeholder.jpg';
+      this.selectedImage = null;
     }
+  }
+
+  onSubmit(formValue) {
+    this.isSubmitted = true;
+  }
+
+  get formControls() {
+    return this.formTemplate['controls'];
   }
 }
