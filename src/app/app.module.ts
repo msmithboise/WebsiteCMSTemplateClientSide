@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { WebpageService } from './shared/webpage.service';
@@ -19,7 +23,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WebcontentComponent } from './WebContent/webcontent/webcontent.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, TextboxComponent, CustomPageComponent, CustomImageComponent, CustomTextComponent, CustomTextModalComponent, WebcontentComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    TextboxComponent,
+    CustomPageComponent,
+    CustomImageComponent,
+    CustomTextComponent,
+    CustomTextModalComponent,
+    WebcontentComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -27,7 +41,11 @@ import { WebcontentComponent } from './WebContent/webcontent/webcontent.componen
     BrowserAnimationsModule,
     MatSliderModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [WebpageService],
   bootstrap: [AppComponent],
