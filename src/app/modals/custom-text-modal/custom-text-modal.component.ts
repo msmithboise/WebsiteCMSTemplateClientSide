@@ -43,6 +43,7 @@ export class CustomTextModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
+    this.webContentService.getImageDetailList();
   }
 
   private getDismissReason(reason: any): string {
@@ -86,9 +87,10 @@ export class CustomTextModalComponent implements OnInit {
   onSubmit(formValue) {
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      var filePath = `images/${
-        this.selectedImage.name
-      }_${new Date().getTime()}`;
+      var filePath = `images/${this.selectedImage.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
       this.storage
         .upload(filePath, this.selectedImage)
@@ -97,12 +99,13 @@ export class CustomTextModalComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               formValue['imageUrl'] = url;
+              this.webContentService.insertImageDetails(formValue);
+              this.resetForm();
             });
           })
         )
         .subscribe();
     }
-    this.resetForm();
   }
 
   get formControls() {
