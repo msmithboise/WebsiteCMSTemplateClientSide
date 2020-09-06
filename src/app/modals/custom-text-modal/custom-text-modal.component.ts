@@ -4,6 +4,8 @@ import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 import { WebcontentService } from 'src/app/WebContent/webcontent.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -14,15 +16,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CustomTextModalComponent implements OnInit {
   closeResult = '';
   public fileToUpload: File = null;
-  imgSrc: string = '/assets/placeholder.jpg';
+  imgSrc: string;
   selectedImage: any = null;
-  isSubmitted: boolean = false;
+  isSubmitted: boolean;
 
   constructor(
     private modalService: NgbModal,
     public customTextService: CustomTextService,
     public customPageComponent: CustomPageComponent,
-    public webContentService: WebcontentService
+    public webContentService: WebcontentService,
+    private storage: AngularFireStorage
   ) {}
 
   open(content) {
@@ -36,6 +39,10 @@ export class CustomTextModalComponent implements OnInit {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+  }
+
+  ngOnInit(): void {
+    this.resetForm();
   }
 
   private getDismissReason(reason: any): string {
@@ -64,8 +71,6 @@ export class CustomTextModalComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
-  ngOnInit(): void {}
-
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
@@ -80,9 +85,38 @@ export class CustomTextModalComponent implements OnInit {
 
   onSubmit(formValue) {
     this.isSubmitted = true;
+    if (this.formTemplate.valid) {
+      var filePath = `images/${
+        this.selectedImage.name
+      }_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filePath);
+      this.storage
+        .upload(filePath, this.selectedImage)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              formValue['imageUrl'] = url;
+            });
+          })
+        )
+        .subscribe();
+    }
+    this.resetForm();
   }
 
   get formControls() {
     return this.formTemplate['controls'];
+  }
+
+  resetForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      imageUrl: '',
+      pageId: 0,
+    });
+    this.imgSrc = '/assets/placeholder.jpg';
+    this.selectedImage = null;
+    this.isSubmitted = false;
   }
 }
