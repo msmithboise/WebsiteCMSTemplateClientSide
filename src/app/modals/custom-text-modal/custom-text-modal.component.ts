@@ -21,6 +21,7 @@ export class CustomTextModalComponent implements OnInit {
   selectedImage: any = null;
   isSubmitted: boolean;
   imageList: any[];
+  fireBaseImageUrl: string;
 
   constructor(
     private modalService: NgbModal,
@@ -54,11 +55,21 @@ export class CustomTextModalComponent implements OnInit {
       .snapshotChanges()
       .subscribe((list) => {
         this.imageList = list.map((item) => {
-          console.log('here is the retrieved image list');
-          console.log(this.imageList);
+          //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
+          //Setting firebaseUrl reponse to property
+          this.fireBaseImageUrl = item.payload.val().imageUrl;
+
           return item.payload.val();
         });
+        this.setFireBaseUrlToImageUrl();
       });
+  }
+
+  setFireBaseUrlToImageUrl() {
+    console.log('here is firebaseurl property');
+    console.log(this.fireBaseImageUrl);
+
+    //Now we need to create a form to post to db
   }
 
   private getDismissReason(reason: any): string {
