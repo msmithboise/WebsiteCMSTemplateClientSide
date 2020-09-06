@@ -42,4 +42,10 @@ export class WebcontentService {
     fd.append('Image', fileToUpload, fileToUpload.name);
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
+
+  postUploadedImage(imageUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('imageUrl', imageUrl);
+    return this.http.post(this.webApi + '/UploadImage', fd);
+  }
 }

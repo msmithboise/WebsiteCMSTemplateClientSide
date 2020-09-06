@@ -69,6 +69,12 @@ export class CustomTextModalComponent implements OnInit {
     console.log('here is firebaseurl property');
     console.log(this.fireBaseImageUrl);
 
+    this.webContentService
+      .postUploadedImage(this.fireBaseImageUrl)
+      .subscribe((data) => {
+        console.log('done!');
+      });
+
     //Now we need to create a form to post to db
   }
 
