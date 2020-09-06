@@ -14,6 +14,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class CustomTextModalComponent implements OnInit {
   closeResult = '';
   public fileToUpload: File = null;
+  imgSrc: string = '/assets/placeholder.jpg';
+  selectedImage: any = null;
 
   constructor(
     private modalService: NgbModal,
@@ -62,4 +64,13 @@ export class CustomTextModalComponent implements OnInit {
   });
 
   ngOnInit(): void {}
+
+  showPreview(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+  }
 }
