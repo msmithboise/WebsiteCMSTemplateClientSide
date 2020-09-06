@@ -6,6 +6,7 @@ import { WebcontentService } from 'src/app/WebContent/webcontent.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -19,6 +20,7 @@ export class CustomTextModalComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;
+  imageList: any[];
 
   constructor(
     private modalService: NgbModal,
@@ -44,6 +46,19 @@ export class CustomTextModalComponent implements OnInit {
   ngOnInit(): void {
     this.resetForm();
     this.webContentService.getImageDetailList();
+    this.getImageDetails();
+  }
+
+  getImageDetails() {
+    this.webContentService.imageDetailList
+      .snapshotChanges()
+      .subscribe((list) => {
+        this.imageList = list.map((item) => {
+          console.log('here is the retrieved image list');
+          console.log(this.imageList);
+          return item.payload.val();
+        });
+      });
   }
 
   private getDismissReason(reason: any): string {
