@@ -148,6 +148,12 @@ export class CustomTextModalComponent implements OnInit {
     }
   }
 
+  onDelete(id: number) {
+    this.webContentService.deleteWebPageContent(id).subscribe((res) => {
+      this.resetForm();
+    });
+  }
+
   get formControls() {
     return this.formTemplate['controls'];
   }

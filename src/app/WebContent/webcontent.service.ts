@@ -57,4 +57,9 @@ export class WebcontentService {
     fd.append('pageId', this.pageIdSnapshot.toString());
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
+
+  //Delete
+  deleteWebPageContent(id: number) {
+    return this.http.delete(this.webApi + '/WebContent/' + id);
+  }
 }

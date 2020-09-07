@@ -97,6 +97,7 @@
         let i = index
       "
     >
+      <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
       <div class="modal-body">
         <form
           #form="ngForm"
@@ -104,6 +105,28 @@
           id="myForm"
         >
           <div class="input-group"></div>
+
+          <!-- <div>
+    <button
+      (click)="onDelete(item.UserID)"
+      class="btn btn-sm btn-outline-danger"
+    >
+      Delete
+    </button>
+    <button (click)="populateForm(item)" class="btn btn-sm btn-outline-primary">
+      Edit
+    </button>
+  </div>
+</div> -->
+          <!-- Id -->
+
+          <input
+            name="Id"
+            type="hidden"
+            #TextId="ngModel"
+            [(ngModel)]="text.Id"
+          />
+          <div class="input-group-append"></div>
 
           <!-- Text Id -->
           <input
