@@ -46,8 +46,8 @@ export class CustomTextModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
-    this.webContentService.getImageDetailList();
-    this.getImageDetails();
+    // this.webContentService.getImageDetailList();
+    // this.getImageDetails();
   }
 
   getImageDetails() {
@@ -130,8 +130,16 @@ export class CustomTextModalComponent implements OnInit {
         .pipe(
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
+              console.log("here's the finalize url");
+              console.log(url);
+              this.webContentService
+                .postUploadedImage(url)
+                .subscribe((data) => {
+                  console.log('done!');
+                });
+
               formValue['imageUrl'] = url;
-              this.webContentService.insertImageDetails(formValue);
+              //this.webContentService.insertImageDetails(formValue);
               this.resetForm();
             });
           })
