@@ -77,7 +77,7 @@ export class CustomPageComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        this.webContentByPageIdArray = res;
+        this.webContentService.webContentArray = res;
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });

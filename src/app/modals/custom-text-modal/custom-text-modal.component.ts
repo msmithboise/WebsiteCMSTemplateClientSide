@@ -7,6 +7,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Console } from 'console';
+import { ActivatedRoute } from '@angular/router';
+import { CustomImageService } from 'src/app/services/custom-image.service';
+import { Webcontent } from 'src/app/WebContent/webcontent.model';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -28,7 +31,9 @@ export class CustomTextModalComponent implements OnInit {
     public customTextService: CustomTextService,
     public customPageComponent: CustomPageComponent,
     public webContentService: WebcontentService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private route: ActivatedRoute,
+    public customImageService: CustomImageService
   ) {}
 
   open(content) {
@@ -46,8 +51,24 @@ export class CustomTextModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
+    this.grabAllContentByPageId();
     // this.webContentService.getImageDetailList();
     // this.getImageDetails();
+  }
+
+  grabAllContentByPageId() {
+    this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(
+      'pageId'
+    );
+    console.log('webcontentservice pg id snapshot');
+    console.log(this.webContentService.pageIdSnapshot);
+    this.customImageService
+      .getWebContentByPageId(this.webContentService.pageIdSnapshot)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentService.webContentArray = res;
+        // console.log('Here is the images based on page id: ');
+        // console.log(this.imagesByPageIdArray);
+      });
   }
 
   getImageDetails() {

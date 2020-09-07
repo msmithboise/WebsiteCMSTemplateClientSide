@@ -92,10 +92,7 @@
       </form>
     </div>
     <div
-      *ngFor="
-        let text of customPageComponent.webContentByPageIdArray;
-        let i = index
-      "
+      *ngFor="let text of this.webContentService.webContentArray; let i = index"
     >
       <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
       <div class="modal-body">
@@ -106,18 +103,6 @@
         >
           <div class="input-group"></div>
 
-          <!-- <div>
-    <button
-      (click)="onDelete(item.UserID)"
-      class="btn btn-sm btn-outline-danger"
-    >
-      Delete
-    </button>
-    <button (click)="populateForm(item)" class="btn btn-sm btn-outline-primary">
-      Edit
-    </button>
-  </div>
-</div> -->
           <!-- Id -->
 
           <input
