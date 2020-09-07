@@ -71,6 +71,9 @@ export class CustomPageComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
+    this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
+    console.log('webcontentservice pg id snapshot');
+    console.log(this.webContentService.pageIdSnapshot);
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {

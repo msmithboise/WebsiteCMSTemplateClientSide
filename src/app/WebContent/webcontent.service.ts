@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Webcontent } from './webcontent.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,12 @@ export class WebcontentService {
   public webContentArray: Webcontent[];
   public formData: Webcontent;
   imageDetailList: AngularFireList<any>;
+  public pageIdSnapshot: number;
 
   constructor(
     private http: HttpClient,
-    private firebase: AngularFireDatabase
+    private firebase: AngularFireDatabase,
+    private route: ActivatedRoute
   ) {}
 
   getImageDetailList() {
@@ -46,6 +49,12 @@ export class WebcontentService {
   postUploadedImage(imageUrl: string) {
     const fd: FormData = new FormData();
     fd.append('imageUrl', imageUrl);
+    console.log('here is the image url about to be posted: ');
+    console.log(imageUrl);
+    this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
+    console.log('here is the page id about to be posted');
+    console.log(this.pageIdSnapshot.toString());
+    fd.append('pageId', this.pageIdSnapshot.toString());
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 }
