@@ -13,13 +13,6 @@
 
   <div class="container">
     <form #f="ngForm" (submit)="addNewPage(f)">
-      <!-- <input
-        name="PageId"
-        type="hidden"
-        #PageId="ngModel"
-        [(ngModel)]="customPageService.pageFormData"
-      /> -->
-
       <label>Page Description</label>
       <div class="input-group-append"></div>
       <input
@@ -63,24 +56,6 @@
     </div>
   </div>
 </ng-template>
-
-<!-- <div>
-    <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
-      <input
-        name="TextBody"
-        placeholder="Enter Text Here"
-        type="text"
-        #TextBody="ngModel"
-        [(ngModel)]="webContentService.formData"
-      />
-      <input
-        type="hidden"
-        name="PageId"
-        #PageId="ngModel"
-        [(ngModel)]="customPageComponent.pageIdSnapshot"
-      />
-    </form>
-  </div> -->
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
   Add New Page

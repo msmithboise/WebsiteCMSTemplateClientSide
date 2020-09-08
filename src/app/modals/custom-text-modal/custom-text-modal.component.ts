@@ -170,6 +170,12 @@ export class CustomTextModalComponent implements OnInit {
     }
   }
 
+  deleteDialogue(id: number) {
+    if (confirm('Are you sure you want to delete this?')) {
+      this.onDelete(id);
+    }
+  }
+
   onDelete(id: number) {
     this.webContentService.deleteWebPageContent(id).subscribe((res) => {
       this.grabAllContentByPageId();

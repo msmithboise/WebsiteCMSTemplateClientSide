@@ -22,6 +22,7 @@ import { CustomTextModalComponent } from './modals/custom-text-modal/custom-text
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WebcontentComponent } from './WebContent/webcontent/webcontent.component';
 import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page-modal.component';
+import { EditContentModalComponent } from './modals/edit-content-modal/edit-content-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page
     CustomTextModalComponent,
     WebcontentComponent,
     CustomPageModalComponent,
+    EditContentModalComponent,
   ],
   imports: [
     BrowserModule,
