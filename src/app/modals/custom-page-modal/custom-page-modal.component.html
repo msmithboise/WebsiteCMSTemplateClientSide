@@ -33,6 +33,9 @@
   </div>
   <div class="container">
     <div *ngFor="let page of this.customPageService.customPageArray">
+      <button class="btn-danger" (click)="deletePage(page.PageId)">
+        Delete
+      </button>
       <form #form="ngForm" (submit)="addNewPage(form)">
         <div class="input-group"></div>
 

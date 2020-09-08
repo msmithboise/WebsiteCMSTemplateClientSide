@@ -53,4 +53,11 @@ export class CustomPageModalComponent implements OnInit {
         this.customPageService.customPageArray = res;
       });
   }
+
+  deletePage(pageId: number) {
+    this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
+      this.customPageService.getCustomPageContent();
+      //this.resetForm();
+    });
+  }
 }
