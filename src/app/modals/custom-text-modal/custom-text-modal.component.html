@@ -12,6 +12,7 @@
   </div>
 
   <app-custom-page-modal></app-custom-page-modal>
+  <app-edit-content-modal></app-edit-content-modal>
 
   <!-- New Upload File Form -->
   <div class="card" style="width: 25rem">
@@ -150,11 +151,30 @@
         >
           Delete
         </button>
-        <button class="btn btn-primary float-right">Edit</button>
+        <button
+          class="btn btn-primary float-right"
+          (click)="openContentEditor(contentEditor)"
+        >
+          Edit
+        </button>
       </div>
     </div>
     <div class="modal-footer"></div>
   </ng-container>
+</ng-template>
+
+<ng-template #contentEditor let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Edit Content</h1>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">

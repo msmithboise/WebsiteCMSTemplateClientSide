@@ -1,1 +1,21 @@
-<p>edit-content-modal works!</p>
+<ng-template #contentEditor let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Edit Content</h1>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <h1>Does this work???</h1>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary">Edit Content</button>
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

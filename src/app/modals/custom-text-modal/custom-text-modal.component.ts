@@ -49,6 +49,29 @@ export class CustomTextModalComponent implements OnInit {
       );
   }
 
+  openContentEditor(contentEditor) {
+    this.modalService
+      .open(contentEditor, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
   ngOnInit(): void {
     this.resetForm();
     this.grabAllContentByPageId();
@@ -97,16 +120,6 @@ export class CustomTextModalComponent implements OnInit {
       });
 
     //Now we need to create a form to post to db
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 
   handleFileInput(file: FileList) {
