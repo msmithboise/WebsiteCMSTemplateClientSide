@@ -121,7 +121,7 @@ export class CustomPageComponent implements OnInit {
   //Post text box one
   postCustomPageData() {
     this.customPageService
-      .createCustomPage(this.customPageService.customPageFormData)
+      .createCustomPage(this.customPageService.pageFormData)
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
       });

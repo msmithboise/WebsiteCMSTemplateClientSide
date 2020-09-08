@@ -10,27 +10,8 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <!-- Old upload file form -->
-  <!-- <div class="container">
-    <form #imageForm="ngForm" (ngSubmit)="onImageSubmit(Image)">
-      <div class="form-group">
-        <label for="file">Choose File</label>
-        <input
-          type="file"
-          #Image
-          accept="image/*"
-          (change)="handleFileInput($event.target.files)"
-        />
-        <button
-          type="submit"
-          class="btn-large btn-submit"
-          [disabled]="Image.value == '' || !imageForm.valid"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-  </div> -->
+
+  <app-custom-page-modal></app-custom-page-modal>
 
   <!-- New Upload File Form -->
   <div class="card" style="width: 25rem">

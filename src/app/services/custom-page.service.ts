@@ -17,7 +17,7 @@ export class CustomPageService {
   public customPageArray: CustomPage[];
   public customPageArrayById: CustomPage;
   readonly webApi = 'http://localhost:54704/api';
-  customPageFormData: CustomPage;
+  public pageFormData: CustomPage;
 
   // //Get form data
   // getCustomPageData() {
@@ -51,6 +51,11 @@ export class CustomPageService {
       this.webApi + '/CustomPages/' + customPageFormData.PageId,
       customPageFormData
     );
+  }
+
+  //post
+  postWebPageContent(formData: CustomPage) {
+    return this.http.post(this.webApi + '/CustomPages', formData);
   }
 
   //Delete

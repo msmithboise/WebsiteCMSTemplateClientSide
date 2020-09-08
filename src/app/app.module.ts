@@ -21,6 +21,7 @@ import { CustomTextComponent } from './custom-text/custom-text.component';
 import { CustomTextModalComponent } from './modals/custom-text-modal/custom-text-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WebcontentComponent } from './WebContent/webcontent/webcontent.component';
+import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { WebcontentComponent } from './WebContent/webcontent/webcontent.componen
     CustomTextComponent,
     CustomTextModalComponent,
     WebcontentComponent,
+    CustomPageModalComponent,
   ],
   imports: [
     BrowserModule,
