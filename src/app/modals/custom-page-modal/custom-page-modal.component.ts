@@ -54,6 +54,14 @@ export class CustomPageModalComponent implements OnInit {
       });
   }
 
+  deleteDialogue(id: number, pageDescription: string) {
+    if (
+      confirm('Are you sure you want to delete' + ' ' + pageDescription + '?')
+    ) {
+      this.deletePage(id);
+    }
+  }
+
   deletePage(pageId: number) {
     this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
       this.customPageService.getCustomPageContent();

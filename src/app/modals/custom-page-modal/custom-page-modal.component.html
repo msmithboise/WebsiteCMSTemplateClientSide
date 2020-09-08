@@ -50,7 +50,10 @@
 
         <!-- --------------------------------------------------------------------------- -->
       </form>
-      <button class="btn-danger" (click)="deletePage(page.PageId)">
+      <button
+        class="btn-danger"
+        (click)="deleteDialogue(page.PageId, page.PageDescription)"
+      >
         Delete
       </button>
     </div>
