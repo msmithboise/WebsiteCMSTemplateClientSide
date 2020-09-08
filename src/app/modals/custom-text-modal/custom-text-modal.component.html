@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h1 class="modal-title" id="modal-basic-title">Edit Settings</h1>
+    <h1 class="modal-title" id="modal-basic-title">Edit Page</h1>
     <button
       type="button"
       class="close"
@@ -30,7 +30,7 @@
           <input
             type="file"
             accept="image/*"
-            class="form-control"
+            class="form-control-file"
             #fileUploader
             formControlName="imageUrl"
             (change)="showPreview($event)"
@@ -57,20 +57,27 @@
   <ng-container>
     <div class="card">
       <div class="card-body">
-        <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
-          <input
-            name="TextBody"
-            placeholder="Enter Text Here"
-            type="text"
-            #TextBody="ngModel"
-            [(ngModel)]="webContentService.formData"
-          />
-          <input
-            type="hidden"
-            name="PageId"
-            #PageId="ngModel"
-            [(ngModel)]="customPageComponent.pageIdSnapshot"
-          />
+        <form
+          #f="ngForm"
+          class="form-inline"
+          (submit)="customPageComponent.submitNewTextData(f)"
+        >
+          <div class="form-group">
+            <input
+              name="TextBody"
+              class="form-control-lg form-group"
+              placeholder="Add Text/URL Here"
+              type="text"
+              #TextBody="ngModel"
+              [(ngModel)]="webContentService.formData"
+            />
+            <input
+              type="hidden"
+              name="PageId"
+              #PageId="ngModel"
+              [(ngModel)]="customPageComponent.pageIdSnapshot"
+            />
+          </div>
         </form>
       </div>
     </div>
@@ -78,7 +85,7 @@
       *ngFor="let text of this.webContentService.webContentArray; let i = index"
     >
       <div class="input-group"></div>
-      <div class="modal-body">
+      <div class="modal-body form-group">
         <form
           #form="ngForm"
           (submit)="customPageComponent.onSubmit(form)"
@@ -92,7 +99,6 @@
             #TextId="ngModel"
             [(ngModel)]="text.Id"
           />
-          <div class="input-group-append"></div>
 
           <!-- Text Id -->
           <input
@@ -101,7 +107,6 @@
             #TextId="ngModel"
             [(ngModel)]="text.TextId"
           />
-          <div class="input-group-append"></div>
 
           <!-- Text Body -->
 
@@ -113,19 +118,16 @@
               #TextBody="ngModel"
               [(ngModel)]="text.TextBody"
             />
-            <div class="input-group-append"></div>
           </div>
 
           <!-- PageId -->
 
-          <div class="input-group"></div>
           <input
             name="PageId"
             type="hidden"
             #PageId="ngModel"
             [(ngModel)]="text.PageId"
           />
-          <div class="input-group-append"></div>
 
           <!-- ImageUrl -->
           <div *ngIf="text.ImageUrl">
@@ -141,15 +143,17 @@
 
           <!-- --------------------------------------------------------------------------- -->
         </form>
-        <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
+        <button class="btn btn-danger float-right" (click)="onDelete(text.Id)">
+          Delete
+        </button>
       </div>
-      <div class="modal-footer"></div>
     </div>
+    <div class="modal-footer"></div>
   </ng-container>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-  Edit Text
+  Edit Page
 </button>
 
 <hr />
