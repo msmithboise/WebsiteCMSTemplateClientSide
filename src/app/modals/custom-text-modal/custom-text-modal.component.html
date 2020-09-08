@@ -79,7 +79,6 @@
     >
       <div class="input-group"></div>
       <div class="modal-body">
-        <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
         <form
           #form="ngForm"
           (submit)="customPageComponent.onSubmit(form)"
@@ -142,6 +141,7 @@
 
           <!-- --------------------------------------------------------------------------- -->
         </form>
+        <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
       </div>
       <div class="modal-footer"></div>
     </div>
