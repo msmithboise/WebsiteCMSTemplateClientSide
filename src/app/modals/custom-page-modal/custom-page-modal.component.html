@@ -31,6 +31,34 @@
       />
     </form>
   </div>
+  <div class="container">
+    <div *ngFor="let page of this.customPageService.customPageArray">
+      <form #form="ngForm" (submit)="addNewPage(form)">
+        <div class="input-group"></div>
+
+        <!-- Page Id -->
+
+        <input
+          name="PageId"
+          type="hidden"
+          #TextId="ngModel"
+          [(ngModel)]="page.PageId"
+        />
+
+        <!-- Page Description -->
+
+        <input
+          name="PageDescription"
+          type="text"
+          #TextId="ngModel"
+          [(ngModel)]="page.PageDescription"
+        />
+        <div class="input-group-append"></div>
+
+        <!-- --------------------------------------------------------------------------- -->
+      </form>
+    </div>
+  </div>
 </ng-template>
 
 <!-- <div>
