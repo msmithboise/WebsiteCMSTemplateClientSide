@@ -1,3 +1,6 @@
 .alignRight {
   float: right;
 }
+#form {
+  background-color: #00007d;
+}

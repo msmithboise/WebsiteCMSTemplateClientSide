@@ -55,35 +55,36 @@
   </div>
 
   <ng-container>
-    <div>
-      <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
-        <input
-          name="TextBody"
-          placeholder="Enter Text Here"
-          type="text"
-          #TextBody="ngModel"
-          [(ngModel)]="webContentService.formData"
-        />
-        <input
-          type="hidden"
-          name="PageId"
-          #PageId="ngModel"
-          [(ngModel)]="customPageComponent.pageIdSnapshot"
-        />
-      </form>
+    <div class="card">
+      <div class="card-body">
+        <form #f="ngForm" (submit)="customPageComponent.submitNewTextData(f)">
+          <input
+            name="TextBody"
+            placeholder="Enter Text Here"
+            type="text"
+            #TextBody="ngModel"
+            [(ngModel)]="webContentService.formData"
+          />
+          <input
+            type="hidden"
+            name="PageId"
+            #PageId="ngModel"
+            [(ngModel)]="customPageComponent.pageIdSnapshot"
+          />
+        </form>
+      </div>
     </div>
     <div
       *ngFor="let text of this.webContentService.webContentArray; let i = index"
     >
-      <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
+      <div class="input-group"></div>
       <div class="modal-body">
+        <button class="btn-danger" (click)="onDelete(text.Id)">Delete</button>
         <form
           #form="ngForm"
           (submit)="customPageComponent.onSubmit(form)"
           id="myForm"
         >
-          <div class="input-group"></div>
-
           <!-- Id -->
 
           <input
