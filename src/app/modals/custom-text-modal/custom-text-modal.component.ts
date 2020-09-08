@@ -166,11 +166,13 @@ export class CustomTextModalComponent implements OnInit {
           })
         )
         .subscribe();
+      this.grabAllContentByPageId();
     }
   }
 
   onDelete(id: number) {
     this.webContentService.deleteWebPageContent(id).subscribe((res) => {
+      this.grabAllContentByPageId();
       this.resetForm();
     });
   }
