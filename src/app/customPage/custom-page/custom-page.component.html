@@ -9,6 +9,10 @@
 
 <app-custom-text-modal></app-custom-text-modal>
 <div *ngFor="let content of this.webContentService.webContentArray">
-  <h1>{{ content.TextBody }}</h1>
+  <h1 [ngStyle]="{ fontSize: content.fontSize, color: content.color }">
+    {{ content.TextBody }}
+  </h1>
   <img src="{{ content.ImageUrl }}" />
 </div>
+
+<!-- <p [ngStyle]="myTextBoxOne">{{ this.service.formData.Textbox1 }}</p> -->
