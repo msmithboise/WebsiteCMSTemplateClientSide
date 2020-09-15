@@ -10,6 +10,15 @@
 
   <app-custom-text-modal></app-custom-text-modal>
   <div *ngFor="let content of this.webContentService.webContentArray">
+    <div *ngIf="content.imageUpload != null">
+      <iframe
+        width="420"
+        height="315"
+        [src]="setYouTubeEmbed(content.imageUpload)"
+      >
+      </iframe>
+    </div>
+
     <h1
       [ngStyle]="{
         fontSize: content.fontSize,
@@ -144,6 +153,7 @@
     >
       {{ content.TextBody }}
     </h1>
+
     <img
       src="{{ content.ImageUrl }}"
       [ngStyle]="{
