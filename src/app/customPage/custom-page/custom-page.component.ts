@@ -51,9 +51,23 @@ export class CustomPageComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     //Submit for homepage content
-    console.log('submitting...');
-    console.log(form);
     this.insertRecord(form);
+  }
+
+  onEditSubmit(form: NgForm) {
+    console.log('submitting...');
+
+    this.insertEditSettings(form);
+  }
+
+  insertEditSettings(form: NgForm) {
+    console.log('form and id:');
+    console.log(form);
+
+    this.webContentService.postEditContentById(form.value).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
   }
 
   submitNewTextData(form: NgForm) {
@@ -64,8 +78,6 @@ export class CustomPageComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    console.log('hamster should be here in insertRecord..');
-    console.log(form.value);
     this.webContentService
       .postWebContentByPageId(form.value)
       .subscribe((res) => {

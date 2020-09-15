@@ -12,6 +12,7 @@ export class WebcontentService {
   public webContentArray: Webcontent[];
   public webContentByIdArray: Webcontent[];
   public formData: Webcontent;
+  public editFormData: Webcontent;
   imageDetailList: AngularFireList<any>;
   public pageIdSnapshot: number;
 
@@ -45,6 +46,12 @@ export class WebcontentService {
   //Post webcontent
   postWebContentByPageId(formData: Webcontent) {
     return this.http.post(this.webApi + '/WebContent', formData);
+  }
+
+  //Post content settings
+
+  postEditContentById(editFormData: Webcontent) {
+    return this.http.post(this.webApi + '/EditContent', editFormData);
   }
 
   postFile(fileToUpload: File) {

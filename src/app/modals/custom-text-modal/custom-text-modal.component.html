@@ -189,14 +189,13 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <h1>Does this work??</h1>
 
   <div class="container">
     <div class="card">
       <div *ngFor="let content of this.webContentService.webContentByIdArray">
         <form
           #form="ngForm"
-          (submit)="customPageComponent.onSubmit(form)"
+          (submit)="customPageComponent.onEditSubmit(form)"
           id="myForm"
         >
           <!-- Id -->
@@ -206,6 +205,24 @@
             type="hidden"
             #Id="ngModel"
             [(ngModel)]="content.Id"
+          />
+
+          <!-- Page Id -->
+
+          <input
+            name="PageId"
+            type="hidden"
+            #PageId="ngModel"
+            [(ngModel)]="content.PageId"
+          />
+
+          <!-- Text Body -->
+
+          <input
+            name="TextBody"
+            type="hidden"
+            #TextBody="ngModel"
+            [(ngModel)]="content.TextBody"
           />
 
           <label>Color</label>
