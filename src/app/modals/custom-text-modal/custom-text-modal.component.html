@@ -193,57 +193,113 @@
   <div class="container">
     <div class="card">
       <div *ngFor="let content of this.webContentService.webContentByIdArray">
-        <form
-          #form="ngForm"
-          (submit)="customPageComponent.onEditSubmit(form)"
-          id="myForm"
-        >
-          <!-- Id -->
+        <div class="modal-body form-group">
+          <form
+            #form="ngForm"
+            (submit)="customPageComponent.onEditSubmit(form)"
+            id="myForm"
+          >
+            <!-- Id -->
 
-          <input
-            name="Id"
-            type="hidden"
-            #Id="ngModel"
-            [(ngModel)]="content.Id"
-          />
+            <input
+              name="Id"
+              type="hidden"
+              #Id="ngModel"
+              [(ngModel)]="content.Id"
+            />
+            <div class="input-group-append"></div>
 
-          <!-- Page Id -->
+            <!-- Page Id -->
 
-          <input
-            name="PageId"
-            type="hidden"
-            #PageId="ngModel"
-            [(ngModel)]="content.PageId"
-          />
+            <input
+              name="PageId"
+              type="hidden"
+              #PageId="ngModel"
+              [(ngModel)]="content.PageId"
+            />
+            <div class="input-group-append"></div>
 
-          <!-- Text Body -->
+            <!-- Text Body -->
 
-          <input
-            name="TextBody"
-            type="hidden"
-            #TextBody="ngModel"
-            [(ngModel)]="content.TextBody"
-          />
+            <input
+              name="TextBody"
+              type="hidden"
+              #TextBody="ngModel"
+              [(ngModel)]="content.TextBody"
+            />
+            <div class="input-group-append"></div>
 
-          <!-- Font Size -->
-          <label>Font Size</label>
-          <input
-            name="fontSize"
-            #fontSize="ngModel"
-            [(ngModel)]="content.fontSize"
-          />
+            <!-- Font Size -->
+            <label><b>Font Size</b></label>
+            <input
+              name="fontSize"
+              #fontSize="ngModel"
+              [(ngModel)]="content.fontSize"
+            />
+            <div class="input-group-append"></div>
 
-          <!-- Color -->
+            <!-- Color -->
 
-          <label>Color</label>
-          <input name="color" #color="ngModel" [(ngModel)]="content.color" />
-        </form>
-        <button
-          class="btn btn-primary"
-          (click)="customPageComponent.onEditSubmit(form)"
-        >
-          Save Changes
-        </button>
+            <label><b>Color</b></label>
+            <input name="color" #color="ngModel" [(ngModel)]="content.color" />
+            <div class="input-group-append"></div>
+
+            <!-- Height -->
+            <label><b>Height</b></label>
+            <input
+              name="height"
+              #height="ngModel"
+              [(ngModel)]="content.height"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Width -->
+            <label><b>Width</b></label>
+            <input name="width" #width="ngModel" [(ngModel)]="content.width" />
+            <div class="input-group-append"></div>
+
+            <!-- Text Align -->
+            <label><b>Text Align</b></label>
+            <input
+              name="textAlign"
+              #textAlign="ngModel"
+              [(ngModel)]="content.textAlign"
+            />
+            <div class="input-group-append"></div>
+            <!-- Position -->
+            <label><b>Position</b></label>
+            <input
+              name="position"
+              #position="ngModel"
+              [(ngModel)]="content.position"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Line Height -->
+            <label><b>Line Height</b></label>
+            <input
+              name="lineHeight"
+              #lineHeight="ngModel"
+              [(ngModel)]="content.lineHeight"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Box Shadow -->
+            <label><b>Box Shadow</b></label>
+            <input
+              name="boxShadow"
+              #boxShadow="ngModel"
+              [(ngModel)]="content.boxShadow"
+            />
+            <div class="input-group-append"></div>
+          </form>
+          <button
+            class="btn btn-primary"
+            (click)="customPageComponent.onEditSubmit(form)"
+          >
+            Save Changes
+          </button>
+        </div>
       </div>
     </div>
   </div>
