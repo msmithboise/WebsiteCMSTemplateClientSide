@@ -44,9 +44,6 @@ export class CustomPageModalComponent implements OnInit {
   }
 
   addNewPage(form: NgForm) {
-    console.log('here is the page submit form:');
-    console.log(form);
-
     this.customPageService
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {

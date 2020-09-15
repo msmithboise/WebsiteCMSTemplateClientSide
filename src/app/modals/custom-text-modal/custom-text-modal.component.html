@@ -225,9 +225,25 @@
             [(ngModel)]="content.TextBody"
           />
 
+          <!-- Font Size -->
+          <label>Font Size</label>
+          <input
+            name="fontSize"
+            #fontSize="ngModel"
+            [(ngModel)]="content.fontSize"
+          />
+
+          <!-- Color -->
+
           <label>Color</label>
           <input name="color" #color="ngModel" [(ngModel)]="content.color" />
         </form>
+        <button
+          class="btn btn-primary"
+          (click)="customPageComponent.onEditSubmit(form)"
+        >
+          Save Changes
+        </button>
       </div>
     </div>
   </div>

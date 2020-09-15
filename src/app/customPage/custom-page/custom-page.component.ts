@@ -46,7 +46,6 @@ export class CustomPageComponent implements OnInit {
 
   toggleAddButton() {
     this.show = !this.show;
-    console.log('adding text...');
   }
 
   onSubmit(form: NgForm) {
@@ -55,8 +54,6 @@ export class CustomPageComponent implements OnInit {
   }
 
   onEditSubmit(form: NgForm) {
-    console.log('submitting...');
-
     this.insertEditSettings(form);
   }
 
@@ -71,9 +68,6 @@ export class CustomPageComponent implements OnInit {
   }
 
   submitNewTextData(form: NgForm) {
-    console.log('got yo hamster son....');
-    console.log(form.value);
-
     this.insertRecord(form);
   }
 
@@ -88,8 +82,7 @@ export class CustomPageComponent implements OnInit {
 
   grabAllContentByPageId() {
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
-    console.log('webcontentservice pg id snapshot');
-    console.log(this.webContentService.pageIdSnapshot);
+
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
@@ -154,7 +147,6 @@ export class CustomPageComponent implements OnInit {
   onCustomPageSubmit(form: NgForm) {
     //Submit for custom page content
     this.insertCustomPageRecord(form);
-    console.log('hee hee that tickles!');
   }
 
   getCustomPageById(pageId: number): CustomPage {

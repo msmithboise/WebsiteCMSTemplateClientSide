@@ -14,8 +14,6 @@ export class CustomTextService {
 
   //Get text by page id
   getTextByPageId(pageId: number) {
-    console.log('pageId: ');
-    console.log(pageId);
     return this.http.get<CustomText[]>(this.webApi + '/CustomText/' + pageId);
   }
 

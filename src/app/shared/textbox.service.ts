@@ -34,7 +34,6 @@ export class TextboxService {
 
   //Update
   updateTextBoxOneContent(textBoxOneFormData: Textbox) {
-    console.log(textBoxOneFormData);
     return this.http.post(
       this.rootURL + '/TextBoxOne/' + textBoxOneFormData.Id,
       this.textBoxOneFormData

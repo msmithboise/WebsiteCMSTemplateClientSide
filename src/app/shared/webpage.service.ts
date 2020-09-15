@@ -54,7 +54,6 @@ export class WebpageService {
 
   //Put
   putWebPageContent(formData: Webpage) {
-    console.log(formData);
     return this.http.post(
       this.rootURL + '/HomePage/' + formData.UserID,
       formData

@@ -19,8 +19,6 @@ export class CustomImageService {
 
   //Get Images by page id
   getWebContentByPageId(pageId: number) {
-    console.log('pageId: ');
-    console.log(pageId);
     return this.http.get<CustomImage[]>(this.webApi + '/WebContent/' + pageId);
   }
 }

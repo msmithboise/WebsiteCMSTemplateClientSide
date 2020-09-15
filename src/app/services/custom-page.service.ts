@@ -60,8 +60,6 @@ export class CustomPageService {
 
   //Delete
   deleteCustomPage(id: number) {
-    console.log('deleting page in service, here is page id');
-    console.log(id);
     return this.http.delete(this.webApi + '/CustomPages/' + id);
   }
 }

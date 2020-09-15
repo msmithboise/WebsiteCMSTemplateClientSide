@@ -32,8 +32,6 @@ export class WebcontentService {
 
   //Get all content by page id
   getWebContentByPageId(pageId: number) {
-    console.log('pageId: ');
-    console.log(pageId);
     return this.http.get<Webcontent[]>(this.webApi + '/WebContent/' + pageId);
   }
 
@@ -63,11 +61,9 @@ export class WebcontentService {
   postUploadedImage(imageUrl: string) {
     const fd: FormData = new FormData();
     fd.append('imageUrl', imageUrl);
-    console.log('here is the image url about to be posted: ');
-    console.log(imageUrl);
+
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
-    console.log('here is the page id about to be posted');
-    console.log(this.pageIdSnapshot.toString());
+
     fd.append('pageId', this.pageIdSnapshot.toString());
     return this.http.post(this.webApi + '/UploadImage', fd);
   }

@@ -83,8 +83,7 @@ export class CustomTextModalComponent implements OnInit {
     this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(
       'pageId'
     );
-    console.log('webcontentservice pg id snapshot');
-    console.log(this.webContentService.pageIdSnapshot);
+
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
@@ -110,14 +109,9 @@ export class CustomTextModalComponent implements OnInit {
   }
 
   setFireBaseUrlToImageUrl() {
-    console.log('here is firebaseurl property');
-    console.log(this.fireBaseImageUrl);
-
     this.webContentService
       .postUploadedImage(this.fireBaseImageUrl)
-      .subscribe((data) => {
-        console.log('done!');
-      });
+      .subscribe((data) => {});
 
     //Now we need to create a form to post to db
   }
@@ -127,10 +121,7 @@ export class CustomTextModalComponent implements OnInit {
   }
 
   onImageSubmit(Image: File) {
-    console.log(Image);
-    this.webContentService.postFile(this.fileToUpload).subscribe((data) => {
-      console.log('done!');
-    });
+    this.webContentService.postFile(this.fileToUpload).subscribe((data) => {});
   }
 
   formTemplate = new FormGroup({
@@ -164,13 +155,9 @@ export class CustomTextModalComponent implements OnInit {
         .pipe(
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
-              console.log("here's the finalize url");
-              console.log(url);
               this.webContentService
                 .postUploadedImage(url)
-                .subscribe((data) => {
-                  console.log('done!');
-                });
+                .subscribe((data) => {});
 
               formValue['imageUrl'] = url;
               //this.webContentService.insertImageDetails(formValue);
@@ -214,9 +201,6 @@ export class CustomTextModalComponent implements OnInit {
   setEditForm(id) {}
 
   selectItemToEdit(webContentId) {
-    console.log('testing the id');
-    console.log(webContentId);
-
     this.webContentService
       .getEditContentById(webContentId)
       .subscribe((res: Webcontent[]) => {
