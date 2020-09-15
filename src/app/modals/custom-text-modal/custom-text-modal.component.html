@@ -229,6 +229,16 @@
             />
             <div class="input-group-append"></div>
 
+            <!-- Image Url -->
+
+            <input
+              name="ImageUrl"
+              type="hidden"
+              #ImageUrl="ngModel"
+              [(ngModel)]="content.ImageUrl"
+            />
+            <div class="input-group-append"></div>
+
             <!-- Font Size -->
             <label><b>Font Size</b></label>
             <input
@@ -352,6 +362,42 @@
               name="paddingRight"
               #paddingRight="ngModel"
               [(ngModel)]="content.paddingRight"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Margin Top -->
+            <label><b>Margin Top</b></label>
+            <input
+              name="marginTop"
+              #marginTop="ngModel"
+              [(ngModel)]="content.marginTop"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Margin Bottom -->
+            <label><b>Margin Bottom</b></label>
+            <input
+              name="marginBottom"
+              #marginBottom="ngModel"
+              [(ngModel)]="content.marginBottom"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Margin Left -->
+            <label><b>Margin Left</b></label>
+            <input
+              name="marginLeft"
+              #marginLeft="ngModel"
+              [(ngModel)]="content.marginLeft"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Margin Right -->
+            <label><b>Margin Right</b></label>
+            <input
+              name="marginRight"
+              #marginRight="ngModel"
+              [(ngModel)]="content.marginRight"
             />
             <div class="input-group-append"></div>
 
