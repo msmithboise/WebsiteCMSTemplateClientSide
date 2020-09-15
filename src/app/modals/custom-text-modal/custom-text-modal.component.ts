@@ -210,4 +210,19 @@ export class CustomTextModalComponent implements OnInit {
     this.selectedImage = null;
     this.isSubmitted = false;
   }
+
+  setEditForm(id) {}
+
+  selectItemToEdit(webContentId) {
+    console.log('testing the id');
+    console.log(webContentId);
+
+    this.webContentService
+      .getEditContentById(webContentId)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentService.webContentByIdArray = res;
+        // console.log('Here is the images based on page id: ');
+        // console.log(this.imagesByPageIdArray);
+      });
+  }
 }

@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class WebcontentService {
   readonly webApi = 'http://localhost:54704/api';
   public webContentArray: Webcontent[];
+  public webContentByIdArray: Webcontent[];
   public formData: Webcontent;
   imageDetailList: AngularFireList<any>;
   public pageIdSnapshot: number;
@@ -33,6 +34,12 @@ export class WebcontentService {
     console.log('pageId: ');
     console.log(pageId);
     return this.http.get<Webcontent[]>(this.webApi + '/WebContent/' + pageId);
+  }
+
+  //Get content by id
+
+  getEditContentById(id: number) {
+    return this.http.get<Webcontent[]>(this.webApi + '/EditContent/' + id);
   }
 
   //Post webcontent

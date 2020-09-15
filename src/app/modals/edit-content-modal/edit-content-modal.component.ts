@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { WebcontentService } from 'src/app/WebContent/webcontent.service';
+import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 
 @Component({
   selector: 'app-edit-content-modal',
@@ -8,7 +10,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class EditContentModalComponent implements OnInit {
   closeResult = '';
-  constructor(public modalService: NgbModal) {}
+  constructor(
+    public modalService: NgbModal,
+    public webContentService: WebcontentService,
+    public customPageComponent: CustomPageComponent
+  ) {}
 
   ngOnInit(): void {}
 

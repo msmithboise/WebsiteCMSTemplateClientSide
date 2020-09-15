@@ -1,6 +1,9 @@
 <ng-template #contentEditor let-modal>
   <div class="modal-header">
     <h1 class="modal-title" id="modal-basic-title">Edit Content</h1>
+    <form action="">
+      <input type="text" />
+    </form>
     <button
       type="button"
       class="close"
@@ -12,6 +15,40 @@
   </div>
 
   <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+  <h1>Does this work???</h1>
+
+  <div class="container">
+    <div class="card">
+      <div *ngFor="let content of this.webContentService.webContentByIdArray">
+        <form
+          #form="ngForm"
+          (submit)="customPageComponent.onSubmit(form)"
+          id="myForm"
+        >
+          <!-- Id -->
+
+          <input
+            name="Id"
+            type="hidden"
+            #Id="ngModel"
+            [(ngModel)]="content.Id"
+          />
+
+          <input name="color" #color="ngModel" [(ngModel)]="content.color" />
+        </form>
+      </div>
+    </div>
+  </div>
 </ng-template>
 
 <!-- <button class="btn btn-lg btn-outline-primary">Edit Content</button> -->

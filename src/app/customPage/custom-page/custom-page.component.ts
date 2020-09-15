@@ -152,13 +152,10 @@ export class CustomPageComponent implements OnInit {
   }
 
   setYouTubeEmbed(embedLink) {
-    console.log(
-      this.sanitizer.bypassSecurityTrustUrl(
+    if (embedLink != null) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(
         'https://www.youtube.com/embed/' + embedLink
-      )
-    );
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      'https://www.youtube.com/embed/' + embedLink
-    );
+      );
+    }
   }
 }
