@@ -460,76 +460,387 @@
             <div class="input-group-append"></div>
 
             <!-- Font Size -->
-            <label><b>Font Size</b></label>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Font Size </b></label>
+                  <div>
+                    <input
+                      name="fontSize"
+                      #fontSize="ngModel"
+                      [(ngModel)]="content.fontSize"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="fontSize"></label>
+                  <select
+                    id="fontSize"
+                    name="fontSize"
+                    [(ngModel)]="content.fontSize"
+                    class="form-control"
+                  >
+                    <option value="12px">12px</option>
+                    <option value="16px">16px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="36px">36px</option>
+                    <option value="42px">42px</option>
+                    <option value="74px">74px</option>
+                    <option value="90px">90px</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+
+            <!-- Text Body -->
+
             <input
-              name="fontSize"
-              #fontSize="ngModel"
-              [(ngModel)]="content.fontSize"
+              name="TextBody"
+              type="hidden"
+              #TextBody="ngModel"
+              [(ngModel)]="content.TextBody"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Image Url -->
+
+            <input
+              name="ImageUrl"
+              type="hidden"
+              #ImageUrl="ngModel"
+              [(ngModel)]="content.ImageUrl"
             />
             <div class="input-group-append"></div>
 
             <!-- Color -->
 
-            <label><b>Color</b></label>
-            <input name="color" #color="ngModel" [(ngModel)]="content.color" />
-            <div class="input-group-append"></div>
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Color</b></label>
+                  <div>
+                    <input
+                      name="color"
+                      #color="ngModel"
+                      [(ngModel)]="content.color"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="color"></label>
+                  <select
+                    id="color"
+                    name="color"
+                    [(ngModel)]="content.color"
+                    class="form-control"
+                  >
+                    <option value="red">red</option>
+                    <option value="pink">pink</option>
+                    <option value="black">black</option>
+                    <option value="blue">blue</option>
+                    <option value="purple">purple</option>
+                    <option value="brown">brown</option>
+                    <option value="white">white</option>
+                    <option value="green">green</option>
+                    <option value="orange">orange</option>
+                    <option value="grey">grey</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Height -->
-            <label><b>Height</b></label>
-            <input
-              name="height"
-              #height="ngModel"
-              [(ngModel)]="content.height"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Height</b></label>
+                  <div>
+                    <input
+                      name="height"
+                      #height="ngModel"
+                      [(ngModel)]="content.height"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="height"></label>
+                  <select
+                    id="height"
+                    name="height"
+                    [(ngModel)]="content.height"
+                    class="form-control"
+                  >
+                    <option value="100px">100px</option>
+                    <option value="200px">200px</option>
+                    <option value="400px">400px</option>
+                    <option value="600px">600px</option>
+                    <option value="800px">800px</option>
+                    <option value="1000px">1000px</option>
+                    <option value="1500px">1500px</option>
+                    <option value="2000px">2000px</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Width -->
-            <label><b>Width</b></label>
-            <input name="width" #width="ngModel" [(ngModel)]="content.width" />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Width</b></label>
+                  <div>
+                    <input
+                      name="width"
+                      #width="ngModel"
+                      [(ngModel)]="content.width"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="width"></label>
+                  <select
+                    id="width"
+                    name="width"
+                    [(ngModel)]="content.width"
+                    class="form-control"
+                  >
+                    <option value="100px">100px</option>
+                    <option value="200px">200px</option>
+                    <option value="400px">400px</option>
+                    <option value="600px">600px</option>
+                    <option value="800px">800px</option>
+                    <option value="1000px">1000px</option>
+                    <option value="1500px">1500px</option>
+                    <option value="2000px">2000px</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Text Align -->
-            <label><b>Text Align</b></label>
-            <input
-              name="textAlign"
-              #textAlign="ngModel"
-              [(ngModel)]="content.textAlign"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Text Align</b></label>
+                  <div>
+                    <input
+                      name="textAlign"
+                      #textAlign="ngModel"
+                      [(ngModel)]="content.textAlign"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="textAlign"></label>
+                  <select
+                    id="textAlign"
+                    name="textAlign"
+                    [(ngModel)]="content.textAlign"
+                    class="form-control"
+                  >
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="center">center</option>
+                    <option value="justify">justify</option>
+                    <option value="initial">initial</option>
+                    <option value="inherit">inherit</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+
             <!-- Position -->
-            <label><b>Position</b></label>
-            <input
-              name="position"
-              #position="ngModel"
-              [(ngModel)]="content.position"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Position</b></label>
+                  <div>
+                    <input
+                      name="position"
+                      #position="ngModel"
+                      [(ngModel)]="content.position"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="position"></label>
+                  <select
+                    id="position"
+                    name="position"
+                    [(ngModel)]="content.position"
+                    class="form-control"
+                  >
+                    <option value="static">static</option>
+                    <option value="relative">relative</option>
+                    <option value="fixed">fixed</option>
+                    <option value="absolute">absolute</option>
+                    <option value="sticky">sticky</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Line Height -->
-            <label><b>Line Height</b></label>
-            <input
-              name="lineHeight"
-              #lineHeight="ngModel"
-              [(ngModel)]="content.lineHeight"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Line Height</b></label>
+                  <div>
+                    <input
+                      name="lineHeight"
+                      #lineHeight="ngModel"
+                      [(ngModel)]="content.lineHeight"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="lineHeight"></label>
+                  <select
+                    id="lineHeight"
+                    name="lineHeight"
+                    [(ngModel)]="content.lineHeight"
+                    class="form-control"
+                  >
+                    <option value="1px">1px</option>
+                    <option value="2px">2px</option>
+                    <option value="3px">3px</option>
+                    <option value="4px">4px</option>
+                    <option value="5px">5px</option>
+                    <option value="6px">6px</option>
+                    <option value="7px">7px</option>
+                    <option value="8px">8px</option>
+                    <option value="9px">9px</option>
+                    <option value="10px">10px</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Box Shadow -->
-            <label><b>Box Shadow</b></label>
-            <input
-              name="boxShadow"
-              #boxShadow="ngModel"
-              [(ngModel)]="content.boxShadow"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Box Shadow</b></label>
+                  <div>
+                    <input
+                      name="boxShadow"
+                      #boxShadow="ngModel"
+                      [(ngModel)]="content.boxShadow"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="boxShadow"></label>
+                  <select
+                    id="boxShadow"
+                    name="boxShadow"
+                    [(ngModel)]="content.boxShadow"
+                    class="form-control"
+                  >
+                    <option value="10px 10px 8px #888888">
+                      10px 10px 8px #888888
+                    </option>
+
+                    <option value="10px">10px</option>
+                    <option value="15px">15px</option>
+
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="grey">grey</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+
             <!-- Transform -->
-            <label><b>Transform</b></label>
-            <input
-              name="transform"
-              #transform="ngModel"
-              [(ngModel)]="content.transform"
-            />
-            <div class="input-group-append"></div>
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Transform</b></label>
+                  <div>
+                    <input
+                      name="transform"
+                      #transform="ngModel"
+                      [(ngModel)]="content.transform"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="transform"></label>
+                  <select
+                    id="transform"
+                    name="transform"
+                    [(ngModel)]="content.transform"
+                    class="form-control"
+                  >
+                    <option value="translate(50px, 100px)">
+                      translate(50px, 100px)
+                    </option>
+                    <option value="rotate(20deg)">rotate(20deg)</option>
+
+                    <option value="rotate(-20deg)">red</option>
+                    <option value="scale(2, 3)">green</option>
+                    <option value="scale(0.5, 0.5)">blue</option>
+                    <option value="scaleX(2)">grey</option>
+                    <option value="scaleX(0.5)">grey</option>
+                    <option value="scaleY(3)">grey</option>
+                    <option value="scaleY(0.5)">grey</option>
+                    <option value="skewX(20deg)">grey</option>
+                    <option value="skew(20deg, 10deg)">grey</option>
+                    <option value="skew(20deg)">grey</option>
+                    <option value="matrix(1, -0.3, 0, 1, 0, 0)">
+                      Combines all the 2D transform methods into one.
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
 
             <!-- Opacity -->
             <label><b>Opacity</b></label>
