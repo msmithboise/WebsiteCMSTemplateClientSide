@@ -9,6 +9,11 @@
     {{ this.customPageService.customPageArrayById.PageDescription }} Page!
   </h1> -->
 
+    <!-- <div class="fade-in">
+      <img [ngStyle]="{
+        fontSize: content.fontSize} src="..//../../assets/rolclogo.jpg" />
+    </div> -->
+
     <app-custom-text-modal></app-custom-text-modal>
     <div *ngFor="let content of this.webContentService.webContentArray">
       <div *ngIf="content.imageUpload != null">

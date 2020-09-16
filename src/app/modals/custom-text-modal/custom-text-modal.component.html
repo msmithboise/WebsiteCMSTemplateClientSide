@@ -364,6 +364,16 @@
           />
           <div class="input-group-append"></div>
 
+          <!-- Animation -->
+
+          <input
+            name="animation"
+            type="hidden"
+            #animation="ngModel"
+            [(ngModel)]="text.animation"
+          />
+          <div class="input-group-append"></div>
+
           <!-- --------------------------------------------------------------------------- -->
         </form>
 
@@ -614,6 +624,15 @@
               name="backgroundSize"
               #backgroundSize="ngModel"
               [(ngModel)]="content.backgroundSize"
+            />
+            <div class="input-group-append"></div>
+
+            <!-- Animation -->
+            <label><b>Animation</b></label>
+            <input
+              name="animation"
+              #animation="ngModel"
+              [(ngModel)]="content.animation"
             />
             <div class="input-group-append"></div>
 
