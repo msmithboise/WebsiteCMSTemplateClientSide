@@ -124,6 +124,7 @@ export class CustomTextModalComponent implements OnInit {
   formTemplate = new FormGroup({
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    backgroundImage: new FormControl(''),
   });
 
   showPreview(event: any) {
@@ -157,6 +158,7 @@ export class CustomTextModalComponent implements OnInit {
                 .subscribe((data) => {});
 
               formValue['imageUrl'] = url;
+
               //this.webContentService.insertImageDetails(formValue);
               this.resetForm();
             });
@@ -189,6 +191,7 @@ export class CustomTextModalComponent implements OnInit {
     this.formTemplate.setValue({
       imageUrl: '',
       pageId: 0,
+      backgroundImage: '',
     });
     this.imgSrc = '/assets/placeholder.jpg';
     this.selectedImage = null;
@@ -206,4 +209,6 @@ export class CustomTextModalComponent implements OnInit {
         // console.log(this.imagesByPageIdArray);
       });
   }
+
+  modifyBackgroundImageLink() {}
 }

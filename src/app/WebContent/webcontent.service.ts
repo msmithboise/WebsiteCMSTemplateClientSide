@@ -65,6 +65,7 @@ export class WebcontentService {
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
 
     fd.append('pageId', this.pageIdSnapshot.toString());
+    fd.append('backgroundImage', 'url(' + imageUrl + ')');
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 
