@@ -143,4 +143,24 @@ export class Webcontent {
   customFieldThree: string;
   customFieldFour: string;
   customFieldFive: string;
+  embedUrl: string;
+  animationName: string;
+  animationDuration: string;
+  animationTimingFunction: string;
+  animationDelay: string;
+  animationIterationCount: string;
+  animationDirection: string;
+  animationFillMode: string;
+  animationPlayState: string;
+  flexBasis: string;
+  flexDirection: string;
+  flexFlow: string;
+  flexGrow: string;
+  flexShrink: string;
+  flexWrap: string;
+  fontFeatureSettings: string;
+  fontVariantCaps: string;
+  resize: string;
+  scrollBehavior: string;
+  writingMode: string;
 }
