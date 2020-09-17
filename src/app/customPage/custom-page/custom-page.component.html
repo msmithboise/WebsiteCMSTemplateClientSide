@@ -32,7 +32,7 @@
           color: content.color,
           backgroundAttachment: content.backgroundAttachment,
           backgroundClip: content.backgroundClip,
-          backgroundImage: content.backgroundImage,
+
           backgroundOrigin: content.backgroundOrigin,
           backgroundPosition: content.backgroundPosition,
           backgroundRepeat: content.backgroundRepeat,
@@ -155,7 +155,8 @@
           flex: content.flex,
           alignContent: content.alignContent,
           alignItems: content.alignItems,
-          alignSelf: content.alignSelf
+          alignSelf: content.alignSelf,
+          'background-image': 'url(' + content.ImageUrl + ')'
         }"
       >
         {{ content.TextBody }}
@@ -168,7 +169,6 @@
           color: content.color,
           backgroundAttachment: content.backgroundAttachment,
           backgroundClip: content.backgroundClip,
-          backgroundImage: content.backgroundImage,
           backgroundOrigin: content.backgroundOrigin,
           backgroundPosition: content.backgroundPosition,
           backgroundRepeat: content.backgroundRepeat,
@@ -291,7 +291,8 @@
           flex: content.flex,
           alignContent: content.alignContent,
           alignItems: content.alignItems,
-          alignSelf: content.alignSelf
+          alignSelf: content.alignSelf,
+          backgroundImage: content.backgroundImage
         }"
       />
     </div>

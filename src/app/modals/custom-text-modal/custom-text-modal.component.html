@@ -1236,7 +1236,7 @@
               <div class="col-6"></div>
             </div>
 
-            <!-- Text Decoration -->
+            <!-- Text Decoration Line -->
 
             <div class="row">
               <div class="col-6">
@@ -1267,6 +1267,81 @@
                     <option value="overline underline">
                       overline underline
                     </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+
+            <!-- Text Decoration Style -->
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Text Decoration Style</b></label>
+                  <div>
+                    <input
+                      name="textDecorationStyle"
+                      #textDecorationStyle="ngModel"
+                      [(ngModel)]="content.textDecorationStyle"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="textDecorationStyle"></label>
+                  <select
+                    id="textDecorationStyle"
+                    name="textDecorationStyle"
+                    [(ngModel)]="content.textDecorationStyle"
+                    class="form-control"
+                  >
+                    <option value="solid">solid</option>
+                    <option value="wavy">wavy</option>
+                    <option value="double">double</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+
+            <!-- Text Decoration Color -->
+
+            <div class="row">
+              <div class="col-6">
+                <div>
+                  <label><b>Text Decoration Color</b></label>
+                  <div>
+                    <input
+                      name="textDecorationColor"
+                      #textDecorationColor="ngModel"
+                      [(ngModel)]="content.textDecorationColor"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="textDecorationColor"></label>
+                  <select
+                    id="textDecorationColor"
+                    name="textDecorationColor"
+                    [(ngModel)]="content.textDecorationColor"
+                    class="form-control"
+                  >
+                    <option value="red">red</option>
+                    <option value="pink">pink</option>
+                    <option value="black">black</option>
+                    <option value="blue">blue</option>
+                    <option value="purple">purple</option>
+                    <option value="brown">brown</option>
+                    <option value="white">white</option>
+                    <option value="green">green</option>
+                    <option value="orange">orange</option>
+                    <option value="grey">grey</option>
                   </select>
                 </div>
               </div>
@@ -1431,6 +1506,15 @@
               </div>
               <div class="col-6"></div>
             </div>
+
+            <!-- Background Image -->
+            <label><b>Background Image</b></label>
+            <input
+              name="backgroundImage"
+              #backgroundImage="ngModel"
+              [(ngModel)]="content.backgroundImage"
+            />
+            <div class="input-group-append"></div>
 
             <!-- Background Attachment -->
             <label><b>Background Attachment</b></label>
