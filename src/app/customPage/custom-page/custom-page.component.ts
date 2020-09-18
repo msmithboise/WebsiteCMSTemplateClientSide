@@ -13,6 +13,7 @@ import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { Console } from 'console';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SafePipe } from '..//../safe.pipe';
 
 @Component({
   selector: 'app-custom-page',

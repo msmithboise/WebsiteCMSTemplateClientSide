@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WebcontentComponent } from './WebContent/webcontent/webcontent.component';
 import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page-modal.component';
 import { EditContentModalComponent } from './modals/edit-content-modal/edit-content-modal.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EditContentModalComponent } from './modals/edit-content-modal/edit-cont
     WebcontentComponent,
     CustomPageModalComponent,
     EditContentModalComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { EditContentModalComponent } from './modals/edit-content-modal/edit-cont
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [WebpageService],
+  providers: [WebpageService, SafePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

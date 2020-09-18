@@ -162,6 +162,15 @@
         {{ content.TextBody }}
       </h1>
 
+      <div
+        [style.background-image]="
+          'url(https://images.unsplash.com/photo-1550778323-71868c7dea39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)'
+            | safe
+        "
+      >
+        Background trusted (pipe)
+      </div>
+
       <img
         src="{{ content.ImageUrl }}"
         [ngStyle]="{
