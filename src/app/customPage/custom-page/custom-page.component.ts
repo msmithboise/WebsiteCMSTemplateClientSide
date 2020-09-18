@@ -32,6 +32,7 @@ export class CustomPageComponent implements OnInit {
 
   customPageArray: CustomPage[];
   pageIdSnapshot: number;
+  transform = 'cover';
 
   webContentByPageIdArray: Webcontent[];
   selectedPageId: number;
