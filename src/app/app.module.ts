@@ -24,6 +24,7 @@ import { WebcontentComponent } from './WebContent/webcontent/webcontent.componen
 import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page-modal.component';
 import { EditContentModalComponent } from './modals/edit-content-modal/edit-content-modal.component';
 import { SafePipe } from './safe.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SafePipe } from './safe.pipe';
     CustomPageModalComponent,
     EditContentModalComponent,
     SafePipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

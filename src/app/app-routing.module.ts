@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CustomPageComponent } from './customPage/custom-page/custom-page.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -9,6 +10,7 @@ const routes: Routes = [
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
   },
+  { path: 'login', component: LoginComponent },
 ];
 
 // const AppRouting: Routes = [
