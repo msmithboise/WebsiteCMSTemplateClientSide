@@ -25,6 +25,7 @@ import { CustomPageModalComponent } from './modals/custom-page-modal/custom-page
 import { EditContentModalComponent } from './modals/edit-content-modal/edit-content-modal.component';
 import { SafePipe } from './safe.pipe';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LoginComponent } from './login/login.component';
     EditContentModalComponent,
     SafePipe,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
