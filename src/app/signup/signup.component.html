@@ -1,108 +1,117 @@
-<div class="container">
-  <a routerLink="/login" class="btn btn-light btn-sm mb-3">Back</a>
-  <body class="text-center">
-    <form class="form-signin">
-      <svg
-        width="5em"
-        height="5em"
-        viewBox="0 0 16 16"
-        class="bi bi-person-circle"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"
+<div class="container-fluid" style="height: 100%">
+  <div class="container">
+    <a routerLink="/login" class="btn btn-primary btn-sm mb-3">Back</a>
+    <body class="text-center">
+      <form class="form-signin">
+        <svg
+          width="5em"
+          height="5em"
+          viewBox="0 0 16 16"
+          class="bi bi-person-circle"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"
+          />
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path
+            fill-rule="evenodd"
+            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+          />
+        </svg>
+        <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+        <label for="inputEmail" class="sr-only">First Name</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="First Name"
+          required
+          autofocus
         />
-        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-        <path
-          fill-rule="evenodd"
-          d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+        <br />
+
+        <label for="inputEmail" class="sr-only">Last Name</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Last Name"
+          required
+          autofocus
         />
-      </svg>
-      <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+        <br />
 
-      <label for="inputEmail" class="sr-only">First Name</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="First Name"
-        required
-        autofocus
-      />
-      <br />
+        <label for="inputPassword" class="sr-only">Email Address</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Email Address"
+          required
+        />
+        <br />
 
-      <label for="inputEmail" class="sr-only">Last Name</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Last Name"
-        required
-        autofocus
-      />
-      <br />
+        <label for="inputEmail" class="sr-only">Organization</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Organization"
+          required
+          autofocus
+        />
+        <br />
 
-      <label for="inputPassword" class="sr-only">Email Address</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Email Address"
-        required
-      />
-      <br />
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Username"
+          required
+          autofocus
+        />
+        <br />
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <br />
 
-      <label for="inputEmail" class="sr-only">Organization</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Organization"
-        required
-        autofocus
-      />
-      <br />
+        <div class="input-group-append"></div>
 
-      <label for="inputEmail" class="sr-only">Username</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Username"
-        required
-        autofocus
-      />
-      <br />
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Password"
-        required
-      />
-      <br />
+        <label for="inputPassword" class="sr-only">Confirm Password</label>
+        <input
+          style="background-color: #e6e6fa"
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Confirm Password"
+          required
+        />
 
-      <div class="input-group-append"></div>
+        <div class="input-group-append"></div>
 
-      <label for="inputPassword" class="sr-only">Confirm Password</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Confirm Password"
-        required
-      />
+        <div class="checkbox mb-3"></div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Submit
+        </button>
 
-      <div class="input-group-append"></div>
-
-      <div class="checkbox mb-3"></div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Submit
-      </button>
-
-      <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
-    </form>
-  </body>
+        <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
+      </form>
+    </body>
+  </div>
 </div>

@@ -12,3 +12,34 @@
     font-size: 3.5rem;
   }
 }
+
+body {
+  height: 100%;
+  background-color: #292929;
+}
+
+.checkbox {
+  color: #88bdbc;
+}
+
+.h3 {
+  color: #88bdbc;
+}
+
+.bi-person-circle {
+  color: #88bdbc;
+}
+
+.container-fluid {
+  background-color: #292929;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #88bdbc;
+}
+
+.btn-primary:hover {
+  background-color: #addbdb;
+}
