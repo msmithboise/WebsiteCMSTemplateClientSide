@@ -7,7 +7,8 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   readonly webApi = 'http://localhost:54704/api';
-  public userData: User[];
+  public userFormData: User;
+  public userArray: User[];
 
   constructor(public http: HttpClient) {}
 
@@ -16,6 +17,13 @@ export class UserService {
   //Get all content by page id
   getUserData() {
     return this.http.get<User[]>(this.webApi + '/User');
+  }
+
+  setUserDataToUserArray() {
+    this.http
+      .get(this.webApi + '/User')
+      .toPromise()
+      .then((res) => (this.userArray = res as User[]));
   }
 
   //Post/Update

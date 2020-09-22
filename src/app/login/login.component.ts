@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
       console.log(res);
-      this.userService.userData = res;
+      this.userService.userArray = res;
 
       // console.log('Here is the images based on page id: ');
       // console.log(this.imagesByPageIdArray);

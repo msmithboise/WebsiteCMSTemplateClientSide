@@ -22,93 +22,118 @@
         </svg>
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
 
-        <label for="inputEmail" class="sr-only">First Name</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="email"
-          id="inputEmail"
-          class="form-control"
-          placeholder="First Name"
-          required
-          autofocus
-        />
-        <br />
+        <!-- <div ngFor="let data of userService.userArray">
+          <h1>{{ data.Id }}</h1>
+        </div> -->
+        <h1></h1>
 
-        <label for="inputEmail" class="sr-only">Last Name</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="email"
-          id="inputEmail"
-          class="form-control"
-          placeholder="Last Name"
-          required
-          autofocus
-        />
-        <br />
+        <form #form="ngForm">
+          <label for="inputEmail" class="sr-only">Id</label>
+          <input
+            style="background-color: #e6e6fa"
+            type="hidden"
+            class="form-control"
+            name="Id"
+            #Id="ngModel"
+            [(ngModel)]="user.Id"
+          />
+          <br />
 
-        <label for="inputPassword" class="sr-only">Email Address</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="password"
-          id="inputPassword"
-          class="form-control"
-          placeholder="Email Address"
-          required
-        />
-        <br />
+          <!-- First Name -->
+          <label style="color: white" data-error="Required field!"
+            >First Name</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="text"
+            class="validate form-control"
+            required
+            name="FirstName"
+            #FirstName="ngModel"
+            [(ngModel)]="user.FirstName"
+          />
+          <br />
 
-        <label for="inputEmail" class="sr-only">Organization</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="email"
-          id="inputEmail"
-          class="form-control"
-          placeholder="Organization"
-          required
-          autofocus
-        />
-        <br />
+          <!-- Last Name -->
+          <label style="color: white" data-error="Required field!"
+            >Last Name</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="text"
+            class="validate form-control"
+            required
+            name="LastName"
+            #LastName="ngModel"
+            [(ngModel)]="user.LastName"
+          />
+          <br />
 
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="email"
-          id="inputEmail"
-          class="form-control"
-          placeholder="Username"
-          required
-          autofocus
-        />
-        <br />
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="password"
-          id="inputPassword"
-          class="form-control"
-          placeholder="Password"
-          required
-        />
-        <br />
+          <!-- Email Address -->
+          <label style="color: white" data-error="Required field!"
+            >Email Address</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="email"
+            class="validate form-control"
+            required
+            name="EmailAddress"
+            #EmailAddress="ngModel"
+            [(ngModel)]="user.EmailAddress"
+          />
+          <br />
+          <!-- Organization -->
+          <label style="color: white" data-error="Required field!"
+            >Organization</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="text"
+            class="validate form-control"
+            required
+            name="Organization"
+            #Organization="ngModel"
+            [(ngModel)]="user.Organization"
+          />
+          <br />
 
-        <div class="input-group-append"></div>
-
-        <label for="inputPassword" class="sr-only">Confirm Password</label>
-        <input
-          style="background-color: #e6e6fa"
-          type="password"
-          id="inputPassword"
-          class="form-control"
-          placeholder="Confirm Password"
-          required
-        />
-
-        <div class="input-group-append"></div>
-
-        <div class="checkbox mb-3"></div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          Submit
-        </button>
+          <!-- Username -->
+          <label style="color: white" data-error="Required field!"
+            >Username</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="text"
+            class="validate form-control"
+            required
+            name="Username"
+            #Username="ngModel"
+            [(ngModel)]="user.Username"
+          />
+          <br />
+          <!-- Password -->
+          <label style="color: white" data-error="Required field!"
+            >Password</label
+          >
+          <input
+            style="background-color: #e6e6fa"
+            type="password"
+            class="validate form-control"
+            required
+            name="Hash"
+            #Hash="ngModel"
+            [(ngModel)]="user.Hash"
+          />
+          <br />
+          <button
+            [disabled]="!form.valid"
+            class="btn btn-lg btn-primary btn-block"
+            (click)="onSubmit(form)"
+          >
+            Submit
+          </button>
+        </form>
 
         <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
       </form>
