@@ -27,16 +27,9 @@
         </div> -->
         <h1></h1>
 
+        <!-- Id -->
         <form #form="ngForm">
-          <label for="inputEmail" class="sr-only">Id</label>
-          <input
-            style="background-color: #e6e6fa"
-            type="hidden"
-            class="form-control"
-            name="Id"
-            #Id="ngModel"
-            [(ngModel)]="user.Id"
-          />
+          <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="user.Id" />
           <br />
 
           <!-- First Name -->

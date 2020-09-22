@@ -27,6 +27,9 @@ export class UserService {
   }
 
   //Post/Update
+  postRegistrationData(formData: User) {
+    return this.http.post(this.webApi + '/User', formData);
+  }
 
   //Delete
 }
