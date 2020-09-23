@@ -55,6 +55,7 @@ export class SignupComponent implements OnInit {
       .postRegistrationData(form.value)
       .subscribe((res: User[]) => {
         this.userService.userArray = res;
+        this.resetForm();
       });
   }
 }
