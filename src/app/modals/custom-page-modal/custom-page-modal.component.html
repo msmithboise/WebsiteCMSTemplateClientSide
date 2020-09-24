@@ -16,6 +16,7 @@
       <label>Page Description</label>
       <div class="input-group-append"></div>
       <input
+        class="form-control-lg form-group"
         name="PageDescription"
         placeholder="Enter Page Name here."
         type="text"
@@ -43,19 +44,26 @@
         <input
           name="PageDescription"
           type="text"
+          class="form-control col-sm-9"
           #TextId="ngModel"
           [(ngModel)]="page.PageDescription"
         />
-        <div class="input-group-append"></div>
 
         <!-- --------------------------------------------------------------------------- -->
       </form>
       <button
-        class="btn-danger"
+        class="btn btn-danger btn-sm float-right col-sm-3"
         (click)="deleteDialogue(page.PageId, page.PageDescription)"
       >
         Delete
       </button>
+
+      <!-- <button
+      class="btn btn-danger float-right"
+      (click)="deleteDialogue(text.Id)"
+    >
+      Delete
+    </button> -->
     </div>
   </div>
 </ng-template>
