@@ -36,6 +36,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.loginForm.reset();
+  }
+
   loginForm = new FormGroup({
     Username: new FormControl('', Validators.required),
     Hash: new FormControl(''),
@@ -54,6 +58,7 @@ export class LoginComponent implements OnInit {
         //this is the error part
         this.toastr.error('Invalid username or password!');
         console.log(error.message);
+        this.loginForm.reset();
 
         this.alerts.push({
           id: 2,
@@ -72,6 +77,7 @@ export class LoginComponent implements OnInit {
           message: 'Login succesful!',
         });
         this.isLoggedIn = true;
+        this.loginForm.reset();
       }
     );
   }

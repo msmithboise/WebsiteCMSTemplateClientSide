@@ -32,24 +32,24 @@ export class AuthenticationService {
     return this.httpClient
       .post(this.webApi + '/token', userData, { headers: reqHeader })
       .pipe(
-        map((res) => res),
-        catchError((error: HttpErrorResponse) => {
-          let errorMessage = '';
+        map((res) => res)
+        // catchError((error: HttpErrorResponse) => {
+        //   let errorMessage = '';
 
-          if (error.error instanceof ErrorEvent) {
-            // client-side error
+        //   if (error.error instanceof ErrorEvent) {
+        //     // client-side error
 
-            errorMessage = `Error: ${error.error.message}`;
-          } else {
-            // server-side error
+        //     errorMessage = `Error: ${error.error.message}`;
+        //   } else {
+        //     // server-side error
 
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-          }
+        //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        //   }
 
-          window.alert(errorMessage);
+        //   window.alert(errorMessage);
 
-          return throwError(errorMessage);
-        })
+        //   return throwError(errorMessage);
+        // })
       );
   }
 
