@@ -1,7 +1,7 @@
 <!-- <a routerLink="/customPage" class="btn btn-light btn-sm mb-3">Back</a> -->
 <app-custom-image></app-custom-image>
 <app-custom-text></app-custom-text>
-<a routerLink="/login" class="btn btn-light btn-sm mb-3">Login</a>
+<a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
 <ng-container>
   <div class="container-fluid">
     <!-- <h1>
@@ -42,6 +42,7 @@
       </div>
 
       <h1
+        class="customText"
         [ngStyle]="{
           fontSize: content.fontSize,
           color: content.color,
@@ -199,6 +200,7 @@
       </div> -->
 
       <img
+        class="customImage"
         src="{{ content.ImageUrl }}"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
         [ngStyle]="{

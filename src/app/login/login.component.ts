@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { error } from 'console';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
@@ -13,13 +14,14 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
   public globalResponse: any;
-  public isLoggedIn: boolean;
+
   public alerts: IAlert[];
 
   constructor(
     private userService: UserService,
     public authService: AuthenticationService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -28,7 +30,6 @@ export class LoginComponent implements OnInit {
 
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
-      console.log(res);
       this.userService.userArray = res;
 
       // console.log('Here is the images based on page id: ');
@@ -46,10 +47,10 @@ export class LoginComponent implements OnInit {
   });
   Login() {
     let user = this.loginForm.value;
-    this.isLoggedIn = false;
+    this.userService.isLoggedIn = false;
     this.authService.removeToken();
     this.alerts = [];
-    console.log(user);
+    // console.log(user);
     this.authService.ValidateUser(user).subscribe(
       (result) => {
         this.globalResponse = result;
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         //this is the error part
         this.toastr.error('Invalid username or password!');
-        console.log(error.message);
+        //console.log(error.message);
         this.loginForm.reset();
 
         this.alerts.push({
@@ -76,7 +77,9 @@ export class LoginComponent implements OnInit {
           type: 'success',
           message: 'Login succesful!',
         });
-        this.isLoggedIn = true;
+        this.userService.isLoggedIn = true;
+        this.router.navigate(['customPage/:pageDescription/1']);
+        //this.userService.postLoginData(user).subscribe();
         this.loginForm.reset();
       }
     );

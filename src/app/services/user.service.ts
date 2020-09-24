@@ -9,6 +9,7 @@ export class UserService {
   readonly webApi = 'http://localhost:54704/api';
   public userFormData: User;
   public userArray: User[];
+  public isLoggedIn: boolean;
 
   constructor(public http: HttpClient) {}
 
@@ -29,6 +30,10 @@ export class UserService {
   //Post/Update
   postRegistrationData(formData: User) {
     return this.http.post(this.webApi + '/User', formData);
+  }
+
+  postLoginData(loginFormData: User) {
+    return this.http.post(this.webApi + '/User', loginFormData);
   }
 
   //Delete

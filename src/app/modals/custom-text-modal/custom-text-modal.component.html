@@ -1566,9 +1566,11 @@
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-  Edit Page
-</button>
+<div *ngIf="this.userService.isLoggedIn">
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+    Edit Page
+  </button>
+</div>
 
 <hr />
 

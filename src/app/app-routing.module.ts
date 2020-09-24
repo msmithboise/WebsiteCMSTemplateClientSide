@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}

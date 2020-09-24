@@ -10,6 +10,7 @@ import { Console } from 'console';
 import { ActivatedRoute } from '@angular/router';
 import { CustomImageService } from 'src/app/services/custom-image.service';
 import { Webcontent } from 'src/app/WebContent/webcontent.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -33,7 +34,8 @@ export class CustomTextModalComponent implements OnInit {
     public webContentService: WebcontentService,
     private storage: AngularFireStorage,
     private route: ActivatedRoute,
-    public customImageService: CustomImageService
+    public customImageService: CustomImageService,
+    public userService: UserService
   ) {}
 
   open(content) {
