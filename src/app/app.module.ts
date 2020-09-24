@@ -26,6 +26,7 @@ import { EditContentModalComponent } from './modals/edit-content-modal/edit-cont
 import { SafePipe } from './safe.pipe';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuardComponent } from './auth-guard/auth-guard.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SignupComponent } from './signup/signup.component';
     SafePipe,
     LoginComponent,
     SignupComponent,
+    AuthGuardComponent,
   ],
   imports: [
     BrowserModule,
