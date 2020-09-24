@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { error } from 'console';
+import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,9 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         //this is the error part
+        this.toastr.error('Invalid username or password!');
         console.log(error.message);
+
         this.alerts.push({
           id: 2,
           type: 'danger',
@@ -59,6 +63,7 @@ export class LoginComponent implements OnInit {
       },
       () => {
         // this is Success part
+        this.toastr.success('Login succesful!');
         console.log(this.globalResponse);
         this.authService.storeToken(this.globalResponse.access_token);
         this.alerts.push({
@@ -70,41 +75,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  // Login()
-  //   {
-  // let user=this.loginForm.value;
-  // this.isLoggedIn=false;
-  // this.authService.removeToken();
-  // this.alerts=[];
-  // console.log(user);
-  //     this.authService.ValidateUser(user)
-  //         .subscribe((result) => {
-  //           this.globalResponse = result;
-  //         },
-  //         error => { //This is error part
-  //           console.log(error.message);
-  //           this.alerts.push({
-  //             id: 2,
-  //             type: 'danger',
-  //             message: 'Either user name or password is incorrect.'
-  //           });
-  //         },
-  //         () => {
-  //             //  This is Success part
-  //             console.log(this.globalResponse);
-  //             this.authService.storeToken(this.globalResponse.access_token);
-  //             this.alerts.push({
-  //               id: 1,
-  //               type: 'success',
-  //               message: 'Login successful. Now you can close and proceed further.',
-  //             });
-  //             this.isLoggedIn=true;
-  //             this.GetClaims();
-
-  //             }
-  //           )
-  //         }
 }
 export interface IAlert {
   id: number;

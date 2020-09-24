@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { WebpageService } from './shared/webpage.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { MatSliderModule } from '@angular/material/slider';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TextboxComponent } from './components/textbox/textbox.component';
@@ -58,6 +59,7 @@ import { AuthGuardComponent } from './auth-guard/auth-guard.component';
     AngularFireDatabaseModule,
     NgbModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [WebpageService, SafePipe],
   bootstrap: [AppComponent],
