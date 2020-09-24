@@ -84,6 +84,11 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  Logout() {
+    this.authService.removeToken;
+    this.toastr.success('Logged out succesfully!');
+  }
 }
 export interface IAlert {
   id: number;

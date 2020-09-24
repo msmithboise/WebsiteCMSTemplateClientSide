@@ -14,6 +14,9 @@ import { Console } from 'console';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SafePipe } from '..//../safe.pipe';
+import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-custom-page',
@@ -27,7 +30,10 @@ export class CustomPageComponent implements OnInit {
     public customTextService: CustomTextService,
     public webContentService: WebcontentService,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public toastr: ToastrService,
+    public authService: AuthenticationService,
+    public userService: UserService
   ) {}
 
   customPageArray: CustomPage[];
@@ -142,6 +148,7 @@ export class CustomPageComponent implements OnInit {
   insertCustomPageRecord(form: NgForm) {
     this.customPageService.createCustomPage(form.value).subscribe((res) => {
       //this.resetForm(form);
+
       this.customPageService.getCustomPageContent();
     });
   }
@@ -163,5 +170,11 @@ export class CustomPageComponent implements OnInit {
         'https://www.youtube.com/embed/' + embedLink
       );
     }
+  }
+
+  Logout() {
+    this.authService.removeToken;
+    this.userService.isLoggedIn = false;
+    this.toastr.success('Logged out succesfully!');
   }
 }

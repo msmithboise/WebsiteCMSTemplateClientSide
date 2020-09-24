@@ -4,6 +4,7 @@ import { CustomPageService } from 'src/app/services/custom-page.service';
 import { NgForm } from '@angular/forms';
 import { timeStamp } from 'console';
 import { CustomPage } from 'src/app/models/custom-page.model';
+import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-page-modal',
@@ -15,7 +16,8 @@ export class CustomPageModalComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    public customPageService: CustomPageService
+    public customPageService: CustomPageService,
+    public toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
@@ -39,6 +41,7 @@ export class CustomPageModalComponent implements OnInit {
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
       });
+    this.toastr.success('Page created!');
   }
 
   deleteDialogue(id: number, pageDescription: string) {
@@ -54,5 +57,6 @@ export class CustomPageModalComponent implements OnInit {
       this.customPageService.getCustomPageContent();
       //this.resetForm();
     });
+    this.toastr.error('Page deleted!');
   }
 }

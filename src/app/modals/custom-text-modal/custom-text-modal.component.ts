@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CustomImageService } from 'src/app/services/custom-image.service';
 import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
+import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -35,7 +36,8 @@ export class CustomTextModalComponent implements OnInit {
     private storage: AngularFireStorage,
     private route: ActivatedRoute,
     public customImageService: CustomImageService,
-    public userService: UserService
+    public userService: UserService,
+    public toastr: ToastrService
   ) {}
 
   open(content) {
@@ -168,6 +170,7 @@ export class CustomTextModalComponent implements OnInit {
         )
         .subscribe();
       this.grabAllContentByPageId();
+      this.toastr.success('Image uploaded succesfully!');
     }
   }
 
@@ -182,6 +185,7 @@ export class CustomTextModalComponent implements OnInit {
       this.grabAllContentByPageId();
       this.resetForm();
     });
+    this.toastr.error('Content deleted!');
   }
 
   get formControls() {
