@@ -17,6 +17,7 @@ import { SafePipe } from '..//../safe.pipe';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -50,6 +51,16 @@ export class CustomPageComponent implements OnInit {
     this.callCustomPageService();
     this.takePageIdSnapshot();
     this.grabAllContentByPageId();
+    this.grabAllUserData();
+  }
+
+  grabAllUserData() {
+    this.userService.getUserData().subscribe((res: User[]) => {
+      this.userService.userArray = res;
+
+      // console.log('Here is the images based on page id: ');
+      // console.log(this.imagesByPageIdArray);
+    });
   }
 
   toggleAddButton() {

@@ -80,8 +80,13 @@ export class LoginComponent implements OnInit {
         user.isLoggedIn = true;
 
         this.router.navigate(['customPage/:pageDescription/1']);
-        this.userService.postLoginData(user).subscribe();
-        this.userService = user.isLoggedIn;
+        this.userService.getUserData().subscribe((res: User[]) => {
+          console.log(res);
+          this.userService.userArray = res;
+
+          // console.log('Here is the images based on page id: ');
+          // console.log(this.imagesByPageIdArray);
+        });
         this.loginForm.reset();
       }
     );
