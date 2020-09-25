@@ -10,4 +10,9 @@ export class User {
   Hash: string;
   Salt: string;
   HashByte: number;
+  Token: string;
+  isLoggedIn: boolean;
+  timeLoggedIn: Date;
+  timeLoggedOut: Date;
+  isLoggedInString: string;
 }

@@ -29,6 +29,11 @@ export class SignupComponent implements OnInit {
       Hash: '',
       Salt: '',
       HashByte: null,
+      Token: '',
+      isLoggedIn: false,
+      timeLoggedIn: null,
+      timeLoggedOut: null,
+      isLoggedInString: '',
     };
   }
 

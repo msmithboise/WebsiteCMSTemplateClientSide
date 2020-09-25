@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   });
   Login() {
     let user = this.loginForm.value;
-    this.userService.isLoggedIn = false;
+    user.isLoggedIn = false;
     this.authService.removeToken();
     this.alerts = [];
     // console.log(user);
@@ -77,9 +77,11 @@ export class LoginComponent implements OnInit {
           type: 'success',
           message: 'Login succesful!',
         });
-        this.userService.isLoggedIn = true;
+        user.isLoggedIn = true;
+
         this.router.navigate(['customPage/:pageDescription/1']);
-        //this.userService.postLoginData(user).subscribe();
+        this.userService.postLoginData(user).subscribe();
+        this.userService = user.isLoggedIn;
         this.loginForm.reset();
       }
     );

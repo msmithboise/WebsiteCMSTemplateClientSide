@@ -37,4 +37,6 @@ export class UserService {
   }
 
   //Delete
+
+  //Post login status
 }
