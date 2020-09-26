@@ -185,7 +185,7 @@ export class CustomPageComponent implements OnInit {
 
   Logout() {
     this.authService.removeToken;
-    this.userService.isLoggedIn = false;
+    this.userService.userArray[0].isLoggedIn = false;
     this.toastr.success('Logged out succesfully!');
   }
 }

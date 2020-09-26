@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
     this.authService.ValidateUser(user).subscribe(
       (result) => {
         this.globalResponse = result;
+        console.log(result);
       },
       (error) => {
         //this is the error part
@@ -87,6 +88,7 @@ export class LoginComponent implements OnInit {
           // console.log('Here is the images based on page id: ');
           // console.log(this.imagesByPageIdArray);
         });
+        this.userService.postLoginData(user).subscribe();
         this.loginForm.reset();
       }
     );

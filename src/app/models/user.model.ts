@@ -15,4 +15,5 @@ export class User {
   timeLoggedIn: Date;
   timeLoggedOut: Date;
   isLoggedInString: string;
+  isPasswordHashed: boolean;
 }

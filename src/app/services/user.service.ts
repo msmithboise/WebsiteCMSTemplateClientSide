@@ -32,11 +32,11 @@ export class UserService {
     return this.http.post(this.webApi + '/User', formData);
   }
 
-  postLoginData(loginFormData: User) {
-    return this.http.post(this.webApi + '/User', loginFormData);
+  postLoginData(user: User) {
+    return this.http.post(this.webApi + '/Login', user);
   }
 
   //Delete
 
-  //Post login status
+  //Post login
 }

@@ -34,6 +34,7 @@ export class SignupComponent implements OnInit {
       timeLoggedIn: null,
       timeLoggedOut: null,
       isLoggedInString: '',
+      isPasswordHashed: false,
     };
   }
 
