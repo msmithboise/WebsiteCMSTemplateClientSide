@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -10,7 +12,11 @@ import { UserService } from '../services/user.service';
 })
 export class SignupComponent implements OnInit {
   user: User;
-  constructor(public userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    public router: Router,
+    public toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.resetForm();
@@ -61,6 +67,8 @@ export class SignupComponent implements OnInit {
       .postRegistrationData(form.value)
       .subscribe((res: User[]) => {
         this.userService.userArray = res;
+        this.router.navigate(['portal']);
+        this.toastr.success('Registration Succesful!');
         this.resetForm();
       });
   }

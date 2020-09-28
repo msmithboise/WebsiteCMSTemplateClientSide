@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomPageService } from 'src/app/services/custom-page.service';
 import { CustomPage } from 'src/app/models/custom-page.model';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomImageService } from 'src/app/services/custom-image.service';
 import { CustomImage } from 'src/app/models/custom-image.model';
 import { Key } from 'protractor';
@@ -34,7 +34,8 @@ export class CustomPageComponent implements OnInit {
     private sanitizer: DomSanitizer,
     public toastr: ToastrService,
     public authService: AuthenticationService,
-    public userService: UserService
+    public userService: UserService,
+    public router: Router
   ) {}
 
   customPageArray: CustomPage[];
@@ -183,9 +184,20 @@ export class CustomPageComponent implements OnInit {
     }
   }
 
+  logoutForm = new FormGroup({
+    Username: new FormControl('', Validators.required),
+    Hash: new FormControl(''),
+  });
+
   Logout() {
+    var user = this.logoutForm.value;
     this.authService.removeToken;
     this.userService.userArray[0].isLoggedIn = false;
+    this.userService.postLogoutData(user).subscribe((res: User[]) => {
+      console.log(res);
+      this.userService.userArray = res;
+    });
+    this.router.navigate(['portal']);
     this.toastr.success('Logged out succesfully!');
   }
 }
