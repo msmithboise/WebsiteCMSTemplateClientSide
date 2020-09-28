@@ -36,6 +36,10 @@ export class UserService {
     return this.http.post(this.webApi + '/Login', user);
   }
 
+  postLogoutData(user: User) {
+    return this.http.post(this.webApi + '/Logout', user);
+  }
+
   //Delete
 
   //Post login
