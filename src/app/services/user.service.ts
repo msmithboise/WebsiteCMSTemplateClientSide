@@ -10,6 +10,7 @@ export class UserService {
   public userFormData: User;
   public userArray: User[];
   public isLoggedIn: boolean;
+  public loggedInUserArray: User[];
 
   constructor(public http: HttpClient) {}
 

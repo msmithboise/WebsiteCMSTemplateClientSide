@@ -82,21 +82,18 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['customPage/:pageDescription/1']);
         this.userService.getUserData().subscribe((res: User[]) => {
+          console.log('Here is the entire user array');
           console.log(res);
           this.userService.userArray = res;
-
-          // console.log('Here is the images based on page id: ');
-          // console.log(this.imagesByPageIdArray);
         });
-        this.userService.postLoginData(user).subscribe();
+        this.userService.postLoginData(user).subscribe((res: User[]) => {
+          console.log('here is just the logged in user data: ');
+          console.log(res);
+          this.userService.loggedInUserArray = res;
+        });
         this.loginForm.reset();
       }
     );
-  }
-
-  Logout() {
-    this.authService.removeToken;
-    this.toastr.success('Logged out succesfully!');
   }
 }
 export interface IAlert {

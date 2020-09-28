@@ -2,11 +2,14 @@
 <app-custom-image></app-custom-image>
 <app-custom-text></app-custom-text>
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
-<div *ngIf="this.userService.userArray[0].isLoggedIn">
-  <a routerLink="/portal" class="btn btn-light btn-sm mb-3" (click)="Logout()"
-    >Logout</a
-  >
+
+<div *ngFor="let data of this.userService.loggedInUserArray">
+  {{ data.isLoggedIn }}
 </div>
+
+<a routerLink="/portal" class="btn btn-light btn-sm mb-3" (click)="Logout()"
+  >Logout</a
+>
 
 <ng-container>
   <div class="container-fluid">

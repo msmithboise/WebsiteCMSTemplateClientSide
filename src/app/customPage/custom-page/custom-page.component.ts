@@ -185,7 +185,7 @@ export class CustomPageComponent implements OnInit {
   }
 
   logoutForm = new FormGroup({
-    Username: new FormControl('', Validators.required),
+    Username: new FormControl(''),
     Hash: new FormControl(''),
   });
 
