@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { error } from 'console';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
+import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
@@ -43,6 +44,11 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     Username: new FormControl('', Validators.required),
+    Hash: new FormControl(''),
+  });
+
+  currentUserLoginForm = new FormGroup({
+    UserName: new FormControl('', Validators.required),
     Hash: new FormControl(''),
   });
   Login() {
@@ -87,13 +93,23 @@ export class LoginComponent implements OnInit {
           this.userService.userArray = res;
         });
         this.userService.postLoginData(user).subscribe((res: User[]) => {
-          console.log('here is just the logged in user data: ');
-          console.log(res);
-          this.userService.loggedInUserArray = res;
+          this.userService.getUserData();
         });
+        //this.setLoginUserData();
         this.loginForm.reset();
       }
     );
+  }
+
+  setLoginUserData() {
+    let currentUser = this.currentUserLoginForm.value;
+    this.userService
+      .postCurrentUserData(currentUser)
+      .subscribe((res: LoggedInUser[]) => {
+        console.log('here is just the logged in user data: ');
+        console.log(res);
+        this.userService.loggedInUserArray = res;
+      });
   }
 }
 export interface IAlert {

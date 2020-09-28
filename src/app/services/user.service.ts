@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class UserService {
   public userFormData: User;
   public userArray: User[];
   public isLoggedIn: boolean;
-  public loggedInUserArray: User[];
+  public loggedInUserArray: LoggedInUser[];
 
   constructor(public http: HttpClient) {}
 
@@ -41,7 +42,7 @@ export class UserService {
     return this.http.post(this.webApi + '/Logout', user);
   }
 
-  //Delete
-
-  //Post login
+  postCurrentUserData(user: LoggedInUser) {
+    return this.http.post(this.webApi + '/loggedInUser', user);
+  }
 }
