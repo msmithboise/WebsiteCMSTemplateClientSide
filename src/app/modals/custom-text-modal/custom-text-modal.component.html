@@ -1566,10 +1566,12 @@
   </div>
 </ng-template>
 
-<div *ngIf="this.userService.userArray[0].isLoggedIn">
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-    Edit Page
-  </button>
+<div *ngFor="let data of this.userService.loggedInUserArray">
+  <div *ngIf="data.IsLoggedIn">
+    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+      Edit Page
+    </button>
+  </div>
 </div>
 
 <hr />

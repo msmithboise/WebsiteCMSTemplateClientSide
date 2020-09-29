@@ -18,6 +18,7 @@ import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
+import { LoggedInUser } from 'src/app/models/logged-in-user.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -53,6 +54,7 @@ export class CustomPageComponent implements OnInit {
     this.takePageIdSnapshot();
     this.grabAllContentByPageId();
     this.grabAllUserData();
+    this.userService.getCurrentUserData();
   }
 
   grabAllUserData() {
@@ -189,11 +191,12 @@ export class CustomPageComponent implements OnInit {
     Hash: new FormControl(''),
   });
 
-  Logout() {
-    var user = this.logoutForm.value;
+  Logout(data: LoggedInUser) {
+    var user = data;
     this.authService.removeToken;
     this.userService.userArray[0].isLoggedIn = false;
-    this.userService.postLogoutData(user).subscribe((res: User[]) => {
+    this.userService.postLogoutData(data).subscribe((res: User[]) => {
+      console.log('logout data:');
       console.log(res);
       this.userService.userArray = res;
     });

@@ -38,11 +38,18 @@ export class UserService {
     return this.http.post(this.webApi + '/Login', user);
   }
 
-  postLogoutData(user: User) {
+  postLogoutData(user: LoggedInUser) {
     return this.http.post(this.webApi + '/Logout', user);
   }
 
   postCurrentUserData(user: LoggedInUser) {
     return this.http.post(this.webApi + '/loggedInUser', user);
+  }
+
+  getCurrentUserData() {
+    this.http
+      .get(this.webApi + '/loggedInUser')
+      .toPromise()
+      .then((res) => (this.loggedInUserArray = res as LoggedInUser[]));
   }
 }

@@ -4,12 +4,13 @@
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
 
 <div *ngFor="let data of this.userService.loggedInUserArray">
-  {{ data.isLoggedIn }}
+  <a
+    routerLink="/portal"
+    class="btn btn-light btn-sm mb-3"
+    (click)="Logout(data)"
+    >Logout</a
+  >
 </div>
-
-<a routerLink="/portal" class="btn btn-light btn-sm mb-3" (click)="Logout()"
-  >Logout</a
->
 
 <ng-container>
   <div class="container-fluid">
