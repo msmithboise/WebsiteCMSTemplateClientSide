@@ -50,6 +50,8 @@ export class CustomPageComponent implements OnInit {
   customPageArray: CustomPage[];
   pageIdSnapshot: number;
   transform = 'cover';
+  oceanPhoto =
+    'https://images.unsplash.com/photo-1601164768085-c3a5665db36f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
 
   webContentByPageIdArray: Webcontent[];
   selectedPageId: number;
@@ -63,6 +65,19 @@ export class CustomPageComponent implements OnInit {
     this.userService.getCurrentUserData();
     this.grabAllContentByPageId();
     this.grabAllUserData();
+    this.changePhoto();
+  }
+
+  changePhoto() {
+    this.photo =
+      'https://images.unsplash.com/photo-1601204200071-d223e81548f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80';
+
+    // this.photo = this.oceanPhoto;
+    for (let i = 0; i < this.webContentService.webContentArray.length; i++) {
+      this.photo = this.webContentService.webContentArray[i].ImageUrl;
+    }
+
+    this.photo = this.webContentService.webContentArray[0].ImageUrl;
   }
 
   grabAllUserData() {
