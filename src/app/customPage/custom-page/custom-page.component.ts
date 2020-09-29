@@ -19,11 +19,16 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { LoggedInUser } from 'src/app/models/logged-in-user.model';
+import { DefaultTemplateService } from 'src/app/services/default-template.service';
 
 @Component({
   selector: 'app-custom-page',
   templateUrl: './custom-page.component.html',
   styleUrls: ['./custom-page.component.css'],
+  template: `
+    <button class="red-button">Button</button>
+    <blue-button></blue-button>
+  `,
 })
 export class CustomPageComponent implements OnInit {
   constructor(
@@ -36,9 +41,12 @@ export class CustomPageComponent implements OnInit {
     public toastr: ToastrService,
     public authService: AuthenticationService,
     public userService: UserService,
-    public router: Router
+    public router: Router,
+    public defaultTemplateService: DefaultTemplateService
   ) {}
 
+  public photo =
+    'https://images.unsplash.com/photo-1550778323-71868c7dea39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
   customPageArray: CustomPage[];
   pageIdSnapshot: number;
   transform = 'cover';
@@ -52,9 +60,9 @@ export class CustomPageComponent implements OnInit {
   ngOnInit(): void {
     this.callCustomPageService();
     this.takePageIdSnapshot();
+    this.userService.getCurrentUserData();
     this.grabAllContentByPageId();
     this.grabAllUserData();
-    this.userService.getCurrentUserData();
   }
 
   grabAllUserData() {

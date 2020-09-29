@@ -12,6 +12,7 @@ import { CustomImageService } from 'src/app/services/custom-image.service';
 import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
+import { DefaultTemplateService } from 'src/app/services/default-template.service';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -37,7 +38,8 @@ export class CustomTextModalComponent implements OnInit {
     private route: ActivatedRoute,
     public customImageService: CustomImageService,
     public userService: UserService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public defaultTemplateService: DefaultTemplateService
   ) {}
 
   open(content) {
@@ -216,5 +218,19 @@ export class CustomTextModalComponent implements OnInit {
       });
   }
 
-  modifyBackgroundImageLink() {}
+  setToDefaultTemplate() {
+    console.log('setting to default Template...');
+    let defaultTemplate = this.defaultTemplateForm.value;
+    this.defaultTemplateService
+      .setDefaultTemplate(defaultTemplate)
+      .subscribe((res: Webcontent[]) => {
+        this.defaultTemplateService.defaultTemplateArray = res;
+        console.log('here is the template back!');
+        console.log(res);
+      });
+  }
+
+  defaultTemplateForm = new FormGroup({
+    PageId: new FormControl(''),
+  });
 }
