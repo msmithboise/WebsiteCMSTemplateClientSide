@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
   public photo = this.sanitizer.bypassSecurityTrustStyle('url(+ logoUrl +)');
   public testColor = '#C8B59E';
   public testBgRepeat = 'no-repeat';
+  public logoIsRight: boolean;
+  public logoIsLeft: boolean;
 
   constructor(
     public customPageService: CustomPageService,
@@ -29,6 +31,15 @@ export class NavbarComponent implements OnInit {
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
+  }
+
+  setLogoRight() {
+    this.logoIsRight = true;
+    this.logoIsLeft = false;
+  }
+  setLogoLeft() {
+    this.logoIsRight = false;
+    this.logoIsLeft = true;
   }
 
   navFontStyling = {

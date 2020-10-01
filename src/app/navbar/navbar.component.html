@@ -24,13 +24,53 @@
         </li>
         <!-- <div (click)="onClick(page.pageId)"> -->
         <div class="row">
-          <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input
+                (click)="setLogoLeft()"
+                type="radio"
+                name="options"
+                id="option1"
+                autocomplete="off"
+                checked
+              />
+              Left
+            </label>
+            <label class="btn btn-secondary">
+              <input
+                type="radio"
+                name="options"
+                id="option2"
+                autocomplete="off"
+              />
+              Center
+            </label>
+            <label class="btn btn-secondary">
+              <input
+                (click)="setLogoRight()"
+                type="radio"
+                name="options"
+                id="option3"
+                autocomplete="off"
+              />
+              Right
+            </label>
+          </div>
+
+          <div *ngIf="!logoIsLeft && !logoIsRight">
+            <div
+              [style.background-image]="'url(' + photo + ')' | safe"
+              [ngStyle]="logoStyling"
+            ></div>
+          </div>
 
           <!-- OMG IT WORKS!@!!!! -->
-          <div
-            [style.background-image]="'url(' + photo + ')' | safe"
-            [ngStyle]="logoStyling"
-          ></div>
+          <div *ngIf="logoIsLeft">
+            <div
+              [style.background-image]="'url(' + photo + ')' | safe"
+              [ngStyle]="logoStyling"
+            ></div>
+          </div>
           <!-- ---------------------------------- -->
 
           <li
@@ -47,6 +87,12 @@
             >
             <h2>{{ page.pageId }}</h2>
           </li>
+          <div *ngIf="logoIsRight">
+            <div
+              [style.background-image]="'url(' + photo + ')' | safe"
+              [ngStyle]="logoStyling"
+            ></div>
+          </div>
         </div>
 
         <!-- </div> -->
