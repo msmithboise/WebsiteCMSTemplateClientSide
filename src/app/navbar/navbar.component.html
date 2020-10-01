@@ -23,16 +23,30 @@
           > -->
         </li>
         <!-- <div (click)="onClick(page.pageId)"> -->
-        <li
-          class="nav-item"
-          *ngFor="let page of customPageService.customPageArray"
-          (click)="onClick(page.PageId, page.PageDescription)"
-        >
-          <a class="nav-link" routerLink="/{{ page.pageId }}" href="#">{{
-            page.PageDescription
-          }}</a>
-          <h2>{{ page.pageId }}</h2>
-        </li>
+        <div class="row">
+          <div
+            [style.background-image]="'url(' + photo + ')' | safe"
+            style="
+              width: 200px;
+              height: 50px;
+              background-size: 50%;
+              background-repeat: no-repeat;
+              background-position: center;
+            "
+          ></div>
+
+          <li
+            class="nav-item"
+            *ngFor="let page of customPageService.customPageArray"
+            (click)="onClick(page.PageId, page.PageDescription)"
+          >
+            <a class="nav-link" routerLink="/{{ page.pageId }}" href="#">{{
+              page.PageDescription
+            }}</a>
+            <h2>{{ page.pageId }}</h2>
+          </li>
+        </div>
+
         <!-- </div> -->
 
         <!-- <li class="nav-item dropdown">

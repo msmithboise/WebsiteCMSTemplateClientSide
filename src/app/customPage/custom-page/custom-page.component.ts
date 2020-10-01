@@ -65,14 +65,14 @@ export class CustomPageComponent implements OnInit {
     this.userService.getCurrentUserData();
     this.grabAllContentByPageId();
     this.grabAllUserData();
-    this.changePhoto();
+    //this.changePhoto();
   }
 
   changePhoto() {
     this.photo =
       'https://images.unsplash.com/photo-1601204200071-d223e81548f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80';
 
-    // this.photo = this.oceanPhoto;
+    this.photo = this.oceanPhoto;
     for (let i = 0; i < this.webContentService.webContentArray.length; i++) {
       this.photo = this.webContentService.webContentArray[i].ImageUrl;
     }

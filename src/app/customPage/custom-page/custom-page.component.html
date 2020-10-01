@@ -14,13 +14,13 @@
 
 <ng-container>
   <div class="container-fluid defaultTemplate">
-    <div
+    <!-- <div
       *ngFor="
         let templateData of this.defaultTemplateService.defaultTemplateArray
       "
     >
       <img src="{{ templateData.ImageUrl }}" alt="" />
-    </div>
+    </div> -->
 
     <!-- <h1>
     Hello! Welcome to our
@@ -46,11 +46,11 @@
       "
     ></div>
     <div *ngFor="let content of this.webContentService.webContentArray">
-      <div *ngIf="content.imageUpload != null">
+      <div *ngIf="content.embedUrl != null">
         <iframe
           width="420"
           height="315"
-          [src]="setYouTubeEmbed(content.imageUpload)"
+          [src]="setYouTubeEmbed(content.embedUrl)"
           allowfullscreen
         >
         </iframe>
