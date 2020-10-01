@@ -10,10 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  public url =
+  public logoUrl =
     'https://images.unsplash.com/photo-1584553421349-3557471bed79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1329&q=80';
-  public photo = this.sanitizer.bypassSecurityTrustStyle('url(+ url +)');
-  public testColor = 'green';
+  public photo = this.sanitizer.bypassSecurityTrustStyle('url(+ logoUrl +)');
+  public testColor = '#C8B59E';
+  public testBgRepeat = 'no-repeat';
 
   constructor(
     public customPageService: CustomPageService,
@@ -34,12 +35,16 @@ export class NavbarComponent implements OnInit {
     color: this.testColor,
   };
 
+  navBarStyling = {
+    backgroundColor: '#e3f2fd',
+  };
+
   logoStyling = {
     backgroundImage: this.photo,
     width: '200px',
     height: '50px',
     backgroundSize: '50%',
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: this.testBgRepeat,
     backgroundPosition: 'center',
   };
 
