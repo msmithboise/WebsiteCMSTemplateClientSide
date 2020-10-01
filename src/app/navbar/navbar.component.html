@@ -1,5 +1,5 @@
 <div class="body">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
     <a class="navbar-brand" href="#"></a>
     <button
       class="navbar-toggler"
@@ -24,7 +24,7 @@
         </li>
         <!-- <div (click)="onClick(page.pageId)"> -->
         <div class="row">
-          <div
+          <!-- <div
             [style.background-image]="'url(' + photo + ')' | safe"
             style="
               width: 200px;
@@ -33,16 +33,27 @@
               background-repeat: no-repeat;
               background-position: center;
             "
+          ></div> -->
+
+          <!-- OMG IT WORKS!@!!!! -->
+          <div
+            [style.background-image]="'url(' + photo + ')' | safe"
+            [ngStyle]="logoStyling"
           ></div>
+          <!-- ---------------------------------- -->
 
           <li
             class="nav-item"
             *ngFor="let page of customPageService.customPageArray"
             (click)="onClick(page.PageId, page.PageDescription)"
           >
-            <a class="nav-link" routerLink="/{{ page.pageId }}" href="#">{{
-              page.PageDescription
-            }}</a>
+            <a
+              class="nav-link"
+              [ngStyle]="navFontStyling"
+              routerLink="/{{ page.pageId }}"
+              href="#"
+              >{{ page.PageDescription }}</a
+            >
             <h2>{{ page.pageId }}</h2>
           </li>
         </div>

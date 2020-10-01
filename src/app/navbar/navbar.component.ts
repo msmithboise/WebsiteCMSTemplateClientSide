@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomPageService } from '../services/custom-page.service';
 import { CustomPage } from '../models/custom-page.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,16 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  public photo =
-    'https://images.unsplash.com/photo-1550778323-71868c7dea39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+  public url =
+    'https://images.unsplash.com/photo-1584553421349-3557471bed79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1329&q=80';
+  public photo = this.sanitizer.bypassSecurityTrustStyle('url(+ url +)');
+  public testColor = 'green';
 
   constructor(
     public customPageService: CustomPageService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public sanitizer: DomSanitizer
   ) {}
 
   customPageArray: CustomPage[];
@@ -25,6 +29,19 @@ export class NavbarComponent implements OnInit {
     this.callCustomPageService();
     this.changePhoto();
   }
+
+  navFontStyling = {
+    color: this.testColor,
+  };
+
+  logoStyling = {
+    backgroundImage: this.photo,
+    width: '200px',
+    height: '50px',
+    backgroundSize: '50%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  };
 
   changePhoto() {
     this.photo =
