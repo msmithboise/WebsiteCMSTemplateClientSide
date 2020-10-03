@@ -71,13 +71,7 @@ export class CustomPageComponent implements OnInit {
   }
 
   heroImageStyling = {
-    position: 'relative',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed',
-    height: '1000px',
-    backgroundRepeat: 'no-repeat',
-    display: 'block',
+    height: '500px',
   };
 
   textStyling = {
