@@ -20,6 +20,8 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { LoggedInUser } from 'src/app/models/logged-in-user.model';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
+import { NonNullAssert } from '@angular/compiler';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-custom-page',
@@ -79,12 +81,24 @@ export class CustomPageComponent implements OnInit {
     display: 'block',
   };
 
-  // position: relative;
-  // background-attachment: fixed;
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // height: 500px;
+  textStyling = {
+    backgroundImage: this.photo,
+    position: 'relative',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+    height: '500px',
+    backgroundRepeat: 'no-repeat',
+    display: 'none',
+  };
+
+  filterNulls(imageUrl: string) {
+    console.log('filtering...');
+    debugger;
+    if (imageUrl != null) {
+    } else {
+    }
+  }
 
   changePhoto() {
     this.photo =

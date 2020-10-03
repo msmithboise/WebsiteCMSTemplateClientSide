@@ -46,26 +46,23 @@
       "
     ></div> -->
 
-    <ul>
-      <ng-template
-        ngFor
-        let-content
-        [ngForOf]="this.webContentService.webContentArray"
-      >
-        <div class="content">
-          <div
-            [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-            [ngStyle]="heroImageStyling"
-          >
-            <img src="content.ImageUrl" alt="" />
-            <!-- The issue here is that because all content has an image url, a text body, would have a null image, the image is still displaying
+    <ng-template
+      ngFor
+      let-content
+      [ngForOf]="this.webContentService.webContentArray"
+    >
+      <div
+        *ngIf="content.ImageUrl != null"
+        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+        [ngStyle]="heroImageStyling"
+      ></div>
+      <h1>{{ content.TextBody }}</h1>
+
+      <!-- The issue here is that because all content has an image url, a text body, would have a null image, the image is still displaying
             as a blank or null image... need to remove this null image somehow. -->
-            <h1>{{ content.TextBody }}</h1>
-          </div>
-          <!-- <div>{{item.description}}</div> -->
-        </div>
-      </ng-template>
-    </ul>
+
+      <!-- <div>{{item.description}}</div> -->
+    </ng-template>
 
     <!-- this works!~ -->
 
