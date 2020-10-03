@@ -33,7 +33,7 @@
     </div> -->
 
     <app-custom-text-modal></app-custom-text-modal>
-    <div
+    <!-- <div
       class="row"
       [style.background-image]="'url(' + photo + ')' | safe"
       style="
@@ -44,7 +44,43 @@
         background-size: cover;
         height: 500px;
       "
-    ></div>
+    ></div> -->
+
+    <ul>
+      <ng-template
+        ngFor
+        let-content
+        [ngForOf]="this.webContentService.webContentArray"
+      >
+        <div class="content">
+          <div
+            [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+            [ngStyle]="heroImageStyling"
+          >
+            <img src="content.ImageUrl" alt="" />
+            <!-- The issue here is that because all content has an image url, a text body, would have a null image, the image is still displaying
+            as a blank or null image... need to remove this null image somehow. -->
+            <h1>{{ content.TextBody }}</h1>
+          </div>
+          <!-- <div>{{item.description}}</div> -->
+        </div>
+      </ng-template>
+    </ul>
+
+    <!-- this works!~ -->
+
+    <!-- -->
+    <!-- <div *ngFor="let content of this.webContentService.webContentArray">
+      <div
+        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+        [ngStyle]="heroImageStyling"
+      ></div>
+      <!-- <img
+        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+        [ngStyle]="heroImageStyling"
+      /> -->
+    <!-- </div> -->
+
     <div *ngFor="let content of this.webContentService.webContentArray">
       <div *ngIf="content.embedUrl != null">
         <iframe
@@ -56,7 +92,7 @@
         </iframe>
       </div>
 
-      <h1
+      <!-- <h1
         class="customText"
         [ngStyle]="{
           fontSize: content.fontSize,
@@ -191,7 +227,7 @@
         }"
       >
         {{ content.TextBody }}
-      </h1>
+      </h1> -->
 
       <!-- THIS WORKS -->
       <!-- <div [style.background-image]="'url(' + content.ImageUrl + ')' | safe">
@@ -214,7 +250,7 @@
         </div>
       </div> -->
 
-      <img
+      <!-- <img
         class="customImage"
         src="{{ content.ImageUrl }}"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
@@ -348,7 +384,7 @@
           alignSelf: content.alignSelf,
           backgroundImage: 'url(' + content.ImageUrl + ')' | safe
         }"
-      />
+      /> -->
     </div>
   </div>
 

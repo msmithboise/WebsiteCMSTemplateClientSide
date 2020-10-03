@@ -68,6 +68,24 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
+  heroImageStyling = {
+    backgroundImage: this.photo,
+    position: 'relative',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+    height: '500px',
+    backgroundRepeat: 'no-repeat',
+    display: 'block',
+  };
+
+  // position: relative;
+  // background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // height: 500px;
+
   changePhoto() {
     this.photo =
       'https://images.unsplash.com/photo-1601204200071-d223e81548f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80';
@@ -132,6 +150,8 @@ export class CustomPageComponent implements OnInit {
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
+        console.log('here is the content array:');
+        console.log(this.webContentService.webContentArray);
 
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
