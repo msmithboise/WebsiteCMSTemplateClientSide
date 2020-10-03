@@ -54,7 +54,15 @@
       <div
         *ngIf="content.ImageUrl != null"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="heroImageStyling"
+        [ngStyle]="{
+          height: '500px',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          display: 'block',
+          position: 'relative',
+          backgroundSize: 'cover'
+        }"
       ></div>
       <h1
         class="customText"

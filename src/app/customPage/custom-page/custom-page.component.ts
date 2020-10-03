@@ -71,18 +71,18 @@ export class CustomPageComponent implements OnInit {
   }
 
   heroImageStyling = {
-    backgroundImage: this.photo,
     position: 'relative',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    height: '500px',
+    height: '1000px',
     backgroundRepeat: 'no-repeat',
     display: 'block',
   };
 
   textStyling = {
-    backgroundImage: this.photo,
+    backgroundImage:
+      'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("this.photo")',
     position: 'relative',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
