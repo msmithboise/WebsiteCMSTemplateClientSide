@@ -50,6 +50,12 @@
   }
 }
 
+ng-template {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 250px;
+}
 /* .customImage {
   /* position: relative; */
 /* background-attachment: fixed;

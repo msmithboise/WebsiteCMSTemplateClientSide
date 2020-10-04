@@ -52,16 +52,20 @@
       [ngForOf]="this.webContentService.webContentArray"
     >
       <div
+        class="heroImage"
         *ngIf="content.ImageUrl != null"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
         [ngStyle]="{
-          height: '500px',
           backgroundAttachment: content.backgroundAttachment,
           backgroundRepeat: content.backgroundRepeat,
           backgroundSize: content.backgroundSize,
           position: content.position,
           opacity: content.opacity,
-          backgroundPosition: content.backgroundPosition
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '500px',
+          width: '2000px'
         }"
       ></div>
 

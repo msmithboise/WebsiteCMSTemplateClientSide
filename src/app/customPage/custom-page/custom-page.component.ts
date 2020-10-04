@@ -71,7 +71,7 @@ export class CustomPageComponent implements OnInit {
   }
 
   heroImageStyling = {
-    height: '500px',
+    return: '1000px',
   };
 
   textStyling = {
