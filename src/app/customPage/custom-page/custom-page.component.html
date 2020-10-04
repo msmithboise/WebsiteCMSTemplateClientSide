@@ -54,13 +54,14 @@
       <div
         *ngIf="content.ImageUrl != null"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="heroImageStyling"
         [ngStyle]="{
           height: '500px',
           backgroundAttachment: content.backgroundAttachment,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          position: 'relative'
+          backgroundRepeat: content.backgroundRepeat,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition
         }"
       ></div>
 
