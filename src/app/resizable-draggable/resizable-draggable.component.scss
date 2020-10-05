@@ -6,7 +6,7 @@
   }
 
   &:hover {
-    cursor: all-scroll;
+    cursor: grab;
   }
 
   span:first-of-type {
@@ -29,14 +29,19 @@
 
 .resize-action {
   position: absolute;
-  left: 100%;
-  top: 100%;
-  transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+  left: 75%;
+  top: 50%;
+
   border-style: solid;
   border-width: 8px;
   border-color: transparent transparent transparent #008000;
   &:hover,
   &:active {
-    cursor: nwse-resize;
+    cursor: all-scroll;
   }
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
 }
