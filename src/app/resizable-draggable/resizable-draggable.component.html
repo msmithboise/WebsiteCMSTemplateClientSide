@@ -1,8 +1,4 @@
-<div
-  class="container-fluid"
-  [style.width.px]="width"
-  [style.height.px]="height"
->
+<div class="container">
   <div
     class="row"
     #box
@@ -30,4 +26,5 @@
     <span>{{ height | number: "1.0-0" }}px</span>
     <span>({{ left }}, {{ top }})</span>
   </div>
+  <div class="save-changes btn btn-primary">Save Changes</div>
 </div>
