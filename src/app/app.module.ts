@@ -28,6 +28,7 @@ import { SafePipe } from './safe.pipe';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuardComponent } from './auth-guard/auth-guard.component';
+import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AuthGuardComponent } from './auth-guard/auth-guard.component';
     LoginComponent,
     SignupComponent,
     AuthGuardComponent,
+    ResizableDraggableComponent,
   ],
   imports: [
     BrowserModule,
