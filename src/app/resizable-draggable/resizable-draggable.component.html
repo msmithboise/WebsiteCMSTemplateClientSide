@@ -31,6 +31,13 @@
         <span>({{ left }}, {{ top }})</span>
       </div>
     </div>
-    <div class="save-changes btn btn-primary">Save Changes</div>
+    <div
+      class="save-changes btn btn-primary"
+      (click)="
+        onImageSubmit(width, height, left, top, content.ImageUrl, content.Id)
+      "
+    >
+      Save Changes
+    </div>
   </div>
 </div>

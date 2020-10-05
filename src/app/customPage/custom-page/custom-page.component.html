@@ -58,7 +58,7 @@
       let-content
       [ngForOf]="this.webContentService.webContentArray"
     >
-      <!-- <div
+      <div
         class="heroImage"
         *ngIf="content.ImageUrl != null"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
@@ -71,10 +71,11 @@
           backgroundPosition: content.backgroundPosition,
           resize: 'both',
           overflow: 'auto',
-          height: '500px',
-          width: '2000px'
+          height: content.height + 'px',
+          width: content.width + 'px',
+          objectFit: 'cover'
         }"
-      ></div> -->
+      ></div>
 
       <!-- [ngStyle]="{
         position: 'relative',

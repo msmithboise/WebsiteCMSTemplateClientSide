@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomImageService } from '../services/custom-image.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -75,11 +76,51 @@ export class ResizableDraggableComponent implements OnInit {
       });
   }
 
+  imageForm = new FormGroup({
+    width: new FormControl(''),
+    height: new FormControl(''),
+    left: new FormControl(''),
+    top: new FormControl(''),
+    ImageUrl: new FormControl(''),
+    Id: new FormControl(''),
+    PageId: new FormControl(''),
+  });
+
+  onImageSubmit(
+    width: number,
+    height: number,
+    left: number,
+    top: number,
+    imageUrl: string,
+    id: number
+  ) {
+    console.log('width:');
+    console.log(width);
+    console.log('height:');
+    console.log(height);
+    console.log('left');
+    console.log(left);
+    console.log('top');
+    console.log(top);
+
+    let image = this.imageForm.value;
+
+    image.width = width;
+    image.height = height;
+    image.left = left;
+    image.top = top;
+    image.ImageUrl = imageUrl;
+    image.id = id;
+    image.PageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService.postImageFormDataByPageId(image).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
   private loadBox() {
     const { left, top } = this.box.nativeElement.getBoundingClientRect();
     this.boxPosition = { left, top };
-    console.log('box position:');
-    console.log(this.boxPosition);
   }
 
   private loadContainer() {
@@ -88,8 +129,6 @@ export class ResizableDraggableComponent implements OnInit {
     const right = left + 1200;
     const bottom = top + 900;
     this.containerPos = { left, top, right, bottom };
-    console.log('container position:');
-    console.log(this.containerPos);
   }
 
   setStatus(event: MouseEvent, status: number) {

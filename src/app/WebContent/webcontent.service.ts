@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Webcontent } from './webcontent.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +45,12 @@ export class WebcontentService {
   //Post webcontent
   postWebContentByPageId(formData: Webcontent) {
     return this.http.post(this.webApi + '/WebContent', formData);
+  }
+
+  //Post custom form data
+
+  postImageFormDataByPageId(data: FormGroup) {
+    return this.http.post(this.webApi + '/WebContent', data);
   }
 
   //Post content settings
