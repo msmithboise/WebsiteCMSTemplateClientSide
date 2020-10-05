@@ -23,6 +23,7 @@ export class ResizableDraggableComponent implements OnInit {
   @Input('height') public height: number;
   @Input('left') public left: number;
   @Input('top') public top: number;
+  @Input('cover') public cover: string;
   @ViewChild('box') public box: ElementRef;
   private boxPosition: { left: number; top: number };
   public mouse: { x: number; y: number };
@@ -60,8 +61,8 @@ export class ResizableDraggableComponent implements OnInit {
   private loadContainer() {
     const left = this.boxPosition.left - this.left;
     const top = this.boxPosition.top - this.top;
-    const right = left + 600;
-    const bottom = top + 450;
+    const right = left + 1925;
+    const bottom = top + 1000;
     this.containerPos = { left, top, right, bottom };
   }
 
