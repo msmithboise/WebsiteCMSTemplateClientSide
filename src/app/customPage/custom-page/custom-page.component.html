@@ -1,8 +1,6 @@
 <!-- <a routerLink="/customPage" class="btn btn-light btn-sm mb-3">Back</a> -->
 <app-custom-image></app-custom-image>
 <app-custom-text></app-custom-text>
-<app-resizable-draggable [width]="600" [height]="300" [left]="100" [top]="100">
-</app-resizable-draggable>
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
 
 <div *ngFor="let data of this.userService.loggedInUserArray">
@@ -18,23 +16,30 @@
   <div class="container-fluid defaultTemplate">
     <!-- <div
       *ngFor="
-        let templateData of this.defaultTemplateService.defaultTemplateArray
+      let templateData of this.defaultTemplateService.defaultTemplateArray
       "
-    >
+      >
       <img src="{{ templateData.ImageUrl }}" alt="" />
     </div> -->
 
     <!-- <h1>
-    Hello! Welcome to our
-    {{ this.customPageService.customPageArrayById.PageDescription }} Page!
-  </h1> -->
+      Hello! Welcome to our
+      {{ this.customPageService.customPageArrayById.PageDescription }} Page!
+    </h1> -->
 
     <!-- <div class="fade-in">
       <img [ngStyle]="{
         fontSize: content.fontSize} src="..//../../assets/rolclogo.jpg" />
-    </div> -->
+      </div> -->
 
     <app-custom-text-modal></app-custom-text-modal>
+    <app-resizable-draggable
+      [width]="600"
+      [height]="300"
+      [left]="100"
+      [top]="100"
+    >
+    </app-resizable-draggable>
     <!-- <div
       class="row"
       [style.background-image]="'url(' + photo + ')' | safe"

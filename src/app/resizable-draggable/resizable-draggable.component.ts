@@ -56,14 +56,18 @@ export class ResizableDraggableComponent implements OnInit {
   private loadBox() {
     const { left, top } = this.box.nativeElement.getBoundingClientRect();
     this.boxPosition = { left, top };
+    console.log('box position:');
+    console.log(this.boxPosition);
   }
 
   private loadContainer() {
     const left = this.boxPosition.left - this.left;
     const top = this.boxPosition.top - this.top;
-    const right = left + 1925;
-    const bottom = top + 1000;
+    const right = left + 1200;
+    const bottom = top + 900;
     this.containerPos = { left, top, right, bottom };
+    console.log('container position:');
+    console.log(this.containerPos);
   }
 
   setStatus(event: MouseEvent, status: number) {
@@ -91,17 +95,12 @@ export class ResizableDraggableComponent implements OnInit {
   }
 
   private resizeCondMeet() {
-    return (
-      this.mouse.x < this.containerPos.right &&
-      this.mouse.y < this.containerPos.bottom
-    );
+    return true;
   }
 
   private move() {
-    if (this.moveCondMeet()) {
-      this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
-      this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
-    }
+    this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
+    this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
   }
 
   private moveCondMeet() {
