@@ -6,6 +6,9 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { CustomImageService } from '../services/custom-image.service';
+import { Webcontent } from '../WebContent/webcontent.model';
+import { WebcontentService } from '../WebContent/webcontent.service';
 
 const enum Status {
   OFF = 0,
@@ -35,8 +38,12 @@ export class ResizableDraggableComponent implements OnInit {
     bottom: number;
   };
   private mouseClick: { x: number; y: number; left: number; top: number };
+  public pageIdSnapshot: number;
 
-  constructor() {}
+  constructor(
+    public webContentService: WebcontentService,
+    public customImageService: CustomImageService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -51,6 +58,21 @@ export class ResizableDraggableComponent implements OnInit {
 
     if (this.status === Status.RESIZE) this.resize();
     else if (this.status === Status.MOVE) this.move();
+  }
+
+  grabAllContentByPageId() {
+    this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
+
+    this.customImageService
+      .getWebContentByPageId(this.pageIdSnapshot)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentService.webContentArray = res;
+        console.log('here is the content array:');
+        console.log(this.webContentService.webContentArray);
+
+        // console.log('Here is the images based on page id: ');
+        // console.log(this.imagesByPageIdArray);
+      });
   }
 
   private loadBox() {
