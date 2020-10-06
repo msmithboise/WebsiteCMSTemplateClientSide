@@ -60,6 +60,8 @@ export class CustomPageComponent implements OnInit {
   filteredImageArray: CustomImage[];
   public show: boolean = false;
   public buttonName: any = 'Show';
+  public isSetAsHeroImage: boolean = false;
+  public isSetAsDefaultImage: boolean = true;
 
   ngOnInit(): void {
     this.callCustomPageService();

@@ -22,36 +22,44 @@
       [ngForOf]="this.webContentService.webContentArray"
       [ngStyle]="{ borderStyle: 'solid' }"
     >
-      <div
-        class="heroImage"
-        *ngIf="content.ImageUrl != null"
-        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="{
-          float: 'left',
-          borderStyle: 'solid',
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: content.backgroundSize,
-          position: content.position,
-          opacity: content.opacity,
-          backgroundPosition: content.backgroundPosition,
-          resize: 'both',
-          overflow: 'auto',
-          height: content.height + 'px',
-          width: content.width + 'px',
-          objectFit: 'cover'
-        }"
-      >
-        <img src="" alt="" />
+      <div *ngIf="!isSetAsDefaultImage">
+        <div
+          class="heroImage"
+          *ngIf="content.ImageUrl != null"
+          [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+          [ngStyle]="{
+            float: 'left',
+            borderStyle: 'solid',
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            resize: 'both',
+            overflow: 'auto',
+            height: content.height + 'px',
+            width: content.width + 'px',
+            objectFit: 'cover'
+          }"
+        ></div>
       </div>
-
-      <app-resizable-draggable
-        [width]="600"
-        [height]="300"
-        [left]="100"
-        [top]="100"
-      >
-      </app-resizable-draggable>
+      <div *ngIf="!isSetAsHeroImage">
+        <div
+          *ngIf="content.ImageUrl != null"
+          [ngStyle]="{ borderStyle: 'solid', height: '1000px' }"
+        >
+          <img
+            src="{{ content.ImageUrl }}"
+            [ngStyle]="{
+              height: content.height + 'px',
+              width: 'content.width' + 'px',
+              top: content.top + 'px',
+              left: content.left + 'px'
+            }"
+          />
+        </div>
+      </div>
 
       <!-- [ngStyle]="{
         position: 'relative',
@@ -204,6 +212,13 @@
 
       <!-- <div>{{item.description}}</div> -->
     </ng-template>
+    <app-resizable-draggable
+      [width]="600"
+      [height]="300"
+      [left]="100"
+      [top]="100"
+    >
+    </app-resizable-draggable>
 
     <!-- this works!~ -->
 
