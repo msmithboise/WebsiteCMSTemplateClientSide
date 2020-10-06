@@ -50,6 +50,12 @@
   }
 }
 
+@media screen and (min-width: 601px) {
+  div.responsive {
+    font-size: 80px;
+  }
+}
+
 ng-template {
   display: flex;
   flex-wrap: wrap;
@@ -57,7 +63,7 @@ ng-template {
   height: 250px;
 }
 
-#div {
+.div {
   border-style: "dashed";
   height: "auto";
   width: "auto";
