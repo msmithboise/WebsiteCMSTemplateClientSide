@@ -2,6 +2,7 @@
 <app-custom-image></app-custom-image>
 <app-custom-text></app-custom-text>
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
+<button type="button" class="btn btn-info">Move/Resize Image</button>
 
 <div *ngFor="let data of this.userService.loggedInUserArray">
   <a
@@ -33,13 +34,7 @@
       </div> -->
 
     <app-custom-text-modal></app-custom-text-modal>
-    <app-resizable-draggable
-      [width]="600"
-      [height]="300"
-      [left]="100"
-      [top]="100"
-    >
-    </app-resizable-draggable>
+
     <!-- <div
       class="row"
       [style.background-image]="'url(' + photo + ')' | safe"
@@ -57,12 +52,17 @@
       ngFor
       let-content
       [ngForOf]="this.webContentService.webContentArray"
+      [ngStyle]="{ borderStyle: 'solid' }"
     >
       <div
         class="heroImage"
         *ngIf="content.ImageUrl != null"
         [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+        [style.transform]="
+          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+        "
         [ngStyle]="{
+          borderStyle: 'solid',
           backgroundAttachment: content.backgroundAttachment,
           backgroundRepeat: 'no-repeat',
           backgroundSize: content.backgroundSize,
@@ -71,11 +71,20 @@
           backgroundPosition: content.backgroundPosition,
           resize: 'both',
           overflow: 'auto',
+
           height: content.height + 'px',
           width: content.width + 'px',
           objectFit: 'cover'
         }"
       ></div>
+
+      <app-resizable-draggable
+        [width]="600"
+        [height]="300"
+        [left]="100"
+        [top]="100"
+      >
+      </app-resizable-draggable>
 
       <!-- [ngStyle]="{
         position: 'relative',
