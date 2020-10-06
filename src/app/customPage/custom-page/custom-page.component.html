@@ -2,7 +2,6 @@
 <app-custom-image></app-custom-image>
 <app-custom-text></app-custom-text>
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
-<button type="button" class="btn btn-info">Move/Resize Image</button>
 
 <div *ngFor="let data of this.userService.loggedInUserArray">
   <a
@@ -43,197 +42,326 @@
             objectFit: 'cover'
           }"
         ></div>
-      </div>
-      <div *ngIf="!isSetAsHeroImage">
-        <div
-          *ngIf="content.ImageUrl != null"
-          [ngStyle]="{ borderStyle: 'solid', height: '1000px' }"
-        >
-          <img
-            src="{{ content.ImageUrl }}"
+        <div>
+          <h1
+            class="customText"
             [ngStyle]="{
-              height: content.height + 'px',
-              width: 'content.width' + 'px',
-              top: content.top + 'px',
-              left: content.left + 'px'
+              fontSize: content.fontSize,
+              color: content.color,
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundClip: content.backgroundClip,
+
+              backgroundOrigin: content.backgroundOrigin,
+              backgroundPosition: content.backgroundPosition,
+              backgroundRepeat: content.backgroundRepeat,
+              backgroundSize: content.backgroundSize,
+              background: content.background,
+              border: content.border,
+              borderBottom: content.borderBottom,
+              borderBottomColor: content.borderBottomColor,
+              borderBottomLeftRadius: content.borderBottomLeftRadius,
+              borderBottomRightRadius: content.borderBottomRightRadius,
+              borderBottomStyle: content.borderBottomStyle,
+              borderBottomWidth: content.borderBottomWidth,
+              borderColor: content.borderColor,
+              borderImage: content.borderImage,
+              borderImageOutset: content.borderImageOutset,
+              borderImageRepeat: content.borderImageRepeat,
+              borderImageSlice: content.borderImageSlice,
+              borderImageSource: content.borderImageSource,
+              borderImageWidth: content.borderImageWidth,
+              borderLeft: content.borderLeft,
+              borderLeftColor: content.borderLeftColor,
+              borderLeftStyle: content.borderLeftStyle,
+              borderLeftWidth: content.borderLeftWidth,
+              borderStyle: content.borderStyle,
+              borderTop: content.borderTop,
+              borderTopColor: content.borderTopColor,
+              borderTopLeftRadius: content.borderTopLeftRadius,
+              borderTopRightRadius: content.borderTopRightRadius,
+              borderTopStyle: content.borderTopStyle,
+              borderTopWidth: content.borderTopWidth,
+              borderWidth: content.borderWidth,
+              boxShadow: content.boxShadow,
+              animation: content.animation,
+              textAlign: content.textAlign,
+              paddingTop: content.paddingTop,
+              paddingBottom: content.paddingBottom,
+              paddingLeft: content.paddingLeft,
+              paddingRight: content.paddingRight,
+              marginTop: content.marginTop,
+              marginBottom: content.marginBottom,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              lineHeight: content.lineHeight,
+              fontFamily: content.fontFamily,
+              clear: content.clear,
+              clip: content.clip,
+              cursor: content.cursor,
+              fontVariant: content.fontVariant,
+              fontWeight: content.fontWieght,
+              height: content.height,
+              left: content.left,
+              letterSpacing: content.letterSpacing,
+              listStyle: content.listStyle,
+              listStyleImage: content.listStyleImage,
+              listStyleType: content.listStyleType,
+              margin: content.margin,
+              pageBreakAfter: content.pageBreakAfter,
+              pageBreakBefore: content.pageBreakBefore,
+              position: content.position,
+              strokeDasharray: content.strokeDasharray,
+              strokeDashoffset: content.strokeDashoffset,
+              strokeWidth: content.strokeWidth,
+              textDecoration: content.textDecoration,
+              textIndent: content.textIndent,
+              textTransform: content.textTransform,
+              top: content.top,
+              right: content.right,
+              bottom: content.bottom,
+              verticalAlign: content.verticalAlign,
+              visibility: content.visibility,
+              width: content.width,
+              zIndex: content.zIndex,
+              display: content.display,
+              cssFloat: content.cssFloat,
+              filter: content.filter,
+              backgroundColor: content.backgroundColor,
+              lineBreak: content.lineBreak,
+              opacity: content.opacity,
+              outline: content.outline,
+              outlineColor: content.outlineColor,
+              outlineOffset: content.outlineOffset,
+              outlineWidth: content.outlineWidth,
+              padding: content.padding,
+              paddingBlock: content.paddingBlock,
+              paddingBlockEnd: content.paddingBlockEnd,
+              paddingBlockStart: content.paddingBlockStart,
+              paddingInLineEnd: content.paddingInLineEnd,
+              paddingInLineStart: content.paddingInLineStart,
+              pageBreakInside: content.pageBreakInside,
+              rotate: content.rotate,
+              textAlignLast: content.textAlignLast,
+              textCombineUpright: content.textCombineUpright,
+              textDecorationColor: content.textDecorationColor,
+              textDecorationLine: content.textDecorationLine,
+              textDecorationSkipInk: content.textDecorationSkipInk,
+              textDecorationStyle: content.textDecorationStyle,
+              textDecorationThickness: content.textDecorationThickness,
+              textEmphasis: content.textEmphasis,
+              textEmphasisColor: content.textEmphasisColor,
+              textEmphasisPosition: content.textEmphasisPosition,
+              textEmphasisStyle: content.textEmphasisStyle,
+              textJustify: content.textJustify,
+              textOrientation: content.textOrientation,
+              textRendering: content.textRendering,
+              textShadow: content.textShadow,
+              textUnderLineOffset: content.textUnderLineOffSet,
+              textUnderLinePosition: content.textUnderLinePosition,
+              transformBox: content.transformBox,
+              transformOrigin: content.transformOrigin,
+              transition: content.transition,
+              transitionDelay: content.transitionDelay,
+              transitionDuration: content.transitionDuration,
+              transitionProperty: content.transitionProperty,
+              transitionTimingFunction: content.transitionTimingFunction,
+              translate: content.translate,
+              whiteSpace: content.whiteSpace,
+              wordBreak: content.wordBreak,
+              wordSpacing: content.wordSpacing,
+              wordWrap: content.wordWrap,
+              flex: content.flex,
+              alignContent: content.alignContent,
+              alignItems: content.alignItems,
+              alignSelf: content.alignSelf,
+              backgroundImage: 'url(' + content.ImageUrl + ')'
             }"
-          />
+          >
+            {{ content.TextBody }}
+          </h1>
         </div>
       </div>
-
-      <!-- [ngStyle]="{
-        position: 'relative',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        height: '500px',
-        backgroundRepeat: 'no-repeat',
-        display: 'block'
-      }" -->
-      <h1
-        class="customText"
-        [ngStyle]="{
-          fontSize: content.fontSize,
-          color: content.color,
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundClip: content.backgroundClip,
-
-          backgroundOrigin: content.backgroundOrigin,
-          backgroundPosition: content.backgroundPosition,
-          backgroundRepeat: content.backgroundRepeat,
-          backgroundSize: content.backgroundSize,
-          background: content.background,
-          border: content.border,
-          borderBottom: content.borderBottom,
-          borderBottomColor: content.borderBottomColor,
-          borderBottomLeftRadius: content.borderBottomLeftRadius,
-          borderBottomRightRadius: content.borderBottomRightRadius,
-          borderBottomStyle: content.borderBottomStyle,
-          borderBottomWidth: content.borderBottomWidth,
-          borderColor: content.borderColor,
-          borderImage: content.borderImage,
-          borderImageOutset: content.borderImageOutset,
-          borderImageRepeat: content.borderImageRepeat,
-          borderImageSlice: content.borderImageSlice,
-          borderImageSource: content.borderImageSource,
-          borderImageWidth: content.borderImageWidth,
-          borderLeft: content.borderLeft,
-          borderLeftColor: content.borderLeftColor,
-          borderLeftStyle: content.borderLeftStyle,
-          borderLeftWidth: content.borderLeftWidth,
-          borderStyle: content.borderStyle,
-          borderTop: content.borderTop,
-          borderTopColor: content.borderTopColor,
-          borderTopLeftRadius: content.borderTopLeftRadius,
-          borderTopRightRadius: content.borderTopRightRadius,
-          borderTopStyle: content.borderTopStyle,
-          borderTopWidth: content.borderTopWidth,
-          borderWidth: content.borderWidth,
-          boxShadow: content.boxShadow,
-          animation: content.animation,
-          textAlign: content.textAlign,
-          paddingTop: content.paddingTop,
-          paddingBottom: content.paddingBottom,
-          paddingLeft: content.paddingLeft,
-          paddingRight: content.paddingRight,
-          marginTop: content.marginTop,
-          marginBottom: content.marginBottom,
-          marginLeft: content.marginLeft,
-          marginRight: content.marginRight,
-          lineHeight: content.lineHeight,
-          fontFamily: content.fontFamily,
-          clear: content.clear,
-          clip: content.clip,
-          cursor: content.cursor,
-          fontVariant: content.fontVariant,
-          fontWeight: content.fontWieght,
-          height: content.height,
-          left: content.left,
-          letterSpacing: content.letterSpacing,
-          listStyle: content.listStyle,
-          listStyleImage: content.listStyleImage,
-          listStyleType: content.listStyleType,
-          margin: content.margin,
-          pageBreakAfter: content.pageBreakAfter,
-          pageBreakBefore: content.pageBreakBefore,
-          position: content.position,
-          strokeDasharray: content.strokeDasharray,
-          strokeDashoffset: content.strokeDashoffset,
-          strokeWidth: content.strokeWidth,
-          textDecoration: content.textDecoration,
-          textIndent: content.textIndent,
-          textTransform: content.textTransform,
-          top: content.top,
-          right: content.right,
-          bottom: content.bottom,
-          verticalAlign: content.verticalAlign,
-          visibility: content.visibility,
-          width: content.width,
-          zIndex: content.zIndex,
-          display: content.display,
-          cssFloat: content.cssFloat,
-          filter: content.filter,
-          backgroundColor: content.backgroundColor,
-          lineBreak: content.lineBreak,
-          opacity: content.opacity,
-          outline: content.outline,
-          outlineColor: content.outlineColor,
-          outlineOffset: content.outlineOffset,
-          outlineWidth: content.outlineWidth,
-          padding: content.padding,
-          paddingBlock: content.paddingBlock,
-          paddingBlockEnd: content.paddingBlockEnd,
-          paddingBlockStart: content.paddingBlockStart,
-          paddingInLineEnd: content.paddingInLineEnd,
-          paddingInLineStart: content.paddingInLineStart,
-          pageBreakInside: content.pageBreakInside,
-          rotate: content.rotate,
-          textAlignLast: content.textAlignLast,
-          textCombineUpright: content.textCombineUpright,
-          textDecorationColor: content.textDecorationColor,
-          textDecorationLine: content.textDecorationLine,
-          textDecorationSkipInk: content.textDecorationSkipInk,
-          textDecorationStyle: content.textDecorationStyle,
-          textDecorationThickness: content.textDecorationThickness,
-          textEmphasis: content.textEmphasis,
-          textEmphasisColor: content.textEmphasisColor,
-          textEmphasisPosition: content.textEmphasisPosition,
-          textEmphasisStyle: content.textEmphasisStyle,
-          textJustify: content.textJustify,
-          textOrientation: content.textOrientation,
-          textRendering: content.textRendering,
-          textShadow: content.textShadow,
-          textUnderLineOffset: content.textUnderLineOffSet,
-          textUnderLinePosition: content.textUnderLinePosition,
-          transformBox: content.transformBox,
-          transformOrigin: content.transformOrigin,
-          transition: content.transition,
-          transitionDelay: content.transitionDelay,
-          transitionDuration: content.transitionDuration,
-          transitionProperty: content.transitionProperty,
-          transitionTimingFunction: content.transitionTimingFunction,
-          translate: content.translate,
-          whiteSpace: content.whiteSpace,
-          wordBreak: content.wordBreak,
-          wordSpacing: content.wordSpacing,
-          wordWrap: content.wordWrap,
-          flex: content.flex,
-          alignContent: content.alignContent,
-          alignItems: content.alignItems,
-          alignSelf: content.alignSelf,
-          backgroundImage: 'url(' + content.ImageUrl + ')'
-        }"
-      >
-        {{ content.TextBody }}
-      </h1>
-
-      <!-- The issue here is that because all content has an image url, a text body, would have a null image, the image is still displaying
-            as a blank or null image... need to remove this null image somehow. -->
-
-      <!-- <div>{{item.description}}</div> -->
     </ng-template>
-    <app-resizable-draggable
-      [width]="600"
-      [height]="300"
-      [left]="100"
-      [top]="100"
+
+    <!-- Gallery images -->
+    <ng-template
+      ngFor
+      let-content
+      [ngForOf]="this.webContentService.webContentArray"
+      [ngStyle]="{ borderStyle: 'solid' }"
     >
-    </app-resizable-draggable>
+      <div *ngIf="!isSetAsHeroImage" class="container-fluid">
+        <div
+          class="row"
+          *ngIf="content.ImageUrl != null"
+          [ngStyle]="{
+            borderStyle: 'dashed',
+            height: 'auto',
+            width: 'auto',
+            borderColor: 'red'
+          }"
+        >
+          <div class="col-sm-3">
+            <img
+              src="{{ content.ImageUrl }}"
+              [ngStyle]="{
+                height: content.height + 'px',
+                width: 'content.width' + 'px',
+                top: content.top + 'px',
+                left: content.left + 'px'
+              }"
+            />
+          </div>
+        </div>
+        <div
+          [ngStyle]="{
+            borderStyle: 'dashed',
+            height: 'auto',
+            width: 'auto',
+            borderColor: 'red'
+          }"
+        >
+          <h1
+            class="customText"
+            [ngStyle]="{
+              fontSize: content.fontSize,
+              color: content.color,
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundClip: content.backgroundClip,
 
-    <!-- this works!~ -->
+              backgroundOrigin: content.backgroundOrigin,
+              backgroundPosition: content.backgroundPosition,
+              backgroundRepeat: content.backgroundRepeat,
+              backgroundSize: content.backgroundSize,
+              background: content.background,
+              border: content.border,
+              borderBottom: content.borderBottom,
+              borderBottomColor: content.borderBottomColor,
+              borderBottomLeftRadius: content.borderBottomLeftRadius,
+              borderBottomRightRadius: content.borderBottomRightRadius,
+              borderBottomStyle: content.borderBottomStyle,
+              borderBottomWidth: content.borderBottomWidth,
+              borderColor: content.borderColor,
+              borderImage: content.borderImage,
+              borderImageOutset: content.borderImageOutset,
+              borderImageRepeat: content.borderImageRepeat,
+              borderImageSlice: content.borderImageSlice,
+              borderImageSource: content.borderImageSource,
+              borderImageWidth: content.borderImageWidth,
+              borderLeft: content.borderLeft,
+              borderLeftColor: content.borderLeftColor,
+              borderLeftStyle: content.borderLeftStyle,
+              borderLeftWidth: content.borderLeftWidth,
+              borderStyle: content.borderStyle,
+              borderTop: content.borderTop,
+              borderTopColor: content.borderTopColor,
+              borderTopLeftRadius: content.borderTopLeftRadius,
+              borderTopRightRadius: content.borderTopRightRadius,
+              borderTopStyle: content.borderTopStyle,
+              borderTopWidth: content.borderTopWidth,
+              borderWidth: content.borderWidth,
+              boxShadow: content.boxShadow,
+              animation: content.animation,
+              textAlign: content.textAlign,
+              paddingTop: content.paddingTop,
+              paddingBottom: content.paddingBottom,
+              paddingLeft: content.paddingLeft,
+              paddingRight: content.paddingRight,
+              marginTop: content.marginTop,
+              marginBottom: content.marginBottom,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              lineHeight: content.lineHeight,
+              fontFamily: content.fontFamily,
+              clear: content.clear,
+              clip: content.clip,
+              cursor: content.cursor,
+              fontVariant: content.fontVariant,
+              fontWeight: content.fontWieght,
+              height: content.height,
+              left: content.left,
+              letterSpacing: content.letterSpacing,
+              listStyle: content.listStyle,
+              listStyleImage: content.listStyleImage,
+              listStyleType: content.listStyleType,
+              margin: content.margin,
+              pageBreakAfter: content.pageBreakAfter,
+              pageBreakBefore: content.pageBreakBefore,
+              position: content.position,
+              strokeDasharray: content.strokeDasharray,
+              strokeDashoffset: content.strokeDashoffset,
+              strokeWidth: content.strokeWidth,
+              textDecoration: content.textDecoration,
+              textIndent: content.textIndent,
+              textTransform: content.textTransform,
+              top: content.top,
+              right: content.right,
+              bottom: content.bottom,
+              verticalAlign: content.verticalAlign,
+              visibility: content.visibility,
+              width: content.width,
+              zIndex: content.zIndex,
+              display: content.display,
+              cssFloat: content.cssFloat,
+              filter: content.filter,
+              backgroundColor: content.backgroundColor,
+              lineBreak: content.lineBreak,
+              opacity: content.opacity,
+              outline: content.outline,
+              outlineColor: content.outlineColor,
+              outlineOffset: content.outlineOffset,
+              outlineWidth: content.outlineWidth,
+              padding: content.padding,
+              paddingBlock: content.paddingBlock,
+              paddingBlockEnd: content.paddingBlockEnd,
+              paddingBlockStart: content.paddingBlockStart,
+              paddingInLineEnd: content.paddingInLineEnd,
+              paddingInLineStart: content.paddingInLineStart,
+              pageBreakInside: content.pageBreakInside,
+              rotate: content.rotate,
+              textAlignLast: content.textAlignLast,
+              textCombineUpright: content.textCombineUpright,
+              textDecorationColor: content.textDecorationColor,
+              textDecorationLine: content.textDecorationLine,
+              textDecorationSkipInk: content.textDecorationSkipInk,
+              textDecorationStyle: content.textDecorationStyle,
+              textDecorationThickness: content.textDecorationThickness,
+              textEmphasis: content.textEmphasis,
+              textEmphasisColor: content.textEmphasisColor,
+              textEmphasisPosition: content.textEmphasisPosition,
+              textEmphasisStyle: content.textEmphasisStyle,
+              textJustify: content.textJustify,
+              textOrientation: content.textOrientation,
+              textRendering: content.textRendering,
+              textShadow: content.textShadow,
+              textUnderLineOffset: content.textUnderLineOffSet,
+              textUnderLinePosition: content.textUnderLinePosition,
+              transformBox: content.transformBox,
+              transformOrigin: content.transformOrigin,
+              transition: content.transition,
+              transitionDelay: content.transitionDelay,
+              transitionDuration: content.transitionDuration,
+              transitionProperty: content.transitionProperty,
+              transitionTimingFunction: content.transitionTimingFunction,
+              translate: content.translate,
+              whiteSpace: content.whiteSpace,
+              wordBreak: content.wordBreak,
+              wordSpacing: content.wordSpacing,
+              wordWrap: content.wordWrap,
+              flex: content.flex,
+              alignContent: content.alignContent,
+              alignItems: content.alignItems,
+              alignSelf: content.alignSelf,
+              backgroundImage: 'url(' + content.ImageUrl + ')'
+            }"
+          >
+            {{ content.TextBody }}
+          </h1>
+        </div>
+      </div>
+    </ng-template>
 
-    <!-- -->
-    <!-- <div *ngFor="let content of this.webContentService.webContentArray">
-      <div
-        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="heroImageStyling"
-      ></div>
-      <!-- <img
-        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="heroImageStyling"
-      /> -->
-    <!-- </div> -->
-
+    <!-- Youtube videos -->
     <div *ngFor="let content of this.webContentService.webContentArray">
       <div *ngIf="content.embedUrl != null">
         <iframe
@@ -244,302 +372,6 @@
         >
         </iframe>
       </div>
-
-      <!-- <h1
-        class="customText"
-        [ngStyle]="{
-          fontSize: content.fontSize,
-          color: content.color,
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundClip: content.backgroundClip,
-
-          backgroundOrigin: content.backgroundOrigin,
-          backgroundPosition: content.backgroundPosition,
-          backgroundRepeat: content.backgroundRepeat,
-          backgroundSize: content.backgroundSize,
-          background: content.background,
-          border: content.border,
-          borderBottom: content.borderBottom,
-          borderBottomColor: content.borderBottomColor,
-          borderBottomLeftRadius: content.borderBottomLeftRadius,
-          borderBottomRightRadius: content.borderBottomRightRadius,
-          borderBottomStyle: content.borderBottomStyle,
-          borderBottomWidth: content.borderBottomWidth,
-          borderColor: content.borderColor,
-          borderImage: content.borderImage,
-          borderImageOutset: content.borderImageOutset,
-          borderImageRepeat: content.borderImageRepeat,
-          borderImageSlice: content.borderImageSlice,
-          borderImageSource: content.borderImageSource,
-          borderImageWidth: content.borderImageWidth,
-          borderLeft: content.borderLeft,
-          borderLeftColor: content.borderLeftColor,
-          borderLeftStyle: content.borderLeftStyle,
-          borderLeftWidth: content.borderLeftWidth,
-          borderStyle: content.borderStyle,
-          borderTop: content.borderTop,
-          borderTopColor: content.borderTopColor,
-          borderTopLeftRadius: content.borderTopLeftRadius,
-          borderTopRightRadius: content.borderTopRightRadius,
-          borderTopStyle: content.borderTopStyle,
-          borderTopWidth: content.borderTopWidth,
-          borderWidth: content.borderWidth,
-          boxShadow: content.boxShadow,
-          animation: content.animation,
-          textAlign: content.textAlign,
-          paddingTop: content.paddingTop,
-          paddingBottom: content.paddingBottom,
-          paddingLeft: content.paddingLeft,
-          paddingRight: content.paddingRight,
-          marginTop: content.marginTop,
-          marginBottom: content.marginBottom,
-          marginLeft: content.marginLeft,
-          marginRight: content.marginRight,
-          lineHeight: content.lineHeight,
-          fontFamily: content.fontFamily,
-          clear: content.clear,
-          clip: content.clip,
-          cursor: content.cursor,
-          fontVariant: content.fontVariant,
-          fontWeight: content.fontWieght,
-          height: content.height,
-          left: content.left,
-          letterSpacing: content.letterSpacing,
-          listStyle: content.listStyle,
-          listStyleImage: content.listStyleImage,
-          listStyleType: content.listStyleType,
-          margin: content.margin,
-          pageBreakAfter: content.pageBreakAfter,
-          pageBreakBefore: content.pageBreakBefore,
-          position: content.position,
-          strokeDasharray: content.strokeDasharray,
-          strokeDashoffset: content.strokeDashoffset,
-          strokeWidth: content.strokeWidth,
-          textDecoration: content.textDecoration,
-          textIndent: content.textIndent,
-          textTransform: content.textTransform,
-          top: content.top,
-          right: content.right,
-          bottom: content.bottom,
-          verticalAlign: content.verticalAlign,
-          visibility: content.visibility,
-          width: content.width,
-          zIndex: content.zIndex,
-          display: content.display,
-          cssFloat: content.cssFloat,
-          filter: content.filter,
-          backgroundColor: content.backgroundColor,
-          lineBreak: content.lineBreak,
-          opacity: content.opacity,
-          outline: content.outline,
-          outlineColor: content.outlineColor,
-          outlineOffset: content.outlineOffset,
-          outlineWidth: content.outlineWidth,
-          padding: content.padding,
-          paddingBlock: content.paddingBlock,
-          paddingBlockEnd: content.paddingBlockEnd,
-          paddingBlockStart: content.paddingBlockStart,
-          paddingInLineEnd: content.paddingInLineEnd,
-          paddingInLineStart: content.paddingInLineStart,
-          pageBreakInside: content.pageBreakInside,
-          rotate: content.rotate,
-          textAlignLast: content.textAlignLast,
-          textCombineUpright: content.textCombineUpright,
-          textDecorationColor: content.textDecorationColor,
-          textDecorationLine: content.textDecorationLine,
-          textDecorationSkipInk: content.textDecorationSkipInk,
-          textDecorationStyle: content.textDecorationStyle,
-          textDecorationThickness: content.textDecorationThickness,
-          textEmphasis: content.textEmphasis,
-          textEmphasisColor: content.textEmphasisColor,
-          textEmphasisPosition: content.textEmphasisPosition,
-          textEmphasisStyle: content.textEmphasisStyle,
-          textJustify: content.textJustify,
-          textOrientation: content.textOrientation,
-          textRendering: content.textRendering,
-          textShadow: content.textShadow,
-          textUnderLineOffset: content.textUnderLineOffSet,
-          textUnderLinePosition: content.textUnderLinePosition,
-          transformBox: content.transformBox,
-          transformOrigin: content.transformOrigin,
-          transition: content.transition,
-          transitionDelay: content.transitionDelay,
-          transitionDuration: content.transitionDuration,
-          transitionProperty: content.transitionProperty,
-          transitionTimingFunction: content.transitionTimingFunction,
-          translate: content.translate,
-          whiteSpace: content.whiteSpace,
-          wordBreak: content.wordBreak,
-          wordSpacing: content.wordSpacing,
-          wordWrap: content.wordWrap,
-          flex: content.flex,
-          alignContent: content.alignContent,
-          alignItems: content.alignItems,
-          alignSelf: content.alignSelf,
-          backgroundImage: 'url(' + content.ImageUrl + ')'
-        }"
-      >
-        {{ content.TextBody }}
-      </h1> -->
-
-      <!-- THIS WORKS -->
-      <!-- <div [style.background-image]="'url(' + content.ImageUrl + ')' | safe">
-        Background pipe
-      </div> -->
-      <!-- <div class="container-fluid">
-        <div
-          class="row"
-          [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-          style="
-            position: relative;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 500px;
-          "
-        >
-          DOES THIS WORK?
-        </div>
-      </div> -->
-
-      <!-- <img
-        class="customImage"
-        src="{{ content.ImageUrl }}"
-        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="{
-          fontSize: content.fontSize,
-          color: content.color,
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundClip: content.backgroundClip,
-          backgroundOrigin: content.backgroundOrigin,
-          backgroundPosition: content.backgroundPosition,
-          backgroundRepeat: content.backgroundRepeat,
-          backgroundSize: content.backgroundSize,
-          background: content.background,
-          border: content.border,
-          borderBottom: content.borderBottom,
-          borderBottomColor: content.borderBottomColor,
-          borderBottomLeftRadius: content.borderBottomLeftRadius,
-          borderBottomRightRadius: content.borderBottomRightRadius,
-          borderBottomStyle: content.borderBottomStyle,
-          borderBottomWidth: content.borderBottomWidth,
-          borderColor: content.borderColor,
-          borderImage: content.borderImage,
-          borderImageOutset: content.borderImageOutset,
-          borderImageRepeat: content.borderImageRepeat,
-          borderImageSlice: content.borderImageSlice,
-          borderImageSource: content.borderImageSource,
-          borderImageWidth: content.borderImageWidth,
-          borderLeft: content.borderLeft,
-          borderLeftColor: content.borderLeftColor,
-          borderLeftStyle: content.borderLeftStyle,
-          borderLeftWidth: content.borderLeftWidth,
-          borderStyle: content.borderStyle,
-          borderTop: content.borderTop,
-          borderTopColor: content.borderTopColor,
-          borderTopLeftRadius: content.borderTopLeftRadius,
-          borderTopRightRadius: content.borderTopRightRadius,
-          borderTopStyle: content.borderTopStyle,
-          borderTopWidth: content.borderTopWidth,
-          borderWidth: content.borderWidth,
-          boxShadow: content.boxShadow,
-          animation: content.animation,
-          textAlign: content.textAlign,
-          paddingTop: content.paddingTop,
-          paddingBottom: content.paddingBottom,
-          paddingLeft: content.paddingLeft,
-          paddingRight: content.paddingRight,
-          marginTop: content.marginTop,
-          marginBottom: content.marginBottom,
-          marginLeft: content.marginLeft,
-          marginRight: content.marginRight,
-          lineHeight: content.lineHeight,
-          fontFamily: content.fontFamily,
-          clear: content.clear,
-          clip: content.clip,
-          cursor: content.cursor,
-          fontVariant: content.fontVariant,
-          fontWeight: content.fontWieght,
-          height: content.height,
-          left: content.left,
-          letterSpacing: content.letterSpacing,
-          listStyle: content.listStyle,
-          listStyleImage: content.listStyleImage,
-          listStyleType: content.listStyleType,
-          margin: content.margin,
-          pageBreakAfter: content.pageBreakAfter,
-          pageBreakBefore: content.pageBreakBefore,
-          position: content.position,
-          strokeDasharray: content.strokeDasharray,
-          strokeDashoffset: content.strokeDashoffset,
-          strokeWidth: content.strokeWidth,
-          textDecoration: content.textDecoration,
-          textIndent: content.textIndent,
-          textTransform: content.textTransform,
-          top: content.top,
-          right: content.right,
-          bottom: content.bottom,
-          verticalAlign: content.verticalAlign,
-          visibility: content.visibility,
-          width: content.width,
-          zIndex: content.zIndex,
-          display: content.display,
-          cssFloat: content.cssFloat,
-          filter: content.filter,
-          backgroundColor: content.backgroundColor,
-          lineBreak: content.lineBreak,
-          opacity: content.opacity,
-          outline: content.outline,
-          outlineColor: content.outlineColor,
-          outlineOffset: content.outlineOffset,
-          outlineWidth: content.outlineWidth,
-          padding: content.padding,
-          paddingBlock: content.paddingBlock,
-          paddingBlockEnd: content.paddingBlockEnd,
-          paddingBlockStart: content.paddingBlockStart,
-          paddingInLineEnd: content.paddingInLineEnd,
-          paddingInLineStart: content.paddingInLineStart,
-          pageBreakInside: content.pageBreakInside,
-          rotate: content.rotate,
-          textAlignLast: content.textAlignLast,
-          textCombineUpright: content.textCombineUpright,
-          textDecorationColor: content.textDecorationColor,
-          textDecorationLine: content.textDecorationLine,
-          textDecorationSkipInk: content.textDecorationSkipInk,
-          textDecorationStyle: content.textDecorationStyle,
-          textDecorationThickness: content.textDecorationThickness,
-          textEmphasis: content.textEmphasis,
-          textEmphasisColor: content.textEmphasisColor,
-          textEmphasisPosition: content.textEmphasisPosition,
-          textEmphasisStyle: content.textEmphasisStyle,
-          textJustify: content.textJustify,
-          textOrientation: content.textOrientation,
-          textRendering: content.textRendering,
-          textShadow: content.textShadow,
-          textUnderLineOffset: content.textUnderLineOffSet,
-          textUnderLinePosition: content.textUnderLinePosition,
-          transformBox: content.transformBox,
-          transformOrigin: content.transformOrigin,
-          transition: content.transition,
-          transitionDelay: content.transitionDelay,
-          transitionDuration: content.transitionDuration,
-          transitionProperty: content.transitionProperty,
-          transitionTimingFunction: content.transitionTimingFunction,
-          translate: content.translate,
-          whiteSpace: content.whiteSpace,
-          wordBreak: content.wordBreak,
-          wordSpacing: content.wordSpacing,
-          wordWrap: content.wordWrap,
-          flex: content.flex,
-          alignContent: content.alignContent,
-          alignItems: content.alignItems,
-          alignSelf: content.alignSelf,
-          backgroundImage: 'url(' + content.ImageUrl + ')' | safe
-        }"
-      /> -->
     </div>
   </div>
-
-  <!-- <p [ngStyle]="myTextBoxOne">{{ this.service.formData.Textbox1 }}</p> -->
 </ng-container>

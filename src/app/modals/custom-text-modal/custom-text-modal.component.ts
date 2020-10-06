@@ -28,6 +28,7 @@ export class CustomTextModalComponent implements OnInit {
   isSubmitted: boolean;
   imageList: any[];
   fireBaseImageUrl: string;
+  resizeButtonToggled: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -41,6 +42,10 @@ export class CustomTextModalComponent implements OnInit {
     public toastr: ToastrService,
     public defaultTemplateService: DefaultTemplateService
   ) {}
+
+  resizeToggled() {
+    this.resizeButtonToggled = true;
+  }
 
   open(content) {
     this.modalService
