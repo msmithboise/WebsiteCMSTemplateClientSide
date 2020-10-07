@@ -12,6 +12,30 @@
   >
 </div>
 
+<div
+  class="container"
+  style="border-color: black; border-style: solid; height: 700px"
+>
+  <div
+    class="row"
+    style="border-color: blue; border-style: solid; height: 700px"
+  >
+    <div
+      id="resize-div"
+      class="col"
+      style="border-color: red; border-style: solid; height: 700px"
+    >
+      <app-resizable-draggable
+        [width]="300"
+        [height]="150"
+        [left]="0"
+        [top]="0"
+      >
+      </app-resizable-draggable>
+    </div>
+  </div>
+</div>
+
 <ng-container>
   <div class="">
     <app-custom-text-modal></app-custom-text-modal>
@@ -40,7 +64,14 @@
             overflow: 'auto',
             height: content.height + 'px',
             width: content.width + 'px',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            transform:
+              'translate3d(' +
+              content.left +
+              'px,' +
+              content.top +
+              'px,' +
+              '0px)'
           }"
         ></div>
       </div>
@@ -360,3 +391,16 @@
     </div>
   </div>
 </ng-container>
+
+<!-- Testing grid system -->
+<!-- <div class="container">
+  <div class="row">
+    <div *ngFor="let item of testGrid" class="col-4">
+      <div class="col-4"></div>
+
+      <li>
+        {{ item }}
+      </li>
+    </div>
+  </div>
+</div> -->

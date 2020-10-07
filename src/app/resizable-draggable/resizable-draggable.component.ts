@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
@@ -22,7 +23,7 @@ const enum Status {
   templateUrl: './resizable-draggable.component.html',
   styleUrls: ['./resizable-draggable.component.scss'],
 })
-export class ResizableDraggableComponent implements OnInit {
+export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   @Input('width') public width: number;
   @Input('height') public height: number;
   @Input('left') public left: number;
@@ -46,7 +47,9 @@ export class ResizableDraggableComponent implements OnInit {
     public customImageService: CustomImageService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDivRect();
+  }
 
   ngAfterViewInit() {
     this.loadBox();
@@ -118,16 +121,25 @@ export class ResizableDraggableComponent implements OnInit {
     });
   }
 
+  getDivRect() {
+    let elem = document.getElementById('resize-div');
+    console.log('here is the div after query:');
+    console.log(elem);
+    elem.style.backgroundColor = '#5C969E';
+  }
+
   private loadBox() {
     const { left, top } = this.box.nativeElement.getBoundingClientRect();
     this.boxPosition = { left, top };
+    console.log('here are the exact coordinates taken from DOM.. Ojinaka');
+    console.log(this.box.nativeElement.getBoundingClientRect());
   }
 
   private loadContainer() {
     const left = this.boxPosition.left - this.left;
     const top = this.boxPosition.top - this.top;
-    const right = left + 1200;
-    const bottom = top + 900;
+    const right = left + 600;
+    const bottom = top + 450;
     this.containerPos = { left, top, right, bottom };
   }
 
@@ -156,12 +168,17 @@ export class ResizableDraggableComponent implements OnInit {
   }
 
   private resizeCondMeet() {
-    return true;
+    return (
+      this.mouse.x < this.containerPos.right &&
+      this.mouse.y < this.containerPos.bottom
+    );
   }
 
   private move() {
-    this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
-    this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
+    if (this.moveCondMeet()) {
+      this.left = this.mouseClick.left + (this.mouse.x - this.mouseClick.x);
+      this.top = this.mouseClick.top + (this.mouse.y - this.mouseClick.y);
+    }
   }
 
   private moveCondMeet() {

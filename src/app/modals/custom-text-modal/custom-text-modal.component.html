@@ -420,15 +420,7 @@
           Move/Resize Image
         </button>
 
-        <div *ngIf="resizeButtonToggled">
-          <app-resizable-draggable
-            [width]="600"
-            [height]="300"
-            [left]="100"
-            [top]="100"
-          >
-          </app-resizable-draggable>
-        </div>
+        <div *ngIf="resizeButtonToggled"></div>
 
         <button
           class="btn btn-danger float-right"

@@ -1,61 +1,42 @@
 .resizable-draggable {
-  //   outline: 1px dashed green;
+  outline: 1px dashed green;
   &.active {
-    // outline-style: solid;
-    background-color: green;
+    outline-style: solid;
+    background-color: #80ff800d;
   }
 
   &:hover {
-    cursor: grab;
+    cursor: all-scroll;
   }
 
   span:first-of-type {
-    position: relative;
-    left: 100%;
+    position: absolute;
+    left: 50%;
     transform: translate3d(-50%, -100%, 0);
   }
 
   span:nth-of-type(2) {
-    position: relative;
-    top: 100%;
+    position: absolute;
+    top: 50%;
     transform: translate3d(-100%, -50%, 0);
   }
 
   span:nth-of-type(3) {
-    position: relative;
+    position: absolute;
     transform: translate3d(-100%, -100%, 0);
   }
 }
 
 .resize-action {
   position: absolute;
-  left: 75%;
-  top: 50%;
-
+  left: 100%;
+  top: 100%;
+  transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
   border-style: solid;
   border-width: 8px;
   border-color: transparent transparent transparent #008000;
   &:hover,
   &:active {
-    cursor: all-scroll;
+    cursor: nwse-resize;
   }
-}
-
-.save-changes {
-  position: absolute;
-  left: 80%;
-  top: 80%;
-
-  border-style: solid;
-  border-width: 8px;
-  border-color: transparent transparent transparent light-blue;
-  &:hover,
-  &:active {
-    cursor: default;
-  }
-}
-
-.responsive {
-  width: 100%;
-  height: auto;
 }

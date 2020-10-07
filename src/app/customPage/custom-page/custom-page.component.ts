@@ -62,6 +62,7 @@ export class CustomPageComponent implements OnInit {
   public buttonName: any = 'Show';
   public isSetAsHeroImage: boolean = true;
   public isSetAsDefaultImage: boolean = false;
+  public testGrid: string[];
 
   ngOnInit(): void {
     this.callCustomPageService();
@@ -69,7 +70,14 @@ export class CustomPageComponent implements OnInit {
     this.userService.getCurrentUserData();
     this.grabAllContentByPageId();
     this.grabAllUserData();
+    this.createTestArray();
     //this.changePhoto();
+  }
+
+  createTestArray() {
+    this.testGrid = ['hello', 'goodbye', 'good morning'];
+    console.log(this.testGrid);
+    return this.testGrid;
   }
 
   heroImageStyling = {
