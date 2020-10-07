@@ -134,6 +134,13 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     elem.style.width = this.width.toString() + 'px';
     console.log('width test:');
     console.log(this.width.toString() + 'px');
+
+    var newWidth = document.getElementById('resize-div').clientWidth;
+    console.log('here is client width');
+    console.log(newWidth);
+    var newHeight = document.getElementById('resize-div').clientHeight;
+    console.log('here is client height');
+    console.log(newHeight);
   }
 
   private loadBox() {
