@@ -41,6 +41,8 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   };
   private mouseClick: { x: number; y: number; left: number; top: number };
   public pageIdSnapshot: number;
+  public divWidth: number;
+  public divHeight: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -123,24 +125,24 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
   getDivRect() {
     let elem = document.getElementById('resize-div');
-    console.log('here is the div after query:');
-    console.log(elem);
+    // console.log('here is the div after query:');
+    // console.log(elem);
     elem.style.backgroundColor = '#5C969E';
 
-    elem.style.height = this.height.toString() + 'px';
-    console.log('this.height:');
-    console.log(this.height.toString() + 'px');
+    // elem.style.height = this.height.toString() + 'px';
+    // console.log('this.height:');
+    // console.log(this.height.toString() + 'px');
 
-    elem.style.width = this.width.toString() + 'px';
-    console.log('width test:');
-    console.log(this.width.toString() + 'px');
+    // elem.style.width = this.width.toString() + 'px';
+    // console.log('width test:');
+    // console.log(this.width.toString() + 'px');
 
-    var newWidth = document.getElementById('resize-div').clientWidth;
+    this.divWidth = document.getElementById('resize-div').clientWidth;
     console.log('here is client width');
-    console.log(newWidth);
-    var newHeight = document.getElementById('resize-div').clientHeight;
+    console.log(this.divWidth);
+    this.divHeight = document.getElementById('resize-div').clientHeight;
     console.log('here is client height');
-    console.log(newHeight);
+    console.log(this.divHeight);
   }
 
   private loadBox() {
@@ -151,10 +153,23 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   }
 
   private loadContainer() {
+    console.log('right:');
+    console.log(this.top);
+    console.log('box position top');
+    console.log(this.boxPosition.top);
+    //Keeps the top inside of the div
+    this.boxPosition.top = this.boxPosition.top + 58;
+    //////
     const left = this.boxPosition.left - this.left;
     const top = this.boxPosition.top - this.top;
-    const right = left + 600;
-    const bottom = top + 450;
+    console.log('top');
+    console.log(top);
+    const right = this.divWidth;
+    console.log('right');
+    console.log(right);
+    const bottom = this.divHeight;
+    console.log('bottom');
+    console.log(bottom);
     this.containerPos = { left, top, right, bottom };
   }
 
