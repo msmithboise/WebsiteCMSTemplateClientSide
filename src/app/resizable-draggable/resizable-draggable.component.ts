@@ -161,16 +161,16 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     console.log('box position top');
     console.log(this.boxPosition.top);
     //Keeps the top inside of the div
-    this.boxPosition.top = this.boxPosition.top + 58;
+    this.boxPosition.top = this.boxPosition.top + 50;
 
     //////
-    const left = this.boxPosition.left - this.left - 16;
+    const left = this.boxPosition.left - this.left - 24;
     const top = this.boxPosition.top - this.top;
 
-    const right = this.divWidth + 350;
+    const right = this.divWidth + 355;
     console.log(' box position right');
     console.log(right);
-    const bottom = this.divHeight + 450;
+    const bottom = this.divHeight + 470;
     console.log('box position bottom');
     console.log(bottom);
     this.containerPos = { left, top, right, bottom };
