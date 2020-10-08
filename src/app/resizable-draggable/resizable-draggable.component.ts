@@ -139,10 +139,13 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
     this.divWidth = document.getElementById('resize-div').clientWidth;
     console.log('here is client width');
-    console.log(this.divWidth);
     this.divHeight = document.getElementById('resize-div').clientHeight;
     console.log('here is client height');
+
+    this.divHeight = this.divHeight - 300;
     console.log(this.divHeight);
+    this.divWidth = this.divWidth - 300;
+    console.log(this.divWidth);
   }
 
   private loadBox() {
@@ -153,22 +156,22 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   }
 
   private loadContainer() {
-    console.log('right:');
-    console.log(this.top);
+    console.log('box position left');
+    console.log(this.left);
     console.log('box position top');
     console.log(this.boxPosition.top);
     //Keeps the top inside of the div
     this.boxPosition.top = this.boxPosition.top + 58;
+
     //////
     const left = this.boxPosition.left - this.left;
     const top = this.boxPosition.top - this.top;
-    console.log('top');
-    console.log(top);
-    const right = this.divWidth;
-    console.log('right');
+
+    const right = this.divWidth + 350;
+    console.log(' box position right');
     console.log(right);
-    const bottom = this.divHeight;
-    console.log('bottom');
+    const bottom = this.divHeight + 450;
+    console.log('box position bottom');
     console.log(bottom);
     this.containerPos = { left, top, right, bottom };
   }
