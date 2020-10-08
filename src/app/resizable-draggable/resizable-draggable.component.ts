@@ -129,13 +129,13 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     // console.log(elem);
     elem.style.backgroundColor = '#5C969E';
 
-    // elem.style.height = this.height.toString() + 'px';
-    // console.log('this.height:');
-    // console.log(this.height.toString() + 'px');
+    elem.style.height = this.height.toString() + 'px';
+    console.log('this.height:');
+    console.log(this.height.toString() + 'px');
 
-    // elem.style.width = this.width.toString() + 'px';
-    // console.log('width test:');
-    // console.log(this.width.toString() + 'px');
+    elem.style.width = this.width.toString() + 'px';
+    console.log('width test:');
+    console.log(this.width.toString() + 'px');
 
     this.divWidth = document.getElementById('resize-div').clientWidth;
     console.log('here is client width');
@@ -164,7 +164,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     this.boxPosition.top = this.boxPosition.top + 58;
 
     //////
-    const left = this.boxPosition.left - this.left;
+    const left = this.boxPosition.left - this.left - 16;
     const top = this.boxPosition.top - this.top;
 
     const right = this.divWidth + 350;
