@@ -1,6 +1,6 @@
 <div>
   <img
-    [style.background-image]="'url(' + webContent.ImageUrl + ')' | safe"
+    src="{{ webContent.ImageUrl }}"
     #box
     class="resizable-draggable"
     [style.width.px]="width"

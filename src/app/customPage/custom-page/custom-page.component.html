@@ -20,15 +20,38 @@
   >
     <div
       id="resize-div"
+      [ngStyle]="{
+        float: 'left',
+        borderStyle: 'dashed',
+        borderColor: 'red',
+        backgroundAttachment: webContent.backgroundAttachment,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: webContent.backgroundSize,
+        position: webContent.position,
+        opacity: webContent.opacity,
+        backgroundPosition: webContent.backgroundPosition,
+        resize: 'both',
+        overflow: 'auto',
+        height: webContent.height + 'px',
+        width: webContent.width + 'px',
+        objectFit: 'cover',
+        transform:
+          'translate3d(' +
+          webContent.left +
+          'px,' +
+          webContent.top +
+          'px,' +
+          '0px)'
+      }"
       class="col"
-      style="border-color: red; border-style: solid; height: 600px; width: 2000"
+      style="border-color: red; border-style: solid"
     >
       <app-resizable-draggable
         [webContent]="webContent"
         [width]="300"
         [height]="150"
         [left]="0"
-        [top]="50"
+        [top]="0"
       >
       </app-resizable-draggable>
     </div>
