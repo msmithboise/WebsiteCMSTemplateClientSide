@@ -1,5 +1,5 @@
 <div>
-  <div
+  <img
     [style.background-image]="
       'url(https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)'
         | safe
@@ -12,12 +12,13 @@
     [class.active]="status === 1 || status === 2"
     (mousedown)="setStatus($event, 2)"
     (window:mouseup)="setStatus($event, 0)"
-  >
-    <div class="resize-action" (mousedown)="setStatus($event, 1)"></div>
-    <span>{{ width | number: "1.0-0" }}px</span>
-    <span>{{ height | number: "1.0-0" }}px</span>
-    <span>({{ left }}, {{ top }})</span>
-  </div>
+  />
+  <button class="resize-action" (mousedown)="setStatus($event, 1)">
+    Resize
+  </button>
+  <span>{{ width | number: "1.0-0" }}px</span>
+  <span>{{ height | number: "1.0-0" }}px</span>
+  <span>({{ left }}, {{ top }})</span>
 </div>
 
 <!-- <div class="container">

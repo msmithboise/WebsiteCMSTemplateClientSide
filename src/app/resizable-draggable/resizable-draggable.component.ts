@@ -129,7 +129,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     // console.log(elem);
     elem.style.backgroundColor = '#5C969E';
 
-    var newHeight = this.height + 100;
+    var newHeight = this.height + 500;
     console.log('new hieght');
     console.log(newHeight);
 
