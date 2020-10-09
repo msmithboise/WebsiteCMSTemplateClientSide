@@ -29,6 +29,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   @Input('left') public left: number;
   @Input('top') public top: number;
   @Input('cover') public cover: string;
+  @Input('webContent') public webContent: Webcontent;
   @ViewChild('box') public box: ElementRef;
   private boxPosition: { left: number; top: number };
   public mouse: { x: number; y: number };
@@ -51,6 +52,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getDivRect();
+    this.consolelogContent();
   }
 
   ngAfterViewInit() {
@@ -64,6 +66,11 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
     if (this.status === Status.RESIZE) this.resize();
     else if (this.status === Status.MOVE) this.move();
+  }
+
+  consolelogContent() {
+    console.log('content:');
+    console.log(this.webContent);
   }
 
   grabAllContentByPageId() {

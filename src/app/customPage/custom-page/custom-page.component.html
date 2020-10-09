@@ -12,24 +12,23 @@
   >
 </div>
 
-<div
-  class="container"
-  style="border-color: black; border-style: solid; height: 700px"
->
+<div class="container-fluid" style="border-color: black; border-style: solid">
   <div
     class="row"
-    style="border-color: blue; border-style: solid; height: 700px"
+    *ngFor="let webContent of this.webContentService.webContentArray"
+    style="border-color: blue; border-style: solid"
   >
     <div
       id="resize-div"
       class="col"
-      style="border-color: red; border-style: solid; height: 1000px"
+      style="border-color: red; border-style: solid; height: 600px; width: 2000"
     >
       <app-resizable-draggable
+        [webContent]="webContent"
         [width]="300"
         [height]="150"
         [left]="0"
-        [top]="0"
+        [top]="50"
       >
       </app-resizable-draggable>
     </div>

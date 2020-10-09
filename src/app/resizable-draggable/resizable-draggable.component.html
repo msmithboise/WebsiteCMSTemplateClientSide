@@ -1,9 +1,6 @@
 <div>
   <img
-    [style.background-image]="
-      'url(https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)'
-        | safe
-    "
+    [style.background-image]="'url(' + webContent.ImageUrl + ')' | safe"
     #box
     class="resizable-draggable"
     [style.width.px]="width"
@@ -20,6 +17,8 @@
   <span>{{ height | number: "1.0-0" }}px</span>
   <span>({{ left }}, {{ top }})</span>
 </div>
+
+<!-- My code---------------------------------------------------------------------------------------------------------------- -->
 
 <!-- <div class="container">
   <div *ngFor="let content of this.webContentService.webContentArray">
