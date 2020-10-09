@@ -129,9 +129,13 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     // console.log(elem);
     elem.style.backgroundColor = '#5C969E';
 
-    elem.style.height = this.height.toString() + 'px';
+    var newHeight = this.height + 100;
+    console.log('new hieght');
+    console.log(newHeight);
+
+    elem.style.height = newHeight.toString() + 'px';
     console.log('this.height:');
-    console.log(this.height.toString() + 'px');
+    console.log(newHeight.toString() + 'px');
 
     elem.style.width = this.width.toString() + 'px';
     console.log('width test:');
@@ -149,9 +153,10 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   }
 
   private loadBox() {
-    const { left, top } = this.box.nativeElement.getBoundingClientRect();
+    const left = this.box.nativeElement.getBoundingClientRect().left;
+    const top = this.box.nativeElement.getBoundingClientRect().top;
     this.boxPosition = { left, top };
-    console.log('here are the exact coordinates taken from DOM.. Ojinaka');
+    console.log('here are the exact coordinates taken from DOM.');
     console.log(this.box.nativeElement.getBoundingClientRect());
   }
 
@@ -174,6 +179,8 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     console.log('box position bottom');
     console.log(bottom);
     this.containerPos = { left, top, right, bottom };
+    console.log('container position');
+    console.log(this.containerPos);
   }
 
   setStatus(event: MouseEvent, status: number) {

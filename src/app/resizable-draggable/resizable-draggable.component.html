@@ -1,15 +1,65 @@
-<div
-  #box
-  class="resizable-draggable"
-  [style.width.px]="width"
-  [style.height.px]="height"
-  [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
-  [class.active]="status === 1 || status === 2"
-  (mousedown)="setStatus($event, 2)"
-  (window:mouseup)="setStatus($event, 0)"
->
-  <div class="resize-action" (mousedown)="setStatus($event, 1)"></div>
-  <span>{{ width | number: "1.0-0" }}px</span>
-  <span>{{ height | number: "1.0-0" }}px</span>
-  <span>({{ left }}, {{ top }})</span>
+<div>
+  <div
+    [style.background-image]="
+      'url(https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)'
+        | safe
+    "
+    #box
+    class="resizable-draggable"
+    [style.width.px]="width"
+    [style.height.px]="height"
+    [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
+    [class.active]="status === 1 || status === 2"
+    (mousedown)="setStatus($event, 2)"
+    (window:mouseup)="setStatus($event, 0)"
+  >
+    <div class="resize-action" (mousedown)="setStatus($event, 1)"></div>
+    <span>{{ width | number: "1.0-0" }}px</span>
+    <span>{{ height | number: "1.0-0" }}px</span>
+    <span>({{ left }}, {{ top }})</span>
+  </div>
 </div>
+
+<!-- <div class="container">
+  <div *ngFor="let content of this.webContentService.webContentArray">
+    <div
+      class="row"
+      #box
+      [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
+      [class.active]="status === 1 || status === 2"
+      (mousedown)="setStatus($event, 2)"
+      (window:mouseup)="setStatus($event, 0)"
+    >
+      <div *ngIf="content.ImageUrl != null">
+        <img
+          #box
+          src="{{ content.ImageUrl }}"
+          alt=""
+          class="resizable-draggable responsive"
+          [style.width.px]="width"
+          [style.height.px]="height"
+          [style.transform]="
+            'translate3d(' + left + 'px,' + top + 'px,' + '0px)'
+          "
+          [class.active]="status === 1 || status === 2"
+          (mousedown)="setStatus($event, 2)"
+          (window:mouseup)="setStatus($event, 0)"
+          (mousedown)="setStatus($event, 1)"
+        />
+
+        <div class="resize-action btn btn-success" #box>Move</div>
+        <span>{{ width | number: "1.0-0" }}px</span>
+        <span>{{ height | number: "1.0-0" }}px</span>
+        <span>({{ left }}, {{ top }})</span>
+      </div>
+    </div>
+    <div
+      class="save-changes btn btn-primary"
+      (click)="
+        onImageSubmit(width, height, left, top, content.ImageUrl, content.Id)
+      "
+    >
+      Save Changes
+    </div>
+  </div>
+</div> -->

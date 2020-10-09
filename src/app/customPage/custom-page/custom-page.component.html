@@ -23,7 +23,7 @@
     <div
       id="resize-div"
       class="col"
-      style="border-color: red; border-style: solid; height: 700px"
+      style="border-color: red; border-style: solid; height: 1000px"
     >
       <app-resizable-draggable
         [width]="300"
@@ -47,6 +47,7 @@
     >
       <div *ngIf="!isSetAsDefaultImage">
         <div
+          id="image-resize"
           class="heroImage responsive"
           *ngIf="content.ImageUrl != null"
           [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
