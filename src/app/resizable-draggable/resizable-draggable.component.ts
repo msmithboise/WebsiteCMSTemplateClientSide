@@ -134,7 +134,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     let elem = document.getElementById('resize-div');
     // console.log('here is the div after query:');
     // console.log(elem);
-    elem.style.backgroundColor = '#5C969E';
+    //elem.style.backgroundColor = '#5C969E';
 
     var newHeight = this.height + 500;
     console.log('new hieght');

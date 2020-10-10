@@ -20,6 +20,7 @@
     *ngFor="let webContent of this.webContentService.webContentArray"
   >
     <div
+      *ngIf="webContent.ImageUrl != null"
       id="resize-div"
       [ngStyle]="{
         float: 'left',
