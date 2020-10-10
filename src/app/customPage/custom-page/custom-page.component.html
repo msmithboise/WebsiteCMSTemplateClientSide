@@ -5,13 +5,12 @@
 
 <button class="btn btn-info" (click)="resizeToggled()">Resize Images</button>
 
-<img
+<!-- <img
   id="scrollFade"
-  [addAttributeOn]="'toReach'"
-  myClassToAdd="background"
+  [addAttributeOn]
   src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
   alt=""
-/>
+/> -->
 
 <div *ngFor="let data of this.userService.loggedInUserArray">
   <a
@@ -22,6 +21,7 @@
   >
 </div>
 
+<!-- Resize images field -->
 <div class="container-fluid" *ngIf="resizeButtonToggled">
   <div
     class="row"
@@ -66,8 +66,9 @@
   </div>
 </div>
 
+<!-- Hero image field (Parallax, cover, fixed) -->
 <ng-container>
-  <div class="">
+  <div class="container-fluid">
     <app-custom-text-modal></app-custom-text-modal>
     <ng-template
       ngFor
@@ -75,7 +76,7 @@
       [ngForOf]="this.webContentService.webContentArray"
       [ngStyle]="{ borderStyle: 'solid' }"
     >
-      <div *ngIf="!isSetAsDefaultImage">
+      <div *ngIf="!isSetAsGalleryImage">
         <div
           id="image-resize"
           class="heroImage responsive"
@@ -105,6 +106,7 @@
           }"
         ></div>
       </div>
+      <!-- Text -->
       <div [ngStyle]="{}">
         <h1
           class="customText"
@@ -257,7 +259,7 @@
           <div class="col-sm-3">
             <img
               [addAttributeOn]="'toReach'"
-              myClassToAdd="background"
+              id="scrollFade"
               src="{{ content.ImageUrl }}"
               [ngStyle]="{
                 float: 'left',

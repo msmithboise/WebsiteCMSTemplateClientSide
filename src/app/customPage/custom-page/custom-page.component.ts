@@ -61,7 +61,7 @@ export class CustomPageComponent implements OnInit {
   public show: boolean = false;
   public buttonName: any = 'Show';
   public isSetAsHeroImage: boolean = false;
-  public isSetAsDefaultImage: boolean = true;
+  public isSetAsGalleryImage: boolean = true;
   public testGrid: string[];
   public resizeButtonToggled: boolean = false;
 

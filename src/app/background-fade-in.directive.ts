@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
