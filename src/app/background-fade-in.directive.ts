@@ -16,14 +16,11 @@ export class BackgroundFadeInDirective {
 
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      console.log('current scroll');
-      console.log(currentScroll);
+
       if (currentScroll <= checkpoint) {
         var newOpacity = Number(
           document.getElementById('scrollFade').style.opacity
         );
-        console.log('new opacity');
-        console.log(newOpacity);
 
         newOpacity = 1 - currentScroll / checkpoint;
       } else {
