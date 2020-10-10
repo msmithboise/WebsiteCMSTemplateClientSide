@@ -63,6 +63,21 @@ ng-template {
   height: 250px;
 }
 
+img.background {
+  background-color: rgba(brown, 0.9);
+}
+
+img {
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
 /* .div {
   border-style: "dashed";
   height: "auto";
