@@ -63,6 +63,7 @@ export class CustomPageComponent implements OnInit {
   public isSetAsHeroImage: boolean = true;
   public isSetAsDefaultImage: boolean = false;
   public testGrid: string[];
+  public resizeButtonToggled: boolean = false;
 
   ngOnInit(): void {
     this.callCustomPageService();
@@ -72,6 +73,11 @@ export class CustomPageComponent implements OnInit {
     this.grabAllUserData();
     this.createTestArray();
     //this.changePhoto();
+  }
+
+  resizeToggled() {
+    this.resizeButtonToggled = !this.resizeButtonToggled;
+    console.log('button toggled');
   }
 
   createTestArray() {

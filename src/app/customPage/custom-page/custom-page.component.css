@@ -63,12 +63,12 @@ ng-template {
   height: 250px;
 }
 
-.div {
+/* .div {
   border-style: "dashed";
   height: "auto";
   width: "auto";
   border-color: "red";
-}
+} */
 /* .customImage {
   /* position: relative; */
 /* background-attachment: fixed;

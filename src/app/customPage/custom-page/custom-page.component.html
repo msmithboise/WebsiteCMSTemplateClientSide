@@ -3,6 +3,8 @@
 <app-custom-text></app-custom-text>
 <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
 
+<button class="btn btn-info" (click)="resizeToggled()">Resize Images</button>
+
 <div *ngFor="let data of this.userService.loggedInUserArray">
   <a
     routerLink="/portal"
@@ -12,18 +14,16 @@
   >
 </div>
 
-<div class="container-fluid" style="border-color: black; border-style: solid">
+<div class="container-fluid" *ngIf="resizeButtonToggled">
   <div
     class="row"
     *ngFor="let webContent of this.webContentService.webContentArray"
-    style="border-color: blue; border-style: solid"
   >
     <div
       id="resize-div"
       [ngStyle]="{
         float: 'left',
-        borderStyle: 'dashed',
-        borderColor: 'red',
+
         backgroundAttachment: webContent.backgroundAttachment,
         backgroundRepeat: 'no-repeat',
         backgroundSize: webContent.backgroundSize,
@@ -44,7 +44,6 @@
           '0px)'
       }"
       class="col"
-      style="border-color: red; border-style: solid"
     >
       <app-resizable-draggable
         [webContent]="webContent"
@@ -75,8 +74,7 @@
           [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
           [ngStyle]="{
             float: 'left',
-            borderStyle: 'dashed',
-            borderColor: 'red',
+
             backgroundAttachment: content.backgroundAttachment,
             backgroundRepeat: 'no-repeat',
             backgroundSize: content.backgroundSize,
@@ -98,7 +96,7 @@
           }"
         ></div>
       </div>
-      <div [ngStyle]="{ borderStyle: 'dashed', borderColor: 'black' }">
+      <div [ngStyle]="{}">
         <h1
           class="customText"
           [ngStyle]="{

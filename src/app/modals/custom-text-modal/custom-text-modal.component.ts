@@ -43,10 +43,6 @@ export class CustomTextModalComponent implements OnInit {
     public defaultTemplateService: DefaultTemplateService
   ) {}
 
-  resizeToggled() {
-    this.resizeButtonToggled = true;
-  }
-
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })

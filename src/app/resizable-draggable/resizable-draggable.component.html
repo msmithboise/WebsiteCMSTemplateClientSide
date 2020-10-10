@@ -13,6 +13,7 @@
   <button class="resize-action" (mousedown)="setStatus($event, 1)">
     Resize
   </button>
+  <button class="resize-move" (mousedown)="setStatus($event, 2)">Move</button>
   <span>{{ width | number: "1.0-0" }}px</span>
   <span>{{ height | number: "1.0-0" }}px</span>
   <span>({{ left }}, {{ top }})</span>
