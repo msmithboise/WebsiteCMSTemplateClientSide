@@ -250,10 +250,26 @@
             <img
               src="{{ content.ImageUrl }}"
               [ngStyle]="{
+                float: 'left',
+
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                resize: 'both',
+                overflow: 'auto',
                 height: content.height + 'px',
-                width: 'content.width' + 'px',
-                top: content.top + 'px',
-                left: content.left + 'px'
+                width: content.width + 'px',
+                objectFit: 'cover',
+                transform:
+                  'translate3d(' +
+                  content.left +
+                  'px,' +
+                  content.top +
+                  'px,' +
+                  '0px)'
               }"
             />
           </div>
