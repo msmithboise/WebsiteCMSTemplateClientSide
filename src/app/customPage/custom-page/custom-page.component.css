@@ -78,6 +78,25 @@ img.background {
   transition: background 0.5s;
 }
 
+.grid-item {
+  grid-area: 1 / 1 / 1 / 1;
+  border: solid;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
 /* .div {
   border-style: "dashed";
   height: "auto";
