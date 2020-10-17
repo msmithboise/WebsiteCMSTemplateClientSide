@@ -41,8 +41,10 @@
     </div>
   </div>
 
+  <!-- Text body input form -->
   <div class="card">
     <div class="card-body">
+
       <form
         [formGroup]="textFormTemplate"
         class="form-inline"
@@ -57,17 +59,35 @@
             formControlName="TextBody"
           
           />
+          <input
+            type="hidden"
+            name="PageId"
+            formControlName="pageId"
+     
+          />
+        </div>
+      </form>
+    </div>
+  </div>
 
-          <!-- <input
-          style="background-color: #e6e6fa"
-          type="text"
-          formControlName="Username"
-          id="inputEmail"
-          class="form-control"
-          placeholder="Username"
-          required
-          autofocus
-        /> -->
+  <!-- Image Url input form -->
+  <div class="card">
+    <div class="card-body">
+
+      <form
+        [formGroup]="imageUrlFormTemplate"
+        class="form-inline"
+        (submit)="submitImageUrlData(imageUrlFormTemplate.value)"
+      >
+        <div class="form-group">
+          <input
+            name="imageUrl"
+            class="form-control-lg form-group"
+            placeholder="Add Url Here"
+            type="text"
+            formControlName="imageUrl"
+          
+          />
           <input
             type="hidden"
             name="PageId"

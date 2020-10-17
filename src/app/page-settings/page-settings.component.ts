@@ -85,6 +85,11 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
+  imageUrlFormTemplate = new FormGroup({
+    imageUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
@@ -128,20 +133,37 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
+  //To submit text body data
   submitNewTextData(form: FormGroup) {
-    console.log('form after submit');
-    console.log(form);
-    this.insertRecord(form);
+    this.insertTextRecord(form);
   }
 
-  insertRecord(form: FormGroup) {
-    console.log('form during insert record');
-    console.log(form);
-
+  insertTextRecord(form: FormGroup) {
     var newForm = this.textFormTemplate.value;
     newForm.pageId = this.webContentService.pageIdSnapshot;
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
+  }
+
+  //To submit image url
+
+  submitImageUrlData(form: FormGroup) {
+    console.log('image form after submit');
+    console.log(form);
+    this.insertImageUrlRecord(form);
+  }
+
+  insertImageUrlRecord(form: FormGroup) {
+    console.log('image form during insert record');
+    console.log(form);
+
+    var newUrlForm = this.imageUrlFormTemplate.value;
+    newUrlForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService.postImageUrlByPageId(newUrlForm).subscribe((res) => {
       //this.resetForm(form);
       this.grabAllContentByPageId();
     });
