@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { timeStamp } from 'console';
 import { CustomPage } from 'src/app/models/custom-page.model';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
+import { SubpageService } from 'src/app/services/subpage.service';
 
 @Component({
   selector: 'app-custom-page-modal',
@@ -17,7 +18,8 @@ export class CustomPageModalComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     public customPageService: CustomPageService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public subPageService: SubpageService
   ) {}
 
   ngOnInit(): void {}
@@ -33,6 +35,12 @@ export class CustomPageModalComponent implements OnInit {
           this.closeResult = ``;
         }
       );
+  }
+
+  getSubPages() {
+    this.subPageService.getSubPages().subscribe((res) => {
+      console.log(res);
+    });
   }
 
   addNewPage(form: NgForm) {
