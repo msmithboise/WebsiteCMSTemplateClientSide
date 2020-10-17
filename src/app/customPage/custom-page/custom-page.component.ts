@@ -76,9 +76,11 @@ export class CustomPageComponent implements OnInit {
   }
 
   openPageSettings() {
+    this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
+
     console.log('opened page settings.');
 
-    this.router.navigate(['/settings']);
+    this.router.navigate(['/settings/' + this.pageIdSnapshot]);
   }
 
   resizeToggled() {

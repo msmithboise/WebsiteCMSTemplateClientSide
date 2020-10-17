@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {
-    path: 'settings',
+    path: 'settings/:pageId',
     component: PageSettingsComponent,
   },
   //for adding auth guard:

@@ -1,1 +1,42 @@
 <p>page-settings works!</p>
+
+  <!-- New Upload File Form -->
+  <div class="card" style="width: 25rem">
+    <div class="card-body">
+      <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+        <div class="text-center">
+          <img
+            [src]="imgSrc"
+            width="350px"
+            height="350px"
+            (click)="fileUploader.click()"
+          />
+        </div>
+        <div class="form-group">
+          <label>Select file to upload.</label>
+          <input
+            type="file"
+            accept="image/*"
+            class="form-control-file"
+            #fileUploader
+            formControlName="imageUrl"
+            (change)="showPreview($event)"
+          />
+          <div
+            class="text-danger"
+            *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
+          >
+            This field is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="hidden" formControlName="pageId" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success float-right">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
