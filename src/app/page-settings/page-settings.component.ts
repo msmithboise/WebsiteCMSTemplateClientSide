@@ -80,6 +80,11 @@ export class PageSettingsComponent implements OnInit {
     backgroundImage: new FormControl(''),
   });
 
+  textFormTemplate = new FormGroup({
+    TextBody: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
@@ -123,17 +128,23 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
-  submitNewTextData(form: NgForm) {
+  submitNewTextData(form: FormGroup) {
+    console.log('form after submit');
+    console.log(form);
     this.insertRecord(form);
   }
 
-  insertRecord(form: NgForm) {
-    this.webContentService
-      .postWebContentByPageId(form.value)
-      .subscribe((res) => {
-        //this.resetForm(form);
-        this.grabAllContentByPageId();
-      });
+  insertRecord(form: FormGroup) {
+    console.log('form during insert record');
+    console.log(form);
+
+    var newForm = this.textFormTemplate.value;
+    newForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
   }
 
   getImageDetails() {

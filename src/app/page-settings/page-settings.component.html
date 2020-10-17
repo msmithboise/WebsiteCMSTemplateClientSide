@@ -44,26 +44,41 @@
   <div class="card">
     <div class="card-body">
       <form
-        #f="ngForm"
+        [formGroup]="textFormTemplate"
         class="form-inline"
-        (submit)="submitNewTextData(f)"
+        (submit)="submitNewTextData(textFormTemplate.value)"
       >
         <div class="form-group">
           <input
             name="TextBody"
             class="form-control-lg form-group"
-            placeholder="Add Text/URL Here"
+            placeholder="Add Text Here"
             type="text"
-            #TextBody="ngModel"
-            [(ngModel)]="webContentService.formData"
+            formControlName="TextBody"
+          
           />
+
+          <!-- <input
+          style="background-color: #e6e6fa"
+          type="text"
+          formControlName="Username"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Username"
+          required
+          autofocus
+        /> -->
           <input
             type="hidden"
             name="PageId"
-            #PageId="ngModel"
-            [(ngModel)]="webContentService.pageIdSnapshot"
+            formControlName="pageId"
+     
           />
         </div>
       </form>
     </div>
   </div>
+
+  
+
+  

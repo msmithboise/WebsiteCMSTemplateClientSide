@@ -43,7 +43,9 @@ export class WebcontentService {
   }
 
   //Post webcontent
-  postWebContentByPageId(formData: Webcontent) {
+  postWebContentByPageId(formData: FormGroup) {
+    console.log('form before post');
+    console.log(formData);
     return this.http.post(this.webApi + '/WebContent', formData);
   }
 
