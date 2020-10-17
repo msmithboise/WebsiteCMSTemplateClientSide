@@ -3,7 +3,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
 import { WebcontentService } from 'src/app/WebContent/webcontent.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Console } from 'console';
@@ -121,6 +121,19 @@ export class PageSettingsComponent implements OnInit {
       this.grabAllContentByPageId();
       this.toastr.success('Image uploaded succesfully!');
     }
+  }
+
+  submitNewTextData(form: NgForm) {
+    this.insertRecord(form);
+  }
+
+  insertRecord(form: NgForm) {
+    this.webContentService
+      .postWebContentByPageId(form.value)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
   }
 
   getImageDetails() {

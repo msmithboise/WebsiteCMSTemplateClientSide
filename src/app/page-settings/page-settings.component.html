@@ -40,3 +40,30 @@
       </form>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-body">
+      <form
+        #f="ngForm"
+        class="form-inline"
+        (submit)="submitNewTextData(f)"
+      >
+        <div class="form-group">
+          <input
+            name="TextBody"
+            class="form-control-lg form-group"
+            placeholder="Add Text/URL Here"
+            type="text"
+            #TextBody="ngModel"
+            [(ngModel)]="webContentService.formData"
+          />
+          <input
+            type="hidden"
+            name="PageId"
+            #PageId="ngModel"
+            [(ngModel)]="webContentService.pageIdSnapshot"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
