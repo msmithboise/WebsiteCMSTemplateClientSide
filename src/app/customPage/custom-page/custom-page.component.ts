@@ -75,6 +75,12 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
+  openPageSettings() {
+    console.log('opened page settings.');
+
+    this.router.navigate(['/settings']);
+  }
+
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
     console.log('button toggled');

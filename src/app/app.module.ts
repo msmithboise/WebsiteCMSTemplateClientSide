@@ -31,6 +31,7 @@ import { AuthGuardComponent } from './auth-guard/auth-guard.component';
 import { ResizableDraggableComponent } from './resizable-draggable/resizable-draggable.component';
 import { BackgroundFadeInDirective } from './background-fade-in.directive';
 import { SubpageComponent } from './subpage/subpage.component';
+import { PageSettingsComponent } from './page-settings/page-settings.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SubpageComponent } from './subpage/subpage.component';
     ResizableDraggableComponent,
     BackgroundFadeInDirective,
     SubpageComponent,
+    PageSettingsComponent,
   ],
   imports: [
     BrowserModule,

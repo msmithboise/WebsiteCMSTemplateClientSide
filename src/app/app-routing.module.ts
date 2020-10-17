@@ -5,6 +5,7 @@ import { CustomPageComponent } from './customPage/custom-page/custom-page.compon
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuardComponent } from './auth-guard/auth-guard.component';
+import { PageSettingsComponent } from './page-settings/page-settings.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,10 @@ const routes: Routes = [
   },
   { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  {
+    path: 'settings',
+    component: PageSettingsComponent,
+  },
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
 ];
