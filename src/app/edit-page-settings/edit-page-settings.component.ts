@@ -44,6 +44,7 @@ export class EditPageSettingsComponent implements OnInit {
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
+        this.grabAllPages();
       });
     this.toastr.success('Page created!');
   }
@@ -58,7 +59,7 @@ export class EditPageSettingsComponent implements OnInit {
 
   deletePage(pageId: number) {
     this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
-      this.customPageService.getCustomPageContent();
+      this.grabAllPages();
       //this.resetForm();
     });
     this.toastr.error('Page deleted!');
