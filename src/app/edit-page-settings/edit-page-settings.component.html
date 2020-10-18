@@ -1,19 +1,19 @@
 
     <div class="container">
       <form #f="ngForm" (submit)="addNewPage(f)">
-        <label>Page Description</label>
-        <div class="input-group-append"></div>
-        <input
+          <div class="input-group-append"></div>
+          <input
           class="form-control-lg form-group"
           name="PageDescription"
           placeholder="Enter Page Name here."
           type="text"
           #PageId="ngModel"
           [(ngModel)]="customPageService.pageFormData"
-        />
-      </form>
+          />
+        </form>
     </div>
-    <div class="container">
+    <div class="container-fluid">
+        <label class="label-color"> Page Description</label>
       <div *ngFor="let page of this.customPageService.customPageArray">
         <form #form="ngForm" (submit)="addNewPage(form)">
           <div class="input-group"></div>
