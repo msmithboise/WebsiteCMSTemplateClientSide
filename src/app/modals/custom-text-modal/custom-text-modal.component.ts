@@ -214,6 +214,7 @@ export class CustomTextModalComponent implements OnInit {
       .getEditContentById(webContentId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
+
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });

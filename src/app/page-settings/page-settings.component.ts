@@ -241,10 +241,14 @@ export class PageSettingsComponent implements OnInit {
 
   selectItemToEdit(textId: number) {
     this.router.navigate(['/style-settings/' + textId]);
+    console.log('item to edit');
+    console.log(textId);
     this.webContentService
       .getEditContentById(textId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
+        console.log('res');
+        console.log(res);
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
