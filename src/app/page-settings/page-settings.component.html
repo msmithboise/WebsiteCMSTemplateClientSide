@@ -70,7 +70,6 @@
     </div>
   </div>
 
-  <!-- Image Url input form -->
   <div class="card">
     <div class="card-body">
 
@@ -99,6 +98,34 @@
     </div>
   </div>
 
+  <!-- Embed Url input form -->
+ <div class="card">
+    <div class="card-body">
+
+      <form
+        [formGroup]="embedUrlFormTemplate"
+        class="form-inline"
+        (submit)="submitEmbedUrlData(embedUrlFormTemplate.value)"
+      >
+        <div class="form-group">
+          <input
+            name="embedUrl"
+            class="form-control-lg form-group"
+            placeholder="Add Embed Here"
+            type="text"
+            formControlName="embedUrl"
+          
+          />
+          <input
+            type="hidden"
+            name="PageId"
+            formControlName="pageId"
+     
+          />
+        </div>
+      </form>
+    </div>
+  </div>
   
 
   

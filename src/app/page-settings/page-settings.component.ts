@@ -90,6 +90,11 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
+  embedUrlFormTemplate = new FormGroup({
+    embedUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
@@ -163,10 +168,35 @@ export class PageSettingsComponent implements OnInit {
     var newUrlForm = this.imageUrlFormTemplate.value;
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
 
-    this.webContentService.postImageUrlByPageId(newUrlForm).subscribe((res) => {
-      //this.resetForm(form);
-      this.grabAllContentByPageId();
-    });
+    this.webContentService
+      .postWebContentByPageId(newUrlForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
+  }
+
+  //To embed image url
+
+  submitEmbedUrlData(form: FormGroup) {
+    console.log('Embed form after submit');
+    console.log(form);
+    this.insertEmbedUrlRecord(form);
+  }
+
+  insertEmbedUrlRecord(form: FormGroup) {
+    console.log('Embed form during insert record');
+    console.log(form);
+
+    var newEmbedUrlForm = this.embedUrlFormTemplate.value;
+    newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService
+      .postWebContentByPageId(newEmbedUrlForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
   }
 
   getImageDetails() {

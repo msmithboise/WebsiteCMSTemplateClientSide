@@ -51,11 +51,6 @@ export class WebcontentService {
 
   //Post image url and page id
   //Post webcontent
-  postImageUrlByPageId(formData: FormGroup) {
-    console.log('Image form before post');
-    console.log(formData);
-    return this.http.post(this.webApi + '/WebContent', formData);
-  }
 
   //Post custom form data
 
