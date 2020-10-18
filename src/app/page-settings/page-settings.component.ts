@@ -8,7 +8,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Console } from 'console';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomImageService } from 'src/app/services/custom-image.service';
 import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
@@ -36,7 +36,8 @@ export class PageSettingsComponent implements OnInit {
     public customImageService: CustomImageService,
     private route: ActivatedRoute,
     private storage: AngularFireStorage,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -238,13 +239,20 @@ export class PageSettingsComponent implements OnInit {
     this.toastr.error('Content deleted!');
   }
 
-  selectItemToEdit(webContentId) {
+  selectItemToEdit(textId: number) {
+    this.router.navigate(['/style-settings/' + textId]);
     this.webContentService
-      .getEditContentById(webContentId)
+      .getEditContentById(textId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
+  }
+
+  openStyleSettings(textId: string) {
+    console.log('opened page settings.');
+
+    this.router.navigate(['/style-settings/' + textId]);
   }
 }
