@@ -44,6 +44,12 @@ export class PageSettingsComponent implements OnInit {
     this.grabAllContentByPageId();
   }
 
+  openPageSettings() {
+    console.log('opened page settings.');
+
+    this.router.navigate(['/edit-page/']);
+  }
+
   //Grab all webcontent to display for editing
   grabAllContentByPageId() {
     this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(

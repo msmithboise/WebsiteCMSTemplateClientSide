@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuardComponent } from './auth-guard/auth-guard.component';
 import { PageSettingsComponent } from './page-settings/page-settings.component';
 import { StyleSettingsComponent } from './style-settings/style-settings.component';
+import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settings.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
   { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'edit-page', component: EditPageSettingsComponent },
   { path: 'style-settings/:textId', component: StyleSettingsComponent },
   {
     path: 'settings/:pageId',
