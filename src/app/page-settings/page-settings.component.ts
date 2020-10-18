@@ -223,4 +223,28 @@ export class PageSettingsComponent implements OnInit {
 
     //Now we need to create a form to post to db
   }
+
+  deleteDialogue(id: number) {
+    if (confirm('Are you sure you want to delete this?')) {
+      this.onDelete(id);
+    }
+  }
+
+  onDelete(id: number) {
+    this.webContentService.deleteWebPageContent(id).subscribe((res) => {
+      this.grabAllContentByPageId();
+      this.resetForm();
+    });
+    this.toastr.error('Content deleted!');
+  }
+
+  selectItemToEdit(webContentId) {
+    this.webContentService
+      .getEditContentById(webContentId)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentService.webContentByIdArray = res;
+        // console.log('Here is the images based on page id: ');
+        // console.log(this.imagesByPageIdArray);
+      });
+  }
 }

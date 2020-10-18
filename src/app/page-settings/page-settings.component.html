@@ -132,7 +132,7 @@
   </div>
 
 
-  
+  <!-- Existing content display forms -->
   <div
       *ngFor="let text of this.webContentService.webContentArray; let i = index"
     >
@@ -143,6 +143,23 @@
           (submit)="onContentSubmit()"
           id="myForm"
         >
+
+        <div>
+            <button
+            class="btn btn-danger float-right"
+            (click)="deleteDialogue(text.Id)"
+          >
+            Delete
+          </button>
+          <button
+            class="btn btn-primary float-right"
+       
+            (click)="selectItemToEdit(text.Id)"
+          >
+            Edit
+          </button>
+
+        </div>
           <!-- Id -->
 
           <input
@@ -203,7 +220,13 @@
               [(ngModel)]="text.embedUrl"
             />
             <div class="input-group-append"></div>
+
+           
+
+
           </div>
+        
+          
 
 
        
