@@ -254,22 +254,11 @@ export class CustomPageComponent implements OnInit {
   }
 
   setYouTubeEmbed(embedLink) {
-    console.log('embed link');
-    console.log(embedLink);
     if (embedLink != null) {
       var url = embedLink;
       url = url.replace('youtu.be', 'youtube.com/embed');
-
       var embed = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-
-      console.log('embed after replace');
-      console.log(url);
       return embed;
-
-      //this works...
-      //https://www.youtube.com/embed/Oz_AhAN0s4E
-
-      //here is what is happening: https://www.youtube.com/embed/https://youtu.be/Oz_AhAN0s4E
     }
   }
 
