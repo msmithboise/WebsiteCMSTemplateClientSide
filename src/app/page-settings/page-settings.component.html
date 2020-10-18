@@ -41,34 +41,38 @@
     </div>
   </div>
 
-  <!-- Text body input form -->
-  <div class="card">
-    <div class="card-body">
 
-      <form
-        [formGroup]="textFormTemplate"
-        class="form-inline"
-        (submit)="submitNewTextData(textFormTemplate.value)"
-      >
+
+      <!-- Text body input form -->
+      <div class="card">
+          <div class="card-body">
+              
+              <form
+              [formGroup]="textFormTemplate"
+              class="form-inline"
+              (submit)="submitNewTextData(textFormTemplate.value)"
+              >
         <div class="form-group">
-          <input
+            <input
             name="TextBody"
             class="form-control-lg form-group"
             placeholder="Add Text Here"
             type="text"
             formControlName="TextBody"
           
-          />
-          <input
+            
+            />
+            <input
             type="hidden"
             name="PageId"
             formControlName="pageId"
-     
-          />
+            
+            />
         </div>
-      </form>
-    </div>
-  </div>
+    </form>
+</div>
+</div>
+
 
   <div class="card">
     <div class="card-body">
@@ -126,6 +130,84 @@
       </form>
     </div>
   </div>
+
+
+  
+  <div
+      *ngFor="let text of this.webContentService.webContentArray; let i = index"
+    >
+      <div class="input-group"></div>
+      <div class="modal-body form-group">
+        <form
+          #form="ngForm"
+          (submit)="onContentSubmit()"
+          id="myForm"
+        >
+          <!-- Id -->
+
+          <input
+            name="Id"
+            type="hidden"
+            #TextId="ngModel"
+            [(ngModel)]="text.Id"
+          />
+
+          <!-- Text Id -->
+          <input
+            name="TextId"
+            type="hidden"
+            #TextId="ngModel"
+            [(ngModel)]="text.TextId"
+          />
+
+          <!-- Text Body -->
+
+          <div *ngIf="text.TextBody">
+            <label>Text Body</label>
+            <div class="input-group"></div>
+            <input
+              name="TextBody"
+              #TextBody="ngModel"
+              [(ngModel)]="text.TextBody"
+            />
+          </div>
+
+          <!-- PageId -->
+
+          <input
+            name="PageId"
+            type="hidden"
+            #PageId="ngModel"
+            [(ngModel)]="text.PageId"
+          />
+
+          <!-- ImageUrl -->
+          <div *ngIf="text.ImageUrl">
+            <label>Image Url</label>
+            <div class="input-group"></div>
+            <input
+              name="ImageUrl"
+              #ImageUrl="ngModel"
+              [(ngModel)]="text.ImageUrl"
+            />
+            <div class="input-group-append"></div>
+          </div>
+
+          <!-- Youtube Embed -->
+          <div *ngIf="text.embedUrl">
+            <label>Embed Url</label>
+            <div class="input-group"></div>
+            <input
+              name="embedUrl"
+              #embedUrl="ngModel"
+              [(ngModel)]="text.embedUrl"
+            />
+            <div class="input-group-append"></div>
+          </div>
+
+
+       
+          
   
 
   

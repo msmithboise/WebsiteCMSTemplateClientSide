@@ -138,6 +138,8 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
+  onContentSubmit() {}
+
   //To submit text body data
   submitNewTextData(form: FormGroup) {
     this.insertTextRecord(form);
