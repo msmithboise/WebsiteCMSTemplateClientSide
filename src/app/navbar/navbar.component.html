@@ -91,6 +91,9 @@
             <a
               class="nav-link"
               [ngStyle]="navFontStyling"
+              (click)="
+                navToSubPage(subPage.SubPageId, subPage.SubPageDescription)
+              "
               routerLink="/{{ subPage.SubPageId }}"
               href="#"
               >{{ subPage.SubPageDescription }}</a

@@ -89,4 +89,10 @@ export class NavbarComponent implements OnInit {
 
     this.customPageService.selectPageId(pageId);
   }
+
+  navToSubPage(subPageId: number, subPageDescription: string) {
+    console.log(subPageId);
+    console.log(subPageDescription);
+    this.router.navigate(['subPage/' + subPageDescription + '/' + subPageId]);
+  }
 }
