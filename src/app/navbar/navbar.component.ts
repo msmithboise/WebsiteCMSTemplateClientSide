@@ -37,6 +37,16 @@ export class NavbarComponent implements OnInit {
     this.getSubPageLinks();
   }
 
+  showSubPagesById(pageId: number) {
+    this.subPageService
+      .getSubPagesByPageId(pageId)
+      .subscribe((res: Subpage[]) => {
+        this.subPageService.subPageArray = res;
+
+        console.log(this.subPageService.subPageArray);
+      });
+  }
+
   getSubPageLinks() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
