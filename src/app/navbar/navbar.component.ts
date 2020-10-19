@@ -3,6 +3,8 @@ import { CustomPageService } from '../services/custom-page.service';
 import { CustomPage } from '../models/custom-page.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SubpageService } from '../services/subpage.service';
+import { Subpage } from '../models/subpage.model';
 
 @Component({
   selector: 'app-navbar',
@@ -22,7 +24,8 @@ export class NavbarComponent implements OnInit {
     public customPageService: CustomPageService,
     private router: Router,
     private route: ActivatedRoute,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    public subPageService: SubpageService
   ) {}
 
   customPageArray: CustomPage[];
@@ -31,6 +34,15 @@ export class NavbarComponent implements OnInit {
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
+    this.getSubPageLinks();
+  }
+
+  getSubPageLinks() {
+    this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      this.subPageService.subPageArray = res;
+
+      console.log(this.subPageService.subPageArray);
+    });
   }
 
   setLogoRight() {

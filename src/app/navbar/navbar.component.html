@@ -24,7 +24,7 @@
         </li>
         <!-- <div (click)="onClick(page.pageId)"> -->
         <div class="row">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
               <input
                 (click)="setLogoLeft()"
@@ -55,7 +55,7 @@
               />
               Right
             </label>
-          </div>
+          </div> -->
 
           <div *ngIf="!logoIsLeft && !logoIsRight">
             <div
@@ -87,6 +87,15 @@
             >
             <h2>{{ page.pageId }}</h2>
           </li>
+          <div *ngFor="let subPage of subPageService.subPageArray">
+            <a
+              class="nav-link"
+              [ngStyle]="navFontStyling"
+              routerLink="/{{ subPage.SubPageId }}"
+              href="#"
+              >{{ subPage.SubPageDescription }}</a
+            >
+          </div>
           <div *ngIf="logoIsRight">
             <div
               [style.background-image]="'url(' + photo + ')' | safe"
