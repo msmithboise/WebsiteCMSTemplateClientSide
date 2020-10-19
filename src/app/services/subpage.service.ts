@@ -8,6 +8,7 @@ import { Subpage } from '../models/subpage.model';
 })
 export class SubpageService {
   readonly webApi = 'http://localhost:54704/api';
+  subPageArray: Subpage[];
 
   constructor(public http: HttpClient) {}
 

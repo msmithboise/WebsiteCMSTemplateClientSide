@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomPage } from '../models/custom-page.model';
+import { Subpage } from '../models/subpage.model';
 import { CustomPageService } from '../services/custom-page.service';
 import { SubpageService } from '../services/subpage.service';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -71,14 +72,21 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   getSubPages(pageId: number, pageDescription: string) {
-    this.subPageService.getSubPages().subscribe((res) => {
-      console.log(res);
+    this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      this.subPageService.subPageArray = res;
 
-      console.log('opened page settings.');
-      console.log('/edit-sub-page/' + pageDescription + '/' + pageId);
+      console.log(this.subPageService.subPageArray);
+
       this.router.navigate([
         '/edit-sub-page/' + pageDescription + '/' + pageId,
       ]);
     });
   }
 }
+
+// .subscribe((res: CustomPage[]) => {
+//   this.customPageService.customPageArray = res;
+//   this.grabAllPages();
+//   this.toastr.success('Page created!');
+//   console.log('is this being calleD?');
+// });
