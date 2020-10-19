@@ -24,6 +24,7 @@ export class EditSubPageSettingsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getSubPages();
     this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
     console.log(this.pageDescription);
     this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
@@ -44,13 +45,23 @@ export class EditSubPageSettingsComponent implements OnInit {
     });
   }
 
-  // var newForm = this.textFormTemplate.value;
-  // newForm.pageId = this.webContentService.pageIdSnapshot;
+  deleteDialogue(subPageId: number, subPageDescription: string) {
+    if (
+      confirm(
+        'Are you sure you want to delete' + ' ' + subPageDescription + '?'
+      )
+    ) {
+      this.deleteSubPage(subPageId);
+    }
+  }
 
-  // this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-  //   //this.resetForm(form);
-  //   this.grabAllContentByPageId();
-  // });
+  deleteSubPage(subPageId: number) {
+    this.subPageService.deleteSubPage(subPageId).subscribe((res) => {
+      this.getSubPages();
+      //this.resetForm();
+    });
+    this.toastr.error('Page deleted!');
+  }
 
   getSubPages() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {

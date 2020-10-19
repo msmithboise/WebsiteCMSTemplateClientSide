@@ -24,4 +24,9 @@ export class SubpageService {
   createSubPage(formData: Subpage) {
     return this.http.post(this.webApi + '/SubPages', formData);
   }
+
+  //Delete
+  deleteSubPage(subPageId: number) {
+    return this.http.delete(this.webApi + '/SubPages/' + subPageId);
+  }
 }

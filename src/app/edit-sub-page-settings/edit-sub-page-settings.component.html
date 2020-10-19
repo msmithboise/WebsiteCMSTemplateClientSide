@@ -163,13 +163,24 @@
               <label class="label-color"> Page Description</label>
               <div class="card-body">
                 <div *ngFor="let subPage of this.subPageService.subPageArray">
+                  <button
+                    class="btn btn-danger btn-sm float-right"
+                    (click)="
+                      deleteDialogue(
+                        subPage.SubPageId,
+                        subPage.SubPageDescription
+                      )
+                    "
+                  >
+                    Delete
+                  </button>
                   <form
                     #form="ngForm"
                     (submit)="submitSubPageData(subPageFormTemplate.value)"
                   >
                     <div class="input-group"></div>
 
-                    <!-- Page Id -->
+                    <!-- Sub Page Id -->
 
                     <input
                       name="SubPageId"
@@ -178,7 +189,7 @@
                       [(ngModel)]="subPage.SubPageId"
                     />
 
-                    <!-- Page Description -->
+                    <!-- Sub Page Description -->
 
                     <input
                       name="SubPageDescription"
@@ -191,29 +202,6 @@
                     <!-- --------------------------------------------------------------------------- -->
                   </form>
 
-                  <!-- <form #form="ngForm" (submit)="addNewPage(form)">
-                    <div class="input-group"></div>
-
-               
-
-                    <input
-                      name="PageId"
-                      type="hidden"
-                      #TextId="ngModel"
-                      [(ngModel)]="page.PageId"
-                    />
-
-      
-
-                    <input
-                      name="PageDescription"
-                      type="text"
-                      class="form-control col-sm-9 formStyle"
-                      #TextId="ngModel"
-                      [(ngModel)]="page.PageDescription"
-                    />
-
-                </form> -->
                   <!-- --------------------------------------------------------------------------- -->
                 </div>
               </div>
