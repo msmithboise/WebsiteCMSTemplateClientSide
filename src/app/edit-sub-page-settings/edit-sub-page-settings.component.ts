@@ -24,11 +24,25 @@ export class EditSubPageSettingsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getSubPages();
+    this.grabPageIdInfo();
+    this.getSubPagesByPageId();
+  }
+
+  grabPageIdInfo() {
     this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
     console.log(this.pageDescription);
     this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
     console.log(this.pageId);
+  }
+
+  getSubPagesByPageId() {
+    this.subPageService
+      .getSubPagesByPageId(this.pageId)
+      .subscribe((res: Subpage[]) => {
+        this.subPageService.subPageByPageIdArray = res;
+
+        console.log(this.subPageService.subPageByPageIdArray);
+      });
   }
 
   addNewSubPage(form: FormGroup) {

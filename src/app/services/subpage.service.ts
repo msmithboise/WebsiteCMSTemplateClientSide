@@ -9,6 +9,7 @@ import { Subpage } from '../models/subpage.model';
 export class SubpageService {
   readonly webApi = 'http://localhost:54704/api';
   subPageArray: Subpage[];
+  subPageByPageIdArray: Subpage[];
   public subPageFormData: Subpage;
 
   constructor(public http: HttpClient) {}
@@ -16,6 +17,11 @@ export class SubpageService {
   //Get
   getSubPages(): Observable<Subpage[]> {
     return this.http.get<Subpage[]>(this.webApi + '/SubPages');
+  }
+
+  //Get by Page Id
+  getSubPagesByPageId(pageId: number): Observable<Subpage[]> {
+    return this.http.get<Subpage[]>(this.webApi + '/SubPages/' + pageId);
   }
 
   //Post/Put
