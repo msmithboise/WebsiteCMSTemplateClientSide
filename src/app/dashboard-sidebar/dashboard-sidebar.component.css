@@ -1,3 +1,11 @@
+.card-body {
+  background-color: #27293d;
+}
+
+.container-fluid {
+  background-color: #1e1e2f;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -7,6 +15,14 @@
   user-select: none;
 }
 
+label {
+  color: #01d0b0;
+}
+
+.modal {
+  background-color: #1e1e2f;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -14,11 +30,15 @@
 }
 
 .h2 {
-  color: #1f8ef1;
+  color: #d94fd2;
 }
 
 body {
   font-size: 0.875rem;
+}
+
+.border-bottom {
+  color: #d94fd2;
 }
 
 .feather {
@@ -36,8 +56,8 @@ body {
 }
 
 /*
-   * Sidebar
-   */
+     * Sidebar
+     */
 
 .sidebar {
   /* position: fixed; */
@@ -79,6 +99,22 @@ body {
     position: -webkit-sticky;
     position: sticky;
   }
+}
+
+.formStyle {
+  background-color: #27293d;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #ecf0f1;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #ffffff;
 }
 
 .sidebar .nav-link {
@@ -130,35 +166,35 @@ body {
 }
 
 /*
-   * Navbar
-   */
+     * Navbar
+     */
 
 /* .navbar-brand {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
-}
-
-.navbar .navbar-toggler {
-  top: 0.25rem;
-  right: 1rem;
-}
-
-.navbar .form-control {
-  padding: 0.75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
-}
-
-.form-control-dark {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
-} */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  .navbar .navbar-toggler {
+    top: 0.25rem;
+    right: 1rem;
+  }
+  
+  .navbar .form-control {
+    padding: 0.75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+  
+  .form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+  } */

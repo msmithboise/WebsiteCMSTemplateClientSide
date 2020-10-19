@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomImageService } from '../services/custom-image.service';
 import { Webcontent } from '../WebContent/webcontent.model';
@@ -18,7 +18,8 @@ export class StyleSettingsComponent implements OnInit {
     public webContentService: WebcontentService,
     public customImageService: CustomImageService,
     private route: ActivatedRoute,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +36,10 @@ export class StyleSettingsComponent implements OnInit {
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
+  }
+
+  navigateToPageSettings() {
+    this.router.navigate(['/edit-page/']);
   }
 
   onEditSubmit(form: NgForm) {
