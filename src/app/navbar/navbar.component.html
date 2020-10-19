@@ -57,7 +57,7 @@
             </label>
           </div> -->
 
-          <div *ngIf="!logoIsLeft && !logoIsRight">
+          <!-- <div *ngIf="!logoIsLeft && !logoIsRight">
             <div
               [style.background-image]="'url(' + photo + ')' | safe"
               [ngStyle]="logoStyling"
@@ -65,12 +65,12 @@
           </div>
 
           <!-- OMG IT WORKS!@!!!! -->
-          <div *ngIf="logoIsLeft">
+          <!-- <div *ngIf="logoIsLeft">
             <div
               [style.background-image]="'url(' + photo + ')' | safe"
               [ngStyle]="logoStyling"
             ></div>
-          </div>
+          </div> -->
           <!-- ---------------------------------- -->
 
           <li
@@ -78,42 +78,24 @@
             *ngFor="let page of customPageService.customPageArray"
             (click)="onClick(page.PageId, page.PageDescription)"
           >
-            <a
-              class="nav-link"
-              [ngStyle]="navFontStyling"
-              routerLink="/{{ page.pageId }}"
-              href="#"
-              >{{ page.PageDescription }}</a
-            >
-            <h2>{{ page.pageId }}</h2>
-          </li>
-          <div *ngFor="let subPage of subPageService.subPageArray">
-            <a
-              class="nav-link"
-              [ngStyle]="navFontStyling"
-              (click)="
-                navToSubPage(subPage.SubPageId, subPage.SubPageDescription)
-              "
-              routerLink="/{{ subPage.SubPageId }}"
-              href="#"
-              >{{ subPage.SubPageDescription }}</a
-            >
-          </div>
-          <!-- dropdown -->
-          <div class="dropdown">
-            <a class="dropbtn nav-link" [ngStyle]="navFontStyling">Dropdown</a>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
+            <!-- dropdown -->
+            <div class="dropdown">
+              <a class="dropbtn nav-link" [ngStyle]="navFontStyling">{{
+                page.PageDescription
+              }}</a>
+              <div class="dropdown-content">
+                <div *ngFor="let subPage of subPageService.subPageArray">
+                  <a href="#">{{ subPage.SubPageDescription }}</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div *ngIf="logoIsRight">
-            <div
-              [style.background-image]="'url(' + photo + ')' | safe"
-              [ngStyle]="logoStyling"
-            ></div>
-          </div>
+            <div *ngIf="logoIsRight">
+              <div
+                [style.background-image]="'url(' + photo + ')' | safe"
+                [ngStyle]="logoStyling"
+              ></div>
+            </div>
+          </li>
         </div>
 
         <!-- </div> -->
