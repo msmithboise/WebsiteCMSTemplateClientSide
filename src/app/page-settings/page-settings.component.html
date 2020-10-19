@@ -1,26 +1,29 @@
 <div class="container-fluid">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="description" content="" />
+      <meta
+        name="author"
+        content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+      />
+      <meta name="generator" content="Jekyll v4.1.1" />
+      <title>Dashboard Template · Bootstrap</title>
 
-  <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.1.1">
-    <title>Dashboard Template · Bootstrap</title>
+      <link
+        rel="canonical"
+        href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
+      />
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
-
-
-
-
-
-    <!-- Custom styles for this template -->
-
-  </head>
-  <body>
-    <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <!-- Custom styles for this template -->
+    </head>
+    <body>
+      <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,498 +36,562 @@
   </ul>
 </nav> -->
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#textModal">
-  Add Text
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="textModal" tabindex="-1" role="dialog" aria-labelledby="textModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="textModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <!-- Text body input form -->
-   <div class="card">
-    <div class="card-body">
-        
-        <form
-        [formGroup]="textFormTemplate"
-        class="form-inline"
-        (submit)="submitNewTextData(textFormTemplate.value)"
-        >
-  <div class="form-group">
-      <input
-      name="TextBody"
-      class="form-control-lg form-group"
-      placeholder="Add Text Here"
-      type="text"
-      formControlName="TextBody"
-    
-      
-      />
-      <input
-      type="hidden"
-      name="PageId"
-      formControlName="pageId"
-      
-      />
-  </div>
-</form>
-</div>
-</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-       
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#imageModal">
-  Add Image
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="imageModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
- <!-- New Upload File Form -->
- <div class="card" style="width: 25rem">
-  <div class="card-body">
-    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
-      <div class="text-center">
-        <img
-          [src]="imgSrc"
-          width="350px"
-          height="350px"
-          (click)="fileUploader.click()"
-        />
-      </div>
-      <div class="form-group">
-        <label class="label">Select file to upload.</label>
-        <input
-          type="file"
-          accept="image/*"
-          class="form-control-file"
-          #fileUploader
-          formControlName="imageUrl"
-          (change)="showPreview($event)"
-        />
-        <div
-          class="text-danger"
-          *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
-        >
-          This field is required.
-        </div>
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="hidden" formControlName="pageId" />
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-success float-right">
-          Submit
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-        <!-- Image Url input form -->
-<div class="card">
-  <div class="card-body">
-    
-    <form
-    [formGroup]="imageUrlFormTemplate"
-    class="form-inline"
-    (submit)="submitImageUrlData(imageUrlFormTemplate.value)"
-    >
-    <div class="form-group">
-      <input
-      name="imageUrl"
-      class="form-control-lg form-group"
-      placeholder="Add Url Here"
-      type="text"
-      formControlName="imageUrl"
-      
-      />
-      <input
-      type="hidden"
-      name="PageId"
-      formControlName="pageId"
-      
-      />
-    </div>
-  </form>
-</div>
-</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#embedModal">
-  Add Video
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="embedModal" tabindex="-1" role="dialog" aria-labelledby="embedModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="embedModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <!-- Embed Url input form -->
-<div class="card">
-  <div class="card-body">
-
-    <form
-      [formGroup]="embedUrlFormTemplate"
-      class="form-inline"
-      (submit)="submitEmbedUrlData(embedUrlFormTemplate.value)"
-    >
-      <div class="form-group">
-        <input
-          name="embedUrl"
-          class="form-control-lg form-group"
-          placeholder="Add Embed Here"
-          type="text"
-          formControlName="embedUrl"
-        
-        />
-        <input
-          type="hidden"
-          name="PageId"
-          formControlName="pageId"
-   
-        />
-      </div>
-    </form>
-  </div>
-</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-        
-        </div>
-      </div>
-
-      <h2 class="h2">Web Content</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-            </tr>
-          </thead>
-          <tbody style="color: #d94fd2">
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>sit</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>amet</td>
-              <td>consectetur</td>
-              <td>adipiscing</td>
-              <td>elit</td>
-            </tr>
-         
-          </tbody>
-        </table>
-      </div>
-
-     
-
-  <canvas class="my-4 w-100" id="myChart" width="900" height="50"></canvas>
-
-
-
-
-
-
-
-<canvas class="my-4 w-100" id="myChart" width="900" height="50"></canvas>
-
-      
-    </main>
-  </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="dashboard.js"></script></body>
-</html>
-
-
-  
-
-<button
-      class="btn btn-success btn-sm mb-3"
-      (click)="openPageSettings()"
-    >
-      Page Settings
-    </button>
-
-
-  
-
-
-
-    
-
-
-
-  
-
-
-  <!-- Existing content display forms -->
-  <div class="card-body">
-  <div
-      *ngFor="let text of this.webContentService.webContentArray; let i = index"
-    >
-      <div class="input-group"></div>
-      <div class="modal-body form-group">
-        <form
-          #form="ngForm"
-          (submit)="onContentSubmit()"
-          id="myForm"
-        >
-
-        <div>
-            <button
-            class="btn btn-danger float-right"
-            (click)="deleteDialogue(text.Id)"
+      <div class="container-fluid">
+        <div class="row">
+          <nav
+            id="sidebarMenu"
+            class="col-md-3 col-lg-2 d-md-block sidebar collapse"
           >
-            Delete
-          </button>
-          <button
-            class="btn btn-primary float-right"
-          
-            (click)="selectItemToEdit(text.Id)"
-          >
-            Edit
-          </button>
+            <div class="sidebar-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                    <span data-feather="home"></span>
+                    Dashboard <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file"></span>
+                    Orders
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="shopping-cart"></span>
+                    Products
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="users"></span>
+                    Customers
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="bar-chart-2"></span>
+                    Reports
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="layers"></span>
+                    Integrations
+                  </a>
+                </li>
+              </ul>
 
+              <h6
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+              >
+                <span>Saved reports</span>
+                <a
+                  class="d-flex align-items-center text-muted"
+                  href="#"
+                  aria-label="Add a new report"
+                >
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Current month
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Last quarter
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Social engagement
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Year-end sale
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            >
+              <h1 class="h2">Dashboard</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <!-- text Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary text-button"
+                    data-toggle="modal"
+                    data-target="#textModal"
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-card-text"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"
+                      />
+                    </svg>
+                    Add Text
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="textModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="textModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="textModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Text body input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="textFormTemplate"
+                                class="form-inline"
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="TextBody"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Text Here"
+                                    type="text"
+                                    formControlName="TextBody"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            (click)="submitNewTextData(textFormTemplate.value)"
+                            class="btn btn-primary"
+                          >
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- image Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary image-button"
+                    data-toggle="modal"
+                    data-target="#imageModal"
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-file-image"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V2a1 1 0 0 0-1-1H4z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                      />
+                    </svg>
+                    Add Image
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="imageModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="imageModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="imageModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- New Upload File Form -->
+                          <div class="card" style="width: 25rem">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="formTemplate"
+                                (submit)="onSubmit(formTemplate.value)"
+                              >
+                                <div class="text-center">
+                                  <img
+                                    [src]="imgSrc"
+                                    width="350px"
+                                    height="350px"
+                                    (click)="fileUploader.click()"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <label class="label"
+                                    >Select file to upload.</label
+                                  >
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    class="form-control-file"
+                                    #fileUploader
+                                    formControlName="imageUrl"
+                                    (change)="showPreview($event)"
+                                  />
+                                  <div
+                                    class="text-danger"
+                                    *ngIf="
+                                      isSubmitted &&
+                                      formControls.imageUrl.errors?.required
+                                    "
+                                  >
+                                    This field is required.
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <input
+                                    class="form-control"
+                                    type="hidden"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-success float-right"
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+
+                          <!-- Image Url input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="imageUrlFormTemplate"
+                                class="form-inline"
+                                (submit)="
+                                  submitImageUrlData(imageUrlFormTemplate.value)
+                                "
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="imageUrl"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Url Here"
+                                    type="text"
+                                    formControlName="imageUrl"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- embed Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary embed-button"
+                    data-toggle="modal"
+                    data-target="#embedModal"
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-camera-video"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175l3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"
+                      />
+                    </svg>
+                    Add Video
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="embedModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="embedModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="embedModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Embed Url input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="embedUrlFormTemplate"
+                                class="form-inline"
+                                (submit)="
+                                  submitEmbedUrlData(embedUrlFormTemplate.value)
+                                "
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="embedUrl"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Embed Here"
+                                    type="text"
+                                    formControlName="embedUrl"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="h2">Web Content</h2>
+            <!-- Existing content display forms -->
+            <div class="card-body">
+              <div
+                *ngFor="
+                  let text of this.webContentService.webContentArray;
+                  let i = index
+                "
+              >
+                <div class="input-group"></div>
+                <div class="modal-body form-group">
+                  <form
+                    #form="ngForm"
+                    (submit)="onContentSubmit()"
+                    id="myForm"
+                    class="border-bottom"
+                  >
+                    <div>
+                      <button
+                        class="btn btn-danger float-right"
+                        (click)="deleteDialogue(text.Id)"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        class="btn btn-primary float-right"
+                        (click)="selectItemToEdit(text.Id)"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    <!-- Id -->
+
+                    <input
+                      name="Id"
+                      type="hidden"
+                      #TextId="ngModel"
+                      [(ngModel)]="text.Id"
+                    />
+
+                    <!-- Text Id -->
+                    <input
+                      name="TextId"
+                      type="hidden"
+                      #TextId="ngModel"
+                      [(ngModel)]="text.TextId"
+                    />
+
+                    <!-- Text Body -->
+
+                    <div *ngIf="text.TextBody">
+                      <label>Text Body</label>
+                      <div class="input-group"></div>
+                      <input
+                        name="TextBody"
+                        #TextBody="ngModel"
+                        [(ngModel)]="text.TextBody"
+                      />
+                    </div>
+
+                    <!-- PageId -->
+
+                    <input
+                      name="PageId"
+                      type="hidden"
+                      #PageId="ngModel"
+                      [(ngModel)]="text.PageId"
+                    />
+
+                    <!-- ImageUrl -->
+                    <div *ngIf="text.ImageUrl">
+                      <label>Image Url</label>
+                      <div class="input-group"></div>
+                      <input
+                        name="ImageUrl"
+                        #ImageUrl="ngModel"
+                        [(ngModel)]="text.ImageUrl"
+                      />
+                      <div class="input-group-append"></div>
+                    </div>
+
+                    <!-- Youtube Embed -->
+                    <div *ngIf="text.embedUrl">
+                      <label>Embed Url</label>
+                      <div class="input-group"></div>
+                      <input
+                        name="embedUrl"
+                        #embedUrl="ngModel"
+                        [(ngModel)]="text.embedUrl"
+                      />
+                      <div class="input-group-append"></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-          <!-- Id -->
+      </div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+        window.jQuery ||
+          document.write(
+            '<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>'
+          );
+      </script>
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+      <script src="dashboard.js"></script>
+    </body>
+  </html>
 
-          <input
-            name="Id"
-            type="hidden"
-            #TextId="ngModel"
-            [(ngModel)]="text.Id"
-          />
-
-          <!-- Text Id -->
-          <input
-            name="TextId"
-            type="hidden"
-            #TextId="ngModel"
-            [(ngModel)]="text.TextId"
-          />
-
-          <!-- Text Body -->
-
-          <div *ngIf="text.TextBody">
-            <label>Text Body</label>
-            <div class="input-group"></div>
-            <input
-              name="TextBody"
-              #TextBody="ngModel"
-              [(ngModel)]="text.TextBody"
-            />
-          </div>
-
-          <!-- PageId -->
-
-          <input
-            name="PageId"
-            type="hidden"
-            #PageId="ngModel"
-            [(ngModel)]="text.PageId"
-          />
-
-          <!-- ImageUrl -->
-          <div *ngIf="text.ImageUrl">
-            <label>Image Url</label>
-            <div class="input-group"></div>
-            <input
-              name="ImageUrl"
-              #ImageUrl="ngModel"
-              [(ngModel)]="text.ImageUrl"
-            />
-            <div class="input-group-append"></div>
-          </div>
-
-          <!-- Youtube Embed -->
-          <div *ngIf="text.embedUrl">
-            <label>Embed Url</label>
-            <div class="input-group"></div>
-            <input
-              name="embedUrl"
-              #embedUrl="ngModel"
-              [(ngModel)]="text.embedUrl"
-            />
-            <div class="input-group-append"></div>
-
-           
-
-
-       
-        </div>
-        
-
-        
-          
-
-
-       
-          
-  
-
-  
+  <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
+    Page Settings
+  </button>
+</div>

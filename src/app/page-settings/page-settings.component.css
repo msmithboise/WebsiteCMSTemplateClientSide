@@ -31,6 +31,23 @@
   user-select: none;
 }
 
+label {
+  color: #01d0b0;
+}
+
+.text-button {
+}
+
+.image-button {
+}
+
+.embed-button {
+}
+
+.modal {
+  background-color: #1e1e2f;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -43,6 +60,10 @@
 
 body {
   font-size: 0.875rem;
+}
+
+.border-bottom {
+  color: #d94fd2;
 }
 
 .feather {
