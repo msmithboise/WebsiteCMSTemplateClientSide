@@ -74,11 +74,13 @@
           <!-- ---------------------------------- -->
 
           <li
-            class="nav-item"
+            class="nav-item dropdown"
             *ngFor="let page of customPageService.customPageArray"
             (click)="onClick(page.PageId, page.PageDescription)"
           >
             <a
+              class="dropbtn nav-link"
+              [ngStyle]="navFontStyling"
               (mouseover)="showSubPagesById(page.PageId)"
               class="nav-link"
               [ngStyle]="navFontStyling"
@@ -86,19 +88,23 @@
               href="#"
               >{{ page.PageDescription }}</a
             >
-            <div *ngFor="let subPage of subPageService.subPageByPageIdArray">
-              <a href="#">{{ subPage.SubPageDescription }}</a>
+            <div class="dropdown">
+              <div class="dropdown-content">
+                <div *ngFor="let subPage of subPageService.subPageArray">
+                  <a href="#">{{ subPage.SubPageDescription }}</a>
+                </div>
+              </div>
             </div>
           </li>
 
-          <!-- <div class="dropdown">
+          <div class="dropdown">
             <a class="dropbtn nav-link" [ngStyle]="navFontStyling">Dropdown</a>
             <div class="dropdown-content">
               <div *ngFor="let subPage of subPageService.subPageArray">
                 <a href="#">{{ subPage.SubPageDescription }}</a>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <div *ngIf="logoIsRight">
             <div

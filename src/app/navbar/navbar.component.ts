@@ -42,8 +42,6 @@ export class NavbarComponent implements OnInit {
       .getSubPagesByPageId(pageId)
       .subscribe((res: Subpage[]) => {
         this.subPageService.subPageArray = res;
-
-        console.log(this.subPageService.subPageArray);
       });
   }
 
