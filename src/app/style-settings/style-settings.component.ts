@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CustomImageService } from '../services/custom-image.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -16,7 +17,8 @@ export class StyleSettingsComponent implements OnInit {
   constructor(
     public webContentService: WebcontentService,
     public customImageService: CustomImageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,7 @@ export class StyleSettingsComponent implements OnInit {
 
     this.webContentService.postEditContentById(form.value).subscribe((res) => {
       //this.resetForm(form);
+      this.toastr.success('Edited content succesfully!');
       this.grabAllContentByPageId();
     });
   }
