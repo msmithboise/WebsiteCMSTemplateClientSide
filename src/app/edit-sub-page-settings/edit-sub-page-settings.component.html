@@ -94,7 +94,7 @@
                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
                       />
                     </svg>
-                    Add Page
+                    Add Sub Page
                   </button>
 
                   <!-- Modal -->
@@ -121,7 +121,22 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-
+                        <div class="modal-body">
+                          <!-- Page create form -->
+                          <div class="card-body shadow-lg">
+                            <form #f="ngForm" (submit)="addNewSubPage(f)">
+                              <div class="input-group-append"></div>
+                              <input
+                                class="form-control-lg form-group formStyle"
+                                name="SubPageDescription"
+                                placeholder="Enter Page Name here."
+                                type="text"
+                                #SubPageDescription="ngModel"
+                                [(ngModel)]="subPageService.subPageFormData"
+                              />
+                            </form>
+                          </div>
+                        </div>
                         <div class="modal-footer">
                           <button
                             type="button"
@@ -142,7 +157,34 @@
             </div>
             <div class="container-fluid">
               <label class="label-color"> Page Description</label>
-              <div class="card-body"></div>
+              <div class="card-body">
+                <div *ngFor="let subPage of this.subPageService.subPageArray">
+                  <form #form="ngForm" (submit)="addNewSubPage(form)">
+                    <div class="input-group"></div>
+
+                    <!-- Page Id -->
+
+                    <input
+                      name="SubPageId"
+                      type="hidden"
+                      #SubPageId="ngModel"
+                      [(ngModel)]="subPage.SubPageId"
+                    />
+
+                    <!-- Page Description -->
+
+                    <input
+                      name="SubPageDescription"
+                      type="text"
+                      class="form-control col-sm-9 formStyle"
+                      #SubPageDescription="ngModel"
+                      [(ngModel)]="subPage.SubPageDescription"
+                    />
+
+                    <!-- --------------------------------------------------------------------------- -->
+                  </form>
+                </div>
+              </div>
             </div>
           </main>
         </div>
