@@ -99,6 +99,15 @@
               >{{ subPage.SubPageDescription }}</a
             >
           </div>
+          <!-- dropdown -->
+          <div class="dropdown">
+            <a class="dropbtn nav-link" [ngStyle]="navFontStyling">Dropdown</a>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
           <div *ngIf="logoIsRight">
             <div
               [style.background-image]="'url(' + photo + ')' | safe"
