@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -20,12 +20,18 @@ export class EditSubPageSettingsComponent implements OnInit {
   constructor(
     public subPageService: SubpageService,
     private route: ActivatedRoute,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public router: Router
   ) {}
 
   ngOnInit() {
     this.grabPageIdInfo();
     this.getSubPagesByPageId();
+  }
+
+  navToSubPage(subPageId: number, subPageDescription: string) {
+    this.router.navigate(['subPage/' + subPageDescription + '/' + subPageId]);
+    console.log('subPage/' + subPageDescription + '/' + subPageId);
   }
 
   grabPageIdInfo() {

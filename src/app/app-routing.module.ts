@@ -9,6 +9,7 @@ import { PageSettingsComponent } from './page-settings/page-settings.component';
 import { StyleSettingsComponent } from './style-settings/style-settings.component';
 import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settings.component';
 import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-page-settings.component';
+import { SubpageComponent } from './subpage/subpage.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'settings/:pageId',
     component: PageSettingsComponent,
+  },
+  {
+    path: 'subPage/:subPageDescription/:subPageId',
+    component: SubpageComponent,
   },
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}

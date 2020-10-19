@@ -178,6 +178,17 @@
                   >
                     Delete
                   </button>
+                  <button
+                    class="btn btn-info btn-sm float-right"
+                    (click)="
+                      navToSubPage(
+                        subPage.SubPageId,
+                        subPage.SubPageDescription
+                      )
+                    "
+                  >
+                    Go to sub page
+                  </button>
                   <form
                     #form="ngForm"
                     (submit)="submitSubPageData(subPageFormTemplate.value)"

@@ -26,15 +26,6 @@ export class EditPageSettingsComponent implements OnInit {
     this.grabAllPages();
   }
 
-  // grabAllUserData() {
-  //   this.userService.getUserData().subscribe((res: User[]) => {
-  //     this.userService.userArray = res;
-
-  //     // console.log('Here is the images based on page id: ');
-  //     // console.log(this.imagesByPageIdArray);
-  //   });
-  // }
-
   grabAllPages() {
     this.customPageService
       .getCustomPageContent()
@@ -83,10 +74,3 @@ export class EditPageSettingsComponent implements OnInit {
     });
   }
 }
-
-// .subscribe((res: CustomPage[]) => {
-//   this.customPageService.customPageArray = res;
-//   this.grabAllPages();
-//   this.toastr.success('Page created!');
-//   console.log('is this being calleD?');
-// });
