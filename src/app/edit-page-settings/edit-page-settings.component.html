@@ -123,6 +123,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
+                          <!-- Page create form -->
                           <div class="card-body shadow-lg">
                             <form #f="ngForm" (submit)="addNewPage(f)">
                               <div class="input-group-append"></div>
@@ -145,7 +146,12 @@
                           >
                             Close
                           </button>
-                          <button type="button" class="btn btn-primary">
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="addNewPage(f)"
+                            data-dismiss="modal"
+                          >
                             Save changes
                           </button>
                         </div>
@@ -161,24 +167,21 @@
                 <div
                   *ngFor="let page of this.customPageService.customPageArray"
                 >
+                  <button
+                    class="btn btn-danger btn-sm float-right"
+                    (click)="deleteDialogue(page.PageId, page.PageDescription)"
+                  >
+                    Delete
+                  </button>
+
+                  <button
+                    class="btn btn-info btn-sm float-right"
+                    (click)="getSubPages(page.PageId, page.PageDescription)"
+                  >
+                    Add Sub Page
+                  </button>
                   <form #form="ngForm" (submit)="addNewPage(form)">
                     <div class="input-group"></div>
-
-                    <button
-                      class="btn btn-danger btn-sm float-right"
-                      (click)="
-                        deleteDialogue(page.PageId, page.PageDescription)
-                      "
-                    >
-                      Delete
-                    </button>
-
-                    <button
-                      class="btn btn-info btn-sm float-right"
-                      (click)="getSubPages(page.PageId, page.PageDescription)"
-                    >
-                      Add Sub Page
-                    </button>
 
                     <!-- Page Id -->
 

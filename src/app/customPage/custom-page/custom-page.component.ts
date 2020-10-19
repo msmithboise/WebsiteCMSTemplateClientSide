@@ -60,8 +60,8 @@ export class CustomPageComponent implements OnInit {
   filteredImageArray: CustomImage[];
   public show: boolean = false;
   public buttonName: any = 'Show';
-  public isSetAsHeroImage: boolean = false;
-  public isSetAsGalleryImage: boolean = true;
+  public isSetAsHeroImage: boolean = true;
+  public isSetAsGalleryImage: boolean = false;
   public testGrid: string[];
   public resizeButtonToggled: boolean = false;
 

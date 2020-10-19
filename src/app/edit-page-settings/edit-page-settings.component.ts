@@ -49,8 +49,9 @@ export class EditPageSettingsComponent implements OnInit {
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
         this.grabAllPages();
+        this.toastr.success('Page created!');
+        console.log('is this being calleD?');
       });
-    this.toastr.success('Page created!');
   }
 
   deleteDialogue(id: number, pageDescription: string) {

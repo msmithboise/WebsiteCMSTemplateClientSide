@@ -139,8 +139,9 @@ export class PageSettingsComponent implements OnInit {
             });
           })
         )
-        .subscribe();
-      this.grabAllContentByPageId();
+        .subscribe((res) => {
+          this.grabAllContentByPageId();
+        });
       this.toastr.success('Image uploaded succesfully!');
     }
   }
