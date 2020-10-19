@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomPage } from '../models/custom-page.model';
 import { CustomPageService } from '../services/custom-page.service';
 import { SubpageService } from '../services/subpage.service';
+import { WebcontentService } from '../WebContent/webcontent.service';
 
 @Component({
   selector: 'app-edit-page-settings',
@@ -14,7 +16,9 @@ export class EditPageSettingsComponent implements OnInit {
   constructor(
     public customPageService: CustomPageService,
     public toastr: ToastrService,
-    public subPageService: SubpageService
+    public subPageService: SubpageService,
+    public webContentService: WebcontentService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -65,9 +69,15 @@ export class EditPageSettingsComponent implements OnInit {
     this.toastr.error('Page deleted!');
   }
 
-  getSubPages() {
+  getSubPages(pageId: number, pageDescription: string) {
     this.subPageService.getSubPages().subscribe((res) => {
       console.log(res);
+
+      console.log('opened page settings.');
+      console.log('/edit-sub-page/' + pageDescription + '/' + pageId);
+      this.router.navigate([
+        '/edit-sub-page/' + pageDescription + '/' + pageId,
+      ]);
     });
   }
 }

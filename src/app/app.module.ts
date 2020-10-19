@@ -35,6 +35,7 @@ import { PageSettingsComponent } from './page-settings/page-settings.component';
 import { StyleSettingsComponent } from './style-settings/style-settings.component';
 import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settings.component';
 import { DashboardSidebarComponent } from './dashboard-sidebar/dashboard-sidebar.component';
+import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-page-settings.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { DashboardSidebarComponent } from './dashboard-sidebar/dashboard-sidebar
     StyleSettingsComponent,
     EditPageSettingsComponent,
     DashboardSidebarComponent,
+    EditSubPageSettingsComponent,
   ],
   imports: [
     BrowserModule,
