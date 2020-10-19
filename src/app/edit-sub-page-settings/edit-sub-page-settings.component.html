@@ -124,15 +124,19 @@
                         <div class="modal-body">
                           <!-- Page create form -->
                           <div class="card-body shadow-lg">
-                            <form #f="ngForm" (submit)="addNewSubPage(f)">
+                            <form
+                              [formGroup]="subPageFormTemplate"
+                              (submit)="
+                                addNewSubPage(subPageFormTemplate.value)
+                              "
+                            >
                               <div class="input-group-append"></div>
                               <input
                                 class="form-control-lg form-group formStyle"
                                 name="SubPageDescription"
                                 placeholder="Enter Page Name here."
                                 type="text"
-                                #SubPageDescription="ngModel"
-                                [(ngModel)]="subPageService.subPageFormData"
+                                formControlName="SubPageDescription"
                               />
                             </form>
                           </div>
@@ -159,7 +163,10 @@
               <label class="label-color"> Page Description</label>
               <div class="card-body">
                 <div *ngFor="let subPage of this.subPageService.subPageArray">
-                  <form #form="ngForm" (submit)="addNewSubPage(form)">
+                  <form
+                    #form="ngForm"
+                    (submit)="submitSubPageData(subPageFormTemplate.value)"
+                  >
                     <div class="input-group"></div>
 
                     <!-- Page Id -->
@@ -183,6 +190,31 @@
 
                     <!-- --------------------------------------------------------------------------- -->
                   </form>
+
+                  <!-- <form #form="ngForm" (submit)="addNewPage(form)">
+                    <div class="input-group"></div>
+
+               
+
+                    <input
+                      name="PageId"
+                      type="hidden"
+                      #TextId="ngModel"
+                      [(ngModel)]="page.PageId"
+                    />
+
+      
+
+                    <input
+                      name="PageDescription"
+                      type="text"
+                      class="form-control col-sm-9 formStyle"
+                      #TextId="ngModel"
+                      [(ngModel)]="page.PageDescription"
+                    />
+
+                </form> -->
+                  <!-- --------------------------------------------------------------------------- -->
                 </div>
               </div>
             </div>

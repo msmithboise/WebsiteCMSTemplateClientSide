@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -30,16 +30,27 @@ export class EditSubPageSettingsComponent implements OnInit {
     console.log(this.pageId);
   }
 
-  addNewSubPage(form: NgForm) {
-    this.subPageService
-      .createSubPage(form.value)
-      .subscribe((res: Subpage[]) => {
-        this.subPageService.subPageArray = res;
-        this.getSubPages();
-        this.toastr.success('Page created!');
-        console.log('is this being calleD?');
-      });
+  addNewSubPage(form: FormGroup) {
+    var newForm = this.subPageFormTemplate.value;
+
+    newForm.pageId = this.pageId;
+    newForm.pageDescription = this.pageDescription;
+
+    this.subPageService.createSubPage(newForm).subscribe((res: Subpage[]) => {
+      this.subPageService.subPageArray = res;
+      this.getSubPages();
+      this.toastr.success('Page created!');
+      console.log(this.subPageService.subPageArray);
+    });
   }
+
+  // var newForm = this.textFormTemplate.value;
+  // newForm.pageId = this.webContentService.pageIdSnapshot;
+
+  // this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+  //   //this.resetForm(form);
+  //   this.grabAllContentByPageId();
+  // });
 
   getSubPages() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
@@ -47,5 +58,17 @@ export class EditSubPageSettingsComponent implements OnInit {
 
       console.log(this.subPageService.subPageArray);
     });
+  }
+
+  subPageFormTemplate = new FormGroup({
+    SubPageId: new FormControl(''),
+    SubPageDescription: new FormControl(''),
+    PageId: new FormControl(''),
+    PageDescription: new FormControl(''),
+  });
+
+  //To submit text body data
+  submitSubPageData(form: FormGroup) {
+    this.addNewSubPage(form);
   }
 }
