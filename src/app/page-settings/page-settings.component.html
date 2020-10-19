@@ -51,38 +51,18 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a
+                    class="nav-link"
+                    style="cursor: pointer"
+                    (click)="openPageSettings()"
+                  >
                     <span data-feather="file"></span>
-                    Orders
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="shopping-cart"></span>
-                    Products
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="users"></span>
-                    Customers
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="bar-chart-2"></span>
-                    Reports
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    Integrations
+                    Page Settings
                   </a>
                 </li>
               </ul>
 
-              <h6
+              <!-- <h6
                 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
               >
                 <span>Saved reports</span>
@@ -93,33 +73,7 @@
                 >
                   <span data-feather="plus-circle"></span>
                 </a>
-              </h6>
-              <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Current month
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Last quarter
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Social engagement
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Year-end sale
-                  </a>
-                </li>
-              </ul>
+              </h6> -->
             </div>
           </nav>
 
@@ -188,6 +142,9 @@
                               <form
                                 [formGroup]="textFormTemplate"
                                 class="form-inline"
+                                (submit)="
+                                  submitNewTextData(textFormTemplate.value)
+                                "
                               >
                                 <div class="form-group">
                                   <input
@@ -474,37 +431,37 @@
               </div>
             </div>
 
-            <h2 class="h2">Web Content</h2>
             <!-- Existing content display forms -->
             <div class="card-body">
+              <h2 class="h2">Web Content</h2>
               <div
                 *ngFor="
                   let text of this.webContentService.webContentArray;
                   let i = index
                 "
               >
+                <div>
+                  <button
+                    class="btn btn-danger float-right"
+                    (click)="deleteDialogue(text.Id)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    class="btn btn-primary float-right"
+                    (click)="selectItemToEdit(text.Id)"
+                  >
+                    Edit
+                  </button>
+                </div>
                 <div class="input-group"></div>
                 <div class="modal-body form-group">
                   <form
                     #form="ngForm"
-                    (submit)="onContentSubmit()"
+                    (submit)="onContentSubmit(form)"
                     id="myForm"
                     class="border-bottom"
                   >
-                    <div>
-                      <button
-                        class="btn btn-danger float-right"
-                        (click)="deleteDialogue(text.Id)"
-                      >
-                        Delete
-                      </button>
-                      <button
-                        class="btn btn-primary float-right"
-                        (click)="selectItemToEdit(text.Id)"
-                      >
-                        Edit
-                      </button>
-                    </div>
                     <!-- Id -->
 
                     <input
@@ -591,7 +548,7 @@
     </body>
   </html>
 
-  <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
+  <!-- <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
     Page Settings
-  </button>
+  </button> -->
 </div>

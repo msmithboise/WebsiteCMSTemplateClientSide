@@ -145,7 +145,19 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
-  onContentSubmit() {}
+  onContentSubmit(form: NgForm) {
+    //Submit for homepage content
+    this.insertContentRecord(form);
+  }
+
+  insertContentRecord(form: NgForm) {
+    this.webContentService
+      .postWebContentByPageId(form.value)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
+  }
 
   //To submit text body data
   submitNewTextData(form: FormGroup) {
@@ -232,6 +244,7 @@ export class PageSettingsComponent implements OnInit {
   }
 
   deleteDialogue(id: number) {
+    console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this?')) {
       this.onDelete(id);
     }
