@@ -5,6 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SubpageService } from '../services/subpage.service';
 import { Subpage } from '../models/subpage.model';
+import { WebcontentService } from '../WebContent/webcontent.service';
+import { Webcontent } from '../WebContent/webcontent.model';
+import { CustomImageService } from '../services/custom-image.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +22,16 @@ export class NavbarComponent implements OnInit {
   public testBgRepeat = 'no-repeat';
   public logoIsRight: boolean;
   public logoIsLeft: boolean;
+  public SubPageLocalStorage: Subpage[];
 
   constructor(
     public customPageService: CustomPageService,
     private router: Router,
     private route: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public subPageService: SubpageService
+    public subPageService: SubpageService,
+    public webContentService: WebcontentService,
+    public customImageService: CustomImageService
   ) {}
 
   customPageArray: CustomPage[];
@@ -93,14 +99,34 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
-    this.router.navigate(['/customPage', pageDescription, pageId]);
+    console.log('calling on click?');
+    console.log('customPage/' + pageDescription + '/' + pageId);
+    this.router.navigate(['customPage/' + pageDescription + '/' + pageId]);
+    //this.grabAllContentByPageId();
 
-    this.customPageService.selectPageId(pageId);
+    // this.customPageService.selectPageId(pageId);
   }
 
+  // grabAllContentByPageId() {
+  //   console.log('grabbing content by page id');
+
+  //   this.customImageService
+  //     .getWebContentByPageId(this.webContentService.pageIdSnapshot)
+  //     .subscribe((res: Webcontent[]) => {
+  //       this.webContentService.webContentArray = res;
+  //       console.log('here is the content array:');
+  //       console.log(this.webContentService.webContentArray);
+
+  //       // console.log('Here is the images based on page id: ');
+  //       // console.log(this.imagesByPageIdArray);
+  //     });
+  // }
+
   navToSubPage(subPageId: number, subPageDescription: string) {
+    console.log('does navtosubpage work??');
     console.log(subPageId);
     console.log(subPageDescription);
-    this.router.navigate(['subPage/' + subPageDescription + '/' + subPageId]);
+    console.log('/subPage', subPageDescription, subPageId);
+    this.router.navigate(['/subPage', subPageDescription, subPageId]);
   }
 }

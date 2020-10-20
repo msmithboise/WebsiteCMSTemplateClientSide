@@ -76,22 +76,28 @@
           <li
             class="nav-item dropdown"
             *ngFor="let page of customPageService.customPageArray"
-            (click)="onClick(page.PageId, page.PageDescription)"
           >
-            <a
-              class="dropbtn nav-link"
-              [ngStyle]="navFontStyling"
-              (mouseover)="showSubPagesById(page.PageId)"
-              class="nav-link"
-              [ngStyle]="navFontStyling"
-              routerLink="/{{ page.pageId }}"
-              href="#"
-              >{{ page.PageDescription }}</a
-            >
+            <div (click)="onClick(page.PageId, page.PageDescription)">
+              <a
+                (mouseover)="showSubPagesById(page.PageId)"
+                class="dropbtn nav-link"
+                [ngStyle]="navFontStyling"
+                routerLink="/{{ page.pageId }}"
+                >{{ page.PageDescription }}</a
+              >
+            </div>
             <div class="dropdown">
               <div class="dropdown-content">
                 <div *ngFor="let subPage of subPageService.subPageArray">
-                  <a href="#">{{ subPage.SubPageDescription }}</a>
+                  <a
+                    (click)="
+                      navToSubPage(
+                        subPage.SubPageId,
+                        subPage.SubPageDescription
+                      )
+                    "
+                    >{{ subPage.SubPageDescription }}</a
+                  >
                 </div>
               </div>
             </div>

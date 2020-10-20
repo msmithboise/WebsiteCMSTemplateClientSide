@@ -176,6 +176,7 @@ export class CustomPageComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
+    console.log('grabbing content by page id');
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
 
     this.customImageService
