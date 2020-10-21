@@ -1,7 +1,8 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 import { SubpageService } from '../services/subpage.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -17,6 +18,7 @@ export class SubpageComponent implements OnInit {
   public subPageDescription: string;
   public subPageId: number;
   public loadPage: {};
+  public sub: {};
   constructor(
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
@@ -24,9 +26,36 @@ export class SubpageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.subscribeToRoute();
+    //this.refreshRoute();
     this.initializeRouteParams();
     this.getSubPageContentByIds(this.pageId, this.subPageId);
     //this.grabPageIdInfo();
+  }
+
+  subscribeToRoute() {
+    this.sub = this.route.params.subscribe((params) => {
+      const pageId = params['subPageId'];
+      console.log('params');
+      console.log(pageId);
+
+      this.subPageService
+        .getSubContentByIds(pageId, this.subPageId)
+        .subscribe((res: Webcontent[]) => {
+          console.log('subscribing to route');
+          this.subPageService.subPageContentArray = res;
+        });
+    });
+  }
+
+  refreshRoute() {
+    this.route.queryParamMap.subscribe((paramMap: ParamMap) => {
+      const refresh = paramMap.get('refresh');
+      if (refresh) {
+        this.initializeRouteParams();
+        this.getSubPageContentByIds(this.pageId, this.subPageId);
+      }
+    });
   }
 
   initializeRouteParams() {

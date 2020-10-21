@@ -157,6 +157,27 @@ export class NavbarComponent implements OnInit {
         subPageId,
     ]);
 
+    // navToSubPage(subPageId: number, subPageDescription: string) {
+    //   this.router.navigate(
+    //     [
+    //       'customPage/' +
+    //         this.pageDescriptionSnapshot +
+    //         '/' +
+    //         this.pageIdSnapshot +
+    //         '/subPage/' +
+    //         subPageDescription +
+    //         '/' +
+    //         subPageId,
+    //     ],
+    //     {
+    //       queryParams: { refresh: new Date().getTime() },
+    //     }
+    //   );
+
+    //   //this.getSubPageAllContent();
+    //   //window.location.reload();
+    // }
+
     //this.getSubPageAllContent();
     //window.location.reload();
   }
