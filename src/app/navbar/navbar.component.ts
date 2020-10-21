@@ -26,6 +26,8 @@ export class NavbarComponent implements OnInit {
   public SubPageLocalStorage: Subpage[];
   public pageIdSnapshot: string;
   public pageDescriptionSnapshot: string;
+  public lastHoveredNum: number;
+  public untouchedStorage: Subpage[];
 
   constructor(
     public customPageService: CustomPageService,
@@ -40,32 +42,37 @@ export class NavbarComponent implements OnInit {
   customPageArray: CustomPage[];
 
   ngOnInit(): void {
-    //this.setSubPagesToLocalStorage();
+    this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
   }
 
-  getPageByIdOnHover(pageId: number, pageDescription: string) {
-    this.pageIdSnapshot = pageId.toString();
-    //console.log(this.pageIdSnapshot);
-    this.pageDescriptionSnapshot = pageDescription;
-    // console.log(this.pageDescriptionSnapshot);
+  getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
+    this.SubPageLocalStorage = this.untouchedStorage;
+    // this.pageIdSnapshot = pageId.toString();
+    this.lastHoveredNum = passedInPageId; //1
+    console.log('passed pageId on hover');
+    console.log(passedInPageId); //1
+    console.log('last number hovered over');
+    console.log(this.lastHoveredNum);
 
-    // console.log(this.SubPageLocalStorage);
-
+    //We want to compare the Id passed in on hover and
     this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
-      (x) => x.PageId.toString() === this.pageIdSnapshot
+      //this should compare the pageId of each sub page to the last number that was hovered over
+      (x) => x.PageId.toString() === this.lastHoveredNum.toString()
     );
-    // console.log(this.SubPageLocalStorage);
+    console.log('storage after filter');
+    console.log(this.SubPageLocalStorage);
   }
 
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.SubPageLocalStorage = res;
-      // console.log('localstorage subpages');
-      // console.log(this.SubPageLocalStorage);
+      this.untouchedStorage = res;
+      console.log('localstorage subpages');
+      console.log(this.SubPageLocalStorage);
     });
   }
 

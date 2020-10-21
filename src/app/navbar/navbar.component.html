@@ -80,7 +80,7 @@
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
                 (mouseover)="
-                  showSubPagesById(page.PageId, page.PageDescription)
+                  getPageByIdOnHover(page.PageId, page.PageDescription)
                 "
                 class="dropbtn nav-link"
                 [ngStyle]="navFontStyling"
@@ -90,7 +90,7 @@
             </div>
             <div class="dropdown">
               <div class="dropdown-content">
-                <div *ngFor="let subPage of subPageService.subPageArray">
+                <div *ngFor="let subPage of this.SubPageLocalStorage">
                   <a
                     (click)="
                       navToSubPage(
