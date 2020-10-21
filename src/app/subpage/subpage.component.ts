@@ -16,6 +16,7 @@ export class SubpageComponent implements OnInit {
   public pageId: number;
   public subPageDescription: string;
   public subPageId: number;
+  public loadPage: {};
   constructor(
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
@@ -23,8 +24,18 @@ export class SubpageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initializeRouteParams();
     this.getSubPageAllContent();
-    this.grabPageIdInfo();
+    //this.grabPageIdInfo();
+  }
+
+  initializeRouteParams() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      console.log(this.pageId);
+      this.subPageId = params.subPageId;
+      console.log(this.subPageId);
+    });
   }
 
   grabPageIdInfo() {
