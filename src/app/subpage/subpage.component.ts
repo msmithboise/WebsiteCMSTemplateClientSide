@@ -46,6 +46,10 @@ export class SubpageComponent implements OnInit {
     TextBody: new FormControl(''),
   });
 
+  getContent() {
+    this.getSubPageContentByIds(this.pageId, this.subPageId);
+  }
+
   getSubPageAllContent() {
     this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
       this.subPageService.subPageContentArray = res;
@@ -57,11 +61,16 @@ export class SubpageComponent implements OnInit {
   getSubPageContentByIds(pageId: number, subPageId: number) {
     pageId = this.pageId;
     subPageId = this.subPageId;
+    console.log('making sure these are right');
+    console.log('pageid');
+    console.log(this.pageId);
+    console.log('subpageid');
+    console.log(this.subPageId);
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        console.log('getting all webcontent for sorting');
+        console.log('getting content by page and sub page id..');
         console.log(res);
       });
   }

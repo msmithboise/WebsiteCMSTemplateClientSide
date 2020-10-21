@@ -50,6 +50,7 @@ export class SubpageService {
     subPageId: number,
     pageId: number
   ): Observable<Webcontent[]> {
+    console.log('get in service');
     return this.http.get<Webcontent[]>(
       this.webApi + '/SubContent/' + pageId + '/' + subPageId
     );
