@@ -79,7 +79,9 @@
           >
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
-                (mouseover)="showSubPagesById(page.PageId)"
+                (mouseover)="
+                  showSubPagesById(page.PageId, page.PageDescription)
+                "
                 class="dropbtn nav-link"
                 [ngStyle]="navFontStyling"
                 routerLink="/{{ page.pageId }}"

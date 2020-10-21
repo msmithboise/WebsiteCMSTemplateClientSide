@@ -23,6 +23,8 @@ export class NavbarComponent implements OnInit {
   public logoIsRight: boolean;
   public logoIsLeft: boolean;
   public SubPageLocalStorage: Subpage[];
+  public pageIdSnapshot: string;
+  public pageDescriptionSnapshot: string;
 
   constructor(
     public customPageService: CustomPageService,
@@ -43,7 +45,13 @@ export class NavbarComponent implements OnInit {
     this.getSubPageLinks();
   }
 
-  showSubPagesById(pageId: number) {
+  showSubPagesById(pageId: number, pageDescription: string) {
+    this.pageIdSnapshot = pageId.toString();
+    this.pageDescriptionSnapshot = pageDescription;
+    console.log('snapshots:');
+    console.log(this.pageIdSnapshot);
+    console.log(this.pageDescriptionSnapshot);
+
     this.subPageService
       .getSubPagesByPageId(pageId)
       .subscribe((res: Subpage[]) => {
@@ -126,7 +134,25 @@ export class NavbarComponent implements OnInit {
     console.log('does navtosubpage work??');
     console.log(subPageId);
     console.log(subPageDescription);
-    console.log('/subPage', subPageDescription, subPageId);
-    this.router.navigate(['/subPage', subPageDescription, subPageId]);
+    console.log(
+      'customPage/' +
+        this.pageDescriptionSnapshot +
+        '/' +
+        this.pageIdSnapshot +
+        '/subPage/' +
+        subPageDescription +
+        '/' +
+        subPageId
+    );
+    this.router.navigate([
+      'customPage/' +
+        this.pageDescriptionSnapshot +
+        '/' +
+        this.pageIdSnapshot +
+        '/subPage/' +
+        subPageDescription +
+        '/' +
+        subPageId,
+    ]);
   }
 }
