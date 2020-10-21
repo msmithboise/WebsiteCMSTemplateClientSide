@@ -42,7 +42,7 @@ export class SubpageService {
 
   //Get ALL subcontent
   getAllSubContent(): Observable<Webcontent[]> {
-    return this.http.get<Webcontent[]>(this.webApi + '/WebContent');
+    return this.http.get<Webcontent[]>(this.webApi + '/SubContent');
   }
 
   //Get Web content by Page Id and SubPage Id
