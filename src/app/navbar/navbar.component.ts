@@ -115,35 +115,13 @@ export class NavbarComponent implements OnInit {
     // this.customPageService.selectPageId(pageId);
   }
 
-  // grabAllContentByPageId() {
-  //   console.log('grabbing content by page id');
-
-  //   this.customImageService
-  //     .getWebContentByPageId(this.webContentService.pageIdSnapshot)
-  //     .subscribe((res: Webcontent[]) => {
-  //       this.webContentService.webContentArray = res;
-  //       console.log('here is the content array:');
-  //       console.log(this.webContentService.webContentArray);
-
-  //       // console.log('Here is the images based on page id: ');
-  //       // console.log(this.imagesByPageIdArray);
-  //     });
-  // }
+  getSubPageAllContent() {
+    this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
+      this.subPageService.subPageContentArray = res;
+    });
+  }
 
   navToSubPage(subPageId: number, subPageDescription: string) {
-    console.log('does navtosubpage work??');
-    console.log(subPageId);
-    console.log(subPageDescription);
-    console.log(
-      'customPage/' +
-        this.pageDescriptionSnapshot +
-        '/' +
-        this.pageIdSnapshot +
-        '/subPage/' +
-        subPageDescription +
-        '/' +
-        subPageId
-    );
     this.router.navigate([
       'customPage/' +
         this.pageDescriptionSnapshot +
@@ -154,5 +132,8 @@ export class NavbarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
+
+    this.getSubPageAllContent();
+    //window.location.reload();
   }
 }

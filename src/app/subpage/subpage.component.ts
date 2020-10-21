@@ -1,6 +1,7 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SubpageService } from '../services/subpage.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -11,13 +12,32 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   styleUrls: ['./subpage.component.css'],
 })
 export class SubpageComponent implements OnInit {
+  public pageDescription: string;
+  public pageId: number;
+  public subPageDescription: string;
+  public subPageId: number;
   constructor(
     public subPageService: SubpageService,
-    public webContentService: WebcontentService
+    public webContentService: WebcontentService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getSubPageAllContent();
+    this.grabPageIdInfo();
+  }
+
+  grabPageIdInfo() {
+    this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
+    console.log(this.pageDescription);
+    this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
+    console.log(this.pageId);
+    this.subPageDescription = this.route.snapshot.paramMap.get(
+      'subPageDescription'
+    );
+    console.log(this.subPageDescription);
+    this.subPageId = Number(this.route.snapshot.paramMap.get('subPageId'));
+    console.log(this.subPageId);
   }
 
   subTextContentForm = new FormGroup({
@@ -35,6 +55,8 @@ export class SubpageComponent implements OnInit {
   }
 
   getSubPageContentByIds(pageId: number, subPageId: number) {
+    pageId = this.pageId;
+    subPageId = this.subPageId;
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
@@ -52,6 +74,9 @@ export class SubpageComponent implements OnInit {
 
   postSubPageContentByIds(subTextContentForm: FormGroup) {
     var newForm = subTextContentForm.value;
+    newForm.PageId = this.pageId;
+    newForm.SubPageId = this.subPageId;
+
     console.log('newform:');
     console.log(newForm);
 
