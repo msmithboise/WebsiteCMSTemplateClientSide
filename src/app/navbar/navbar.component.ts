@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit {
   customPageArray: CustomPage[];
 
   ngOnInit(): void {
-    this.setSubPagesToLocalStorage();
+    //this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
@@ -49,32 +49,32 @@ export class NavbarComponent implements OnInit {
 
   getPageByIdOnHover(pageId: number, pageDescription: string) {
     this.pageIdSnapshot = pageId.toString();
-    console.log(this.pageIdSnapshot);
+    //console.log(this.pageIdSnapshot);
     this.pageDescriptionSnapshot = pageDescription;
-    console.log(this.pageDescriptionSnapshot);
+    // console.log(this.pageDescriptionSnapshot);
 
-    console.log(this.SubPageLocalStorage);
+    // console.log(this.SubPageLocalStorage);
 
     this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
       (x) => x.PageId.toString() === this.pageIdSnapshot
     );
-    console.log(this.SubPageLocalStorage);
+    // console.log(this.SubPageLocalStorage);
   }
 
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.SubPageLocalStorage = res;
-      console.log('localstorage subpages');
-      console.log(this.SubPageLocalStorage);
+      // console.log('localstorage subpages');
+      // console.log(this.SubPageLocalStorage);
     });
   }
 
   showSubPagesById(pageId: number, pageDescription: string) {
     this.pageIdSnapshot = pageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
-    console.log('snapshots:');
-    console.log(this.pageIdSnapshot);
-    console.log(this.pageDescriptionSnapshot);
+    //  console.log('snapshots:');
+    // console.log(this.pageIdSnapshot);
+    //console.log(this.pageDescriptionSnapshot);
 
     this.subPageService
       .getSubPagesByPageId(pageId)
@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
 
-      console.log(this.subPageService.subPageArray);
+      //   console.log(this.subPageService.subPageArray);
     });
   }
 
@@ -131,8 +131,8 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
-    console.log('calling on click?');
-    console.log('customPage/' + pageDescription + '/' + pageId);
+    // console.log('calling on click?');
+    // console.log('customPage/' + pageDescription + '/' + pageId);
     this.router.navigate(['customPage/' + pageDescription + '/' + pageId]);
     //this.grabAllContentByPageId();
 

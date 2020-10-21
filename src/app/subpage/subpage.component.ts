@@ -25,30 +25,30 @@ export class SubpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeRouteParams();
-    this.getSubPageAllContent();
+    this.getSubPageContentByIds(this.pageId, this.subPageId);
     //this.grabPageIdInfo();
   }
 
   initializeRouteParams() {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
-      console.log(this.pageId);
+      //console.log(this.pageId);
       this.subPageId = params.subPageId;
-      console.log(this.subPageId);
+      //console.log(this.subPageId);
     });
   }
 
   grabPageIdInfo() {
     this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
-    console.log(this.pageDescription);
+    //console.log(this.pageDescription);
     this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
-    console.log(this.pageId);
+    //console.log(this.pageId);
     this.subPageDescription = this.route.snapshot.paramMap.get(
       'subPageDescription'
     );
-    console.log(this.subPageDescription);
+    //console.log(this.subPageDescription);
     this.subPageId = Number(this.route.snapshot.paramMap.get('subPageId'));
-    console.log(this.subPageId);
+    //console.log(this.subPageId);
   }
 
   subTextContentForm = new FormGroup({
@@ -64,31 +64,31 @@ export class SubpageComponent implements OnInit {
   getSubPageAllContent() {
     this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
       this.subPageService.subPageContentArray = res;
-      console.log('getting all webcontent for sorting');
-      console.log(res);
+      //console.log('getting all webcontent for sorting');
+      //console.log(res);
     });
   }
 
   getSubPageContentByIds(pageId: number, subPageId: number) {
     pageId = this.pageId;
     subPageId = this.subPageId;
-    console.log('making sure these are right');
-    console.log('pageid');
-    console.log(this.pageId);
-    console.log('subpageid');
-    console.log(this.subPageId);
+    //console.log('making sure these are right');
+    //console.log('pageid');
+    // console.log(this.pageId);
+    //console.log('subpageid');
+    //console.log(this.subPageId);
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        console.log('getting content by page and sub page id..');
-        console.log(res);
+        //console.log('getting content by page and sub page id..');
+        //console.log(res);
       });
   }
 
   onSubmit(form: FormGroup) {
-    console.log('form');
-    console.log(form);
+    //console.log('form');
+    // console.log(form);
     this.postSubPageContentByIds(form);
   }
 
@@ -97,14 +97,14 @@ export class SubpageComponent implements OnInit {
     newForm.PageId = this.pageId;
     newForm.SubPageId = this.subPageId;
 
-    console.log('newform:');
-    console.log(newForm);
+    //console.log('newform:');
+    //console.log(newForm);
 
     this.subPageService
       .postSubContentByIds(newForm)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentByIdsArray = res;
-        console.log(this.subPageService.subPageContentByIdsArray);
+        // console.log(this.subPageService.subPageContentByIdsArray);
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
