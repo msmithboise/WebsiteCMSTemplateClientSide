@@ -53,26 +53,28 @@ export class NavbarComponent implements OnInit {
     this.SubPageLocalStorage = this.untouchedStorage;
     // this.pageIdSnapshot = pageId.toString();
     this.lastHoveredNum = passedInPageId; //1
-    console.log('passed pageId on hover');
-    console.log(passedInPageId); //1
-    console.log('last number hovered over');
-    console.log(this.lastHoveredNum);
+    this.pageIdSnapshot = passedInPageId.toString();
+    this.pageDescriptionSnapshot = pageDescription;
+    //  console.log('passed pageId on hover');
+    //console.log(passedInPageId); //1
+    //onsole.log('last number hovered over');
+    //console.log(this.lastHoveredNum);
 
     //We want to compare the Id passed in on hover and
     this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
       //this should compare the pageId of each sub page to the last number that was hovered over
       (x) => x.PageId.toString() === this.lastHoveredNum.toString()
     );
-    console.log('storage after filter');
-    console.log(this.SubPageLocalStorage);
+    //console.log('storage after filter');
+    //console.log(this.SubPageLocalStorage);
   }
 
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.SubPageLocalStorage = res;
       this.untouchedStorage = res;
-      console.log('localstorage subpages');
-      console.log(this.SubPageLocalStorage);
+      // console.log('localstorage subpages');
+      //console.log(this.SubPageLocalStorage);
     });
   }
 
