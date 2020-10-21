@@ -46,13 +46,19 @@ export class SubpageService {
   }
 
   //Get Web content by Page Id and SubPage Id
-  getSubContentByIds(formData: Webcontent): Observable<Webcontent[]> {
-    return this.http.get<Webcontent[]>(this.webApi + '/SubPageContent');
+  getSubContentByIds(
+    subPageId: number,
+    pageId: number
+  ): Observable<Webcontent[]> {
+    return this.http.get<Webcontent[]>(
+      this.webApi + '/SubContent/' + pageId + '/' + subPageId
+    );
   }
 
   //Post Web content to SubPage using PageId and SubPageId
 
   postSubContentByIds(formData: Webcontent): Observable<Webcontent[]> {
-    return this.http.get<Webcontent[]>(this.webUrl + '/SubPageContent/Create');
+    console.log('in the sub service about to post..');
+    return this.http.post<Webcontent[]>(this.webApi + '/SubContent', formData);
   }
 }

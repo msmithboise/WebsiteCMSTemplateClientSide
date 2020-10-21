@@ -3,3 +3,25 @@
 <button (click)="getSubPageAllContent()">
   Get Content by Page Id & SubPageId
 </button>
+
+<div *ngFor="let content of subPageService.subPageContentArray">
+  <h1>
+    {{ content.TextBody }}
+  </h1>
+  <form
+    [formGroup]="subTextContentForm"
+    class="form-inline"
+    (submit)="onSubmit(subTextContentForm)"
+  >
+    <div class="form-group">
+      <input
+        name="TextBody"
+        class="form-control-lg form-group"
+        placeholder="Add Text Here"
+        type="text"
+        formControlName="TextBody"
+      />
+      <input type="hidden" name="SubPageId" formControlName="SubPageId" />
+    </div>
+  </form>
+</div>

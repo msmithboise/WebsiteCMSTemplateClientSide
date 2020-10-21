@@ -1,3 +1,4 @@
+import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SubpageService } from '../services/subpage.service';
@@ -15,7 +16,9 @@ export class SubpageComponent implements OnInit {
     public webContentService: WebcontentService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getSubPageAllContent();
+  }
 
   subTextContentForm = new FormGroup({
     SubPageId: new FormControl(''),
@@ -31,14 +34,32 @@ export class SubpageComponent implements OnInit {
     });
   }
 
+  getSubPageContentByIds(pageId: number, subPageId: number) {
+    this.subPageService
+      .getSubContentByIds(pageId, subPageId)
+      .subscribe((res: Webcontent[]) => {
+        this.subPageService.subPageContentArray = res;
+        console.log('getting all webcontent for sorting');
+        console.log(res);
+      });
+  }
+
+  onSubmit(form: FormGroup) {
+    console.log('form');
+    console.log(form);
+    this.postSubPageContentByIds(form);
+  }
+
   postSubPageContentByIds(subTextContentForm: FormGroup) {
     var newForm = subTextContentForm.value;
+    console.log('newform:');
+    console.log(newForm);
 
     this.subPageService
-      .getSubContentByIds(newForm)
+      .postSubContentByIds(newForm)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentByIdsArray = res;
-
+        console.log(this.subPageService.subPageContentByIdsArray);
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
