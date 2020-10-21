@@ -1,7 +1,7 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SubpageService } from '../services/subpage.service';
 import { Webcontent } from '../WebContent/webcontent.model';
@@ -22,7 +22,8 @@ export class SubpageComponent implements OnInit {
   constructor(
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,14 @@ export class SubpageComponent implements OnInit {
     this.initializeRouteParams();
     this.getSubPageContentByIds(this.pageId, this.subPageId);
     //this.grabPageIdInfo();
+  }
+
+  openDashboard() {
+    console.log('opened page settings.');
+
+    this.router.navigate([
+      '/settings/' + this.subPageDescription + '/' + this.subPageId,
+    ]);
   }
 
   subscribeToRoute() {
@@ -61,6 +70,8 @@ export class SubpageComponent implements OnInit {
   initializeRouteParams() {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+      this.subPageDescription = params.subPageDescription;
       //console.log(this.pageId);
       this.subPageId = params.subPageId;
       //console.log(this.subPageId);
