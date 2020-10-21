@@ -30,8 +30,28 @@ export class EditSubPageSettingsComponent implements OnInit {
   }
 
   navToSubPage(subPageId: number, subPageDescription: string) {
-    this.router.navigate(['subPage/' + subPageDescription + '/' + subPageId]);
-    console.log('subPage/' + subPageDescription + '/' + subPageId);
+    this.router.navigate([
+      'customPage/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/' +
+        'subPage/' +
+        subPageDescription +
+        '/' +
+        subPageId,
+    ]);
+    console.log(
+      'customPage/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/' +
+        'subPage/' +
+        subPageDescription +
+        '/' +
+        subPageId
+    );
   }
 
   grabPageIdInfo() {

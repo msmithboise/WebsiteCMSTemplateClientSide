@@ -33,6 +33,13 @@ const routes: Routes = [
     path: 'subPage/:subPageDescription/:subPageId',
     component: SubpageComponent,
   },
+
+  {
+    path:
+      'customPage/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
+    component: SubpageComponent,
+  },
+
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
 ];
