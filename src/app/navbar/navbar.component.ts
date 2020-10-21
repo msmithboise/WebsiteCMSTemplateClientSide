@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomPageService } from '../services/custom-page.service';
 import { CustomPage } from '../models/custom-page.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SubpageService } from '../services/subpage.service';
 import { Subpage } from '../models/subpage.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { CustomImageService } from '../services/custom-image.service';
+import { compileNgModule } from '@angular/compiler';
 
 @Component({
   selector: 'app-navbar',
@@ -39,10 +40,33 @@ export class NavbarComponent implements OnInit {
   customPageArray: CustomPage[];
 
   ngOnInit(): void {
+    this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+  }
+
+  getPageByIdOnHover(pageId: number, pageDescription: string) {
+    this.pageIdSnapshot = pageId.toString();
+    console.log(this.pageIdSnapshot);
+    this.pageDescriptionSnapshot = pageDescription;
+    console.log(this.pageDescriptionSnapshot);
+
+    console.log(this.SubPageLocalStorage);
+
+    this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
+      (x) => x.PageId.toString() === this.pageIdSnapshot
+    );
+    console.log(this.SubPageLocalStorage);
+  }
+
+  setSubPagesToLocalStorage() {
+    this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      this.SubPageLocalStorage = res;
+      console.log('localstorage subpages');
+      console.log(this.SubPageLocalStorage);
+    });
   }
 
   showSubPagesById(pageId: number, pageDescription: string) {
@@ -133,7 +157,7 @@ export class NavbarComponent implements OnInit {
         subPageId,
     ]);
 
-    this.getSubPageAllContent();
+    //this.getSubPageAllContent();
     //window.location.reload();
   }
 }

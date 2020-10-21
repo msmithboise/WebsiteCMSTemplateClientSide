@@ -15,6 +15,7 @@ export class SubpageService {
   public subPageFormData: Subpage;
   public subPageContentByIdsArray: Webcontent[];
   public subPageContentArray: Webcontent[];
+  public subPageStorage: Subpage[];
 
   constructor(public http: HttpClient) {}
 
@@ -26,6 +27,15 @@ export class SubpageService {
   //Get by Page Id
   getSubPagesByPageId(pageId: number): Observable<Subpage[]> {
     return this.http.get<Subpage[]>(this.webApi + '/SubPages/' + pageId);
+  }
+
+  //Get All Subpages
+  //Get All
+  getAllSubPages() {
+    this.http
+      .get(this.webApi + '/SubPages')
+      .toPromise()
+      .then((res) => (this.subPageStorage = res as Subpage[]));
   }
 
   //Post/Put
