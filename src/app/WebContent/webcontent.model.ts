@@ -9,6 +9,7 @@ export class Webcontent {
   TextId: number;
   ImageId: number;
   SettingsId: number;
+  SubPageId: number;
   backgroundAttachment: string;
   backgroundClip: string;
   backgroundImage: string;
