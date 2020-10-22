@@ -15,6 +15,7 @@ import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
+import { SubpageService } from '../services/subpage.service';
 
 @Component({
   selector: 'app-subpage-dashboard',
@@ -23,63 +24,129 @@ import { DefaultTemplateService } from 'src/app/services/default-template.servic
   providers: [WebcontentService],
 })
 export class SubpageDashboardComponent implements OnInit {
+  closeResult = '';
+  public fileToUpload: File = null;
+  imgSrc: string;
+  selectedImage: any = null;
+  isSubmitted: boolean;
+  imageList: any[];
+  fireBaseImageUrl: string;
+  resizeButtonToggled: boolean = false;
+  public pageId: number;
+  public subPageId: number;
+
   constructor(
     public webContentService: WebcontentService,
     public customImageService: CustomImageService,
     private route: ActivatedRoute,
     private storage: AngularFireStorage,
     public toastr: ToastrService,
-    public router: Router
+    public router: Router,
+    public subPageService: SubpageService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getSubPageContentByIds(this.pageId, this.subPageId);
+  }
+
+  getSubPageContentByIds(pageId: number, subPageId: number) {
+    pageId = this.pageId;
+    subPageId = this.subPageId;
+
+    console.log('pageid');
+    console.log(this.pageId);
+    console.log('subpageid');
+    console.log(this.subPageId);
+    this.subPageService
+      .getSubContentByIds(pageId, subPageId)
+      .subscribe((res: Webcontent[]) => {
+        this.subPageService.subPageContentArray = res;
+        console.log('getting content by page and sub page id..');
+        console.log(res);
+      });
+  }
+
+  openPageSettings() {
+    console.log('opened page settings.');
+
+    this.router.navigate(['/edit-page/']);
+  }
+
+  deleteDialogue(id: number) {
+    console.log('trying to delete..');
+    if (confirm('Are you sure you want to delete this?')) {
+      this.onDelete(id);
+    }
+  }
+
+  onDelete(id: number) {
+    this.webContentService.deleteWebPageContent(id).subscribe((res) => {
+      this.grabAllContentByPageId();
+      this.resetForm();
+    });
+    this.toastr.error('Content deleted!');
+  }
+
+  //Change this to grab by SUBPAGE ID & PAGE ID
+  grabAllContentByPageId() {
+    this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(
+      'pageId'
+    );
+
+    this.customImageService
+      .getWebContentByPageId(this.webContentService.pageIdSnapshot)
+      .subscribe((res: Webcontent[]) => {
+        console.log('here are the page settings');
+        console.log(res);
+        this.webContentService.webContentArray = res;
+      });
+  }
+
+  resetForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      imageUrl: '',
+      pageId: 0,
+      backgroundImage: '',
+    });
+    this.imgSrc = '/assets/placeholder.jpg';
+    this.selectedImage = null;
+    this.isSubmitted = false;
+  }
+
+  formTemplate = new FormGroup({
+    imageUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    backgroundImage: new FormControl(''),
+  });
+
+  selectItemToEdit(textId: number) {
+    this.router.navigate(['/style-settings/' + textId]);
+    console.log('item to edit');
+    console.log(textId);
+    this.webContentService
+      .getEditContentById(textId)
+      .subscribe((res: Webcontent[]) => {
+        this.subPageService.subPageContentByIdsArray = res;
+        console.log('res');
+        console.log(res);
+      });
+  }
+
+  onContentSubmit(form: NgForm) {
+    //Submit for homepage content
+    this.insertContentRecord(form);
+  }
+
+  insertContentRecord(form: NgForm) {
+    this.webContentService
+      .postWebContentByPageId(form.value)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
+  }
 }
-
-// import { Component, OnInit } from '@angular/core';
-// import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-// import { CustomTextService } from 'src/app/services/custom-text.service';
-// import { CustomPageComponent } from 'src/app/customPage/custom-page/custom-page.component';
-// import { WebcontentService } from 'src/app/WebContent/webcontent.service';
-// import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-// import { AngularFireStorage } from '@angular/fire/storage';
-// import { finalize } from 'rxjs/operators';
-// import { Console } from 'console';
-
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { CustomImageService } from 'src/app/services/custom-image.service';
-// import { Webcontent } from 'src/app/WebContent/webcontent.model';
-// import { UserService } from 'src/app/services/user.service';
-// import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
-// import { DefaultTemplateService } from 'src/app/services/default-template.service';
-
-// @Component({
-//   selector: 'app-page-settings',
-//   templateUrl: './page-settings.component.html',
-//   styleUrls: ['./page-settings.component.css'],
-//   providers: [WebcontentService],
-// })
-// export class PageSettingsComponent implements OnInit {
-//   closeResult = '';
-//   public fileToUpload: File = null;
-//   imgSrc: string;
-//   selectedImage: any = null;
-//   isSubmitted: boolean;
-//   imageList: any[];
-//   fireBaseImageUrl: string;
-//   resizeButtonToggled: boolean = false;
-
-//   constructor(
-//     public webContentService: WebcontentService,
-//     public customImageService: CustomImageService,
-//     private route: ActivatedRoute,
-//     private storage: AngularFireStorage,
-//     public toastr: ToastrService,
-//     public router: Router
-//   ) {}
-
-//   ngOnInit(): void {
-//     this.grabAllContentByPageId();
-//   }
 
 //   openPageSettings() {
 //     console.log('opened page settings.');
@@ -117,12 +184,6 @@ export class SubpageDashboardComponent implements OnInit {
 //   get formControls() {
 //     return this.formTemplate['controls'];
 //   }
-
-//   formTemplate = new FormGroup({
-//     imageUrl: new FormControl('', Validators.required),
-//     pageId: new FormControl(''),
-//     backgroundImage: new FormControl(''),
-//   });
 
 //   textFormTemplate = new FormGroup({
 //     TextBody: new FormControl('', Validators.required),
@@ -181,20 +242,6 @@ export class SubpageDashboardComponent implements OnInit {
 //         });
 //       this.toastr.success('Image uploaded succesfully!');
 //     }
-//   }
-
-//   onContentSubmit(form: NgForm) {
-//     //Submit for homepage content
-//     this.insertContentRecord(form);
-//   }
-
-//   insertContentRecord(form: NgForm) {
-//     this.webContentService
-//       .postWebContentByPageId(form.value)
-//       .subscribe((res) => {
-//         //this.resetForm(form);
-//         this.grabAllContentByPageId();
-//       });
 //   }
 
 //   //To submit text body data
@@ -279,36 +326,6 @@ export class SubpageDashboardComponent implements OnInit {
 //       .subscribe((data) => {});
 
 //     //Now we need to create a form to post to db
-//   }
-
-//   deleteDialogue(id: number) {
-//     console.log('trying to delete..');
-//     if (confirm('Are you sure you want to delete this?')) {
-//       this.onDelete(id);
-//     }
-//   }
-
-//   onDelete(id: number) {
-//     this.webContentService.deleteWebPageContent(id).subscribe((res) => {
-//       this.grabAllContentByPageId();
-//       this.resetForm();
-//     });
-//     this.toastr.error('Content deleted!');
-//   }
-
-//   selectItemToEdit(textId: number) {
-//     this.router.navigate(['/style-settings/' + textId]);
-//     console.log('item to edit');
-//     console.log(textId);
-//     this.webContentService
-//       .getEditContentById(textId)
-//       .subscribe((res: Webcontent[]) => {
-//         this.webContentService.webContentByIdArray = res;
-//         console.log('res');
-//         console.log(res);
-//         // console.log('Here is the images based on page id: ');
-//         // console.log(this.imagesByPageIdArray);
-//       });
 //   }
 
 //   openStyleSettings(textId: string) {
