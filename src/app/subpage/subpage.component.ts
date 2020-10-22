@@ -27,6 +27,7 @@ export class SubpageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.checkIfRouteChanged();
     this.subscribeToRoute();
     //this.refreshRoute();
     this.initializeRouteParams();
@@ -34,8 +35,19 @@ export class SubpageComponent implements OnInit {
     //this.grabPageIdInfo();
   }
 
+  checkIfRouteChanged() {
+    this.route.params.subscribe((params) => {
+      var activeSubPageId = params['subPageId'];
+      // console.log(activeSubPageId);
+      var activePageId = params['pageId'];
+      // console.log(activePageId);
+    });
+
+    //if subpage id or page id does not match what is in route, initializeRouteParams()
+  }
+
   openDashboard() {
-    console.log('opened page settings.');
+    //  console.log('opened page settings.');
 
     this.router.navigate([
       '/settings/' + this.subPageDescription + '/' + this.subPageId,
@@ -44,14 +56,15 @@ export class SubpageComponent implements OnInit {
 
   subscribeToRoute() {
     this.sub = this.route.params.subscribe((params) => {
-      const pageId = params['subPageId'];
-      console.log('params');
-      console.log(pageId);
+      this.subPageId = params['subPageId'];
+      //   console.log(this.subPageId);
+      this.pageId = params['pageId'];
+      //   console.log(this.pageId);
 
       this.subPageService
-        .getSubContentByIds(pageId, this.subPageId)
+        .getSubContentByIds(this.pageId, this.subPageId)
         .subscribe((res: Webcontent[]) => {
-          console.log('subscribing to route');
+          //       console.log('subscribing to route');
           this.subPageService.subPageContentArray = res;
         });
     });
