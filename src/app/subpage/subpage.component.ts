@@ -50,8 +50,29 @@ export class SubpageComponent implements OnInit {
     //  console.log('opened page settings.');
 
     this.router.navigate([
-      '/settings/' + this.subPageDescription + '/' + this.subPageId,
+      'settings/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/subPage/' +
+        this.subPageDescription +
+        '/' +
+        this.subPageId,
     ]);
+
+    //this is the correct route http://localhost:4200/settings/Home/1/subPage/Campus/1
+    // this is what im getting                       /settings/Home/1/subPage/Campus/1
+
+    console.log(
+      'settings/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/subPage/' +
+        this.subPageDescription +
+        '/' +
+        this.subPageId
+    );
   }
 
   subscribeToRoute() {

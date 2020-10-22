@@ -10,6 +10,7 @@ import { StyleSettingsComponent } from './style-settings/style-settings.componen
 import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settings.component';
 import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-page-settings.component';
 import { SubpageComponent } from './subpage/subpage.component';
+import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,8 +31,9 @@ const routes: Routes = [
     component: PageSettingsComponent,
   },
   {
-    path: 'settings/:subPageDescription/:subPageId',
-    component: PageSettingsComponent,
+    path:
+      'settings/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
+    component: SubpageDashboardComponent,
   },
   {
     path: 'subPage/:subPageDescription/:subPageId',
