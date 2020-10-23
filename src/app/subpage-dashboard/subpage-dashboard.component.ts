@@ -264,6 +264,34 @@ export class SubpageDashboardComponent implements OnInit {
   get formControls() {
     return this.formTemplate['controls'];
   }
+
+  //Submit Embed
+  submitEmbedUrlData(form: FormGroup) {
+    console.log('Embed form after submit');
+    console.log(form);
+    this.insertEmbedUrlRecord(form);
+  }
+
+  embedUrlFormTemplate = new FormGroup({
+    embedUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
+  insertEmbedUrlRecord(form: FormGroup) {
+    console.log('Embed form during insert record');
+    console.log(form);
+
+    var newEmbedUrlForm = this.embedUrlFormTemplate.value;
+    newEmbedUrlForm.pageId = this.pageId;
+    newEmbedUrlForm.subpageid = this.subPageId;
+
+    this.webContentService
+      .postWebContentByPageId(newEmbedUrlForm)
+      .subscribe((res) => {
+        this.getSubPageContentByIds(this.pageId, this.subPageId);
+        this.toastr.success('Video uploaded succesfully!');
+      });
+  }
 }
 
 //   openPageSettings() {
@@ -309,29 +337,6 @@ export class SubpageDashboardComponent implements OnInit {
 
 //     this.webContentService
 //       .postWebContentByPageId(newUrlForm)
-//       .subscribe((res) => {
-//         //this.resetForm(form);
-//         this.grabAllContentByPageId();
-//       });
-//   }
-
-//   //To embed image url
-
-//   submitEmbedUrlData(form: FormGroup) {
-//     console.log('Embed form after submit');
-//     console.log(form);
-//     this.insertEmbedUrlRecord(form);
-//   }
-
-//   insertEmbedUrlRecord(form: FormGroup) {
-//     console.log('Embed form during insert record');
-//     console.log(form);
-
-//     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
-//     newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
-
-//     this.webContentService
-//       .postWebContentByPageId(newEmbedUrlForm)
 //       .subscribe((res) => {
 //         //this.resetForm(form);
 //         this.grabAllContentByPageId();

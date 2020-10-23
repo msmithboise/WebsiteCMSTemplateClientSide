@@ -303,6 +303,7 @@
                                 </div>
                                 <div class="form-group">
                                   <button
+                                    (click)="onSubmit(formTemplate.value)"
                                     type="submit"
                                     class="btn btn-success float-right"
                                   >
@@ -379,6 +380,77 @@
                     </svg>
                     Add Video
                   </button>
+                  <!-- Embed Modal -->
+                  <div
+                    class="modal fade"
+                    id="embedModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="embedModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="embedModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Embed Url input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="embedUrlFormTemplate"
+                                class="form-inline"
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="embedUrl"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Embed Here"
+                                    type="text"
+                                    formControlName="embedUrl"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            (click)="
+                              submitEmbedUrlData(embedUrlFormTemplate.value)
+                            "
+                            type="button"
+                            class="btn btn-primary"
+                          >
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
