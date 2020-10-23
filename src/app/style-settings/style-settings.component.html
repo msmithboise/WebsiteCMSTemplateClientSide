@@ -125,6 +125,17 @@
                         />
                         <div class="input-group-append"></div>
 
+                        <!-- ngIf subpageid != null... input -->
+
+                        <input
+                          *ngIf="content.SubPageId != null"
+                          type="text"
+                          name="SubPageId"
+                          type="hidden"
+                          #SubPageId="ngModel"
+                          [(ngModel)]="content.SubPageId"
+                        />
+
                         <!-- Text Body -->
 
                         <input
