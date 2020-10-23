@@ -20,6 +20,7 @@ export class SubpageComponent implements OnInit {
   public subPageId: number;
   public loadPage: {};
   public sub: {};
+  public resizeButtonToggled: boolean = false;
   constructor(
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
@@ -48,6 +49,11 @@ export class SubpageComponent implements OnInit {
         console.log('getting content by page and sub page id..');
         console.log(res);
       });
+  }
+
+  resizeToggled() {
+    this.resizeButtonToggled = !this.resizeButtonToggled;
+    console.log('button toggled');
   }
 
   setYouTubeEmbed(embedLink) {

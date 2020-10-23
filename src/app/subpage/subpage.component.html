@@ -1,8 +1,10 @@
 <button class="btn btn-warning" (click)="openDashboard()">Dashboard</button>
 
-<button (click)="getSubPageAllContent()">Get all content</button>
+<!-- <button (click)="getSubPageAllContent()">Get all content</button>
 
-<button (click)="getContent()">Get Content by Page Id & SubPageId</button>
+<button (click)="getContent()">Get Content by Page Id & SubPageId</button> -->
+
+<button class="btn btn-info" (click)="resizeToggled()">Resize Images</button>
 <!-- 
 <div *ngFor="let content of subPageService.subPageContentArray">
   <h1>
@@ -25,6 +27,51 @@
     </div>
   </form> -->
 <!-- </div> -->
+
+<!-- Resize images field -->
+<div class="container-fluid" *ngIf="resizeButtonToggled">
+  <div
+    class="row"
+    *ngFor="let webContent of this.subPageService.subPageContentArray"
+  >
+    <div
+      *ngIf="webContent.ImageUrl != null"
+      id="resize-div"
+      [ngStyle]="{
+        float: 'left',
+
+        backgroundAttachment: webContent.backgroundAttachment,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: webContent.backgroundSize,
+        position: webContent.position,
+        opacity: webContent.opacity,
+        backgroundPosition: webContent.backgroundPosition,
+        resize: 'both',
+        overflow: 'auto',
+        height: webContent.height + 'px',
+        width: webContent.width + 'px',
+        objectFit: 'cover',
+        transform:
+          'translate3d(' +
+          webContent.left +
+          'px,' +
+          webContent.top +
+          'px,' +
+          '0px)'
+      }"
+      class="col"
+    >
+      <app-resizable-draggable
+        [webContent]="webContent"
+        [width]="300"
+        [height]="150"
+        [left]="0"
+        [top]="0"
+      >
+      </app-resizable-draggable>
+    </div>
+  </div>
+</div>
 
 <!-- !-- Hero image field (Parallax, cover, fixed) -->
 <ng-container>

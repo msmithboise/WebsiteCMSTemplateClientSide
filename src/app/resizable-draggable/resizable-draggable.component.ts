@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { CustomImageService } from '../services/custom-image.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -47,7 +48,8 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
   constructor(
     public webContentService: WebcontentService,
-    public customImageService: CustomImageService
+    public customImageService: CustomImageService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -96,6 +98,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     ImageUrl: new FormControl(''),
     Id: new FormControl(''),
     PageId: new FormControl(''),
+    SubPageId: new FormControl(''),
   });
 
   onImageSubmit(
@@ -104,7 +107,9 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     left: number,
     top: number,
     imageUrl: string,
-    id: number
+    id: number,
+    subPageId: number,
+    pageId: number
   ) {
     console.log('width:');
     console.log(width);
@@ -123,7 +128,16 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     image.top = top;
     image.ImageUrl = imageUrl;
     image.id = id;
-    image.PageId = this.webContentService.pageIdSnapshot;
+    image.PageId = Number(this.route.snapshot.paramMap.get('pageId'));
+
+    image.SubPageId = subPageId;
+    console.log('trying to grab subid');
+    console.log(image.SubPageId);
+    console.log('trying to grab pageid');
+    console.log(image.PageId);
+
+    //NgIf SubPageId == null call the webcontent service(will need to create another service method for this, to pass in a subpage id)
+    //NgiF SubPageId != null, call the subcontent service.
 
     this.webContentService.postImageFormDataByPageId(image).subscribe((res) => {
       console.log(res);
