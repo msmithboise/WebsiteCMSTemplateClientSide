@@ -231,7 +231,9 @@ export class SubpageDashboardComponent implements OnInit {
             fileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
                 .postUploadedImage(url)
-                .subscribe((data) => {});
+                .subscribe((data) => {
+                  this.getSubPageContentByIds(this.pageId, this.subPageId);
+                });
 
               formValue['imageUrl'] = url;
 
@@ -241,7 +243,7 @@ export class SubpageDashboardComponent implements OnInit {
           })
         )
         .subscribe((res) => {
-          this.grabAllContentByPageId();
+          this.getSubPageContentByIds(this.pageId, this.subPageId);
         });
       this.toastr.success('Image uploaded succesfully!');
     }
