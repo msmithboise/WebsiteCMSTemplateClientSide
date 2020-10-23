@@ -1,8 +1,28 @@
 export class Webcontent {
   Id: number;
   PageId: number;
+  PageDescription: string;
   TextBody: string;
   ImageUrl: string;
+  AudioId: string;
+  AudioUrl: string;
+  SocialMediaLinkId: number;
+  SocialMediaLink: string;
+  PlayList: string;
+  Class: string;
+  ParentId: number;
+  ChildId: number;
+  GridValues: string;
+  EmbedId: number;
+  isHidden: boolean;
+  isPublished: boolean;
+  Logo: string;
+  LogoId: number;
+  HyperLink: string;
+  HyperLinkId: number;
+  MapUrl: string;
+  MapId: number;
+  Email: string;
   DateCreated: number;
   isText: string;
   isImage: string;
@@ -10,6 +30,7 @@ export class Webcontent {
   ImageId: number;
   SettingsId: number;
   SubPageId: number;
+  SubPageDescription: string;
   backgroundAttachment: string;
   backgroundClip: string;
   backgroundImage: string;
