@@ -211,7 +211,8 @@ export class SubpageDashboardComponent implements OnInit {
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
         //this.resetForm(form);
-        this.grabAllContentByPageId();
+        this.getSubPageContentByIds(this.pageId, this.subPageId);
+        this.toastr.success('Image Url uploaded succesfully!');
       });
   }
 
