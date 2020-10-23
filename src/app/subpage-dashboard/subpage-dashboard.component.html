@@ -232,6 +232,131 @@
                     Add Image
                   </button>
 
+                  <!--Image Modal -->
+                  <div
+                    class="modal fade"
+                    id="imageModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="imageModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="imageModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- New Upload File Form -->
+                          <div class="card" style="width: 25rem">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="formTemplate"
+                                (submit)="onSubmit(formTemplate.value)"
+                              >
+                                <div class="text-center">
+                                  <img
+                                    [src]="imgSrc"
+                                    width="350px"
+                                    height="350px"
+                                    (click)="fileUploader.click()"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <label class="label"
+                                    >Select file to upload.</label
+                                  >
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    class="form-control-file"
+                                    #fileUploader
+                                    formControlName="imageUrl"
+                                    (change)="showPreview($event)"
+                                  />
+                                  <div
+                                    class="text-danger"
+                                    *ngIf="
+                                      isSubmitted &&
+                                      formControls.imageUrl.errors?.required
+                                    "
+                                  >
+                                    This field is required.
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <input
+                                    class="form-control"
+                                    type="hidden"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-success float-right"
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+
+                          <!-- Image Url input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="imageUrlFormTemplate"
+                                class="form-inline"
+                                (submit)="
+                                  submitImageUrlData(imageUrlFormTemplate.value)
+                                "
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="imageUrl"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Url Here"
+                                    type="text"
+                                    formControlName="imageUrl"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- embed Button trigger modal -->
                   <button
                     type="button"
