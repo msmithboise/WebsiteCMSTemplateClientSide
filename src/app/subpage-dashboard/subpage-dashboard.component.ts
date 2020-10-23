@@ -94,10 +94,10 @@ export class SubpageDashboardComponent implements OnInit {
 
   onDelete(id: number) {
     this.webContentService.deleteWebPageContent(id).subscribe((res) => {
-      this.grabAllContentByPageId();
+      this.getSubPageContentByIds(this.pageId, this.subPageId);
       this.resetForm();
     });
-    this.toastr.error('Content deleted!');
+    this.toastr.warning('Content deleted!');
   }
 
   //Change this to grab by SUBPAGE ID & PAGE ID
@@ -182,7 +182,8 @@ export class SubpageDashboardComponent implements OnInit {
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
-      this.grabAllContentByPageId();
+      this.toastr.success('Image uploaded succesfully!');
+      this.getSubPageContentByIds(this.pageId, this.subPageId);
     });
   }
 }
