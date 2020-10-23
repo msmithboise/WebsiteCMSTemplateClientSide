@@ -37,6 +37,19 @@ export class SubpageComponent implements OnInit {
     //this.grabPageIdInfo();
   }
 
+  getSubPageContentByIds(pageId: number, subPageId: number) {
+    pageId = this.pageId;
+    subPageId = this.subPageId;
+
+    this.subPageService
+      .getSubContentByIds(pageId, subPageId)
+      .subscribe((res: Webcontent[]) => {
+        this.subPageService.subPageContentArray = res;
+        console.log('getting content by page and sub page id..');
+        console.log(res);
+      });
+  }
+
   setYouTubeEmbed(embedLink) {
     if (embedLink != null) {
       var url = embedLink;
@@ -152,23 +165,6 @@ export class SubpageComponent implements OnInit {
       //console.log('getting all webcontent for sorting');
       //console.log(res);
     });
-  }
-
-  getSubPageContentByIds(pageId: number, subPageId: number) {
-    pageId = this.pageId;
-    subPageId = this.subPageId;
-    //console.log('making sure these are right');
-    //console.log('pageid');
-    // console.log(this.pageId);
-    //console.log('subpageid');
-    //console.log(this.subPageId);
-    this.subPageService
-      .getSubContentByIds(pageId, subPageId)
-      .subscribe((res: Webcontent[]) => {
-        this.subPageService.subPageContentArray = res;
-        //console.log('getting content by page and sub page id..');
-        //console.log(res);
-      });
   }
 
   onSubmit(form: FormGroup) {
