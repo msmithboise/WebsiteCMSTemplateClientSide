@@ -1,6 +1,7 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SubpageService } from '../services/subpage.service';
@@ -23,7 +24,8 @@ export class SubpageComponent implements OnInit {
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,15 @@ export class SubpageComponent implements OnInit {
     this.initializeRouteParams();
     this.getSubPageContentByIds(this.pageId, this.subPageId);
     //this.grabPageIdInfo();
+  }
+
+  setYouTubeEmbed(embedLink) {
+    if (embedLink != null) {
+      var url = embedLink;
+      url = url.replace('youtu.be', 'youtube.com/embed');
+      var embed = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+      return embed;
+    }
   }
 
   checkIfRouteChanged() {
