@@ -34,6 +34,8 @@ export class SubpageDashboardComponent implements OnInit {
   resizeButtonToggled: boolean = false;
   public pageId: number;
   public subPageId: number;
+  public pageDescription: string;
+  public subPageDescription: string;
 
   constructor(
     public webContentService: WebcontentService,
@@ -46,7 +48,18 @@ export class SubpageDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getRouteParams();
     this.getSubPageContentByIds(this.pageId, this.subPageId);
+  }
+
+  getRouteParams() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+      this.subPageDescription = params.subPageDescription;
+
+      this.subPageId = params.subPageId;
+    });
   }
 
   getSubPageContentByIds(pageId: number, subPageId: number) {
@@ -145,6 +158,32 @@ export class SubpageDashboardComponent implements OnInit {
         //this.resetForm(form);
         this.grabAllContentByPageId();
       });
+  }
+
+  //To submit text body data
+  submitNewTextData(form: FormGroup) {
+    this.insertTextRecord(form);
+  }
+
+  textFormTemplate = new FormGroup({
+    TextBody: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    subPageId: new FormControl(''),
+  });
+
+  insertTextRecord(form: FormGroup) {
+    var newForm = this.textFormTemplate.value;
+    console.log('newform pageid');
+    newForm.pageId = this.pageId;
+    console.log(newForm.pageId);
+    console.log('newform subpageid');
+    newForm.subPageId = this.subPageId;
+    console.log(newForm.subPageId);
+
+    this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
   }
 }
 
