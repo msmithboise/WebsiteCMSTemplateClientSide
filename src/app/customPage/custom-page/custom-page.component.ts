@@ -267,8 +267,6 @@ export class CustomPageComponent implements OnInit {
   setAudioUrl(audioUrl: string) {
     var audio = new Audio();
     audio.src = audioUrl;
-    console.log('audio.src');
-    console.log(audio.src);
 
     // will need to santitize this
     //.trustAsResourceUrl(path + audioFile);

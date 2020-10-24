@@ -25,8 +25,11 @@ export class PageSettingsComponent implements OnInit {
   closeResult = '';
   public fileToUpload: File = null;
   imgSrc: string;
+  audioSrc: string;
   selectedImage: any = null;
+  selectedAudio: any = null;
   isSubmitted: boolean;
+  isAudioSubmitted: boolean;
   imageList: any[];
   fireBaseImageUrl: string;
   resizeButtonToggled: boolean = false;
@@ -68,12 +71,26 @@ export class PageSettingsComponent implements OnInit {
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.onload = (e: any) => (this.audioSrc = e.target.result);
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
     } else {
-      this.imgSrc = '/assets/placeholder.jpg';
+      this.audioSrc = '/assets/placeholder.jpg';
       this.selectedImage = null;
+    }
+  }
+
+  showAudioPreview(event: any) {
+    console.log('show audio preview');
+
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedAudio = event.target.files[0];
+    } else {
+      this.imgSrc = '/assets/placeholder.jpg';
+      this.selectedAudio = null;
     }
   }
 
@@ -228,6 +245,65 @@ export class PageSettingsComponent implements OnInit {
 
   //Set Audio
 
+  //To upload audio
+
+  audioUploadFormTemplate = new FormGroup({
+    AudioUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+  get audioFormControls() {
+    console.log('audio form controls');
+    console.log(this.audioUploadFormTemplate['controls']);
+    return this.audioUploadFormTemplate['controls'];
+  }
+
+  resetAudioForm() {
+    this.audioUploadFormTemplate.reset();
+    this.audioUploadFormTemplate.setValue({
+      audioUrl: '',
+      pageId: 0,
+    });
+
+    this.selectedAudio = null;
+    this.isAudioSubmitted = false;
+  }
+
+  onAudioSubmit(formValue) {
+    console.log('audio submitted...');
+    this.isAudioSubmitted = true;
+    console.log('this selectedAudio');
+    console.log(this.selectedAudio.name);
+    if (this.audioUploadFormTemplate.valid) {
+      var audioFilePath = `audio/${this.selectedAudio.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_${new Date().getTime()}`;
+
+      console.log('audio file path');
+      console.log(audioFilePath);
+      const audiofileRef = this.storage.ref(audioFilePath);
+      this.storage
+        .upload(audioFilePath, this.selectedAudio)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            audiofileRef.getDownloadURL().subscribe((url) => {
+              this.webContentService
+                .postUploadedAudio(url)
+                .subscribe((data) => {});
+              formValue['audioUrl'] = url;
+              this.resetAudioForm();
+            });
+          })
+        )
+        .subscribe((res) => {
+          this.grabAllContentByPageId();
+        });
+      this.toastr.success('Audio uploaded successfully!');
+    }
+    this.toastr.error('Audio failed to upload!');
+  }
+
   //To embed image url
 
   submitAudioData(form: FormGroup) {
@@ -249,12 +325,6 @@ export class PageSettingsComponent implements OnInit {
         //this.resetForm(form);
         this.grabAllContentByPageId();
       });
-  }
-
-  //To upload audio
-
-  onAudioSubmit() {
-    console.log('audio submitted...');
   }
 
   getImageDetails() {

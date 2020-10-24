@@ -90,6 +90,23 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 
+  //Post audio upload
+  postUploadedAudio(audioUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('audioUrl', audioUrl);
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageIdSnapshot.toString());
+    //fd.append('subPageId', this.subPageId);
+
+    return this.http.post(this.webApi + '/UploadAudio', fd);
+  }
+
   //Delete
   deleteWebPageContent(id: number) {
     return this.http.delete(this.webApi + '/WebContent/' + id);

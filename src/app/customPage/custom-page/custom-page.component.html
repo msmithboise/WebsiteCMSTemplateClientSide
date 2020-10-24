@@ -79,17 +79,7 @@
       [ngForOf]="this.webContentService.webContentArray"
       [ngStyle]="{ borderStyle: 'solid' }"
     >
-      <!-- Audio that works -->
-      <!-- <audio
-        id="player"
-        src="https://freesound.org/data/previews/540/540728_9271584-lq.mp3"
-        controls
-        type="audio/mp3"
-      >
-        Walking through sand
-      </audio> -->
-
-      <!-- Audio that doesn't work -->
+      <!-- Audio -->
       <div *ngIf="content.AudioUrl != null">
         <audio
           id="player"
