@@ -177,15 +177,15 @@ export class CustomPageComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
-    console.log('grabbing content by page id');
+    // console.log('grabbing content by page id');
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
 
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        console.log('here is the content array:');
-        console.log(this.webContentService.webContentArray);
+        // console.log('here is the content array:');
+        // console.log(this.webContentService.webContentArray);
 
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);

@@ -77,7 +77,6 @@
       ngFor
       let-content
       [ngForOf]="this.webContentService.webContentArray"
-      [ngStyle]="{ borderStyle: 'solid' }"
     >
       <!-- Audio -->
       <div *ngIf="content.AudioUrl != null">
@@ -281,7 +280,6 @@
       ngFor
       let-content
       [ngForOf]="this.webContentService.webContentArray"
-      [ngStyle]="{ borderStyle: 'solid' }"
     >
       <div *ngIf="!isSetAsHeroImage" class="container-fluid">
         <div class="row" *ngIf="content.ImageUrl != null">
