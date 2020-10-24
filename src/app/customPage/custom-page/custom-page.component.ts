@@ -270,6 +270,14 @@ export class CustomPageComponent implements OnInit {
     console.log('audio.src');
     console.log(audio.src);
 
+    // will need to santitize this
+    //.trustAsResourceUrl(path + audioFile);
+
+    if (audioUrl) {
+      var cleanAudio = this.sanitizer.bypassSecurityTrustResourceUrl(audioUrl);
+      return cleanAudio;
+    }
+
     // var audio = document.getElementById('player');
     // console.log('audio');
     // console.log(audio);

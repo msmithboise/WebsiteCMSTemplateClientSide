@@ -90,15 +90,16 @@
       </audio> -->
 
       <!-- Audio that doesn't work -->
-
-      <audio
-        id="player"
-        [src]="setAudioUrl(content.AudioUrl)"
-        controls
-        type="audio/mp3"
-      >
-        Walking through sand
-      </audio>
+      <div *ngIf="content.AudioUrl != null">
+        <audio
+          id="player"
+          [src]="setAudioUrl(content.AudioUrl)"
+          controls
+          type="audio/mp3"
+        >
+          Walking through sand
+        </audio>
+      </div>
 
       <div *ngIf="!isSetAsGalleryImage">
         <div
