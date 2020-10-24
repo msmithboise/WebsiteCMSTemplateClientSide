@@ -102,6 +102,11 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
+  audioFormTemplate = new FormGroup({
+    audioUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
@@ -215,6 +220,31 @@ export class PageSettingsComponent implements OnInit {
 
     this.webContentService
       .postWebContentByPageId(newEmbedUrlForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
+  }
+
+  //Set Audio
+
+  //To embed image url
+
+  submitAudioData(form: FormGroup) {
+    console.log('Audio form after submit');
+    console.log(form);
+    this.insertAudioRecord(form);
+  }
+
+  insertAudioRecord(form: FormGroup) {
+    console.log('Embed form during insert record');
+    console.log(form);
+
+    var newAudioForm = this.audioFormTemplate.value;
+    newAudioForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService
+      .postWebContentByPageId(newAudioForm)
       .subscribe((res) => {
         //this.resetForm(form);
         this.grabAllContentByPageId();

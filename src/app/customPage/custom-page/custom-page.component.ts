@@ -72,6 +72,7 @@ export class CustomPageComponent implements OnInit {
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
+
     //this.changePhoto();
   }
 
@@ -261,6 +262,19 @@ export class CustomPageComponent implements OnInit {
       var embed = this.sanitizer.bypassSecurityTrustResourceUrl(url);
       return embed;
     }
+  }
+
+  setAudioUrl(audioUrl: string) {
+    var audio = new Audio();
+    audio.src = audioUrl;
+    console.log('audio.src');
+    console.log(audio.src);
+
+    // var audio = document.getElementById('player');
+    // console.log('audio');
+    // console.log(audio);
+    // console.log('passed in audio url');
+    // console.log(audioUrl);
   }
 
   logoutForm = new FormGroup({
