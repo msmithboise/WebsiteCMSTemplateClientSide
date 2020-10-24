@@ -107,6 +107,11 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
+  audioUploadFormTemplate = new FormGroup({
+    audioUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
@@ -249,6 +254,12 @@ export class PageSettingsComponent implements OnInit {
         //this.resetForm(form);
         this.grabAllContentByPageId();
       });
+  }
+
+  //To upload audio
+
+  onAudioSubmit(formValue) {
+    console.log('audio submitted...');
   }
 
   getImageDetails() {
