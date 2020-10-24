@@ -85,8 +85,8 @@ export class WebcontentService {
     });
 
     fd.append('pageId', this.pageIdSnapshot.toString());
-    fd.append('subPageId', this.subPageId);
-    fd.append('backgroundImage', 'url(' + imageUrl + ')');
+    //fd.append('subPageId', this.subPageId);
+    // fd.append('backgroundImage', 'url(' + imageUrl + ')');
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 
