@@ -258,6 +258,18 @@ export class PageSettingsComponent implements OnInit {
 
   //To upload audio
 
+  resetAudioForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      imageUrl: '',
+      pageId: 0,
+      backgroundImage: '',
+    });
+    this.imgSrc = '/assets/placeholder.jpg';
+    this.selectedImage = null;
+    this.isSubmitted = false;
+  }
+
   onAudioSubmit(formValue) {
     console.log('audio submitted...');
   }
