@@ -13,6 +13,8 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class StyleSettingsComponent implements OnInit {
   public textId = +this.route.snapshot.paramMap.get('textId');
+  public pageDescription: string;
+  public pageId: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -50,11 +52,18 @@ export class StyleSettingsComponent implements OnInit {
     console.log('form and id:');
     console.log(form);
 
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+    });
+
     this.webContentService.postEditContentById(form.value).subscribe((res) => {
       //this.resetForm(form);
       this.toastr.success('Edited content succesfully!');
       this.grabAllContentByPageId();
-      this.router.navigate(['/settings/' + this.textId]);
+      this.router.navigate([
+        '/settings/' + this.pageDescription + '/' + this.pageId,
+      ]);
     });
   }
 

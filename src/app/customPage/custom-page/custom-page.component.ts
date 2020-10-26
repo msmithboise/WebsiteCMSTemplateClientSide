@@ -10,7 +10,7 @@ import { CustomTextService } from 'src/app/services/custom-text.service';
 import { CustomText } from 'src/app/models/custom-text.model';
 import { WebcontentService } from 'src/app/WebContent/webcontent.service';
 import { Webcontent } from 'src/app/WebContent/webcontent.model';
-import { Console } from 'console';
+import { Console, timeStamp } from 'console';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SafePipe } from '..//../safe.pipe';
@@ -65,6 +65,8 @@ export class CustomPageComponent implements OnInit {
   public isSetAsGalleryImage: boolean = false;
   public testGrid: string[];
   public resizeButtonToggled: boolean = false;
+  public pageDescription: string;
+  public pageId: number;
 
   ngOnInit(): void {
     this.callCustomPageService();
@@ -84,9 +86,20 @@ export class CustomPageComponent implements OnInit {
   openPageSettings() {
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
 
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+
+      //console.log(this.pageId);
+
+      //console.log(this.subPageId);
+    });
+
     console.log('opened page settings.');
 
-    this.router.navigate(['/settings/' + this.pageIdSnapshot]);
+    this.router.navigate([
+      '/settings/' + this.pageDescription + '/' + this.pageId,
+    ]);
   }
 
   resizeToggled() {

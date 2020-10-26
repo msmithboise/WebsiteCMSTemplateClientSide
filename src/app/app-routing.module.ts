@@ -35,6 +35,10 @@ const routes: Routes = [
     component: PageSettingsComponent,
   },
   {
+    path: 'settings/:pageDescription/:pageId',
+    component: PageSettingsComponent,
+  },
+  {
     path:
       'settings/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageDashboardComponent,
