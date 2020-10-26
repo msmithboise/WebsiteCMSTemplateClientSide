@@ -22,6 +22,7 @@ import { LoggedInUser } from 'src/app/models/logged-in-user.model';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
 import { NonNullAssert } from '@angular/compiler';
 import { style } from '@angular/animations';
+import { Http2ServerRequest } from 'http2';
 
 @Component({
   selector: 'app-custom-page',
@@ -74,6 +75,10 @@ export class CustomPageComponent implements OnInit {
     this.createTestArray();
 
     //this.changePhoto();
+  }
+
+  createLink(hyperLink: string) {
+    return hyperLink;
   }
 
   openPageSettings() {

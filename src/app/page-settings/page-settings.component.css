@@ -165,6 +165,14 @@ body {
   background-color: #439eee;
 }
 
+.bi-trash {
+  color: #d94fd2;
+}
+
+.bi-pencil {
+  color: #007bff;
+}
+
 /*
    * Navbar
    */

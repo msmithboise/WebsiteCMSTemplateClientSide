@@ -54,6 +54,7 @@ export class StyleSettingsComponent implements OnInit {
       //this.resetForm(form);
       this.toastr.success('Edited content succesfully!');
       this.grabAllContentByPageId();
+      this.router.navigate(['/settings/' + this.textId]);
     });
   }
 

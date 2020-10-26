@@ -27,6 +27,10 @@ const routes: Routes = [
   },
   { path: 'style-settings/:textId', component: StyleSettingsComponent },
   {
+    path: 'style-settings/:pageDescription/:pageId/:textId',
+    component: StyleSettingsComponent,
+  },
+  {
     path: 'settings/:pageId',
     component: PageSettingsComponent,
   },

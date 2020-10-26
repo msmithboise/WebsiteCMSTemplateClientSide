@@ -33,6 +33,9 @@ export class PageSettingsComponent implements OnInit {
   imageList: any[];
   fireBaseImageUrl: string;
   resizeButtonToggled: boolean = false;
+  selectedId: number;
+  public pageDescription: string;
+  public pageId: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -45,6 +48,15 @@ export class PageSettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.grabAllContentByPageId();
+  }
+
+  addHyperLink(id: number, text: string, imageUrl: string) {
+    console.log('item to add link to:');
+    console.log(id);
+    console.log(text);
+    console.log(imageUrl);
+
+    this.selectedId = id;
   }
 
   openPageSettings() {
@@ -187,6 +199,32 @@ export class PageSettingsComponent implements OnInit {
     this.insertTextRecord(form);
   }
 
+  //TO submit link data
+
+  linkFormTemplate = new FormGroup({
+    HyperLink: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    Id: new FormControl(''),
+  });
+
+  submitNewLinkData(form: FormGroup) {
+    this.insertLinkRecord(form);
+  }
+
+  insertLinkRecord(form: FormGroup) {
+    var newForm = this.linkFormTemplate.value;
+    newForm.pageId = this.webContentService.pageIdSnapshot;
+    newForm.Id = this.selectedId;
+
+    console.log('link form');
+    console.log(newForm);
+
+    this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
+  }
+
   insertTextRecord(form: FormGroup) {
     var newForm = this.textFormTemplate.value;
     newForm.pageId = this.webContentService.pageIdSnapshot;
@@ -301,7 +339,8 @@ export class PageSettingsComponent implements OnInit {
         });
       this.toastr.success('Audio uploaded successfully!');
     }
-    this.toastr.error('Audio failed to upload!');
+
+    // this.toastr.error('Audio failed to upload!');
   }
 
   //To embed image url
@@ -366,7 +405,23 @@ export class PageSettingsComponent implements OnInit {
   }
 
   selectItemToEdit(textId: number) {
-    this.router.navigate(['/style-settings/' + textId]);
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+
+      //console.log(this.pageId);
+
+      //console.log(this.subPageId);
+    });
+    // { path: 'style-settings/:pageDescription/:pageId/:textId', component: StyleSettingsComponent },
+    this.router.navigate([
+      '/style-settings/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/' +
+        textId,
+    ]);
     console.log('item to edit');
     console.log(textId);
     this.webContentService
