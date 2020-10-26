@@ -134,6 +134,7 @@ export class PageSettingsComponent implements OnInit {
   audioFormTemplate = new FormGroup({
     audioUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    backgroundColor: new FormControl(''),
   });
 
   resetForm() {

@@ -143,5 +143,32 @@
         </li> -->
       </ul>
     </div>
+
+    <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
+
+    <button class="btn btn-warning" (click)="openPageSettings()">
+      Dashboard
+    </button>
+
+    <button class="btn btn-info" (click)="resizeToggled()">
+      Resize Images
+    </button>
+
+    <!-- <img
+  id="scrollFade"
+  [addAttributeOn]
+  src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
+  alt=""
+/> -->
+
+    <!-- logout button -->
+    <div *ngFor="let data of this.userService.loggedInUserArray">
+      <a
+        routerLink="/portal"
+        class="btn btn-light btn-sm mb-3"
+        (click)="Logout(data)"
+        >Logout</a
+      >
+    </div>
   </nav>
 </div>

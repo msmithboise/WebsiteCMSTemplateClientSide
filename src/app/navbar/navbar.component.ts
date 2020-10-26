@@ -9,6 +9,12 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { CustomImageService } from '../services/custom-image.service';
 import { compileNgModule } from '@angular/compiler';
+import { UserService } from '../services/user.service';
+import { LoggedInUser } from '../models/logged-in-user.model';
+import { AuthenticationService } from '../services/authentication.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { User } from '../models/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -28,6 +34,9 @@ export class NavbarComponent implements OnInit {
   public pageDescriptionSnapshot: string;
   public lastHoveredNum: number;
   public untouchedStorage: Subpage[];
+  public pageId: number;
+  public pageDescription: number;
+  public resizeButtonToggled: boolean = false;
 
   constructor(
     public customPageService: CustomPageService,
@@ -36,7 +45,10 @@ export class NavbarComponent implements OnInit {
     public sanitizer: DomSanitizer,
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
-    public customImageService: CustomImageService
+    public customImageService: CustomImageService,
+    public userService: UserService,
+    public authService: AuthenticationService,
+    public toastr: ToastrService
   ) {}
 
   customPageArray: CustomPage[];
@@ -47,6 +59,46 @@ export class NavbarComponent implements OnInit {
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+  }
+
+  logoutForm = new FormGroup({
+    Username: new FormControl(''),
+    Hash: new FormControl(''),
+  });
+
+  Logout(data: LoggedInUser) {
+    var user = data;
+    this.authService.removeToken;
+    this.userService.userArray[0].isLoggedIn = false;
+    this.userService.postLogoutData(data).subscribe((res: User[]) => {
+      console.log('logout data:');
+      console.log(res);
+      this.userService.userArray = res;
+    });
+    this.router.navigate(['portal']);
+    this.toastr.success('Logged out succesfully!');
+  }
+
+  resizeToggled() {
+    this.resizeButtonToggled = !this.resizeButtonToggled;
+    console.log('button toggled');
+  }
+
+  openPageSettings() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+
+      //console.log(this.pageId);
+
+      //console.log(this.subPageId);
+    });
+
+    console.log('opened page settings.');
+
+    this.router.navigate([
+      '/settings/' + this.pageDescription + '/' + this.pageId,
+    ]);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
