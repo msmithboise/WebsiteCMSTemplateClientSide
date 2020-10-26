@@ -144,15 +144,28 @@
       </ul>
     </div>
 
-    <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
+    <div *ngFor="let user of this.currentUserArray">
+      <div *ngIf="!user.IsLoggedIn">
+        <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
+      </div>
 
-    <button class="btn btn-warning" (click)="openPageSettings()">
-      Dashboard
-    </button>
-
-    <button class="btn btn-info" (click)="resizeToggled()">
-      Resize Images
-    </button>
+      <div *ngIf="user.IsLoggedIn" style="text-align: center">
+        Hello {{ user.UserName }}!
+        <div>
+          <div>
+            <button
+              class="btn btn-light btn-sm mb-3"
+              (click)="openPageSettings()"
+            >
+              Dashboard
+            </button>
+          </div>
+        </div>
+        <!-- <button class="btn btn-info" (click)="resizeToggled()">
+          Resize Images
+        </button> -->
+      </div>
+    </div>
 
     <!-- <img
   id="scrollFade"
@@ -161,14 +174,18 @@
   alt=""
 /> -->
 
-    <!-- logout button -->
-    <div *ngFor="let data of this.userService.loggedInUserArray">
-      <a
-        routerLink="/portal"
-        class="btn btn-light btn-sm mb-3"
-        (click)="Logout(data)"
-        >Logout</a
-      >
+    <div *ngFor="let user of this.currentUserArray">
+      <div *ngIf="user.IsLoggedIn">
+        <!-- logout button -->
+        <div *ngFor="let data of this.userService.loggedInUserArray">
+          <a
+            routerLink="/portal"
+            class="btn btn-light btn-sm mb-3"
+            (click)="Logout(data)"
+            >Logout</a
+          >
+        </div>
+      </div>
     </div>
   </nav>
 </div>

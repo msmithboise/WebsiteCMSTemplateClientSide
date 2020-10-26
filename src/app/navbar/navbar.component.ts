@@ -37,6 +37,8 @@ export class NavbarComponent implements OnInit {
   public pageId: number;
   public pageDescription: number;
   public resizeButtonToggled: boolean = false;
+  public isLoggedIn: boolean = false;
+  public currentUserArray: User[];
 
   constructor(
     public customPageService: CustomPageService,
@@ -54,11 +56,45 @@ export class NavbarComponent implements OnInit {
   customPageArray: CustomPage[];
 
   ngOnInit(): void {
+    this.getLoginData();
+    this.grabAllContentByPageId();
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+  }
+
+  grabAllContentByPageId() {
+    // console.log('grabbing content by page id');
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+
+      //console.log(this.pageId);
+
+      //console.log(this.subPageId);
+    });
+
+    this.customImageService
+      .getWebContentByPageId(this.pageId)
+      .subscribe((res: Webcontent[]) => {
+        this.webContentService.webContentArray = res;
+        console.log('here is the content array:');
+        console.log(this.webContentService.webContentArray);
+
+        // console.log('Here is the images based on page id: ');
+        // console.log(this.imagesByPageIdArray);
+      });
+  }
+
+  getLoginData() {
+    this.userService.getLoggedInUser().subscribe((res: User[]) => {
+      console.log('userdata');
+      console.log(res);
+      this.currentUserArray = res;
+    });
   }
 
   logoutForm = new FormGroup({
@@ -89,9 +125,9 @@ export class NavbarComponent implements OnInit {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
 
-      //console.log(this.pageId);
+      console.log(this.pageId);
 
-      //console.log(this.subPageId);
+      console.log(this.pageDescription);
     });
 
     console.log('opened page settings.');
@@ -99,6 +135,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([
       '/settings/' + this.pageDescription + '/' + this.pageId,
     ]);
+    console.log('/settings/' + this.pageDescription + '/' + this.pageId);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {

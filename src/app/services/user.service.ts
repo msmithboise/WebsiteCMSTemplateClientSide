@@ -52,4 +52,8 @@ export class UserService {
       .toPromise()
       .then((res) => (this.loggedInUserArray = res as LoggedInUser[]));
   }
+
+  getLoggedInUser() {
+    return this.http.get<User[]>(this.webApi + '/loggedInUser');
+  }
 }
