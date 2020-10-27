@@ -14,7 +14,17 @@ export class NavbarSettingsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.grabNavBarData();
+  }
+
+  grabNavBarData() {
+    this.navBarService.getNavBarData().subscribe((res) => {
+      this.navBarService.navBarArray = res;
+      console.log('navbar array');
+      console.log(this.navBarService.navBarArray);
+    });
+  }
 
   onEditSubmit(form: NgForm) {
     this.insertEditSettings(form);
