@@ -26,6 +26,11 @@ export class DashboardSidebarComponent implements OnInit {
     this.callCustomSubPageService();
   }
 
+  openNavBarSettings() {
+    console.log('navbar settings page');
+    this.router.navigate(['/navbar-settings/']);
+  }
+
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;

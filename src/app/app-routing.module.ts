@@ -11,6 +11,7 @@ import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settin
 import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-page-settings.component';
 import { SubpageComponent } from './subpage/subpage.component';
 import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard.component';
+import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'edit-page', component: EditPageSettingsComponent },
+  { path: 'navbar-settings', component: NavbarSettingsComponent },
+
   {
     path: 'edit-sub-page/:pageDescription/:pageId',
     component: EditSubPageSettingsComponent,
@@ -38,6 +41,10 @@ const routes: Routes = [
   {
     path: 'settings/:pageId',
     component: PageSettingsComponent,
+  },
+  {
+    path: 'navbar-settings/:pageDescription/:pageId',
+    component: NavbarSettingsComponent,
   },
   {
     path: 'settings/:pageDescription/:pageId',

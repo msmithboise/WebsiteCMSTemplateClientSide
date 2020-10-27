@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="description" content="" />
+      <meta
+        name="author"
+        content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+      />
+      <meta name="generator" content="Jekyll v4.1.1" />
+      <title>Dashboard Template · Bootstrap</title>
+
+      <link
+        rel="canonical"
+        href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
+      />
+
+      <!-- Custom styles for this template -->
+    </head>
+    <app-dashboard-sidebar></app-dashboard-sidebar>
+    <body>
+      <div class="container-fluid" style="height: fit-content">
+        <div class="row">
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            >
+              <h1 class="h2">Dashboard</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <!-- //Modals here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Existing content display forms -->
+            <div class="card-body">
+              <h2 class="h2">Web Content</h2>
+              <div>
+                <!-- NgFor in this div -->
+                <div>
+                  <!-- Delete button -->
+                  <!-- Edit button -->
+                  <!-- Misc. Button -->
+                </div>
+                <div class="input-group"></div>
+                <div class="modal-body form-group">
+                  <form
+                    #form="ngForm"
+                    (submit)="onSubmit()"
+                    id="myForm"
+                    class="border-bottom"
+                  >
+                    <!-- NgForms here -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+        window.jQuery ||
+          document.write(
+            '<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>'
+          );
+      </script>
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+      <script src="dashboard.js"></script>
+    </body>
+  </html>
+
+  <!-- <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
+      Page Settings
+    </button> -->
+</div>
