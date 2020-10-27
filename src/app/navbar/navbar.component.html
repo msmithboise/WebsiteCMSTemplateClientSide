@@ -2,7 +2,10 @@
   <div *ngFor="let setting of navBarService.navBarArray">
     <nav
       class="navbar navbar-expand-lg"
-      [ngStyle]="{ backgroundColor: setting.NavBarBgColor }"
+      [ngStyle]="{
+        backgroundColor: setting.NavBarBgColor,
+        color: setting.NavBarFontColor
+      }"
     >
       <a class="navbar-brand" href="#"></a>
       <button
