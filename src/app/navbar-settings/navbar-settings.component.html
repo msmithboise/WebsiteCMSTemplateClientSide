@@ -40,13 +40,13 @@
                     <div class="modal-body form-group">
                       <form
                         #form="ngForm"
-                        (submit)="onEditSubmit(form)"
+                        (submit)="onSubmit(form)"
                         id="myForm"
                       >
-                        <!-- Id -->
+                        <!-- NavBarId -->
 
                         <input
-                          name="Id"
+                          name="NavBarId"
                           type="hidden"
                           #Id="ngModel"
                           [(ngModel)]="content.NavBarId"
@@ -61,8 +61,8 @@
                               <label><b>Background Color</b></label>
                               <div>
                                 <input
-                                  name="color"
-                                  #color="ngModel"
+                                  name="NavBarBgColor"
+                                  #NavBarBgColor="ngModel"
                                   [(ngModel)]="content.NavBarBgColor"
                                 />
                               </div>
@@ -71,10 +71,10 @@
 
                           <div class="col-6">
                             <div class="form-group">
-                              <label for="color"></label>
+                              <label for="NavBarBgColor"></label>
                               <select
-                                id="color"
-                                name="color"
+                                id="NavBarBgColor"
+                                name="NavBarBgColor"
                                 [(ngModel)]="content.NavBarBgColor"
                                 class="form-control"
                               >
@@ -96,10 +96,7 @@
 
                         <!--------------------------------------------- form end-------------------------------------------------------------------------------- -->
                       </form>
-                      <button
-                        class="btn btn-primary"
-                        (click)="onEditSubmit(form)"
-                      >
+                      <button class="btn btn-primary" (click)="onSubmit(form)">
                         Save Changes
                       </button>
                     </div>

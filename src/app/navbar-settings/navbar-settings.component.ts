@@ -31,6 +31,10 @@ export class NavbarSettingsComponent implements OnInit {
   //   });
   // }
 
+  onSubmit(form: NgForm) {
+    this.createNavBarData(form);
+  }
+
   createNavBarData(form: NgForm) {
     this.navBarService.postNavBarData(form.value).subscribe((res: Navbar[]) => {
       this.navBarService.navBarArray = res;
