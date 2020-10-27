@@ -14,6 +14,8 @@ import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
+import { CustomPageService } from '../services/custom-page.service';
+import { CustomPage } from '../models/custom-page.model';
 
 @Component({
   selector: 'app-page-settings',
@@ -43,11 +45,37 @@ export class PageSettingsComponent implements OnInit {
     private route: ActivatedRoute,
     private storage: AngularFireStorage,
     public toastr: ToastrService,
-    public router: Router
+    public router: Router,
+    public customPageService: CustomPageService
   ) {}
 
   ngOnInit(): void {
     this.grabAllContentByPageId();
+    this.callCustomPageService();
+  }
+
+  mainPageNav(pageDescription: string, pageId: number) {
+    console.log('main page nav');
+    console.log(pageDescription, pageId);
+
+    this.router.navigate([pageDescription + '/' + pageId]);
+  }
+
+  callCustomPageService() {
+    this.customPageService
+      .getCustomPageContent()
+      .subscribe((res: CustomPage[]) => {
+        this.customPageService.customPageArray = res;
+      });
+  }
+
+  goBack() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+
+      this.router.navigate([this.pageDescription + '/' + this.pageId]);
+    });
   }
 
   addHyperLink(id: number, text: string, imageUrl: string) {

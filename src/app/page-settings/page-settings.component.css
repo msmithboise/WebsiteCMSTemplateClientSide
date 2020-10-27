@@ -81,7 +81,7 @@ body {
 #sidebarMenu {
   /* background-color: #d94fd2; */
   /* background-color: #1f8ef1; */
-  background-color: #00d6b4;
+  background-color: #d94fd2;
   float: left;
 }
 
@@ -118,8 +118,8 @@ body {
 }
 
 .sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.815);
 }
 
 .sidebar .nav-link .feather {
@@ -133,7 +133,7 @@ body {
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
-  color: inherit;
+  color: #01d0b0;
 }
 
 .sidebar-heading {
@@ -171,6 +171,10 @@ body {
 
 .bi-pencil {
   color: #007bff;
+}
+
+.back-button {
+  color: #020202c9;
 }
 
 /*
