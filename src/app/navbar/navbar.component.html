@@ -66,7 +66,7 @@
 
             <div *ngIf="!logoIsLeft && !logoIsRight">
               <div
-                [style.background-image]="'url(' + photo + ')' | safe"
+                [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
                 [ngStyle]="logoStyling"
               ></div>
             </div>
@@ -74,7 +74,7 @@
             <!-- OMG IT WORKS!@!!!! -->
             <div *ngIf="logoIsLeft">
               <div
-                [style.background-image]="'url(' + photo + ')' | safe"
+                [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
                 [ngStyle]="logoStyling"
               ></div>
             </div>
@@ -121,7 +121,7 @@
 
             <div *ngIf="logoIsRight">
               <div
-                [style.background-image]="'url(' + photo + ')' | safe"
+                [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
                 [ngStyle]="logoStyling"
               ></div>
             </div>
