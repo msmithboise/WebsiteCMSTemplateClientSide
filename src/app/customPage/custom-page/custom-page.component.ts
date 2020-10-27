@@ -69,6 +69,7 @@ export class CustomPageComponent implements OnInit {
   public pageId: number;
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.callCustomPageService();
     this.takePageIdSnapshot();
     this.userService.getCurrentUserData();

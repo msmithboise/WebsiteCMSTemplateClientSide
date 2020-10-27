@@ -15,6 +15,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-navbar',
@@ -35,7 +36,7 @@ export class NavbarComponent implements OnInit {
   public lastHoveredNum: number;
   public untouchedStorage: Subpage[];
   public pageId: number;
-  public pageDescription: number;
+  public pageDescription: string;
   public resizeButtonToggled: boolean = false;
   public isLoggedIn: boolean = false;
   public currentUserArray: User[];
@@ -58,6 +59,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.getLoginData();
     this.grabAllContentByPageId();
+
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
@@ -66,16 +68,18 @@ export class NavbarComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
-    // console.log('grabbing content by page id');
+    this.route.paramMap.subscribe((paramMap) => {
+      this.pageId = Number(paramMap.get('pageId'));
+      this.pageDescription = paramMap.get('pageDescription');
 
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-      this.pageDescription = params.pageDescription;
+      console.log(this.pageId);
 
-      //console.log(this.pageId);
-
-      //console.log(this.subPageId);
+      console.log(this.pageDescription);
     });
+
+    // this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
+    // console.log('pageid snap');
+    // console.log(this.pageId);
 
     this.customImageService
       .getWebContentByPageId(this.pageId)
@@ -121,9 +125,9 @@ export class NavbarComponent implements OnInit {
   }
 
   openPageSettings() {
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-      this.pageDescription = params.pageDescription;
+    this.route.paramMap.subscribe((paramMap) => {
+      this.pageId = Number(paramMap.get('pageId'));
+      this.pageDescription = paramMap.get('pageDescription');
 
       console.log(this.pageId);
 
@@ -229,9 +233,15 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
+    console.log('navigating to main pages');
+    console.log('customPage/' + pageDescription + '/' + pageId);
     // console.log('calling on click?');
     // console.log('customPage/' + pageDescription + '/' + pageId);
-    this.router.navigate(['customPage/' + pageDescription + '/' + pageId]);
+    this.router.navigate([pageDescription + '/' + pageId]);
+    // .then(() => {
+    //   window.location.reload();
+    // });
+
     //this.grabAllContentByPageId();
 
     // this.customPageService.selectPageId(pageId);
@@ -254,6 +264,9 @@ export class NavbarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
+    // .then(() => {
+    //   window.location.reload();
+    // });
 
     // navToSubPage(subPageId: number, subPageDescription: string) {
     //   this.router.navigate(

@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
   },
+  {
+    path: ':pageDescription/:pageId',
+    component: CustomPageComponent,
+  },
+
   { path: 'portal', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'edit-page', component: EditPageSettingsComponent },
@@ -66,7 +71,7 @@ const routes: Routes = [
 // ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
