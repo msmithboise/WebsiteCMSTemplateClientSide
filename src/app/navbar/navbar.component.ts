@@ -16,6 +16,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+import { NavBarService } from '../services/nav-bar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -51,7 +52,8 @@ export class NavbarComponent implements OnInit {
     public customImageService: CustomImageService,
     public userService: UserService,
     public authService: AuthenticationService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public navBarService: NavBarService
   ) {}
 
   customPageArray: CustomPage[];
@@ -59,12 +61,20 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.getLoginData();
     this.grabAllContentByPageId();
-
+    this.getNavBarData();
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+  }
+
+  getNavBarData() {
+    this.navBarService.getNavBarData().subscribe((res) => {
+      this.navBarService.navBarArray = res;
+      console.log('navBarData');
+      console.log(this.navBarService.navBarArray);
+    });
   }
 
   grabAllContentByPageId() {
