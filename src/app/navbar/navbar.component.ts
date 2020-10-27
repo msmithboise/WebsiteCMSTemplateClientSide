@@ -17,6 +17,7 @@ import { User } from '../models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { NavBarService } from '../services/nav-bar.service';
+import { Navbar } from '../models/navbar.model';
 
 @Component({
   selector: 'app-navbar',
@@ -68,6 +69,15 @@ export class NavbarComponent implements OnInit {
     this.changePhoto();
     this.getSubPageLinks();
   }
+
+  // createNavBarData()
+  // {
+  //   this.navBarService.postNavBarData().subscribe((res: Navbar[]) => {
+  //     this.navBarService.navBarArray = res;
+  //     console.log('navBarData');
+  //     console.log(this.navBarService.navBarArray);
+  //   });
+  // }
 
   getNavBarData() {
     this.navBarService.getNavBarData().subscribe((res) => {

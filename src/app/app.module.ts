@@ -37,6 +37,7 @@ import { EditPageSettingsComponent } from './edit-page-settings/edit-page-settin
 import { DashboardSidebarComponent } from './dashboard-sidebar/dashboard-sidebar.component';
 import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-page-settings.component';
 import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard.component';
+import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard
     DashboardSidebarComponent,
     EditSubPageSettingsComponent,
     SubpageDashboardComponent,
+    NavbarSettingsComponent,
   ],
   imports: [
     BrowserModule,

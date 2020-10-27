@@ -16,4 +16,8 @@ export class NavBarService {
   getNavBarData(): Observable<Navbar[]> {
     return this.http.get<Navbar[]>(this.webApi + '/NavBar');
   }
+  //post
+  postNavBarData(formData: Navbar) {
+    return this.http.post(this.webApi + '/NavBar', formData);
+  }
 }
