@@ -1,30 +1,34 @@
 <div class="body">
-  <nav class="navbar navbar-expand-lg" [ngStyle]="navBarStyling">
-    <a class="navbar-brand" href="#"></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+  <div *ngFor="let setting of navBarService.navBarArray">
+    <nav
+      class="navbar navbar-expand-lg"
+      [ngStyle]="{ backgroundColor: setting.NavBarBgColor }"
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- <div *ngFor="let item of customPageService.customPageArray">
+      <a class="navbar-brand" href="#"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div *ngFor="let item of customPageService.customPageArray">
       <h1>Page Description: {{ item.PageDescription }}</h1>
     </div> -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <!-- <a class="nav-link" routerLink="/home" href="#"
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <!-- <a class="nav-link" routerLink="/home" href="#"
             >Home <span class="sr-only">(current)</span></a
           > -->
-        </li>
-        <!-- <div (click)="onClick(page.pageId)"> -->
-        <div class="row">
-          <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          </li>
+          <!-- <div (click)="onClick(page.pageId)"> -->
+          <div class="row">
+            <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
               <input
                 (click)="setLogoLeft()"
@@ -57,73 +61,72 @@
             </label>
           </div> -->
 
-          <div *ngIf="!logoIsLeft && !logoIsRight">
-            <div
-              [style.background-image]="'url(' + photo + ')' | safe"
-              [ngStyle]="logoStyling"
-            ></div>
-          </div>
-
-          <!-- OMG IT WORKS!@!!!! -->
-          <div *ngIf="logoIsLeft">
-            <div
-              [style.background-image]="'url(' + photo + ')' | safe"
-              [ngStyle]="logoStyling"
-            ></div>
-          </div>
-          <!-- ---------------------------------- -->
-
-          <li
-            class="nav-item dropdown"
-            *ngFor="let page of customPageService.customPageArray"
-          >
-            <div (click)="onClick(page.PageId, page.PageDescription)">
-              <a
-                (mouseover)="
-                  getPageByIdOnHover(page.PageId, page.PageDescription)
-                "
-                class="dropbtn nav-link"
-                [ngStyle]="navFontStyling"
-                >{{ page.PageDescription }}</a
-              >
+            <div *ngIf="!logoIsLeft && !logoIsRight">
+              <div
+                [style.background-image]="'url(' + photo + ')' | safe"
+                [ngStyle]="logoStyling"
+              ></div>
             </div>
+
+            <!-- OMG IT WORKS!@!!!! -->
+            <div *ngIf="logoIsLeft">
+              <div
+                [style.background-image]="'url(' + photo + ')' | safe"
+                [ngStyle]="logoStyling"
+              ></div>
+            </div>
+            <!-- ---------------------------------- -->
+
+            <li
+              class="nav-item dropdown"
+              *ngFor="let page of customPageService.customPageArray"
+            >
+              <div (click)="onClick(page.PageId, page.PageDescription)">
+                <a
+                  (mouseover)="
+                    getPageByIdOnHover(page.PageId, page.PageDescription)
+                  "
+                  class="dropbtn nav-link"
+                  >{{ page.PageDescription }}</a
+                >
+              </div>
+              <div class="dropdown">
+                <div class="dropdown-content">
+                  <div *ngFor="let subPage of this.SubPageLocalStorage">
+                    <a
+                      (click)="
+                        navToSubPage(
+                          subPage.SubPageId,
+                          subPage.SubPageDescription
+                        )
+                      "
+                      >{{ subPage.SubPageDescription }}</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+
             <div class="dropdown">
+              <a class="dropbtn nav-link"></a>
               <div class="dropdown-content">
-                <div *ngFor="let subPage of this.SubPageLocalStorage">
-                  <a
-                    (click)="
-                      navToSubPage(
-                        subPage.SubPageId,
-                        subPage.SubPageDescription
-                      )
-                    "
-                    >{{ subPage.SubPageDescription }}</a
-                  >
+                <div *ngFor="let subPage of subPageService.subPageArray">
+                  <a href="#">{{ subPage.SubPageDescription }}</a>
                 </div>
               </div>
             </div>
-          </li>
 
-          <div class="dropdown">
-            <a class="dropbtn nav-link"></a>
-            <div class="dropdown-content">
-              <div *ngFor="let subPage of subPageService.subPageArray">
-                <a href="#">{{ subPage.SubPageDescription }}</a>
-              </div>
+            <div *ngIf="logoIsRight">
+              <div
+                [style.background-image]="'url(' + photo + ')' | safe"
+                [ngStyle]="logoStyling"
+              ></div>
             </div>
           </div>
 
-          <div *ngIf="logoIsRight">
-            <div
-              [style.background-image]="'url(' + photo + ')' | safe"
-              [ngStyle]="logoStyling"
-            ></div>
-          </div>
-        </div>
+          <!-- </div> -->
 
-        <!-- </div> -->
-
-        <!-- <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -140,51 +143,52 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li> -->
-      </ul>
-    </div>
-
-    <div *ngFor="let user of this.currentUserArray">
-      <div *ngIf="!user.IsLoggedIn">
-        <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
+        </ul>
       </div>
 
-      <div *ngIf="user.IsLoggedIn" style="text-align: center">
-        Hello {{ user.UserName }}!
-        <div>
-          <div>
-            <button
-              class="btn btn-light btn-sm mb-3"
-              (click)="openPageSettings()"
-            >
-              Dashboard
-            </button>
-          </div>
+      <div *ngFor="let user of this.currentUserArray">
+        <div *ngIf="!user.IsLoggedIn">
+          <a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
         </div>
-        <!-- <button class="btn btn-info" (click)="resizeToggled()">
+
+        <div *ngIf="user.IsLoggedIn" style="text-align: center">
+          Hello {{ user.UserName }}!
+          <div>
+            <div>
+              <button
+                class="btn btn-light btn-sm mb-3"
+                (click)="openPageSettings()"
+              >
+                Dashboard
+              </button>
+            </div>
+          </div>
+          <!-- <button class="btn btn-info" (click)="resizeToggled()">
           Resize Images
         </button> -->
+        </div>
       </div>
-    </div>
 
-    <!-- <img
+      <!-- <img
   id="scrollFade"
   [addAttributeOn]
   src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
   alt=""
 /> -->
 
-    <div *ngFor="let user of this.currentUserArray">
-      <div *ngIf="user.IsLoggedIn">
-        <!-- logout button -->
-        <div *ngFor="let data of this.userService.loggedInUserArray">
-          <a
-            routerLink="/portal"
-            class="btn btn-light btn-sm mb-3"
-            (click)="Logout(data)"
-            >Logout</a
-          >
+      <div *ngFor="let user of this.currentUserArray">
+        <div *ngIf="user.IsLoggedIn">
+          <!-- logout button -->
+          <div *ngFor="let data of this.userService.loggedInUserArray">
+            <a
+              routerLink="/portal"
+              class="btn btn-light btn-sm mb-3"
+              (click)="Logout(data)"
+              >Logout</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </div>
