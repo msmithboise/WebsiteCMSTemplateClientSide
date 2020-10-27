@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Navbar } from '../models/navbar.model';
 import { NavBarService } from '../services/nav-bar.service';
 
 @Component({
@@ -11,11 +13,32 @@ import { NavBarService } from '../services/nav-bar.service';
 export class NavbarSettingsComponent implements OnInit {
   constructor(
     public navBarService: NavBarService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.grabNavBarData();
+  }
+
+  // insertEditSettings(form: NgForm) {
+
+  //   this.webContentService.postEditContentById(form.value).subscribe((res) => {
+  //     //this.resetForm(form);
+  //     this.toastr.success('Edited content succesfully!');
+  //     this.grabAllContentByPageId();
+  //
+  //   });
+  // }
+
+  createNavBarData(form: NgForm) {
+    this.navBarService.postNavBarData(form.value).subscribe((res: Navbar[]) => {
+      this.navBarService.navBarArray = res;
+      console.log('navbar array');
+      console.log(this.navBarService.navBarArray);
+      this.toastr.success('Edited Navbar succesfully!');
+      this.grabNavBarData();
+    });
   }
 
   grabNavBarData() {
