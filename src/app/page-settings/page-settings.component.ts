@@ -16,6 +16,9 @@ import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
 import { CustomPageService } from '../services/custom-page.service';
 import { CustomPage } from '../models/custom-page.model';
+import { SubpageService } from '../services/subpage.service';
+import { Subpage } from '../models/subpage.model';
+import { SubpageDashboardComponent } from '../subpage-dashboard/subpage-dashboard.component';
 
 @Component({
   selector: 'app-page-settings',
@@ -46,12 +49,39 @@ export class PageSettingsComponent implements OnInit {
     private storage: AngularFireStorage,
     public toastr: ToastrService,
     public router: Router,
-    public customPageService: CustomPageService
+    public customPageService: CustomPageService,
+    public subPageService: SubpageService
   ) {}
 
   ngOnInit(): void {
     this.grabAllContentByPageId();
     this.callCustomPageService();
+    this.callCustomSubPageService();
+  }
+
+  dashboardSubNav(
+    pageDescription: string,
+    pageId: number,
+    subPageDescription: string,
+    subPageId: number
+  ) {
+    this.router.navigate([
+      'dashboard/' +
+        pageDescription +
+        '/' +
+        pageId +
+        '/' +
+        subPageDescription +
+        '/' +
+        subPageId,
+    ]);
+  }
+
+  dashboardMainNav(pageDescription: string, pageId: number) {
+    console.log('main page nav');
+    console.log(pageDescription, pageId);
+
+    this.router.navigate(['dashboard/' + pageDescription + '/' + pageId]);
   }
 
   mainPageNav(pageDescription: string, pageId: number) {
@@ -59,6 +89,34 @@ export class PageSettingsComponent implements OnInit {
     console.log(pageDescription, pageId);
 
     this.router.navigate([pageDescription + '/' + pageId]);
+  }
+
+  subPageNav(
+    pageDescription: string,
+    pageId: number,
+    subPageDescription: string,
+    subPageId: number
+  ) {
+    console.log('sub id');
+    console.log(subPageId);
+
+    this.router.navigate([
+      pageDescription +
+        '/' +
+        pageId +
+        '/' +
+        subPageDescription +
+        '/' +
+        subPageId,
+    ]);
+  }
+
+  callCustomSubPageService() {
+    this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      this.subPageService.subPageArray = res;
+      console.log('subpages');
+      console.log(res);
+    });
   }
 
   callCustomPageService() {

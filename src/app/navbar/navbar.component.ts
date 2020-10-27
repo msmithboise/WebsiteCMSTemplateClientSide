@@ -137,7 +137,7 @@ export class NavbarComponent implements OnInit {
     console.log('opened page settings.');
 
     this.router.navigate([
-      '/settings/' + this.pageDescription + '/' + this.pageId,
+      '/dashboard/' + this.pageDescription + '/' + this.pageId,
     ]);
     console.log('/settings/' + this.pageDescription + '/' + this.pageId);
   }

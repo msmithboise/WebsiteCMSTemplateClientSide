@@ -44,12 +44,25 @@ const routes: Routes = [
     component: PageSettingsComponent,
   },
   {
+    path: 'dashboard/:pageDescription/:pageId',
+    component: PageSettingsComponent,
+  },
+  {
     path:
       'settings/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageDashboardComponent,
   },
   {
+    path: 'dashboard/:pageDescription/:pageId/:subPageDescription/:subPageId',
+    component: SubpageDashboardComponent,
+  },
+  {
     path: 'subPage/:subPageDescription/:subPageId',
+    component: SubpageComponent,
+  },
+
+  {
+    path: ':pageDescription/:pageId/:subPageDescription/:subPageId',
     component: SubpageComponent,
   },
 
