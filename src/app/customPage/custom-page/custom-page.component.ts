@@ -81,8 +81,10 @@ export class CustomPageComponent implements OnInit {
   }
 
   createMapLink() {
-    var link =
-      'https://www.google.com/maps/embed/v1/search?key=AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4&q=riveroflife+pocatello+idaho';
+    var base = 'https://www.google.com/maps/embed/v1/search?key=';
+    var apiKey = 'AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4';
+    var query = 'riveroflife+pocatello+idaho';
+    var link = base + apiKey + '&q=' + query;
 
     var cleanedLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
 
