@@ -39,6 +39,7 @@ import { EditSubPageSettingsComponent } from './edit-sub-page-settings/edit-sub-
 import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard.component';
 import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 import { DashboardBaseComponent } from './dashboard-base/dashboard-base.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { DashboardBaseComponent } from './dashboard-base/dashboard-base.componen
     SubpageDashboardComponent,
     NavbarSettingsComponent,
     DashboardBaseComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,

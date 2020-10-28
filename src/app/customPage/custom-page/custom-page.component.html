@@ -484,9 +484,7 @@
           Resize Images
         </button>
         <nav class="navbar fixed-bottom navbar-light bg-dark">
-          <a class="navbar-brand" style="text-align: center" href="#"
-            >Fixed bottom</a
-          >
+          <a class="navbar-brand" style="text-align: center" href="#"></a>
         </nav>
       </ng-template>
 
@@ -497,10 +495,13 @@
 </body>
 
 <!-- Testing grid system
-<div class="grid-container">
+<div class="container-row">
   <div *ngFor="let item of testGrid">
-    <div class="grid-item">
-      {{ item }}
+    <div class="row">
+      <div [ngClass]="gridSystem()">
+        {{ item }}
+
+      </div>
     </div>
   </div>
 </div> -->

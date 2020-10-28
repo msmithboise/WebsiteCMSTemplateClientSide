@@ -1,0 +1,84 @@
+<h1>Col 4 Col 4 Col 4</h1>
+<div class="container-fluid" style="border: black; border-style: solid">
+  <div class="row" style="border: blue; border-style: solid">
+    <div style="border: orange; border-style: solid" class="col - 4">
+      <img
+        src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
+        alt=""
+      />
+    </div>
+    <div
+      class="col-4"
+      style="border: orange; border-style: solid"
+      class="col - 4"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1584553421349-3557471bed79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1329&q=80"
+        alt=""
+      />
+    </div>
+    <div
+      class="col-4"
+      style="border: orange; border-style: solid"
+      class="col - 4"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1548412342-98d0d2a49205?ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+
+<h1>Col3 Col6 Col3</h1>
+
+<div class="container-fluid" style="border: black; border-style: solid">
+  <div class="row" style="border: blue; border-style: solid">
+    <div style="border: orange; border-style: solid" class="col - 3">
+      <img
+        src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
+        alt=""
+      />
+    </div>
+    <div class="col-6" style="border: orange; border-style: solid">
+      <img
+        src="https://images.unsplash.com/photo-1584553421349-3557471bed79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1329&q=80"
+        alt=""
+      />
+    </div>
+    <div class="col-3" style="border: orange; border-style: solid">
+      <img
+        src="https://images.unsplash.com/photo-1548412342-98d0d2a49205?ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+
+<h1>Testing grid here</h1>
+
+<div class="container-fluid" style="border: black; border-style: solid">
+  <div class="row" style="border: blue; border-style: solid">
+    <div style="border: orange; border-style: solid" [ngClass]="gridSystem1()">
+      <img [src]="hamsterOne" alt="" />
+    </div>
+    <div [ngClass]="gridSystem2()" style="border: orange; border-style: solid">
+      <img [src]="hamsterTwo" alt="" />
+    </div>
+    <div [ngClass]="gridSystem3()" style="border: orange; border-style: solid">
+      <img [src]="hamsterThree" alt="" />
+    </div>
+  </div>
+</div>
+
+<h1>Testing ngFor loop</h1>
+
+<div class="grid-container" style="border: black; border-style: solid">
+  <div class="row" style="border: blue; border-style: solid">
+    <div style="border: orange; border-style: solid" [ngClass]="hamsterGrid()">
+      <div *ngFor="let hamster of this.hamsterArray">
+        <img [src]="hamster" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
