@@ -386,7 +386,7 @@ export class PageSettingsComponent implements OnInit {
     newMapForm.pageId = this.webContentService.pageIdSnapshot;
 
     console.log('newMapForm before going to service');
-    console.log(newMapForm.MapUrl);
+    console.log(newMapForm);
 
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {

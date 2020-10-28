@@ -885,6 +885,18 @@
                       />
                       <div class="input-group-append"></div>
                     </div>
+                    <!-- Google Maps -->
+                    <div *ngIf="text.MapUrl">
+                      <label>Google Map</label>
+                      <div class="input-group"></div>
+                      <input
+                        name="MapUrl"
+                        #MapUrl="ngModel"
+                        [(ngModel)]="text.MapUrl"
+                        class="formStyle"
+                      />
+                      <div class="input-group-append"></div>
+                    </div>
                   </form>
                 </div>
               </div>

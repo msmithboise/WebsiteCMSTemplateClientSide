@@ -108,11 +108,11 @@ export class WebcontentService {
   }
 
   //Post Google Map
-  postGoogleMap(mapUrl: string) {
-    console.log('mapUrl in post method');
-    console.log(mapUrl);
+  postGoogleMap(form: FormGroup) {
+    console.log('form in post method');
+    console.log(form);
     const fd: FormData = new FormData();
-    fd.append('MapUrl', mapUrl);
+    //fd.append('MapUrl', mapUrl);
 
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
@@ -123,7 +123,7 @@ export class WebcontentService {
     fd.append('pageId', this.pageIdSnapshot.toString());
     //fd.append('subPageId', this.subPageId);
 
-    return this.http.post(this.webApi + '/WebContent', fd);
+    return this.http.post(this.webApi + '/WebContent', form);
   }
 
   //Delete
