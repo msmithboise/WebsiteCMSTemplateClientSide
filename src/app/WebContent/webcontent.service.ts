@@ -107,6 +107,25 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/UploadAudio', fd);
   }
 
+  //Post Google Map
+  postGoogleMap(mapUrl: string) {
+    console.log('mapUrl in post method');
+    console.log(mapUrl);
+    const fd: FormData = new FormData();
+    fd.append('MapUrl', mapUrl);
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageIdSnapshot.toString());
+    //fd.append('subPageId', this.subPageId);
+
+    return this.http.post(this.webApi + '/WebContent', fd);
+  }
+
   //Delete
   deleteWebPageContent(id: number) {
     return this.http.delete(this.webApi + '/WebContent/' + id);

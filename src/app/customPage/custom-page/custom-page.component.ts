@@ -83,17 +83,9 @@ export class CustomPageComponent implements OnInit {
   createMapLink(mapSearch: string) {
     var base = 'https://www.google.com/maps/embed/v1/search?key=';
     var apiKey = 'AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4';
-    var query = 'riveroflife+pocatello+idaho';
-    console.log('map search');
-    console.log(mapSearch);
+    var testQuery = 'riveroflife+pocatello+idaho';
     var userQuery = mapSearch;
-    console.log('userQuery');
-    console.log(userQuery);
-
     var link = base + apiKey + '&q=' + userQuery;
-
-    console.log('dont make google mad...');
-
     var cleanedLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
 
     return cleanedLink;
