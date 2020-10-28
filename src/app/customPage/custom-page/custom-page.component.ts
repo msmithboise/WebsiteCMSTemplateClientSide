@@ -80,6 +80,15 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
+  createMapLink() {
+    var link =
+      'https://www.google.com/maps/embed/v1/search?key=AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4&q=riveroflife+pocatello+idaho';
+
+    var cleanedLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
+
+    return cleanedLink;
+  }
+
   createLink(hyperLink: string) {
     return hyperLink;
   }
