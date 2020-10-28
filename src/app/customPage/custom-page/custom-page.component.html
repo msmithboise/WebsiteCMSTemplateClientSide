@@ -279,23 +279,25 @@
             >
             </iframe>
           </div>
+          <!-- Google Maps -->
+          <div *ngIf="content.MapUrl != null">
+            <div class="row">
+              <iframe
+                width="900"
+                height="500"
+                frameborder="0"
+                style="border: 0"
+                [src]="createMapLink(content.MapUrl)"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
         </div>
       </ng-template>
 
       <html>
-        <body>
-          <div class="row">
-            <iframe
-              width="900"
-              height="500"
-              frameborder="0"
-              style="border: 0"
-              [src]="createMapLink()"
-              allowfullscreen
-            >
-            </iframe>
-          </div>
-        </body>
+        <body></body>
       </html>
 
       <!-- Gallery images -->
