@@ -63,10 +63,13 @@ export class EditPageSettingsComponent implements OnInit {
       console.log('array count');
       console.log(this.subPageService.subPageArray.length);
     });
-    if (this.subPageService.subPageArray.length > 0) {
-      return true;
-    } else {
-      return false;
+
+    if (this.subPageService.subPageArray != null) {
+      if (this.subPageService.subPageArray.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
