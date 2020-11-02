@@ -82,6 +82,7 @@ export class EditSubPageSettingsComponent implements OnInit {
       this.getSubPages();
       this.toastr.success('Page created!');
       console.log(this.subPageService.subPageArray);
+      this.getSubPagesByPageId();
     });
   }
 
@@ -101,6 +102,7 @@ export class EditSubPageSettingsComponent implements OnInit {
       //this.resetForm();
     });
     this.toastr.error('Page deleted!');
+    this.getSubPagesByPageId();
   }
 
   getSubPages() {
