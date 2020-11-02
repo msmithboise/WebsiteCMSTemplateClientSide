@@ -54,12 +54,38 @@ export class EditPageSettingsComponent implements OnInit {
     }
   }
 
+  doesParentContainSubPages(pageId: number) {
+    this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      this.subPageService.subPageArray = res;
+
+      console.log('array to delete');
+      console.log(this.subPageService.subPageArray);
+      console.log('array count');
+      console.log(this.subPageService.subPageArray.length);
+    });
+    if (this.subPageService.subPageArray.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   deletePage(pageId: number) {
+    var containsSubpages = this.doesParentContainSubPages(pageId);
+    console.log('contains subpages');
+    console.log(containsSubpages);
+
+    if (containsSubpages == true) {
+      this.toastr.error(
+        'Cannot delete Main page before subpages are deleted.  Please delete all linked subpages and try again.'
+      );
+      return;
+    }
     this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
       this.grabAllPages();
       //this.resetForm();
     });
-    this.toastr.error('Page deleted!');
+    this.toastr.warning('Page deleted!');
   }
 
   getSubPages(pageId: number, pageDescription: string) {
