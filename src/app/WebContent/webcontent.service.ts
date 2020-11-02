@@ -181,7 +181,9 @@ export class WebcontentService {
       this.subPageId = params.subPageId;
     });
 
-    fd.append('pageId', this.pageIdSnapshot.toString());
+    fd.append('pageId', this.pageId.toString());
+    fd.append('subPageId', this.subPageId.toString());
+
     //fd.append('subPageId', this.subPageId);
 
     return this.http.post(this.webApi + '/WebContent', form);

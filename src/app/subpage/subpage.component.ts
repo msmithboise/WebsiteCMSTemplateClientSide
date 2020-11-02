@@ -38,6 +38,17 @@ export class SubpageComponent implements OnInit {
     //this.grabPageIdInfo();
   }
 
+  createMapLink(mapSearch: string) {
+    var base = 'https://www.google.com/maps/embed/v1/search?key=';
+    var apiKey = 'AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4';
+    var testQuery = 'riveroflife+pocatello+idaho';
+    var userQuery = mapSearch;
+    var link = base + apiKey + '&q=' + userQuery;
+    var cleanedLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
+
+    return cleanedLink;
+  }
+
   getSubPageContentByIds(pageId: number, subPageId: number) {
     pageId = this.pageId;
     subPageId = this.subPageId;
