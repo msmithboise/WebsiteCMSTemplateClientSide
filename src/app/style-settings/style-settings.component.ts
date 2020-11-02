@@ -15,6 +15,8 @@ export class StyleSettingsComponent implements OnInit {
   public textId = +this.route.snapshot.paramMap.get('textId');
   public pageDescription: string;
   public pageId: number;
+  public subPageDescription: string;
+  public subPageId: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -55,15 +57,31 @@ export class StyleSettingsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
+      this.subPageDescription = params.subPageDescription;
+      this.subPageId = params.subPageId;
     });
 
     this.webContentService.postEditContentById(form.value).subscribe((res) => {
       //this.resetForm(form);
       this.toastr.success('Edited content succesfully!');
       this.grabAllContentByPageId();
-      this.router.navigate([
-        '/settings/' + this.pageDescription + '/' + this.pageId,
-      ]);
+
+      if (this.subPageId == null) {
+        this.router.navigate([
+          '/dashboard/' + this.pageDescription + '/' + this.pageId,
+        ]);
+      } else {
+        this.router.navigate([
+          '/dashboard/' +
+            this.pageDescription +
+            '/' +
+            this.pageId +
+            '/' +
+            this.subPageDescription +
+            '/' +
+            this.subPageId,
+        ]);
+      }
     });
   }
 
