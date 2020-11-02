@@ -22,7 +22,21 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {}
 
   hamsterGrid() {
-    return 'col-3';
+    //number of items per row.. ex: 3
+    var gridValue = '3';
+    //User wants 3 elements in one row
+
+    //
+
+    for (let index = 0; index < this.hamsterArray.length; index++) {
+      const hamster = this.hamsterArray[index];
+
+      //At the first iteration.. what do we want to do?
+      //Id like to create div, per element..
+    }
+    //12 returns each item in one huge column
+    //return 'col-12';
+    return 'col-4';
   }
 
   gridSystem1() {

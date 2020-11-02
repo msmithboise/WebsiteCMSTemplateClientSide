@@ -39,6 +39,8 @@ export class NavbarComponent implements OnInit {
   public untouchedStorage: Subpage[];
   public pageId: number;
   public pageDescription: string;
+  public subPageId: number;
+  public subPageDescription: string;
   public resizeButtonToggled: boolean = false;
   public isLoggedIn: boolean = false;
   public currentUserArray: User[];
@@ -148,17 +150,36 @@ export class NavbarComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap) => {
       this.pageId = Number(paramMap.get('pageId'));
       this.pageDescription = paramMap.get('pageDescription');
+      this.subPageId = Number(paramMap.get('subPageId'));
+      this.subPageDescription = paramMap.get('subPageDescription');
 
       console.log(this.pageId);
 
       console.log(this.pageDescription);
+
+      console.log(this.subPageId);
+      console.log(this.subPageDescription);
     });
 
     console.log('opened page settings.');
 
-    this.router.navigate([
-      '/dashboard/' + this.pageDescription + '/' + this.pageId,
-    ]);
+    if (this.subPageDescription != null) {
+      this.router.navigate([
+        '/dashboard/' +
+          this.pageDescription +
+          '/' +
+          this.pageId +
+          '/' +
+          this.subPageDescription +
+          '/' +
+          this.subPageId,
+      ]);
+    } else {
+      this.router.navigate([
+        '/dashboard/' + this.pageDescription + '/' + this.pageId,
+      ]);
+    }
+
     console.log('/settings/' + this.pageDescription + '/' + this.pageId);
   }
 

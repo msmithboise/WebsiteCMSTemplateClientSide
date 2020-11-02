@@ -56,6 +56,12 @@ const routes: Routes = [
     path: 'dashboard/:pageDescription/:pageId',
     component: PageSettingsComponent,
   },
+
+  {
+    path:
+      'dashboard/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
+    component: PageSettingsComponent,
+  },
   {
     path:
       'settings/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',

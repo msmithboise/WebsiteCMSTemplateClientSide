@@ -4,6 +4,6 @@ img {
 }
 
 .grid-container {
-  display: grid;
-  align-content: center;
+  display: flex;
+  align-content: space-between;
 }

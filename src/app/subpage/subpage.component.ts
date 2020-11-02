@@ -76,11 +76,11 @@ export class SubpageComponent implements OnInit {
     //if subpage id or page id does not match what is in route, initializeRouteParams()
   }
 
-  openDashboard() {
+  openSubPageDashboard() {
     //  console.log('opened page settings.');
 
     this.router.navigate([
-      'settings/' +
+      'dashboard/' +
         this.pageDescription +
         '/' +
         this.pageId +
@@ -94,7 +94,7 @@ export class SubpageComponent implements OnInit {
     // this is what im getting                       /settings/Home/1/subPage/Campus/1
 
     console.log(
-      'settings/' +
+      'dashboard/' +
         this.pageDescription +
         '/' +
         this.pageId +

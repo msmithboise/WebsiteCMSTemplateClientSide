@@ -73,12 +73,14 @@
 
 <h1>Testing ngFor loop</h1>
 
-<div class="grid-container" style="border: black; border-style: solid">
+<div class="container-fluid" style="border: black; border-style: solid">
   <div class="row" style="border: blue; border-style: solid">
-    <div style="border: orange; border-style: solid" [ngClass]="hamsterGrid()">
-      <div *ngFor="let hamster of this.hamsterArray">
+    <div style="border: orange; border-style: solid">
+      <div [ngClass]="hamsterGrid()" *ngFor="let hamster of this.hamsterArray">
         <img [src]="hamster" alt="" />
       </div>
     </div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
   </div>
 </div>
