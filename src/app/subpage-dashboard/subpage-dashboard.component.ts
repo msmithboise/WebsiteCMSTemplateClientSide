@@ -37,6 +37,10 @@ export class SubpageDashboardComponent implements OnInit {
   public pageDescription: string;
   public subPageDescription: string;
 
+  selectedAudio: any = null;
+
+  isAudioSubmitted: boolean;
+
   constructor(
     public webContentService: WebcontentService,
     public customImageService: CustomImageService,
@@ -297,6 +301,112 @@ export class SubpageDashboardComponent implements OnInit {
         this.getSubPageContentByIds(this.pageId, this.subPageId);
         this.toastr.success('Video uploaded succesfully!');
       });
+  }
+  //To upload audio
+
+  audioUploadFormTemplate = new FormGroup({
+    AudioUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    subPageId: new FormControl(''),
+  });
+  get audioFormControls() {
+    console.log('audio form controls');
+    console.log(this.audioUploadFormTemplate['controls']);
+    return this.audioUploadFormTemplate['controls'];
+  }
+
+  resetAudioForm() {
+    this.audioUploadFormTemplate.reset();
+    this.audioUploadFormTemplate.setValue({
+      audioUrl: '',
+      pageId: 0,
+      subPageId: 0,
+    });
+
+    this.selectedAudio = null;
+    this.isAudioSubmitted = false;
+  }
+
+  onAudioSubmit(formValue) {
+    console.log('audio submitted...');
+    this.isAudioSubmitted = true;
+    console.log('audio form on submit');
+    console.log(formValue);
+    console.log('this selectedAudio');
+    console.log(this.selectedAudio.name);
+    if (this.audioUploadFormTemplate.valid) {
+      var audioFilePath = `audio/${this.selectedAudio.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_${new Date().getTime()}`;
+
+      console.log('audio file path');
+      console.log(audioFilePath);
+      const audiofileRef = this.storage.ref(audioFilePath);
+      this.storage
+        .upload(audioFilePath, this.selectedAudio)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            audiofileRef.getDownloadURL().subscribe((url) => {
+              this.webContentService
+                .postUploadedSubPageAudio(url)
+                .subscribe((data) => {});
+              formValue['audioUrl'] = url;
+              this.resetAudioForm();
+            });
+          })
+        )
+        .subscribe((res) => {
+          this.grabAllContentByPageId();
+        });
+      this.toastr.success('Audio uploaded successfully!');
+    }
+
+    // this.toastr.error('Audio failed to upload!');
+  }
+
+  //To embed image url
+
+  submitAudioData(form: FormGroup) {
+    console.log('Audio form after submit');
+    console.log(form);
+    this.insertAudioRecord(form);
+  }
+
+  insertAudioRecord(form: FormGroup) {
+    console.log('Embed form during insert record');
+    console.log(form);
+
+    var newAudioForm = this.audioFormTemplate.value;
+    newAudioForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService
+      .postWebContentByPageId(newAudioForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        this.grabAllContentByPageId();
+      });
+  }
+  audioFormTemplate = new FormGroup({
+    audioUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    subPageId: new FormControl(''),
+
+    backgroundColor: new FormControl(''),
+  });
+  showAudioPreview(event: any) {
+    console.log('show audio preview');
+
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedAudio = event.target.files[0];
+    } else {
+      this.imgSrc = '/assets/placeholder.jpg';
+      this.selectedAudio = null;
+    }
   }
 }
 

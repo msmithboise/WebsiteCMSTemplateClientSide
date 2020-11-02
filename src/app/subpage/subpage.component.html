@@ -91,6 +91,20 @@
       let-content
       [ngForOf]="this.subPageService.subPageContentArray"
     >
+      <!-- Audio -->
+      <div
+        *ngIf="content.AudioUrl != null"
+        [style.background-color]="content.backgroundColor"
+      >
+        <audio
+          id="player"
+          [src]="setAudioUrl(content.AudioUrl)"
+          controls
+          type="audio/mp3"
+        >
+          Walking through sand
+        </audio>
+      </div>
       <div
         id="image-resize"
         class="heroImage responsive"

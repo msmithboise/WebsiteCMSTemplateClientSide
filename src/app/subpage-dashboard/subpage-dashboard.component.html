@@ -304,6 +304,160 @@
                     </div>
                   </div>
 
+                  <!-- Audio Modal Button -->
+
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary embed-button"
+                    data-toggle="modal"
+                    data-target="#audioModal"
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-soundwave"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5zm-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5zm12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                    Add Audio
+                  </button>
+
+                  <!-- Audio Modal -->
+                  <div
+                    class="modal fade"
+                    id="audioModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="audioModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="audioModalLabel">
+                            Audio
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Audio html
+
+                          <!-- upload audio modal form -->
+
+                          <div class="card" style="width: 25rem">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="audioUploadFormTemplate"
+                                (submit)="onAudioSubmit(formTemplate.value)"
+                              >
+                                <div class="text-center"></div>
+                                <div class="form-group">
+                                  <label class="label"
+                                    >Select audio to upload.</label
+                                  >
+                                  <input
+                                    type="file"
+                                    accept="audio/*"
+                                    class="form-control-file"
+                                    #audioUploader
+                                    formControlName="AudioUrl"
+                                    (change)="showAudioPreview($event)"
+                                  />
+                                  <div
+                                    class="text-danger"
+                                    *ngIf="isAudioSubmitted"
+                                  >
+                                    This field is required.
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <input
+                                    class="form-control"
+                                    type="hidden"
+                                    formControlName="pageId"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <input
+                                    class="form-control"
+                                    type="hidden"
+                                    formControlName="subPageId"
+                                  />
+                                </div>
+                                <div class="form-group">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-success float-right"
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                          <!-- Audio input form -->
+                          <div class="card">
+                            <div class="card-body">
+                              <form
+                                [formGroup]="audioFormTemplate"
+                                class="form-inline"
+                                (submit)="
+                                  submitAudioData(audioFormTemplate.value)
+                                "
+                              >
+                                <div class="form-group">
+                                  <input
+                                    name="audioUrl"
+                                    class="form-control-lg form-group"
+                                    placeholder="Add Audio Here"
+                                    type="text"
+                                    formControlName="audioUrl"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="PageId"
+                                    formControlName="pageId"
+                                  />
+
+                                  <input
+                                    type="hidden"
+                                    name="backgroundColor"
+                                    formControlName="backgroundColor"
+                                  />
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- embed Button trigger modal -->
                   <button
                     type="button"
@@ -483,6 +637,18 @@
                         class="formStyle"
                       />
                       <div class="input-group-append"></div>
+                    </div>
+
+                    <!-- Audio -->
+
+                    <div *ngIf="text.AudioUrl">
+                      <label>Audio Url</label>
+                      <input
+                        name="AudioUrl"
+                        #AudioUrl="ngModel"
+                        [(ngModel)]="text.AudioUrl"
+                        class="formStyle"
+                      />
                     </div>
 
                     <!-- Youtube Embed -->

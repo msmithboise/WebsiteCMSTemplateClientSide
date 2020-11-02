@@ -128,6 +128,25 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/UploadAudio', fd);
   }
 
+  //Post audio upload for subpages
+  postUploadedSubPageAudio(audioUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('audioUrl', audioUrl);
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageIdSnapshot.toString());
+    fd.append('subPageId', this.subPageId);
+
+    //fd.append('subPageId', this.subPageId);
+
+    return this.http.post(this.webApi + '/SubPageAudioUpload', fd);
+  }
+
   //Post Google Map
   postGoogleMap(form: FormGroup) {
     console.log('form in post method');

@@ -196,4 +196,22 @@ export class SubpageComponent implements OnInit {
         // console.log(this.imagesByPageIdArray);
       });
   }
+  setAudioUrl(audioUrl: string) {
+    var audio = new Audio();
+    audio.src = audioUrl;
+
+    // will need to santitize this
+    //.trustAsResourceUrl(path + audioFile);
+
+    if (audioUrl) {
+      var cleanAudio = this.sanitizer.bypassSecurityTrustResourceUrl(audioUrl);
+      return cleanAudio;
+    }
+
+    // var audio = document.getElementById('player');
+    // console.log('audio');
+    // console.log(audio);
+    // console.log('passed in audio url');
+    // console.log(audioUrl);
+  }
 }
