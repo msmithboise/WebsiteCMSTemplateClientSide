@@ -140,7 +140,28 @@ export class SubpageDashboardComponent implements OnInit {
   });
 
   selectItemToEdit(textId: number) {
-    this.router.navigate(['/style-settings/' + textId]);
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+      this.subPageId = params.subPageId;
+      this.subPageDescription = params.subPageDescription;
+
+      //console.log(this.pageId);
+
+      //console.log(this.subPageId);
+    });
+    this.router.navigate([
+      '/style-settings/' +
+        this.pageDescription +
+        '/' +
+        this.pageId +
+        '/' +
+        this.subPageDescription +
+        '/' +
+        this.subPageId +
+        '/' +
+        textId,
+    ]);
     // console.log('item to edit');
     // console.log(textId);
     this.webContentService
