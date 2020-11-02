@@ -147,6 +147,27 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/SubPageAudioUpload', fd);
   }
 
+  //Post audio upload for subpages
+  postSubPageAudio(audioUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('audioUrl', audioUrl);
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageId.toString());
+    fd.append('subPageId', this.subPageId);
+
+    console.log('appended page id');
+    console.log(this.pageId);
+    console.log('appended subpage id');
+    console.log(this.subPageId);
+    return this.http.post(this.webApi + '/WebContent', fd);
+  }
+
   //Post Google Map
   postGoogleMap(form: FormGroup) {
     console.log('form in post method');

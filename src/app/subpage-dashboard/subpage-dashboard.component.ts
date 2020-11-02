@@ -379,7 +379,12 @@ export class SubpageDashboardComponent implements OnInit {
     console.log(form);
 
     var newAudioForm = this.audioFormTemplate.value;
-    newAudioForm.pageId = this.webContentService.pageIdSnapshot;
+    newAudioForm.pageId = this.pageId;
+    console.log('audioform pageid');
+    console.log(this.pageId);
+    newAudioForm.subPageId = this.subPageId;
+    console.log('audioform subpageid');
+    console.log(this.subPageId);
 
     this.webContentService
       .postWebContentByPageId(newAudioForm)

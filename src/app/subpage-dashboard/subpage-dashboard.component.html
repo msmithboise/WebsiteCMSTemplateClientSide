@@ -414,9 +414,6 @@
                               <form
                                 [formGroup]="audioFormTemplate"
                                 class="form-inline"
-                                (submit)="
-                                  submitAudioData(audioFormTemplate.value)
-                                "
                               >
                                 <div class="form-group">
                                   <input
@@ -430,6 +427,11 @@
                                     type="hidden"
                                     name="PageId"
                                     formControlName="pageId"
+                                  />
+                                  <input
+                                    type="hidden"
+                                    name="SubPageId"
+                                    formControlName="subPageId"
                                   />
 
                                   <input
@@ -450,7 +452,11 @@
                           >
                             Close
                           </button>
-                          <button type="button" class="btn btn-primary">
+                          <button
+                            (click)="submitAudioData(audioFormTemplate.value)"
+                            type="button"
+                            class="btn btn-primary"
+                          >
                             Save changes
                           </button>
                         </div>
