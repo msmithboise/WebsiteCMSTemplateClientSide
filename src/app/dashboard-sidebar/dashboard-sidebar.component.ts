@@ -27,15 +27,15 @@ export class DashboardSidebarComponent implements OnInit {
   }
 
   openNavBarSettings() {
-    console.log('navbar settings page');
+    // console.log('navbar settings page');
     this.router.navigate(['/navbar-settings/']);
   }
 
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-      console.log('subpages');
-      console.log(res);
+      // console.log('subpages');
+      // console.log(res);
     });
   }
 
@@ -54,7 +54,7 @@ export class DashboardSidebarComponent implements OnInit {
     subPageId: number
   ) {
     this.router.navigate([
-      'dashboard/' +
+      '/dashboard/' +
         pageDescription +
         '/' +
         pageId +
@@ -63,6 +63,17 @@ export class DashboardSidebarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
+    console.log('subpage dashboard');
+    console.log(
+      'dashboard/' +
+        pageDescription +
+        '/' +
+        pageId +
+        '/' +
+        subPageDescription +
+        '/' +
+        subPageId
+    );
   }
 
   subPageNav(
@@ -71,8 +82,8 @@ export class DashboardSidebarComponent implements OnInit {
     subPageDescription: string,
     subPageId: number
   ) {
-    console.log('sub id');
-    console.log(subPageId);
+    // console.log('sub id');
+    // console.log(subPageId);
 
     this.router.navigate([
       pageDescription +
@@ -83,17 +94,18 @@ export class DashboardSidebarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
+    console.log('subpage navigation');
   }
   dashboardMainNav(pageDescription: string, pageId: number) {
-    console.log('main page nav');
-    console.log(pageDescription, pageId);
+    // console.log('main page nav');
+    // console.log(pageDescription, pageId);
 
     this.router.navigate(['dashboard/' + pageDescription + '/' + pageId]);
   }
 
   mainPageNav(pageDescription: string, pageId: number) {
-    console.log('main page nav');
-    console.log(pageDescription, pageId);
+    // console.log('main page nav');
+    // console.log(pageDescription, pageId);
 
     this.router.navigate([pageDescription + '/' + pageId]);
   }
@@ -108,7 +120,7 @@ export class DashboardSidebarComponent implements OnInit {
   }
 
   openPageSettings() {
-    console.log('opened page settings.');
+    // console.log('opened page settings.');
 
     this.router.navigate(['/edit-page/']);
   }

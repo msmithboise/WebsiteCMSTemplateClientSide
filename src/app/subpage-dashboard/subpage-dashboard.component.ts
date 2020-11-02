@@ -66,27 +66,27 @@ export class SubpageDashboardComponent implements OnInit {
     pageId = this.pageId;
     subPageId = this.subPageId;
 
-    console.log('pageid');
-    console.log(this.pageId);
-    console.log('subpageid');
-    console.log(this.subPageId);
+    // console.log('pageid');
+    // console.log(this.pageId);
+    // console.log('subpageid');
+    // console.log(this.subPageId);
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        console.log('getting content by page and sub page id..');
-        console.log(res);
+        // console.log('getting content by page and sub page id..');
+        // console.log(res);
       });
   }
 
   openPageSettings() {
-    console.log('opened page settings.');
+    // console.log('opened page settings.');
 
     this.router.navigate(['/edit-page/']);
   }
 
   deleteDialogue(id: number) {
-    console.log('trying to delete..');
+    // console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this?')) {
       this.onDelete(id);
     }
@@ -109,8 +109,8 @@ export class SubpageDashboardComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        console.log('here are the page settings');
-        console.log(res);
+        // console.log('here are the page settings');
+        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }
@@ -135,14 +135,14 @@ export class SubpageDashboardComponent implements OnInit {
 
   selectItemToEdit(textId: number) {
     this.router.navigate(['/style-settings/' + textId]);
-    console.log('item to edit');
-    console.log(textId);
+    // console.log('item to edit');
+    // console.log(textId);
     this.webContentService
       .getEditContentById(textId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentByIdsArray = res;
-        console.log('res');
-        console.log(res);
+        // console.log('res');
+        // console.log(res);
       });
   }
 
@@ -173,12 +173,12 @@ export class SubpageDashboardComponent implements OnInit {
 
   insertTextRecord(form: FormGroup) {
     var newForm = this.textFormTemplate.value;
-    console.log('newform pageid');
+    // console.log('newform pageid');
     newForm.pageId = this.pageId;
-    console.log(newForm.pageId);
-    console.log('newform subpageid');
+    // console.log(newForm.pageId);
+    // console.log('newform subpageid');
     newForm.subPageId = this.subPageId;
-    console.log(newForm.subPageId);
+    // console.log(newForm.subPageId);
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
@@ -189,8 +189,8 @@ export class SubpageDashboardComponent implements OnInit {
 
   //Submit Url data
   submitImageUrlData(form: FormGroup) {
-    console.log('image form after submit');
-    console.log(form);
+    // console.log('image form after submit');
+    // console.log(form);
     this.insertImageUrlRecord(form);
   }
 
@@ -200,8 +200,8 @@ export class SubpageDashboardComponent implements OnInit {
   });
 
   insertImageUrlRecord(form: FormGroup) {
-    console.log('image form during insert record');
-    console.log(form);
+    // console.log('image form during insert record');
+    // console.log(form);
 
     var newUrlForm = this.imageUrlFormTemplate.value;
     newUrlForm.pageId = this.pageId;
@@ -267,8 +267,8 @@ export class SubpageDashboardComponent implements OnInit {
 
   //Submit Embed
   submitEmbedUrlData(form: FormGroup) {
-    console.log('Embed form after submit');
-    console.log(form);
+    // console.log('Embed form after submit');
+    // console.log(form);
     this.insertEmbedUrlRecord(form);
   }
 
@@ -278,8 +278,8 @@ export class SubpageDashboardComponent implements OnInit {
   });
 
   insertEmbedUrlRecord(form: FormGroup) {
-    console.log('Embed form during insert record');
-    console.log(form);
+    // console.log('Embed form during insert record');
+    // console.log(form);
 
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.pageId;

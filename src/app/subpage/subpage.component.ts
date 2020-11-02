@@ -46,14 +46,14 @@ export class SubpageComponent implements OnInit {
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        console.log('getting content by page and sub page id..');
-        console.log(res);
+        // console.log('getting content by page and sub page id..');
+        // console.log(res);
       });
   }
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    console.log('button toggled');
+    // console.log('button toggled');
   }
 
   setYouTubeEmbed(embedLink) {

@@ -84,8 +84,8 @@ export class NavbarComponent implements OnInit {
   getNavBarData() {
     this.navBarService.getNavBarData().subscribe((res) => {
       this.navBarService.navBarArray = res;
-      console.log('navBarData');
-      console.log(this.navBarService.navBarArray);
+      // console.log('navBarData');
+      // console.log(this.navBarService.navBarArray);
     });
   }
 
@@ -94,9 +94,9 @@ export class NavbarComponent implements OnInit {
       this.pageId = Number(paramMap.get('pageId'));
       this.pageDescription = paramMap.get('pageDescription');
 
-      console.log(this.pageId);
+      // console.log(this.pageId);
 
-      console.log(this.pageDescription);
+      // console.log(this.pageDescription);
     });
 
     // this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
@@ -107,8 +107,8 @@ export class NavbarComponent implements OnInit {
       .getWebContentByPageId(this.pageId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        console.log('here is the content array:');
-        console.log(this.webContentService.webContentArray);
+        // console.log('here is the content array:');
+        // console.log(this.webContentService.webContentArray);
 
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
@@ -117,8 +117,8 @@ export class NavbarComponent implements OnInit {
 
   getLoginData() {
     this.userService.getLoggedInUser().subscribe((res: User[]) => {
-      console.log('userdata');
-      console.log(res);
+      // console.log('userdata');
+      // console.log(res);
       this.currentUserArray = res;
     });
   }
@@ -133,8 +133,8 @@ export class NavbarComponent implements OnInit {
     this.authService.removeToken;
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
-      console.log('logout data:');
-      console.log(res);
+      // console.log('logout data:');
+      // console.log(res);
       this.userService.userArray = res;
     });
     this.router.navigate(['portal']);
@@ -143,7 +143,7 @@ export class NavbarComponent implements OnInit {
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    console.log('button toggled');
+    // console.log('button toggled');
   }
 
   openPageSettings() {
@@ -153,15 +153,15 @@ export class NavbarComponent implements OnInit {
       this.subPageId = Number(paramMap.get('subPageId'));
       this.subPageDescription = paramMap.get('subPageDescription');
 
-      console.log(this.pageId);
+      // console.log(this.pageId);
 
-      console.log(this.pageDescription);
+      // console.log(this.pageDescription);
 
-      console.log(this.subPageId);
-      console.log(this.subPageDescription);
+      // console.log(this.subPageId);
+      // console.log(this.subPageDescription);
     });
 
-    console.log('opened page settings.');
+    // console.log('opened page settings.');
 
     if (this.subPageDescription != null) {
       this.router.navigate([
@@ -180,7 +180,7 @@ export class NavbarComponent implements OnInit {
       ]);
     }
 
-    console.log('/settings/' + this.pageDescription + '/' + this.pageId);
+    // console.log('/settings/' + this.pageDescription + '/' + this.pageId);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
@@ -274,8 +274,8 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
-    console.log('navigating to main pages');
-    console.log('customPage/' + pageDescription + '/' + pageId);
+    // console.log('navigating to main pages');
+    // console.log('customPage/' + pageDescription + '/' + pageId);
     // console.log('calling on click?');
     // console.log('customPage/' + pageDescription + '/' + pageId);
     this.router.navigate([pageDescription + '/' + pageId]);
