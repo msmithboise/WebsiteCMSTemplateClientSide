@@ -16,6 +16,7 @@ export class WebcontentService {
   public editFormData: Webcontent;
   imageDetailList: AngularFireList<any>;
   public pageIdSnapshot: number;
+  public subPageIdSnapshot: number;
   public pageId: number;
   public subPageId: string;
 
@@ -95,6 +96,7 @@ export class WebcontentService {
     fd.append('imageUrl', imageUrl);
 
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
+    this.subPageIdSnapshot = +this.route.snapshot.paramMap.get('subPageId');
 
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
@@ -103,6 +105,7 @@ export class WebcontentService {
     });
 
     fd.append('pageId', this.pageIdSnapshot.toString());
+    fd.append('subPageId', this.subPageId);
     //fd.append('subPageId', this.subPageId);
     // fd.append('backgroundImage', 'url(' + imageUrl + ')');
     return this.http.post(this.webApi + '/UploadSubPageImage', fd);

@@ -202,10 +202,7 @@
                           <!-- New Upload File Form -->
                           <div class="card" style="width: 25rem">
                             <div class="card-body">
-                              <form
-                                [formGroup]="formTemplate"
-                                (submit)="onSubmit(formTemplate.value)"
-                              >
+                              <form [formGroup]="formTemplate">
                                 <div class="text-center">
                                   <img
                                     [src]="imgSrc"
