@@ -120,6 +120,7 @@ export class SubpageDashboardComponent implements OnInit {
     this.formTemplate.setValue({
       imageUrl: '',
       pageId: 0,
+      subPageId: 0,
       backgroundImage: '',
     });
     this.imgSrc = '/assets/placeholder.jpg';
@@ -130,6 +131,7 @@ export class SubpageDashboardComponent implements OnInit {
   formTemplate = new FormGroup({
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    subPageId: new FormControl(''),
     backgroundImage: new FormControl(''),
   });
 
@@ -217,6 +219,10 @@ export class SubpageDashboardComponent implements OnInit {
   }
 
   onSubmit(formValue) {
+    console.log('subpage image uploaded');
+    console.log(formValue);
+    console.log(this.subPageId);
+
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
       var filePath = `images/${this.selectedImage.name
@@ -231,7 +237,7 @@ export class SubpageDashboardComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
-                .postUploadedImage(url)
+                .postUploadedSubPageImage(url)
                 .subscribe((data) => {
                   this.getSubPageContentByIds(this.pageId, this.subPageId);
                 });

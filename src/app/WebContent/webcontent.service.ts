@@ -90,6 +90,24 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 
+  postUploadedSubPageImage(imageUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('imageUrl', imageUrl);
+
+    this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageIdSnapshot.toString());
+    //fd.append('subPageId', this.subPageId);
+    // fd.append('backgroundImage', 'url(' + imageUrl + ')');
+    return this.http.post(this.webApi + '/UploadSubPageImage', fd);
+  }
+
   //Post audio upload
   postUploadedAudio(audioUrl: string) {
     const fd: FormData = new FormData();

@@ -267,5 +267,11 @@
           </iframe>
         </div>
       </div>
-    </ng-template></div
-></ng-container>
+      <div *ngIf="content.ImageUrl != null">
+        <button class="btn btn-info" (click)="resizeToggled()">
+          Resize Images
+        </button>
+      </div>
+    </ng-template>
+  </div></ng-container
+>
