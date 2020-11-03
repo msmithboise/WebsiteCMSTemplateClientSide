@@ -27,7 +27,9 @@ export class GridComponent implements OnInit {
   public hamsterArray = [this.hamsterOne, this.hamsterTwo, this.hamsterThree];
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createDivsOnLoad();
+  }
 
   get formControls() {
     return this.formTemplate['controls'];
@@ -52,6 +54,28 @@ export class GridComponent implements OnInit {
     elClass.className = className;
 
     return elClass;
+  }
+
+  createDivsOnLoad() {
+    console.log('creating divs on load');
+    //Create container
+    var divContainer = this.renderer.createElement('div');
+    // makes div into container
+    this.renderer.addClass(divContainer, 'container-fluid');
+    //Set id to container
+    this.renderer.setProperty(divContainer, 'id', 'new-div-container');
+    //Create row
+    var divRow = this.renderer.createElement('div');
+
+    //Set id to row
+    this.renderer.setProperty(divRow, 'id', 'new-div-row');
+
+    //Append row to container
+    divContainer.appendChild(divRow);
+
+    //Append container to wrapper
+
+    document.getElementById('div-wrapper').appendChild(divContainer);
   }
 
   createTwoDivs(colSize: number) {
