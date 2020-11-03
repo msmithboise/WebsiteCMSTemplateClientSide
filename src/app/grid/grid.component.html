@@ -3,9 +3,22 @@
 </body> -->
 
 <!-- <button (click)="sayHello()">Create Div With Text</button> -->
+
+<h1>User input</h1>
+<label>Col Size:</label>
+<form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+  <input
+    type="text"
+    id="colSize"
+    name="colSize"
+    formControlName="colSize"
+  /><br />
+</form>
+
 <div id="div-wrapper">
-  <button (click)="createTwoDivs()">Create container and row</button>
+  <!-- <button (click)="createTwoDivs()">Create container and row</button> -->
 </div>
+<!-- --------------------------------------------------------------------------- -->
 
 <!-- <button (click)="divContainer()">Div Container</button>
 <button (click)="divRow()">Div Row</button> -->

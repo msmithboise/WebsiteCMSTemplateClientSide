@@ -6,6 +6,7 @@ import {
   RendererFactory2,
   ElementRef,
 } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-grid',
@@ -28,6 +29,24 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  get formControls() {
+    return this.formTemplate['controls'];
+  }
+
+  formTemplate = new FormGroup({
+    colSize: new FormControl(''),
+  });
+
+  onSubmit(form: FormGroup) {
+    var newForm = this.formTemplate.value;
+    var colSize = newForm.colSize;
+
+    console.log('column size');
+    console.log(colSize);
+
+    this.createTwoDivs(colSize);
+  }
+
   createElementWithClass(elementName: string, className: string) {
     var elClass = document.createElement(elementName);
     elClass.className = className;
@@ -35,7 +54,7 @@ export class GridComponent implements OnInit {
     return elClass;
   }
 
-  createTwoDivs() {
+  createTwoDivs(colSize: number) {
     //Create container
     var divContainer = this.createElementWithClass('div', 'container-fluid');
     //Set id to container
@@ -43,9 +62,9 @@ export class GridComponent implements OnInit {
     //Create row
     var divRow = this.createElementWithClass('div', 'row');
     //Create Columns
-    var divCol1 = this.createElementWithClass('div', 'col-4');
-    var divCol2 = this.createElementWithClass('div', 'col-4');
-    var divCol3 = this.createElementWithClass('div', 'col-4');
+    var divCol1 = this.createElementWithClass('div', 'col-' + colSize);
+    var divCol2 = this.createElementWithClass('div', 'col-' + colSize);
+    var divCol3 = this.createElementWithClass('div', 'col-' + colSize);
 
     //Create test text
     const text1 = this.renderer.createText('hello');
