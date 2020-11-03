@@ -14,3 +14,14 @@
   height: 400px;
   width: 2000px;
 }
+
+#new-div-row {
+  border: blue;
+  border-style: dashed;
+  height: 400px;
+  width: 2000px;
+}
+
+.blue {
+  color: blue;
+}

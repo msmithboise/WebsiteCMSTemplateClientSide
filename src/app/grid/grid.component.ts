@@ -28,6 +28,33 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  divContainer() {
+    console.log('creating div container');
+    //Creates div
+    const div = this.renderer.createElement('div');
+    // makes div into container
+    this.renderer.addClass(div, 'container-fluid');
+
+    //Set the id of the container
+    this.renderer.setProperty(div, 'id', 'new-div-container');
+
+    // appeneds div to DOM
+    this.renderer.appendChild(this.el.nativeElement, div);
+  }
+
+  divRow() {
+    //Creates div
+    const div = this.renderer.createElement('div');
+    // makes div into row
+    this.renderer.addClass(div, 'row');
+
+    //Set the id of the container
+    this.renderer.setProperty(div, 'id', 'new-div-row');
+
+    // appeneds div to DOM
+    this.renderer.appendChild(this.el.nativeElement, div);
+  }
+
   createDiv() {
     //Use Angular's Render2 to create the div element.
     const newDivContainer = this.renderer.createElement('div');
@@ -49,6 +76,9 @@ export class GridComponent implements OnInit {
     const div = this.renderer.createElement('div');
     //Adds text to new div
     const text = this.renderer.createText('hello');
+
+    //Appends class to div
+    this.renderer.addClass(div, 'blue');
 
     //Appends text to div
     this.renderer.appendChild(div, text);
