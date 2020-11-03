@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Injectable,
+  Renderer2,
+  RendererFactory2,
+} from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -17,9 +23,23 @@ export class GridComponent implements OnInit {
   public hamsterThree =
     'https://images.unsplash.com/photo-1548412342-98d0d2a49205?ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80';
   public hamsterArray = [this.hamsterOne, this.hamsterTwo, this.hamsterThree];
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {}
+
+  createDiv() {
+    //Use Angular's Render2 to create the div element.
+    const newDiv = this.renderer.createElement('div');
+
+    //Set the id of the div
+    this.renderer.setProperty(newDiv, 'id', 'new-div-container');
+
+    //Append the created div to the body element
+
+    this.renderer.appendChild(document.body, newDiv);
+
+    return newDiv;
+  }
 
   hamsterGrid() {
     //number of items per row.. ex: 3
