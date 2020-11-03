@@ -8,6 +8,9 @@
   align-content: space-between;
 } */
 
+#div-wrapper {
+}
+
 #new-div-container {
   border: red;
   border-style: solid;
@@ -15,7 +18,7 @@
   width: 2000px;
 }
 
-#new-div-row {
+.row {
   border: blue;
   border-style: dashed;
   height: 400px;

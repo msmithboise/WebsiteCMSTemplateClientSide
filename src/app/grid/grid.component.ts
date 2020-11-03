@@ -36,9 +36,36 @@ export class GridComponent implements OnInit {
   }
 
   createTwoDivs() {
-    var divContainer = this.createElementWithClass('div', 'div-container');
+    //Create container
+    var divContainer = this.createElementWithClass('div', 'container-fluid');
+    //Set id to container
+    this.renderer.setProperty(divContainer, 'id', 'new-div-container');
+    //Create row
     var divRow = this.createElementWithClass('div', 'row');
+    //Create Columns
+    var divCol1 = this.createElementWithClass('div', 'col-4');
+    var divCol2 = this.createElementWithClass('div', 'col-4');
+    var divCol3 = this.createElementWithClass('div', 'col-4');
+
+    //Create test text
+    const text1 = this.renderer.createText('hello');
+    const text2 = this.renderer.createText('how are you?');
+    const text3 = this.renderer.createText('good bye');
+
+    //Append test text to each column
+    this.renderer.appendChild(divCol1, text1);
+    this.renderer.appendChild(divCol2, text2);
+    this.renderer.appendChild(divCol3, text3);
+
+    //Append row to container
     divContainer.appendChild(divRow);
+
+    //Append columns to row
+    divRow.appendChild(divCol1);
+    divRow.appendChild(divCol2);
+    divRow.appendChild(divCol3);
+
+    //Append container to wrapper
 
     document.getElementById('div-wrapper').appendChild(divContainer);
   }
