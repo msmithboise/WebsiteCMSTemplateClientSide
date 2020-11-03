@@ -28,6 +28,21 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  createElementWithClass(elementName: string, className: string) {
+    var elClass = document.createElement(elementName);
+    elClass.className = className;
+
+    return elClass;
+  }
+
+  createTwoDivs() {
+    var divContainer = this.createElementWithClass('div', 'div-container');
+    var divRow = this.createElementWithClass('div', 'row');
+    divContainer.appendChild(divRow);
+
+    document.getElementById('div-wrapper').appendChild(divContainer);
+  }
+
   divContainer() {
     console.log('creating div container');
     //Creates div
