@@ -4,6 +4,7 @@ import {
   Injectable,
   Renderer2,
   RendererFactory2,
+  ElementRef,
 } from '@angular/core';
 
 @Component({
@@ -23,22 +24,36 @@ export class GridComponent implements OnInit {
   public hamsterThree =
     'https://images.unsplash.com/photo-1548412342-98d0d2a49205?ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80';
   public hamsterArray = [this.hamsterOne, this.hamsterTwo, this.hamsterThree];
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {}
 
   createDiv() {
     //Use Angular's Render2 to create the div element.
-    const newDiv = this.renderer.createElement('div');
+    const newDivContainer = this.renderer.createElement('div');
 
     //Set the id of the div
-    this.renderer.setProperty(newDiv, 'id', 'new-div-container');
+    this.renderer.setProperty(newDivContainer, 'id', 'new-div-container');
 
     //Append the created div to the body element
 
-    this.renderer.appendChild(document.body, newDiv);
+    this.renderer.appendChild(document.body, newDivContainer);
 
-    return newDiv;
+    this.renderer.createText('hello');
+
+    return newDivContainer;
+  }
+
+  sayHello() {
+    //Creates div
+    const div = this.renderer.createElement('div');
+    //Adds text to new div
+    const text = this.renderer.createText('hello');
+
+    //Appends text to div
+    this.renderer.appendChild(div, text);
+    // appeneds div to DOM
+    this.renderer.appendChild(this.el.nativeElement, div);
   }
 
   hamsterGrid() {
