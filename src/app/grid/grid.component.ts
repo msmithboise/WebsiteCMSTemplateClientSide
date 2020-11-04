@@ -19,13 +19,22 @@ export class GridComponent implements OnInit {
   @ViewChild('myname') input: ElementRef;
   row = '';
   inputName = '';
-  items = [];
+  elements = [];
+  columns = [];
   constructor() {}
 
   ngOnInit(): void {}
 
-  addItem(newItem: string) {
-    this.items.push(newItem);
+  addElement(newElement: string) {
+    this.elements.push(newElement);
+    console.log('element array');
+    console.log(this.elements);
+  }
+
+  addColumn(newColumn: string) {
+    this.columns.push(newColumn);
+    console.log('column array');
+    console.log(this.columns);
   }
 
   addRow() {

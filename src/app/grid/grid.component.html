@@ -16,7 +16,12 @@ Name:
 
 <!-- <app-grid-child [row]="addRow()" [bindName]="inputName"></app-grid-child> -->
 <div class="container-fluid">
-  <div *ngFor="let item of items" [ngClass]="item"></div>
+  <div *ngFor="let element of elements" [ngClass]="element">
+    <div *ngFor="let column of columns" [ngClass]="column"></div>
+  </div>
 </div>
 
-<app-grid-child (newItemEvent)="addItem($event)"></app-grid-child>
+<app-grid-child
+  (newElementEvent)="addElement($event)"
+  (newColumnEvent)="addColumn($event)"
+></app-grid-child>

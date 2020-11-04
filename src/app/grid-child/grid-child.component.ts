@@ -16,21 +16,38 @@ import { Output, EventEmitter } from '@angular/core';
 export class GridChildComponent implements OnChanges {
   @Input() row: string;
   @Input() bindName: string;
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() newElementEvent = new EventEmitter<string>();
+  @Output() newColumnEvent = new EventEmitter<string>();
+
   constructor(private renderer: Renderer2) {}
 
   ngOnChanges() {
     this.logName();
   }
 
-  addNewItem(value: string) {
+  addNewElement(value: string) {
     console.log('testing emit');
 
     //create div
 
     const div = this.renderer.createElement('div');
 
-    this.newItemEvent.emit(value);
+    this.newElementEvent.emit(value);
+  }
+
+  addNewColumn(value: string) {
+    console.log('testing adding columns');
+
+    //create div
+
+    const div = this.renderer.createElement('div');
+
+    //Add column class to div (size specified by input value)
+    //this.renderer.addClass(div,'col-' + value)
+
+    value = 'col-' + value;
+
+    this.newColumnEvent.emit(value);
   }
 
   logName() {

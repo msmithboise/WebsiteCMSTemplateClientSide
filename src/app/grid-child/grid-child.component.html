@@ -7,8 +7,13 @@
     <p style="color: whitesmoke">{{ row }}</p>
     <!-- <p style="color: whitesmoke">Hello {{ bindName }}</p> -->
   </div>
-  <label>Add a row: <input #newItem /></label>
-  <button (click)="addNewItem(newItem.value)">Add element to Parent</button>
+  <label>Add a row: <input #newElement /></label>
+  <button (click)="addNewElement(newElement.value)">
+    Add element to Parent
+  </button>
+
+  <label>Add a column: <input #newColumn /></label>
+  <button (click)="addNewColumn(newColumn.value)">Add column to Row</button>
 </body>
 
 <!-- User would select "Add row"... a new row would be started.  they can then add whatever to it.. text.. images.. maps.. ect OR 
