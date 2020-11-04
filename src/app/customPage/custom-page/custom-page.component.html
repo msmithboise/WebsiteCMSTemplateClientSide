@@ -1,28 +1,3 @@
-<!-- <a routerLink="/customPage" class="btn btn-light btn-sm mb-3">Back</a> -->
-<!-- <app-custom-image></app-custom-image>
-<app-custom-text></app-custom-text>
-<a routerLink="/portal" class="btn btn-light btn-sm mb-3">Login</a>
-
-<button class="btn btn-warning" (click)="openPageSettings()">Dashboard</button>
-
-
-<!-- <img
-  id="scrollFade"
-  [addAttributeOn]
-  src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
-  alt=""
-  /> -->
-
-<!-- logout button -->
-<!-- <div *ngFor="let data of this.userService.loggedInUserArray">
-    <a
-    routerLink="/portal"
-    class="btn btn-light btn-sm mb-3"
-    (click)="Logout(data)"
-    >Logout</a
-    >
-  </div> -->
-
 <app-navbar></app-navbar>
 <div style="height: 84px"></div>
 
@@ -73,14 +48,14 @@
 
 <!-- Hero image field (Parallax, cover, fixed) -->
 <body>
-  <ng-container>
-    <div class="">
-      <app-custom-text-modal></app-custom-text-modal>
-      <ng-template
-        ngFor
-        let-content
-        [ngForOf]="this.webContentService.webContentArray"
-      >
+  <div class="container-fluid" style="border: red; border-style: solid">
+    <!-- <app-custom-text-modal></app-custom-text-modal> -->
+    <ng-template
+      ngFor
+      let-content
+      [ngForOf]="this.webContentService.webContentArray"
+    >
+      <div class="row" style="border: blue; border-style: dashed">
         <!-- Audio -->
         <div
           *ngIf="content.AudioUrl != null"
@@ -96,254 +71,40 @@
           </audio>
         </div>
 
-        <div *ngIf="!isSetAsGalleryImage">
-          <a [href]="createLink(content.HyperLink)">
-            <div
-              id="image-resize"
-              class="heroImage responsive"
-              *ngIf="content.ImageUrl != null"
-              [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-              [ngStyle]="{
-                float: 'left',
+        <!-- Image -->
 
-                backgroundAttachment: content.backgroundAttachment,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: content.backgroundSize,
-                position: content.position,
-                opacity: content.opacity,
-                backgroundPosition: content.backgroundPosition,
-                resize: 'both',
-                overflow: 'auto',
-                height: content.height + 'px',
-                width: content.width + 'px',
-                objectFit: 'cover',
-                transform:
-                  'translate3d(' +
-                  content.left +
-                  'px,' +
-                  content.top +
-                  'px,' +
-                  '0px)'
-              }"
-            ></div>
-            <!-- Text -->
-            <div [ngStyle]="{}">
-              <h1
-                class="customText"
-                [ngStyle]="{
-                  fontSize: content.fontSize,
-                  color: content.color,
-                  backgroundAttachment: content.backgroundAttachment,
-                  backgroundClip: content.backgroundClip,
+        <a [href]="createLink(content.HyperLink)">
+          <div
+            id="image-resize"
+            class="heroImage responsive"
+            *ngIf="content.ImageUrl != null"
+            [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
+            [ngStyle]="{
+              float: 'left',
 
-                  backgroundOrigin: content.backgroundOrigin,
-                  backgroundPosition: content.backgroundPosition,
-                  backgroundRepeat: content.backgroundRepeat,
-                  backgroundSize: content.backgroundSize,
-                  background: content.background,
-                  border: content.border,
-                  borderBottom: content.borderBottom,
-                  borderBottomColor: content.borderBottomColor,
-                  borderBottomLeftRadius: content.borderBottomLeftRadius,
-                  borderBottomRightRadius: content.borderBottomRightRadius,
-                  borderBottomStyle: content.borderBottomStyle,
-                  borderBottomWidth: content.borderBottomWidth,
-                  borderColor: content.borderColor,
-                  borderImage: content.borderImage,
-                  borderImageOutset: content.borderImageOutset,
-                  borderImageRepeat: content.borderImageRepeat,
-                  borderImageSlice: content.borderImageSlice,
-                  borderImageSource: content.borderImageSource,
-                  borderImageWidth: content.borderImageWidth,
-                  borderLeft: content.borderLeft,
-                  borderLeftColor: content.borderLeftColor,
-                  borderLeftStyle: content.borderLeftStyle,
-                  borderLeftWidth: content.borderLeftWidth,
-                  borderStyle: content.borderStyle,
-                  borderTop: content.borderTop,
-                  borderTopColor: content.borderTopColor,
-                  borderTopLeftRadius: content.borderTopLeftRadius,
-                  borderTopRightRadius: content.borderTopRightRadius,
-                  borderTopStyle: content.borderTopStyle,
-                  borderTopWidth: content.borderTopWidth,
-                  borderWidth: content.borderWidth,
-                  boxShadow: content.boxShadow,
-                  animation: content.animation,
-                  textAlign: content.textAlign,
-                  paddingTop: content.paddingTop,
-                  paddingBottom: content.paddingBottom,
-                  paddingLeft: content.paddingLeft,
-                  paddingRight: content.paddingRight,
-                  marginTop: content.marginTop,
-                  marginBottom: content.marginBottom,
-                  marginLeft: content.marginLeft,
-                  marginRight: content.marginRight,
-                  lineHeight: content.lineHeight,
-                  fontFamily: content.fontFamily,
-                  clear: content.clear,
-                  clip: content.clip,
-                  cursor: content.cursor,
-                  fontVariant: content.fontVariant,
-                  fontWeight: content.fontWieght,
-                  height: content.height,
-                  left: content.left,
-                  letterSpacing: content.letterSpacing,
-                  listStyle: content.listStyle,
-                  listStyleImage: content.listStyleImage,
-                  listStyleType: content.listStyleType,
-                  margin: content.margin,
-                  pageBreakAfter: content.pageBreakAfter,
-                  pageBreakBefore: content.pageBreakBefore,
-                  position: content.position,
-                  strokeDasharray: content.strokeDasharray,
-                  strokeDashoffset: content.strokeDashoffset,
-                  strokeWidth: content.strokeWidth,
-                  textDecoration: content.textDecoration,
-                  textIndent: content.textIndent,
-                  textTransform: content.textTransform,
-                  top: content.top,
-                  right: content.right,
-                  bottom: content.bottom,
-                  verticalAlign: content.verticalAlign,
-                  visibility: content.visibility,
-                  width: content.width,
-                  zIndex: content.zIndex,
-                  display: content.display,
-                  cssFloat: content.cssFloat,
-                  filter: content.filter,
-                  backgroundColor: content.backgroundColor,
-                  lineBreak: content.lineBreak,
-                  opacity: content.opacity,
-                  outline: content.outline,
-                  outlineColor: content.outlineColor,
-                  outlineOffset: content.outlineOffset,
-                  outlineWidth: content.outlineWidth,
-                  padding: content.padding,
-                  paddingBlock: content.paddingBlock,
-                  paddingBlockEnd: content.paddingBlockEnd,
-                  paddingBlockStart: content.paddingBlockStart,
-                  paddingInLineEnd: content.paddingInLineEnd,
-                  paddingInLineStart: content.paddingInLineStart,
-                  pageBreakInside: content.pageBreakInside,
-                  rotate: content.rotate,
-                  textAlignLast: content.textAlignLast,
-                  textCombineUpright: content.textCombineUpright,
-                  textDecorationColor: content.textDecorationColor,
-                  textDecorationLine: content.textDecorationLine,
-                  textDecorationSkipInk: content.textDecorationSkipInk,
-                  textDecorationStyle: content.textDecorationStyle,
-                  textDecorationThickness: content.textDecorationThickness,
-                  textEmphasis: content.textEmphasis,
-                  textEmphasisColor: content.textEmphasisColor,
-                  textEmphasisPosition: content.textEmphasisPosition,
-                  textEmphasisStyle: content.textEmphasisStyle,
-                  textJustify: content.textJustify,
-                  textOrientation: content.textOrientation,
-                  textRendering: content.textRendering,
-                  textShadow: content.textShadow,
-                  textUnderLineOffset: content.textUnderLineOffSet,
-                  textUnderLinePosition: content.textUnderLinePosition,
-                  transformBox: content.transformBox,
-                  transformOrigin: content.transformOrigin,
-                  transition: content.transition,
-                  transitionDelay: content.transitionDelay,
-                  transitionDuration: content.transitionDuration,
-                  transitionProperty: content.transitionProperty,
-                  transitionTimingFunction: content.transitionTimingFunction,
-                  translate: content.translate,
-                  whiteSpace: content.whiteSpace,
-                  wordBreak: content.wordBreak,
-                  wordSpacing: content.wordSpacing,
-                  wordWrap: content.wordWrap,
-                  flex: content.flex,
-                  alignContent: content.alignContent,
-                  alignItems: content.alignItems,
-                  alignSelf: content.alignSelf,
-                  backgroundImage: 'url(' + content.ImageUrl + ')'
-                }"
-              >
-                {{ content.TextBody }}
-              </h1>
-            </div>
-          </a>
-        </div>
-
-        <!-- Youtube videos -->
-        <div>
-          <div *ngIf="content.embedUrl != null">
-            <iframe
-              width="420"
-              height="315"
-              [src]="setYouTubeEmbed(content.embedUrl)"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            >
-            </iframe>
-          </div>
-          <!-- Google Maps -->
-          <div *ngIf="content.MapUrl != null">
-            <div class="row">
-              <iframe
-                width="900"
-                height="500"
-                frameborder="0"
-                style="border: 0"
-                [src]="createMapLink(content.MapUrl)"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </ng-template>
-
-      <html>
-        <body></body>
-      </html>
-
-      <!-- Gallery images -->
-      <ng-template
-        ngFor
-        let-content
-        [ngForOf]="this.webContentService.webContentArray"
-      >
-        <div *ngIf="!isSetAsHeroImage" class="container-fluid">
-          <div class="row" *ngIf="content.ImageUrl != null">
-            <div class="col-sm-3">
-              <img
-                [addAttributeOn]="'toReach'"
-                id="scrollFade"
-                src="{{ content.ImageUrl }}"
-                [ngStyle]="{
-                  float: 'left',
-
-                  backgroundAttachment: content.backgroundAttachment,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: content.backgroundSize,
-                  position: content.position,
-                  opacity: content.opacity,
-                  backgroundPosition: content.backgroundPosition,
-                  resize: 'both',
-                  overflow: 'auto',
-                  height: content.height + 'px',
-                  width: content.width + 'px',
-                  objectFit: 'cover',
-                  transform:
-                    'translate3d(' +
-                    content.left +
-                    'px,' +
-                    content.top +
-                    'px,' +
-                    '0px)'
-                }"
-              />
-            </div>
-          </div>
-          <div>
-            <!-- Text -->
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height + 'px',
+              width: content.width + 'px',
+              objectFit: 'cover',
+              transform:
+                'translate3d(' +
+                content.left +
+                'px,' +
+                content.top +
+                'px,' +
+                '0px)'
+            }"
+          ></div>
+          <!-- Text -->
+          <div [ngStyle]="{}">
             <h1
-              [addAttributeOn]="'toReach'"
-              id="scrollFade"
               class="customText"
               [ngStyle]="{
                 fontSize: content.fontSize,
@@ -480,30 +241,37 @@
               {{ content.TextBody }}
             </h1>
           </div>
+        </a>
+
+        <!-- Youtube videos -->
+        <div>
+          <div *ngIf="content.embedUrl != null">
+            <iframe
+              width="420"
+              height="315"
+              [src]="setYouTubeEmbed(content.embedUrl)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <!-- Google Maps -->
+          <div *ngIf="content.MapUrl != null">
+            <div class="row">
+              <iframe
+                width="900"
+                height="500"
+                frameborder="0"
+                style="border: 0"
+                [src]="createMapLink(content.MapUrl)"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
         </div>
-
-        <nav class="navbar fixed-bottom navbar-light bg-dark">
-          <a class="navbar-brand" style="text-align: center" href="#"></a>
-        </nav>
-      </ng-template>
-      <button class="btn btn-info" (click)="resizeToggled()">
-        Resize Images
-      </button>
-
-      <!-- This works -->
-      <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Oz_AhAN0s4E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-    </div>
-  </ng-container>
-</body>
-
-<!-- Testing grid system
-<div class="container-row">
-  <div *ngFor="let item of testGrid">
-    <div class="row">
-      <div [ngClass]="gridSystem()">
-        {{ item }}
-
       </div>
-    </div>
+    </ng-template>
   </div>
-</div> -->
+  <button class="btn btn-info" (click)="resizeToggled()">Resize Images</button>
+</body>

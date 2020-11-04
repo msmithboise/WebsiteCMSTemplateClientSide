@@ -80,6 +80,11 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
+  rowId() {
+    console.log('getting row id');
+    return '1';
+  }
+
   createMapLink(mapSearch: string) {
     var base = 'https://www.google.com/maps/embed/v1/search?key=';
     var apiKey = 'AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4';
