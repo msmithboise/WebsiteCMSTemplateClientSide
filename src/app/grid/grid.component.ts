@@ -19,7 +19,7 @@ export class GridComponent implements OnInit {
   @ViewChild('myname') input: ElementRef;
   row = '';
   inputName = '';
-  items = ['item1', 'item2', 'item3', 'item4'];
+  items = [];
   constructor() {}
 
   ngOnInit(): void {}

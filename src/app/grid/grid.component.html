@@ -19,9 +19,8 @@ Name:
 <button>Add Row</button>
 
 <!-- <app-grid-child [row]="addRow()" [bindName]="inputName"></app-grid-child> -->
-
-<app-grid-child (newItemEvent)="addItem($event)"></app-grid-child>
-
 <ul>
   <li *ngFor="let item of items">{{ item }}</li>
 </ul>
+
+<app-grid-child (newItemEvent)="addItem($event)"></app-grid-child>

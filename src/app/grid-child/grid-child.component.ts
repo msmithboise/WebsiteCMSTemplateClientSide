@@ -23,6 +23,7 @@ export class GridChildComponent implements OnChanges {
   }
 
   addNewItem(value: string) {
+    console.log('testing emit');
     this.newItemEvent.emit(value);
   }
 
