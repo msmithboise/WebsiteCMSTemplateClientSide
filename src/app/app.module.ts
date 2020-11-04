@@ -40,6 +40,7 @@ import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard
 import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 import { DashboardBaseComponent } from './dashboard-base/dashboard-base.component';
 import { GridComponent } from './grid/grid.component';
+import { GridChildComponent } from './grid-child/grid-child.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { GridComponent } from './grid/grid.component';
     NavbarSettingsComponent,
     DashboardBaseComponent,
     GridComponent,
+    GridChildComponent,
   ],
   imports: [
     BrowserModule,

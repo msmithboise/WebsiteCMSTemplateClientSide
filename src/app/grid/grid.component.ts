@@ -5,6 +5,8 @@ import {
   Renderer2,
   RendererFactory2,
   ElementRef,
+  ViewChild,
+  Input,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -14,7 +16,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnInit {
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  @ViewChild('myname') input: ElementRef;
+  currentItem = 'Television';
+  constructor() {}
 
   ngOnInit(): void {}
 }
