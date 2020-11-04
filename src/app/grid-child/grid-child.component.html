@@ -2,6 +2,9 @@
   <div class="div-wrapper">
     <h1 style="color: whitesmoke">This would be the page component (CHILD)</h1>
 
-    <p style="color: whitesmoke">Today's item: {{ item }}</p>
+    <p style="color: whitesmoke">{{ row }}</p>
+    <!-- <p style="color: whitesmoke">Hello {{ bindName }}</p> -->
   </div>
+  <label>Add an item: <input #newItem /></label>
+  <button (click)="addNewItem(newItem.value)">Add to parent's list</button>
 </body>

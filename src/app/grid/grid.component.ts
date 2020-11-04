@@ -17,8 +17,18 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class GridComponent implements OnInit {
   @ViewChild('myname') input: ElementRef;
-  currentItem = 'Television';
+  row = '';
+  inputName = '';
+  items = ['item1', 'item2', 'item3', 'item4'];
   constructor() {}
 
   ngOnInit(): void {}
+
+  addItem(newItem: string) {
+    this.items.push(newItem);
+  }
+
+  addRow() {
+    return 'new row added!';
+  }
 }

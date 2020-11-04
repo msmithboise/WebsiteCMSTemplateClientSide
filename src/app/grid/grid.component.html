@@ -1,8 +1,27 @@
 <p style="color: #27293d">grid-child works!</p>
 <h1 style="color: #27293d">This would be the dashboard component (PARENT)</h1>
+<h2 style="color: #27293d">
+  The add row button would be created here, but the value must be passed to the
+  child(page display).. The goal is to add a row, for it to display on
+</h2>
 
 <!-- this is where the button would be pressed to add a row -->
 
+Name:
+<input
+  type="text"
+  id="userInput"
+  name="userInput"
+  [(ngModel)]="inputName"
+  value="Joe"
+/>
+
 <button>Add Row</button>
 
-<app-grid-child [item]="currentItem"></app-grid-child>
+<!-- <app-grid-child [row]="addRow()" [bindName]="inputName"></app-grid-child> -->
+
+<app-grid-child (newItemEvent)="addItem($event)"></app-grid-child>
+
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
