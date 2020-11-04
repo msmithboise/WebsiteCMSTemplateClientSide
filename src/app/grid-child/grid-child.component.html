@@ -1,10 +1,15 @@
 <body style="background-color: #27293d">
   <div class="div-wrapper">
-    <h1 style="color: whitesmoke">This would be the page component (CHILD)</h1>
+    <h1 style="color: whitesmoke">
+      A component coming from the dashboard (CHILD)
+    </h1>
 
     <p style="color: whitesmoke">{{ row }}</p>
     <!-- <p style="color: whitesmoke">Hello {{ bindName }}</p> -->
   </div>
-  <label>Add an item: <input #newItem /></label>
-  <button (click)="addNewItem(newItem.value)">Add to parent's list</button>
+  <label>Add a row: <input #newItem /></label>
+  <button (click)="addNewItem(newItem.value)">Add element to Parent</button>
 </body>
+
+<!-- User would select "Add row"... a new row would be started.  they can then add whatever to it.. text.. images.. maps.. ect OR 
+Add columns to their row. (up to 12 col-1) -->

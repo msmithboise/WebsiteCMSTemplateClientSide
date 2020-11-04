@@ -3,6 +3,7 @@ import {
   Input,
   OnChanges,
   OnInit,
+  Renderer2,
   SimpleChanges,
 } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
@@ -16,7 +17,7 @@ export class GridChildComponent implements OnChanges {
   @Input() row: string;
   @Input() bindName: string;
   @Output() newItemEvent = new EventEmitter<string>();
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
 
   ngOnChanges() {
     this.logName();
@@ -24,6 +25,11 @@ export class GridChildComponent implements OnChanges {
 
   addNewItem(value: string) {
     console.log('testing emit');
+
+    //create div
+
+    const div = this.renderer.createElement('div');
+
     this.newItemEvent.emit(value);
   }
 
