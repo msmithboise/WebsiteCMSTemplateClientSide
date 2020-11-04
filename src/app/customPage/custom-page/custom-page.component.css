@@ -113,6 +113,12 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
+
+.col-test {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+}
 /* .div {
   border-style: "dashed";
   height: "auto";
