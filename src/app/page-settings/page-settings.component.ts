@@ -60,6 +60,12 @@ export class PageSettingsComponent implements OnInit {
     this.callCustomSubPageService();
   }
 
+  //Add row
+
+  addRow() {
+    console.log('Adding row');
+  }
+
   dashboardSubNav(
     pageDescription: string,
     pageId: number,
