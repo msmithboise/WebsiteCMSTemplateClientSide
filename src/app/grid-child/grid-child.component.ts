@@ -18,6 +18,7 @@ export class GridChildComponent implements OnChanges {
   @Input() bindName: string;
   @Output() newElementEvent = new EventEmitter<string>();
   @Output() newColumnEvent = new EventEmitter<string>();
+  @Output() newContentEvent = new EventEmitter<string>();
 
   constructor(private renderer: Renderer2) {}
 
@@ -48,6 +49,19 @@ export class GridChildComponent implements OnChanges {
     value = 'col-' + value;
 
     this.newColumnEvent.emit(value);
+  }
+
+  addNewContent(value: string) {
+    console.log('testing adding content');
+
+    //create div
+
+    const div = this.renderer.createElement('div');
+
+    //Add column class to div (size specified by input value)
+    //this.renderer.addClass(div,'col-' + value)
+
+    this.newContentEvent.emit(value);
   }
 
   logName() {

@@ -15,13 +15,29 @@ Name:
 <button>Add Row</button>
 
 <!-- <app-grid-child [row]="addRow()" [bindName]="inputName"></app-grid-child> -->
-<div class="container-fluid">
-  <div *ngFor="let element of elements" [ngClass]="element">
-    <div *ngFor="let column of columns" [ngClass]="column"></div>
+<div style="border: black; border-style: double" class="container-fluid">
+  <div
+    style="border: red; border-style: dashed"
+    *ngFor="let element of elements"
+    [ngClass]="element"
+  >
+    <div
+      style="border: blue; border-style: solid"
+      *ngFor="let column of columns"
+      [ngClass]="column"
+    >
+      <div
+        style="border: yellow; border-style: dotted"
+        *ngFor="let content of webContent"
+      >
+        {{ content }}
+      </div>
+    </div>
   </div>
 </div>
 
 <app-grid-child
   (newElementEvent)="addElement($event)"
   (newColumnEvent)="addColumn($event)"
+  (newContentEvent)="addContent($event)"
 ></app-grid-child>

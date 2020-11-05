@@ -21,7 +21,8 @@ export class GridComponent implements OnInit {
   inputName = '';
   elements = [];
   columns = [];
-  constructor() {}
+  webContent = [];
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {}
 
@@ -35,6 +36,12 @@ export class GridComponent implements OnInit {
     this.columns.push(newColumn);
     console.log('column array');
     console.log(this.columns);
+  }
+
+  addContent(newContent: string) {
+    this.webContent.push(newContent);
+    console.log('content array');
+    console.log(this.webContent);
   }
 
   addRow() {

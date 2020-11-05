@@ -7,13 +7,18 @@
     <p style="color: whitesmoke">{{ row }}</p>
     <!-- <p style="color: whitesmoke">Hello {{ bindName }}</p> -->
   </div>
-  <label>Add a row: <input #newElement /></label>
-  <button (click)="addNewElement(newElement.value)">
-    Add element to Parent
-  </button>
-
-  <label>Add a column: <input #newColumn /></label>
-  <button (click)="addNewColumn(newColumn.value)">Add column to Row</button>
+  <div class="container-fluid">
+    <label>Add a row: <input placeholder="row" #newElement /></label>
+    <button (click)="addNewElement(newElement.value)">
+      Add element to Parent
+    </button>
+    <label>Add a column: <input placeholder="column size" #newColumn /></label>
+    <button (click)="addNewColumn(newColumn.value)">Add column to Row</button>
+    <label>Add content: <input placeholder="content" #newContent /></label>
+    <button (click)="addNewContent(newContent.value)">
+      Add content to column
+    </button>
+  </div>
 </body>
 
 <!-- User would select "Add row"... a new row would be started.  they can then add whatever to it.. text.. images.. maps.. ect OR 
