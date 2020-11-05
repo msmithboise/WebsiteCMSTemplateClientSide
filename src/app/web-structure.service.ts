@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Row } from './models/row.model';
 
 @Injectable({
@@ -20,5 +21,10 @@ export class WebStructureService {
   //Get Rows By PageId
   getRowsByPageId(pageId: number) {
     return this.http.get<Row[]>(this.webApi + '/Row/' + pageId);
+  }
+
+  //Post rows
+  postRowsByPageId(formData: FormGroup) {
+    return this.http.post(this.webApi + '/Row', formData);
   }
 }

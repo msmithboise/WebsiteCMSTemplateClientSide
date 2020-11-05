@@ -97,7 +97,7 @@ export class PageSettingsComponent implements OnInit {
     newRow.pageId = this.webContentService.pageIdSnapshot;
     newRow.RowId += newRow.RowId++;
 
-    this.webContentService.postWebContentByPageId(newRow).subscribe((res) => {
+    this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
       //this.resetForm(form);
       this.grabAllContentByPageId();
     });
