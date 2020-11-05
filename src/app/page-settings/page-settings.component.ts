@@ -20,6 +20,7 @@ import { SubpageService } from '../services/subpage.service';
 import { Subpage } from '../models/subpage.model';
 import { SubpageDashboardComponent } from '../subpage-dashboard/subpage-dashboard.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-page-settings',
@@ -51,19 +52,43 @@ export class PageSettingsComponent implements OnInit {
     public toastr: ToastrService,
     public router: Router,
     public customPageService: CustomPageService,
-    public subPageService: SubpageService
+    public subPageService: SubpageService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
     this.grabAllContentByPageId();
     this.callCustomPageService();
     this.callCustomSubPageService();
+    this.getRows();
   }
 
   //Add row
 
+  rowFormTemplate = new FormGroup({
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+  });
+
+  getRows() {
+    this.webStructureService.getRows().subscribe((res) => {
+      this.webStructureService.rowsArray = res;
+      console.log('getting rows');
+      console.log(this.webStructureService.rowsArray);
+    });
+  }
+
   addRow() {
     console.log('Adding row');
+
+    var newRow = this.rowFormTemplate.value;
+    newRow.pageId = this.webContentService.pageIdSnapshot;
+    newRow.RowId += newRow.RowId++;
+
+    this.webContentService.postWebContentByPageId(newRow).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
   }
 
   dashboardSubNav(

@@ -31,7 +31,27 @@
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
             >
               <h1 class="h2">Dashboard</h1>
-              <!-- Add Row Button trigger modal -->
+              <!-- Add Row Button -->
+              <div>
+                <!-- <form
+                  type="hidden"
+                  [formGroup]="rowFormTemplate"
+                  class="form-inline formStyle"
+                >
+                  <input type="hidden" name="RowId" formControlName="RowId" />
+
+                  <input type="hidden" name="PageId" formControlName="pageId" />
+
+                  <input type="hidden" name="Id" formControlName="Id" />
+
+                  <!-- Sub Page Id -->
+                <!-- <input
+                    type="hidden"
+                    name="SubPageId"
+                    formControlName="subPageId"
+                  /> -->
+                <!-- </form> -->
+              </div>
               <button
                 style="float: left"
                 type="button"
@@ -872,6 +892,18 @@
                         name="AudioUrl"
                         #AudioUrl="ngModel"
                         [(ngModel)]="text.AudioUrl"
+                        class="formStyle"
+                      />
+                    </div>
+
+                    <!-- Row-->
+
+                    <div *ngIf="text.RowId">
+                      <label>Row</label>
+                      <input
+                        name="RowId"
+                        #RowId="ngModel"
+                        [(ngModel)]="text.RowId"
                         class="formStyle"
                       />
                     </div>
