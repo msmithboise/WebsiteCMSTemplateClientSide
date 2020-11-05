@@ -60,7 +60,7 @@ export class PageSettingsComponent implements OnInit {
     this.grabAllContentByPageId();
     this.callCustomPageService();
     this.callCustomSubPageService();
-    this.getRows();
+    this.getRowsByPageId();
   }
 
   //Add row
@@ -75,6 +75,18 @@ export class PageSettingsComponent implements OnInit {
       this.webStructureService.rowsArray = res;
       console.log('getting rows');
       console.log(this.webStructureService.rowsArray);
+    });
+  }
+
+  getRowsByPageId() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+
+    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      this.webStructureService.rowsByPageIdArray = res;
+      console.log('getting rows by page id');
+      console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
 
