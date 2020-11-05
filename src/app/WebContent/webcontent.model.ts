@@ -6,6 +6,16 @@ export class Webcontent {
   ImageUrl: string;
   AudioId: string;
   AudioUrl: string;
+  ContainerClass: string;
+  ContainerId: number;
+  RowClass: string;
+  RowId: number;
+  ColumnClass: string;
+  ColumnId: number;
+  ElementTag: string;
+  ElementTagId: number;
+  Icon: string;
+  IconId: number;
   SocialMediaLinkId: number;
   SocialMediaLink: string;
   PlayList: string;
