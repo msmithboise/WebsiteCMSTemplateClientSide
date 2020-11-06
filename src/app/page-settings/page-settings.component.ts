@@ -73,6 +73,7 @@ export class PageSettingsComponent implements OnInit {
   getRows() {
     this.webStructureService.getRows().subscribe((res) => {
       this.webStructureService.rowsArray = res;
+
       console.log('getting rows');
       console.log(this.webStructureService.rowsArray);
     });
@@ -85,6 +86,7 @@ export class PageSettingsComponent implements OnInit {
 
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
+      this.grabAllContentByPageId();
       console.log('getting rows by page id');
       console.log(this.webStructureService.rowsByPageIdArray);
     });

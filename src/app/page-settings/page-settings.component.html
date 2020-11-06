@@ -23,6 +23,7 @@
       <!-- Custom styles for this template -->
     </head>
     <app-dashboard-sidebar></app-dashboard-sidebar>
+
     <body>
       <div class="container-fluid" style="height: fit-content">
         <div class="row">
@@ -846,69 +847,78 @@
                     Add Link
                   </button> -->
                 </div>
-                <div class="input-group"></div>
-                <div class="modal-body form-group">
-                  <form
-                    #form="ngForm"
-                    (submit)="onContentSubmit(form)"
-                    id="myForm"
-                    class="border-bottom"
-                  >
-                    <!-- Id -->
 
-                    <input
-                      name="Id"
-                      type="hidden"
-                      #TextId="ngModel"
-                      [(ngModel)]="text.Id"
-                    />
+                <!-- ngfor rows here -->
 
-                    <!-- Text Id -->
-                    <input
-                      name="TextId"
-                      type="hidden"
-                      #TextId="ngModel"
-                      [(ngModel)]="text.TextId"
-                    />
+                <div
+                  *ngFor="let row of this.webStructureService.rowsByPageIdArray"
+                >
+                  <h1 style="color: red">{{ row.RowId }}</h1>
+                  <h1 style="color: red">{{ row.RowClass }}</h1>
 
-                    <!-- Text Body -->
+                  <div class="input-group"></div>
+                  <div class="modal-body form-group">
+                    <form
+                      #form="ngForm"
+                      (submit)="onContentSubmit(form)"
+                      id="myForm"
+                      class="border-bottom"
+                    >
+                      <!-- Id -->
 
-                    <div *ngIf="text.TextBody">
-                      <label>Text Body</label>
-                      <div class="input-group"></div>
                       <input
-                        name="TextBody"
-                        #TextBody="ngModel"
-                        [(ngModel)]="text.TextBody"
-                        class="formStyle"
+                        name="Id"
+                        type="hidden"
+                        #TextId="ngModel"
+                        [(ngModel)]="text.Id"
                       />
-                    </div>
 
-                    <!-- Audio -->
-
-                    <div *ngIf="text.AudioUrl">
-                      <label>Audio Url</label>
+                      <!-- Text Id -->
                       <input
-                        name="AudioUrl"
-                        #AudioUrl="ngModel"
-                        [(ngModel)]="text.AudioUrl"
-                        class="formStyle"
+                        name="TextId"
+                        type="hidden"
+                        #TextId="ngModel"
+                        [(ngModel)]="text.TextId"
                       />
-                    </div>
 
-                    <!-- Row-->
+                      <!-- Text Body -->
 
-                    <div *ngIf="text.RowId">
-                      <label>Row</label>
-                      <input
-                        name="RowId"
-                        #RowId="ngModel"
-                        [(ngModel)]="text.RowId"
-                        class="formStyle"
-                      />
-                    </div>
+                      <div *ngIf="text.TextBody">
+                        <label>Text Body</label>
+                        <div class="input-group"></div>
+                        <input
+                          name="TextBody"
+                          #TextBody="ngModel"
+                          [(ngModel)]="text.TextBody"
+                          class="formStyle"
+                        />
+                      </div>
 
-                    <!-- PageId
+                      <!-- Audio -->
+
+                      <div *ngIf="text.AudioUrl">
+                        <label>Audio Url</label>
+                        <input
+                          name="AudioUrl"
+                          #AudioUrl="ngModel"
+                          [(ngModel)]="text.AudioUrl"
+                          class="formStyle"
+                        />
+                      </div>
+
+                      <!-- Row-->
+
+                      <div *ngIf="text.RowId">
+                        <label>Row</label>
+                        <input
+                          name="RowId"
+                          #RowId="ngModel"
+                          [(ngModel)]="text.RowId"
+                          class="formStyle"
+                        />
+                      </div>
+
+                      <!-- PageId
 
                     <input
                       name="PageId"
@@ -919,43 +929,44 @@
                     />
 
                     <!-- ImageUrl -->
-                    <div *ngIf="text.ImageUrl">
-                      <label>Image Url</label>
-                      <div class="input-group"></div>
-                      <input
-                        name="ImageUrl"
-                        #ImageUrl="ngModel"
-                        [(ngModel)]="text.ImageUrl"
-                        class="formStyle"
-                      />
-                      <div class="input-group-append"></div>
-                    </div>
+                      <div *ngIf="text.ImageUrl">
+                        <label>Image Url</label>
+                        <div class="input-group"></div>
+                        <input
+                          name="ImageUrl"
+                          #ImageUrl="ngModel"
+                          [(ngModel)]="text.ImageUrl"
+                          class="formStyle"
+                        />
+                        <div class="input-group-append"></div>
+                      </div>
 
-                    <!-- Youtube Embed -->
-                    <div *ngIf="text.embedUrl">
-                      <label>Embed Url</label>
-                      <div class="input-group"></div>
-                      <input
-                        name="embedUrl"
-                        #embedUrl="ngModel"
-                        [(ngModel)]="text.embedUrl"
-                        class="formStyle"
-                      />
-                      <div class="input-group-append"></div>
-                    </div>
-                    <!-- Google Maps -->
-                    <div *ngIf="text.MapUrl">
-                      <label>Google Map</label>
-                      <div class="input-group"></div>
-                      <input
-                        name="MapUrl"
-                        #MapUrl="ngModel"
-                        [(ngModel)]="text.MapUrl"
-                        class="formStyle"
-                      />
-                      <div class="input-group-append"></div>
-                    </div>
-                  </form>
+                      <!-- Youtube Embed -->
+                      <div *ngIf="text.embedUrl">
+                        <label>Embed Url</label>
+                        <div class="input-group"></div>
+                        <input
+                          name="embedUrl"
+                          #embedUrl="ngModel"
+                          [(ngModel)]="text.embedUrl"
+                          class="formStyle"
+                        />
+                        <div class="input-group-append"></div>
+                      </div>
+                      <!-- Google Maps -->
+                      <div *ngIf="text.MapUrl">
+                        <label>Google Map</label>
+                        <div class="input-group"></div>
+                        <input
+                          name="MapUrl"
+                          #MapUrl="ngModel"
+                          [(ngModel)]="text.MapUrl"
+                          class="formStyle"
+                        />
+                        <div class="input-group-append"></div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

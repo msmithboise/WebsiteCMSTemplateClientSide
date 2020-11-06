@@ -23,6 +23,7 @@ import { DefaultTemplateService } from 'src/app/services/default-template.servic
 import { NonNullAssert } from '@angular/compiler';
 import { style } from '@angular/animations';
 import { Http2ServerRequest } from 'http2';
+import { WebStructureService } from 'src/app/web-structure.service';
 
 @Component({
   selector: 'app-custom-page',
@@ -45,7 +46,8 @@ export class CustomPageComponent implements OnInit {
     public authService: AuthenticationService,
     public userService: UserService,
     public router: Router,
-    public defaultTemplateService: DefaultTemplateService
+    public defaultTemplateService: DefaultTemplateService,
+    public webStructureService: WebStructureService
   ) {}
 
   public photo =
@@ -76,8 +78,21 @@ export class CustomPageComponent implements OnInit {
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
+    this.getRowsByPageId();
 
     //this.changePhoto();
+  }
+
+  getRowsByPageId() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+
+    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      this.webStructureService.rowsByPageIdArray = res;
+      console.log('getting rows by page id on custompage');
+      console.log(this.webStructureService.rowsByPageIdArray);
+    });
   }
 
   rowId() {
