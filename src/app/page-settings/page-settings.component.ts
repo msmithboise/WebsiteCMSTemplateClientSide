@@ -63,6 +63,23 @@ export class PageSettingsComponent implements OnInit {
     this.getRowsByPageId();
   }
 
+  //Add column
+
+  addColumn(rowId: number, pageId: number) {
+    console.log('adding column...');
+    console.log('rowId', rowId);
+    console.log('pageId', pageId);
+
+    var newColumn = this.rowFormTemplate.value;
+    newColumn.pageId = this.webContentService.pageIdSnapshot;
+    newColumn.ColumnId += newColumn.ColumnId++;
+
+    this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
+      //this.resetForm(form);
+      this.grabAllContentByPageId();
+    });
+  }
+
   //Add row
 
   rowFormTemplate = new FormGroup({

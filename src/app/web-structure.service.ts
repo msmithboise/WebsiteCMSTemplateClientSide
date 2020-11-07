@@ -36,12 +36,12 @@ export class WebStructureService {
 
   //Get Columns by PageId (and RowId)
 
-  getColumnsByPageId(pageId: number) {
+  getColumnsByRowId(pageId: number) {
     return this.http.get<Column[]>(this.webApi + '/Columns/' + pageId);
   }
 
   //Post Columns
-  postColumnsByPageId(formData: FormGroup) {
+  postColumnsByRowId(formData: FormGroup) {
     return this.http.post(this.webApi + '/Columns', formData);
   }
 }
