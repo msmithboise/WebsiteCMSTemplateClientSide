@@ -833,7 +833,8 @@
                       style="float: right"
                       type="button"
                       class="btn btn-sm btn-outline-secondary text-button"
-                      (click)="addColumn(row.RowId, row.PageId)"
+                      data-toggle="modal"
+                      data-target="#columnModal"
                     >
                       <svg
                         width="1em"
@@ -854,6 +855,79 @@
                       </svg>
                       Add Column
                     </button>
+
+                    <!-- Column Modal -->
+                    <div
+                      class="modal fade"
+                      id="columnModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="columnModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="columnModalLabel">
+                              Column
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form
+                              [formGroup]="columnFormTemplate"
+                              class="form-inline"
+                              (submit)="
+                                onColumnSubmit(
+                                  columnFormTemplate.value,
+                                  row.PageId,
+                                  row.RowId
+                                )
+                              "
+                            >
+                              <div class="form-group">
+                                <input
+                                  name="columnClass"
+                                  class="form-control-lg form-group"
+                                  placeholder="Enter Column Size Here"
+                                  type="text"
+                                  formControlName="columnClass"
+                                />
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              (click)="
+                                onColumnSubmit(
+                                  columnFormTemplate.value,
+                                  row.PageId,
+                                  row.RowId
+                                )
+                              "
+                              type="button"
+                              class="btn btn-primary"
+                            >
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="input-group"></div>

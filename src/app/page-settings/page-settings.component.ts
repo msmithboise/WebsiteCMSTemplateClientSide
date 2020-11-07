@@ -69,10 +69,21 @@ export class PageSettingsComponent implements OnInit {
     columnId: new FormControl(''),
     rowId: new FormControl(''),
     pageId: new FormControl(''),
+    columnClass: new FormControl(''),
   });
 
-  addColumn(rowId: number, pageId: number) {
+  onColumnSubmit(form: FormGroup, pageId: number, rowId: number) {
+    console.log('column submitted!');
+    console.log('form on submit', form);
+    console.log('pageid', pageId);
+    console.log('rowId', rowId);
+
+    this.addColumn(form, pageId, rowId);
+  }
+
+  addColumn(form: FormGroup, pageId: number, rowId: number) {
     console.log('adding column...');
+    console.log(form);
     console.log('rowId', rowId);
     console.log('pageId', pageId);
 
