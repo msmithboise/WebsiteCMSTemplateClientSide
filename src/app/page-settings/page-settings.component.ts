@@ -65,14 +65,23 @@ export class PageSettingsComponent implements OnInit {
 
   //Add column
 
+  columnFormTemplate = new FormGroup({
+    columnId: new FormControl(''),
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+  });
+
   addColumn(rowId: number, pageId: number) {
     console.log('adding column...');
     console.log('rowId', rowId);
     console.log('pageId', pageId);
 
-    var newColumn = this.rowFormTemplate.value;
+    var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
-    newColumn.ColumnId += newColumn.ColumnId++;
+    newColumn.columnId += newColumn.columnId++;
+    newColumn.rowId = rowId;
+
+    console.log('newColumn', newColumn);
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       //this.resetForm(form);
@@ -115,6 +124,8 @@ export class PageSettingsComponent implements OnInit {
     var newRow = this.rowFormTemplate.value;
     newRow.pageId = this.webContentService.pageIdSnapshot;
     newRow.RowId += newRow.RowId++;
+
+    console.log('newRow', newRow);
 
     this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
       //this.resetForm(form);
