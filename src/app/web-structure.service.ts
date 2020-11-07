@@ -11,6 +11,7 @@ export class WebStructureService {
   readonly webApi = 'http://localhost:54704/api';
   public rowsArray: Row[];
   public rowsByPageIdArray: Row[];
+  public columnsArray: Column[];
 
   constructor(private http: HttpClient) {}
 
@@ -36,8 +37,8 @@ export class WebStructureService {
 
   //Get Columns by PageId (and RowId)
 
-  getColumnsByRowId(pageId: number) {
-    return this.http.get<Column[]>(this.webApi + '/Columns/' + pageId);
+  getColumnsByRowId(rowId: number) {
+    return this.http.get<Column[]>(this.webApi + '/Columns/' + rowId);
   }
 
   //Post Columns

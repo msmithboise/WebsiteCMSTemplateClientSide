@@ -61,9 +61,27 @@ export class PageSettingsComponent implements OnInit {
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();
+    this.getAllColumns();
   }
 
   //Add column
+
+  //get all columns
+  getAllColumns() {
+    this.webStructureService.getColumns().subscribe((res) => {
+      this.webStructureService.columnsArray = res;
+      this.grabAllContentByPageId();
+      console.log('columns array');
+      console.log(this.webStructureService.columnsArray);
+    });
+  }
+
+  //get columns by row id and page id
+  getColumnsByRowId() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+  }
 
   columnFormTemplate = new FormGroup({
     columnId: new FormControl(''),
