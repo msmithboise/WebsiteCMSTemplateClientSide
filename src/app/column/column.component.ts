@@ -26,12 +26,8 @@ export class ColumnComponent implements OnInit {
     public router: Router
   ) {}
 
-  ngOnInit(): void {
-    console.log('getting columnid from row component');
-    console.log(this.columnId);
-    // this.grabAllContentByPageId();
-    // this.getRowsByPageId();
-  }
+  //This component gets all content by column id
+  ngOnInit(): void {}
 
   getContentByColumnId() {}
 
