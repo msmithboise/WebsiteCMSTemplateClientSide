@@ -41,6 +41,7 @@ import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.compo
 import { DashboardBaseComponent } from './dashboard-base/dashboard-base.component';
 import { GridComponent } from './grid/grid.component';
 import { GridChildComponent } from './grid-child/grid-child.component';
+import { RowComponent } from './row/row.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { GridChildComponent } from './grid-child/grid-child.component';
     DashboardBaseComponent,
     GridComponent,
     GridChildComponent,
+    RowComponent,
   ],
   imports: [
     BrowserModule,

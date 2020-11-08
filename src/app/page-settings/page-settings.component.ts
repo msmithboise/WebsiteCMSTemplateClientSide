@@ -61,61 +61,6 @@ export class PageSettingsComponent implements OnInit {
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();
-    this.getAllColumns();
-  }
-
-  //Add column
-
-  //get all columns
-  getAllColumns() {
-    this.webStructureService.getColumns().subscribe((res) => {
-      this.webStructureService.columnsArray = res;
-      this.grabAllContentByPageId();
-      console.log('columns array');
-      console.log(this.webStructureService.columnsArray);
-    });
-  }
-
-  //get columns by row id and page id
-  getColumnsByRowId() {
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-    });
-  }
-
-  columnFormTemplate = new FormGroup({
-    columnId: new FormControl(''),
-    rowId: new FormControl(''),
-    pageId: new FormControl(''),
-    columnClass: new FormControl(''),
-  });
-
-  onColumnSubmit(form: FormGroup, pageId: number, rowId: number) {
-    console.log('column submitted!');
-    console.log('form on submit', form);
-    console.log('pageid', pageId);
-    console.log('rowId', rowId);
-
-    this.addColumn(form, pageId, rowId);
-  }
-
-  addColumn(form: FormGroup, pageId: number, rowId: number) {
-    console.log('adding column...');
-    console.log(form);
-    console.log('rowId', rowId);
-    console.log('pageId', pageId);
-
-    var newColumn = this.columnFormTemplate.value;
-    newColumn.pageId = this.webContentService.pageIdSnapshot;
-    newColumn.columnId += newColumn.columnId++;
-    newColumn.rowId = rowId;
-
-    console.log('newColumn', newColumn);
-
-    this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
-      //this.resetForm(form);
-      this.grabAllContentByPageId();
-    });
   }
 
   //Add row
@@ -370,20 +315,6 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
-  onContentSubmit(form: NgForm) {
-    //Submit for homepage content
-    this.insertContentRecord(form);
-  }
-
-  insertContentRecord(form: NgForm) {
-    this.webContentService
-      .postWebContentByPageId(form.value)
-      .subscribe((res) => {
-        //this.resetForm(form);
-        this.grabAllContentByPageId();
-      });
-  }
-
   //To submit text body data
   submitNewTextData(form: FormGroup) {
     this.insertTextRecord(form);
@@ -621,37 +552,6 @@ export class PageSettingsComponent implements OnInit {
       this.resetForm();
     });
     this.toastr.error('Content deleted!');
-  }
-
-  selectItemToEdit(textId: number) {
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-      this.pageDescription = params.pageDescription;
-
-      //console.log(this.pageId);
-
-      //console.log(this.subPageId);
-    });
-    // { path: 'style-settings/:pageDescription/:pageId/:textId', component: StyleSettingsComponent },
-    this.router.navigate([
-      '/style-settings/' +
-        this.pageDescription +
-        '/' +
-        this.pageId +
-        '/' +
-        textId,
-    ]);
-    console.log('item to edit');
-    console.log(textId);
-    this.webContentService
-      .getEditContentById(textId)
-      .subscribe((res: Webcontent[]) => {
-        this.webContentService.webContentByIdArray = res;
-        console.log('res');
-        console.log(res);
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
-      });
   }
 
   openStyleSettings(textId: string) {
