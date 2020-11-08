@@ -13,6 +13,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   styleUrls: ['./row.component.css'],
 })
 export class RowComponent implements OnInit {
+  public rowId = '';
   public pageId: number;
   public pageDescription: string;
 

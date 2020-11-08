@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +13,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   styleUrls: ['./column.component.css'],
 })
 export class ColumnComponent implements OnInit {
+  @Input() rowId: number;
   public pageId: number;
   public pageDescription: string;
 
@@ -28,6 +29,8 @@ export class ColumnComponent implements OnInit {
   ngOnInit(): void {
     // this.grabAllContentByPageId();
     // this.getRowsByPageId();
+    console.log('rowId');
+    console.log(this.rowId);
   }
 
   getRowsByPageId() {
