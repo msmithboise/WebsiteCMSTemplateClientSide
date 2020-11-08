@@ -1,9 +1,8 @@
 <p>row works!</p>
 
 <div class="card-body">
-  <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
-    <h1 style="color: red">{{ row.RowId }}</h1>
-    <h1 style="color: red">{{ row.RowClass }}</h1>
-    <app-column></app-column>
+  <div *ngFor="let column of this.webStructureService.columnsByIdArray">
+    <app-column [columnId]="column.ColumnId"></app-column>
+    {{ column.columnId }}
   </div>
 </div>

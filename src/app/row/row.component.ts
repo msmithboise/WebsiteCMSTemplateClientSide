@@ -17,6 +17,7 @@ export class RowComponent implements OnInit {
   @Input() rowId: number;
   public pageId: number;
   public pageDescription: string;
+  public columnId = '';
 
   constructor(
     public webStructureService: WebStructureService,

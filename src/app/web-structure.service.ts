@@ -45,4 +45,9 @@ export class WebStructureService {
   postColumnsByRowId(formData: FormGroup) {
     return this.http.post(this.webApi + '/Columns', formData);
   }
+
+  //Get content by columnid
+  getContentByColumnId(columnId: number) {
+    return this.http.get(this.webApi + '/Columns/' + columnId);
+  }
 }

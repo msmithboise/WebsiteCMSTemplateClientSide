@@ -13,6 +13,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   styleUrls: ['./column.component.css'],
 })
 export class ColumnComponent implements OnInit {
+  @Input() columnId: number;
   public pageId: number;
   public pageDescription: string;
 
@@ -26,9 +27,13 @@ export class ColumnComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('getting columnid from row component');
+    console.log(this.columnId);
     // this.grabAllContentByPageId();
     // this.getRowsByPageId();
   }
+
+  getContentByColumnId() {}
 
   getRowsByPageId() {
     this.route.params.subscribe((params) => {

@@ -745,6 +745,8 @@
 
             <!-- Existing content display forms -->
             <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
+              <h1 style="color: red">{{ row.RowId }}</h1>
+
               <app-row [rowId]="row.RowId"> </app-row>
             </div>
           </main>
