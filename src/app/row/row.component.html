@@ -4,6 +4,6 @@
   <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
     <h1 style="color: red">{{ row.RowId }}</h1>
     <h1 style="color: red">{{ row.RowClass }}</h1>
-    <app-column [rowId]="row.RowId"></app-column>
+    <app-column></app-column>
   </div>
 </div>

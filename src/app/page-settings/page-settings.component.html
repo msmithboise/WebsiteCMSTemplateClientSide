@@ -33,26 +33,7 @@
             >
               <h1 class="h2">Dashboard</h1>
               <!-- Add Row Button -->
-              <div>
-                <!-- <form
-                  type="hidden"
-                  [formGroup]="rowFormTemplate"
-                  class="form-inline formStyle"
-                >
-                  <input type="hidden" name="RowId" formControlName="RowId" />
 
-                  <input type="hidden" name="PageId" formControlName="pageId" />
-
-                  <input type="hidden" name="Id" formControlName="Id" />
-
-                  <!-- Sub Page Id -->
-                <!-- <input
-                    type="hidden"
-                    name="SubPageId"
-                    formControlName="subPageId"
-                  /> -->
-                <!-- </form> -->
-              </div>
               <button
                 style="float: left"
                 type="button"
@@ -763,7 +744,9 @@
             </div>
 
             <!-- Existing content display forms -->
-            <app-row> </app-row>
+            <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
+              <app-row [rowId]="row.RowId"> </app-row>
+            </div>
           </main>
         </div>
       </div>

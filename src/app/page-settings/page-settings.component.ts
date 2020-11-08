@@ -29,6 +29,7 @@ import { WebStructureService } from '../web-structure.service';
   providers: [WebcontentService],
 })
 export class PageSettingsComponent implements OnInit {
+  public rowId = '';
   closeResult = '';
   public fileToUpload: File = null;
   imgSrc: string;
@@ -56,8 +57,9 @@ export class PageSettingsComponent implements OnInit {
     public webStructureService: WebStructureService
   ) {}
 
+  //This component needs to grab all rows by page id
   ngOnInit(): void {
-    this.grabAllContentByPageId();
+    //this.grabAllContentByPageId();
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();

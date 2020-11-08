@@ -12,7 +12,7 @@ export class WebStructureService {
   public rowsArray: Row[];
   public rowsByPageIdArray: Row[];
   public columnsArray: Column[];
-
+  public columnsByIdArray: Column[];
   constructor(private http: HttpClient) {}
 
   //Get Rows
