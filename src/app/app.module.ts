@@ -42,6 +42,7 @@ import { DashboardBaseComponent } from './dashboard-base/dashboard-base.componen
 import { GridComponent } from './grid/grid.component';
 import { GridChildComponent } from './grid-child/grid-child.component';
 import { RowComponent } from './row/row.component';
+import { ColumnComponent } from './column/column.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { RowComponent } from './row/row.component';
     GridComponent,
     GridChildComponent,
     RowComponent,
+    ColumnComponent,
   ],
   imports: [
     BrowserModule,
