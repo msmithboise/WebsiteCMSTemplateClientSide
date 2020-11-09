@@ -71,6 +71,7 @@ export class CustomPageComponent implements OnInit {
   public pageDescription: string;
   public pageId: number;
   public rowIds = [];
+  public columnIds = [];
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -85,12 +86,17 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
-  getColumnsByRowId(rowId: number) {
-    //console.log('getting columns by rowId');
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-    });
+  getContentByColumnId(columnId: number) {
+    this.webStructureService
+      .getContentByColumnId(columnId)
+      .subscribe((res: Webcontent[]) => {
+        this.webStructureService.contentByColumnIdArray = res;
+        console.log('content by column array');
+        console.log(this.webStructureService.contentByColumnIdArray);
+      });
+  }
 
+  getColumnsByRowId(rowId: number) {
     console.log('getting columns with rowId:', rowId);
     this.webStructureService
       .getColumnsByRowId(rowId)
@@ -99,6 +105,23 @@ export class CustomPageComponent implements OnInit {
         console.log('columns by rowId array');
         console.log(this.webStructureService.columnsByIdArray);
         // this.grabAllContentByPageId();
+
+        if (this.webStructureService.columnsByIdArray != null) {
+          for (
+            let i = 0;
+            i < this.webStructureService.columnsByIdArray.length;
+            i++
+          ) {
+            const columnn = this.webStructureService.columnsByIdArray[i];
+            this.columnIds.push(columnn.ColumnId);
+          }
+          console.log('columnIds');
+          console.log(this.columnIds);
+
+          this.columnIds.forEach((columnId) => {
+            this.getContentByColumnId(columnId);
+          });
+        }
       });
   }
 
