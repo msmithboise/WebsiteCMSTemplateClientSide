@@ -24,6 +24,7 @@ import { NonNullAssert } from '@angular/compiler';
 import { style } from '@angular/animations';
 import { Http2ServerRequest } from 'http2';
 import { WebStructureService } from 'src/app/web-structure.service';
+import { Column } from 'src/app/models/column.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -69,6 +70,7 @@ export class CustomPageComponent implements OnInit {
   public resizeButtonToggled: boolean = false;
   public pageDescription: string;
   public pageId: number;
+  public rowIds = [];
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -83,6 +85,23 @@ export class CustomPageComponent implements OnInit {
     //this.changePhoto();
   }
 
+  getColumnsByRowId(rowId: number) {
+    //console.log('getting columns by rowId');
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+
+    console.log('getting columns with rowId:', rowId);
+    this.webStructureService
+      .getColumnsByRowId(rowId)
+      .subscribe((res: Column[]) => {
+        this.webStructureService.columnsByIdArray = res;
+        console.log('columns by rowId array');
+        console.log(this.webStructureService.columnsByIdArray);
+        // this.grabAllContentByPageId();
+      });
+  }
+
   getRowsByPageId() {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
@@ -92,13 +111,29 @@ export class CustomPageComponent implements OnInit {
       this.webStructureService.rowsByPageIdArray = res;
       console.log('getting rows by page id on custompage');
       console.log(this.webStructureService.rowsByPageIdArray);
+      console.log('rowid');
+
+      for (
+        let i = 0;
+        i < this.webStructureService.rowsByPageIdArray.length;
+        i++
+      ) {
+        const row = this.webStructureService.rowsByPageIdArray[i];
+        this.rowIds.push(row.RowId);
+      }
+      console.log('rowIds');
+      console.log(this.rowIds);
+
+      this.rowIds.forEach((rowId) => {
+        this.getColumnsByRowId(rowId);
+      });
     });
   }
 
-  rowId() {
-    console.log('getting row id');
-    return '1';
-  }
+  // rowId() {
+  //   console.log('getting row id');
+  //   return '1';
+  // }
 
   createMapLink(mapSearch: string) {
     var base = 'https://www.google.com/maps/embed/v1/search?key=';
