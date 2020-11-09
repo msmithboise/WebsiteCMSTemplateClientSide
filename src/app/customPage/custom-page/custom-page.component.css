@@ -119,6 +119,22 @@ a:active {
   -moz-columns: 2;
   columns: 2;
 }
+
+.container-fluid {
+  border: red;
+  border-style: solid;
+}
+
+.row {
+  border: blue;
+  border-style: dashed;
+  height: 100px;
+}
+
+.col {
+  border: green;
+  border-style: dotted;
+}
 /* .div {
   border-style: "dashed";
   height: "auto";

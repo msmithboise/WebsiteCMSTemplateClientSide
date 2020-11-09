@@ -48,25 +48,15 @@
 
 <!-- Hero image field (Parallax, cover, fixed) -->
 <body style="background-color: #27293d">
-  <div class="container-fluid" style="border: red; border-style: solid">
-    <div
-      *ngFor="let row of this.webStructureService.rowsByPageIdArray"
-      [ngClass]="row.RowClass"
-      id="row.RowId"
-      style="border: blue; border-style: dashed; height: 100px"
-    >
-      <div
-        *ngFor="let column of this.webStructureService.columnsByIdArray"
-        [ngClass]="column.ColumnClass"
-        id="column.ColumnId"
-        style="border: green; border-style: dotted"
-      >
-        <!-- <div *ngFor=""></div> -->
-        <!-- <app-custom-text-modal></app-custom-text-modal> -->
+  <div class="container-fluid">
+    <div class="row">
+      <h1 style="color: whitesmoke"></h1>
+      <div class="col">
+        <h2 style="color: whitesmoke"></h2>
         <ng-template
           ngFor
           let-content
-          [ngForOf]="this.webStructureService.contentByColumnIdArray"
+          [ngForOf]="this.webContentService.webContentArray"
         >
           <!-- Audio -->
           <div

@@ -25,6 +25,7 @@ import { style } from '@angular/animations';
 import { Http2ServerRequest } from 'http2';
 import { WebStructureService } from 'src/app/web-structure.service';
 import { Column } from 'src/app/models/column.model';
+import { Row } from 'src/app/models/row.model';
 
 @Component({
   selector: 'app-custom-page',
@@ -81,76 +82,8 @@ export class CustomPageComponent implements OnInit {
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
-    this.getRowsByPageId();
 
     //this.changePhoto();
-  }
-
-  getContentByColumnId(columnId: number) {
-    this.webStructureService
-      .getContentByColumnId(columnId)
-      .subscribe((res: Webcontent[]) => {
-        this.webStructureService.contentByColumnIdArray = res;
-        console.log('content by column array');
-        console.log(this.webStructureService.contentByColumnIdArray);
-      });
-  }
-
-  getColumnsByRowId(rowId: number) {
-    console.log('getting columns with rowId:', rowId);
-    this.webStructureService
-      .getColumnsByRowId(rowId)
-      .subscribe((res: Column[]) => {
-        this.webStructureService.columnsByIdArray = res;
-        console.log('columns by rowId array');
-        console.log(this.webStructureService.columnsByIdArray);
-        // this.grabAllContentByPageId();
-
-        if (this.webStructureService.columnsByIdArray != null) {
-          for (
-            let i = 0;
-            i < this.webStructureService.columnsByIdArray.length;
-            i++
-          ) {
-            const columnn = this.webStructureService.columnsByIdArray[i];
-            this.columnIds.push(columnn.ColumnId);
-          }
-          console.log('columnIds');
-          console.log(this.columnIds);
-
-          this.columnIds.forEach((columnId) => {
-            this.getContentByColumnId(columnId);
-          });
-        }
-      });
-  }
-
-  getRowsByPageId() {
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-    });
-
-    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
-      this.webStructureService.rowsByPageIdArray = res;
-      console.log('getting rows by page id on custompage');
-      console.log(this.webStructureService.rowsByPageIdArray);
-      console.log('rowid');
-
-      for (
-        let i = 0;
-        i < this.webStructureService.rowsByPageIdArray.length;
-        i++
-      ) {
-        const row = this.webStructureService.rowsByPageIdArray[i];
-        this.rowIds.push(row.RowId);
-      }
-      console.log('rowIds');
-      console.log(this.rowIds);
-
-      this.rowIds.forEach((rowId) => {
-        this.getColumnsByRowId(rowId);
-      });
-    });
   }
 
   // rowId() {

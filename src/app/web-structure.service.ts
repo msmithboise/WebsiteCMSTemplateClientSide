@@ -15,6 +15,8 @@ export class WebStructureService {
   public columnsArray: Column[];
   public columnsByIdArray: Column[];
   public contentByColumnIdArray: Webcontent[];
+  public combinedRowsByPageId = [];
+  public combinedColumnsByRowId = [];
   constructor(private http: HttpClient) {}
 
   //Get Rows
