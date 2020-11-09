@@ -44,6 +44,7 @@ import { GridChildComponent } from './grid-child/grid-child.component';
 import { RowComponent } from './row/row.component';
 import { ColumnComponent } from './column/column.component';
 import { TestComponent } from './test/test.component';
+import { ColumnViewComponent } from './column-view/column-view.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { TestComponent } from './test/test.component';
     RowComponent,
     ColumnComponent,
     TestComponent,
+    ColumnViewComponent,
   ],
   imports: [
     BrowserModule,

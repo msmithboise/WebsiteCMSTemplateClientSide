@@ -82,14 +82,18 @@ export class CustomPageComponent implements OnInit {
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
-
-    //this.changePhoto();
+    this.getRowsByPageId();
   }
 
-  // rowId() {
-  //   console.log('getting row id');
-  //   return '1';
-  // }
+  getRowsByPageId() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+
+    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      this.webStructureService.rowsByPageIdArray = res;
+    });
+  }
 
   createMapLink(mapSearch: string) {
     var base = 'https://www.google.com/maps/embed/v1/search?key=';

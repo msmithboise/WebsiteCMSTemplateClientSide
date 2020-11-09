@@ -131,10 +131,6 @@ a:active {
   height: 100px;
 }
 
-.col {
-  border: green;
-  border-style: dotted;
-}
 /* .div {
   border-style: "dashed";
   height: "auto";
