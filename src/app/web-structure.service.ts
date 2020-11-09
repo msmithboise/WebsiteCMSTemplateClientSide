@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Column } from './models/column.model';
 import { Row } from './models/row.model';
+import { Webcontent } from './WebContent/webcontent.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class WebStructureService {
   public rowsByPageIdArray: Row[];
   public columnsArray: Column[];
   public columnsByIdArray: Column[];
+  public contentByColumnIdArray: Webcontent[];
   constructor(private http: HttpClient) {}
 
   //Get Rows
@@ -48,6 +50,6 @@ export class WebStructureService {
 
   //Get content by columnid
   getContentByColumnId(columnId: number) {
-    return this.http.get(this.webApi + '/Columns/' + columnId);
+    return this.http.get(this.webApi + '/Content/' + columnId);
   }
 }

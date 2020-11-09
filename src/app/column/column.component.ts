@@ -27,9 +27,19 @@ export class ColumnComponent implements OnInit {
   ) {}
 
   //This component gets all content by column id
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getContentByColumnId();
+  }
 
-  getContentByColumnId() {}
+  getContentByColumnId() {
+    this.webStructureService
+      .getContentByColumnId(this.columnId)
+      .subscribe((res: Webcontent[]) => {
+        this.webStructureService.contentByColumnIdArray = res;
+        console.log('content by column array');
+        console.log(this.webStructureService.contentByColumnIdArray);
+      });
+  }
 
   getRowsByPageId() {
     this.route.params.subscribe((params) => {

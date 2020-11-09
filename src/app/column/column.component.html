@@ -3,7 +3,10 @@
     <h2 class="h2">Web Content</h2>
 
     <div
-      *ngFor="let text of this.webContentService.webContentArray; let i = index"
+      *ngFor="
+        let text of this.webStructureService.contentByColumnIdArray;
+        let i = index
+      "
     >
       <div>
         <!-- Delete button -->

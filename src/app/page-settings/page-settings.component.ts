@@ -76,8 +76,8 @@ export class PageSettingsComponent implements OnInit {
     this.webStructureService.getRows().subscribe((res) => {
       this.webStructureService.rowsArray = res;
 
-      console.log('getting rows');
-      console.log(this.webStructureService.rowsArray);
+      // console.log('getting rows');
+      // console.log(this.webStructureService.rowsArray);
     });
   }
 
@@ -95,13 +95,13 @@ export class PageSettingsComponent implements OnInit {
   }
 
   addRow() {
-    console.log('Adding row');
+    // console.log('Adding row');
 
     var newRow = this.rowFormTemplate.value;
     newRow.pageId = this.webContentService.pageIdSnapshot;
     newRow.RowId += newRow.RowId++;
 
-    console.log('newRow', newRow);
+    // console.log('newRow', newRow);
 
     this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
       //this.resetForm(form);
@@ -128,15 +128,15 @@ export class PageSettingsComponent implements OnInit {
   }
 
   dashboardMainNav(pageDescription: string, pageId: number) {
-    console.log('main page nav');
-    console.log(pageDescription, pageId);
+    // console.log('main page nav');
+    // console.log(pageDescription, pageId);
 
     this.router.navigate(['dashboard/' + pageDescription + '/' + pageId]);
   }
 
   mainPageNav(pageDescription: string, pageId: number) {
-    console.log('main page nav');
-    console.log(pageDescription, pageId);
+    // console.log('main page nav');
+    // console.log(pageDescription, pageId);
 
     this.router.navigate([pageDescription + '/' + pageId]);
   }
@@ -147,8 +147,8 @@ export class PageSettingsComponent implements OnInit {
     subPageDescription: string,
     subPageId: number
   ) {
-    console.log('sub id');
-    console.log(subPageId);
+    // console.log('sub id');
+    // console.log(subPageId);
 
     this.router.navigate([
       pageDescription +
@@ -164,8 +164,8 @@ export class PageSettingsComponent implements OnInit {
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-      console.log('subpages');
-      console.log(res);
+      // console.log('subpages');
+      // console.log(res);
     });
   }
 
@@ -187,16 +187,16 @@ export class PageSettingsComponent implements OnInit {
   }
 
   addHyperLink(id: number, text: string, imageUrl: string) {
-    console.log('item to add link to:');
-    console.log(id);
-    console.log(text);
-    console.log(imageUrl);
+    // console.log('item to add link to:');
+    // console.log(id);
+    // console.log(text);
+    // console.log(imageUrl);
 
     this.selectedId = id;
   }
 
   openPageSettings() {
-    console.log('opened page settings.');
+    // console.log('opened page settings.');
 
     this.router.navigate(['/edit-page/']);
   }
@@ -210,8 +210,8 @@ export class PageSettingsComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        console.log('here are the page settings');
-        console.log(res);
+        // console.log('here are the page settings');
+        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }
@@ -229,7 +229,7 @@ export class PageSettingsComponent implements OnInit {
   }
 
   showAudioPreview(event: any) {
-    console.log('show audio preview');
+    // console.log('show audio preview');
 
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
@@ -339,8 +339,8 @@ export class PageSettingsComponent implements OnInit {
     newForm.pageId = this.webContentService.pageIdSnapshot;
     newForm.Id = this.selectedId;
 
-    console.log('link form');
-    console.log(newForm);
+    // console.log('link form');
+    // console.log(newForm);
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
@@ -361,14 +361,14 @@ export class PageSettingsComponent implements OnInit {
   //To submit image url
 
   submitImageUrlData(form: FormGroup) {
-    console.log('image form after submit');
-    console.log(form);
+    // console.log('image form after submit');
+    // console.log(form);
     this.insertImageUrlRecord(form);
   }
 
   insertImageUrlRecord(form: FormGroup) {
-    console.log('image form during insert record');
-    console.log(form);
+    // console.log('image form during insert record');
+    // console.log(form);
 
     var newUrlForm = this.imageUrlFormTemplate.value;
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
@@ -384,14 +384,14 @@ export class PageSettingsComponent implements OnInit {
   //To embed image url
 
   submitEmbedUrlData(form: FormGroup) {
-    console.log('Embed form after submit');
-    console.log(form);
+    // console.log('Embed form after submit');
+    // console.log(form);
     this.insertEmbedUrlRecord(form);
   }
 
   insertEmbedUrlRecord(form: FormGroup) {
-    console.log('Embed form during insert record');
-    console.log(form);
+    // console.log('Embed form during insert record');
+    // console.log(form);
 
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
@@ -414,14 +414,14 @@ export class PageSettingsComponent implements OnInit {
   }
 
   createGoogleMap(form: FormGroup) {
-    console.log('map form to be posted');
-    console.log(form);
+    // console.log('map form to be posted');
+    // console.log(form);
 
     var newMapForm = this.mapFormTemplate.value;
     newMapForm.pageId = this.webContentService.pageIdSnapshot;
 
-    console.log('newMapForm before going to service');
-    console.log(newMapForm);
+    // console.log('newMapForm before going to service');
+    // console.log(newMapForm);
 
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
@@ -430,8 +430,8 @@ export class PageSettingsComponent implements OnInit {
   }
 
   get mapFormControls() {
-    console.log('map form controls');
-    console.log(this.mapFormTemplate['controls']);
+    // console.log('map form controls');
+    // console.log(this.mapFormTemplate['controls']);
     return this.mapFormTemplate['controls'];
   }
 
@@ -442,8 +442,8 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
   get audioFormControls() {
-    console.log('audio form controls');
-    console.log(this.audioUploadFormTemplate['controls']);
+    // console.log('audio form controls');
+    // console.log(this.audioUploadFormTemplate['controls']);
     return this.audioUploadFormTemplate['controls'];
   }
 
@@ -459,18 +459,18 @@ export class PageSettingsComponent implements OnInit {
   }
 
   onAudioSubmit(formValue) {
-    console.log('audio submitted...');
+    // console.log('audio submitted...');
     this.isAudioSubmitted = true;
-    console.log('this selectedAudio');
-    console.log(this.selectedAudio.name);
+    // console.log('this selectedAudio');
+    // console.log(this.selectedAudio.name);
     if (this.audioUploadFormTemplate.valid) {
       var audioFilePath = `audio/${this.selectedAudio.name
         .split('.')
         .slice(0, -1)
         .join('.')}_${new Date().getTime()}`;
 
-      console.log('audio file path');
-      console.log(audioFilePath);
+      // console.log('audio file path');
+      // console.log(audioFilePath);
       const audiofileRef = this.storage.ref(audioFilePath);
       this.storage
         .upload(audioFilePath, this.selectedAudio)
@@ -498,14 +498,14 @@ export class PageSettingsComponent implements OnInit {
   //To embed image url
 
   submitAudioData(form: FormGroup) {
-    console.log('Audio form after submit');
-    console.log(form);
+    // console.log('Audio form after submit');
+    // console.log(form);
     this.insertAudioRecord(form);
   }
 
   insertAudioRecord(form: FormGroup) {
-    console.log('Embed form during insert record');
-    console.log(form);
+    // console.log('Embed form during insert record');
+    // console.log(form);
 
     var newAudioForm = this.audioFormTemplate.value;
     newAudioForm.pageId = this.webContentService.pageIdSnapshot;
@@ -542,7 +542,7 @@ export class PageSettingsComponent implements OnInit {
   }
 
   deleteDialogue(id: number) {
-    console.log('trying to delete..');
+    // console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this?')) {
       this.onDelete(id);
     }
