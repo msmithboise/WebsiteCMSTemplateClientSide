@@ -51,15 +51,18 @@
   <div class="container-fluid" style="border: red; border-style: solid">
     <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
       <div [ngClass]="row.RowClass" style="border: blue; border-style: dashed">
-        <!-- <div *ngFor=""></div> -->
-        <!-- <app-custom-text-modal></app-custom-text-modal> -->
-        <ng-template
-          ngFor
-          let-content
-          [ngForOf]="this.webContentService.webContentArray"
-        >
-          <div class="row">
-            <div class="col-test" style="border: green; border-style: dotted">
+        <div *ngFor="let column of this.webStructureService.columnsByIdArray">
+          <div
+            [ngClass]="column.ColumnClass"
+            style="border: green; border-style: dotted"
+          >
+            <!-- <div *ngFor=""></div> -->
+            <!-- <app-custom-text-modal></app-custom-text-modal> -->
+            <ng-template
+              ngFor
+              let-content
+              [ngForOf]="this.webStructureService.contentByColumnIdArray"
+            >
               <!-- Audio -->
               <div
                 *ngIf="content.AudioUrl != null"
@@ -277,11 +280,9 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-4"></div>
-            <div class="col-4"></div>
+            </ng-template>
           </div>
-        </ng-template>
+        </div>
       </div>
     </div>
   </div>
