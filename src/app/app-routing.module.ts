@@ -13,6 +13,7 @@ import { SubpageComponent } from './subpage/subpage.component';
 import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard.component';
 import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 import { GridComponent } from './grid/grid.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'edit-page', component: EditPageSettingsComponent },
   { path: 'navbar-settings', component: NavbarSettingsComponent },
   { path: 'grid', component: GridComponent },
+  { path: 'test', component: TestComponent },
 
   {
     path: 'edit-sub-page/:pageDescription/:pageId',
