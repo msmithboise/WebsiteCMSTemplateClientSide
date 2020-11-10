@@ -95,17 +95,6 @@ export class CustomPageComponent implements OnInit {
     });
   }
 
-  createMapLink(mapSearch: string) {
-    var base = 'https://www.google.com/maps/embed/v1/search?key=';
-    var apiKey = 'AIzaSyBunkNh2PQkqdZqA9kSGo0rEjjlW0wZjL4';
-    var testQuery = 'riveroflife+pocatello+idaho';
-    var userQuery = mapSearch;
-    var link = base + apiKey + '&q=' + userQuery;
-    var cleanedLink = this.sanitizer.bypassSecurityTrustResourceUrl(link);
-
-    return cleanedLink;
-  }
-
   createLink(hyperLink: string) {
     return hyperLink;
   }
@@ -298,15 +287,6 @@ export class CustomPageComponent implements OnInit {
     return this.customPageService.customPageArray.find(
       (x) => x.PageId === pageId
     );
-  }
-
-  setYouTubeEmbed(embedLink) {
-    if (embedLink != null) {
-      var url = embedLink;
-      url = url.replace('youtu.be', 'youtube.com/embed');
-      var embed = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-      return embed;
-    }
   }
 
   setAudioUrl(audioUrl: string) {
