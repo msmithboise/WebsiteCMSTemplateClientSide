@@ -1,7 +1,7 @@
 <div
   *ngFor="let column of this.webStructureService.columnsByIdArray"
   [ngClass]="column.ColumnClass"
-  style="border-style: dotted; border: white; height: 100%"
+  style="border-style: dotted; border: green; height: 100%"
 >
   <h2 style="color: white">{{ column.ColumnId }}</h2>
   <app-content-view [columnId]="column.ColumnId"></app-content-view>

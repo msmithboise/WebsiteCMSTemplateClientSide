@@ -92,6 +92,11 @@ export class CustomPageComponent implements OnInit {
 
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
+      console.log(
+        'In page component:  Gettings all rows by pageIds:',
+        this.pageId
+      );
+      console.log(res);
     });
   }
 
@@ -120,12 +125,12 @@ export class CustomPageComponent implements OnInit {
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    console.log('button toggled');
+    // console.log('button toggled');
   }
 
   createTestArray() {
     this.testGrid = ['hello', 'goodbye', 'good morning'];
-    console.log(this.testGrid);
+    // console.log(this.testGrid);
     return this.testGrid;
   }
 
@@ -218,8 +223,8 @@ export class CustomPageComponent implements OnInit {
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        console.log('here is the content array:');
-        console.log(this.webContentService.webContentArray);
+        // console.log('here is the content array:');
+        // console.log(this.webContentService.webContentArray);
 
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
@@ -318,8 +323,8 @@ export class CustomPageComponent implements OnInit {
     this.authService.removeToken;
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
-      console.log('logout data:');
-      console.log(res);
+      // console.log('logout data:');
+      // console.log(res);
       this.userService.userArray = res;
     });
     this.router.navigate(['portal']);

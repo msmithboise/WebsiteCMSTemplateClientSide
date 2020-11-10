@@ -26,7 +26,10 @@ export class ContentViewComponent implements OnInit {
       .getContentByColumnId(columnId)
       .subscribe((res: Webcontent[]) => {
         this.webStructureService.contentByColumnIdArray = res;
-        console.log('content by column array');
+        console.log(
+          'In content view:  Getting all content by column ids: ',
+          columnId
+        );
         console.log(this.webStructureService.contentByColumnIdArray);
       });
   }

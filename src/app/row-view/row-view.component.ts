@@ -11,7 +11,7 @@ export class RowViewComponent implements OnInit {
   constructor(public webStructureService: WebStructureService) {}
 
   ngOnInit(): void {
-    this.getRowsByPageId();
+    //this.getRowsByPageId();
   }
 
   //Get Rows By PageId
@@ -20,7 +20,7 @@ export class RowViewComponent implements OnInit {
     console.log('pageid', this.pageId);
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
-      console.log('getting rows in row view');
+      console.log('In row view: getting rows in row view by ');
       console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
