@@ -50,12 +50,7 @@
 <body style="background-color: #27293d">
   <div class="container-fluid">
     <!-- Foreach row on specified page -->
-    <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
-      <div [ngClass]="row.RowClass">
-        <h1 style="color: white">{{ row.RowId }}</h1>
-      </div>
-      <app-column-view [rowId]="row.RowId"> </app-column-view>
-    </div>
+    <app-row-view [pageId]="pageId"></app-row-view>
 
     <ng-template
       ngFor

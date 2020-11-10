@@ -1,0 +1,7 @@
+<div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
+  <div [ngClass]="row.RowClass" style="border: white; border-style: dotted">
+    <h1 style="color: white">{{ row.RowId }}</h1>
+    <app-column-view style="height: 100%" [rowId]="row.RowId">
+    </app-column-view>
+  </div>
+</div>

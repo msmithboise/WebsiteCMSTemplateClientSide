@@ -15,6 +15,9 @@ export class ColumnViewComponent implements OnInit {
   }
 
   getColumnsByRowId() {
+    //RowId 21 and 22
+    console.log('rowId input: ', this.rowId);
+    //Should return Col-6 for 21 and col-12 for 22
     this.webStructureService.getColumnsByRowId(this.rowId).subscribe((res) => {
       this.webStructureService.columnsByIdArray = res;
       console.log('column view');

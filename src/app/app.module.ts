@@ -45,6 +45,7 @@ import { RowComponent } from './row/row.component';
 import { ColumnComponent } from './column/column.component';
 import { TestComponent } from './test/test.component';
 import { ColumnViewComponent } from './column-view/column-view.component';
+import { RowViewComponent } from './row-view/row-view.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ColumnViewComponent } from './column-view/column-view.component';
     ColumnComponent,
     TestComponent,
     ColumnViewComponent,
+    RowViewComponent,
   ],
   imports: [
     BrowserModule,
