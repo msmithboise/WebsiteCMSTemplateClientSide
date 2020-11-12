@@ -1,7 +1,9 @@
 <div class="card-body">
-  <div *ngFor="let column of this.webStructureService.columnsByIdArray">
-    <app-column [columnId]="column.ColumnId"></app-column>
+  <div *ngFor="let columnArray of this.columnLists">
+    <div *ngFor="let column of columnArray">
+      <app-column [columnId]="column.ColumnId"></app-column>
 
-    {{ column.ColumnId }}
+      {{ column.ColumnId }}
+    </div>
   </div>
 </div>

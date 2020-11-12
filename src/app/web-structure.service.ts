@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ColumnListVm } from './models/column-list-vm.model';
 import { Column } from './models/column.model';
 import { Row } from './models/row.model';
 import { Webcontent } from './WebContent/webcontent.model';
@@ -41,9 +42,9 @@ export class WebStructureService {
 
   //Get Columns by PageId (and RowId)
 
-  getColumnsByRowId(rowId: number) {
-    return this.http.get<Column[]>(this.webApi + '/Columns/' + rowId);
-  }
+  // getColumnsByRowId(rowId: number) {
+  //   return this.http.get<Column[]>(this.webApi + '/Columns/' + rowId);
+  // }
 
   //Post Columns
   postColumnsByRowId(formData: FormGroup) {
@@ -53,5 +54,10 @@ export class WebStructureService {
   //Get content by columnid
   getContentByColumnId(columnId: number) {
     return this.http.get(this.webApi + '/Content/' + columnId);
+  }
+
+  // Get column lists
+  getColumnLists(rowId: number) {
+    return this.http.get<Column[]>(this.webApi + '/Columns/' + rowId);
   }
 }

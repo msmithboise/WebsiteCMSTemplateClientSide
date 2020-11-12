@@ -36,7 +36,7 @@ export class ColumnComponent implements OnInit {
       .getContentByColumnId(this.columnId)
       .subscribe((res: Webcontent[]) => {
         this.webStructureService.contentByColumnIdArray = res;
-        console.log('content by column array');
+        console.log('content by column array', this.columnId);
         console.log(this.webStructureService.contentByColumnIdArray);
       });
   }

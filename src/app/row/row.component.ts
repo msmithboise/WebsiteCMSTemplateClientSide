@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ColumnListVm } from '../models/column-list-vm.model';
 import { Column } from '../models/column.model';
 import { CustomImageService } from '../services/custom-image.service';
 import { WebStructureService } from '../web-structure.service';
@@ -18,6 +19,8 @@ export class RowComponent implements OnInit {
   public pageId: number;
   public pageDescription: string;
   public columnId = '';
+  public columnLists: Column[];
+  public rowIdArray: number[];
 
   constructor(
     public webStructureService: WebStructureService,
@@ -30,7 +33,7 @@ export class RowComponent implements OnInit {
 
   //This component needs to grab all columns by Row Id
   ngOnInit(): void {
-    this.getColumnsByRowId();
+    this.getColumnsByRowId(this.rowId);
   }
 
   columnFormTemplate = new FormGroup({
@@ -53,7 +56,7 @@ export class RowComponent implements OnInit {
   }
 
   //get columns by row id and page id
-  getColumnsByRowId() {
+  getColumnsByRowId(rowId: number) {
     //console.log('getting columns by rowId');
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
@@ -61,12 +64,14 @@ export class RowComponent implements OnInit {
 
     console.log('getting columns with rowId:', this.rowId);
     this.webStructureService
-      .getColumnsByRowId(this.rowId)
+      .getColumnLists(this.rowId)
 
       .subscribe((res: Column[]) => {
-        this.webStructureService.columnsByIdArray = res;
-        console.log('columns by rowId array');
-        console.log(this.webStructureService.columnsByIdArray);
+        this.columnLists = res;
+        console.log('columns by rowId array', this.rowId);
+        console.log('column list');
+        console.log('rowid: ', this.rowId);
+        console.log(this.columnLists);
         // this.grabAllContentByPageId();
       });
   }
