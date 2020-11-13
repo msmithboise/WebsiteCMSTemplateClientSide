@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Duplex } from 'stream';
 import { ColumnListVm } from '../models/column-list-vm.model';
 import { Column } from '../models/column.model';
 import { CustomImageService } from '../services/custom-image.service';
@@ -21,6 +22,8 @@ export class RowComponent implements OnInit {
   public columnId = '';
   public columnLists: Column[];
   public rowIdArray: number[];
+  public list: Column;
+  public newColumnList: Column[];
 
   constructor(
     public webStructureService: WebStructureService,
@@ -57,22 +60,25 @@ export class RowComponent implements OnInit {
 
   //get columns by row id and page id
   getColumnsByRowId(rowId: number) {
-    //console.log('getting columns by rowId');
-    this.route.params.subscribe((params) => {
-      this.pageId = params.pageId;
-    });
-
-    console.log('getting columns with rowId:', this.rowId);
+    console.log('before the get call:', this.rowId);
     this.webStructureService
       .getColumnLists(this.rowId)
-
-      .subscribe((res: Column[]) => {
-        this.columnLists = res;
+      .subscribe((res: Column) => {
+        this.columnLists = res[0];
         console.log('columns by rowId array', this.rowId);
-        console.log('column list');
-        console.log('rowid: ', this.rowId);
+
         console.log(this.columnLists);
-        // this.grabAllContentByPageId();
+        console.log('before the for loop');
+        for (let i = 0; i < this.columnLists.length; i++) {
+          const column = this.columnLists[i];
+
+          console.log('columnlist rowid: ', column.RowId);
+          console.log('passed in rowid: ', this.rowId);
+
+          this.newColumnList = this.columnLists;
+
+          console.log('after the if statement');
+        }
       });
   }
 

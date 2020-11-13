@@ -1,6 +1,7 @@
 <div class="card-body">
-  <div *ngFor="let columnArray of this.columnLists">
-    <div *ngFor="let column of columnArray">
+  <!-- For all of the columns tied to each row id... -->
+  <div *ngFor="let column of this.newColumnList">
+    <div *ngIf="column.RowId == this.rowId">
       <app-column [columnId]="column.ColumnId"></app-column>
 
       {{ column.ColumnId }}
