@@ -60,14 +60,14 @@ export class ColumnComponent implements OnInit {
             continue;
           }
 
-          //if content.Id
+          if (content.Id != null) {
+            console.log('content');
+            console.log(content);
 
-          console.log('content');
-          console.log(content);
-
-          this.newContentList = this.contentList;
-          console.log('list of content retreived(columnId)', this.columnId);
-          console.log(this.newContentList);
+            this.newContentList = this.contentList;
+            console.log('list of content retreived(columnId)', this.columnId);
+            console.log(this.newContentList);
+          }
         }
       });
   }
