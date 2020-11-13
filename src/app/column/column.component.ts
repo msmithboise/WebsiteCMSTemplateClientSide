@@ -51,13 +51,24 @@ export class ColumnComponent implements OnInit {
       .subscribe((res: Webcontent) => {
         this.contentList = res[0];
 
-        // for (let i = 0; i < this.contentList.length; i++) {
-        //   const content = this.contentList[i];
+        for (let i = 0; i < this.contentList.length; i++) {
+          const content = this.contentList[i];
 
-        this.newContentList = this.contentList;
-        console.log('list of content retreived', this.columnId);
-        console.log(this.newContentList);
-        // }
+          //if content.ColumnId != this.columnId - return
+
+          if (content.ColumnId != this.columnId) {
+            continue;
+          }
+
+          //if content.Id
+
+          console.log('content');
+          console.log(content);
+
+          this.newContentList = this.contentList;
+          console.log('list of content retreived(columnId)', this.columnId);
+          console.log(this.newContentList);
+        }
       });
   }
 
