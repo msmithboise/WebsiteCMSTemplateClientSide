@@ -197,12 +197,11 @@
             <!-- Row-->
 
             <div *ngIf="text.RowId">
-              <label>Row</label>
               <input
+                type="hidden"
                 name="RowId"
                 #RowId="ngModel"
                 [(ngModel)]="text.RowId"
-                class="formStyle"
               />
             </div>
 
