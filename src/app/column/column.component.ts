@@ -16,6 +16,8 @@ export class ColumnComponent implements OnInit {
   @Input() columnId: number;
   public pageId: number;
   public pageDescription: string;
+  public contentList: Webcontent[];
+  public newContentList: Webcontent[];
 
   constructor(
     public webStructureService: WebStructureService,
@@ -28,7 +30,7 @@ export class ColumnComponent implements OnInit {
 
   //This component gets all content by column id
   ngOnInit(): void {
-    this.getContentByColumnId();
+    this.getContentListsByColumnId();
   }
 
   getContentByColumnId() {
@@ -40,6 +42,46 @@ export class ColumnComponent implements OnInit {
         console.log(this.webStructureService.contentByColumnIdArray);
       });
   }
+
+  getContentListsByColumnId() {
+    this.webStructureService
+      .getContentLists(this.columnId)
+      .subscribe((res: Webcontent) => {
+        this.contentList = res[0];
+
+        for (let i = 0; i < this.contentList.length; i++) {
+          const content = this.contentList[i];
+
+          this.newContentList = this.contentList;
+          console.log('getting list of content');
+          console.log(this.newContentList);
+        }
+      });
+  }
+
+  // //get columns by row id and page id
+  // getColumnsByRowId(rowId: number) {
+  //   // console.log('before the get call:', this.rowId);
+  //   this.webStructureService
+  //     .getColumnLists(this.rowId)
+  //     .subscribe((res: Column) => {
+  //       this.columnLists = res[0];
+  //       // console.log('columns by rowId array', this.rowId);
+
+  //       // console.log(this.columnLists);
+  //       // console.log('before the for loop');
+  //       for (let i = 0; i < this.columnLists.length; i++) {
+  //         const column = this.columnLists[i];
+
+  //         // console.log('columnlist rowid: ', column.RowId);
+  //         // console.log('passed in rowid: ', this.rowId);
+
+  //         this.newColumnList = this.columnLists;
+  //         console.log('getting list of columns');
+  //         console.log(this.newColumnList);
+  //       }
+  //     });
+  // }
 
   getRowsByPageId() {
     this.route.params.subscribe((params) => {

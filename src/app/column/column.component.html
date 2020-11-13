@@ -2,12 +2,8 @@
   <div class="card-body">
     <h2 class="h2">Web Content</h2>
 
-    <div
-      *ngFor="
-        let text of this.webStructureService.contentByColumnIdArray;
-        let i = index
-      "
-    >
+    <div *ngFor="let text of this.newContentList; let i = index">
+      <div *ngIf="text.ColumnId == this.columnId"></div>
       <!-- // For all of the content tied to each column id... -->
       <div>
         <!-- Delete button -->

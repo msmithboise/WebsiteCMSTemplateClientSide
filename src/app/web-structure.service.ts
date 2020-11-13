@@ -60,4 +60,9 @@ export class WebStructureService {
   getColumnLists(rowId: number) {
     return this.http.get<Column>(this.webApi + '/Columns/' + rowId);
   }
+
+  // Get content lists
+  getContentLists(columnId: number) {
+    return this.http.get<Column>(this.webApi + '/Content/' + columnId);
+  }
 }
