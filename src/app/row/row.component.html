@@ -2,9 +2,8 @@
   <!-- For all of the columns tied to each row id... -->
   <div *ngFor="let column of this.newColumnList">
     <div *ngIf="column.RowId == this.rowId">
+      <h2 style="color: black">ColumnId: {{ column.ColumnId }}</h2>
       <app-column [columnId]="column.ColumnId"></app-column>
-
-      {{ column.ColumnId }}
     </div>
   </div>
 </div>

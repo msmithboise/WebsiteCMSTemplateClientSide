@@ -44,18 +44,20 @@ export class ColumnComponent implements OnInit {
   }
 
   getContentListsByColumnId() {
+    console.log('Getting content by column Id: ', this.columnId);
+
     this.webStructureService
       .getContentLists(this.columnId)
       .subscribe((res: Webcontent) => {
         this.contentList = res[0];
 
-        for (let i = 0; i < this.contentList.length; i++) {
-          const content = this.contentList[i];
+        // for (let i = 0; i < this.contentList.length; i++) {
+        //   const content = this.contentList[i];
 
-          this.newContentList = this.contentList;
-          console.log('getting list of content');
-          console.log(this.newContentList);
-        }
+        this.newContentList = this.contentList;
+        console.log('list of content retreived', this.columnId);
+        console.log(this.newContentList);
+        // }
       });
   }
 
