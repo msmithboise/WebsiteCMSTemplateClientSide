@@ -4,6 +4,7 @@
 
     <div *ngFor="let text of this.newContentList; let i = index">
       <div *ngIf="text.ColumnId == this.columnId">
+        <app-button-panel></app-button-panel>
         <h3 style="color: violet">ContentId: {{ text.Id }}</h3>
         <!-- // For all of the content tied to each column id... -->
         <div>

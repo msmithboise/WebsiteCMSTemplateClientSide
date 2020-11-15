@@ -173,6 +173,10 @@ body {
   color: #020202c9;
 }
 
+app-button-panel {
+  float: right;
+}
+
 /*
      * Navbar
      */

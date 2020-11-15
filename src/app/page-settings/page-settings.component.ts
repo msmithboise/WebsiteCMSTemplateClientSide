@@ -252,11 +252,6 @@ export class PageSettingsComponent implements OnInit {
     backgroundImage: new FormControl(''),
   });
 
-  textFormTemplate = new FormGroup({
-    TextBody: new FormControl('', Validators.required),
-    pageId: new FormControl(''),
-  });
-
   imageUrlFormTemplate = new FormGroup({
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
@@ -317,11 +312,6 @@ export class PageSettingsComponent implements OnInit {
     }
   }
 
-  //To submit text body data
-  submitNewTextData(form: FormGroup) {
-    this.insertTextRecord(form);
-  }
-
   //TO submit link data
 
   linkFormTemplate = new FormGroup({
@@ -341,16 +331,6 @@ export class PageSettingsComponent implements OnInit {
 
     // console.log('link form');
     // console.log(newForm);
-
-    this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-      //this.resetForm(form);
-      this.grabAllContentByPageId();
-    });
-  }
-
-  insertTextRecord(form: FormGroup) {
-    var newForm = this.textFormTemplate.value;
-    newForm.pageId = this.webContentService.pageIdSnapshot;
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
