@@ -35,6 +35,37 @@ export class ButtonPanelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //To create google map
+  mapFormTemplate = new FormGroup({
+    MapUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+  onMapSubmit(formValue) {
+    this.createGoogleMap(formValue);
+  }
+
+  createGoogleMap(form: FormGroup) {
+    // console.log('map form to be posted');
+    // console.log(form);
+
+    var newMapForm = this.mapFormTemplate.value;
+    newMapForm.pageId = this.webContentService.pageIdSnapshot;
+
+    // console.log('newMapForm before going to service');
+    // console.log(newMapForm);
+
+    //We are passing a form group here...
+    this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
+      //this.grabAllContentByPageId();
+    });
+  }
+
+  get mapFormControls() {
+    // console.log('map form controls');
+    // console.log(this.mapFormTemplate['controls']);
+    return this.mapFormTemplate['controls'];
+  }
+
   //To embed image url
 
   embedUrlFormTemplate = new FormGroup({
