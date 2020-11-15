@@ -27,6 +27,7 @@ export class ButtonPanelComponent implements OnInit {
   selectedId: number;
   public pageDescription: string;
   public pageId: number;
+  public passedInColumnId: number;
   constructor(
     public webContentService: WebcontentService,
     private storage: AngularFireStorage,
@@ -37,6 +38,11 @@ export class ButtonPanelComponent implements OnInit {
 
   passColumnId(columnId: number) {
     console.log(columnId);
+    this.passedInColumnId = columnId;
+    console.log('passed in id');
+    console.log(this.passedInColumnId);
+
+    localStorage.setItem('passedId', this.passedInColumnId.toString());
   }
 
   //To create google map
@@ -225,7 +231,7 @@ export class ButtonPanelComponent implements OnInit {
 
   //To submit text body data
   submitNewTextData(form: FormGroup) {
-    console.log('columnId', this.columnId);
+    console.log('passed on submit columnId', this.passedInColumnId);
     this.insertTextRecord(form);
   }
 
@@ -236,9 +242,12 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   insertTextRecord(form: FormGroup) {
+    var colId = localStorage.getItem('passedId');
     var newForm = this.textFormTemplate.value;
     newForm.pageId = this.webContentService.pageIdSnapshot;
-    newForm.columnId = this.columnId;
+    newForm.columnId = Number(colId);
+    console.log('local storage id');
+    console.log(Number(colId));
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
