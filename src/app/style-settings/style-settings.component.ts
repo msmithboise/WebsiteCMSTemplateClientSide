@@ -17,6 +17,7 @@ export class StyleSettingsComponent implements OnInit {
   public pageId: number;
   public subPageDescription: string;
   public subPageId: number;
+  public columnId: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -59,6 +60,7 @@ export class StyleSettingsComponent implements OnInit {
       this.pageDescription = params.pageDescription;
       this.subPageDescription = params.subPageDescription;
       this.subPageId = params.subPageId;
+      this.columnId = params.columnId;
     });
 
     this.webContentService.postEditContentById(form.value).subscribe((res) => {

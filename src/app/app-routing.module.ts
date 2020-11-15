@@ -44,6 +44,10 @@ const routes: Routes = [
     component: StyleSettingsComponent,
   },
   {
+    path: 'style-settings/:pageDescription/:pageId/:columnId/:textId',
+    component: StyleSettingsComponent,
+  },
+  {
     path: 'style-settings/:pageDescription/:pageId/:textId',
     component: StyleSettingsComponent,
   },

@@ -205,10 +205,12 @@ export class ColumnComponent implements OnInit {
       });
   }
 
-  selectItemToEdit(textId: number) {
+  selectItemToEdit(textId: number, columnId: number) {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
+      console.log('textId to edit: ', textId);
+      console.log('columnId to edit: ', columnId);
 
       //console.log(this.pageId);
 
@@ -220,6 +222,8 @@ export class ColumnComponent implements OnInit {
         this.pageDescription +
         '/' +
         this.pageId +
+        '/' +
+        columnId +
         '/' +
         textId,
     ]);
