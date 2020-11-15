@@ -11,6 +11,8 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
+  contentList: Webcontent[];
+  newContentList: Webcontent[];
 
   constructor(
     public webStructureService: WebStructureService,
@@ -18,19 +20,35 @@ export class ContentViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getContentByColumnId(this.columnId);
+    this.getContentListsByColumnId();
   }
 
-  getContentByColumnId(columnId: number) {
+  getContentListsByColumnId() {
+    console.log('Getting content by column Id: ', this.columnId);
+
     this.webStructureService
-      .getContentByColumnId(columnId)
-      .subscribe((res: Webcontent[]) => {
-        this.webStructureService.contentByColumnIdArray = res;
-        console.log(
-          'In content view:  Getting all content by column ids: ',
-          columnId
-        );
-        console.log(this.webStructureService.contentByColumnIdArray);
+      .getContentLists(this.columnId)
+      .subscribe((res: Webcontent) => {
+        this.contentList = res[0];
+
+        for (let i = 0; i < this.contentList.length; i++) {
+          const content = this.contentList[i];
+
+          //if content.ColumnId != this.columnId - return
+
+          if (content.ColumnId != this.columnId) {
+            continue;
+          }
+
+          if (content.Id != null) {
+            console.log('content');
+            console.log(content);
+
+            this.newContentList = this.contentList;
+            console.log('list of content retreived(columnId)', this.columnId);
+            console.log(this.newContentList);
+          }
+        }
       });
   }
 
