@@ -50,12 +50,10 @@
 <body style="background-color: #27293d">
   <div class="container-fluid">
     <!-- Foreach row on specified page -->
-    <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
-      <h1 style="color: red">RowId: {{ row.RowId }}</h1>
-      <!-- For all the rows that are tied to this page id... -->
 
-      <app-row-view [rowId]="row.RowId"></app-row-view>
-    </div>
+    <!-- For all the rows that are tied to this page id... -->
+
+    <app-row-view></app-row-view>
   </div>
   <button class="btn btn-info" (click)="resizeToggled()">Resize Images</button>
 </body>

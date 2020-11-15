@@ -7,7 +7,7 @@ import { WebStructureService } from '../web-structure.service';
   styleUrls: ['./row-view.component.css'],
 })
 export class RowViewComponent implements OnInit {
-  @Input() rowId: number;
+  //@Input() rowId: number;
   constructor(public webStructureService: WebStructureService) {}
 
   ngOnInit(): void {}
