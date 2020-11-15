@@ -16,7 +16,7 @@ export class ColumnViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getColumns();
+    //this.getColumns();
     //this.getColumns();
   }
 
@@ -33,14 +33,14 @@ export class ColumnViewComponent implements OnInit {
 
   //First get all rows by page id
 
-  getColumns() {
-    this.webStructureService.getColumnsByRowId(this.rowId).subscribe((res) => {
-      this.webStructureService.columnsByIdArray = res;
-      console.log(
-        'In column view:  getting all columns by row ids: ',
-        this.rowId
-      );
-      console.log(res);
-    });
-  }
+  // getColumns() {
+  //   this.webStructureService.getColumnsByRowId(this.rowId).subscribe((res) => {
+  //     this.webStructureService.columnsByIdArray = res;
+  //     console.log(
+  //       'In column view:  getting all columns by row ids: ',
+  //       this.rowId
+  //     );
+  //     console.log(res);
+  //   });
+  // }
 }
