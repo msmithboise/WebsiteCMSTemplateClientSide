@@ -25,6 +25,136 @@
   Add Text
 </button>
 
+<!-- image Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-sm btn-outline-secondary image-button"
+  data-toggle="modal"
+  data-target="#imageModal"
+>
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 16 16"
+    class="bi bi-file-image"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V2a1 1 0 0 0-1-1H4z"
+    />
+    <path
+      fill-rule="evenodd"
+      d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+    />
+  </svg>
+  Add Image
+</button>
+
+<!--Image Modal -->
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- New Upload File Form -->
+        <div class="card" style="width: 25rem">
+          <div class="card-body">
+            <form
+              [formGroup]="formTemplate"
+              (submit)="onSubmit(formTemplate.value)"
+            >
+              <div class="text-center">
+                <img
+                  [src]="imgSrc"
+                  width="350px"
+                  height="350px"
+                  (click)="fileUploader.click()"
+                />
+              </div>
+              <div class="form-group">
+                <label class="label">Select file to upload.</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  class="form-control-file"
+                  #fileUploader
+                  formControlName="imageUrl"
+                  (change)="showPreview($event)"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
+                >
+                  This field is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="hidden"
+                  formControlName="pageId"
+                />
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success float-right">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Image Url input form -->
+        <div class="card">
+          <div class="card-body">
+            <form
+              [formGroup]="imageUrlFormTemplate"
+              class="form-inline"
+              (submit)="submitImageUrlData(imageUrlFormTemplate.value)"
+            >
+              <div class="form-group">
+                <input
+                  name="imageUrl"
+                  class="form-control-lg form-group"
+                  placeholder="Add Url Here"
+                  type="text"
+                  formControlName="imageUrl"
+                />
+                <input type="hidden" name="PageId" formControlName="pageId" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--Text Modal -->
 <div
   class="modal fade"
