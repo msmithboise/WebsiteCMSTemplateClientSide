@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Column } from '../models/column.model';
 import { WebStructureService } from '../web-structure.service';
 
 @Component({
@@ -10,37 +11,39 @@ import { WebStructureService } from '../web-structure.service';
 export class ColumnViewComponent implements OnInit {
   @Input() rowId: number;
   public pageId: number;
+  columnLists: Column[];
+  newColumnList: Column[];
   constructor(
     public webStructureService: WebStructureService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    //this.getColumns();
-    //this.getColumns();
+    this.getColumnsByRowId(this.rowId);
   }
 
-  // getColumnsByRowId() {
-  //   //RowId 21 and 22
-  //   console.log('rowId input: ', this.rowId);
-  //   //Should return Col-6 for 21 and col-12 for 22
-  //   this.webStructureService.getColumnsByRowId(this.rowId).subscribe((res) => {
-  //     this.webStructureService.columnsByIdArray = res;
-  //     console.log('column view');
-  //     console.log(this.webStructureService.columnsByIdArray);
-  //   });
-  // }
+  //get columns by row id and page id
+  getColumnsByRowId(rowId: number) {
+    console.log('Getting columns by row id: ', rowId);
+    // console.log('before the get call:', this.rowId);
+    this.webStructureService
+      .getColumnLists(this.rowId)
+      .subscribe((res: Column) => {
+        this.columnLists = res[0];
+        // console.log('columns by rowId array', this.rowId);
 
-  //First get all rows by page id
+        // console.log(this.columnLists);
+        // console.log('before the for loop');
+        // for (let i = 0; i < this.columnLists.length; i++) {
+        //   const column = this.columnLists[i];
 
-  // getColumns() {
-  //   this.webStructureService.getColumnsByRowId(this.rowId).subscribe((res) => {
-  //     this.webStructureService.columnsByIdArray = res;
-  //     console.log(
-  //       'In column view:  getting all columns by row ids: ',
-  //       this.rowId
-  //     );
-  //     console.log(res);
-  //   });
-  // }
+        // console.log('columnlist rowid: ', column.RowId);
+        // console.log('passed in rowid: ', this.rowId);
+
+        this.newColumnList = this.columnLists;
+        // console.log('getting list of columns');
+        // console.log(this.newColumnList);
+        // }
+      });
+  }
 }
