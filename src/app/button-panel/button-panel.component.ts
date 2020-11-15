@@ -35,6 +35,10 @@ export class ButtonPanelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  passColumnId(columnId: number) {
+    console.log(columnId);
+  }
+
   //To create google map
   mapFormTemplate = new FormGroup({
     MapUrl: new FormControl('', Validators.required),

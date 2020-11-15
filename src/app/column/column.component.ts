@@ -38,13 +38,13 @@ export class ColumnComponent implements OnInit {
       .getContentByColumnId(this.columnId)
       .subscribe((res: Webcontent[]) => {
         this.webStructureService.contentByColumnIdArray = res;
-        console.log('content by column array', this.columnId);
-        console.log(this.webStructureService.contentByColumnIdArray);
+        //console.log('content by column array', this.columnId);
+        //console.log(this.webStructureService.contentByColumnIdArray);
       });
   }
 
   getContentListsByColumnId() {
-    console.log('Getting content by column Id: ', this.columnId);
+    // console.log('Getting content by column Id: ', this.columnId);
 
     this.webStructureService
       .getContentLists(this.columnId)
@@ -61,12 +61,12 @@ export class ColumnComponent implements OnInit {
           }
 
           if (content.Id != null) {
-            console.log('content');
-            console.log(content);
+            // console.log('content');
+            //console.log(content);
 
             this.newContentList = this.contentList;
-            console.log('list of content retreived(columnId)', this.columnId);
-            console.log(this.newContentList);
+            //console.log('list of content retreived(columnId)', this.columnId);
+            //console.log(this.newContentList);
           }
         }
       });
@@ -104,8 +104,8 @@ export class ColumnComponent implements OnInit {
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
-      console.log('getting rows by page id');
-      console.log(this.webStructureService.rowsByPageIdArray);
+      //console.log('getting rows by page id');
+      //console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
 
@@ -137,8 +137,8 @@ export class ColumnComponent implements OnInit {
     this.webStructureService.getColumns().subscribe((res) => {
       this.webStructureService.columnsArray = res;
       this.grabAllContentByPageId();
-      console.log('columns array');
-      console.log(this.webStructureService.columnsArray);
+      // console.log('columns array');
+      //console.log(this.webStructureService.columnsArray);
     });
   }
 
@@ -150,17 +150,16 @@ export class ColumnComponent implements OnInit {
   }
 
   onColumnSubmit(form: FormGroup) {
-    console.log('column submitted!');
-    console.log('form on submit', form);
+    // console.log('column submitted!');
+    // console.log('form on submit', form);
     // console.log('pageid', pageId);
     // console.log('rowId', rowId);
-
     // this.addColumn(form, pageId, rowId);
   }
 
   addColumn(form: FormGroup) {
-    console.log('adding column...');
-    console.log(form);
+    //console.log('adding column...');
+    //console.log(form);
     // console.log('rowId', rowId);
     // console.log('pageId', pageId);
 
@@ -169,7 +168,7 @@ export class ColumnComponent implements OnInit {
     newColumn.columnId += newColumn.columnId++;
     // newColumn.rowId = rowId;
 
-    console.log('newColumn', newColumn);
+    //console.log('newColumn', newColumn);
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       //this.resetForm(form);
@@ -200,8 +199,8 @@ export class ColumnComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        console.log('here are the page settings');
-        console.log(res);
+        // console.log('here are the page settings');
+        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }
@@ -224,14 +223,14 @@ export class ColumnComponent implements OnInit {
         '/' +
         textId,
     ]);
-    console.log('item to edit');
-    console.log(textId);
+    //console.log('item to edit');
+    //console.log(textId);
     this.webContentService
       .getEditContentById(textId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
-        console.log('res');
-        console.log(res);
+        //console.log('res');
+        //console.log(res);
         // console.log('Here is the images based on page id: ');
         // console.log(this.imagesByPageIdArray);
       });
