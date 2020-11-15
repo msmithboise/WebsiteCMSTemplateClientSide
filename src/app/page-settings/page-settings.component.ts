@@ -216,11 +216,6 @@ export class PageSettingsComponent implements OnInit {
       });
   }
 
-  embedUrlFormTemplate = new FormGroup({
-    embedUrl: new FormControl('', Validators.required),
-    pageId: new FormControl(''),
-  });
-
   //TO submit link data
 
   linkFormTemplate = new FormGroup({
@@ -245,29 +240,6 @@ export class PageSettingsComponent implements OnInit {
       //this.resetForm(form);
       this.grabAllContentByPageId();
     });
-  }
-
-  //To embed image url
-
-  submitEmbedUrlData(form: FormGroup) {
-    // console.log('Embed form after submit');
-    // console.log(form);
-    this.insertEmbedUrlRecord(form);
-  }
-
-  insertEmbedUrlRecord(form: FormGroup) {
-    // console.log('Embed form during insert record');
-    // console.log(form);
-
-    var newEmbedUrlForm = this.embedUrlFormTemplate.value;
-    newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
-
-    this.webContentService
-      .postWebContentByPageId(newEmbedUrlForm)
-      .subscribe((res) => {
-        //this.resetForm(form);
-        this.grabAllContentByPageId();
-      });
   }
 
   //To create google map

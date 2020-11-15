@@ -35,6 +35,34 @@ export class ButtonPanelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //To embed image url
+
+  embedUrlFormTemplate = new FormGroup({
+    embedUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+  });
+
+  submitEmbedUrlData(form: FormGroup) {
+    // console.log('Embed form after submit');
+    // console.log(form);
+    this.insertEmbedUrlRecord(form);
+  }
+
+  insertEmbedUrlRecord(form: FormGroup) {
+    // console.log('Embed form during insert record');
+    // console.log(form);
+
+    var newEmbedUrlForm = this.embedUrlFormTemplate.value;
+    newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
+
+    this.webContentService
+      .postWebContentByPageId(newEmbedUrlForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        //this.grabAllContentByPageId();
+      });
+  }
+
   showAudioPreview(event: any) {
     // console.log('show audio preview');
 
