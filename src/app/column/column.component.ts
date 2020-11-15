@@ -150,22 +150,19 @@ export class ColumnComponent implements OnInit {
   }
 
   onColumnSubmit(form: FormGroup) {
-    // console.log('column submitted!');
-    // console.log('form on submit', form);
-    // console.log('pageid', pageId);
-    // console.log('rowId', rowId);
-    // this.addColumn(form, pageId, rowId);
+    this.addColumn(form);
   }
 
   addColumn(form: FormGroup) {
-    //console.log('adding column...');
-    //console.log(form);
-    // console.log('rowId', rowId);
-    // console.log('pageId', pageId);
+    var newRowId = Number(localStorage.getItem('passedRowId'));
+
+    console.log('new row id');
+    console.log(newRowId);
 
     var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
     newColumn.columnId += newColumn.columnId++;
+    newColumn.rowId = newRowId;
     // newColumn.rowId = rowId;
 
     //console.log('newColumn', newColumn);

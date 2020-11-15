@@ -39,6 +39,12 @@ export class RowComponent implements OnInit {
     this.getColumnsByRowId(this.rowId);
   }
 
+  getRowId() {
+    console.log('add column row id');
+    console.log(this.rowId);
+    localStorage.setItem('passedRowId', this.rowId.toString());
+  }
+
   columnFormTemplate = new FormGroup({
     columnId: new FormControl(''),
     rowId: new FormControl(''),
