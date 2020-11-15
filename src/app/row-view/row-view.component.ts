@@ -7,21 +7,33 @@ import { WebStructureService } from '../web-structure.service';
   styleUrls: ['./row-view.component.css'],
 })
 export class RowViewComponent implements OnInit {
-  @Input() pageId: number;
+  @Input() rowId: number;
   constructor(public webStructureService: WebStructureService) {}
 
-  ngOnInit(): void {
-    //this.getRowsByPageId();
-  }
+  ngOnInit(): void {}
 
-  //Get Rows By PageId
+  //get columns by row id and page id
+  // getColumnsByRowId(rowId: number) {
+  //   console.log('Getting columns by row id: ', rowId);
+  //   // console.log('before the get call:', this.rowId);
+  //   this.webStructureService
+  //     .getColumnLists(this.rowId)
+  //     .subscribe((res: Column) => {
+  //       this.columnLists = res[0];
+  //       // console.log('columns by rowId array', this.rowId);
 
-  getRowsByPageId() {
-    console.log('pageid', this.pageId);
-    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
-      this.webStructureService.rowsByPageIdArray = res;
-      console.log('In row view: getting rows in row view by ');
-      console.log(this.webStructureService.rowsByPageIdArray);
-    });
-  }
+  //       // console.log(this.columnLists);
+  //       // console.log('before the for loop');
+  //       // for (let i = 0; i < this.columnLists.length; i++) {
+  //       //   const column = this.columnLists[i];
+
+  //       // console.log('columnlist rowid: ', column.RowId);
+  //       // console.log('passed in rowid: ', this.rowId);
+
+  //       this.newColumnList = this.columnLists;
+  //       // console.log('getting list of columns');
+  //       // console.log(this.newColumnList);
+  //       // }
+  //     });
+  // }
 }
