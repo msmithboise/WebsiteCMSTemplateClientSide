@@ -39,6 +39,10 @@ export class WebStructureService {
     return this.http.delete(this.webApi + '/Row/' + rowId);
   }
 
+  deleteColumn(columnId: number) {
+    return this.http.delete(this.webApi + '/Columns/' + columnId);
+  }
+
   //Get Columns
   getColumns() {
     return this.http.get<Column[]>(this.webApi + '/Columns');

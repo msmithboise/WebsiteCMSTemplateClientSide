@@ -130,7 +130,21 @@ export class ColumnComponent implements OnInit {
     columnClass: new FormControl(''),
   });
 
-  //Add column
+  //delete column
+
+  deleteColumnDialogue(columnId: number) {
+    // console.log('trying to delete..');
+    if (confirm('Are you sure you want to delete this column?')) {
+      this.onColumnDelete(columnId);
+    }
+  }
+
+  onColumnDelete(id: number) {
+    this.webStructureService.deleteColumn(id).subscribe((res) => {
+      this.grabAllContentByPageId();
+    });
+    this.toastr.error('Column deleted!');
+  }
 
   //get all columns
   getAllColumns() {
