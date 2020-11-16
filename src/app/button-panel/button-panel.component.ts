@@ -305,6 +305,8 @@ export class ButtonPanelComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
     columnId: new FormControl(''),
+    height: new FormControl(''),
+    width: new FormControl(''),
   });
 
   submitImageUrlData(form: FormGroup) {

@@ -78,6 +78,101 @@
           </button>
         </div>
         <div class="modal-body">
+          <!--Image dimensions Modal -->
+          <div
+            class="modal fade"
+            id="dimensionsModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="dimensionsModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="dimensionsModalLabel">
+                    Modal title
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Text body input form -->
+                  <div class="card">
+                    <div class="card-body">
+                      <form
+                        [formGroup]="imageUrlFormTemplate"
+                        class="form-inline"
+                        (submit)="
+                          submitImageUrlData(imageUrlFormTemplate.value)
+                        "
+                      >
+                        <div class="form-group">
+                          <input
+                            name="height"
+                            class="form-control-lg form-group"
+                            placeholder="Height"
+                            type="text"
+                            formControlName="height"
+                          />
+
+                          <div class="form-group">
+                            <input
+                              name="width"
+                              class="form-control-lg form-group"
+                              placeholder="Width"
+                              type="text"
+                              formControlName="width"
+                            />
+
+                            <input
+                              type="hidden"
+                              name="PageId"
+                              formControlName="pageId"
+                            />
+                          </div>
+                          <input
+                            type="hidden"
+                            name="PageId"
+                            formControlName="pageId"
+                          />
+                          <input
+                            type="hidden"
+                            name="ColumnId"
+                            formControlName="columnId"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    (click)="submitImageUrlData(imageUrlFormTemplate.value)"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- New Upload File Form -->
           <div class="card" style="width: 25rem">
             <div class="card-body">
@@ -144,6 +239,7 @@
                     type="text"
                     formControlName="imageUrl"
                   />
+
                   <input type="hidden" name="PageId" formControlName="pageId" />
                 </div>
               </form>
@@ -154,7 +250,14 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button
+            data-toggle="modal"
+            data-target="#dimensionsModal"
+            type="button"
+            class="btn btn-primary"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>
