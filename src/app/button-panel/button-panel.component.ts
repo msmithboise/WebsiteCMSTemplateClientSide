@@ -304,20 +304,21 @@ export class ButtonPanelComponent implements OnInit {
   imageUrlFormTemplate = new FormGroup({
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    columnId: new FormControl(''),
   });
 
   submitImageUrlData(form: FormGroup) {
+    console.log('passed on submit columnId', this.passedInColumnId);
     // console.log('image form after submit');
     // console.log(form);
     this.insertImageUrlRecord(form);
   }
 
   insertImageUrlRecord(form: FormGroup) {
-    // console.log('image form during insert record');
-    // console.log(form);
-
+    var colId = localStorage.getItem('passedId');
     var newUrlForm = this.imageUrlFormTemplate.value;
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
+    newUrlForm.columnId = Number(colId);
 
     this.webContentService
       .postWebContentByPageId(newUrlForm)
@@ -326,4 +327,18 @@ export class ButtonPanelComponent implements OnInit {
         //this.grabAllContentByPageId();
       });
   }
+
+  // insertTextRecord(form: FormGroup) {
+  //   var colId = localStorage.getItem('passedId');
+  //   var newForm = this.textFormTemplate.value;
+  //   newForm.pageId = this.webContentService.pageIdSnapshot;
+  //   newForm.columnId = Number(colId);
+  //   console.log('local storage id');
+  //   console.log(Number(colId));
+
+  //   this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
+  //     //this.resetForm(form);
+  //     //this.grabAllContentByPageId();
+  //   });
+  // }
 }

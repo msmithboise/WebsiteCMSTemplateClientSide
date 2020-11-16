@@ -107,6 +107,7 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     left: number,
     top: number,
     imageUrl: string,
+    columnId: number,
     id: number,
     subPageId: number,
     pageId: number
