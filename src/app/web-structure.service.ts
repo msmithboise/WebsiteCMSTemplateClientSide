@@ -35,6 +35,10 @@ export class WebStructureService {
     return this.http.post(this.webApi + '/Row', formData);
   }
 
+  deleteRowByPageId(rowId: number) {
+    return this.http.delete(this.webApi + '/Row/' + rowId);
+  }
+
   //Get Columns
   getColumns() {
     return this.http.get<Column[]>(this.webApi + '/Columns');

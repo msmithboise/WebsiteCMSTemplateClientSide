@@ -45,6 +45,29 @@ export class RowComponent implements OnInit {
     localStorage.setItem('passedRowId', this.rowId.toString());
   }
 
+  getRowIdToDelete() {
+    console.log('delete row id');
+    console.log(this.rowId);
+    localStorage.setItem('passedRowId', this.rowId.toString());
+
+    this.deleteRowDialogue(this.rowId);
+  }
+
+  deleteRowDialogue(rowId: number) {
+    // console.log('trying to delete..');
+    if (confirm('Are you sure you want to delete this row?')) {
+      this.onRowDelete(rowId);
+    }
+  }
+
+  onRowDelete(id: number) {
+    this.webStructureService.deleteRowByPageId(id).subscribe((res) => {
+      this.grabAllContentByPageId();
+      //this.resetForm();
+    });
+    this.toastr.error('Content deleted!');
+  }
+
   columnFormTemplate = new FormGroup({
     columnId: new FormControl(''),
     rowId: new FormControl(''),
