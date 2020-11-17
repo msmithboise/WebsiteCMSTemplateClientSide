@@ -15,33 +15,30 @@
       </audio>
     </div>
 
+    <!-- Gallery Image -->
+    <img
+      src="{{ content.ImageUrl }}"
+      [ngStyle]="{
+        float: 'left',
+
+        backgroundAttachment: content.backgroundAttachment,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: content.backgroundSize,
+        position: content.position,
+        opacity: content.opacity,
+        backgroundPosition: content.backgroundPosition,
+        resize: 'both',
+        overflow: 'auto',
+        height: content.height + 'px',
+        width: content.width + 'px',
+        objectFit: 'cover',
+        transform:
+          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+      }"
+    />
+
     <!-- Image -->
 
-    <a [href]="createLink(content.HyperLink)">
-      <div
-        id="image-resize"
-        class="heroImage responsive"
-        *ngIf="content.ImageUrl != null"
-        [style.background-image]="'url(' + content.ImageUrl + ')' | safe"
-        [ngStyle]="{
-          float: 'left',
-
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: content.backgroundSize,
-          position: content.position,
-          opacity: content.opacity,
-          backgroundPosition: content.backgroundPosition,
-          resize: 'both',
-          overflow: 'auto',
-          height: content.height + 'px',
-          width: content.width + 'px',
-          objectFit: 'cover',
-          transform:
-            'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
-        }"
-      ></div>
-    </a>
     <!-- Text -->
     <div [ngStyle]="{}">
       <h1
@@ -174,8 +171,7 @@
           flex: content.flex,
           alignContent: content.alignContent,
           alignItems: content.alignItems,
-          alignSelf: content.alignSelf,
-          backgroundImage: 'url(' + content.ImageUrl + ')'
+          alignSelf: content.alignSelf
         }"
       >
         {{ content.TextBody }}
