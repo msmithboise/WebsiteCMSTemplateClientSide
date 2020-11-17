@@ -24,34 +24,38 @@
       [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
       [ngStyle]="{
         float: 'left',
-        backgroundAttachment: 'fixed',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundAttachment: content.backgroundAttachment,
+        backgroundRepeat: content.backgroundRepeat,
+        backgroundSize: content.backgroundSize,
         position: content.position,
-        opacity: content.opacity,
+        opacity: 'content.opacity',
         backgroundPosition: content.backgroundPosition,
         resize: 'both',
         overflow: 'auto',
-        height: '800px',
+        height: '400px',
         width: '2000px',
         objectFit: 'cover',
+        zIndex: '-1',
         transform:
           'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
       }"
-    ></div>
+    >
+      <h1 style="text-align: center">Why cant i type here</h1>
+    </div>
 
-    <!-- Gallery Image -->
     <img
       src="{{ content.ImageUrl }}"
       [ngStyle]="{
-        float: 'left',
-
         backgroundAttachment: content.backgroundAttachment,
         backgroundRepeat: 'no-repeat',
         backgroundSize: content.backgroundSize,
         position: content.position,
         opacity: content.opacity,
         backgroundPosition: content.backgroundPosition,
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'center',
         resize: 'both',
         overflow: 'auto',
         height: content.height + 'px',
@@ -61,6 +65,8 @@
           'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
       }"
     />
+
+    <!-- Gallery Image -->
 
     <!-- Image -->
 
