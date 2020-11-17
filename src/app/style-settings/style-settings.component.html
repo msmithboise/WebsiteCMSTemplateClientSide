@@ -720,6 +720,96 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Margin Left -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Margin Left</b></label>
+                              <div>
+                                <input
+                                  name="marginLeft"
+                                  #marginLeft="ngModel"
+                                  [(ngModel)]="content.marginLeft"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="marginLeft"></label>
+                              <select
+                                id="marginLeft"
+                                name="marginLeft"
+                                [(ngModel)]="content.marginLeft"
+                                class="form-control"
+                              >
+                                <option value="auto">auto</option>
+                                <option value="10px">
+                                  10px (Top/Bottom/Right/Left)
+                                </option>
+                                <option value="10px">
+                                  10px 10px (Top/Bottom & Right/Left)
+                                </option>
+                                <option value="10px">
+                                  15px 20px 10px (Top & Right/Left & Bottom)
+                                </option>
+                                <option value="10px">
+                                  15px 20px 25px 10px (Top & Right & Bottom &
+                                  Left)
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6"></div>
+
+                        <!-- Margin Right -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Margin Right</b></label>
+                              <div>
+                                <input
+                                  name="marginRight"
+                                  #marginRight="ngModel"
+                                  [(ngModel)]="content.marginRight"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="marginRight"></label>
+                              <select
+                                id="marginRight"
+                                name="marginRight"
+                                [(ngModel)]="content.marginRight"
+                                class="form-control"
+                              >
+                                <option value="auto">auto</option>
+                                <option value="10px">
+                                  10px (Top/Bottom/Right/Left)
+                                </option>
+                                <option value="10px">
+                                  10px 10px (Top/Bottom & Right/Left)
+                                </option>
+                                <option value="10px">
+                                  15px 20px 10px (Top & Right/Left & Bottom)
+                                </option>
+                                <option value="10px">
+                                  15px 20px 25px 10px (Top & Right & Bottom &
+                                  Left)
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Top -->
 
                         <div class="row">
