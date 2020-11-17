@@ -24,7 +24,7 @@ export class ContentViewComponent implements OnInit {
   }
 
   getContentListsByColumnId() {
-    console.log('Getting content by column Id: ', this.columnId);
+    //console.log('Getting content by column Id: ', this.columnId);
 
     this.webStructureService
       .getContentLists(this.columnId)
@@ -41,12 +41,12 @@ export class ContentViewComponent implements OnInit {
           }
 
           if (content.Id != null) {
-            console.log('content');
-            console.log(content);
+            //console.log('content');
+            //console.log(content);
 
             this.newContentList = this.contentList;
-            console.log('list of content retreived(columnId)', this.columnId);
-            console.log(this.newContentList);
+            // console.log('list of content retreived(columnId)', this.columnId);
+            // console.log(this.newContentList);
           }
         }
       });

@@ -93,8 +93,8 @@ export class CustomPageComponent implements OnInit {
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
-      console.log('getting rows by page id', Number(this.pageId));
-      console.log(this.webStructureService.rowsByPageIdArray);
+      //console.log('getting rows by page id', Number(this.pageId));
+      //console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
 

@@ -24,7 +24,7 @@ export class ColumnViewComponent implements OnInit {
 
   //get columns by row id and page id
   getColumnsByRowId(rowId: number) {
-    console.log('Getting columns by row id: ', rowId);
+    //console.log('Getting columns by row id: ', rowId);
     // console.log('before the get call:', this.rowId);
     this.webStructureService
       .getColumnLists(this.rowId)
