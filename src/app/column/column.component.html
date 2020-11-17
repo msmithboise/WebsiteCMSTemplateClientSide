@@ -227,6 +227,19 @@
                 <div class="input-group-append"></div>
               </div>
 
+              <!-- Background Image -->
+              <div *ngIf="text.backgroundImage">
+                <label>Background Image</label>
+                <div class="input-group"></div>
+                <input
+                  name="backgroundImage"
+                  #backgroundImage="ngModel"
+                  [(ngModel)]="text.backgroundImage"
+                  class="formStyle"
+                />
+                <div class="input-group-append"></div>
+              </div>
+
               <!-- Youtube Embed -->
               <div *ngIf="text.embedUrl">
                 <label>Embed Url</label>

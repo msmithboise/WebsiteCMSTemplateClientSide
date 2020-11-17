@@ -330,17 +330,34 @@ export class ButtonPanelComponent implements OnInit {
       });
   }
 
-  // insertTextRecord(form: FormGroup) {
-  //   var colId = localStorage.getItem('passedId');
-  //   var newForm = this.textFormTemplate.value;
-  //   newForm.pageId = this.webContentService.pageIdSnapshot;
-  //   newForm.columnId = Number(colId);
-  //   console.log('local storage id');
-  //   console.log(Number(colId));
+  //To submit background image
 
-  //   this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-  //     //this.resetForm(form);
-  //     //this.grabAllContentByPageId();
-  //   });
-  // }
+  bgImageUrlFormTemplate = new FormGroup({
+    backgroundImage: new FormControl(''),
+    pageId: new FormControl(''),
+    columnId: new FormControl(''),
+    height: new FormControl(''),
+    width: new FormControl(''),
+  });
+
+  submitBgImageUrlData(form: FormGroup) {
+    console.log('passed on submit columnId', this.passedInColumnId);
+    // console.log('image form after submit');
+    // console.log(form);
+    this.insertBgImageUrlRecord(form);
+  }
+
+  insertBgImageUrlRecord(form: FormGroup) {
+    var colId = localStorage.getItem('passedId');
+    var newUrlForm = this.bgImageUrlFormTemplate.value;
+    newUrlForm.pageId = this.webContentService.pageIdSnapshot;
+    newUrlForm.columnId = Number(colId);
+
+    this.webContentService
+      .postWebContentByPageId(newUrlForm)
+      .subscribe((res) => {
+        //this.resetForm(form);
+        //this.grabAllContentByPageId();
+      });
+  }
 }
