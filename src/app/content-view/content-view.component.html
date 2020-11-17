@@ -15,6 +15,31 @@
       </audio>
     </div>
 
+    <!-- Hero Image -->
+
+    <div
+      id="image-resize"
+      class="heroImage responsive"
+      *ngIf="content.backgroundImage != null"
+      [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+      [ngStyle]="{
+        float: 'left',
+        backgroundAttachment: content.backgroundAttachment,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: content.backgroundSize,
+        position: content.position,
+        opacity: content.opacity,
+        backgroundPosition: content.backgroundPosition,
+        resize: 'both',
+        overflow: 'auto',
+        height: '800px',
+        width: '1000px',
+        objectFit: 'cover',
+        transform:
+          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+      }"
+    ></div>
+
     <!-- Gallery Image -->
     <img
       src="{{ content.ImageUrl }}"
