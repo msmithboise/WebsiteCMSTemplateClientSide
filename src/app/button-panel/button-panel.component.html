@@ -146,6 +146,16 @@
 
                   <input type="hidden" name="PageId" formControlName="pageId" />
                 </div>
+                <div>
+                  <label><h1>Fullsize</h1></label>
+                  <input
+                    name="isImage"
+                    formControlName="isImage"
+                    class="check"
+                    type="checkbox"
+                    [checked]="this.isFullsize == true"
+                  />
+                </div>
               </form>
             </div>
           </div>

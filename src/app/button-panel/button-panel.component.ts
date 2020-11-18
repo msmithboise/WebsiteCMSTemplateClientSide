@@ -25,6 +25,7 @@ export class ButtonPanelComponent implements OnInit {
   fireBaseImageUrl: string;
   resizeButtonToggled: boolean = false;
   selectedId: number;
+  isFullsize: boolean;
   public pageDescription: string;
   public pageId: number;
   public passedInColumnId: number;
@@ -338,6 +339,7 @@ export class ButtonPanelComponent implements OnInit {
     columnId: new FormControl(''),
     height: new FormControl(''),
     width: new FormControl(''),
+    isImage: new FormControl(''),
   });
 
   submitBgImageUrlData(form: FormGroup) {
@@ -352,6 +354,12 @@ export class ButtonPanelComponent implements OnInit {
     var newUrlForm = this.bgImageUrlFormTemplate.value;
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
     newUrlForm.columnId = Number(colId);
+
+    console.log(this.isFullsize);
+
+    if (this.isFullsize) {
+      newUrlForm.isImage = true;
+    }
 
     this.webContentService
       .postWebContentByPageId(newUrlForm)

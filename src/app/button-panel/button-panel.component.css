@@ -179,3 +179,9 @@ body {
 
 .grid-container {
 }
+
+.check {
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
