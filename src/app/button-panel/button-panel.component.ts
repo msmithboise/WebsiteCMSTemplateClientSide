@@ -26,6 +26,7 @@ export class ButtonPanelComponent implements OnInit {
   resizeButtonToggled: boolean = false;
   selectedId: number;
   isFullsize: boolean;
+  isChecked: boolean;
   public pageDescription: string;
   public pageId: number;
   public passedInColumnId: number;
@@ -36,6 +37,10 @@ export class ButtonPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  onChange(isChecked: boolean) {
+    console.log(isChecked);
+  }
 
   passColumnId(columnId: number) {
     console.log(columnId);
