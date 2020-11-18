@@ -76,7 +76,8 @@ export class WebcontentService {
   postUploadedImage(imageUrl: string) {
     const fd: FormData = new FormData();
     fd.append('imageUrl', imageUrl);
-
+    var colId = localStorage.getItem('passedId');
+    fd.append('columnId', colId);
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
 
     this.route.params.subscribe((params) => {

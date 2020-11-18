@@ -224,6 +224,7 @@ export class ButtonPanelComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
     backgroundImage: new FormControl(''),
+    columnId: new FormControl(''),
   });
 
   get formControls() {
