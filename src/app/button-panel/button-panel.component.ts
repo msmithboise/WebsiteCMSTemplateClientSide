@@ -359,6 +359,8 @@ export class ButtonPanelComponent implements OnInit {
 
     if (this.isFullsize) {
       newUrlForm.isImage = true;
+    } else {
+      newUrlForm.isImage = false;
     }
 
     this.webContentService

@@ -15,8 +15,9 @@
       </audio>
     </div>
 
-    <!-- Hero Image -->
+    <!-- Hero Image Full size-->
 
+    <div *ngIf="content.isImage == true"></div>
     <div
       id="image-resize"
       class="heroImage responsive"
@@ -32,7 +33,7 @@
         backgroundPosition: content.backgroundPosition,
         resize: 'both',
         overflow: 'auto',
-        height: '400px',
+        height: '800px',
         width: '2000px',
         objectFit: 'cover',
         zIndex: '-1',
@@ -40,9 +41,39 @@
           'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
       }"
     >
-      <h1 style="text-align: center">Why cant i type here</h1>
+      <h1 style="text-align: center">fullsize</h1>
     </div>
 
+    <!-- Hero Image 400px-->
+
+    <div *ngIf="content.isImage == false"></div>
+    <div
+      id="image-resize"
+      class="heroImage responsive"
+      *ngIf="content.backgroundImage != null"
+      [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+      [ngStyle]="{
+        float: 'left',
+        backgroundAttachment: content.backgroundAttachment,
+        backgroundRepeat: content.backgroundRepeat,
+        backgroundSize: content.backgroundSize,
+        position: content.position,
+        opacity: 'content.opacity',
+        backgroundPosition: content.backgroundPosition,
+        resize: 'both',
+        overflow: 'auto',
+        height: '800px',
+        width: '2000px',
+        objectFit: 'cover',
+        zIndex: '-1',
+        transform:
+          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+      }"
+    >
+      <h1 style="text-align: center">400 px</h1>
+    </div>
+
+    <!-- Gallery Image -->
     <img
       src="{{ content.ImageUrl }}"
       [ngStyle]="{
@@ -65,8 +96,6 @@
           'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
       }"
     />
-
-    <!-- Gallery Image -->
 
     <!-- Image -->
 
