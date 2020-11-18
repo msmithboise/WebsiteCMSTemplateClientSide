@@ -39,7 +39,10 @@ export class ButtonPanelComponent implements OnInit {
   ngOnInit(): void {}
 
   onChange(isChecked: boolean) {
-    console.log(isChecked);
+    this.isChecked = isChecked;
+
+    console.log('check');
+    console.log(this.isChecked);
   }
 
   passColumnId(columnId: number) {
