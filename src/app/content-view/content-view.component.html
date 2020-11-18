@@ -29,11 +29,11 @@
         backgroundRepeat: content.backgroundRepeat,
         backgroundSize: content.backgroundSize,
         position: content.position,
-        opacity: 'content.opacity',
+        opacity: content.opacity,
         backgroundPosition: content.backgroundPosition,
         resize: 'both',
         overflow: 'auto',
-        height: '800px',
+        height: '1000px',
         width: '2000px',
         objectFit: 'cover',
         zIndex: '-1',
@@ -46,32 +46,32 @@
 
     <!-- Hero Image 400px-->
 
-    <!-- <div *ngIf="content.isImage == false"></div>
+    <div *ngIf="content.isImage == false"></div>
     <div
       id="image-resize"
       class="heroImage responsive"
-      *ngIf="content.backgroundImage != null"
-      [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+      *ngIf="content.Body != null"
+      [style.background-image]="'url(' + content.Body + ')' | safe"
       [ngStyle]="{
         float: 'left',
         backgroundAttachment: content.backgroundAttachment,
+
         backgroundRepeat: content.backgroundRepeat,
         backgroundSize: content.backgroundSize,
+        backgroundColor: 'rgba(0,0,0,0.5)',
         position: content.position,
-        opacity: 'content.opacity',
+        opacity: content.opacity,
         backgroundPosition: content.backgroundPosition,
         resize: 'both',
         overflow: 'auto',
-        height: '800px',
+        height: '400px',
         width: '2000px',
         objectFit: 'cover',
         zIndex: '-1',
         transform:
           'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
       }"
-    >
-      <h1 style="text-align: center">400 px</h1>
-    </div> -->
+    ></div>
 
     <!-- Gallery Image -->
     <img
