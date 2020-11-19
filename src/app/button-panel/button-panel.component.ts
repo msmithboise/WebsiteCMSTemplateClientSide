@@ -61,6 +61,7 @@ export class ButtonPanelComponent implements OnInit {
   mapFormTemplate = new FormGroup({
     MapUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    columnId: new FormControl(''),
   });
   onMapSubmit(formValue) {
     this.createGoogleMap(formValue);
@@ -72,6 +73,7 @@ export class ButtonPanelComponent implements OnInit {
 
     var newMapForm = this.mapFormTemplate.value;
     newMapForm.pageId = this.webContentService.pageIdSnapshot;
+    newMapForm.columnId = this.columnId;
 
     // console.log('newMapForm before going to service');
     // console.log(newMapForm);
