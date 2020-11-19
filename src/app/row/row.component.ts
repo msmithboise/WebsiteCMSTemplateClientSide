@@ -68,6 +68,7 @@ export class RowComponent implements OnInit {
   onRowDelete(id: number) {
     this.webStructureService.deleteRowByPageId(id).subscribe((res) => {
       this.grabAllContentByPageId();
+      this.refreshPage();
       //this.resetForm();
     });
     this.toastr.error('Content deleted!');

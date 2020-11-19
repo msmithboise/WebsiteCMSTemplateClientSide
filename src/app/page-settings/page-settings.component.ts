@@ -65,8 +65,9 @@ export class PageSettingsComponent implements OnInit {
     this.getRowsByPageId();
   }
 
-  refresh(newSomething: any) {
+  refresh() {
     console.log('page refreshed');
+    this.getRowsByPageId();
   }
 
   //Add row
@@ -86,6 +87,7 @@ export class PageSettingsComponent implements OnInit {
   }
 
   getRowsByPageId() {
+    console.log('getting rows by page id');
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
     });
@@ -93,6 +95,7 @@ export class PageSettingsComponent implements OnInit {
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
+
       //console.log('getting rows by page id', Number(this.pageId));
       //console.log(this.webStructureService.rowsByPageIdArray);
     });
@@ -109,6 +112,7 @@ export class PageSettingsComponent implements OnInit {
 
     this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
       //this.resetForm(form);
+      this.refresh();
       this.grabAllContentByPageId();
     });
   }
