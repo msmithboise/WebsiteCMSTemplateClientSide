@@ -10,6 +10,22 @@
         [src]="setAudioUrl(content.AudioUrl)"
         controls
         type="audio/mp3"
+        [ngStyle]="{
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: content.height,
+          width: 'content.width',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
       >
         Walking through sand
       </audio>
@@ -252,6 +268,22 @@
           [src]="setYouTubeEmbed(content.embedUrl)"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: content.backgroundRepeat,
+            background: 'linear-gradient' + content.background,
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            resize: 'both',
+            overflow: 'auto',
+            height: content.height,
+            width: 'content.width',
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
         >
         </iframe>
       </div>
@@ -265,6 +297,22 @@
             style="border: 0"
             [src]="createMapLink(content.MapUrl)"
             allowfullscreen
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: content.backgroundRepeat,
+              background: 'linear-gradient' + content.background,
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: 'content.width',
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
           >
           </iframe>
         </div>

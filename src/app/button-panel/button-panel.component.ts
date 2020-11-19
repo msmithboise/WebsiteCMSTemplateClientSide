@@ -111,7 +111,9 @@ export class ButtonPanelComponent implements OnInit {
 
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
-    newEmbedUrlForm.columnId = this.columnId;
+    var colId = localStorage.getItem('passedId');
+
+    newEmbedUrlForm.columnId = Number(colId);
 
     this.webContentService
       .postWebContentByPageId(newEmbedUrlForm)

@@ -129,6 +129,16 @@
                         />
                         <div class="input-group-append"></div>
 
+                        <!-- Embed Url -->
+
+                        <input
+                          name="embedUrl"
+                          type="hidden"
+                          #embedUrl="ngModel"
+                          [(ngModel)]="content.embedUrl"
+                        />
+                        <div class="input-group-append"></div>
+
                         <!-- HyperLink -->
                         <div class="row">
                           <div class="col-6">
