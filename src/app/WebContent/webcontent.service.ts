@@ -205,4 +205,24 @@ export class WebcontentService {
   deleteWebPageContent(id: number) {
     return this.http.delete(this.webApi + '/WebContent/' + id);
   }
+
+  //Post uploaded gallery image
+  postUploadedGalleryImage(imageUrl: string) {
+    const fd: FormData = new FormData();
+    fd.append('imageUrl', imageUrl);
+    var colId = localStorage.getItem('passedId');
+    fd.append('columnId', colId);
+    this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
+
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+
+      this.subPageId = params.subPageId;
+    });
+
+    fd.append('pageId', this.pageIdSnapshot.toString());
+    //fd.append('subPageId', this.subPageId);
+
+    return this.http.post(this.webApi + '/UploadGallery', fd);
+  }
 }

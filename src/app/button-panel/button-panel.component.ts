@@ -17,8 +17,11 @@ export class ButtonPanelComponent implements OnInit {
   public fileToUpload: File = null;
   imgSrc: string;
   audioSrc: string;
+  gallerySrc: string;
+  selectedGallery: any = null;
   selectedImage: any = null;
   selectedAudio: any = null;
+  isGallerySubmitted: boolean;
   isSubmitted: boolean;
   isAudioSubmitted: boolean;
   imageList: any[];
@@ -118,11 +121,11 @@ export class ButtonPanelComponent implements OnInit {
 
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.onload = (e: any) => (this.audioSrc = e.target.result);
       reader.readAsDataURL(event.target.files[0]);
       this.selectedAudio = event.target.files[0];
     } else {
-      this.imgSrc = '/assets/placeholder.jpg';
+      this.audioSrc = '/assets/placeholder.jpg';
       this.selectedAudio = null;
     }
   }
@@ -130,11 +133,11 @@ export class ButtonPanelComponent implements OnInit {
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.onload = (e: any) => (this.audioSrc = e.target.result);
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
     } else {
-      this.audioSrc = '/assets/placeholder.jpg';
+      this.imgSrc = '/assets/placeholder.jpg';
       this.selectedImage = null;
     }
   }
@@ -380,5 +383,76 @@ export class ButtonPanelComponent implements OnInit {
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
+  }
+
+  //To submit uploaded gallery form
+
+  showGalleryPreview(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.gallerySrc = e.target.result);
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedGallery = event.target.files[0];
+    } else {
+      this.gallerySrc = '/assets/placeholder.jpg';
+      this.selectedGallery = null;
+    }
+  }
+
+  resetGalleryForm() {
+    this.audioUploadFormTemplate.reset();
+    this.audioUploadFormTemplate.setValue({
+      imageUrl: '',
+      pageId: 0,
+      columnId: 0,
+    });
+
+    this.selectedAudio = null;
+    this.isAudioSubmitted = false;
+  }
+
+  galleryImageTemplate = new FormGroup({
+    imageUrl: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+
+    columnId: new FormControl(''),
+  });
+
+  get galleryFormControls() {
+    // console.log('audio form controls');
+    // console.log(this.audioUploadFormTemplate['controls']);
+    return this.galleryImageTemplate['controls'];
+  }
+
+  onGalleryImageSubmit(formValue) {
+    this.isGallerySubmitted = true;
+    if (this.galleryImageTemplate.valid) {
+      var filePath = `images/${this.selectedGallery.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filePath);
+      this.storage
+        .upload(filePath, this.selectedGallery)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              this.webContentService
+                .postUploadedGalleryImage(url)
+                .subscribe((data) => {});
+
+              formValue['imageUrl'] = url;
+
+              //this.webContentService.insertImageDetails(formValue);
+              this.resetForm();
+            });
+          })
+        )
+        .subscribe((res) => {
+          //this.grabAllContentByPageId();
+        });
+      this.toastr.success('Image uploaded succesfully!');
+    }
   }
 }

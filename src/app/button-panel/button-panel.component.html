@@ -324,16 +324,16 @@
             </div>
           </div>
 
-          <!-- New Upload File Form -->
+          <!-- Gallery Image Upload File Form -->
           <div class="card" style="width: 25rem">
             <div class="card-body">
               <form
-                [formGroup]="formTemplate"
-                (submit)="onSubmit(formTemplate.value)"
+                [formGroup]="galleryImageTemplate"
+                (submit)="onGalleryImageSubmit(galleryImageTemplate.value)"
               >
                 <div class="text-center">
                   <img
-                    [src]="imgSrc"
+                    [src]="gallerySrc"
                     width="350px"
                     height="350px"
                     (click)="fileUploader.click()"
@@ -347,7 +347,7 @@
                     class="form-control-file"
                     #fileUploader
                     formControlName="imageUrl"
-                    (change)="showPreview($event)"
+                    (change)="showGalleryPreview($event)"
                   />
                   <div
                     class="text-danger"
