@@ -26,7 +26,7 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  refresh(newSomthing: any) {
+  refresh(newSomething: any) {
     console.log('page refreshed!');
   }
 

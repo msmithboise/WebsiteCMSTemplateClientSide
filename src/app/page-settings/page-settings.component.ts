@@ -65,6 +65,10 @@ export class PageSettingsComponent implements OnInit {
     this.getRowsByPageId();
   }
 
+  refresh(newSomething: any) {
+    console.log('page refreshed');
+  }
+
   //Add row
 
   rowFormTemplate = new FormGroup({

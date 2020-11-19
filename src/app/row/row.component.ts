@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Duplex } from 'stream';
+
 import { ColumnListVm } from '../models/column-list-vm.model';
 import { Column } from '../models/column.model';
 import { CustomImageService } from '../services/custom-image.service';
@@ -17,6 +17,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class RowComponent implements OnInit {
   @Input() rowId: number;
+  @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;
   public pageDescription: string;
   public columnId = '';
@@ -37,6 +38,10 @@ export class RowComponent implements OnInit {
   //This component needs to grab all columns by Row Id
   ngOnInit(): void {
     this.getColumnsByRowId(this.rowId);
+  }
+
+  refreshPage() {
+    this.refreshEvent.next('refresh');
   }
 
   getRowId() {

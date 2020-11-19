@@ -165,7 +165,10 @@
             <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
               <h1 style="color: red">RowId: {{ row.RowId }}</h1>
               <!-- For all the rows that are tied to this page id... -->
-              <app-row [rowId]="row.RowId"></app-row>
+              <app-row
+                (refreshEvent)="refresh($event)"
+                [rowId]="row.RowId"
+              ></app-row>
             </div>
             <!-- Add Row Button -->
 
