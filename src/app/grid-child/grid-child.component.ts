@@ -24,7 +24,6 @@ export class GridChildComponent implements OnChanges {
   constructor(private renderer: Renderer2) {}
 
   refreshPage() {
-    console.log('clicking in child component');
     this.refreshEvent.next('refresh');
   }
 
