@@ -93,6 +93,7 @@ export class ButtonPanelComponent implements OnInit {
   embedUrlFormTemplate = new FormGroup({
     embedUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    columnId: new FormControl(''),
   });
 
   submitEmbedUrlData(form: FormGroup) {
@@ -107,6 +108,7 @@ export class ButtonPanelComponent implements OnInit {
 
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
+    newEmbedUrlForm.columnId = this.columnId;
 
     this.webContentService
       .postWebContentByPageId(newEmbedUrlForm)
