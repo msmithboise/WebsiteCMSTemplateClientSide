@@ -114,7 +114,10 @@
       <h2 style="color: black">ColumnId: {{ column.ColumnId }}</h2>
       <h2 style="color: black">Column Size: {{ column.ColumnClass }}</h2>
 
-      <app-column [columnId]="column.ColumnId"></app-column>
+      <app-column
+        (refreshEvent)="refreshRows()"
+        [columnId]="column.ColumnId"
+      ></app-column>
     </div>
   </div>
 </div>

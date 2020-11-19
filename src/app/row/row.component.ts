@@ -44,6 +44,11 @@ export class RowComponent implements OnInit {
     this.refreshEvent.next('refresh');
   }
 
+  refreshRows() {
+    console.log('rows refreshed!');
+    this.getColumnsByRowId(this.rowId);
+  }
+
   getRowId() {
     console.log('add column row id');
     console.log(this.rowId);
@@ -138,7 +143,7 @@ export class RowComponent implements OnInit {
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       //this.resetForm(form);
-      this.grabAllContentByPageId();
+      this.getColumnsByRowId(this.rowId);
     });
   }
 

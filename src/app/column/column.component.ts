@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,6 +14,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class ColumnComponent implements OnInit {
   @Input() columnId: number;
+  @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;
   public pageDescription: string;
   public contentList: Webcontent[];
@@ -31,6 +32,10 @@ export class ColumnComponent implements OnInit {
   //This component gets all content by column id
   ngOnInit(): void {
     this.getContentListsByColumnId();
+  }
+
+  refreshRows() {
+    this.refreshEvent.next('refreshRows');
   }
 
   getContentByColumnId() {
@@ -142,6 +147,7 @@ export class ColumnComponent implements OnInit {
   onColumnDelete(id: number) {
     this.webStructureService.deleteColumn(id).subscribe((res) => {
       this.grabAllContentByPageId();
+      this.refreshRows();
     });
     this.toastr.error('Column deleted!');
   }
@@ -183,7 +189,8 @@ export class ColumnComponent implements OnInit {
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       //this.resetForm(form);
-      this.grabAllContentByPageId();
+      this.refreshRows();
+      // this.grabAllContentByPageId();
     });
   }
 
