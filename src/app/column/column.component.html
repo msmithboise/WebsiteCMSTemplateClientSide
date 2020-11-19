@@ -120,6 +120,19 @@
                 />
               </div>
 
+              <!--  Body (400px image) -->
+
+              <div *ngIf="text.Body">
+                <label>Background Image (400px)</label>
+                <div class="input-group"></div>
+                <input
+                  name="Body"
+                  #Body="ngModel"
+                  [(ngModel)]="text.Body"
+                  class="formStyle"
+                />
+              </div>
+
               <!-- Audio -->
 
               <div *ngIf="text.AudioUrl">
