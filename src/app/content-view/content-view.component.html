@@ -58,7 +58,7 @@
         background: 'linear-gradient' + content.background,
         backgroundRepeat: content.backgroundRepeat,
         backgroundSize: content.backgroundSize,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: content.backgroundColor,
         position: content.position,
         opacity: content.opacity,
         backgroundPosition: content.backgroundPosition,
@@ -91,8 +91,8 @@
         height: content.height + 'px',
         width: content.width + 'px',
         objectFit: 'cover',
-        transform:
-          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+        zIndex: content.zIndex,
+        transform: content.transform
       }"
     />
 
