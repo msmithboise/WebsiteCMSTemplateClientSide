@@ -128,6 +128,7 @@ export class ButtonPanelComponent implements OnInit {
       .postWebContentByPageId(newEmbedUrlForm)
       .subscribe((res) => {
         this.toastr.success('Video embed added successfully!');
+        this.refreshContent();
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -205,13 +206,16 @@ export class ButtonPanelComponent implements OnInit {
             audiofileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
                 .postUploadedAudio(url)
-                .subscribe((data) => {});
+                .subscribe((data) => {
+                  this.refreshContent();
+                });
               formValue['audioUrl'] = url;
               this.resetAudioForm();
             });
           })
         )
         .subscribe((res) => {
+          this.refreshContent();
           //this.grabAllContentByPageId();
         });
       this.toastr.success('Audio uploaded successfully!');
@@ -242,6 +246,7 @@ export class ButtonPanelComponent implements OnInit {
       .postWebContentByPageId(newAudioForm)
       .subscribe((res) => {
         this.toastr.success('Audio URL added successfully!');
+        this.refreshContent();
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -323,7 +328,9 @@ export class ButtonPanelComponent implements OnInit {
             fileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
                 .postUploadedImage(url, this.isChecked)
-                .subscribe((data) => {});
+                .subscribe((data) => {
+                  this.refreshContent();
+                });
 
               formValue['imageUrl'] = url;
 
@@ -335,6 +342,7 @@ export class ButtonPanelComponent implements OnInit {
         .subscribe((res) => {
           //this.grabAllContentByPageId();
         });
+      this.refreshContent();
       this.toastr.success('Image uploaded succesfully!');
     }
   }
@@ -366,6 +374,7 @@ export class ButtonPanelComponent implements OnInit {
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
         this.toastr.success('Gallery Image added succesfully!');
+        this.refreshContent();
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -408,6 +417,7 @@ export class ButtonPanelComponent implements OnInit {
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
         this.toastr.success('Background image added successfully!');
+        this.refreshContent();
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -468,7 +478,9 @@ export class ButtonPanelComponent implements OnInit {
             fileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
                 .postUploadedGalleryImage(url)
-                .subscribe((data) => {});
+                .subscribe((data) => {
+                  this.refreshContent();
+                });
 
               formValue['imageUrl'] = url;
 
@@ -478,6 +490,7 @@ export class ButtonPanelComponent implements OnInit {
           })
         )
         .subscribe((res) => {
+          this.refreshContent();
           //this.grabAllContentByPageId();
         });
       this.toastr.success('Gallery Image uploaded succesfully!');
