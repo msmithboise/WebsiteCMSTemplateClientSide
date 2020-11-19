@@ -37,6 +37,7 @@ Name:
 </div>
 
 <app-grid-child
+  (refreshEvent)="refresh($event)"
   (newElementEvent)="addElement($event)"
   (newColumnEvent)="addColumn($event)"
   (newContentEvent)="addContent($event)"

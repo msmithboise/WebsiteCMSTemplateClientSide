@@ -19,8 +19,14 @@ export class GridChildComponent implements OnChanges {
   @Output() newElementEvent = new EventEmitter<string>();
   @Output() newColumnEvent = new EventEmitter<string>();
   @Output() newContentEvent = new EventEmitter<string>();
+  @Output() refreshEvent = new EventEmitter<any>();
 
   constructor(private renderer: Renderer2) {}
+
+  refreshPage() {
+    console.log('clicking in child component');
+    this.refreshEvent.next('refresh');
+  }
 
   ngOnChanges() {
     this.logName();

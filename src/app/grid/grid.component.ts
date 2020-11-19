@@ -26,6 +26,10 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  refresh(newSomthing: any) {
+    console.log('page refreshed!');
+  }
+
   addElement(newElement: string) {
     this.elements.push(newElement);
     console.log('element array');
