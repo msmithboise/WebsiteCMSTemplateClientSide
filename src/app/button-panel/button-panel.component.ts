@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WebcontentService } from '../WebContent/webcontent.service';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ButtonPanelComponent implements OnInit {
   @Input() columnId: number;
+  @Output() refreshEvent = new EventEmitter<any>();
   public rowId = '';
   closeResult = '';
   public fileToUpload: File = null;
@@ -40,6 +41,10 @@ export class ButtonPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  refreshContent() {
+    this.refreshEvent.next('refreshColumns');
+  }
 
   onChange(isChecked: boolean) {
     this.isChecked = isChecked;
@@ -84,6 +89,7 @@ export class ButtonPanelComponent implements OnInit {
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
       this.toastr.success('Map added successfully!');
+      this.refreshContent();
       //this.grabAllContentByPageId();
     });
   }

@@ -40,10 +40,12 @@ export class RowComponent implements OnInit {
     this.getColumnsByRowId(this.rowId);
   }
 
+  //Invokes from page-settings (parent)
   refreshPage() {
     this.refreshEvent.next('refresh');
   }
 
+  //Invoked from column.ts (child)
   refreshRows() {
     console.log('rows refreshed!');
     this.getColumnsByRowId(this.rowId);

@@ -28,7 +28,10 @@
       Delete Column
     </button>
 
-    <app-button-panel [columnId]="this.columnId"></app-button-panel>
+    <app-button-panel
+      (refreshEvent)="refreshColumns()"
+      [columnId]="this.columnId"
+    ></app-button-panel>
     <div *ngFor="let text of this.newContentList; let i = index">
       <div *ngIf="text.ColumnId == this.columnId">
         <h3 style="color: violet">ContentId: {{ text.Id }}</h3>
