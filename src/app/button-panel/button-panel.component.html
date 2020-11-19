@@ -615,7 +615,14 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="submitAudioData(audioFormTemplate.value)"
+            data-dismiss="modal"
+          >
+            Save changes
+          </button>
         </div>
       </div>
     </div>
@@ -694,7 +701,14 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="submitEmbedUrlData(embedUrlFormTemplate.value)"
+            data-dismiss="modal"
+          >
+            Save changes
+          </button>
         </div>
       </div>
     </div>
@@ -777,6 +791,7 @@
             (click)="onMapSubmit(mapFormTemplate.value)"
             type="button"
             class="btn btn-primary"
+            data-dismiss="modal"
           >
             Save changes
           </button>
