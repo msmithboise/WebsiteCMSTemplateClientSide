@@ -27,6 +27,7 @@
         float: 'left',
         backgroundAttachment: content.backgroundAttachment,
         backgroundRepeat: content.backgroundRepeat,
+        background: 'linear-gradient' + content.background,
         backgroundSize: content.backgroundSize,
         position: content.position,
         opacity: content.opacity,
@@ -36,9 +37,8 @@
         height: '1000px',
         width: '2000px',
         objectFit: 'cover',
-        zIndex: '-1',
-        transform:
-          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+        zIndex: content.zIndex,
+        transform: content.transform
       }"
     >
       <!-- <h1 style="text-align: center">fullsize</h1> -->
@@ -67,9 +67,8 @@
         height: '400px',
         width: '2000px',
         objectFit: 'cover',
-        zIndex: '-1',
-        transform:
-          'translate3d(' + content.left + 'px,' + content.top + 'px,' + '0px)'
+        zIndex: content.zIndex,
+        transform: content.transform
       }"
     ></div>
 
