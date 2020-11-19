@@ -217,6 +217,7 @@ export class ButtonPanelComponent implements OnInit {
 
     var newAudioForm = this.audioFormTemplate.value;
     newAudioForm.pageId = this.webContentService.pageIdSnapshot;
+    newAudioForm.columnId = this.columnId;
 
     this.webContentService
       .postWebContentByPageId(newAudioForm)
