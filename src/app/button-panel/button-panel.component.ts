@@ -80,6 +80,7 @@ export class ButtonPanelComponent implements OnInit {
 
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
+      this.toastr.success('Map added successfully!');
       //this.grabAllContentByPageId();
     });
   }
@@ -115,6 +116,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService
       .postWebContentByPageId(newEmbedUrlForm)
       .subscribe((res) => {
+        this.toastr.success('Video embed added successfully!');
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -226,6 +228,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService
       .postWebContentByPageId(newAudioForm)
       .subscribe((res) => {
+        this.toastr.success('Audio URL added successfully!');
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -273,6 +276,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
       //this.grabAllContentByPageId();
+      this.toastr.success('Text added successfully!');
     });
   }
 
@@ -347,6 +351,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
+        this.toastr.success('Gallery Image added succesfully!');
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -388,6 +393,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
+        this.toastr.success('Background image added successfully!');
         //this.resetForm(form);
         //this.grabAllContentByPageId();
       });
@@ -460,7 +466,7 @@ export class ButtonPanelComponent implements OnInit {
         .subscribe((res) => {
           //this.grabAllContentByPageId();
         });
-      this.toastr.success('Image uploaded succesfully!');
+      this.toastr.success('Gallery Image uploaded succesfully!');
     }
   }
 }
