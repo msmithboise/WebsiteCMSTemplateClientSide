@@ -55,7 +55,13 @@
       [ngStyle]="{
         float: 'left',
         backgroundAttachment: content.backgroundAttachment,
-        background: 'linear-gradient' + content.background,
+        background:
+          'linear-gradient' +
+          content.background +
+          ',' +
+          'url(' +
+          content.Body +
+          ')',
         backgroundRepeat: content.backgroundRepeat,
         backgroundSize: content.backgroundSize,
         backgroundColor: content.backgroundColor,
