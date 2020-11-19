@@ -67,20 +67,25 @@
             </label>
           </div> -->
 
-            <div *ngIf="!logoIsLeft && !logoIsRight">
-              <div
-                [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
-                [ngStyle]="logoStyling"
-              ></div>
-            </div>
+            <img
+              src="{{ setting.LogoUrl }}"
+              [ngStyle]="{
+                width: setting.LogoWidth,
+                height: setting.LogoHeight
+              }"
+            />
+
+            <!-- backgroundImage: this.photo, width: '200px', height: '65px',
+            backgroundSize: '50%', backgroundRepeat: this.testBgRepeat,
+            backgroundPosition: 'center', -->
 
             <!-- OMG IT WORKS!@!!!! -->
-            <div *ngIf="logoIsLeft">
+            <!-- <div *ngIf="logoIsLeft">
               <div
                 [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
                 [ngStyle]="logoStyling"
               ></div>
-            </div>
+            </div> -->
             <!-- ---------------------------------- -->
 
             <li

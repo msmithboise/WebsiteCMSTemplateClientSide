@@ -254,7 +254,7 @@ export class NavbarComponent implements OnInit {
   logoStyling = {
     backgroundImage: this.photo,
     width: '200px',
-    height: '50px',
+    height: '65px',
     backgroundSize: '50%',
     backgroundRepeat: this.testBgRepeat,
     backgroundPosition: 'center',
