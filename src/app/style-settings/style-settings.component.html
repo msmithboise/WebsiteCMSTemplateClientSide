@@ -1323,6 +1323,55 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Background gradient -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>BG Gradient</b></label>
+                              <div>
+                                <input
+                                  name="background"
+                                  #background="ngModel"
+                                  [(ngModel)]="content.background"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="background"></label>
+                              <select
+                                id="background"
+                                name="background"
+                                [(ngModel)]="content.background"
+                                class="form-control"
+                              >
+                                <option value="(180deg, red, yellow)">
+                                  linear-gradient(180deg, red, yellow)
+                                </option>
+                                <option
+                                  value="(to right, rgba(255,0,0,0), rgba(255,0,0,1))"
+                                >
+                                  linear-gradient(to right, rgba(255,0,0,0),
+                                  rgba(255,0,0,1))
+                                </option>
+                                <option value="(red, yellow 10%, green 20%);">
+                                  repeating-linear-gradient(red, yellow 10%,
+                                  green 20%);
+                                </option>
+                                <option
+                                  value="(to right, red,orange,yellow,green,blue,indigo,violet)"
+                                >
+                                  Rainbow
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Background Image -->
                         <label><b>Background Image</b></label>
                         <input
