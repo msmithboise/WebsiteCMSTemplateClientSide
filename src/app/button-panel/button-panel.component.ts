@@ -354,6 +354,7 @@ export class ButtonPanelComponent implements OnInit {
     height: new FormControl(''),
     width: new FormControl(''),
     isImage: new FormControl(''),
+    body: new FormControl(''),
   });
 
   submitBgImageUrlData(form: FormGroup) {

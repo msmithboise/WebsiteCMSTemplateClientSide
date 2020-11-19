@@ -54,7 +54,7 @@
     Background Image
   </button>
 
-  <!--Image Modal -->
+  <!--BG Image Modal -->
   <div
     class="modal fade"
     id="bgImageModal"
@@ -206,7 +206,7 @@
     Gallery Image
   </button>
 
-  <!--Image Modal -->
+  <!--Gallery Image Modal -->
   <div
     class="modal fade"
     id="imageModal"
@@ -494,6 +494,7 @@
     class="btn btn-sm btn-outline-secondary embed-button"
     data-toggle="modal"
     data-target="#audioModal"
+    (click)="passColumnId(this.columnId)"
   >
     <svg
       width="1em"
