@@ -289,6 +289,7 @@ export class ButtonPanelComponent implements OnInit {
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
       //this.grabAllContentByPageId();
+      this.refreshContent();
       this.toastr.success('Text added successfully!');
     });
   }

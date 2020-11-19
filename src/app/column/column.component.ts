@@ -40,6 +40,7 @@ export class ColumnComponent implements OnInit {
 
   refreshColumns() {
     console.log('content refreshed!');
+    this.getContentListsByColumnId();
   }
 
   getContentByColumnId() {
