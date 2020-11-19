@@ -127,6 +127,8 @@ export class WebcontentService {
   postUploadedAudio(audioUrl: string) {
     const fd: FormData = new FormData();
     fd.append('audioUrl', audioUrl);
+    var colId = localStorage.getItem('passedId');
+    fd.append('columnId', colId);
 
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;

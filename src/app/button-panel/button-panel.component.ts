@@ -147,6 +147,7 @@ export class ButtonPanelComponent implements OnInit {
   audioUploadFormTemplate = new FormGroup({
     AudioUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
+    columnId: new FormControl(''),
   });
   get audioFormControls() {
     // console.log('audio form controls');
@@ -229,6 +230,7 @@ export class ButtonPanelComponent implements OnInit {
     audioUrl: new FormControl('', Validators.required),
     pageId: new FormControl(''),
     backgroundColor: new FormControl(''),
+    columnId: new FormControl(''),
   });
 
   formTemplate = new FormGroup({
