@@ -73,7 +73,10 @@ export class ButtonPanelComponent implements OnInit {
 
     var newMapForm = this.mapFormTemplate.value;
     newMapForm.pageId = this.webContentService.pageIdSnapshot;
-    newMapForm.columnId = this.columnId;
+
+    var colId = localStorage.getItem('passedId');
+
+    newMapForm.columnId = Number(colId);
 
     // console.log('newMapForm before going to service');
     // console.log(newMapForm);
@@ -225,7 +228,9 @@ export class ButtonPanelComponent implements OnInit {
 
     var newAudioForm = this.audioFormTemplate.value;
     newAudioForm.pageId = this.webContentService.pageIdSnapshot;
-    newAudioForm.columnId = this.columnId;
+    var colId = localStorage.getItem('passedId');
+
+    newAudioForm.columnId = Number(colId);
 
     this.webContentService
       .postWebContentByPageId(newAudioForm)
