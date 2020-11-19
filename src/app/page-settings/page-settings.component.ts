@@ -242,28 +242,28 @@ export class PageSettingsComponent implements OnInit {
     });
   }
 
-  getImageDetails() {
-    this.webContentService.imageDetailList
-      .snapshotChanges()
-      .subscribe((list) => {
-        this.imageList = list.map((item) => {
-          //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
-          //Setting firebaseUrl reponse to property
-          this.fireBaseImageUrl = item.payload.val().imageUrl;
+  // getImageDetails() {
+  //   this.webContentService.imageDetailList
+  //     .snapshotChanges()
+  //     .subscribe((list) => {
+  //       this.imageList = list.map((item) => {
+  //         //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
+  //         //Setting firebaseUrl reponse to property
+  //         this.fireBaseImageUrl = item.payload.val().imageUrl;
 
-          return item.payload.val();
-        });
-        this.setFireBaseUrlToImageUrl();
-      });
-  }
+  //         return item.payload.val();
+  //       });
+  //       this.setFireBaseUrlToImageUrl();
+  //     });
+  // }
 
-  setFireBaseUrlToImageUrl() {
-    this.webContentService
-      .postUploadedImage(this.fireBaseImageUrl)
-      .subscribe((data) => {});
+  // setFireBaseUrlToImageUrl() {
+  //   this.webContentService
+  //     .postUploadedImage(this.fireBaseImageUrl)
+  //     .subscribe((data) => {});
 
-    //Now we need to create a form to post to db
-  }
+  //   //Now we need to create a form to post to db
+  // }
 
   deleteDialogue(id: number) {
     // console.log('trying to delete..');

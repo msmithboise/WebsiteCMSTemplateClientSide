@@ -233,6 +233,7 @@ export class ButtonPanelComponent implements OnInit {
     pageId: new FormControl(''),
     backgroundImage: new FormControl(''),
     columnId: new FormControl(''),
+    body: new FormControl(''),
   });
 
   get formControls() {
@@ -271,6 +272,7 @@ export class ButtonPanelComponent implements OnInit {
       imageUrl: '',
       pageId: 0,
       backgroundImage: '',
+      body: '',
     });
     this.imgSrc = '/assets/placeholder.jpg';
     this.selectedImage = null;
@@ -292,7 +294,7 @@ export class ButtonPanelComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               this.webContentService
-                .postUploadedImage(url)
+                .postUploadedImage(url, this.isChecked)
                 .subscribe((data) => {});
 
               formValue['imageUrl'] = url;

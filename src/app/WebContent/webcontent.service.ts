@@ -73,9 +73,20 @@ export class WebcontentService {
     return this.http.post(this.webApi + '/UploadImage', fd);
   }
 
-  postUploadedImage(imageUrl: string) {
+  postUploadedImage(imageUrl: string, isChecked: boolean) {
+    console.log('isChecked in post');
+    console.log(isChecked);
+
     const fd: FormData = new FormData();
-    fd.append('imageUrl', imageUrl);
+
+    //If 400px is checked,
+    if (isChecked) {
+      var body = imageUrl;
+      fd.append('body', body);
+    } else {
+      fd.append('imageUrl', imageUrl);
+    }
+
     var colId = localStorage.getItem('passedId');
     fd.append('columnId', colId);
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
