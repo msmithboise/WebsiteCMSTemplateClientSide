@@ -171,17 +171,15 @@
                                 [(ngModel)]="content.fontSize"
                                 class="form-control"
                               >
-                                <option value="1vw">1vw</option>
-                                <option value="2vw">2vw</option>
-                                <option value="3vw">3vw</option>
+                                <option value="12px">12px</option>
+                                <option value="16px">16px</option>
+                                <option value="25px">25px</option>
 
-                                <option value="4vw">4vw</option>
+                                <option value="50px">50px</option>
 
-                                <option value="5vw">5vw</option>
-                                <option value="10vw">10vw</option>
-                                <option value="12vw">12vw</option>
-                                <option value="16vw">16vw</option>
-                                <option value="20vw">20vw</option>
+                                <option value="60px">60px</option>
+                                <option value="72px">72px</option>
+                                <option value="100px">100px</option>
                               </select>
                             </div>
                           </div>
@@ -233,6 +231,20 @@
                                 [(ngModel)]="content.color"
                                 class="form-control"
                               >
+                                <option value="#ffffff">neutral white</option>
+                                <option value="#f6f6f6">
+                                  neutral off-white
+                                </option>
+                                <option
+                                  value="#cccccc
+                              "
+                                >
+                                  neutral pink
+                                </option>
+                                <option value="#999999">neutral tan</option>
+                                <option value="#4d4d4d">neutral brown</option>
+                                <option value="#222222">neutral black</option>
+
                                 <option value="red">red</option>
                                 <option value="pink">pink</option>
                                 <option value="black">black</option>
@@ -1317,6 +1329,41 @@
                                   play-state)
                                 </option>
                                 <option value="fadeIn ease 10s">fade in</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Z Index -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Z Index</b></label>
+                              <div>
+                                <input
+                                  name="zIndex"
+                                  #zIndex="ngModel"
+                                  [(ngModel)]="content.zIndex"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="zIndex"></label>
+                              <select
+                                id="zIndex"
+                                name="zIndex"
+                                [(ngModel)]="content.zIndex"
+                                class="form-control"
+                              >
+                                <option value="-1">-1</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                               </select>
                             </div>
                           </div>
