@@ -7,6 +7,7 @@ import { HomeComponent } from '../home/home.component';
 import { stringify } from 'querystring';
 import { Observable } from 'rxjs';
 import { Textbox } from '../textbox.model';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +18,13 @@ export class WebpageService {
   textBoxOneContent: Textbox[];
   webContent: [];
 
-  readonly rootURL = 'http://localhost:54704/api';
+  readonly rootURL = this.webStructureService.globalApi;
   imageUrl: string;
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Post
   postWebPageContent(formData: Webpage) {

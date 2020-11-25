@@ -2,15 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Navbar } from '../models/navbar.model';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavBarService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   public navBarArray: Navbar[];
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Get Navbar data
   getNavBarData(): Observable<Navbar[]> {

@@ -4,12 +4,13 @@ import { Webcontent } from './webcontent.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebcontentService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   public webContentArray: Webcontent[];
   public webContentByIdArray: Webcontent[];
   public formData: Webcontent;
@@ -23,7 +24,8 @@ export class WebcontentService {
   constructor(
     private http: HttpClient,
     private firebase: AngularFireDatabase,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public webStructureService: WebStructureService
   ) {}
 
   getImageDetailList() {

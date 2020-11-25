@@ -4,6 +4,7 @@ import { CustomPage } from '../models/custom-page.model';
 import { Observable } from 'rxjs';
 import { CustomImage } from '../models/custom-image.model';
 import { CustomImageService } from './custom-image.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,13 @@ import { CustomImageService } from './custom-image.service';
 export class CustomPageService {
   constructor(
     public http: HttpClient,
+    public webStructureService: WebStructureService,
     public customImageService: CustomImageService
   ) {}
 
   public customPageArray: CustomPage[];
   public customPageArrayById: CustomPage;
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   public pageFormData: CustomPage;
 
   // //Get form data

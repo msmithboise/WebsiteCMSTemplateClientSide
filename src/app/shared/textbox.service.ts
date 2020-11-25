@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Textbox } from '../textbox.model';
 import { Observable } from 'rxjs';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,12 @@ import { Observable } from 'rxjs';
 export class TextboxService {
   textBoxContentArray = [];
   textBoxOneFormData: Textbox;
-  readonly rootURL = 'http://localhost:54704/api';
+  readonly rootURL = this.webStructureService.globalApi;
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Get
   getTextBoxOneContent(): Observable<Textbox[]> {

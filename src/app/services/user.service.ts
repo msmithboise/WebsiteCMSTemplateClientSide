@@ -2,18 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   public userFormData: User;
   public userArray: User[];
   public isLoggedIn: boolean;
   public loggedInUserArray: LoggedInUser[];
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Get
 

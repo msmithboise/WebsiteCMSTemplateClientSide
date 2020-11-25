@@ -10,7 +10,8 @@ import { Webcontent } from './WebContent/webcontent.model';
   providedIn: 'root',
 })
 export class WebStructureService {
-  readonly webApi = 'http://localhost:54704/api';
+  public globalApi = 'http://api.riveroflifeidaho.com/api';
+  readonly webApi = this.globalApi;
   public rowsArray: Row[];
   public rowsByPageIdArray: Row[];
   public columnsArray: Column[];

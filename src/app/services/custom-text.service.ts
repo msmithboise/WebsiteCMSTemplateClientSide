@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CustomText } from '../models/custom-text.model';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomTextService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   public customTextArray: CustomText[];
   public textFormData: CustomText;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Get text by page id
   getTextByPageId(pageId: number) {

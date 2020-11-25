@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subpage } from '../models/subpage.model';
+import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SubpageService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webStructureService.globalApi;
   readonly webUrl = 'http://localhost:54704';
   subPageArray: Subpage[];
   subPageByPageIdArray: Subpage[];
@@ -17,7 +18,10 @@ export class SubpageService {
   public subPageContentArray: Webcontent[];
   public subPageStorage: Subpage[];
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public webStructureService: WebStructureService
+  ) {}
 
   //Get
   getSubPages(): Observable<Subpage[]> {

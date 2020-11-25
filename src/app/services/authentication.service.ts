@@ -8,14 +8,18 @@ import { catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { map, filter, mergeMap } from 'rxjs/operators';
 import { Observable, of, throwError, pipe } from 'rxjs';
+import { WebStructureService } from '../web-structure.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  readonly webApi = 'http://localhost:54704/api';
+  readonly webApi = this.webstructureService.globalApi;
 
-  constructor(public httpClient: HttpClient) {}
+  constructor(
+    public httpClient: HttpClient,
+    public webstructureService: WebStructureService
+  ) {}
 
   ValidateUser(user: User) {
     var userData =
