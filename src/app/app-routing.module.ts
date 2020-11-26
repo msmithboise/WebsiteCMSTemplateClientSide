@@ -18,6 +18,11 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
+    path: '',
+    redirectTo: '/Home/1',
+    pathMatch: 'full',
+  },
+  {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
   },
