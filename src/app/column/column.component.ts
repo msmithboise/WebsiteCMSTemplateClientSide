@@ -209,8 +209,8 @@ export class ColumnComponent implements OnInit {
   onDelete(id: number) {
     this.webContentService.deleteWebPageContent(id).subscribe((res) => {
       this.grabAllContentByPageId();
-      this.refreshRows();
     });
+    this.refreshRows();
     this.toastr.error('Content deleted!');
   }
 
