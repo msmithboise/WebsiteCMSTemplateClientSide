@@ -13,6 +13,8 @@ export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
   contentList: Webcontent[];
   newContentList: Webcontent[];
+  public screenWidth: number;
+  public screenHeight: number;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -21,6 +23,14 @@ export class ContentViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContentListsByColumnId();
+    this.getScreenSize();
+  }
+
+  getScreenSize() {
+    this.screenWidth = window.innerWidth;
+    console.log(this.screenWidth);
+    this.screenHeight = window.innerHeight;
+    console.log(this.screenHeight);
   }
 
   getContentListsByColumnId() {

@@ -31,33 +31,214 @@
       </audio>
     </div>
 
+    <!-- Hero Image mobile Small -->
+
+    <div *ngIf="this.screenWidth <= 320 && this.screenWidth >= 0">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '320px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
+    <!-- Hero Image mobile Medium -->
+
+    <div *ngIf="this.screenWidth <= 375 && this.screenWidth > 320">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '375px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
+    <!-- Hero Image mobile large -->
+
+    <div *ngIf="this.screenWidth <= 425 && this.screenWidth > 375">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '425px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
+    <!-- Hero Image Tablet mobile -->
+
+    <div *ngIf="this.screenWidth <= 768 && this.screenWidth > 425">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '768px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
+    <!-- Hero Image Laptop small -->
+
+    <div *ngIf="this.screenWidth <= 1024 && this.screenWidth > 768">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '1024px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
+    <!-- Hero Image Laptop Large -->
+
+    <div *ngIf="this.screenWidth <= 1440 && this.screenWidth > 1024">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '800px',
+          width: '1440px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
+    </div>
+
     <!-- Hero Image Full size-->
 
-    <div *ngIf="content.isImage == true"></div>
-    <div
-      id="image-resize"
-      class="heroImage responsive"
-      *ngIf="content.backgroundImage != null"
-      [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
-      [ngStyle]="{
-        float: 'left',
-        backgroundAttachment: content.backgroundAttachment,
-        backgroundRepeat: content.backgroundRepeat,
-        background: 'linear-gradient' + content.background,
-        backgroundSize: content.backgroundSize,
-        position: content.position,
-        opacity: content.opacity,
-        backgroundPosition: content.backgroundPosition,
-        resize: 'both',
-        overflow: 'auto',
-        height: '1000px',
-        width: '2000px',
-        objectFit: 'cover',
-        zIndex: content.zIndex,
-        transform: content.transform
-      }"
-    >
-      <!-- <h1 style="text-align: center">fullsize</h1> -->
+    <div *ngIf="this.screenWidth >= 1900">
+      <div
+        id="image-resize"
+        class="heroImage responsive"
+        *ngIf="content.backgroundImage != null"
+        [style.background-image]="'url(' + content.backgroundImage + ')' | safe"
+        [ngStyle]="{
+          float: 'left',
+          backgroundAttachment: content.backgroundAttachment,
+          backgroundRepeat: content.backgroundRepeat,
+          background: 'linear-gradient' + content.background,
+          backgroundSize: content.backgroundSize,
+          position: content.position,
+          opacity: content.opacity,
+          backgroundPosition: content.backgroundPosition,
+          resize: 'both',
+          overflow: 'auto',
+          height: '1000px',
+          width: '2000px',
+          objectFit: 'cover',
+          zIndex: content.zIndex,
+          transform: content.transform
+        }"
+      >
+        <!-- <h1 style="text-align: center">fullsize</h1> -->
+      </div>
     </div>
 
     <!-- Hero Image 400px-->
