@@ -48,6 +48,7 @@ import { ColumnViewComponent } from './column-view/column-view.component';
 import { RowViewComponent } from './row-view/row-view.component';
 import { ContentViewComponent } from './content-view/content-view.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,11 @@ import { ButtonPanelComponent } from './button-panel/button-panel.component';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [WebpageService, SafePipe],
+  providers: [
+    WebpageService,
+    SafePipe,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
