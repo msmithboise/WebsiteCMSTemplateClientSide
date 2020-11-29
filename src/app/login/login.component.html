@@ -3,6 +3,7 @@
     <body class="text-center">
       <form [formGroup]="loginForm" class="form-signin">
         <svg
+          style="padding-top: 10px"
           width="5em"
           height="5em"
           viewBox="0 0 16 16"
@@ -20,6 +21,18 @@
           />
         </svg>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <!-- <input
+          style="background-color: #e6e6fa"
+          type="text"
+          formControlName="Username"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Company ID"
+          required
+          autofocus
+        />
+        <br /> -->
 
         <input
           style="background-color: #e6e6fa"
@@ -43,18 +56,22 @@
           required
         />
 
-        <div class="checkbox mb-3">
+        <!-- <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me" /> Remember me
           </label>
+        </div> -->
+
+        <div style="padding-top: 10px">
+          <button class="btn btn-lg btn-primary" (click)="Login()">
+            Log In
+          </button>
         </div>
 
-        <button class="btn btn-lg btn-primary" (click)="Login()">Log In</button>
-
         <br />
         <br />
 
-        <a routerLink="/signup" class="btn btn-lg btn-primary">Sign Up</a>
+        <!-- <a routerLink="/signup" class="btn btn-lg btn-primary">Sign Up</a> -->
         <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
       </form>
     </body>
