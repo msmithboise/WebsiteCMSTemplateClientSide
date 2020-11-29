@@ -17,7 +17,6 @@ export class AuthGuardComponent implements CanActivate {
 
   canActivate(): boolean {
     if (!this.authService.isAuthenticated()) {
-      console.log('You are not authorized to view this page');
       return false;
     }
     return true;

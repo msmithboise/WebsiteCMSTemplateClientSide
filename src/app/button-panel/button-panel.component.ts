@@ -48,16 +48,13 @@ export class ButtonPanelComponent implements OnInit {
 
   onChange(isChecked: boolean) {
     this.isChecked = isChecked;
-
-    console.log('check');
-    console.log(this.isChecked);
   }
 
   passColumnId(columnId: number) {
-    console.log(columnId);
+    // console.log(columnId);
     this.passedInColumnId = columnId;
-    console.log('passed in id');
-    console.log(this.passedInColumnId);
+    // console.log('passed in id');
+    // console.log(this.passedInColumnId);
 
     localStorage.setItem('passedId', this.passedInColumnId.toString());
   }
@@ -273,7 +270,7 @@ export class ButtonPanelComponent implements OnInit {
 
   //To submit text body data
   submitNewTextData(form: FormGroup) {
-    console.log('passed on submit columnId', this.passedInColumnId);
+    // console.log('passed on submit columnId', this.passedInColumnId);
     this.insertTextRecord(form);
   }
 
@@ -288,8 +285,8 @@ export class ButtonPanelComponent implements OnInit {
     var newForm = this.textFormTemplate.value;
     newForm.pageId = this.webContentService.pageIdSnapshot;
     newForm.columnId = Number(colId);
-    console.log('local storage id');
-    console.log(Number(colId));
+    // console.log('local storage id');
+    // console.log(Number(colId));
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
       //this.resetForm(form);
@@ -358,7 +355,7 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   submitImageUrlData(form: FormGroup) {
-    console.log('passed on submit columnId', this.passedInColumnId);
+    // console.log('passed on submit columnId', this.passedInColumnId);
     // console.log('image form after submit');
     // console.log(form);
     this.insertImageUrlRecord(form);
@@ -393,7 +390,7 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   submitBgImageUrlData(form: FormGroup) {
-    console.log('passed on submit columnId', this.passedInColumnId);
+    // console.log('passed on submit columnId', this.passedInColumnId);
     // console.log('image form after submit');
     // console.log(form);
     this.insertBgImageUrlRecord(form);
@@ -405,7 +402,7 @@ export class ButtonPanelComponent implements OnInit {
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
     newUrlForm.columnId = Number(colId);
 
-    console.log(this.isFullsize);
+    // console.log(this.isFullsize);
 
     if (this.isFullsize) {
       newUrlForm.isImage = true;
