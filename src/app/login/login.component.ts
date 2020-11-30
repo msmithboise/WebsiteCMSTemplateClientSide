@@ -15,6 +15,7 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
   public globalResponse: any;
+  public userToken: string;
 
   public alerts: IAlert[];
 
@@ -79,11 +80,15 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Login succesful!');
         console.log(this.globalResponse);
         this.authService.storeToken(this.globalResponse.access_token);
+        this.userToken = this.globalResponse.access_token.toString();
+        console.log('userToken');
+        console.log(this.userToken);
         this.alerts.push({
           id: 1,
           type: 'success',
           message: 'Login succesful!',
         });
+        user.Token = this.userToken;
         user.isLoggedIn = true;
 
         this.router.navigate(['customPage/:pageDescription/1']);
