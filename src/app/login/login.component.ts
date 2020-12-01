@@ -91,6 +91,8 @@ export class LoginComponent implements OnInit {
         user.Token = this.userToken;
         user.isLoggedIn = true;
 
+        localStorage.setItem('userToken', this.userToken.toString());
+
         this.router.navigate(['customPage/:pageDescription/1']);
         this.userService.getUserData().subscribe((res: User[]) => {
           console.log('Here is the entire user array');

@@ -85,18 +85,18 @@
       </div>
 
       <div *ngFor="let user of this.currentUserArray">
-        <div *ngIf="!user.IsLoggedIn"></div>
-
-        <div *ngIf="user.IsLoggedIn" style="text-align: center">
-          Hello {{ user.UserName }}!
-          <div>
+        <div *ngIf="this.webStructureService.hasToken == true">
+          <div *ngIf="user.IsLoggedIn" style="text-align: center">
+            Hello {{ user.UserName }}!
             <div>
-              <button
-                class="btn btn-light btn-sm mb-3"
-                (click)="openPageSettings()"
-              >
-                Dashboard
-              </button>
+              <div>
+                <button
+                  class="btn btn-light btn-sm mb-3"
+                  (click)="openPageSettings()"
+                >
+                  Dashboard
+                </button>
+              </div>
             </div>
           </div>
         </div>

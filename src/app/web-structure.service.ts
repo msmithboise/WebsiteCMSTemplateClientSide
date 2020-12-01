@@ -23,6 +23,7 @@ export class WebStructureService {
   public contentByColumnIdArray: Webcontent[];
   public combinedRowsByPageId = [];
   public combinedColumnsByRowId = [];
+  public hasToken: boolean = false;
   constructor(private http: HttpClient) {}
 
   //Get Rows

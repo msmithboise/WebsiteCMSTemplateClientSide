@@ -73,9 +73,11 @@ export class CustomPageComponent implements OnInit {
   public pageId: number;
   public rowIds = [];
   public columnIds = [];
+  public hasToken: boolean = false;
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.checkForToken();
     this.callCustomPageService();
     this.takePageIdSnapshot();
     this.userService.getCurrentUserData();
@@ -83,6 +85,22 @@ export class CustomPageComponent implements OnInit {
     this.grabAllUserData();
     this.createTestArray();
     this.getRowsByPageId();
+  }
+
+  checkForToken() {
+    console.log('checking for token');
+
+    console.log(localStorage.getItem('userToken'));
+
+    if (localStorage.getItem('userToken') == '') {
+      this.webStructureService.hasToken = false;
+      this.authService.removeToken;
+      localStorage.removeItem('userToken');
+      console.log('User does not have token:');
+      this.userService.userArray[0].isLoggedIn = false;
+    }
+    console.log('User has token');
+    this.webStructureService.hasToken = true;
   }
 
   getRowsByPageId() {
@@ -319,6 +337,7 @@ export class CustomPageComponent implements OnInit {
   Logout(data: LoggedInUser) {
     var user = data;
     this.authService.removeToken;
+    localStorage.removeItem('userToken');
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
       // console.log('logout data:');

@@ -18,6 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { NavBarService } from '../services/nav-bar.service';
 import { Navbar } from '../models/navbar.model';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-navbar',
@@ -56,7 +57,8 @@ export class NavbarComponent implements OnInit {
     public userService: UserService,
     public authService: AuthenticationService,
     public toastr: ToastrService,
-    public navBarService: NavBarService
+    public navBarService: NavBarService,
+    public webStructureService: WebStructureService
   ) {}
 
   customPageArray: CustomPage[];
@@ -131,6 +133,8 @@ export class NavbarComponent implements OnInit {
   Logout(data: LoggedInUser) {
     var user = data;
     this.authService.removeToken;
+    localStorage.removeItem('userToken');
+    console.log('token removed on logout: ', localStorage.getItem('userToken'));
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
       // console.log('logout data:');
