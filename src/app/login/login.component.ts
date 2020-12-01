@@ -7,6 +7,7 @@ import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     public authService: AuthenticationService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -89,6 +91,9 @@ export class LoginComponent implements OnInit {
           message: 'Login succesful!',
         });
         user.Token = this.userToken;
+        this.webStructureService.token = this.userToken;
+        console.log('webstructure service token');
+        console.log(this.webStructureService.token);
         user.isLoggedIn = true;
 
         localStorage.setItem('userToken', this.userToken.toString());

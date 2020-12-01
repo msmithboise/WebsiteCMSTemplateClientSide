@@ -19,6 +19,7 @@ import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { NavBarService } from '../services/nav-bar.service';
 import { Navbar } from '../models/navbar.model';
 import { WebStructureService } from '../web-structure.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
@@ -58,13 +59,15 @@ export class NavbarComponent implements OnInit {
     public authService: AuthenticationService,
     public toastr: ToastrService,
     public navBarService: NavBarService,
-    public webStructureService: WebStructureService
+    public webStructureService: WebStructureService,
+    public cookie: CookieService
   ) {}
 
   customPageArray: CustomPage[];
 
   ngOnInit(): void {
     this.getLoginData();
+    this.createCookie();
     this.grabAllContentByPageId();
     this.getNavBarData();
     this.setSubPagesToLocalStorage();
@@ -72,6 +75,14 @@ export class NavbarComponent implements OnInit {
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+  }
+
+  createCookie() {
+    // this.cookie.set('token', this.webStructureService.token);
+    // console.log(this.cookie.get);
+
+    this.cookie.set('test', 'testing cookie');
+    console.log(this.cookie.get('test'));
   }
 
   // createNavBarData()

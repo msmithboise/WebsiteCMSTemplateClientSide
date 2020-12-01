@@ -11,7 +11,7 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  // public globalApi = 'http://api.riveroflifeidaho.com/api';
+  //public globalApi = 'http://api.riveroflifeidaho.com/api';
   //For Testing:
   public globalApi = 'http://localhost:54704/api';
 
@@ -24,6 +24,7 @@ export class WebStructureService {
   public combinedRowsByPageId = [];
   public combinedColumnsByRowId = [];
   public hasToken: boolean = false;
+  public token: string;
   constructor(private http: HttpClient) {}
 
   //Get Rows
