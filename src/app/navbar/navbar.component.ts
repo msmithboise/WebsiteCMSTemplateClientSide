@@ -83,44 +83,21 @@ export class NavbarComponent implements OnInit {
     //ngInit
     //if user does not have cookie, log them out, hasCookieToken is false
 
-    console.log('localStorage token: ', localStorage.getItem('userToken'));
-    console.log('cookie token: ', this.cookie.get('token'));
-
     if (this.cookie.get('token') == '' || this.cookie.get('token') == null) {
       this.hasCookieToken = false;
       localStorage.removeItem('userToken');
-      console.log(
-        'token removed on logout: ',
-        localStorage.getItem('userToken')
-      );
+
       this.userService.userArray[0].isLoggedIn = false;
     } else {
       if (localStorage.getItem('userToken') == this.cookie.get('token')) {
         this.hasCookieToken = true;
       }
     }
-
-    //If user has cookie, hasCookieToken is true
-
-    // In HTML:
-    //If hasCookieToken
-    // display logout and dashboard button
   }
-
-  // createNavBarData()
-  // {
-  //   this.navBarService.postNavBarData().subscribe((res: Navbar[]) => {
-  //     this.navBarService.navBarArray = res;
-  //     console.log('navBarData');
-  //     console.log(this.navBarService.navBarArray);
-  //   });
-  // }
 
   getNavBarData() {
     this.navBarService.getNavBarData().subscribe((res) => {
       this.navBarService.navBarArray = res;
-      // console.log('navBarData');
-      // console.log(this.navBarService.navBarArray);
     });
   }
 
@@ -128,32 +105,17 @@ export class NavbarComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap) => {
       this.pageId = Number(paramMap.get('pageId'));
       this.pageDescription = paramMap.get('pageDescription');
-
-      // console.log(this.pageId);
-
-      // console.log(this.pageDescription);
     });
-
-    // this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
-    // console.log('pageid snap');
-    // console.log(this.pageId);
 
     this.customImageService
       .getWebContentByPageId(this.pageId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        // console.log('here is the content array:');
-        // console.log(this.webContentService.webContentArray);
-
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
 
   getLoginData() {
     this.userService.getLoggedInUser().subscribe((res: User[]) => {
-      // console.log('userdata');
-      // console.log(res);
       this.currentUserArray = res;
     });
   }
@@ -168,12 +130,9 @@ export class NavbarComponent implements OnInit {
     this.authService.removeToken;
     localStorage.removeItem('userToken');
     this.cookie.delete('token');
-    console.log('token removed on logout: ', localStorage.getItem('userToken'));
-    console.log('cookie token removed on logout: ', this.cookie.get('token'));
+
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
-      // console.log('logout data:');
-      // console.log(res);
       this.userService.userArray = res;
     });
     this.router.navigate(['portal']);
@@ -182,7 +141,6 @@ export class NavbarComponent implements OnInit {
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    // console.log('button toggled');
   }
 
   openPageSettings() {
@@ -191,16 +149,7 @@ export class NavbarComponent implements OnInit {
       this.pageDescription = paramMap.get('pageDescription');
       this.subPageId = Number(paramMap.get('subPageId'));
       this.subPageDescription = paramMap.get('subPageDescription');
-
-      // console.log(this.pageId);
-
-      // console.log(this.pageDescription);
-
-      // console.log(this.subPageId);
-      // console.log(this.subPageDescription);
     });
-
-    // console.log('opened page settings.');
 
     if (this.subPageDescription != null) {
       this.router.navigate([
@@ -218,45 +167,32 @@ export class NavbarComponent implements OnInit {
         '/dashboard/' + this.pageDescription + '/' + this.pageId,
       ]);
     }
-
-    // console.log('/settings/' + this.pageDescription + '/' + this.pageId);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
     this.SubPageLocalStorage = this.untouchedStorage;
-    // this.pageIdSnapshot = pageId.toString();
+
     this.lastHoveredNum = passedInPageId; //1
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
-    //  console.log('passed pageId on hover');
-    //console.log(passedInPageId); //1
-    //onsole.log('last number hovered over');
-    //console.log(this.lastHoveredNum);
 
     //We want to compare the Id passed in on hover and
     this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
       //this should compare the pageId of each sub page to the last number that was hovered over
       (x) => x.PageId.toString() === this.lastHoveredNum.toString()
     );
-    //console.log('storage after filter');
-    //console.log(this.SubPageLocalStorage);
   }
 
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.SubPageLocalStorage = res;
       this.untouchedStorage = res;
-      // console.log('localstorage subpages');
-      //console.log(this.SubPageLocalStorage);
     });
   }
 
   showSubPagesById(pageId: number, pageDescription: string) {
     this.pageIdSnapshot = pageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
-    //  console.log('snapshots:');
-    // console.log(this.pageIdSnapshot);
-    //console.log(this.pageDescriptionSnapshot);
 
     this.subPageService
       .getSubPagesByPageId(pageId)
@@ -268,8 +204,6 @@ export class NavbarComponent implements OnInit {
   getSubPageLinks() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-
-      //   console.log(this.subPageService.subPageArray);
     });
   }
 
@@ -313,18 +247,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
-    // console.log('navigating to main pages');
-    // console.log('customPage/' + pageDescription + '/' + pageId);
-    // console.log('calling on click?');
-    // console.log('customPage/' + pageDescription + '/' + pageId);
     this.router.navigate([pageDescription + '/' + pageId]);
-    // .then(() => {
-    //   window.location.reload();
-    // });
-
-    //this.grabAllContentByPageId();
-
-    // this.customPageService.selectPageId(pageId);
   }
 
   getSubPageAllContent() {
@@ -344,32 +267,5 @@ export class NavbarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
-    // .then(() => {
-    //   window.location.reload();
-    // });
-
-    // navToSubPage(subPageId: number, subPageDescription: string) {
-    //   this.router.navigate(
-    //     [
-    //       'customPage/' +
-    //         this.pageDescriptionSnapshot +
-    //         '/' +
-    //         this.pageIdSnapshot +
-    //         '/subPage/' +
-    //         subPageDescription +
-    //         '/' +
-    //         subPageId,
-    //     ],
-    //     {
-    //       queryParams: { refresh: new Date().getTime() },
-    //     }
-    //   );
-
-    //   //this.getSubPageAllContent();
-    //   //window.location.reload();
-    // }
-
-    //this.getSubPageAllContent();
-    //window.location.reload();
   }
 }

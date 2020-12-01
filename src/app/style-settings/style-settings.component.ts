@@ -36,10 +36,6 @@ export class StyleSettingsComponent implements OnInit {
       .getEditContentById(this.textId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
-        console.log('res by using text id');
-        console.log(res);
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
 
@@ -52,9 +48,6 @@ export class StyleSettingsComponent implements OnInit {
   }
 
   insertEditSettings(form: NgForm) {
-    console.log('form and id:');
-    console.log(form);
-
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
@@ -92,11 +85,6 @@ export class StyleSettingsComponent implements OnInit {
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        console.log('here is the content array:');
-        console.log(this.webContentService.webContentArray);
-
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
 }

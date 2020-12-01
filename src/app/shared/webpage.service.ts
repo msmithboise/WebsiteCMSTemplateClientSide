@@ -48,13 +48,8 @@ export class WebpageService {
 
   //Get for imageUrl
   getContent(): Observable<Webpage[]> {
-    //console.log('(getting the data...)');
     return this.http.get<Webpage[]>(this.rootURL + '/HomePage');
   }
-
-  //console.log('Response after get method:');
-  //console.log(response);
-  //return response[0];
 
   //Put
   putWebPageContent(formData: Webpage) {

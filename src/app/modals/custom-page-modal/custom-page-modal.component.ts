@@ -38,9 +38,7 @@ export class CustomPageModalComponent implements OnInit {
   }
 
   getSubPages() {
-    this.subPageService.getSubPages().subscribe((res) => {
-      console.log(res);
-    });
+    this.subPageService.getSubPages().subscribe((res) => {});
   }
 
   addNewPage(form: NgForm) {

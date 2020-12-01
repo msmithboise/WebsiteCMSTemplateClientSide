@@ -70,27 +70,18 @@ export class SubpageDashboardComponent implements OnInit {
     pageId = this.pageId;
     subPageId = this.subPageId;
 
-    // console.log('pageid');
-    // console.log(this.pageId);
-    // console.log('subpageid');
-    // console.log(this.subPageId);
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        // console.log('getting content by page and sub page id..');
-        // console.log(res);
       });
   }
 
   openPageSettings() {
-    // console.log('opened page settings.');
-
     this.router.navigate(['/edit-page/']);
   }
 
   deleteDialogue(id: number) {
-    // console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this?')) {
       this.onDelete(id);
     }
@@ -113,8 +104,6 @@ export class SubpageDashboardComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        // console.log('here are the page settings');
-        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }
@@ -145,10 +134,6 @@ export class SubpageDashboardComponent implements OnInit {
       this.pageDescription = params.pageDescription;
       this.subPageId = params.subPageId;
       this.subPageDescription = params.subPageDescription;
-
-      //console.log(this.pageId);
-
-      //console.log(this.subPageId);
     });
     this.router.navigate([
       '/style-settings/' +
@@ -162,14 +147,11 @@ export class SubpageDashboardComponent implements OnInit {
         '/' +
         textId,
     ]);
-    // console.log('item to edit');
-    // console.log(textId);
+
     this.webContentService
       .getEditContentById(textId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentByIdsArray = res;
-        // console.log('res');
-        // console.log(res);
       });
   }
 
@@ -200,15 +182,12 @@ export class SubpageDashboardComponent implements OnInit {
 
   insertTextRecord(form: FormGroup) {
     var newForm = this.textFormTemplate.value;
-    // console.log('newform pageid');
+
     newForm.pageId = this.pageId;
-    // console.log(newForm.pageId);
-    // console.log('newform subpageid');
+
     newForm.subPageId = this.subPageId;
-    // console.log(newForm.subPageId);
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-      //this.resetForm(form);
       this.toastr.success('Image uploaded succesfully!');
       this.getSubPageContentByIds(this.pageId, this.subPageId);
     });
@@ -216,8 +195,6 @@ export class SubpageDashboardComponent implements OnInit {
 
   //Submit Url data
   submitImageUrlData(form: FormGroup) {
-    // console.log('image form after submit');
-    // console.log(form);
     this.insertImageUrlRecord(form);
   }
 
@@ -227,9 +204,6 @@ export class SubpageDashboardComponent implements OnInit {
   });
 
   insertImageUrlRecord(form: FormGroup) {
-    // console.log('image form during insert record');
-    // console.log(form);
-
     var newUrlForm = this.imageUrlFormTemplate.value;
     newUrlForm.pageId = this.pageId;
     newUrlForm.subPageId = this.subPageId;
@@ -237,17 +211,12 @@ export class SubpageDashboardComponent implements OnInit {
     this.webContentService
       .postWebContentByPageId(newUrlForm)
       .subscribe((res) => {
-        //this.resetForm(form);
         this.getSubPageContentByIds(this.pageId, this.subPageId);
         this.toastr.success('Image Url uploaded succesfully!');
       });
   }
 
   onSubmit(formValue) {
-    console.log('subpage image uploaded');
-    console.log(formValue);
-    console.log(this.subPageId);
-
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
       var filePath = `images/${this.selectedImage.name
@@ -269,7 +238,6 @@ export class SubpageDashboardComponent implements OnInit {
 
               formValue['imageUrl'] = url;
 
-              //this.webContentService.insertImageDetails(formValue);
               this.resetForm();
             });
           })
@@ -298,8 +266,6 @@ export class SubpageDashboardComponent implements OnInit {
 
   //Submit Embed
   submitEmbedUrlData(form: FormGroup) {
-    // console.log('Embed form after submit');
-    // console.log(form);
     this.insertEmbedUrlRecord(form);
   }
 
@@ -309,9 +275,6 @@ export class SubpageDashboardComponent implements OnInit {
   });
 
   insertEmbedUrlRecord(form: FormGroup) {
-    // console.log('Embed form during insert record');
-    // console.log(form);
-
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.pageId;
     newEmbedUrlForm.subpageid = this.subPageId;
@@ -331,8 +294,6 @@ export class SubpageDashboardComponent implements OnInit {
     subPageId: new FormControl(''),
   });
   get audioFormControls() {
-    console.log('audio form controls');
-    console.log(this.audioUploadFormTemplate['controls']);
     return this.audioUploadFormTemplate['controls'];
   }
 
@@ -349,20 +310,14 @@ export class SubpageDashboardComponent implements OnInit {
   }
 
   onAudioSubmit(formValue) {
-    console.log('audio submitted...');
     this.isAudioSubmitted = true;
-    console.log('audio form on submit');
-    console.log(formValue);
-    console.log('this selectedAudio');
-    console.log(this.selectedAudio.name);
+
     if (this.audioUploadFormTemplate.valid) {
       var audioFilePath = `audio/${this.selectedAudio.name
         .split('.')
         .slice(0, -1)
         .join('.')}_${new Date().getTime()}`;
 
-      console.log('audio file path');
-      console.log(audioFilePath);
       const audiofileRef = this.storage.ref(audioFilePath);
       this.storage
         .upload(audioFilePath, this.selectedAudio)
@@ -390,27 +345,18 @@ export class SubpageDashboardComponent implements OnInit {
   //To embed image url
 
   submitAudioData(form: FormGroup) {
-    console.log('Audio form after submit');
-    console.log(form);
     this.insertAudioRecord(form);
   }
 
   insertAudioRecord(form: FormGroup) {
-    console.log('Embed form during insert record');
-    console.log(form);
-
     var newAudioForm = this.audioFormTemplate.value;
     newAudioForm.pageId = this.pageId;
-    console.log('audioform pageid');
-    console.log(this.pageId);
+
     newAudioForm.subPageId = this.subPageId;
-    console.log('audioform subpageid');
-    console.log(this.subPageId);
 
     this.webContentService
       .postWebContentByPageId(newAudioForm)
       .subscribe((res) => {
-        //this.resetForm(form);
         this.grabAllContentByPageId();
       });
   }
@@ -422,8 +368,6 @@ export class SubpageDashboardComponent implements OnInit {
     backgroundColor: new FormControl(''),
   });
   showAudioPreview(event: any) {
-    console.log('show audio preview');
-
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (e: any) => (this.imgSrc = e.target.result);
@@ -446,15 +390,9 @@ export class SubpageDashboardComponent implements OnInit {
   }
 
   createGoogleMap(form: FormGroup) {
-    console.log('map form to be posted');
-    console.log(form);
-
     var newMapForm = this.mapFormTemplate.value;
     newMapForm.pageId = this.pageId;
     newMapForm.subPageId = this.subPageId;
-
-    console.log('newMapForm before going to service');
-    console.log(newMapForm);
 
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
@@ -463,87 +401,6 @@ export class SubpageDashboardComponent implements OnInit {
   }
 
   get mapFormControls() {
-    console.log('map form controls');
-    console.log(this.mapFormTemplate['controls']);
     return this.mapFormTemplate['controls'];
   }
 }
-
-//   openPageSettings() {
-//     console.log('opened page settings.');
-
-//     this.router.navigate(['/edit-page/']);
-//   }
-
-//   //Grab all webcontent to display for editing
-//   grabAllContentByPageId() {
-//     this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(
-//       'pageId'
-//     );
-
-//     this.customImageService
-//       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
-//       .subscribe((res: Webcontent[]) => {
-//         console.log('here are the page settings');
-//         console.log(res);
-//         this.webContentService.webContentArray = res;
-//       });
-//   }
-
-//   embedUrlFormTemplate = new FormGroup({
-//     embedUrl: new FormControl('', Validators.required),
-//     pageId: new FormControl(''),
-//   });
-
-//   resetForm() {
-//     this.formTemplate.reset();
-//     this.formTemplate.setValue({
-//       imageUrl: '',
-//       pageId: 0,
-//       backgroundImage: '',
-//     });
-//     this.imgSrc = '/assets/placeholder.jpg';
-//     this.selectedImage = null;
-//     this.isSubmitted = false;
-//   }
-
-//     var newUrlForm = this.imageUrlFormTemplate.value;
-//     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
-
-//     this.webContentService
-//       .postWebContentByPageId(newUrlForm)
-//       .subscribe((res) => {
-//         //this.resetForm(form);
-//         this.grabAllContentByPageId();
-//       });
-//   }
-
-//   getImageDetails() {
-//     this.webContentService.imageDetailList
-//       .snapshotChanges()
-//       .subscribe((list) => {
-//         this.imageList = list.map((item) => {
-//           //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
-//           //Setting firebaseUrl reponse to property
-//           this.fireBaseImageUrl = item.payload.val().imageUrl;
-
-//           return item.payload.val();
-//         });
-//         this.setFireBaseUrlToImageUrl();
-//       });
-//   }
-
-//   setFireBaseUrlToImageUrl() {
-//     this.webContentService
-//       .postUploadedImage(this.fireBaseImageUrl)
-//       .subscribe((data) => {});
-
-//     //Now we need to create a form to post to db
-//   }
-
-//   openStyleSettings(textId: string) {
-//     console.log('opened page settings.');
-
-//     this.router.navigate(['/style-settings/' + textId]);
-//   }
-// }

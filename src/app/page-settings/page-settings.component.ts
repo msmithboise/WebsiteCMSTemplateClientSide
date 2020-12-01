@@ -66,7 +66,6 @@ export class PageSettingsComponent implements OnInit {
   }
 
   refresh() {
-    console.log('page refreshed');
     this.getRowsByPageId();
   }
 
@@ -80,14 +79,10 @@ export class PageSettingsComponent implements OnInit {
   getRows() {
     this.webStructureService.getRows().subscribe((res) => {
       this.webStructureService.rowsArray = res;
-
-      // console.log('getting rows');
-      // console.log(this.webStructureService.rowsArray);
     });
   }
 
   getRowsByPageId() {
-    console.log('getting rows by page id');
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
     });
@@ -95,23 +90,15 @@ export class PageSettingsComponent implements OnInit {
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
-
-      //console.log('getting rows by page id', Number(this.pageId));
-      //console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
 
   addRow() {
-    // console.log('Adding row');
-
     var newRow = this.rowFormTemplate.value;
     newRow.pageId = this.webContentService.pageIdSnapshot;
     newRow.RowId += newRow.RowId++;
 
-    // console.log('newRow', newRow);
-
     this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
-      //this.resetForm(form);
       this.refresh();
       this.grabAllContentByPageId();
     });
@@ -136,16 +123,10 @@ export class PageSettingsComponent implements OnInit {
   }
 
   dashboardMainNav(pageDescription: string, pageId: number) {
-    // console.log('main page nav');
-    // console.log(pageDescription, pageId);
-
     this.router.navigate(['dashboard/' + pageDescription + '/' + pageId]);
   }
 
   mainPageNav(pageDescription: string, pageId: number) {
-    // console.log('main page nav');
-    // console.log(pageDescription, pageId);
-
     this.router.navigate([pageDescription + '/' + pageId]);
   }
 
@@ -155,9 +136,6 @@ export class PageSettingsComponent implements OnInit {
     subPageDescription: string,
     subPageId: number
   ) {
-    // console.log('sub id');
-    // console.log(subPageId);
-
     this.router.navigate([
       pageDescription +
         '/' +
@@ -172,8 +150,6 @@ export class PageSettingsComponent implements OnInit {
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-      // console.log('subpages');
-      // console.log(res);
     });
   }
 
@@ -195,17 +171,10 @@ export class PageSettingsComponent implements OnInit {
   }
 
   addHyperLink(id: number, text: string, imageUrl: string) {
-    // console.log('item to add link to:');
-    // console.log(id);
-    // console.log(text);
-    // console.log(imageUrl);
-
     this.selectedId = id;
   }
 
   openPageSettings() {
-    // console.log('opened page settings.');
-
     this.router.navigate(['/edit-page/']);
   }
 
@@ -218,8 +187,6 @@ export class PageSettingsComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        // console.log('here are the page settings');
-        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }
@@ -241,40 +208,12 @@ export class PageSettingsComponent implements OnInit {
     newForm.pageId = this.webContentService.pageIdSnapshot;
     newForm.Id = this.selectedId;
 
-    // console.log('link form');
-    // console.log(newForm);
-
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-      //this.resetForm(form);
       this.grabAllContentByPageId();
     });
   }
 
-  // getImageDetails() {
-  //   this.webContentService.imageDetailList
-  //     .snapshotChanges()
-  //     .subscribe((list) => {
-  //       this.imageList = list.map((item) => {
-  //         //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
-  //         //Setting firebaseUrl reponse to property
-  //         this.fireBaseImageUrl = item.payload.val().imageUrl;
-
-  //         return item.payload.val();
-  //       });
-  //       this.setFireBaseUrlToImageUrl();
-  //     });
-  // }
-
-  // setFireBaseUrlToImageUrl() {
-  //   this.webContentService
-  //     .postUploadedImage(this.fireBaseImageUrl)
-  //     .subscribe((data) => {});
-
-  //   //Now we need to create a form to post to db
-  // }
-
   deleteDialogue(id: number) {
-    // console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this?')) {
       this.onDelete(id);
     }
@@ -307,8 +246,6 @@ export class PageSettingsComponent implements OnInit {
   }
 
   openStyleSettings(textId: string) {
-    //console.log('opened page settings.');
-
     this.router.navigate(['/style-settings/' + textId]);
   }
 }

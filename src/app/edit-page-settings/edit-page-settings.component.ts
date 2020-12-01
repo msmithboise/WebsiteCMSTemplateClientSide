@@ -31,7 +31,6 @@ export class EditPageSettingsComponent implements OnInit {
       .getCustomPageContent()
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
-        console.log(res);
       });
   }
 
@@ -42,7 +41,6 @@ export class EditPageSettingsComponent implements OnInit {
         this.customPageService.customPageArray = res;
         this.grabAllPages();
         this.toastr.success('Page created!');
-        console.log('is this being calleD?');
       });
   }
 
@@ -57,11 +55,6 @@ export class EditPageSettingsComponent implements OnInit {
   doesParentContainSubPages(pageId: number) {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-
-      console.log('array to delete');
-      console.log(this.subPageService.subPageArray);
-      console.log('array count');
-      console.log(this.subPageService.subPageArray.length);
     });
 
     if (this.subPageService.subPageArray != null) {
@@ -75,8 +68,6 @@ export class EditPageSettingsComponent implements OnInit {
 
   deletePage(pageId: number) {
     var containsSubpages = this.doesParentContainSubPages(pageId);
-    console.log('contains subpages');
-    console.log(containsSubpages);
 
     if (containsSubpages == true) {
       this.toastr.error(
@@ -94,8 +85,6 @@ export class EditPageSettingsComponent implements OnInit {
   getSubPages(pageId: number, pageDescription: string) {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-
-      console.log(this.subPageService.subPageArray);
 
       this.router.navigate([
         '/edit-sub-page/' + pageDescription + '/' + pageId,

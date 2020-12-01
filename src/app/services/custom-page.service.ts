@@ -21,15 +21,6 @@ export class CustomPageService {
   readonly webApi = this.webStructureService.globalApi;
   public pageFormData: CustomPage;
 
-  // //Get form data
-  // getCustomPageData() {
-  //   this.http
-  //     .get(this.webApi + '/CustomPages')
-  //     .toPromise()
-  //     .then((res) => (this.customPageArray = res as CustomPage[]));
-  //   console.log(this.customPageArray);
-  // }
-
   //Get
   getCustomPageContent(): Observable<CustomPage[]> {
     return this.http.get<CustomPage[]>(this.webApi + '/CustomPages');
@@ -44,7 +35,6 @@ export class CustomPageService {
   }
 
   selectPageId(pageId: string): string {
-    //console.log(pageId);
     return pageId;
   }
   //Put

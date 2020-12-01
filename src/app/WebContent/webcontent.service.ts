@@ -49,8 +49,6 @@ export class WebcontentService {
 
   //Post webcontent
   postWebContentByPageId(formData: FormGroup) {
-    console.log('text form before post');
-    console.log(formData);
     return this.http.post(this.webApi + '/WebContent', formData);
   }
 
@@ -76,9 +74,6 @@ export class WebcontentService {
   }
 
   postUploadedImage(imageUrl: string, isChecked: boolean) {
-    console.log('isChecked in post');
-    console.log(isChecked);
-
     const fd: FormData = new FormData();
 
     //If 400px is checked,
@@ -177,17 +172,11 @@ export class WebcontentService {
     fd.append('pageId', this.pageId.toString());
     fd.append('subPageId', this.subPageId);
 
-    console.log('appended page id');
-    console.log(this.pageId);
-    console.log('appended subpage id');
-    console.log(this.subPageId);
     return this.http.post(this.webApi + '/WebContent', fd);
   }
 
   //Post Google Map
   postGoogleMap(form: FormGroup) {
-    console.log('form in post method');
-    console.log(form);
     const fd: FormData = new FormData();
     //fd.append('MapUrl', mapUrl);
 

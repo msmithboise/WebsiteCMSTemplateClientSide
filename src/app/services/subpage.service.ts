@@ -34,7 +34,6 @@ export class SubpageService {
   }
 
   //Get All Subpages
-  //Get All
   getAllSubPages() {
     this.http
       .get(this.webApi + '/SubPages')
@@ -43,8 +42,6 @@ export class SubpageService {
   }
 
   //Post/Put
-
-  //post
   createSubPage(formData: Subpage) {
     return this.http.post(this.webApi + '/SubPages', formData);
   }
@@ -64,7 +61,6 @@ export class SubpageService {
     subPageId: number,
     pageId: number
   ): Observable<Webcontent[]> {
-    // console.log('get in service');
     return this.http.get<Webcontent[]>(
       this.webApi + '/SubContent/' + pageId + '/' + subPageId
     );
@@ -73,7 +69,6 @@ export class SubpageService {
   //Post Web content to SubPage using PageId and SubPageId
 
   postSubContentByIds(formData: Webcontent): Observable<Webcontent[]> {
-    console.log('in the sub service about to post..');
     return this.http.post<Webcontent[]>(this.webApi + '/SubContent', formData);
   }
 }

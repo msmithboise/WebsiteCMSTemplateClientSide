@@ -24,14 +24,14 @@ export class TestComponent implements OnInit {
     this.serviceArray = res;
 
     this.localArray.push(res);
-    console.log('local array: ', this.localArray);
+
     this.getArrayTwo();
   }
 
   getArrayTwo() {
     var res = ['four', 'five', 'six'];
     this.serviceArray = res;
-    console.log('local array: ', this.localArray);
+
     this.localArray.push(res);
   }
 

@@ -45,8 +45,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('submitting registration...');
-    console.log(form);
     this.postNewRegistration(form);
   }
   getAllUserData() {
@@ -55,11 +53,7 @@ export class SignupComponent implements OnInit {
 
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
-      console.log(res);
       this.userService.userArray = res;
-
-      // console.log('Here is the images based on page id: ');
-      // console.log(this.imagesByPageIdArray);
     });
   }
   postNewRegistration(form: NgForm) {

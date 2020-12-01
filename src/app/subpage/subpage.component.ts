@@ -57,14 +57,11 @@ export class SubpageComponent implements OnInit {
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentArray = res;
-        // console.log('getting content by page and sub page id..');
-        // console.log(res);
       });
   }
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    // console.log('button toggled');
   }
 
   setYouTubeEmbed(embedLink) {
@@ -79,17 +76,14 @@ export class SubpageComponent implements OnInit {
   checkIfRouteChanged() {
     this.route.params.subscribe((params) => {
       var activeSubPageId = params['subPageId'];
-      // console.log(activeSubPageId);
+
       var activePageId = params['pageId'];
-      // console.log(activePageId);
     });
 
     //if subpage id or page id does not match what is in route, initializeRouteParams()
   }
 
   openSubPageDashboard() {
-    //  console.log('opened page settings.');
-
     this.router.navigate([
       'dashboard/' +
         this.pageDescription +
@@ -103,30 +97,17 @@ export class SubpageComponent implements OnInit {
 
     //this is the correct route http://localhost:4200/settings/Home/1/subPage/Campus/1
     // this is what im getting                       /settings/Home/1/subPage/Campus/1
-
-    console.log(
-      'dashboard/' +
-        this.pageDescription +
-        '/' +
-        this.pageId +
-        '/subPage/' +
-        this.subPageDescription +
-        '/' +
-        this.subPageId
-    );
   }
 
   subscribeToRoute() {
     this.sub = this.route.params.subscribe((params) => {
       this.subPageId = params['subPageId'];
-      //   console.log(this.subPageId);
+
       this.pageId = params['pageId'];
-      //   console.log(this.pageId);
 
       this.subPageService
         .getSubContentByIds(this.pageId, this.subPageId)
         .subscribe((res: Webcontent[]) => {
-          //       console.log('subscribing to route');
           this.subPageService.subPageContentArray = res;
         });
     });
@@ -147,23 +128,21 @@ export class SubpageComponent implements OnInit {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
       this.subPageDescription = params.subPageDescription;
-      //console.log(this.pageId);
+
       this.subPageId = params.subPageId;
-      //console.log(this.subPageId);
     });
   }
 
   grabPageIdInfo() {
     this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
-    //console.log(this.pageDescription);
+
     this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
-    //console.log(this.pageId);
+
     this.subPageDescription = this.route.snapshot.paramMap.get(
       'subPageDescription'
     );
-    //console.log(this.subPageDescription);
+
     this.subPageId = Number(this.route.snapshot.paramMap.get('subPageId'));
-    //console.log(this.subPageId);
   }
 
   subTextContentForm = new FormGroup({
@@ -179,14 +158,10 @@ export class SubpageComponent implements OnInit {
   getSubPageAllContent() {
     this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
       this.subPageService.subPageContentArray = res;
-      //console.log('getting all webcontent for sorting');
-      //console.log(res);
     });
   }
 
   onSubmit(form: FormGroup) {
-    //console.log('form');
-    // console.log(form);
     this.postSubPageContentByIds(form);
   }
 
@@ -195,34 +170,19 @@ export class SubpageComponent implements OnInit {
     newForm.PageId = this.pageId;
     newForm.SubPageId = this.subPageId;
 
-    //console.log('newform:');
-    //console.log(newForm);
-
     this.subPageService
       .postSubContentByIds(newForm)
       .subscribe((res: Webcontent[]) => {
         this.subPageService.subPageContentByIdsArray = res;
-        // console.log(this.subPageService.subPageContentByIdsArray);
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
   setAudioUrl(audioUrl: string) {
     var audio = new Audio();
     audio.src = audioUrl;
 
-    // will need to santitize this
-    //.trustAsResourceUrl(path + audioFile);
-
     if (audioUrl) {
       var cleanAudio = this.sanitizer.bypassSecurityTrustResourceUrl(audioUrl);
       return cleanAudio;
     }
-
-    // var audio = document.getElementById('player');
-    // console.log('audio');
-    // console.log(audio);
-    // console.log('passed in audio url');
-    // console.log(audioUrl);
   }
 }

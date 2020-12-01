@@ -9,7 +9,5 @@ export class DashboardBaseComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  onSubmit() {
-    console.log('submitting data...');
-  }
+  onSubmit() {}
 }

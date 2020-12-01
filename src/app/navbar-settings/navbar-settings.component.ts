@@ -38,8 +38,7 @@ export class NavbarSettingsComponent implements OnInit {
   createNavBarData(form: NgForm) {
     this.navBarService.postNavBarData(form.value).subscribe((res: Navbar[]) => {
       this.navBarService.navBarArray = res;
-      console.log('navbar array');
-      console.log(this.navBarService.navBarArray);
+
       this.toastr.success('Edited Navbar succesfully!');
       this.grabNavBarData();
     });
@@ -48,8 +47,6 @@ export class NavbarSettingsComponent implements OnInit {
   grabNavBarData() {
     this.navBarService.getNavBarData().subscribe((res) => {
       this.navBarService.navBarArray = res;
-      console.log('navbar array');
-      console.log(this.navBarService.navBarArray);
     });
   }
 
@@ -57,13 +54,5 @@ export class NavbarSettingsComponent implements OnInit {
     this.insertEditSettings(form);
   }
 
-  insertEditSettings(form: NgForm) {
-    console.log('form and id:');
-    console.log(form);
-
-    // this.route.params.subscribe((params) => {
-    //   this.pageId = params.pageId;
-    //   this.pageDescription = params.pageDescription;
-    // });
-  }
+  insertEditSettings(form: NgForm) {}
 }

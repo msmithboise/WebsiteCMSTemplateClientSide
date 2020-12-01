@@ -32,8 +32,6 @@ export class GridChildComponent implements OnChanges {
   }
 
   addNewElement(value: string) {
-    console.log('testing emit');
-
     //create div
 
     const div = this.renderer.createElement('div');
@@ -42,8 +40,6 @@ export class GridChildComponent implements OnChanges {
   }
 
   addNewColumn(value: string) {
-    console.log('testing adding columns');
-
     //create div
 
     const div = this.renderer.createElement('div');
@@ -57,8 +53,6 @@ export class GridChildComponent implements OnChanges {
   }
 
   addNewContent(value: string) {
-    console.log('testing adding content');
-
     //create div
 
     const div = this.renderer.createElement('div');

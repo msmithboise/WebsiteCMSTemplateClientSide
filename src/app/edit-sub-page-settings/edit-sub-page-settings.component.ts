@@ -41,24 +41,12 @@ export class EditSubPageSettingsComponent implements OnInit {
         '/' +
         subPageId,
     ]);
-    console.log(
-      'customPage/' +
-        this.pageDescription +
-        '/' +
-        this.pageId +
-        '/' +
-        'subPage/' +
-        subPageDescription +
-        '/' +
-        subPageId
-    );
   }
 
   grabPageIdInfo() {
     this.pageDescription = this.route.snapshot.paramMap.get('pageDescription');
-    console.log(this.pageDescription);
+
     this.pageId = Number(this.route.snapshot.paramMap.get('pageId'));
-    console.log(this.pageId);
   }
 
   getSubPagesByPageId() {
@@ -66,8 +54,6 @@ export class EditSubPageSettingsComponent implements OnInit {
       .getSubPagesByPageId(this.pageId)
       .subscribe((res: Subpage[]) => {
         this.subPageService.subPageByPageIdArray = res;
-
-        console.log(this.subPageService.subPageByPageIdArray);
       });
   }
 
@@ -81,7 +67,7 @@ export class EditSubPageSettingsComponent implements OnInit {
       this.subPageService.subPageArray = res;
       this.getSubPages();
       this.toastr.success('Page created!');
-      console.log(this.subPageService.subPageArray);
+
       this.getSubPagesByPageId();
     });
   }
@@ -108,8 +94,6 @@ export class EditSubPageSettingsComponent implements OnInit {
   getSubPages() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
-
-      console.log(this.subPageService.subPageArray);
     });
   }
 

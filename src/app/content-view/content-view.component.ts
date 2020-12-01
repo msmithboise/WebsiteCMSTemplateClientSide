@@ -28,14 +28,11 @@ export class ContentViewComponent implements OnInit {
 
   getScreenSize() {
     this.screenWidth = window.innerWidth;
-    console.log(this.screenWidth);
+
     this.screenHeight = window.innerHeight;
-    console.log(this.screenHeight);
   }
 
   getContentListsByColumnId() {
-    //console.log('Getting content by column Id: ', this.columnId);
-
     this.webStructureService
       .getContentLists(this.columnId)
       .subscribe((res: Webcontent) => {
@@ -44,19 +41,12 @@ export class ContentViewComponent implements OnInit {
         for (let i = 0; i < this.contentList.length; i++) {
           const content = this.contentList[i];
 
-          //if content.ColumnId != this.columnId - return
-
           if (content.ColumnId != this.columnId) {
             continue;
           }
 
           if (content.Id != null) {
-            //console.log('content');
-            //console.log(content);
-
             this.newContentList = this.contentList;
-            // console.log('list of content retreived(columnId)', this.columnId);
-            // console.log(this.newContentList);
           }
         }
       });
@@ -70,19 +60,10 @@ export class ContentViewComponent implements OnInit {
     var audio = new Audio();
     audio.src = audioUrl;
 
-    // will need to santitize this
-    //.trustAsResourceUrl(path + audioFile);
-
     if (audioUrl) {
       var cleanAudio = this.sanitizer.bypassSecurityTrustResourceUrl(audioUrl);
       return cleanAudio;
     }
-
-    // var audio = document.getElementById('player');
-    // console.log('audio');
-    // console.log(audio);
-    // console.log('passed in audio url');
-    // console.log(audioUrl);
   }
 
   setYouTubeEmbed(embedLink) {

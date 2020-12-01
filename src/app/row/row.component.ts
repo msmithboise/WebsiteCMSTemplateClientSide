@@ -47,26 +47,20 @@ export class RowComponent implements OnInit {
 
   //Invoked from column.ts (child)
   refreshRows() {
-    console.log('rows refreshed!');
     this.getColumnsByRowId(this.rowId);
   }
 
   getRowId() {
-    console.log('add column row id');
-    console.log(this.rowId);
     localStorage.setItem('passedRowId', this.rowId.toString());
   }
 
   getRowIdToDelete() {
-    console.log('delete row id');
-    console.log(this.rowId);
     localStorage.setItem('passedRowId', this.rowId.toString());
 
     this.deleteRowDialogue(this.rowId);
   }
 
   deleteRowDialogue(rowId: number) {
-    // console.log('trying to delete..');
     if (confirm('Are you sure you want to delete this row?')) {
       this.onRowDelete(rowId);
     }
@@ -76,7 +70,6 @@ export class RowComponent implements OnInit {
     this.webStructureService.deleteRowByPageId(id).subscribe((res) => {
       this.grabAllContentByPageId();
       this.refreshPage();
-      //this.resetForm();
     });
     this.toastr.error('Content deleted!');
   }
@@ -95,33 +88,17 @@ export class RowComponent implements OnInit {
     this.webStructureService.getColumns().subscribe((res) => {
       this.webStructureService.columnsArray = res;
       this.grabAllContentByPageId();
-      // console.log('columns array');
-      // console.log(this.webStructureService.columnsArray);
     });
   }
 
   //get columns by row id and page id
   getColumnsByRowId(rowId: number) {
-    //console.log('Getting columns by row id: ', rowId);
-    // console.log('before the get call:', this.rowId);
     this.webStructureService
       .getColumnLists(this.rowId)
       .subscribe((res: Column) => {
         this.columnLists = res[0];
-        // console.log('columns by rowId array', this.rowId);
-
-        // console.log(this.columnLists);
-        // console.log('before the for loop');
-        // for (let i = 0; i < this.columnLists.length; i++) {
-        //   const column = this.columnLists[i];
-
-        // console.log('columnlist rowid: ', column.RowId);
-        // console.log('passed in rowid: ', this.rowId);
 
         this.newColumnList = this.columnLists;
-        // console.log('getting list of columns');
-        // console.log(this.newColumnList);
-        // }
       });
   }
 
@@ -132,19 +109,12 @@ export class RowComponent implements OnInit {
   addColumn(form: FormGroup) {
     var newRowId = Number(localStorage.getItem('passedRowId'));
 
-    console.log('new row id');
-    console.log(newRowId);
-
     var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
     newColumn.columnId += newColumn.columnId++;
     newColumn.rowId = newRowId;
-    // newColumn.rowId = rowId;
-
-    //console.log('newColumn', newColumn);
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
-      //this.resetForm(form);
       this.getColumnsByRowId(this.rowId);
     });
   }
@@ -158,8 +128,6 @@ export class RowComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
-        // console.log('here are the page settings');
-        // console.log(res);
         this.webContentService.webContentArray = res;
       });
   }

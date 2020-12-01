@@ -51,10 +51,7 @@ export class ButtonPanelComponent implements OnInit {
   }
 
   passColumnId(columnId: number) {
-    // console.log(columnId);
     this.passedInColumnId = columnId;
-    // console.log('passed in id');
-    // console.log(this.passedInColumnId);
 
     localStorage.setItem('passedId', this.passedInColumnId.toString());
   }
@@ -70,9 +67,6 @@ export class ButtonPanelComponent implements OnInit {
   }
 
   createGoogleMap(form: FormGroup) {
-    // console.log('map form to be posted');
-    // console.log(form);
-
     var newMapForm = this.mapFormTemplate.value;
     newMapForm.pageId = this.webContentService.pageIdSnapshot;
 
@@ -80,20 +74,14 @@ export class ButtonPanelComponent implements OnInit {
 
     newMapForm.columnId = Number(colId);
 
-    // console.log('newMapForm before going to service');
-    // console.log(newMapForm);
-
     //We are passing a form group here...
     this.webContentService.postGoogleMap(newMapForm).subscribe((res) => {
       this.toastr.success('Map added successfully!');
       this.refreshContent();
-      //this.grabAllContentByPageId();
     });
   }
 
   get mapFormControls() {
-    // console.log('map form controls');
-    // console.log(this.mapFormTemplate['controls']);
     return this.mapFormTemplate['controls'];
   }
 
@@ -106,15 +94,10 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   submitEmbedUrlData(form: FormGroup) {
-    // console.log('Embed form after submit');
-    // console.log(form);
     this.insertEmbedUrlRecord(form);
   }
 
   insertEmbedUrlRecord(form: FormGroup) {
-    // console.log('Embed form during insert record');
-    // console.log(form);
-
     var newEmbedUrlForm = this.embedUrlFormTemplate.value;
     newEmbedUrlForm.pageId = this.webContentService.pageIdSnapshot;
     var colId = localStorage.getItem('passedId');
@@ -126,14 +109,10 @@ export class ButtonPanelComponent implements OnInit {
       .subscribe((res) => {
         this.toastr.success('Video embed added successfully!');
         this.refreshContent();
-        //this.resetForm(form);
-        //this.grabAllContentByPageId();
       });
   }
 
   showAudioPreview(event: any) {
-    // console.log('show audio preview');
-
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (e: any) => (this.audioSrc = e.target.result);
@@ -165,8 +144,6 @@ export class ButtonPanelComponent implements OnInit {
     columnId: new FormControl(''),
   });
   get audioFormControls() {
-    // console.log('audio form controls');
-    // console.log(this.audioUploadFormTemplate['controls']);
     return this.audioUploadFormTemplate['controls'];
   }
 
@@ -182,18 +159,14 @@ export class ButtonPanelComponent implements OnInit {
   }
 
   onAudioSubmit(formValue) {
-    // console.log('audio submitted...');
     this.isAudioSubmitted = true;
-    // console.log('this selectedAudio');
-    // console.log(this.selectedAudio.name);
+
     if (this.audioUploadFormTemplate.valid) {
       var audioFilePath = `audio/${this.selectedAudio.name
         .split('.')
         .slice(0, -1)
         .join('.')}_${new Date().getTime()}`;
 
-      // console.log('audio file path');
-      // console.log(audioFilePath);
       const audiofileRef = this.storage.ref(audioFilePath);
       this.storage
         .upload(audioFilePath, this.selectedAudio)
@@ -213,7 +186,6 @@ export class ButtonPanelComponent implements OnInit {
         )
         .subscribe((res) => {
           this.refreshContent();
-          //this.grabAllContentByPageId();
         });
       this.toastr.success('Audio uploaded successfully!');
     }
@@ -224,15 +196,10 @@ export class ButtonPanelComponent implements OnInit {
   //To embed image url
 
   submitAudioData(form: FormGroup) {
-    // console.log('Audio form after submit');
-    // console.log(form);
     this.insertAudioRecord(form);
   }
 
   insertAudioRecord(form: FormGroup) {
-    // console.log('Embed form during insert record');
-    // console.log(form);
-
     var newAudioForm = this.audioFormTemplate.value;
     newAudioForm.pageId = this.webContentService.pageIdSnapshot;
     var colId = localStorage.getItem('passedId');
@@ -244,8 +211,6 @@ export class ButtonPanelComponent implements OnInit {
       .subscribe((res) => {
         this.toastr.success('Audio URL added successfully!');
         this.refreshContent();
-        //this.resetForm(form);
-        //this.grabAllContentByPageId();
       });
   }
 
@@ -270,7 +235,6 @@ export class ButtonPanelComponent implements OnInit {
 
   //To submit text body data
   submitNewTextData(form: FormGroup) {
-    // console.log('passed on submit columnId', this.passedInColumnId);
     this.insertTextRecord(form);
   }
 
@@ -285,12 +249,8 @@ export class ButtonPanelComponent implements OnInit {
     var newForm = this.textFormTemplate.value;
     newForm.pageId = this.webContentService.pageIdSnapshot;
     newForm.columnId = Number(colId);
-    // console.log('local storage id');
-    // console.log(Number(colId));
 
     this.webContentService.postWebContentByPageId(newForm).subscribe((res) => {
-      //this.resetForm(form);
-      //this.grabAllContentByPageId();
       this.refreshContent();
       this.toastr.success('Text added successfully!');
     });
@@ -331,14 +291,11 @@ export class ButtonPanelComponent implements OnInit {
 
               formValue['imageUrl'] = url;
 
-              //this.webContentService.insertImageDetails(formValue);
               this.resetForm();
             });
           })
         )
-        .subscribe((res) => {
-          //this.grabAllContentByPageId();
-        });
+        .subscribe((res) => {});
       this.refreshContent();
       this.toastr.success('Image uploaded succesfully!');
     }
@@ -355,9 +312,6 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   submitImageUrlData(form: FormGroup) {
-    // console.log('passed on submit columnId', this.passedInColumnId);
-    // console.log('image form after submit');
-    // console.log(form);
     this.insertImageUrlRecord(form);
   }
 
@@ -372,8 +326,6 @@ export class ButtonPanelComponent implements OnInit {
       .subscribe((res) => {
         this.toastr.success('Gallery Image added succesfully!');
         this.refreshContent();
-        //this.resetForm(form);
-        //this.grabAllContentByPageId();
       });
   }
 
@@ -390,9 +342,6 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   submitBgImageUrlData(form: FormGroup) {
-    // console.log('passed on submit columnId', this.passedInColumnId);
-    // console.log('image form after submit');
-    // console.log(form);
     this.insertBgImageUrlRecord(form);
   }
 
@@ -401,8 +350,6 @@ export class ButtonPanelComponent implements OnInit {
     var newUrlForm = this.bgImageUrlFormTemplate.value;
     newUrlForm.pageId = this.webContentService.pageIdSnapshot;
     newUrlForm.columnId = Number(colId);
-
-    // console.log(this.isFullsize);
 
     if (this.isFullsize) {
       newUrlForm.isImage = true;
@@ -415,8 +362,6 @@ export class ButtonPanelComponent implements OnInit {
       .subscribe((res) => {
         this.toastr.success('Background image added successfully!');
         this.refreshContent();
-        //this.resetForm(form);
-        //this.grabAllContentByPageId();
       });
   }
 
@@ -454,8 +399,6 @@ export class ButtonPanelComponent implements OnInit {
   });
 
   get galleryFormControls() {
-    // console.log('audio form controls');
-    // console.log(this.audioUploadFormTemplate['controls']);
     return this.galleryImageTemplate['controls'];
   }
 
@@ -481,14 +424,12 @@ export class ButtonPanelComponent implements OnInit {
 
               formValue['imageUrl'] = url;
 
-              //this.webContentService.insertImageDetails(formValue);
               this.resetForm();
             });
           })
         )
         .subscribe((res) => {
           this.refreshContent();
-          //this.grabAllContentByPageId();
         });
       this.toastr.success('Gallery Image uploaded succesfully!');
     }

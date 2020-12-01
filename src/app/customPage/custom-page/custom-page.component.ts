@@ -88,18 +88,14 @@ export class CustomPageComponent implements OnInit {
   }
 
   checkForToken() {
-    console.log('checking for token');
-
-    console.log(localStorage.getItem('userToken'));
-
     if (localStorage.getItem('userToken') == '') {
       this.webStructureService.hasToken = false;
       this.authService.removeToken;
       localStorage.removeItem('userToken');
-      console.log('User does not have token:');
+
       this.userService.userArray[0].isLoggedIn = false;
     }
-    console.log('User has token');
+
     this.webStructureService.hasToken = true;
   }
 
@@ -111,8 +107,6 @@ export class CustomPageComponent implements OnInit {
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
-      //console.log('getting rows by page id', Number(this.pageId));
-      //console.log(this.webStructureService.rowsByPageIdArray);
     });
   }
 
@@ -126,13 +120,7 @@ export class CustomPageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;
       this.pageDescription = params.pageDescription;
-
-      //console.log(this.pageId);
-
-      //console.log(this.subPageId);
     });
-
-    console.log('opened page settings.');
 
     this.router.navigate([
       '/settings/' + this.pageDescription + '/' + this.pageId,
@@ -141,12 +129,11 @@ export class CustomPageComponent implements OnInit {
 
   resizeToggled() {
     this.resizeButtonToggled = !this.resizeButtonToggled;
-    // console.log('button toggled');
   }
 
   createTestArray() {
     this.testGrid = ['hello', 'goodbye', 'good morning'];
-    // console.log(this.testGrid);
+
     return this.testGrid;
   }
 
@@ -167,7 +154,6 @@ export class CustomPageComponent implements OnInit {
   };
 
   filterNulls(imageUrl: string) {
-    console.log('filtering...');
     debugger;
     if (imageUrl != null) {
     } else {
@@ -189,9 +175,6 @@ export class CustomPageComponent implements OnInit {
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
       this.userService.userArray = res;
-
-      // console.log('Here is the images based on page id: ');
-      // console.log(this.imagesByPageIdArray);
     });
   }
 
@@ -209,9 +192,6 @@ export class CustomPageComponent implements OnInit {
   }
 
   insertEditSettings(form: NgForm) {
-    console.log('form and id:');
-    console.log(form);
-
     this.webContentService.postEditContentById(form.value).subscribe((res) => {
       //this.resetForm(form);
       this.grabAllContentByPageId();
@@ -232,31 +212,14 @@ export class CustomPageComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
-    // console.log('grabbing content by page id');
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
 
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        // console.log('here is the content array:');
-        // console.log(this.webContentService.webContentArray);
-
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
-
-  // postWebContentByPageId() {
-  //   this.webContentService
-  //     .postWebContentByPageId(
-  //       this.webContentService.formData,
-  //       this.pageIdSnapshot
-  //     )
-  //     .subscribe((res: CustomText[]) => {
-  //       this.textByPageIdArray = res;
-  //     });
-  // }
 
   takePageIdSnapshot() {
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
@@ -293,8 +256,6 @@ export class CustomPageComponent implements OnInit {
 
   insertCustomPageRecord(form: NgForm) {
     this.customPageService.createCustomPage(form.value).subscribe((res) => {
-      //this.resetForm(form);
-
       this.customPageService.getCustomPageContent();
     });
   }
@@ -314,19 +275,10 @@ export class CustomPageComponent implements OnInit {
     var audio = new Audio();
     audio.src = audioUrl;
 
-    // will need to santitize this
-    //.trustAsResourceUrl(path + audioFile);
-
     if (audioUrl) {
       var cleanAudio = this.sanitizer.bypassSecurityTrustResourceUrl(audioUrl);
       return cleanAudio;
     }
-
-    // var audio = document.getElementById('player');
-    // console.log('audio');
-    // console.log(audio);
-    // console.log('passed in audio url');
-    // console.log(audioUrl);
   }
 
   logoutForm = new FormGroup({
@@ -340,8 +292,6 @@ export class CustomPageComponent implements OnInit {
     localStorage.removeItem('userToken');
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
-      // console.log('logout data:');
-      // console.log(res);
       this.userService.userArray = res;
     });
     this.router.navigate(['portal']);

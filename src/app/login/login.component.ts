@@ -37,9 +37,6 @@ export class LoginComponent implements OnInit {
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
       this.userService.userArray = res;
-
-      // console.log('Here is the images based on page id: ');
-      // console.log(this.imagesByPageIdArray);
     });
   }
 
@@ -58,13 +55,7 @@ export class LoginComponent implements OnInit {
   });
 
   createCookie() {
-    console.log('webstructure token', this.webStructureService.token);
     this.cookie.set('token', this.webStructureService.token);
-    console.log('cookie token');
-    console.log(this.cookie.get('token'));
-
-    // this.cookie.set('test', 'testing cookie');
-    // console.log(this.cookie.get('test'));
   }
 
   Login() {
@@ -72,16 +63,15 @@ export class LoginComponent implements OnInit {
     user.isLoggedIn = false;
     this.authService.removeToken();
     this.alerts = [];
-    // console.log(user);
+
     this.authService.ValidateUser(user).subscribe(
       (result) => {
         this.globalResponse = result;
-        console.log(result);
       },
       (error) => {
         //this is the error part
         this.toastr.error('Invalid username or password!');
-        //console.log(error.message);
+
         this.loginForm.reset();
 
         this.alerts.push({
@@ -93,11 +83,10 @@ export class LoginComponent implements OnInit {
       () => {
         // this is Success part
         this.toastr.success('Login succesful!');
-        console.log(this.globalResponse);
+
         this.authService.storeToken(this.globalResponse.access_token);
         this.userToken = this.globalResponse.access_token.toString();
-        console.log('userToken');
-        console.log(this.userToken);
+
         this.alerts.push({
           id: 1,
           type: 'success',
@@ -105,8 +94,7 @@ export class LoginComponent implements OnInit {
         });
         user.Token = this.userToken;
         this.webStructureService.token = this.userToken;
-        console.log('webstructure service token');
-        console.log(this.webStructureService.token);
+
         user.isLoggedIn = true;
 
         localStorage.setItem('userToken', this.userToken.toString());
@@ -114,14 +102,12 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['customPage/:pageDescription/1']);
         this.userService.getUserData().subscribe((res: User[]) => {
-          console.log('Here is the entire user array');
-          console.log(res);
           this.userService.userArray = res;
         });
         this.userService.postLoginData(user).subscribe((res: User[]) => {
           this.userService.getUserData();
         });
-        //this.setLoginUserData();
+
         this.loginForm.reset();
       }
     );
@@ -132,8 +118,6 @@ export class LoginComponent implements OnInit {
     this.userService
       .postCurrentUserData(currentUser)
       .subscribe((res: LoggedInUser[]) => {
-        console.log('here is just the logged in user data: ');
-        console.log(res);
         this.userService.loggedInUserArray = res;
       });
   }

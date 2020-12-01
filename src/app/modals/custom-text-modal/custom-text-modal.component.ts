@@ -79,8 +79,6 @@ export class CustomTextModalComponent implements OnInit {
   ngOnInit(): void {
     this.resetForm();
     this.grabAllContentByPageId();
-    // this.webContentService.getImageDetailList();
-    // this.getImageDetails();
   }
 
   grabAllContentByPageId() {
@@ -92,33 +90,8 @@ export class CustomTextModalComponent implements OnInit {
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
-
-  // getImageDetails() {
-  //   this.webContentService.imageDetailList
-  //     .snapshotChanges()
-  //     .subscribe((list) => {
-  //       this.imageList = list.map((item) => {
-  //         //write method here to set returned url to main database as "imageUrl" and pageId as snapshot
-  //         //Setting firebaseUrl reponse to property
-  //         this.fireBaseImageUrl = item.payload.val().imageUrl;
-
-  //         return item.payload.val();
-  //       });
-  //       this.setFireBaseUrlToImageUrl();
-  //     });
-  // }
-
-  // setFireBaseUrlToImageUrl() {
-  //   this.webContentService
-  //     .postUploadedImage(this.fireBaseImageUrl)
-  //     .subscribe((data) => {});
-
-  //   //Now we need to create a form to post to db
-  // }
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
@@ -145,37 +118,6 @@ export class CustomTextModalComponent implements OnInit {
       this.selectedImage = null;
     }
   }
-
-  // onSubmit(formValue) {
-  //   this.isSubmitted = true;
-  //   if (this.formTemplate.valid) {
-  //     var filePath = `images/${this.selectedImage.name
-  //       .split('.')
-  //       .slice(0, -1)
-  //       .join('.')}_${new Date().getTime()}`;
-  //     const fileRef = this.storage.ref(filePath);
-  //     this.storage
-  //       .upload(filePath, this.selectedImage)
-  //       .snapshotChanges()
-  //       .pipe(
-  //         finalize(() => {
-  //           fileRef.getDownloadURL().subscribe((url) => {
-  //             this.webContentService
-  //               .postUploadedImage(url)
-  //               .subscribe((data) => {});
-
-  //             formValue['imageUrl'] = url;
-
-  //             //this.webContentService.insertImageDetails(formValue);
-  //             this.resetForm();
-  //           });
-  //         })
-  //       )
-  //       .subscribe();
-  //     this.grabAllContentByPageId();
-  //     this.toastr.success('Image uploaded succesfully!');
-  //   }
-  // }
 
   deleteDialogue(id: number) {
     if (confirm('Are you sure you want to delete this?')) {
@@ -214,21 +156,15 @@ export class CustomTextModalComponent implements OnInit {
       .getEditContentById(webContentId)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentByIdArray = res;
-
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
 
   setToDefaultTemplate() {
-    console.log('setting to default Template...');
     let defaultTemplate = this.defaultTemplateForm.value;
     this.defaultTemplateService
       .setDefaultTemplate(defaultTemplate)
       .subscribe((res: Webcontent[]) => {
         this.defaultTemplateService.defaultTemplateArray = res;
-        console.log('here is the template back!');
-        console.log(res);
       });
   }
 

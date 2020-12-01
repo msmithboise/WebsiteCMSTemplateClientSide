@@ -54,7 +54,6 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getDivRect();
-    this.consolelogContent();
   }
 
   ngAfterViewInit() {
@@ -70,11 +69,6 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     else if (this.status === Status.MOVE) this.move();
   }
 
-  consolelogContent() {
-    console.log('content:');
-    console.log(this.webContent);
-  }
-
   grabAllContentByPageId() {
     this.webContentService.pageIdSnapshot = this.pageIdSnapshot;
 
@@ -82,11 +76,6 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
         this.webContentService.webContentArray = res;
-        console.log('here is the content array:');
-        console.log(this.webContentService.webContentArray);
-
-        // console.log('Here is the images based on page id: ');
-        // console.log(this.imagesByPageIdArray);
       });
   }
 
@@ -112,15 +101,6 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     subPageId: number,
     pageId: number
   ) {
-    console.log('width:');
-    console.log(width);
-    console.log('height:');
-    console.log(height);
-    console.log('left');
-    console.log(left);
-    console.log('top');
-    console.log(top);
-
     let image = this.imageForm.value;
 
     image.width = width;
@@ -132,61 +112,37 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     image.PageId = Number(this.route.snapshot.paramMap.get('pageId'));
 
     image.SubPageId = subPageId;
-    console.log('trying to grab subid');
-    console.log(image.SubPageId);
-    console.log('trying to grab pageid');
-    console.log(image.PageId);
 
-    //NgIf SubPageId == null call the webcontent service(will need to create another service method for this, to pass in a subpage id)
-    //NgiF SubPageId != null, call the subcontent service.
-
-    this.webContentService.postImageFormDataByPageId(image).subscribe((res) => {
-      console.log(res);
-    });
+    this.webContentService
+      .postImageFormDataByPageId(image)
+      .subscribe((res) => {});
   }
 
   getDivRect() {
     let elem = document.getElementById('resize-div');
-    // console.log('here is the div after query:');
-    // console.log(elem);
-    //elem.style.backgroundColor = '#5C969E';
 
     var newHeight = this.height + 500;
-    console.log('new hieght');
-    console.log(newHeight);
 
     elem.style.height = newHeight.toString() + 'px';
-    console.log('this.height:');
-    console.log(newHeight.toString() + 'px');
 
     elem.style.width = this.width.toString() + 'px';
-    console.log('width test:');
-    console.log(this.width.toString() + 'px');
 
     this.divWidth = document.getElementById('resize-div').clientWidth;
-    console.log('here is client width');
+
     this.divHeight = document.getElementById('resize-div').clientHeight;
-    console.log('here is client height');
 
     this.divHeight = this.divHeight - 300;
-    console.log(this.divHeight);
+
     this.divWidth = this.divWidth - 300;
-    console.log(this.divWidth);
   }
 
   private loadBox() {
     const left = this.box.nativeElement.getBoundingClientRect().left;
     const top = this.box.nativeElement.getBoundingClientRect().top;
     this.boxPosition = { left, top };
-    console.log('here are the exact coordinates taken from DOM.');
-    console.log(this.box.nativeElement.getBoundingClientRect());
   }
 
   private loadContainer() {
-    console.log('box position left');
-    console.log(this.left);
-    console.log('box position top');
-    console.log(this.boxPosition.top);
     //Keeps the top inside of the div
     this.boxPosition.top = this.boxPosition.top + 50;
 
@@ -195,14 +151,10 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     const top = this.boxPosition.top - this.top;
 
     const right = this.divWidth + 355;
-    console.log(' box position right');
-    console.log(right);
+
     const bottom = this.divHeight + 470;
-    console.log('box position bottom');
-    console.log(bottom);
+
     this.containerPos = { left, top, right, bottom };
-    console.log('container position');
-    console.log(this.containerPos);
   }
 
   setStatus(event: MouseEvent, status: number) {
