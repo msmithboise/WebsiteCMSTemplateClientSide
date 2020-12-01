@@ -20,6 +20,7 @@ import { NavBarService } from '../services/nav-bar.service';
 import { Navbar } from '../models/navbar.model';
 import { WebStructureService } from '../web-structure.service';
 import { CookieService } from 'ngx-cookie-service';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-navbar',
@@ -46,6 +47,7 @@ export class NavbarComponent implements OnInit {
   public resizeButtonToggled: boolean = false;
   public isLoggedIn: boolean = false;
   public currentUserArray: User[];
+  public hasCookieToken: boolean = false;
 
   constructor(
     public customPageService: CustomPageService,
@@ -67,7 +69,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoginData();
-    this.createCookie();
+    this.checkForCookie();
     this.grabAllContentByPageId();
     this.getNavBarData();
     this.setSubPagesToLocalStorage();
@@ -77,12 +79,32 @@ export class NavbarComponent implements OnInit {
     this.getSubPageLinks();
   }
 
-  createCookie() {
-    // this.cookie.set('token', this.webStructureService.token);
-    // console.log(this.cookie.get);
+  checkForCookie() {
+    //ngInit
+    //if user does not have cookie, log them out, hasCookieToken is false
 
-    this.cookie.set('test', 'testing cookie');
-    console.log(this.cookie.get('test'));
+    console.log('localStorage token: ', localStorage.getItem('userToken'));
+    console.log('cookie token: ', this.cookie.get('token'));
+
+    if (this.cookie.get('token') == '' || this.cookie.get('token') == null) {
+      this.hasCookieToken = false;
+      localStorage.removeItem('userToken');
+      console.log(
+        'token removed on logout: ',
+        localStorage.getItem('userToken')
+      );
+      this.userService.userArray[0].isLoggedIn = false;
+    } else {
+      if (localStorage.getItem('userToken') == this.cookie.get('token')) {
+        this.hasCookieToken = true;
+      }
+    }
+
+    //If user has cookie, hasCookieToken is true
+
+    // In HTML:
+    //If hasCookieToken
+    // display logout and dashboard button
   }
 
   // createNavBarData()
@@ -145,7 +167,9 @@ export class NavbarComponent implements OnInit {
     var user = data;
     this.authService.removeToken;
     localStorage.removeItem('userToken');
+    this.cookie.delete('token');
     console.log('token removed on logout: ', localStorage.getItem('userToken'));
+    console.log('cookie token removed on logout: ', this.cookie.get('token'));
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
       // console.log('logout data:');

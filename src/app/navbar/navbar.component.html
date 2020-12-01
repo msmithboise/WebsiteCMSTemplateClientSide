@@ -85,7 +85,7 @@
       </div>
 
       <div *ngFor="let user of this.currentUserArray">
-        <div *ngIf="this.webStructureService.hasToken == true">
+        <div *ngIf="this.hasCookieToken == true">
           <div *ngIf="user.IsLoggedIn" style="text-align: center">
             Hello {{ user.UserName }}!
             <div>
@@ -103,14 +103,16 @@
       </div>
 
       <div *ngFor="let user of this.currentUserArray">
-        <div *ngIf="user.IsLoggedIn">
-          <div *ngFor="let data of this.userService.loggedInUserArray">
-            <a
-              routerLink="/portal"
-              class="btn btn-light btn-sm mb-3"
-              (click)="Logout(data)"
-              >Logout</a
-            >
+        <div *ngIf="this.hasCookieToken == true">
+          <div *ngIf="user.IsLoggedIn">
+            <div *ngFor="let data of this.userService.loggedInUserArray">
+              <a
+                routerLink="/portal"
+                class="btn btn-light btn-sm mb-3"
+                (click)="Logout(data)"
+                >Logout</a
+              >
+            </div>
           </div>
         </div>
       </div>

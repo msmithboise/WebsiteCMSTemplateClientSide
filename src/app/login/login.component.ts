@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { error } from 'console';
+import { CookieService } from 'ngx-cookie-service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     public authService: AuthenticationService,
     private toastr: ToastrService,
     private router: Router,
-    public webStructureService: WebStructureService
+    public webStructureService: WebStructureService,
+    public cookie: CookieService
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +56,17 @@ export class LoginComponent implements OnInit {
     UserName: new FormControl('', Validators.required),
     Hash: new FormControl(''),
   });
+
+  createCookie() {
+    console.log('webstructure token', this.webStructureService.token);
+    this.cookie.set('token', this.webStructureService.token);
+    console.log('cookie token');
+    console.log(this.cookie.get('token'));
+
+    // this.cookie.set('test', 'testing cookie');
+    // console.log(this.cookie.get('test'));
+  }
+
   Login() {
     let user = this.loginForm.value;
     user.isLoggedIn = false;
@@ -97,6 +110,7 @@ export class LoginComponent implements OnInit {
         user.isLoggedIn = true;
 
         localStorage.setItem('userToken', this.userToken.toString());
+        this.createCookie();
 
         this.router.navigate(['customPage/:pageDescription/1']);
         this.userService.getUserData().subscribe((res: User[]) => {
