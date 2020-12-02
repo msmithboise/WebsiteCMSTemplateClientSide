@@ -79,6 +79,7 @@
       <div *ngIf="this.hasCookieToken == true">
         <div *ngIf="user.IsLoggedIn">
           <div *ngFor="let data of this.userService.loggedInUserArray">
+            <div style="padding: 10px"></div>
             <a
               routerLink="/portal"
               class="btn btn-light btn-sm mb-3"
