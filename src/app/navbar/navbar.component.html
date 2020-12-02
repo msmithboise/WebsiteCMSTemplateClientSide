@@ -17,7 +17,7 @@
       opacity: setting.NavBarOpacity
     }"
   >
-    <div *ngFor="let page of customPageService.customPageArray">
+    <div *ngFor="let page of customPageService.customPageArray" class="links">
       <a
         (click)="getPageByIdOnClick(page.PageId, page.PageDescription)"
         class="dropbtn nav-link"
@@ -26,7 +26,7 @@
     </div>
   </div>
 </div>
-<div>
+<div class="topnav">
   <a class="icon" (click)="openMobileNav()">
     <i class="fa fa-bars"></i>
   </a>
@@ -47,8 +47,6 @@
     >
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active"></li>
-
           <div class="row">
             <img
               src="{{ setting.LogoUrl }}"
