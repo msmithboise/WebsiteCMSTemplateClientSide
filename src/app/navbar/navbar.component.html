@@ -1,144 +1,101 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Logo -->
-  <div *ngFor="let setting of navBarService.navBarArray">
-    <img
-      src="{{ setting.LogoUrl }}"
-      [ngStyle]="{
-        width: setting.LogoWidth,
-        height: setting.LogoHeight
-      }"
-    />
-  </div>
-
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#collapsibleNavbar"
+<div *ngFor="let setting of navBarService.navBarArray">
+  <nav
+    class="navbar navbar-expand-md bg-dark navbar-dark"
+    [ngStyle]="{
+      backgroundColor: setting.NavBarBgColor,
+      color: setting.NavBarFontColor,
+      position: setting.NavBarPosition,
+      opacity: setting.NavBarOpacity
+    }"
   >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li
-        class="nav-item"
-        *ngFor="let page of customPageService.customPageArray"
-      >
-        <a
-          (mouseover)="getPageByIdOnHover(page.PageId, page.PageDescription)"
-          class="dropbtn nav-link"
-          >{{ page.PageDescription }}</a
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li
+          class="nav-item"
+          *ngFor="let page of customPageService.customPageArray"
         >
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ----------------------MY CODE------------------------->
-
-<div class="body">
-  <div *ngFor="let setting of navBarService.navBarArray">
-    <nav
-      class="navbar navbar-expand-lg"
-      [ngStyle]="{
-        backgroundColor: setting.NavBarBgColor,
-        color: setting.NavBarFontColor,
-        position: setting.NavBarPosition,
-        opacity: setting.NavBarOpacity
-      }"
-    >
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <div class="row">
-            <img
-              src="{{ setting.LogoUrl }}"
-              [ngStyle]="{
-                width: setting.LogoWidth,
-                height: setting.LogoHeight
-              }"
-            />
-
-            <li
-              class="nav-item dropdown"
-              *ngFor="let page of customPageService.customPageArray"
+          <div (click)="onClick(page.PageId, page.PageDescription)">
+            <a
+              (mouseover)="
+                getPageByIdOnHover(page.PageId, page.PageDescription)
+              "
+              class="dropbtn nav-link"
+              >{{ page.PageDescription }}</a
             >
-              <div (click)="onClick(page.PageId, page.PageDescription)">
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-content">
+              <div *ngFor="let subPage of this.SubPageLocalStorage">
                 <a
-                  (mouseover)="
-                    getPageByIdOnHover(page.PageId, page.PageDescription)
+                  (click)="
+                    navToSubPage(subPage.SubPageId, subPage.SubPageDescription)
                   "
-                  class="dropbtn nav-link"
-                  >{{ page.PageDescription }}</a
+                  >{{ subPage.SubPageDescription }}</a
                 >
               </div>
-              <div class="dropdown">
-                <div class="dropdown-content">
-                  <div *ngFor="let subPage of this.SubPageLocalStorage">
-                    <a
-                      (click)="
-                        navToSubPage(
-                          subPage.SubPageId,
-                          subPage.SubPageDescription
-                        )
-                      "
-                      >{{ subPage.SubPageDescription }}</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <div class="dropdown">
-              <a class="dropbtn nav-link"></a>
-              <div class="dropdown-content">
-                <div *ngFor="let subPage of subPageService.subPageArray">
-                  <a href="#">{{ subPage.SubPageDescription }}</a>
-                </div>
-              </div>
-            </div>
-
-            <div *ngIf="logoIsRight">
-              <div
-                [style.background-image]="'url(' + setting.LogoUrl + ')' | safe"
-                [ngStyle]="logoStyling"
-              ></div>
             </div>
           </div>
-        </ul>
-      </div>
-
-      <div *ngFor="let user of this.currentUserArray">
-        <div *ngIf="this.hasCookieToken == true">
-          <div *ngIf="user.IsLoggedIn" style="text-align: center">
-            Hello {{ user.UserName }}!
+        </li>
+        <!-- Subpages dropdown content -->
+        <div class="dropdown">
+          <a class="dropbtn nav-link"></a>
+          <div class="dropdown-content">
+            <div *ngFor="let subPage of subPageService.subPageArray">
+              <a href="#">{{ subPage.SubPageDescription }}</a>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <!-- Check for cookies before displaying dashboard button -->
+    <div *ngFor="let user of this.currentUserArray">
+      <div *ngIf="this.hasCookieToken == true">
+        <div *ngIf="user.IsLoggedIn" style="text-align: center">
+          Hello {{ user.UserName }}!
+          <div>
             <div>
-              <div>
-                <button
-                  class="btn btn-light btn-sm mb-3"
-                  (click)="openPageSettings()"
-                >
-                  Dashboard
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <!-- Logo -->
+              <img
+                src="{{ setting.LogoUrl }}"
+                [ngStyle]="{
+                  width: setting.LogoWidth,
+                  height: setting.LogoHeight
+                }"
+              />
 
-      <div *ngFor="let user of this.currentUserArray">
-        <div *ngIf="this.hasCookieToken == true">
-          <div *ngIf="user.IsLoggedIn">
-            <div *ngFor="let data of this.userService.loggedInUserArray">
-              <a
-                routerLink="/portal"
+              <button
                 class="btn btn-light btn-sm mb-3"
-                (click)="Logout(data)"
-                >Logout</a
+                (click)="openPageSettings()"
               >
+                Dashboard
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </nav>
-  </div>
+    </div>
+    <!-- Check for cookies before displaying logout button -->
+    <div *ngFor="let user of this.currentUserArray">
+      <div *ngIf="this.hasCookieToken == true">
+        <div *ngIf="user.IsLoggedIn">
+          <div *ngFor="let data of this.userService.loggedInUserArray">
+            <a
+              routerLink="/portal"
+              class="btn btn-light btn-sm mb-3"
+              (click)="Logout(data)"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
 </div>
