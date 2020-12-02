@@ -100,9 +100,9 @@ body {
     float: right;
     display: block;
   }
-  .links {
+  /* .links {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 600px) {

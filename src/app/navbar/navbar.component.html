@@ -1,36 +1,38 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-</head>
-
-<div *ngFor="let setting of navBarService.navBarArray">
-  <div
-    class="topnav"
-    id="myTopnav"
-    [ngStyle]="{
-      backgroundColor: setting.NavBarBgColor,
-      color: setting.NavBarFontColor,
-      position: setting.NavBarPosition,
-      opacity: setting.NavBarOpacity
-    }"
-  >
-    <div *ngFor="let page of customPageService.customPageArray" class="links">
-      <a
-        (click)="getPageByIdOnClick(page.PageId, page.PageDescription)"
-        class="dropbtn nav-link"
-        >{{ page.PageDescription }}</a
-      >
-    </div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Logo -->
+  <div *ngFor="let setting of navBarService.navBarArray">
+    <img
+      src="{{ setting.LogoUrl }}"
+      [ngStyle]="{
+        width: setting.LogoWidth,
+        height: setting.LogoHeight
+      }"
+    />
   </div>
-</div>
-<div class="topnav">
-  <a class="icon" (click)="openMobileNav()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavbar"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li
+        class="nav-item"
+        *ngFor="let page of customPageService.customPageArray"
+      >
+        <a
+          (mouseover)="getPageByIdOnHover(page.PageId, page.PageDescription)"
+          class="dropbtn nav-link"
+          >{{ page.PageDescription }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <!-- ----------------------MY CODE------------------------->
 
