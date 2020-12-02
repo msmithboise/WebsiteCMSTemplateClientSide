@@ -69,7 +69,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoginData();
-    this.checkForCookie();
     this.grabAllContentByPageId();
     this.getNavBarData();
     this.setSubPagesToLocalStorage();
@@ -77,6 +76,7 @@ export class NavbarComponent implements OnInit {
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
+    this.checkForCookie();
   }
 
   checkForCookie() {
@@ -267,5 +267,14 @@ export class NavbarComponent implements OnInit {
         '/' +
         subPageId,
     ]);
+  }
+
+  openMobileNav() {
+    var x = document.getElementById('myTopnav');
+    if (x.className === 'topnav') {
+      x.className += ' responsive';
+    } else {
+      x.className = 'topnav';
+    }
   }
 }
