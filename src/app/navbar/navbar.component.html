@@ -8,6 +8,14 @@
       opacity: setting.NavBarOpacity
     }"
   >
+    <!-- Logo -->
+    <img
+      src="{{ setting.LogoUrl }}"
+      [ngStyle]="{
+        width: setting.LogoWidth,
+        height: setting.LogoHeight
+      }"
+    />
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li
@@ -47,6 +55,7 @@
         </div>
       </ul>
     </div>
+
     <!-- Check for cookies before displaying dashboard button -->
     <div *ngFor="let user of this.currentUserArray">
       <div *ngIf="this.hasCookieToken == true">
@@ -54,15 +63,6 @@
           Hello {{ user.UserName }}!
           <div>
             <div>
-              <!-- Logo -->
-              <img
-                src="{{ setting.LogoUrl }}"
-                [ngStyle]="{
-                  width: setting.LogoWidth,
-                  height: setting.LogoHeight
-                }"
-              />
-
               <button
                 class="btn btn-light btn-sm mb-3"
                 (click)="openPageSettings()"
