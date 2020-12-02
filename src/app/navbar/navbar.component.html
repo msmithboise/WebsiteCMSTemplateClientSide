@@ -1,26 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <div *ngFor="let setting of navBarService.navBarArray">
-      <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="javascript:void(0);" class="icon" (click)="openMobileNav()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</head>
+
+<div *ngFor="let setting of navBarService.navBarArray">
+  <div
+    class="topnav"
+    id="myTopnav"
+    [ngStyle]="{
+      backgroundColor: setting.NavBarBgColor,
+      color: setting.NavBarFontColor,
+      position: setting.NavBarPosition,
+      opacity: setting.NavBarOpacity
+    }"
+  >
+    <div *ngFor="let page of customPageService.customPageArray">
+      <a
+        (click)="getPageByIdOnClick(page.PageId, page.PageDescription)"
+        class="dropbtn nav-link"
+        >{{ page.PageDescription }}</a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</div>
+<div>
+  <a class="icon" (click)="openMobileNav()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<!-- ----------------------MY CODE------------------------->
 
 <div class="body">
   <div *ngFor="let setting of navBarService.navBarArray">
@@ -33,19 +45,6 @@
         opacity: setting.NavBarOpacity
       }"
     >
-      <a class="navbar-brand" href="#"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active"></li>
@@ -140,9 +139,6 @@
           </div>
         </div>
       </div>
-      <a href="javascript:void(0);" class="icon" (click)="openMobileNav()">
-        <i class="fa fa-bars"></i>
-      </a>
     </nav>
   </div>
 </div>

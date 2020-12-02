@@ -183,6 +183,20 @@ export class NavbarComponent implements OnInit {
     );
   }
 
+  getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
+    this.SubPageLocalStorage = this.untouchedStorage;
+
+    this.lastHoveredNum = passedInPageId; //1
+    this.pageIdSnapshot = passedInPageId.toString();
+    this.pageDescriptionSnapshot = pageDescription;
+
+    //We want to compare the Id passed in on hover and
+    this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
+      //this should compare the pageId of each sub page to the last number that was hovered over
+      (x) => x.PageId.toString() === this.lastHoveredNum.toString()
+    );
+  }
+
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.SubPageLocalStorage = res;
