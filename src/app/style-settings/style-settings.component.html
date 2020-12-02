@@ -52,6 +52,12 @@
                       let content of this.webContentService.webContentByIdArray
                     "
                   >
+                    <button
+                      class="btn btn-primary"
+                      (click)="onEditSubmit(form)"
+                    >
+                      Save Changes
+                    </button>
                     <div class="modal-body form-group">
                       <form
                         #form="ngForm"
