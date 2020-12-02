@@ -100,13 +100,18 @@
                         />
 
                         <!-- Text Body -->
-
-                        <input
-                          name="TextBody"
-                          type="hidden"
-                          #TextBody="ngModel"
-                          [(ngModel)]="content.TextBody"
-                        />
+                        <div class="row">
+                          <div class="col-6">
+                            <label><b>Text</b></label>
+                            <div>
+                              <input
+                                name="TextBody"
+                                #TextBody="ngModel"
+                                [(ngModel)]="content.TextBody"
+                              />
+                            </div>
+                          </div>
+                        </div>
                         <div class="input-group-append"></div>
 
                         <!-- Body (Image 400px) -->
@@ -195,16 +200,6 @@
                           </div>
                           <div class="col-6"></div>
                         </div>
-
-                        <!-- Text Body -->
-
-                        <input
-                          name="TextBody"
-                          type="hidden"
-                          #TextBody="ngModel"
-                          [(ngModel)]="content.TextBody"
-                        />
-                        <div class="input-group-append"></div>
 
                         <!-- Image Url -->
 
