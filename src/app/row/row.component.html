@@ -112,7 +112,7 @@
   <!-- For all of the columns tied to each row id... -->
   <div *ngFor="let column of this.newColumnList">
     <div *ngIf="column.RowId == this.rowId">
-      <h2 style="color: black">ColumnId: {{ column.ColumnId }}</h2>
+      <!-- <h2 style="color: black">ColumnId: {{ column.ColumnId }}</h2> -->
       <h2 style="color: black">Column Size: {{ column.ColumnClass }}</h2>
 
       <app-column

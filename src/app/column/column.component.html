@@ -34,7 +34,7 @@
     ></app-button-panel>
     <div *ngFor="let text of this.newContentList; let i = index">
       <div *ngIf="text.ColumnId == this.columnId">
-        <h3 style="color: violet">ContentId: {{ text.Id }}</h3>
+        <!-- <h3 style="color: violet">ContentId: {{ text.Id }}</h3> -->
 
         <!-- // For all of the content tied to each column id... -->
         <div>
@@ -173,6 +173,14 @@
               <div *ngIf="text.ImageUrl">
                 <label>Image Url</label>
                 <div class="input-group"></div>
+                <img
+                  class="responsive"
+                  src="{{ text.ImageUrl }}"
+                  [ngStyle]="{
+                    height: '200px',
+                    width: '200px'
+                  }"
+                />
                 <input
                   name="ImageUrl"
                   #ImageUrl="ngModel"
@@ -186,12 +194,25 @@
               <div *ngIf="text.backgroundImage">
                 <label>Background Image</label>
                 <div class="input-group"></div>
+
+                <div *ngIf="text.backgroundImage != null">
+                  <img
+                    class="responsive"
+                    src="{{ text.backgroundImage }}"
+                    [ngStyle]="{
+                      height: '200px',
+                      width: '200px'
+                    }"
+                  />
+                </div>
+
                 <input
                   name="backgroundImage"
                   #backgroundImage="ngModel"
                   [(ngModel)]="text.backgroundImage"
                   class="formStyle"
                 />
+
                 <div class="input-group-append"></div>
               </div>
 
