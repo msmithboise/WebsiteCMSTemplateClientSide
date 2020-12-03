@@ -4,4 +4,7 @@ export class CustomPage {
   TextId: number;
   PageDescription: string;
   IsPrivate: string;
+  IsPublshed: boolean;
+  PageColor: string;
+  ClientId: number;
 }

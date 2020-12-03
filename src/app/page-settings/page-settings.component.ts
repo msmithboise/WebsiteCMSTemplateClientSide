@@ -60,9 +60,16 @@ export class PageSettingsComponent implements OnInit {
   //This component needs to grab all rows by page id
   ngOnInit(): void {
     //this.grabAllContentByPageId();
+    this.getPageDesc();
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();
+  }
+
+  getPageDesc() {
+    this.route.paramMap.subscribe((paramMap) => {
+      this.pageDescription = paramMap.get('pageDescription');
+    });
   }
 
   refresh() {
