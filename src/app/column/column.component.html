@@ -116,11 +116,150 @@
                 <label>Text Body</label>
                 <div class="input-group"></div>
                 <input
+                  type="hidden"
                   name="TextBody"
                   #TextBody="ngModel"
                   [(ngModel)]="text.TextBody"
                   class="formStyle"
                 />
+              </div>
+
+              <div [ngStyle]="{}">
+                <h1
+                  class="customText"
+                  [ngStyle]="{
+                    fontSize: text.fontSize,
+                    color: text.color,
+                    backgroundAttachment: text.backgroundAttachment,
+                    backgroundClip: text.backgroundClip,
+
+                    backgroundOrigin: text.backgroundOrigin,
+                    backgroundPosition: text.backgroundPosition,
+                    backgroundRepeat: text.backgroundRepeat,
+                    backgroundSize: text.backgroundSize,
+                    background: text.background,
+                    border: text.border,
+                    borderBottom: text.borderBottom,
+                    borderBottomColor: text.borderBottomColor,
+                    borderBottomLeftRadius: text.borderBottomLeftRadius,
+                    borderBottomRightRadius: text.borderBottomRightRadius,
+                    borderBottomStyle: text.borderBottomStyle,
+                    borderBottomWidth: text.borderBottomWidth,
+                    borderColor: text.borderColor,
+                    borderImage: text.borderImage,
+                    borderImageOutset: text.borderImageOutset,
+                    borderImageRepeat: text.borderImageRepeat,
+                    borderImageSlice: text.borderImageSlice,
+                    borderImageSource: text.borderImageSource,
+                    borderImageWidth: text.borderImageWidth,
+                    borderLeft: text.borderLeft,
+                    borderLeftColor: text.borderLeftColor,
+                    borderLeftStyle: text.borderLeftStyle,
+                    borderLeftWidth: text.borderLeftWidth,
+                    borderStyle: text.borderStyle,
+                    borderTop: text.borderTop,
+                    borderTopColor: text.borderTopColor,
+                    borderTopLeftRadius: text.borderTopLeftRadius,
+                    borderTopRightRadius: text.borderTopRightRadius,
+                    borderTopStyle: text.borderTopStyle,
+                    borderTopWidth: text.borderTopWidth,
+                    borderWidth: text.borderWidth,
+                    boxShadow: text.boxShadow,
+                    animation: text.animation,
+                    textAlign: text.textAlign,
+                    paddingTop: text.paddingTop,
+                    paddingBottom: text.paddingBottom,
+                    paddingLeft: text.paddingLeft,
+                    paddingRight: text.paddingRight,
+                    marginTop: text.marginTop,
+                    marginBottom: text.marginBottom,
+                    marginLeft: text.marginLeft,
+                    marginRight: text.marginRight,
+                    lineHeight: text.lineHeight,
+                    fontFamily: text.fontFamily,
+                    clear: text.clear,
+                    clip: text.clip,
+                    cursor: text.cursor,
+                    fontVariant: text.fontVariant,
+                    fontWeight: text.fontWieght,
+
+                    left: text.left,
+                    letterSpacing: text.letterSpacing,
+                    listStyle: text.listStyle,
+                    listStyleImage: text.listStyleImage,
+                    listStyleType: text.listStyleType,
+                    margin: text.margin,
+                    pageBreakAfter: text.pageBreakAfter,
+                    pageBreakBefore: text.pageBreakBefore,
+                    position: text.position,
+                    strokeDasharray: text.strokeDasharray,
+                    strokeDashoffset: text.strokeDashoffset,
+                    strokeWidth: text.strokeWidth,
+                    textDecoration: text.textDecoration,
+                    textIndent: text.textIndent,
+                    textTransform: text.textTransform,
+                    top: text.top,
+                    right: text.right,
+                    bottom: text.bottom,
+                    verticalAlign: text.verticalAlign,
+                    visibility: text.visibility,
+                    width: text.width,
+                    zIndex: text.zIndex,
+                    display: text.display,
+                    cssFloat: text.cssFloat,
+                    filter: text.filter,
+                    backgroundColor: text.backgroundColor,
+                    lineBreak: text.lineBreak,
+                    opacity: text.opacity,
+                    outline: text.outline,
+                    outlineColor: text.outlineColor,
+                    outlineOffset: text.outlineOffset,
+                    outlineWidth: text.outlineWidth,
+                    padding: text.padding,
+                    paddingBlock: text.paddingBlock,
+                    paddingBlockEnd: text.paddingBlockEnd,
+                    paddingBlockStart: text.paddingBlockStart,
+                    paddingInLineEnd: text.paddingInLineEnd,
+                    paddingInLineStart: text.paddingInLineStart,
+                    pageBreakInside: text.pageBreakInside,
+                    rotate: text.rotate,
+                    textAlignLast: text.textAlignLast,
+                    textCombineUpright: text.textCombineUpright,
+                    textDecorationColor: text.textDecorationColor,
+                    textDecorationLine: text.textDecorationLine,
+                    textDecorationSkipInk: text.textDecorationSkipInk,
+                    textDecorationStyle: text.textDecorationStyle,
+                    textDecorationThickness: text.textDecorationThickness,
+                    textEmphasis: text.textEmphasis,
+                    textEmphasisColor: text.textEmphasisColor,
+                    textEmphasisPosition: text.textEmphasisPosition,
+                    textEmphasisStyle: text.textEmphasisStyle,
+                    textJustify: text.textJustify,
+                    textOrientation: text.textOrientation,
+                    textRendering: text.textRendering,
+                    textShadow: text.textShadow,
+                    textUnderLineOffset: text.textUnderLineOffSet,
+                    textUnderLinePosition: text.textUnderLinePosition,
+                    transformBox: text.transformBox,
+                    transformOrigin: text.transformOrigin,
+                    transition: text.transition,
+                    transitionDelay: text.transitionDelay,
+                    transitionDuration: text.transitionDuration,
+                    transitionProperty: text.transitionProperty,
+                    transitionTimingFunction: text.transitionTimingFunction,
+                    translate: text.translate,
+                    whiteSpace: text.whiteSpace,
+                    wordBreak: text.wordBreak,
+                    wordSpacing: text.wordSpacing,
+                    wordWrap: text.wordWrap,
+                    flex: text.flex,
+                    aligntext: text.aligntext,
+                    alignItems: text.alignItems,
+                    alignSelf: text.alignSelf
+                  }"
+                >
+                  {{ text.TextBody }}
+                </h1>
               </div>
 
               <!--  Body (400px image) -->
@@ -182,6 +321,7 @@
                   }"
                 />
                 <input
+                  type="hidden"
                   name="ImageUrl"
                   #ImageUrl="ngModel"
                   [(ngModel)]="text.ImageUrl"
@@ -207,6 +347,7 @@
                 </div>
 
                 <input
+                  type="hidden"
                   name="backgroundImage"
                   #backgroundImage="ngModel"
                   [(ngModel)]="text.backgroundImage"
