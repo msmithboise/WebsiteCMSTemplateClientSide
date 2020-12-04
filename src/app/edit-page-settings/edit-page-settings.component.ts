@@ -35,6 +35,7 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   addNewPage(form: NgForm) {
+    console.log('Adding page');
     this.customPageService
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {

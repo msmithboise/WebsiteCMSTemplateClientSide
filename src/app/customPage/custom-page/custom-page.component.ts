@@ -228,6 +228,7 @@ export class CustomPageComponent implements OnInit {
       .getPageById(this.pageIdSnapshot)
       .subscribe((res: CustomPage) => {
         this.customPageService.customPageArrayById = res;
+        console.log(this.customPageService.customPageArrayById.PageColor);
       });
   }
 

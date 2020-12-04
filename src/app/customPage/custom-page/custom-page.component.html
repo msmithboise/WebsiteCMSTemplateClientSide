@@ -49,7 +49,12 @@
 
 <!-- Hero image field (Parallax, cover, fixed) -->
 <body>
-  <div style="background-color: #222222" class="container-fluid">
+  <div
+    [style.background-color]="
+      this.customPageService.customPageArrayById.PageColor
+    "
+    class="container-fluid"
+  >
     <!-- Foreach row on specified page -->
 
     <!-- For all the rows that are tied to this page id... -->
