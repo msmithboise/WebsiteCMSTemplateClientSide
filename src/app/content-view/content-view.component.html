@@ -32,7 +32,13 @@
     </div>
 
     <!-- Hero Image with HYPERLINK-->
-    <div *ngIf="content.backgroundImage != null && content.HyperLink != null">
+    <div
+      *ngIf="
+        content.backgroundImage != null &&
+        content.HyperLink != null &&
+        content.HyperLink != ''
+      "
+    >
       <a [href]="content.HyperLink">
         <img
           class="responsive"
@@ -61,7 +67,12 @@
     </div>
 
     <!-- Hero Image-->
-    <div *ngIf="content.backgroundImage != null && content.HyperLink == null">
+    <div
+      *ngIf="
+        (content.backgroundImage != null && content.HyperLink == null) ||
+        content.HyperLink == ''
+      "
+    >
       <img
         class="responsive"
         src="{{ content.backgroundImage }}"
@@ -89,7 +100,13 @@
 
     <!-- Gallery Image With HyperLink -->
 
-    <div *ngIf="content.ImageUrl != null && content.HyperLink != null">
+    <div
+      *ngIf="
+        content.ImageUrl != null &&
+        content.HyperLink != null &&
+        content.HyperLink != ''
+      "
+    >
       <a [href]="content.HyperLink">
         <img
           class="responsive"
@@ -118,7 +135,12 @@
     </div>
 
     <!-- Gallery Image -->
-    <div *ngIf="content.ImageUrl != null && content.HyperLink == null">
+    <div
+      *ngIf="
+        (content.ImageUrl != null && content.HyperLink == null) ||
+        content.HyperLink == ''
+      "
+    >
       <img
         class="responsive"
         src="{{ content.ImageUrl }}"
@@ -146,7 +168,7 @@
 
     <!-- Text With HYPERLINK -->
 
-    <div *ngIf="content.HyperLink != null">
+    <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
       <div *ngIf="this.screenWidth >= 801">
         <div [ngStyle]="{}">
           <a [href]="content.HyperLink">
@@ -292,7 +314,7 @@
 
     <!-- Text -->
 
-    <div *ngIf="content.HyperLink == null">
+    <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
       <div *ngIf="this.screenWidth >= 801">
         <div [ngStyle]="{}">
           <h1
@@ -435,7 +457,7 @@
     </div>
 
     <!-- Text MOBILE with HYPER LINK -->
-    <div *ngIf="content.HyperLink != null">
+    <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
       <div *ngIf="this.screenWidth <= 800">
         <div [ngStyle]="{}">
           <a [href]="content.HyperLink">
@@ -579,7 +601,7 @@
     </div>
 
     <!-- Text MOBILE -->
-    <div *ngIf="content.HyperLink == null">
+    <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
       <div *ngIf="this.screenWidth <= 800">
         <div [ngStyle]="{}">
           <h1
