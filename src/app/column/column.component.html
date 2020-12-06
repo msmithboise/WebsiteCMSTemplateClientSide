@@ -110,6 +110,21 @@
                 [(ngModel)]="text.ColumnId"
               />
 
+              <!-- Icon -->
+
+              <div *ngIf="text.Icon">
+                <label>Icon</label>
+                <div class="input-group"></div>
+                <input
+                  type="hidden"
+                  name="Icon"
+                  #Icon="ngModel"
+                  [(ngModel)]="text.Icon"
+                  class="formStyle"
+                />
+                <img height="32" width="32" [src]="setIconHttp(text.Icon)" />
+              </div>
+
               <!-- Text Body -->
 
               <div *ngIf="text.TextBody">

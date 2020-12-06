@@ -200,4 +200,12 @@ export class ColumnComponent implements OnInit {
         this.webContentService.webContentByIdArray = res;
       });
   }
+
+  setIconHttp(icon: string) {
+    var address = 'https://unpkg.com/simple-icons@v4/icons/facebook.svg';
+
+    var newAddress = 'https://unpkg.com/simple-icons@v4/icons/' + icon + '.svg';
+
+    return newAddress;
+  }
 }

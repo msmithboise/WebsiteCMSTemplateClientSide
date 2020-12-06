@@ -434,4 +434,30 @@ export class ButtonPanelComponent implements OnInit {
       this.toastr.success('Gallery Image uploaded succesfully!');
     }
   }
+
+  // To submit Icon
+  iconFormTemplate = new FormGroup({
+    icon: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    columnId: new FormControl(''),
+  });
+
+  submitIconData(form: FormGroup) {
+    this.insertIconRecord(form);
+  }
+
+  insertIconRecord(form: FormGroup) {
+    var newIconForm = this.iconFormTemplate.value;
+    newIconForm.pageId = this.webContentService.pageIdSnapshot;
+    var colId = localStorage.getItem('passedId');
+
+    newIconForm.columnId = Number(colId);
+
+    this.webContentService
+      .postWebContentByPageId(newIconForm)
+      .subscribe((res) => {
+        this.toastr.success('Icon added successfully!');
+        this.refreshContent();
+      });
+  }
 }

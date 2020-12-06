@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+    "@types/simple-icons": "^2.5.0",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.0",
     "bootstrap-icons": "^1.0.0",
