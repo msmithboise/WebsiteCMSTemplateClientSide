@@ -1,10 +1,3 @@
-<!-- Icons -->
-<img
-  height="32"
-  width="32"
-  src="https://unpkg.com/simple-icons@v4/icons/facebook.svg"
-/>
-
 <ng-template ngFor let-content [ngForOf]="this.newContentList">
   <div *ngIf="content.ColumnId == this.columnId">
     <!-- Audio -->
@@ -36,6 +29,64 @@
       >
         Walking through sand
       </audio>
+    </div>
+
+    <!-- Icons with HYPERLINK -->
+    <div *ngIf="content.Icon != null">
+      <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
+        <a [href]="content.HyperLink">
+          <img
+            [src]="setIconHttp(content.Icon)"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Icons -->
+    <div *ngIf="content.Icon != null">
+      <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
+        <img
+          [src]="setIconHttp(content.Icon)"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            display: content.display,
+            marginLeft: content.marginLeft,
+            marginRight: content.marginRight,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.height,
+            width: this.screenWidth,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
+      </div>
     </div>
 
     <!-- Hero Image with HYPERLINK-->

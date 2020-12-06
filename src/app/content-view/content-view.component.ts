@@ -26,6 +26,14 @@ export class ContentViewComponent implements OnInit {
     this.getScreenSize();
   }
 
+  setIconHttp(icon: string) {
+    var address = 'https://unpkg.com/simple-icons@v4/icons/facebook.svg';
+
+    var newAddress = 'https://unpkg.com/simple-icons@v4/icons/' + icon + '.svg';
+
+    return newAddress;
+  }
+
   getScreenSize() {
     this.screenWidth = window.innerWidth;
 
