@@ -29,7 +29,7 @@ export class ContentViewComponent implements OnInit {
   }
 
   setFontAwesomeIcon() {
-    this.fontAwesomeIcon = 'fas fa-camera fa-10x';
+    this.fontAwesomeIcon = 'fab fa-facebook';
   }
 
   setIconHttp(icon: string) {

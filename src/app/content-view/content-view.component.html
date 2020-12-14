@@ -1,21 +1,31 @@
 <ng-template ngFor let-content [ngForOf]="this.newContentList">
   <div *ngIf="content.ColumnId == this.columnId">
     <!-- fontAwesome Icon -->
-    <i [class]="this.fontAwesomeIcon"></i>
+
+    <div *ngIf="content.SocialMediaLink != null"></div>
+
+    <span style="font-size: 5em; color: rgb(71, 74, 255)">
+      <i [class]="this.fontAwesomeIcon"></i>
+    </span>
+
+    <!-- color picker
+    <div style="text-align: center">
+      <input type="text" id="hex" />
+      <input type="color" id="color" value="#222222" />
+    </div> -->
 
     <!-- Button -->
-    <div *ngIf="content.socialMediaIcon != null">
-      <button
-        class="customButton"
-        [ngStyle]="{
-          backgroundColor: 'white',
-          color: 'black',
-          border: '2px solid #4CAF50'
-        }"
-      >
-        {{ content.socialMediaIcon }}
-      </button>
-    </div>
+
+    <!-- <button
+      class="customButton"
+      [ngStyle]="{
+        backgroundColor: 'white',
+        color: 'black',
+        border: '2px solid #4CAF50'
+      }"
+    >
+      Test Button
+    </button> -->
 
     <!-- Audio -->
     <div
