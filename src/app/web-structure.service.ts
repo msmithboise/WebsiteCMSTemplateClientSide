@@ -11,7 +11,7 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  //public globalApi = 'http://api.riveroflifeidaho.com/api';
+  // public globalApi = 'http://api.riveroflifeidaho.com/api';
   //For Testing:
   public globalApi = 'http://localhost:54704/api';
 

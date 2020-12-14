@@ -223,6 +223,40 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Border -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Border </b></label>
+                              <div>
+                                <input
+                                  name="border"
+                                  #border="ngModel"
+                                  [(ngModel)]="content.border"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="border"></label>
+                              <select
+                                id="border"
+                                name="border"
+                                [(ngModel)]="content.border"
+                                class="form-control"
+                              >
+                                <option value="5px solid #222222">
+                                  black square button(5px solid #222222)
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Image Url -->
 
                         <input
