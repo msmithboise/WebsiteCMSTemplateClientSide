@@ -1,5 +1,22 @@
 <ng-template ngFor let-content [ngForOf]="this.newContentList">
   <div *ngIf="content.ColumnId == this.columnId">
+    <!-- fontAwesome Icon -->
+    <i [class]="this.fontAwesomeIcon"></i>
+
+    <!-- Button -->
+    <div *ngIf="content.socialMediaIcon != null">
+      <button
+        class="customButton"
+        [ngStyle]="{
+          backgroundColor: 'white',
+          color: 'black',
+          border: '2px solid #4CAF50'
+        }"
+      >
+        {{ content.socialMediaIcon }}
+      </button>
+    </div>
+
     <!-- Audio -->
     <div
       *ngIf="content.AudioUrl != null"
@@ -191,8 +208,6 @@
         />
       </a>
     </div>
-
-    <h1 style="border: solid 20px #a72d2d">testing</h1>
 
     <!-- Gallery Image -->
     <div

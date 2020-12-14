@@ -15,6 +15,7 @@ export class ContentViewComponent implements OnInit {
   newContentList: Webcontent[];
   public screenWidth: number;
   public screenHeight: number;
+  public fontAwesomeIcon: string;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -24,6 +25,11 @@ export class ContentViewComponent implements OnInit {
   ngOnInit(): void {
     this.getContentListsByColumnId();
     this.getScreenSize();
+    this.setFontAwesomeIcon();
+  }
+
+  setFontAwesomeIcon() {
+    this.fontAwesomeIcon = 'fas fa-camera fa-10x';
   }
 
   setIconHttp(icon: string) {

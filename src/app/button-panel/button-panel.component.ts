@@ -460,4 +460,30 @@ export class ButtonPanelComponent implements OnInit {
         this.refreshContent();
       });
   }
+
+  // To create button
+  buttonFormTemplate = new FormGroup({
+    icon: new FormControl('', Validators.required),
+    pageId: new FormControl(''),
+    columnId: new FormControl(''),
+  });
+
+  submitButtonData(form: FormGroup) {
+    this.insertButtonRecord(form);
+  }
+
+  insertButtonRecord(form: FormGroup) {
+    var newButtonForm = this.buttonFormTemplate.value;
+    newButtonForm.pageId = this.webContentService.pageIdSnapshot;
+    var colId = localStorage.getItem('passedId');
+
+    newButtonForm.columnId = Number(colId);
+
+    this.webContentService
+      .postWebContentByPageId(newButtonForm)
+      .subscribe((res) => {
+        this.toastr.success('Button created successfully!');
+        this.refreshContent();
+      });
+  }
 }
