@@ -122,7 +122,11 @@
                   [(ngModel)]="text.Icon"
                   class="formStyle"
                 />
-                <img height="32" width="32" [src]="setIconHttp(text.Icon)" />
+                <span
+                  [ngStyle]="{ fontSize: text.fontSize, color: text.color }"
+                >
+                  <i [class]="text.Icon"></i>
+                </span>
               </div>
 
               <!-- Text Body -->

@@ -4,10 +4,6 @@
 
     <div *ngIf="content.SocialMediaLink != null"></div>
 
-    <span style="font-size: 5em; color: rgb(71, 74, 255)">
-      <i [class]="this.fontAwesomeIcon"></i>
-    </span>
-
     <!-- color picker
     <div style="text-align: center">
       <input type="text" id="hex" />
@@ -62,28 +58,11 @@
     <div *ngIf="content.Icon != null">
       <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
         <a [href]="content.HyperLink">
-          <img
-            [src]="setIconHttp(content.Icon)"
-            [ngStyle]="{
-              backgroundAttachment: content.backgroundAttachment,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: content.backgroundSize,
-              position: content.position,
-              opacity: content.opacity,
-              backgroundPosition: content.backgroundPosition,
-              display: content.display,
-              marginLeft: content.marginLeft,
-              marginRight: content.marginRight,
-              textAlign: 'center',
-              resize: 'both',
-              overflow: 'auto',
-              height: content.height,
-              width: this.screenWidth,
-              objectFit: 'cover',
-              zIndex: content.zIndex,
-              transform: content.transform
-            }"
-          />
+          <span
+            [ngStyle]="{ fontSize: content.fontSize, color: content.color }"
+          >
+            <i [class]="content.Icon"></i>
+          </span>
         </a>
       </div>
     </div>
@@ -91,28 +70,9 @@
     <!-- Icons -->
     <div *ngIf="content.Icon != null">
       <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
-        <img
-          [src]="setIconHttp(content.Icon)"
-          [ngStyle]="{
-            backgroundAttachment: content.backgroundAttachment,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: content.backgroundSize,
-            position: content.position,
-            opacity: content.opacity,
-            backgroundPosition: content.backgroundPosition,
-            display: content.display,
-            marginLeft: content.marginLeft,
-            marginRight: content.marginRight,
-            textAlign: 'center',
-            resize: 'both',
-            overflow: 'auto',
-            height: content.height,
-            width: this.screenWidth,
-            objectFit: 'cover',
-            zIndex: content.zIndex,
-            transform: content.transform
-          }"
-        />
+        <span [ngStyle]="{ fontSize: content.fontSize, color: content.color }">
+          <i [class]="content.Icon"></i>
+        </span>
       </div>
     </div>
 

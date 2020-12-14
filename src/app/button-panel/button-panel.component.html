@@ -860,12 +860,35 @@
               >
                 <div class="form-group">
                   <input
+                    id="iconId"
                     name="icon"
                     class="form-control-lg form-group"
                     placeholder="Social Media icon name"
                     type="text"
                     formControlName="icon"
                   />
+                  <select
+                    name="icon"
+                    id="iconId"
+                    class="form-control-lg form-group"
+                    formControlName="icon"
+                  >
+                    <option value="fab fa-facebook">Facebook</option>
+                    <option value="fab fa-instagram">Instagram</option>
+                    <option value="fab fa-twitter">Twitter</option>
+                    <option value="fab fa-youtube">YouTube</option>
+                    <option value="fab fa-cc-paypal">PayPal</option>
+                    <option value="fab fa-amazon">Amazon</option>
+                    <option value="fab fa-apple">Apple</option>
+                    <option value="fab fa-google-pay">Google Pay</option>
+                    <option value="fab fa-google">Google</option>
+                    <option value="fab fa-linkedin">LinkedIn</option>
+                    <option value="fab fa-snapchat">Snapchat</option>
+                    <option value="fab fa-pinterest">Pinterest</option>
+                    <option value="fab fa-reddit">Reddit</option>
+                    <option value="fab fa-whatsapp">WhatsApp</option>
+                    <option value="fab fa-tiktok">TikTok</option>
+                  </select>
                   <input type="hidden" name="PageId" formControlName="pageId" />
                 </div>
               </form>
@@ -889,8 +912,8 @@
     </div>
   </div>
 
-  <!--  Button trigger modal -->
-  <button
+  <!-- Button trigger modal -->
+  <!-- <button
     type="button"
     class="btn btn-sm btn-outline-secondary embed-button"
     data-toggle="modal"
@@ -918,10 +941,10 @@
       />
     </svg>
     Button
-  </button>
+  </button> -->
 
   <!-- Button Modal -->
-  <div
+  <!-- <div
     class="modal fade"
     id="buttonModal"
     tabindex="-1"
@@ -944,7 +967,7 @@
         </div>
         <div class="modal-body">
           <!-- Button input form -->
-          <div class="card">
+  <!-- <div class="card">
             <div class="card-body">
               <form
                 [formGroup]="buttonFormTemplate"
@@ -974,11 +997,11 @@
             class="btn btn-primary"
             (click)="submitButtonData(buttonFormTemplate.value)"
             data-dismiss="modal"
-          >
-            Save changes
-          </button>
+          > -->
+  <!-- Save changes  -->
+  <!-- </button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
