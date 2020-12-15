@@ -185,3 +185,40 @@ body {
   width: 25px;
   background-color: #eee;
 }
+
+select {
+  display: block;
+  background-color: #27293d;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #ecf0f1;
+  border-top-width: 1px;
+
+  border-top-color: #ecf0f1;
+  border-top-style: solid;
+  border-right-style: none;
+  border-left-style: none;
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #d94fd2;
+}
+
+option {
+  display: block;
+  background-color: #27293d;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #ecf0f1;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  font-size: 1em;
+  font-weight: 100;
+  color: #d94fd2;
+}

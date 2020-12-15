@@ -838,7 +838,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="iconModalLabel">
-            Enter name of social media
+            If you know your FontAwesome code, type it into the white box.
+            Otherwise, choose from our pre-selected options in the dropdown.
           </h5>
           <button
             type="button"
@@ -858,7 +859,7 @@
                 class="form-inline"
                 (submit)="submitIconData(iconFormTemplate.value)"
               >
-                <div class="form-group">
+                <div>
                   <input
                     id="iconId"
                     name="icon"
@@ -867,6 +868,7 @@
                     type="text"
                     formControlName="icon"
                   />
+
                   <select
                     name="icon"
                     id="iconId"
