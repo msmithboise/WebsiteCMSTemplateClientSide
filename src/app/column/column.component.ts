@@ -15,6 +15,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 export class ColumnComponent implements OnInit {
   @Input() columnId: number;
   @Output() refreshEvent = new EventEmitter<any>();
+
   public pageId: number;
   public pageDescription: string;
   public contentList: Webcontent[];

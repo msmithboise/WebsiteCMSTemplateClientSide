@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ColumnComponent } from '../column/column.component';
 
 import { ColumnListVm } from '../models/column-list-vm.model';
 import { Column } from '../models/column.model';
@@ -38,6 +39,10 @@ export class RowComponent implements OnInit {
   //This component needs to grab all columns by Row Id
   ngOnInit(): void {
     this.getColumnsByRowId(this.rowId);
+  }
+
+  test() {
+    console.log('testing add columns...');
   }
 
   //Invokes from page-settings (parent)

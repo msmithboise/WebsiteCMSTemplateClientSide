@@ -21,6 +21,7 @@ import { Subpage } from '../models/subpage.model';
 import { SubpageDashboardComponent } from '../subpage-dashboard/subpage-dashboard.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebStructureService } from '../web-structure.service';
+import { RowComponent } from '../row/row.component';
 
 @Component({
   selector: 'app-page-settings',
@@ -44,6 +45,7 @@ export class PageSettingsComponent implements OnInit {
   selectedId: number;
   public pageDescription: string;
   public pageId: number;
+  public templateRowId: number;
 
   constructor(
     public webContentService: WebcontentService,
@@ -54,7 +56,8 @@ export class PageSettingsComponent implements OnInit {
     public router: Router,
     public customPageService: CustomPageService,
     public subPageService: SubpageService,
-    public webStructureService: WebStructureService
+    public webStructureService: WebStructureService,
+    public templateService: DefaultTemplateService
   ) {}
 
   //This component needs to grab all rows by page id
@@ -254,5 +257,61 @@ export class PageSettingsComponent implements OnInit {
 
   openStyleSettings(textId: string) {
     this.router.navigate(['/style-settings/' + textId]);
+  }
+
+  columnFormTemplate = new FormGroup({
+    columnId: new FormControl(''),
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+    columnClass: new FormControl(''),
+  });
+
+  addTemplateColumn() {
+    var newRowId = Number(localStorage.getItem('passedRowId'));
+
+    var newColumn = this.columnFormTemplate.value;
+    newColumn.pageId = this.webContentService.pageIdSnapshot;
+    newColumn.columnId += newColumn.columnId++;
+    newColumn.rowId = newRowId;
+
+    this.webStructureService
+      .postColumnsByRowId(newColumn)
+      .subscribe((res) => {});
+  }
+
+  templateForm = new FormGroup({
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+  });
+
+  createTemplate() {
+    console.log('creating template..');
+
+    var newRowId = Number(localStorage.getItem('passedRowId'));
+
+    var newTemplateForm = this.templateForm.value;
+
+    //newTemplateForm.rowId = newRowId;
+
+    this.route.params.subscribe((params) => {
+      newTemplateForm.pageId = params.pageId;
+    });
+
+    console.log('rowId', newTemplateForm.rowId);
+    console.log('pageId', newTemplateForm.pageId);
+
+    //Add first row
+    this.webStructureService
+      .postRowsByPageId(newTemplateForm)
+      .subscribe((res) => {});
+
+    //Add column size of 12
+    this.addTemplateColumn();
+
+    //Add image of 1000 x 2000px
+
+    // text of mywebsite.com in middle of image.
+
+    //Add
   }
 }
