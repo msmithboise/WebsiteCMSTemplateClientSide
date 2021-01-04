@@ -49,6 +49,7 @@ import { RowViewComponent } from './row-view/row-view.component';
 import { ContentViewComponent } from './content-view/content-view.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     RowViewComponent,
     ContentViewComponent,
     ButtonPanelComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
