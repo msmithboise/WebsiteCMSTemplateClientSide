@@ -85,6 +85,23 @@ export class CustomPageComponent implements OnInit {
     this.grabAllUserData();
     this.createTestArray();
     this.getRowsByPageId();
+    this.grabUrl();
+  }
+
+  grabUrl() {
+    var fullUrl = window.location.href;
+
+    var urlAppend = this.router.url;
+
+    var newUrl = [];
+
+    var urlArray = fullUrl.split('/');
+
+    console.log(urlArray);
+
+    var myUrl = urlArray[2];
+
+    console.log(myUrl);
   }
 
   checkForToken() {
