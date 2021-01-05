@@ -110,10 +110,6 @@ export class CustomPageComponent implements OnInit {
 
   setUrlAsCookie(url: string) {
     this.cookie.set('url', url);
-
-    var urlCookie = this.cookie.get('url');
-
-    console.log(urlCookie);
   }
 
   checkForToken() {

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { ColumnListVm } from './models/column-list-vm.model';
 import { Column } from './models/column.model';
 import { Row } from './models/row.model';
@@ -11,9 +12,9 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  //public globalApi = 'http://api.riveroflifeidaho.com/api';
+  public globalApi = this.setProdApi();
   //For Testing:
-  public globalApi = 'http://localhost:54704/api';
+  // public globalApi = 'http://localhost:54704/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -25,7 +26,25 @@ export class WebStructureService {
   public combinedColumnsByRowId = [];
   public hasToken: boolean = false;
   public token: string;
-  constructor(private http: HttpClient) {}
+  public baseUrl: string;
+  constructor(private http: HttpClient, public cookie: CookieService) {}
+
+  setProdApi() {
+    var urlCookie = this.cookie.get('url');
+
+    console.log('this is in service class');
+
+    var testUrl = urlCookie.split('.');
+    this.baseUrl = testUrl[1];
+    console.log('baseUrl:  ');
+    console.log(this.baseUrl);
+
+    var finalApi = 'http://api.' + this.baseUrl + '.com/api';
+
+    console.log(finalApi);
+
+    return finalApi;
+  }
 
   //Get Rows
   getRows() {
