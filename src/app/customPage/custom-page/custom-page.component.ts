@@ -26,6 +26,7 @@ import { Http2ServerRequest } from 'http2';
 import { WebStructureService } from 'src/app/web-structure.service';
 import { Column } from 'src/app/models/column.model';
 import { Row } from 'src/app/models/row.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-custom-page',
@@ -49,7 +50,8 @@ export class CustomPageComponent implements OnInit {
     public userService: UserService,
     public router: Router,
     public defaultTemplateService: DefaultTemplateService,
-    public webStructureService: WebStructureService
+    public webStructureService: WebStructureService,
+    public cookie: CookieService
   ) {}
 
   public photo =
@@ -101,7 +103,17 @@ export class CustomPageComponent implements OnInit {
 
     var myUrl = urlArray[2];
 
-    console.log(myUrl);
+    //console.log(myUrl);
+
+    this.setUrlAsCookie(myUrl);
+  }
+
+  setUrlAsCookie(url: string) {
+    this.cookie.set('url', url);
+
+    var urlCookie = this.cookie.get('url');
+
+    console.log(urlCookie);
   }
 
   checkForToken() {
