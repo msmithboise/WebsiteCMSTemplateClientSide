@@ -12,9 +12,9 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  public globalApi = this.setProdApi();
+  //public globalApi = this.setProdApi();
   //For Testing:
-  // public globalApi = 'http://localhost:54704/api';
+  public globalApi = this.setTestApi();
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -28,6 +28,10 @@ export class WebStructureService {
   public token: string;
   public baseUrl: string;
   constructor(private http: HttpClient, public cookie: CookieService) {}
+
+  setTestApi() {
+    return 'http://localhost:54704/api';
+  }
 
   setProdApi() {
     var urlCookie = this.cookie.get('url');

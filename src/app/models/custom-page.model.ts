@@ -7,4 +7,6 @@ export class CustomPage {
   IsPublshed: boolean;
   PageColor: string;
   ClientId: number;
+  ClientUrl: string;
+  ClientApi: string;
 }
