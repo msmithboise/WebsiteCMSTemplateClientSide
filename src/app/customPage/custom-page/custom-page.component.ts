@@ -78,17 +78,52 @@ export class CustomPageComponent implements OnInit {
   public hasToken: boolean = false;
 
   ngOnInit(): void {
+    this.grabUrl();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.checkForToken();
-    this.callCustomPageService();
+    //this.grabAllPagesByClientUrl();
+
     this.takePageIdSnapshot();
     this.userService.getCurrentUserData();
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
     this.getRowsByPageId();
-    this.grabUrl();
   }
+
+  // grabAllPagesByClientUrl() {
+  //   var url = this.cookie.get('url');
+
+  //   console.log('getting pages by client url...');
+  //   console.log(url);
+
+  //   //Set Custom Page data to customPage service array
+  //   var newArray = [];
+
+  //   var mockUrl = 'www.riveroflifeidaho.com';
+
+  //   this.customPageService
+  //     .getCustomPageContent()
+  //     .subscribe((res: CustomPage[]) => {
+  //       console.log(res);
+
+  //       for (let i = 0; i < res.length; i++) {
+  //         const element = res[i];
+
+  //         if (element.ClientUrl == mockUrl) {
+  //           newArray.push(element);
+  //         }
+  //       }
+
+  //       console.log('new array');
+  //       console.log(newArray);
+
+  //       console.log('custompage array');
+  //       console.log(this.customPageService.customPageArray);
+
+  //       this.customPageService.customPageArray = newArray;
+  //     });
+  // }
 
   grabUrl() {
     var fullUrl = window.location.href;
@@ -260,15 +295,6 @@ export class CustomPageComponent implements OnInit {
   activatePagesById() {
     const pageId = this.route.snapshot.params['pageId'];
     this.selectedPageId = +this.getCustomPageById(pageId);
-  }
-
-  //Set Custom Page data to customPage service array
-  callCustomPageService() {
-    this.customPageService
-      .getCustomPageContent()
-      .subscribe((res: CustomPage[]) => {
-        this.customPageService.customPageArray = res;
-      });
   }
 
   //Post text box one

@@ -164,11 +164,7 @@ export class PageSettingsComponent implements OnInit {
   }
 
   callCustomPageService() {
-    this.customPageService
-      .getCustomPageContent()
-      .subscribe((res: CustomPage[]) => {
-        this.customPageService.customPageArray = res;
-      });
+    this.customPageService.getCustomPageContent();
   }
 
   goBack() {

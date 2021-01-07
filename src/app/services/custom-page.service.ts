@@ -22,9 +22,36 @@ export class CustomPageService {
   public pageFormData: CustomPage;
 
   //Get
-  getCustomPageContent(): Observable<CustomPage[]> {
-    return this.http.get<CustomPage[]>(this.webApi + '/CustomPages');
+  getCustomPageContent() {
+    var newArray = [];
+
+    var workingArray = [];
+
+    var mockUrl = 'www.riveroflifeidaho.com';
+
+    this.http
+      .get<CustomPage[]>(this.webApi + '/CustomPages')
+      .subscribe((res) => {
+        workingArray = res;
+
+        for (let i = 0; i < workingArray.length; i++) {
+          const element = workingArray[i];
+
+          if (element.ClientUrl == mockUrl) {
+            newArray.push(element);
+          }
+        }
+      });
+
+    console.log('new array');
+    console.log(newArray);
+
+    this.customPageArray = newArray;
+    console.log('custompage array');
+    console.log(this.customPageArray);
   }
+
+  //GetByClientUrl
 
   //get by page id
 

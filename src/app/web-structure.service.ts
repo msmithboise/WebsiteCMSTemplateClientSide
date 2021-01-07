@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ColumnListVm } from './models/column-list-vm.model';
 import { Column } from './models/column.model';
+import { CustomPage } from './models/custom-page.model';
 import { Row } from './models/row.model';
 import { Webcontent } from './WebContent/webcontent.model';
 
@@ -27,6 +28,7 @@ export class WebStructureService {
   public hasToken: boolean = false;
   public token: string;
   public baseUrl: string;
+  public pagesByClientUrlArray: CustomPage[];
   constructor(private http: HttpClient, public cookie: CookieService) {}
 
   setTestApi() {
@@ -49,6 +51,8 @@ export class WebStructureService {
 
     return finalApi;
   }
+
+  //Get Pages By Client URL
 
   //Get Rows
   getRows() {

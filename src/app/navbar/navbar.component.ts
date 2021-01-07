@@ -253,11 +253,7 @@ export class NavbarComponent implements OnInit {
   }
   //Set Custom Page data to customPage service array
   callCustomPageService() {
-    this.customPageService
-      .getCustomPageContent()
-      .subscribe((res: CustomPage[]) => {
-        this.customPageService.customPageArray = res;
-      });
+    this.customPageService.getCustomPageContent();
   }
 
   onClick(pageId: string, pageDescription: string) {

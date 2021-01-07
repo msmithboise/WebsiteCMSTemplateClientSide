@@ -27,11 +27,7 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   grabAllPages() {
-    this.customPageService
-      .getCustomPageContent()
-      .subscribe((res: CustomPage[]) => {
-        this.customPageService.customPageArray = res;
-      });
+    this.customPageService.getCustomPageContent();
   }
 
   addNewPage(form: NgForm) {
