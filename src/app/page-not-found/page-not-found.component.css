@@ -8,6 +8,8 @@ body {
   font-weight: bolder;
   text-align: center;
   padding-top: 75px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .error-paragraph {
@@ -17,6 +19,8 @@ body {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .description {
@@ -25,6 +29,8 @@ body {
   font-weight: 600;
   text-align: center;
   padding-bottom: 50px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .magicwordgif {
