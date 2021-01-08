@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { CustomImage } from '../models/custom-image.model';
 import { CustomImageService } from './custom-image.service';
 import { WebStructureService } from '../web-structure.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class CustomPageService {
   constructor(
     public http: HttpClient,
     public webStructureService: WebStructureService,
-    public customImageService: CustomImageService
+    public customImageService: CustomImageService,
+    public cookie: CookieService
   ) {}
 
   public customPageArray: CustomPage[];
@@ -29,6 +31,11 @@ export class CustomPageService {
 
     var mockUrl = 'www.riveroflifeidaho.com';
 
+    var url = this.cookie.get('url');
+
+    //   console.log('getting pages by client url...');
+    //   console.log(url);
+
     this.http
       .get<CustomPage[]>(this.webApi + '/CustomPages')
       .subscribe((res) => {
@@ -37,7 +44,7 @@ export class CustomPageService {
         for (let i = 0; i < workingArray.length; i++) {
           const element = workingArray[i];
 
-          if (element.ClientUrl == mockUrl) {
+          if (element.ClientUrl == url) {
             newArray.push(element);
           }
         }

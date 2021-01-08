@@ -50,6 +50,7 @@ import { ContentViewComponent } from './content-view/content-view.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NewsComponent } from './news/news.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { NewsComponent } from './news/news.component';
     ContentViewComponent,
     ButtonPanelComponent,
     NewsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,9 +14,11 @@ import { SubpageDashboardComponent } from './subpage-dashboard/subpage-dashboard
 import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.component';
 import { GridComponent } from './grid/grid.component';
 import { TestComponent } from './test/test.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+
   {
     path: '',
     redirectTo: '/Home/1',
@@ -102,6 +104,7 @@ const routes: Routes = [
       'customPage/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageComponent,
   },
+  { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
