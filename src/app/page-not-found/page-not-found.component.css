@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #f4faf4;
 }
 
 .error-heading {
@@ -7,7 +7,7 @@ body {
   font-size: 100px;
   font-weight: bolder;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 75px;
 }
 
 .error-paragraph {
@@ -15,7 +15,16 @@ body {
   font-size: 50px;
 
   text-align: center;
-  padding: 50px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.description {
+  color: #222222;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 .magicwordgif {
