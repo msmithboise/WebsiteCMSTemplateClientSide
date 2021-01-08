@@ -1,0 +1,25 @@
+body {
+  background-color: #ffffff;
+}
+
+.error-heading {
+  color: #222222;
+  font-size: 100px;
+  font-weight: bolder;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.error-paragraph {
+  color: #222222;
+  font-size: 50px;
+
+  text-align: center;
+  padding: 50px;
+}
+
+.magicwordgif {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
