@@ -58,6 +58,9 @@ export class AuthenticationService {
   }
 
   public isAuthenticated(): boolean {
+    var localToken = this.getToken();
+    console.log(localToken);
+
     console.log('does user have token', this.getToken() !== null);
     return this.getToken() !== null;
   }

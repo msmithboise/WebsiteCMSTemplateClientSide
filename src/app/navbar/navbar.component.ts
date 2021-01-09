@@ -127,7 +127,7 @@ export class NavbarComponent implements OnInit {
 
   Logout(data: LoggedInUser) {
     var user = data;
-    this.authService.removeToken;
+    this.authService.removeToken();
     localStorage.removeItem('userToken');
     this.cookie.delete('token');
 
