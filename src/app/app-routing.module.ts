@@ -35,56 +35,78 @@ const routes: Routes = [
   },
 
   { path: 'portal', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'edit-page', component: EditPageSettingsComponent },
-  { path: 'navbar-settings', component: NavbarSettingsComponent },
+  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
+  {
+    path: 'edit-page',
+    component: EditPageSettingsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'navbar-settings',
+    component: NavbarSettingsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'grid', component: GridComponent },
   { path: 'test', component: TestComponent },
 
   {
     path: 'edit-sub-page/:pageDescription/:pageId',
     component: EditSubPageSettingsComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'style-settings/:textId', component: StyleSettingsComponent },
+  {
+    path: 'style-settings/:textId',
+    component: StyleSettingsComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path:
       'style-settings/:pageDescription/:pageId/:subPageDescription/:subPageId/:textId',
     component: StyleSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'style-settings/:pageDescription/:pageId/:columnId/:textId',
     component: StyleSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'style-settings/:pageDescription/:pageId/:textId',
     component: StyleSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings/:pageId',
     component: PageSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'navbar-settings/:pageDescription/:pageId',
     component: NavbarSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings/:pageDescription/:pageId',
     component: PageSettingsComponent,
+    canActivate: [AuthGuard],
   },
 
   {
     path:
       'dashboard/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path:
       'settings/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard/:pageDescription/:pageId/:subPageDescription/:subPageId',
     component: SubpageDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'subPage/:subPageDescription/:subPageId',
