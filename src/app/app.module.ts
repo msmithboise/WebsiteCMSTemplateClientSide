@@ -51,6 +51,7 @@ import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NewsComponent } from './news/news.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WebpageService,
     SafePipe,
     AuthGuardComponent,
+    AuthGuardService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],

@@ -15,6 +15,7 @@ import { NavbarSettingsComponent } from './navbar-settings/navbar-settings.compo
 import { GridComponent } from './grid/grid.component';
 import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -70,10 +71,6 @@ const routes: Routes = [
     path: 'settings/:pageDescription/:pageId',
     component: PageSettingsComponent,
   },
-  {
-    path: 'dashboard/:pageDescription/:pageId',
-    component: PageSettingsComponent,
-  },
 
   {
     path:
@@ -104,19 +101,17 @@ const routes: Routes = [
       'customPage/:pageDescription/:pageId/:subPage/:subPageDescription/:subPageId',
     component: SubpageComponent,
   },
-  { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
-
-  { path: 'pagenotfound', component: PageNotFoundComponent },
-
-  //for adding auth guard:
-  // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
-
   //for adding auth guard:
   {
     path: 'dashboard/:pageDescription/:pageId',
     component: PageSettingsComponent,
-    canActivate: [AuthGuardComponent],
+    canActivate: [AuthGuard],
   },
+  { path: 'pagenotfound', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
+
+  //for adding auth guard:
+  // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
 ];
 
 // const AppRouting: Routes = [
