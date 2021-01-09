@@ -109,6 +109,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   providers: [
     WebpageService,
     SafePipe,
+    AuthGuardComponent,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],

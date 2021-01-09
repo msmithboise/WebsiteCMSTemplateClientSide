@@ -106,8 +106,17 @@ const routes: Routes = [
   },
   { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 
+  { path: 'pagenotfound', component: PageNotFoundComponent },
+
   //for adding auth guard:
   // {path:"admin", component: AdminComponent, canActivate:[AuthGuardComponent]}
+
+  //for adding auth guard:
+  {
+    path: 'dashboard/:pageDescription/:pageId',
+    component: PageSettingsComponent,
+    canActivate: [AuthGuardComponent],
+  },
 ];
 
 // const AppRouting: Routes = [
