@@ -52,6 +52,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NewsComponent } from './news/news.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './auth-guard.service';
+import { NullPageGuardService } from './null-page-guard.service';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { AuthGuardService } from './auth-guard.service';
     SafePipe,
     AuthGuardComponent,
     AuthGuardService,
+    NullPageGuardService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],

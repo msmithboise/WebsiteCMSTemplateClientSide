@@ -7,6 +7,7 @@ import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
+import { CustomPageService } from '../services/custom-page.service';
 import { UserService } from '../services/user.service';
 import { WebStructureService } from '../web-structure.service';
 
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     public webStructureService: WebStructureService,
-    public cookie: CookieService
+    public cookie: CookieService,
+    public customPageService: CustomPageService
   ) {}
 
   ngOnInit(): void {
@@ -101,7 +103,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userToken', this.userToken.toString());
         this.createCookie();
 
-        this.router.navigate(['customPage/:pageDescription/1']);
+        this.customPageService.getCustomPageContent();
+
+        //Add method that navigates to the first route in the page array
+
+        this.router.navigate(['pageDescription/1']);
         this.userService.getUserData().subscribe((res: User[]) => {
           this.userService.userArray = res;
         });

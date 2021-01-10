@@ -50,12 +50,7 @@ export class CustomPageService {
         }
       });
 
-    console.log('new array');
-    console.log(newArray);
-
     this.customPageArray = newArray;
-    console.log('custompage array');
-    console.log(this.customPageArray);
   }
 
   //GetByClientUrl

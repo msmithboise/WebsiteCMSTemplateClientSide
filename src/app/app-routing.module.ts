@@ -16,6 +16,7 @@ import { GridComponent } from './grid/grid.component';
 import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { NullPageGuardService as NullPageGuard } from '../app/null-page-guard.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,10 +29,12 @@ const routes: Routes = [
   {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
+    canActivate: [NullPageGuard],
   },
   {
     path: ':pageDescription/:pageId',
     component: CustomPageComponent,
+    canActivate: [NullPageGuard],
   },
 
   { path: 'portal', component: LoginComponent },
