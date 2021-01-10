@@ -33,6 +33,12 @@ export class CustomPageService {
 
     var url = this.cookie.get('url');
 
+    var testUrl = 'localhost4200';
+
+    if (url == 'localhost:4200') {
+      url = testUrl;
+    }
+
     //   console.log('getting pages by client url...');
     //   console.log(url);
 
