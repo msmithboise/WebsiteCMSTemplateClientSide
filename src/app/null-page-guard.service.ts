@@ -111,6 +111,15 @@ export class NullPageGuardService implements CanActivate {
 
     console.log(myUrl);
 
-    return myUrl;
+    var testUrl = 'localhost4200';
+
+    if (myUrl == 'localhost:4200') {
+      console.log('is test mode', testUrl);
+      return testUrl;
+    } else {
+      return myUrl;
+    }
+
+    //If test myUrl = localHost
   }
 }
