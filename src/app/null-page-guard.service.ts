@@ -20,6 +20,7 @@ import { WebStructureService } from './web-structure.service';
 })
 export class NullPageGuardService implements CanActivate {
   readonly webApi = this.webStructureService.globalApi;
+  public pageExists: boolean;
   constructor(
     public authService: AuthenticationService,
     public router: Router,
@@ -74,26 +75,28 @@ export class NullPageGuardService implements CanActivate {
   ): boolean {
     console.log(route.params.pageId);
 
-    var currentPageId = route.params.pageId;
+    var currentPageId = Number(route.params.pageId);
 
-    var url = this.cookie.get('url');
+    var pageNumArray = [];
 
-    var mockUrl = this.grabUrl();
-    console.log(mockUrl);
+    var url = this.grabUrl();
 
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         console.log('res', res);
+
+        console.log('page trying to be navigated to:  ', currentPageId);
+        res.forEach((element) => {
+          pageNumArray.push(element.PageId);
+          console.log(pageNumArray);
+        });
+
+        this.pageExists = pageNumArray.includes(currentPageId);
+        console.log((this.pageExists = pageNumArray.includes(currentPageId)));
       });
 
-    // if (!this.checkPageExists(currentPageId)) {
-    //   console.log('page doesnt exist');
-    //   this.router.navigate(['pagenotfound']);
-    //   return false;
-    // }
-    // console.log('page exists!');
-    return true;
+    return !this.pageExists;
   }
 
   grabUrl() {
