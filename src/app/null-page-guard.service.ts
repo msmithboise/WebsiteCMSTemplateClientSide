@@ -82,7 +82,7 @@ export class NullPageGuardService implements CanActivate {
     console.log(mockUrl);
 
     this.http
-      .get<CustomPage[]>(this.webApi + '/PagesByClient/' + mockUrl)
+      .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         console.log('res', res);
       });
@@ -98,10 +98,6 @@ export class NullPageGuardService implements CanActivate {
 
   grabUrl() {
     var fullUrl = window.location.href;
-
-    var urlAppend = this.router.url;
-
-    var newUrl = [];
 
     var urlArray = fullUrl.split('/');
 

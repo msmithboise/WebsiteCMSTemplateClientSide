@@ -24,44 +24,40 @@ export class CustomPageService {
   public pageFormData: CustomPage;
 
   //Get
+  //Get
   getCustomPageContent() {
-    var newArray = [];
+    var url = this.grabUrl();
 
-    var workingArray = [];
+    this.http
+      .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
+      .subscribe((res) => {
+        console.log('res', res);
+        this.customPageArray = res;
+      });
+  }
 
-    var mockUrl = 'www.riveroflifeidaho.com';
+  grabUrl() {
+    var fullUrl = window.location.href;
 
-    var url = this.cookie.get('url');
+    var urlArray = fullUrl.split('/');
+
+    console.log(urlArray);
+
+    var myUrl = urlArray[2];
+
+    console.log(myUrl);
 
     var testUrl = 'localhost4200';
 
-    if (url == 'localhost:4200') {
-      url = testUrl;
+    if (myUrl == 'localhost:4200') {
+      console.log('is test mode', testUrl);
+      return testUrl;
+    } else {
+      return myUrl;
     }
 
-    //   console.log('getting pages by client url...');
-    //   console.log(url);
-
-    this.http
-      .get<CustomPage[]>(this.webApi + '/CustomPages')
-      .subscribe((res) => {
-        workingArray = res;
-
-        for (let i = 0; i < workingArray.length; i++) {
-          const element = workingArray[i];
-
-          if (element.ClientUrl == url) {
-            newArray.push(element);
-          }
-        }
-      });
-
-    this.customPageArray = newArray;
+    //If test myUrl = localHost
   }
-
-  //GetByClientUrl
-
-  //get by page id
 
   getPageById(id: number): Observable<CustomPage> {
     // const url = `${this.webApi}/'CustomPages/'${id}`;
