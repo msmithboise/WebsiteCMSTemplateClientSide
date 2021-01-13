@@ -10,6 +10,7 @@ import {
 } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import { CustomPage } from './models/custom-page.model';
 import { AuthenticationService } from './services/authentication.service';
 import { CustomPageService } from './services/custom-page.service';
@@ -21,6 +22,7 @@ import { WebStructureService } from './web-structure.service';
 export class NullPageGuardService implements CanActivate {
   readonly webApi = this.webStructureService.globalApi;
   public pageExists: boolean;
+  public pageDataResult = [];
   constructor(
     public authService: AuthenticationService,
     public router: Router,
@@ -31,72 +33,74 @@ export class NullPageGuardService implements CanActivate {
     public cookie: CookieService
   ) {}
 
-  // For each element in custom page array
-  // if page entered does not match the page number within the array
-  // redirect to a 404 page
-
-  checkPageExists(currentPageId: number) {
-    console.log('checking if page exists...');
-
-    var newArray = [];
-
-    var workingArray = [];
-
-    var url = this.cookie.get('url');
-
-    this.http
-      .get<CustomPage[]>(this.webApi + '/GetPagesByUrl' + url)
-      .subscribe((res) => {
-        workingArray = res;
-
-        for (let i = 0; i < workingArray.length; i++) {
-          const element = workingArray[i];
-
-          if (element.ClientUrl == url) {
-            newArray.push(element);
-          }
-        }
-      });
-
-    // this.customPageService.customPageArray = newArray;
-
-    // console.log('custom page array:  ', this.customPageService.customPageArray);
-
-    // for (let i = 0; i < this.customPageService.customPageArray.length; i++) {
-    //   const element = this.customPageService.customPageArray[i];
-
-    //   console.log('element', element.PageId);
-    // }
-  }
-
-  canActivate(
+  async canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean {
-    console.log(route.params.pageId);
-
+  ): Promise<boolean> {
     var currentPageId = Number(route.params.pageId);
+    //console.log(route.params.pageId);
 
+    // Call page get request  (Wait to get pages)
+
+    await this.getPageData(currentPageId);
+
+    console.log(
+      'hey you just got your page data!  does page exist?',
+      this.pageExists
+    );
+
+    // For each page, just grab the page id's and put into array
+
+    // if the id's in the page array don't match the currently navigated pageId destination
+
+    //re-direct the page to a 404
+
+    if (this.pageExists) {
+      return true;
+    } else {
+      console.log('404');
+      this.router.navigate(['pagenotfound']);
+      return false;
+    }
+  }
+
+  async getPageData(currentPageId: number) {
     var pageNumArray = [];
-
     var url = this.grabUrl();
+    console.log('page destination:  ', currentPageId);
 
-    this.http
+    console.log('waiting to get page data...');
+    var data = await this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
-      .subscribe((res) => {
-        console.log('res', res);
+      .toPromise();
+    console.log('data:  ', data);
 
-        console.log('page trying to be navigated to:  ', currentPageId);
-        res.forEach((element) => {
-          pageNumArray.push(element.PageId);
-          console.log(pageNumArray);
-        });
+    data.forEach((element) => {
+      pageNumArray.push(element.PageId);
+    });
 
-        this.pageExists = pageNumArray.includes(currentPageId);
-        console.log((this.pageExists = pageNumArray.includes(currentPageId)));
-      });
+    console.log('pageNums:  ', pageNumArray);
 
-    return !this.pageExists;
+    this.pageExists = pageNumArray.includes(currentPageId);
+
+    console.log('does the page exist?', this.pageExists);
+
+    // this.http
+    //   .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
+    //   .subscribe((res) => {
+    //     console.log('res', res);
+    //     res.forEach((element) => {
+    //       pageNumArray.push(element.PageId);
+    //     });
+    //     console.log(
+    //       'page number array in guard service class:  ',
+    //       pageNumArray
+    //     );
+    //     console.log('does this work?', pageNumArray.includes(currentPageId));
+    //     this.pageExists = pageNumArray.includes(currentPageId);
+    //     console.log('this page exists?', this.pageExists);
+
+    //   });
   }
 
   grabUrl() {
@@ -104,16 +108,16 @@ export class NullPageGuardService implements CanActivate {
 
     var urlArray = fullUrl.split('/');
 
-    console.log(urlArray);
+    //console.log(urlArray);
 
     var myUrl = urlArray[2];
 
-    console.log(myUrl);
+    //console.log(myUrl);
 
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
-      console.log('is test mode', testUrl);
+      //console.log('is test mode', testUrl);
       return testUrl;
     } else {
       return myUrl;

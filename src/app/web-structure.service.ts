@@ -47,7 +47,7 @@ export class WebStructureService {
 
     var finalApi = 'http://api.' + this.baseUrl + '.com/api';
 
-    console.log(finalApi);
+    console.log('finalApi', finalApi);
 
     return finalApi;
   }

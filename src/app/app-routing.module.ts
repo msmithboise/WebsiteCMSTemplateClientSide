@@ -29,7 +29,6 @@ const routes: Routes = [
   {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
-    canActivate: [NullPageGuard],
   },
   {
     path: ':pageDescription/:pageId',

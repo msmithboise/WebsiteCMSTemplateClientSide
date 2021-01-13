@@ -6,6 +6,7 @@ import { CustomImage } from '../models/custom-image.model';
 import { CustomImageService } from './custom-image.service';
 import { WebStructureService } from '../web-structure.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,23 +16,25 @@ export class CustomPageService {
     public http: HttpClient,
     public webStructureService: WebStructureService,
     public customImageService: CustomImageService,
-    public cookie: CookieService
+    public cookie: CookieService,
+    public route: ActivatedRoute
   ) {}
 
   public customPageArray: CustomPage[];
   public customPageArrayById: CustomPage;
   readonly webApi = this.webStructureService.globalApi;
   public pageFormData: CustomPage;
+  public pageNumArray = [];
+  public pageExists: boolean;
 
-  //Get
-  //Get
   getCustomPageContent() {
     var url = this.grabUrl();
 
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
-        console.log('res', res);
+        //console.log('res', res);
+
         this.customPageArray = res;
       });
   }
@@ -41,16 +44,16 @@ export class CustomPageService {
 
     var urlArray = fullUrl.split('/');
 
-    console.log(urlArray);
+    // console.log(urlArray);
 
     var myUrl = urlArray[2];
 
-    console.log(myUrl);
+    // console.log(myUrl);
 
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
-      console.log('is test mode', testUrl);
+      // console.log('is test mode', testUrl);
       return testUrl;
     } else {
       return myUrl;
