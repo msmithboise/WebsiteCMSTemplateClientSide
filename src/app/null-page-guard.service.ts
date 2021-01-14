@@ -84,8 +84,6 @@ export class NullPageGuardService implements CanActivate {
       pageNumArray.push(element.PageId);
     });
 
-    pageNumArray.push(0);
-
     console.log('pageNums:  ', pageNumArray);
 
     this.pageExists = pageNumArray.includes(currentPageId);
