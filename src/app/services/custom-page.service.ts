@@ -6,7 +6,11 @@ import { CustomImage } from '../models/custom-image.model';
 import { CustomImageService } from './custom-image.service';
 import { WebStructureService } from '../web-structure.service';
 import { CookieService } from 'ngx-cookie-service';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Router,
+} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +21,8 @@ export class CustomPageService {
     public webStructureService: WebStructureService,
     public customImageService: CustomImageService,
     public cookie: CookieService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public router: Router
   ) {}
 
   public customPageArray: CustomPage[];
@@ -27,6 +32,8 @@ export class CustomPageService {
   public pageNumArray = [];
   public pageExists: boolean;
   public trueHomeId: number;
+  public pageId: number;
+  public pageDescription: string;
 
   getCustomPageContent() {
     var url = this.grabUrl();
@@ -56,16 +63,6 @@ export class CustomPageService {
     this.trueHomeId = homeArray.PageId;
 
     console.log('should be the homeId:  ', this.trueHomeId);
-
-    //Look at the pages in the custom page array
-
-    //Grab the array that has 'Home' as page description
-
-    //Look at the pageId
-
-    //Set that pageId to :'default'
-
-    //Set routing module to redirect to default
   }
 
   grabUrl() {

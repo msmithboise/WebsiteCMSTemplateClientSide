@@ -23,6 +23,7 @@ export class NullPageGuardService implements CanActivate {
   readonly webApi = this.webStructureService.globalApi;
   public pageExists: boolean;
   public pageDataResult = [];
+  public currentPageId: number;
   constructor(
     public authService: AuthenticationService,
     public router: Router,
@@ -38,7 +39,9 @@ export class NullPageGuardService implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     var currentPageId = Number(route.params.pageId);
-    //console.log(route.params.pageId);
+    var currentPageDescription = route.params.pageDescription;
+    this.currentPageId = currentPageId;
+    console.log('page description:  ', route.params.pageDescription);
 
     // Call page get request  (Wait to get pages)
 
@@ -48,6 +51,8 @@ export class NullPageGuardService implements CanActivate {
       'hey you just got your page data!  does page exist?',
       this.pageExists
     );
+
+    this.redirectToTrueHome(currentPageId);
 
     // For each page, just grab the page id's and put into array
 
@@ -79,30 +84,22 @@ export class NullPageGuardService implements CanActivate {
       pageNumArray.push(element.PageId);
     });
 
+    pageNumArray.push(0);
+
     console.log('pageNums:  ', pageNumArray);
 
     this.pageExists = pageNumArray.includes(currentPageId);
 
     console.log('does the page exist?', this.pageExists);
-
-    // this.http
-    //   .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
-    //   .subscribe((res) => {
-    //     console.log('res', res);
-    //     res.forEach((element) => {
-    //       pageNumArray.push(element.PageId);
-    //     });
-    //     console.log(
-    //       'page number array in guard service class:  ',
-    //       pageNumArray
-    //     );
-    //     console.log('does this work?', pageNumArray.includes(currentPageId));
-    //     this.pageExists = pageNumArray.includes(currentPageId);
-    //     console.log('this page exists?', this.pageExists);
-
-    //   });
   }
 
+  redirectToTrueHome(currentPageId: number, currentPageDescription: string) {
+    console.log('current page id in redirect method', currentPageId);
+    if (currentPageId == 0 || currentPageDescription == '') {
+      console.log(currentPageId == 0);
+      this.router.navigate(['/Home/' + this.customPageService.trueHomeId]);
+    }
+  }
   grabUrl() {
     var fullUrl = window.location.href;
 

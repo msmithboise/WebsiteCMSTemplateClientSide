@@ -23,12 +23,14 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: '/Home/1',
+    redirectTo: '/Home/1031',
     pathMatch: 'full',
+    canActivate: [NullPageGuard],
   },
   {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
+    canActivate: [NullPageGuard],
   },
   {
     path: ':pageDescription/:pageId',

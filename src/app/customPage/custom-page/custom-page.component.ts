@@ -91,6 +91,17 @@ export class CustomPageComponent implements OnInit {
     this.getRowsByPageId();
   }
 
+  redirectToTrueHome() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+      this.pageDescription = params.pageDescription;
+    });
+
+    if (this.pageId == 0) {
+      this.router.navigate(['/Home/' + this.customPageService.trueHomeId]);
+    }
+  }
+
   // grabAllPagesByClientUrl() {
   //   var url = this.cookie.get('url');
 
