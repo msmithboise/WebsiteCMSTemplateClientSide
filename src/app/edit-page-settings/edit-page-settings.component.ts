@@ -66,13 +66,14 @@ export class EditPageSettingsComponent implements OnInit {
   deletePage(pageId: number) {
     var containsSubpages = this.doesParentContainSubPages(pageId);
 
-    if (containsSubpages == true) {
-      this.toastr.error(
-        'Cannot delete Main page before subpages are deleted.  Please delete all linked subpages and try again.'
-      );
-      return;
-    }
+    // if (containsSubpages == true) {
+    //   this.toastr.error(
+    //     'Cannot delete Main page before subpages are deleted.  Please delete all linked subpages and try again.'
+    //   );
+    //   return;
+    // }
     this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
+      console.log('deleting page....');
       this.grabAllPages();
       //this.resetForm();
     });
