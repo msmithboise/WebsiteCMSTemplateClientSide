@@ -26,7 +26,7 @@ export class CustomPageService {
   public pageFormData: CustomPage;
   public pageNumArray = [];
   public pageExists: boolean;
-  public homeId: number;
+  public trueHomeId: number;
 
   getCustomPageContent() {
     var url = this.grabUrl();
@@ -53,9 +53,9 @@ export class CustomPageService {
 
     console.log('Should be the Home array', homeArray);
 
-    this.homeId = homeArray.PageId;
+    this.trueHomeId = homeArray.PageId;
 
-    console.log('should be the homeId:  ', this.homeId);
+    console.log('should be the homeId:  ', this.trueHomeId);
 
     //Look at the pages in the custom page array
 

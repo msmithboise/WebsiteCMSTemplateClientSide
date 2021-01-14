@@ -107,9 +107,7 @@ export class LoginComponent implements OnInit {
 
         //Add method that navigates to the first route in the page array
 
-        this.router.navigate([
-          'pageDescription/' + this.customPageService.homeId,
-        ]);
+        this.router.navigate(['Home/' + this.customPageService.trueHomeId]);
         this.userService.getUserData().subscribe((res: User[]) => {
           this.userService.userArray = res;
         });
