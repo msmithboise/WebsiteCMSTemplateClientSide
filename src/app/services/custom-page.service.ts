@@ -26,6 +26,7 @@ export class CustomPageService {
   public pageFormData: CustomPage;
   public pageNumArray = [];
   public pageExists: boolean;
+  public homeId: number;
 
   getCustomPageContent() {
     var url = this.grabUrl();
@@ -33,10 +34,38 @@ export class CustomPageService {
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
-        //console.log('res', res);
+        console.log('res', res);
 
         this.customPageArray = res;
+
+        this.setTrueHomePage();
       });
+  }
+
+  setTrueHomePage() {
+    const homePageIndex = this.customPageArray.findIndex(
+      (x) => x.PageDescription == 'Home'
+    );
+
+    console.log('home index', homePageIndex);
+
+    const homeArray = this.customPageArray[homePageIndex];
+
+    console.log('Should be the Home array', homeArray);
+
+    this.homeId = homeArray.PageId;
+
+    console.log('should be the homeId:  ', this.homeId);
+
+    //Look at the pages in the custom page array
+
+    //Grab the array that has 'Home' as page description
+
+    //Look at the pageId
+
+    //Set that pageId to :'default'
+
+    //Set routing module to redirect to default
   }
 
   grabUrl() {
