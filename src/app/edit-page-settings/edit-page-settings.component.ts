@@ -31,7 +31,6 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   addNewPage(form: NgForm) {
-    console.log('Adding page');
     this.customPageService
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {
@@ -73,9 +72,7 @@ export class EditPageSettingsComponent implements OnInit {
     //   return;
     // }
     this.customPageService.deleteCustomPage(pageId).subscribe((res) => {
-      console.log('deleting page....');
       this.grabAllPages();
-      //this.resetForm();
     });
     this.toastr.warning('Page deleted!');
   }

@@ -41,10 +41,6 @@ export class RowComponent implements OnInit {
     this.getColumnsByRowId(this.rowId);
   }
 
-  test() {
-    console.log('testing add columns...');
-  }
-
   //Invokes from page-settings (parent)
   refreshPage() {
     this.refreshEvent.next('refresh');

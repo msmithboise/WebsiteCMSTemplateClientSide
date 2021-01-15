@@ -31,11 +31,10 @@ export class AuthGuardService implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     if (!this.authService.isAuthenticated()) {
-      console.log('user not authenticated');
       this.router.navigate(['pagenotfound']);
       return false;
     }
-    console.log('they are authenticated!');
+
     return true;
   }
 }

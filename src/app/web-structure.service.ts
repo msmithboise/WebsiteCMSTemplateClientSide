@@ -38,16 +38,10 @@ export class WebStructureService {
   setProdApi() {
     var urlCookie = this.cookie.get('url');
 
-    console.log('this is in service class');
-
     var testUrl = urlCookie.split('.');
     this.baseUrl = testUrl[1];
-    console.log('baseUrl:  ');
-    console.log(this.baseUrl);
 
     var finalApi = 'http://api.' + this.baseUrl + '.com/api';
-
-    console.log('finalApi', finalApi);
 
     return finalApi;
   }

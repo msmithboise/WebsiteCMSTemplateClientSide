@@ -81,7 +81,6 @@ export class CustomPageComponent implements OnInit {
     this.grabUrl();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.checkForToken();
-    //this.grabAllPagesByClientUrl();
 
     this.takePageIdSnapshot();
     this.userService.getCurrentUserData();
@@ -102,40 +101,6 @@ export class CustomPageComponent implements OnInit {
     }
   }
 
-  // grabAllPagesByClientUrl() {
-  //   var url = this.cookie.get('url');
-
-  //   console.log('getting pages by client url...');
-  //   console.log(url);
-
-  //   //Set Custom Page data to customPage service array
-  //   var newArray = [];
-
-  //   var mockUrl = 'www.riveroflifeidaho.com';
-
-  //   this.customPageService
-  //     .getCustomPageContent()
-  //     .subscribe((res: CustomPage[]) => {
-  //       console.log(res);
-
-  //       for (let i = 0; i < res.length; i++) {
-  //         const element = res[i];
-
-  //         if (element.ClientUrl == mockUrl) {
-  //           newArray.push(element);
-  //         }
-  //       }
-
-  //       console.log('new array');
-  //       console.log(newArray);
-
-  //       console.log('custompage array');
-  //       console.log(this.customPageService.customPageArray);
-
-  //       this.customPageService.customPageArray = newArray;
-  //     });
-  // }
-
   grabUrl() {
     var fullUrl = window.location.href;
 
@@ -145,11 +110,7 @@ export class CustomPageComponent implements OnInit {
 
     var urlArray = fullUrl.split('/');
 
-    console.log(urlArray);
-
     var myUrl = urlArray[2];
-
-    //console.log(myUrl);
 
     this.setUrlAsCookie(myUrl);
   }
@@ -299,7 +260,6 @@ export class CustomPageComponent implements OnInit {
       .getPageById(this.pageIdSnapshot)
       .subscribe((res: CustomPage) => {
         this.customPageService.customPageArrayById = res;
-        console.log(this.customPageService.customPageArrayById.PageColor);
       });
   }
 

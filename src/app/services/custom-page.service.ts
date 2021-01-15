@@ -41,8 +41,6 @@ export class CustomPageService {
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
-        console.log('res', res);
-
         this.customPageArray = res;
 
         this.setTrueHomePage();
@@ -54,15 +52,9 @@ export class CustomPageService {
       (x) => x.PageDescription == 'Home'
     );
 
-    console.log('home index', homePageIndex);
-
     const homeArray = this.customPageArray[homePageIndex];
 
-    console.log('Should be the Home array', homeArray);
-
     this.trueHomeId = homeArray.PageId;
-
-    console.log('should be the homeId:  ', this.trueHomeId);
   }
 
   grabUrl() {
@@ -70,16 +62,11 @@ export class CustomPageService {
 
     var urlArray = fullUrl.split('/');
 
-    // console.log(urlArray);
-
     var myUrl = urlArray[2];
-
-    // console.log(myUrl);
 
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
-      // console.log('is test mode', testUrl);
       return testUrl;
     } else {
       return myUrl;

@@ -281,8 +281,6 @@ export class PageSettingsComponent implements OnInit {
   });
 
   createTemplate() {
-    console.log('creating template..');
-
     var newRowId = Number(localStorage.getItem('passedRowId'));
 
     var newTemplateForm = this.templateForm.value;
@@ -293,9 +291,6 @@ export class PageSettingsComponent implements OnInit {
       newTemplateForm.pageId = params.pageId;
     });
 
-    console.log('rowId', newTemplateForm.rowId);
-    console.log('pageId', newTemplateForm.pageId);
-
     //Add first row
     this.webStructureService
       .postRowsByPageId(newTemplateForm)
@@ -303,11 +298,5 @@ export class PageSettingsComponent implements OnInit {
 
     //Add column size of 12
     this.addTemplateColumn();
-
-    //Add image of 1000 x 2000px
-
-    // text of mywebsite.com in middle of image.
-
-    //Add
   }
 }
