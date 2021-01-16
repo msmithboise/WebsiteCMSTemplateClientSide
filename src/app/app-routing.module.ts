@@ -23,7 +23,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: '/Home/1031',
+    redirectTo: '/Home/0',
     pathMatch: 'full',
     canActivate: [NullPageGuard],
   },

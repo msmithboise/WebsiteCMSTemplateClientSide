@@ -43,9 +43,7 @@ export class NullPageGuardService implements CanActivate {
     var currentPageDescription = route.params.pageDescription;
     this.currentPageId = currentPageId;
 
-    await this.getPageData(currentPageId);
-
-    this.redirectToTrueHome(currentPageId, currentPageDescription);
+    await this.getPageData(currentPageId, currentPageDescription);
 
     if (this.pageExists) {
       return true;
@@ -55,7 +53,7 @@ export class NullPageGuardService implements CanActivate {
     }
   }
 
-  async getPageData(currentPageId: number) {
+  async getPageData(currentPageId: number, currentPageDescription: string) {
     var pageNumArray = [];
     var url = this.grabUrl();
     //var url = 'hindsitedevelopment';
@@ -72,28 +70,70 @@ export class NullPageGuardService implements CanActivate {
       var data = await this.http
         .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
         .toPromise();
+      console.log('data after retreival:  ', data);
+
+      const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
+      console.log('homepageindex', homePageIndex);
+      const homeArray = data[homePageIndex];
+      console.log('homeArray', homeArray);
 
       data.forEach((element) => {
         pageNumArray.push(element.PageId);
+        console.log('pageNumArray(pageGuard)', pageNumArray);
       });
+
+      var trueHomeId = homeArray.PageId;
+      console.log('truehomeid:', trueHomeId);
+
+      this.redirectToTrueHome(
+        currentPageId,
+        currentPageDescription,
+        trueHomeId
+      );
+
+      if (!pageNumArray.includes(0)) {
+        pageNumArray.push(0);
+        console.log('adding zero to page num array');
+      }
+
+      console.log('pageNumArray adding zero:  ', pageNumArray);
 
       this.pageExists = pageNumArray.includes(currentPageId);
     } else {
-      console.log('page data is already present, no need to retreive.');
+      console.log(
+        'page data is already present, no need to retreive(pageGuard).'
+      );
       pageNumArray.forEach((element) => {
         this.customPageService.pageNumArray.push(element.PageId);
       });
+
+      if (!pageNumArray.includes(0)) {
+        pageNumArray.push(0);
+        console.log('adding zero to page num array');
+      }
+
+      console.log('pageNumArray adding zero:  ', pageNumArray);
+
       this.pageExists = this.customPageService.pageNumArray.includes(
         currentPageId
       );
     }
   }
 
-  redirectToTrueHome(currentPageId: number, currentPageDescription: string) {
+  redirectToTrueHome(
+    currentPageId: number,
+    currentPageDescription: string,
+    trueHomeId: number
+  ) {
+    console.log('truehome id:  ', trueHomeId);
+    console.log('currentPageId', currentPageId);
+    console.log('currentPageDescription', currentPageDescription);
     if (currentPageId == 0 || currentPageDescription == '') {
-      this.router.navigate(['/Home/' + this.customPageService.trueHomeId]);
+      console.log('redirect to home id:  ', this.customPageService.trueHomeId);
+      this.router.navigate(['/Home/' + trueHomeId]);
     }
   }
+
   grabUrl() {
     var fullUrl = window.location.href;
     console.log('window.location', fullUrl);
