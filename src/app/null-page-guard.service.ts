@@ -38,6 +38,7 @@ export class NullPageGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
+    console.log(window.performance);
     var currentPageId = Number(route.params.pageId);
     var currentPageDescription = route.params.pageDescription;
     this.currentPageId = currentPageId;
@@ -103,12 +104,21 @@ export class NullPageGuardService implements CanActivate {
     var myUrl = urlArray[2];
     console.log('url at [2]', myUrl);
 
+    var prodUrl = myUrl.split('.');
+    console.log('url after 2nd split', prodUrl);
+
+    var prodUrlFinal = prodUrl[1];
+
+    console.log('final prodUrl', prodUrlFinal);
+
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
       return testUrl;
     } else {
-      return myUrl;
+      return prodUrlFinal;
     }
+
+    //If test myUrl = localHost
   }
 }

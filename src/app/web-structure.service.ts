@@ -15,9 +15,9 @@ export class WebStructureService {
   //For Production:
   //public globalApi = this.setProdApi();
   //For Testing:
-  public globalApi = this.setTestApi();
+  //public globalApi = this.setTestApi();
 
-  //public globalApi = 'http://api.hindsitedevelopment.com/api';
+  public globalApi = 'http://api.hindsitedevelopment.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
