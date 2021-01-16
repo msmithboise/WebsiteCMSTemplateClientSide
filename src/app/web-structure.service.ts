@@ -17,6 +17,8 @@ export class WebStructureService {
   //For Testing:
   public globalApi = this.setTestApi();
 
+  //public globalApi = 'http://api.hindsitedevelopment.com/api';
+
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
   public rowsByPageIdArray: Row[];

@@ -57,16 +57,35 @@ export class NullPageGuardService implements CanActivate {
   async getPageData(currentPageId: number) {
     var pageNumArray = [];
     var url = this.grabUrl();
+    //var url = 'hindsitedevelopment';
 
-    var data = await this.http
-      .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
-      .toPromise();
+    //Put in an if statement if customPage.NumPageArray is null,then do a get request, otherwise just proceed with the
+    //code using the numpage array
 
-    data.forEach((element) => {
-      pageNumArray.push(element.PageId);
-    });
+    if (
+      this.customPageService.pageNumArray == null ||
+      this.customPageService.pageNumArray.length <= 0
+    ) {
+      console.log('No present page data, need to retreive...');
 
-    this.pageExists = pageNumArray.includes(currentPageId);
+      var data = await this.http
+        .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
+        .toPromise();
+
+      data.forEach((element) => {
+        pageNumArray.push(element.PageId);
+      });
+
+      this.pageExists = pageNumArray.includes(currentPageId);
+    } else {
+      console.log('page data is already present, no need to retreive.');
+      pageNumArray.forEach((element) => {
+        this.customPageService.pageNumArray.push(element.PageId);
+      });
+      this.pageExists = this.customPageService.pageNumArray.includes(
+        currentPageId
+      );
+    }
   }
 
   redirectToTrueHome(currentPageId: number, currentPageDescription: string) {
@@ -76,10 +95,13 @@ export class NullPageGuardService implements CanActivate {
   }
   grabUrl() {
     var fullUrl = window.location.href;
+    console.log('window.location', fullUrl);
 
     var urlArray = fullUrl.split('/');
+    console.log('fullUrl after split', urlArray);
 
     var myUrl = urlArray[2];
+    console.log('url at [2]', myUrl);
 
     var testUrl = 'localhost4200';
 

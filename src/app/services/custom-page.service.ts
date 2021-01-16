@@ -38,10 +38,24 @@ export class CustomPageService {
   getCustomPageContent() {
     var url = this.grabUrl();
 
+    //var url = 'hindsitedevelopment.com';
+
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         this.customPageArray = res;
+        console.log('pageArray from custompageservice:  ', this.pageNumArray);
+
+        if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
+          res.forEach((element) => {
+            this.pageNumArray.push(element.PageId);
+
+            console.log(
+              'pageArray from custompageservice:  ',
+              this.pageNumArray
+            );
+          });
+        }
 
         this.setTrueHomePage();
       });
@@ -59,10 +73,13 @@ export class CustomPageService {
 
   grabUrl() {
     var fullUrl = window.location.href;
+    console.log('window.location', fullUrl);
 
     var urlArray = fullUrl.split('/');
+    console.log('fullUrl after split', urlArray);
 
     var myUrl = urlArray[2];
+    console.log('url at [2]', myUrl);
 
     var testUrl = 'localhost4200';
 
