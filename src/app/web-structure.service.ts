@@ -13,11 +13,11 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  //public globalApi = this.setProdApi();
+  public globalApi = this.setProdApi();
   //For Testing:
   //public globalApi = this.setTestApi();
 
-  public globalApi = 'http://api.hindsitedevelopment.com/api';
+  //public globalApi = 'http://api.hindsitedevelopment.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -43,7 +43,17 @@ export class WebStructureService {
     var testUrl = urlCookie.split('.');
     this.baseUrl = testUrl[1];
 
-    var finalApi = 'http://api.' + this.baseUrl + '.com/api';
+    console.log('baseUrl(webStructure)', this.baseUrl);
+
+    var prodUrl = this.baseUrl.split('.');
+    console.log('url after 2nd split', prodUrl);
+
+    var prodUrlFinal = prodUrl[1];
+
+    console.log('prodUrlFinal:  ', prodUrl[1]);
+
+    var finalApi = 'http://api.' + prodUrl + '.com/api';
+    console.log('finalApi:  ', finalApi);
 
     return finalApi;
   }
