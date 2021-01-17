@@ -49,11 +49,6 @@ export class CustomPageService {
         if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
           res.forEach((element) => {
             this.pageNumArray.push(element.PageId);
-
-            console.log(
-              'pageArray from custompageservice:  ',
-              this.pageNumArray
-            );
           });
         }
 
