@@ -40,6 +40,16 @@ export class EditPageSettingsComponent implements OnInit {
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
+        console.log('after posting new page res:  ', res);
+
+        //This line is breaking it in prod somehow... says pageId is not defined...
+        // this.customPageService.customPageArray.forEach((element) => {
+        //   this.customPageService.pageNumArray.push(element.PageId);
+        // });
+        console.log(
+          'pagenumarray after post:  ',
+          this.customPageService.pageNumArray
+        );
         this.grabAllPages();
         this.toastr.success('Page created!');
       });
