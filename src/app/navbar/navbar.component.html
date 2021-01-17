@@ -141,12 +141,7 @@
       <div *ngIf="this.hasCookieToken == true">
         <div *ngIf="user.IsLoggedIn">
           <div style="padding-left: 35px; padding-top: 20px">
-            <button
-              type="button"
-              class="btn btn-light btn-sm mb-3"
-              data-toggle="modal"
-              data-target="#newsModal"
-            >
+            <button (click)="navToNewsPage()" class="btn btn-light btn-sm mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -168,41 +163,5 @@
         </div>
       </div>
     </div>
-
-    <!-- News Modal -->
-    <div
-      class="modal fade"
-      id="newsModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="newsModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newsModalLabel"></h5>
-            <app-news></app-news>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#collapsibleNavbar"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </nav>
 </div>

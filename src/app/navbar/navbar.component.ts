@@ -79,6 +79,10 @@ export class NavbarComponent implements OnInit {
     this.checkForCookie();
   }
 
+  navToNewsPage() {
+    this.router.navigate(['news']);
+  }
+
   checkForCookie() {
     //ngInit
     //if user does not have cookie, log them out, hasCookieToken is false

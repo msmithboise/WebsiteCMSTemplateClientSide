@@ -1,14 +1,27 @@
 .news-body {
-  background-color: black;
+  background-color: #27293d;
+  text-align: center;
 }
 .date {
-  color: #222222;
+  text-align: center;
+  color: #3ad3bc;
 }
 
 .heading {
-  color: #222222;
+  font-size: 22px;
+  text-align: center;
+  color: #007bff;
 }
 
 .content {
-  color: #222222;
+  font-size: 18px;
+  text-align: center;
+  color: #f6f6f6;
+}
+
+.dev-notes {
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+  color: #d94fd2;
 }

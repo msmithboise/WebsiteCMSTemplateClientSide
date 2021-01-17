@@ -17,6 +17,7 @@ import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { NullPageGuardService as NullPageGuard } from '../app/null-page-guard.service';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: 'edit-page',
     component: EditPageSettingsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'news',
+    component: NewsComponent,
     canActivate: [AuthGuard],
   },
   {
