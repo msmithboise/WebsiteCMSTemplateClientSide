@@ -42,10 +42,6 @@ export class EditPageSettingsComponent implements OnInit {
         this.customPageService.customPageArray = res;
         console.log('after posting new page res:  ', res);
 
-        //This line is breaking it in prod somehow... says pageId is not defined...
-        // this.customPageService.customPageArray.forEach((element) => {
-        //   this.customPageService.pageNumArray.push(element.PageId);
-        // });
         console.log(
           'pagenumarray after post:  ',
           this.customPageService.pageNumArray
@@ -78,7 +74,14 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   deletePage(pageId: number) {
+    console.log('pageId to be deleted', pageId);
     var containsSubpages = this.doesParentContainSubPages(pageId);
+    var index = this.customPageService.pageNumArray.indexOf(pageId);
+    console.log('deleting, here is pageindex', index);
+
+    this.customPageService.pageNumArray.splice(index, 1);
+
+    console.log(this.customPageService.pageNumArray);
 
     // if (containsSubpages == true) {
     //   this.toastr.error(
