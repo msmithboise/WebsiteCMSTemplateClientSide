@@ -38,7 +38,6 @@ export class NullPageGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-    console.log(window.performance);
     var currentPageId = Number(route.params.pageId);
     var currentPageDescription = route.params.pageDescription;
     this.currentPageId = currentPageId;
@@ -65,25 +64,19 @@ export class NullPageGuardService implements CanActivate {
       this.customPageService.pageNumArray == null ||
       this.customPageService.pageNumArray.length <= 0
     ) {
-      console.log('No present page data, need to retreive...');
-
       var data = await this.http
         .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
         .toPromise();
-      console.log('data after retreival:  ', data);
 
       const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
-      console.log('homepageindex', homePageIndex);
+
       const homeArray = data[homePageIndex];
-      console.log('homeArray', homeArray);
 
       data.forEach((element) => {
         pageNumArray.push(element.PageId);
-        console.log('pageNumArray(pageGuard)', pageNumArray);
       });
 
       var trueHomeId = homeArray.PageId;
-      console.log('truehomeid:', trueHomeId);
 
       this.redirectToTrueHome(
         currentPageId,
@@ -93,26 +86,17 @@ export class NullPageGuardService implements CanActivate {
 
       if (!pageNumArray.includes(0)) {
         pageNumArray.push(0);
-        console.log('adding zero to page num array');
       }
-
-      console.log('pageNumArray adding zero:  ', pageNumArray);
 
       this.pageExists = pageNumArray.includes(currentPageId);
     } else {
-      console.log(
-        'page data is already present, no need to retreive(pageGuard).'
-      );
       pageNumArray.forEach((element) => {
         this.customPageService.pageNumArray.push(element.PageId);
       });
 
       if (!pageNumArray.includes(0)) {
         pageNumArray.push(0);
-        console.log('adding zero to page num array');
       }
-
-      console.log('pageNumArray adding zero:  ', pageNumArray);
 
       this.pageExists = this.customPageService.pageNumArray.includes(
         currentPageId
@@ -125,11 +109,7 @@ export class NullPageGuardService implements CanActivate {
     currentPageDescription: string,
     trueHomeId: number
   ) {
-    console.log('truehome id:  ', trueHomeId);
-    console.log('currentPageId', currentPageId);
-    console.log('currentPageDescription', currentPageDescription);
     if (currentPageId == 0 || currentPageDescription == '') {
-      console.log('redirect to home id:  ', this.customPageService.trueHomeId);
       this.router.navigate(['/Home/' + trueHomeId]);
     }
   }
