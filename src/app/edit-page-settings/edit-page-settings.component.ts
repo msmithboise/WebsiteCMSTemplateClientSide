@@ -46,7 +46,9 @@ export class EditPageSettingsComponent implements OnInit {
           'pagenumarray after post:  ',
           this.customPageService.pageNumArray
         );
+
         this.grabAllPages();
+        location.reload();
         this.toastr.success('Page created!');
       });
   }
