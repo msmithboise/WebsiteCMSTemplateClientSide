@@ -72,7 +72,7 @@ export class RowComponent implements OnInit {
       this.grabAllContentByPageId();
       this.refreshPage();
     });
-    this.toastr.error('Content deleted!');
+    this.toastr.error('Row Deleted!');
   }
 
   columnFormTemplate = new FormGroup({
@@ -114,10 +114,17 @@ export class RowComponent implements OnInit {
     newColumn.pageId = this.webContentService.pageIdSnapshot;
     newColumn.columnId += newColumn.columnId++;
     newColumn.rowId = newRowId;
-
-    this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
-      this.getColumnsByRowId(this.rowId);
-    });
+    var columnSize = '';
+    var data = this.webStructureService
+      .postColumnsByRowId(newColumn)
+      .subscribe((res) => {
+        console.log('column res');
+        console.log(res);
+        this.getColumnsByRowId(this.rowId);
+        this.grabAllContentByPageId();
+        this.refreshPage();
+      });
+    this.toastr.success('Column Added!');
   }
 
   //Grab all webcontent to display for editing

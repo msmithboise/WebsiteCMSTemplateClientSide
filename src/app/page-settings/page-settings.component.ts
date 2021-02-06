@@ -112,6 +112,7 @@ export class PageSettingsComponent implements OnInit {
       this.refresh();
       this.grabAllContentByPageId();
     });
+    this.toastr.success('Row Added!');
   }
 
   dashboardSubNav(
