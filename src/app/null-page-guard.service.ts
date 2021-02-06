@@ -55,6 +55,8 @@ export class NullPageGuardService implements CanActivate {
   async getPageData(currentPageId: number, currentPageDescription: string) {
     var pageNumArray = [];
     var url = this.grabUrl();
+    console.log('finalUrl after being grabbed:  ', url);
+    console.log('numpage array', pageNumArray);
     //var url = 'hindsitedevelopment';
 
     //Put in an if statement if customPage.NumPageArray is null,then do a get request, otherwise just proceed with the
@@ -67,16 +69,20 @@ export class NullPageGuardService implements CanActivate {
       var data = await this.http
         .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
         .toPromise();
-
-      const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
-
-      const homeArray = data[homePageIndex];
+      console.log('data after page retreival..', data);
 
       data.forEach((element) => {
         pageNumArray.push(element.PageId);
+        console.log('element.pageid foreach', element.PageId);
       });
 
+      const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
+      console.log('homepageindex', homePageIndex);
+
+      const homeArray = data[homePageIndex];
+      console.log('homePageArray', homeArray);
       var trueHomeId = homeArray.PageId;
+      console.log('truehomeid', trueHomeId);
 
       this.redirectToTrueHome(
         currentPageId,
@@ -86,12 +92,18 @@ export class NullPageGuardService implements CanActivate {
 
       if (!pageNumArray.includes(0)) {
         pageNumArray.push(0);
+        console.log('add zero to pagenum array');
       }
 
       this.pageExists = pageNumArray.includes(currentPageId);
+      console.log('page exists, look for the current page id', currentPageId);
     } else {
       pageNumArray.forEach((element) => {
         this.customPageService.pageNumArray.push(element.PageId);
+        console.log(
+          'page doesnt exist, adding it to pagenum array',
+          pageNumArray
+        );
       });
 
       if (!pageNumArray.includes(0)) {
@@ -101,6 +113,7 @@ export class NullPageGuardService implements CanActivate {
       this.pageExists = this.customPageService.pageNumArray.includes(
         currentPageId
       );
+      console.log('this pageExists', this.pageExists);
     }
   }
 
@@ -110,6 +123,10 @@ export class NullPageGuardService implements CanActivate {
     trueHomeId: number
   ) {
     if (currentPageId == 0 || currentPageDescription == '') {
+      console.log(
+        'page is zero or blank, navigate to home with trueid',
+        trueHomeId
+      );
       this.router.navigate(['/Home/' + trueHomeId]);
     }
   }

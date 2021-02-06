@@ -13,11 +13,11 @@ import { Webcontent } from './WebContent/webcontent.model';
 })
 export class WebStructureService {
   //For Production:
-  //public globalApi = this.setProdApi();
+  // public globalApi = this.setProdApi();
   //For Testing:
   public globalApi = this.setTestApi();
 
-  //public globalApi = 'http://api.hindsitedevelopment.com/api';
+  //public globalApi = 'http://api.riveroflifeidaho.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
