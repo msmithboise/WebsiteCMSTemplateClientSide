@@ -23,15 +23,41 @@ export class NavbarSettingsComponent implements OnInit {
     this.grabNavBarData();
   }
 
-  // insertEditSettings(form: NgForm) {
+  grabUrl() {
+    var fullUrl = window.location.href;
+    console.log('window.location', fullUrl);
 
-  //   this.webContentService.postEditContentById(form.value).subscribe((res) => {
-  //     //this.resetForm(form);
-  //     this.toastr.success('Edited content succesfully!');
-  //     this.grabAllContentByPageId();
-  //
-  //   });
-  // }
+    var urlArray = fullUrl.split('/');
+    console.log('fullUrl after split', urlArray);
+
+    var myUrl = urlArray[2];
+    console.log('url at [2]', myUrl);
+
+    var prodUrl = myUrl.split('.');
+    console.log('url after 2nd split', prodUrl);
+
+    if (prodUrl[1] == 'com') {
+      prodUrlFinal = prodUrl[0];
+    }
+
+    if (prodUrl[0] == 'com') {
+      var prodUrlFinal = prodUrl[1];
+    }
+
+    console.log('final prodUrl', prodUrlFinal);
+
+    var testUrl = 'localhost4200';
+
+    if (myUrl == 'localhost:4200') {
+      this.webStructureService.FinalProdUrl = testUrl;
+      return testUrl;
+    } else {
+      this.webStructureService.FinalProdUrl = prodUrlFinal;
+      return prodUrlFinal;
+    }
+
+    //If test myUrl = localHost
+  }
 
   onSubmit(form: NgForm) {
     this.createNavBarData(form);
@@ -49,7 +75,7 @@ export class NavbarSettingsComponent implements OnInit {
   }
 
   grabNavBarData() {
-    var url = this.webStructureService.FinalProdUrl;
+    var url = this.grabUrl();
     console.log('url in navbar settings component: ', url);
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
