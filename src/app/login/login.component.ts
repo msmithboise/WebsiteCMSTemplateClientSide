@@ -1,11 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { error } from 'console';
 import { CookieService } from 'ngx-cookie-service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
+import { CustomPage } from '../models/custom-page.model';
 import { LoggedInUser } from '../models/logged-in-user.model';
 import { User } from '../models/user.model';
+import { NullPageGuardService } from '../null-page-guard.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { CustomPageService } from '../services/custom-page.service';
 import { UserService } from '../services/user.service';
@@ -19,6 +22,8 @@ import { WebStructureService } from '../web-structure.service';
 export class LoginComponent implements OnInit {
   public globalResponse: any;
   public userToken: string;
+  readonly webApi = this.webStructureService.globalApi;
+  public trueHome: number;
 
   public alerts: IAlert[];
 
@@ -29,7 +34,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public webStructureService: WebStructureService,
     public cookie: CookieService,
-    public customPageService: CustomPageService
+    public customPageService: CustomPageService,
+    public nullPageGuardService: NullPageGuardService,
+    public http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -105,9 +112,14 @@ export class LoginComponent implements OnInit {
 
         this.customPageService.getCustomPageContent();
 
-        //Add method that navigates to the first route in the page array
+        this.findTrueHome();
 
-        this.router.navigate(['Home/' + this.customPageService.trueHomeId]);
+        //Add method that navigates to the first route in the page array
+        this.nullPageGuardService.userIsLoggingIn = true;
+
+        this.router.navigate(['Home/' + this.trueHome]);
+        console.log('navigation to truehome in login:  ');
+        console.log('Home/' + this.trueHome);
         this.userService.getUserData().subscribe((res: User[]) => {
           this.userService.userArray = res;
         });
@@ -118,6 +130,48 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
       }
     );
+  }
+
+  async findTrueHome() {
+    var pageNumArray = [];
+    var url = this.customPageService.grabUrl();
+    console.log('finalUrl after being grabbed:  ', url);
+    console.log('numpage array', pageNumArray);
+    //var url = 'hindsitedevelopment';
+
+    //Put in an if statement if customPage.NumPageArray is null,then do a get request, otherwise just proceed with the
+    //code using the numpage array
+
+    if (
+      this.customPageService.pageNumArray == null ||
+      this.customPageService.pageNumArray.length <= 0
+    ) {
+      var data = await this.http
+        .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
+        .toPromise();
+      console.log('data after page retreival..in login', data);
+
+      data.forEach((element) => {
+        pageNumArray.push(element.PageId);
+        console.log('element.pageid foreach in login', element.PageId);
+      });
+
+      const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
+      console.log('homepageindex in login', homePageIndex);
+
+      const homeArray = data[homePageIndex];
+      console.log('homePageArray in login', homeArray);
+      var trueHomeId = homeArray.PageId;
+      this.customPageService.trueHomeId = trueHomeId;
+      console.log(
+        'custompage service truehome: ',
+        this.customPageService.trueHomeId
+      );
+      console.log('truehomeid in login', trueHomeId);
+      this.trueHome = trueHomeId;
+      this.nullPageGuardService.trueHome = trueHomeId;
+      console.log('truehome to pass into redirect', this.trueHome);
+    }
   }
 
   setLoginUserData() {

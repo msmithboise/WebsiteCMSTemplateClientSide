@@ -24,6 +24,9 @@ export class NullPageGuardService implements CanActivate {
   public pageExists: boolean;
   public pageDataResult = [];
   public currentPageId: number;
+  public userIsLoggingIn: boolean;
+  public trueHome: number;
+
   constructor(
     public authService: AuthenticationService,
     public router: Router,
@@ -43,6 +46,14 @@ export class NullPageGuardService implements CanActivate {
     this.currentPageId = currentPageId;
 
     await this.getPageData(currentPageId, currentPageDescription);
+
+    console.log('is user logging in?', this.userIsLoggingIn);
+
+    if (this.userIsLoggingIn) {
+      this.router.navigate(['Home/' + this.trueHome]);
+      this.userIsLoggingIn = false;
+      return true;
+    }
 
     if (this.pageExists) {
       return true;
@@ -82,6 +93,11 @@ export class NullPageGuardService implements CanActivate {
       const homeArray = data[homePageIndex];
       console.log('homePageArray', homeArray);
       var trueHomeId = homeArray.PageId;
+      this.customPageService.trueHomeId = trueHomeId;
+      console.log(
+        'custompage service truehome: ',
+        this.customPageService.trueHomeId
+      );
       console.log('truehomeid', trueHomeId);
 
       this.redirectToTrueHome(
@@ -133,7 +149,7 @@ export class NullPageGuardService implements CanActivate {
 
   grabUrl() {
     var fullUrl = window.location.href;
-    console.log('window.location', fullUrl);
+    console.log('window.location from nullpage guard', fullUrl);
 
     var urlArray = fullUrl.split('/');
     console.log('fullUrl after split', urlArray);

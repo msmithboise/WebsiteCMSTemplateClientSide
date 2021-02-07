@@ -68,7 +68,7 @@ export class CustomPageService {
 
   grabUrl() {
     var fullUrl = window.location.href;
-    console.log('window.location', fullUrl);
+    console.log('window.location from custompage service', fullUrl);
 
     var urlArray = fullUrl.split('/');
     console.log('fullUrl after split', urlArray);
@@ -81,13 +81,15 @@ export class CustomPageService {
 
     var prodUrlFinal = prodUrl[1];
 
-    console.log('final prodUrl', prodUrlFinal);
+    console.log('testing window location in custom page service');
+    console.log(window.location + '/' + 'Home');
 
     var testUrl = 'localhost4200';
-
     if (myUrl == 'localhost:4200') {
+      console.log('TEST ENVIRONMENT', testUrl);
       return testUrl;
     } else {
+      console.log('PROD ENVIRONMENT', prodUrlFinal);
       return prodUrlFinal;
     }
 
