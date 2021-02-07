@@ -18,6 +18,7 @@ export class WebStructureService {
   public globalApi = this.setTestApi();
 
   //public globalApi = 'http://api.riveroflifeidaho.com/api';
+  //public globalApi = 'http://api.freedomstartsnow.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -30,6 +31,7 @@ export class WebStructureService {
   public hasToken: boolean = false;
   public token: string;
   public baseUrl: string;
+  public FinalProdUrl: string;
   public pagesByClientUrlArray: CustomPage[];
   constructor(private http: HttpClient, public cookie: CookieService) {}
 

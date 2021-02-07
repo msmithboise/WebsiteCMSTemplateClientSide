@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Navbar } from '../models/navbar.model';
 import { NavBarService } from '../services/nav-bar.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-navbar-settings',
@@ -14,7 +15,8 @@ export class NavbarSettingsComponent implements OnInit {
   constructor(
     public navBarService: NavBarService,
     private route: ActivatedRoute,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -45,8 +47,12 @@ export class NavbarSettingsComponent implements OnInit {
   }
 
   grabNavBarData() {
-    this.navBarService.getNavBarData().subscribe((res) => {
-      this.navBarService.navBarArray = res;
+    var url = this.webStructureService.FinalProdUrl;
+    console.log('url in navbar settings component: ', url);
+    this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
+      this.navBarService.navBarByClientUrlArray = res;
+      console.log('getting navbar data...');
+      console.log(res);
     });
   }
 

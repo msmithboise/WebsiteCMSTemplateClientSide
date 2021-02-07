@@ -65,4 +65,6 @@ export class Navbar {
   NavHyperLink: string;
   NavFontLineHeight: string;
   NavFontLetterSpacing: string;
+  ClientUrl: string;
+  ClientHasNavbar: boolean;
 }

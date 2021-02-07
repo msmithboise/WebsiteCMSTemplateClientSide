@@ -71,12 +71,23 @@ export class NavbarComponent implements OnInit {
     this.getLoginData();
     this.grabAllContentByPageId();
     this.getNavBarData();
+    this.grabNavbarByClient();
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
     this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
     this.checkForCookie();
+  }
+
+  grabNavbarByClient() {
+    var url = this.webStructureService.FinalProdUrl;
+    console.log('url in navbar component: ', url);
+    this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
+      this.navBarService.navBarByClientUrlArray = res;
+      console.log('getting navbar data...');
+      console.log(res);
+    });
   }
 
   navToNewsPage() {

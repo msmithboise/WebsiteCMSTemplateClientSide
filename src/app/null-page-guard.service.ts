@@ -144,15 +144,23 @@ export class NullPageGuardService implements CanActivate {
     var prodUrl = myUrl.split('.');
     console.log('url after 2nd split', prodUrl);
 
-    var prodUrlFinal = prodUrl[1];
+    if (prodUrl[1] == 'com') {
+      prodUrlFinal = prodUrl[0];
+    }
+
+    if (prodUrl[0] == 'com') {
+      var prodUrlFinal = prodUrl[1];
+    }
 
     console.log('final prodUrl', prodUrlFinal);
 
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
+      this.webStructureService.FinalProdUrl = testUrl;
       return testUrl;
     } else {
+      this.webStructureService.FinalProdUrl = prodUrlFinal;
       return prodUrlFinal;
     }
 

@@ -36,7 +36,11 @@
                 <div class="card card-body">
                   <h1>Preview</h1>
                   <app-navbar></app-navbar>
-                  <div *ngFor="let content of this.navBarService.navBarArray">
+                  <div
+                    *ngFor="
+                      let content of this.navBarService.navBarByClientUrlArray
+                    "
+                  >
                     <div class="modal-body form-group">
                       <form
                         #form="ngForm"
