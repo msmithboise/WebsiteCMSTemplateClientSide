@@ -22,6 +22,11 @@ export class NavBarService {
     return this.http.get<Navbar[]>(this.webApi + '/NavBarByClientUrl/' + url);
   }
 
+  //postBy client url
+  postNavBarDataByClientUrl(formData: Navbar) {
+    return this.http.post(this.webApi + '/NavBarByClientUrl', formData);
+  }
+
   //Get Navbar data
   getNavBarData(): Observable<Navbar[]> {
     return this.http.get<Navbar[]>(this.webApi + '/NavBar');

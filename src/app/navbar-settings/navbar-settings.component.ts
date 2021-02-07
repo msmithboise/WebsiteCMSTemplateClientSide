@@ -38,12 +38,14 @@ export class NavbarSettingsComponent implements OnInit {
   }
 
   createNavBarData(form: NgForm) {
-    this.navBarService.postNavBarData(form.value).subscribe((res: Navbar[]) => {
-      this.navBarService.navBarArray = res;
+    this.navBarService
+      .postNavBarDataByClientUrl(form.value)
+      .subscribe((res: Navbar[]) => {
+        this.navBarService.navBarByClientUrlArray = res;
 
-      this.toastr.success('Edited Navbar succesfully!');
-      this.grabNavBarData();
-    });
+        this.toastr.success('Edited Navbar succesfully!');
+        this.grabNavBarData();
+      });
   }
 
   grabNavBarData() {
