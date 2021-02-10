@@ -23,12 +23,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   //For test
-  // {
-  //   path: '',
-  //   redirectTo: '/Home/1031',
-  //   pathMatch: 'full',
-  //   canActivate: [NullPageGuard],
-  // },
+  {
+    path: '',
+    redirectTo: '/Home/1031',
+    pathMatch: 'full',
+    canActivate: [NullPageGuard],
+  },
 
   //for riveroflife
   //  {
@@ -39,12 +39,12 @@ const routes: Routes = [
   // },
 
   //for freedomstartsnow
-  {
-    path: '',
-    redirectTo: '/Home/6',
-    pathMatch: 'full',
-    canActivate: [NullPageGuard],
-  },
+  // {
+  //   path: '',
+  //   redirectTo: '/Home/6',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
   {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,

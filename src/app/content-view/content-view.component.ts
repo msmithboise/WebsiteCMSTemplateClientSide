@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
@@ -16,6 +16,7 @@ export class ContentViewComponent implements OnInit {
   public screenWidth: number;
   public screenHeight: number;
   public fontAwesomeIcon: string;
+  public innerWidth: number;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -39,6 +40,15 @@ export class ContentViewComponent implements OnInit {
 
     return newAddress;
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+
+    console.log('screenRes:  ', this.innerWidth);
+  }
+
+  getScreenRes() {}
 
   getScreenSize() {
     this.screenWidth = window.innerWidth;
