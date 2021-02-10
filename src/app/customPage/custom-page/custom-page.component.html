@@ -49,17 +49,19 @@
 
 <!-- Hero image field (Parallax, cover, fixed) -->
 <body>
-  <div
-    [style.background-color]="
-      this.customPageService.customPageArrayById.PageColor
-    "
-    class="container-fluid"
-  >
-    <!-- Foreach row on specified page -->
+  <div *ngIf="this.customPageService.customPageArrayById != null">
+    <div
+      [style.background-color]="
+        this.customPageService.customPageArrayById.PageColor
+      "
+      class="container-fluid"
+    >
+      <!-- Foreach row on specified page -->
 
-    <!-- For all the rows that are tied to this page id... -->
+      <!-- For all the rows that are tied to this page id... -->
 
-    <app-row-view></app-row-view>
+      <app-row-view></app-row-view>
+    </div>
   </div>
   <!-- <button class="btn btn-info" (click)="resizeToggled()">Resize Images</button> -->
 </body>
