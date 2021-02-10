@@ -26,6 +26,7 @@ export class ContentViewComponent implements OnInit {
   ngOnInit(): void {
     this.getContentListsByColumnId();
     this.getScreenSize();
+    this.isMobile();
     this.setFontAwesomeIcon();
   }
 
@@ -44,8 +45,12 @@ export class ContentViewComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
+  }
 
-    console.log('screenRes:  ', this.innerWidth);
+  isMobile() {
+    if (window.innerWidth < 600) {
+      return true;
+    }
   }
 
   getScreenRes() {}

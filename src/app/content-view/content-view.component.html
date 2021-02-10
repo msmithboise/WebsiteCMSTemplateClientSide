@@ -620,7 +620,7 @@
     <!-- Text -->
 
     <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
-      <div *ngIf="this.screenWidth >= 801">
+      <div *ngIf="!isMobile()">
         <div [ngStyle]="{}">
           <h1
             class="customText"
@@ -763,7 +763,7 @@
 
     <!-- Text MOBILE with HYPER LINK -->
     <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
-      <div *ngIf="this.screenWidth <= 800">
+      <div *ngIf="this.isMobile()">
         <div [ngStyle]="{}">
           <a [href]="content.HyperLink">
             <h1
@@ -822,7 +822,7 @@
                 cursor: content.cursor,
                 fontVariant: content.fontVariant,
                 fontWeight: content.fontWieght,
-
+                fontSize: content.resize,
                 left: content.left,
 
                 listStyle: content.listStyle,
@@ -907,7 +907,7 @@
 
     <!-- Text MOBILE -->
     <div *ngIf="content.HyperLink == null || content.HyperLink == ''">
-      <div *ngIf="this.screenWidth <= 800">
+      <div *ngIf="this.isMobile()">
         <div [ngStyle]="{}">
           <h1
             class="customText"
@@ -965,7 +965,7 @@
               cursor: content.cursor,
               fontVariant: content.fontVariant,
               fontWeight: content.fontWieght,
-
+              fontSize: content.resize,
               left: content.left,
 
               listStyle: content.listStyle,
