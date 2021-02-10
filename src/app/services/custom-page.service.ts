@@ -11,6 +11,7 @@ import {
   ActivatedRouteSnapshot,
   Router,
 } from '@angular/router';
+import { NullPageGuardService } from '../null-page-guard.service';
 
 @Injectable({
   providedIn: 'root',
@@ -38,18 +39,21 @@ export class CustomPageService {
   getCustomPageContent() {
     var url = this.grabUrl();
 
+    console.log('url in custompage service', url);
     //var url = 'hindsitedevelopment.com';
 
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         this.customPageArray = res;
+        console.log('custompagearray custompageservice', this.customPageArray);
 
         if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
           res.forEach((element) => {
             this.pageNumArray.push(element.PageId);
           });
         }
+        console.log('numpagearray', this.pageNumArray);
 
         this.setTrueHomePage();
       });
@@ -74,12 +78,25 @@ export class CustomPageService {
 
     var prodUrl = myUrl.split('.');
 
-    var prodUrlFinal = prodUrl[1];
+    if (prodUrl[0] == 'com') {
+      var prodUrlFinal = prodUrl[1];
+    }
+
+    if (prodUrl[1] == 'com') {
+      prodUrlFinal = prodUrl[0];
+    }
+
+    if (prodUrl[2] == 'com') {
+      prodUrlFinal = prodUrl[1];
+    }
 
     var testUrl = 'localhost4200';
+
     if (myUrl == 'localhost:4200') {
+      this.webStructureService.FinalProdUrl = testUrl;
       return testUrl;
     } else {
+      this.webStructureService.FinalProdUrl = prodUrlFinal;
       return prodUrlFinal;
     }
 
