@@ -17,8 +17,8 @@ export class WebStructureService {
   //For Testing:
   public globalApi = this.setTestApi();
 
-  //public globalApi = 'http://api.riveroflifeidaho.com/api';
-  //public globalApi = 'http://api.freedomstartsnow.com/api';
+  // public globalApi = 'http://api.riveroflifeidaho.com/api';
+  // public globalApi = 'http://api.freedomstartsnow.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -45,17 +45,11 @@ export class WebStructureService {
     var testUrl = urlCookie.split('.');
     this.baseUrl = testUrl[1];
 
-    console.log('baseUrl(webStructure)', this.baseUrl);
-
     var prodUrl = this.baseUrl.split('.');
-    console.log('url after 2nd split', prodUrl);
 
     var prodUrlFinal = prodUrl[1];
 
-    console.log('prodUrlFinal:  ', prodUrl[1]);
-
     var finalApi = 'http://api.' + prodUrl + '.com/api';
-    console.log('finalApi:  ', finalApi);
 
     return finalApi;
   }

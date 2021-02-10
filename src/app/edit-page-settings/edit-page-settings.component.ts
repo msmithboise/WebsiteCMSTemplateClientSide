@@ -32,20 +32,11 @@ export class EditPageSettingsComponent implements OnInit {
 
   addNewPage(form: NgForm) {
     form.value.ClientUrl = this.customPageService.grabUrl();
-    console.log(
-      'adding new page with url:  ',
-      this.customPageService.grabUrl()
-    );
+
     this.customPageService
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
-        console.log('after posting new page res:  ', res);
-
-        console.log(
-          'pagenumarray after post:  ',
-          this.customPageService.pageNumArray
-        );
 
         this.grabAllPages();
         location.reload();
@@ -76,14 +67,10 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   deletePage(pageId: number) {
-    console.log('pageId to be deleted', pageId);
     var containsSubpages = this.doesParentContainSubPages(pageId);
     var index = this.customPageService.pageNumArray.indexOf(pageId);
-    console.log('deleting, here is pageindex', index);
 
     this.customPageService.pageNumArray.splice(index, 1);
-
-    console.log(this.customPageService.pageNumArray);
 
     // if (containsSubpages == true) {
     //   this.toastr.error(

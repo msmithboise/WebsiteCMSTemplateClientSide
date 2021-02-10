@@ -118,8 +118,6 @@ export class RowComponent implements OnInit {
     var data = this.webStructureService
       .postColumnsByRowId(newColumn)
       .subscribe((res) => {
-        console.log('column res');
-        console.log(res);
         this.getColumnsByRowId(this.rowId);
         this.grabAllContentByPageId();
         this.refreshPage();

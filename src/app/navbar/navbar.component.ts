@@ -82,11 +82,9 @@ export class NavbarComponent implements OnInit {
 
   grabNavbarByClient() {
     var url = this.webStructureService.FinalProdUrl;
-    console.log('url in navbar component: ', url);
+
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
-      console.log('getting navbar data...');
-      console.log(res);
     });
   }
 

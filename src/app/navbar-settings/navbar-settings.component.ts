@@ -25,16 +25,12 @@ export class NavbarSettingsComponent implements OnInit {
 
   grabUrl() {
     var fullUrl = window.location.href;
-    console.log('window.location', fullUrl);
 
     var urlArray = fullUrl.split('/');
-    console.log('fullUrl after split', urlArray);
 
     var myUrl = urlArray[2];
-    console.log('url at [2]', myUrl);
 
     var prodUrl = myUrl.split('.');
-    console.log('url after 2nd split', prodUrl);
 
     if (prodUrl[1] == 'com') {
       prodUrlFinal = prodUrl[0];
@@ -43,8 +39,6 @@ export class NavbarSettingsComponent implements OnInit {
     if (prodUrl[0] == 'com') {
       var prodUrlFinal = prodUrl[1];
     }
-
-    console.log('final prodUrl', prodUrlFinal);
 
     var testUrl = 'localhost4200';
 
@@ -76,11 +70,9 @@ export class NavbarSettingsComponent implements OnInit {
 
   grabNavBarData() {
     var url = this.grabUrl();
-    console.log('url in navbar settings component: ', url);
+
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
-      console.log('getting navbar data...');
-      console.log(res);
     });
   }
 

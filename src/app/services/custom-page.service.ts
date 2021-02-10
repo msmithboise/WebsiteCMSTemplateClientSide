@@ -44,7 +44,6 @@ export class CustomPageService {
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         this.customPageArray = res;
-        console.log('pageArray from custompageservice:  ', this.pageNumArray);
 
         if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
           res.forEach((element) => {
@@ -68,28 +67,19 @@ export class CustomPageService {
 
   grabUrl() {
     var fullUrl = window.location.href;
-    console.log('window.location from custompage service', fullUrl);
 
     var urlArray = fullUrl.split('/');
-    console.log('fullUrl after split', urlArray);
 
     var myUrl = urlArray[2];
-    console.log('url at [2]', myUrl);
 
     var prodUrl = myUrl.split('.');
-    console.log('url after 2nd split', prodUrl);
 
     var prodUrlFinal = prodUrl[1];
 
-    console.log('testing window location in custom page service');
-    console.log(window.location + '/' + 'Home');
-
     var testUrl = 'localhost4200';
     if (myUrl == 'localhost:4200') {
-      console.log('TEST ENVIRONMENT', testUrl);
       return testUrl;
     } else {
-      console.log('PROD ENVIRONMENT', prodUrlFinal);
       return prodUrlFinal;
     }
 

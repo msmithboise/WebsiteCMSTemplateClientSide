@@ -149,7 +149,6 @@ export class ColumnComponent implements OnInit {
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       this.grabAllContentByPageId();
       this.refreshRows();
-      console.log('added a column!');
     });
   }
 

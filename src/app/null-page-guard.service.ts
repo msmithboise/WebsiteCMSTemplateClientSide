@@ -47,15 +47,8 @@ export class NullPageGuardService implements CanActivate {
 
     await this.getPageData(currentPageId, currentPageDescription);
 
-    console.log('is user logging in?', this.userIsLoggingIn);
-
-    if (this.userIsLoggingIn) {
-      this.router.navigate(['Home/' + this.trueHome]);
+    if (this.pageExists || this.userIsLoggingIn == true) {
       this.userIsLoggingIn = false;
-      return true;
-    }
-
-    if (this.pageExists) {
       return true;
     } else {
       this.router.navigate(['pagenotfound']);
@@ -66,8 +59,7 @@ export class NullPageGuardService implements CanActivate {
   async getPageData(currentPageId: number, currentPageDescription: string) {
     var pageNumArray = [];
     var url = this.grabUrl();
-    console.log('finalUrl after being grabbed:  ', url);
-    console.log('numpage array', pageNumArray);
+
     //var url = 'hindsitedevelopment';
 
     //Put in an if statement if customPage.NumPageArray is null,then do a get request, otherwise just proceed with the
@@ -80,46 +72,26 @@ export class NullPageGuardService implements CanActivate {
       var data = await this.http
         .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
         .toPromise();
-      console.log('data after page retreival..', data);
 
       data.forEach((element) => {
         pageNumArray.push(element.PageId);
-        console.log('element.pageid foreach', element.PageId);
       });
 
       const homePageIndex = data.findIndex((x) => x.PageDescription == 'Home');
-      console.log('homepageindex', homePageIndex);
 
       const homeArray = data[homePageIndex];
-      console.log('homePageArray', homeArray);
+
       var trueHomeId = homeArray.PageId;
       this.customPageService.trueHomeId = trueHomeId;
-      console.log(
-        'custompage service truehome: ',
-        this.customPageService.trueHomeId
-      );
-      console.log('truehomeid', trueHomeId);
-
-      this.redirectToTrueHome(
-        currentPageId,
-        currentPageDescription,
-        trueHomeId
-      );
 
       if (!pageNumArray.includes(0)) {
         pageNumArray.push(0);
-        console.log('add zero to pagenum array');
       }
 
       this.pageExists = pageNumArray.includes(currentPageId);
-      console.log('page exists, look for the current page id', currentPageId);
     } else {
       pageNumArray.forEach((element) => {
         this.customPageService.pageNumArray.push(element.PageId);
-        console.log(
-          'page doesnt exist, adding it to pagenum array',
-          pageNumArray
-        );
       });
 
       if (!pageNumArray.includes(0)) {
@@ -129,7 +101,6 @@ export class NullPageGuardService implements CanActivate {
       this.pageExists = this.customPageService.pageNumArray.includes(
         currentPageId
       );
-      console.log('this pageExists', this.pageExists);
     }
   }
 
@@ -139,36 +110,30 @@ export class NullPageGuardService implements CanActivate {
     trueHomeId: number
   ) {
     if (currentPageId == 0 || currentPageDescription == '') {
-      console.log(
-        'page is zero or blank, navigate to home with trueid',
-        trueHomeId
-      );
       this.router.navigate(['/Home/' + trueHomeId]);
     }
   }
 
   grabUrl() {
     var fullUrl = window.location.href;
-    console.log('window.location from nullpage guard', fullUrl);
 
     var urlArray = fullUrl.split('/');
-    console.log('fullUrl after split', urlArray);
 
     var myUrl = urlArray[2];
-    console.log('url at [2]', myUrl);
 
     var prodUrl = myUrl.split('.');
-    console.log('url after 2nd split', prodUrl);
-
-    if (prodUrl[1] == 'com') {
-      prodUrlFinal = prodUrl[0];
-    }
 
     if (prodUrl[0] == 'com') {
       var prodUrlFinal = prodUrl[1];
     }
 
-    console.log('final prodUrl', prodUrlFinal);
+    if (prodUrl[1] == 'com') {
+      prodUrlFinal = prodUrl[0];
+    }
+
+    if (prodUrl[2] == 'com') {
+      prodUrlFinal = prodUrl[1];
+    }
 
     var testUrl = 'localhost4200';
 
@@ -181,5 +146,10 @@ export class NullPageGuardService implements CanActivate {
     }
 
     //If test myUrl = localHost
+  }
+
+  goHomeAfterLogin() {
+    this.router.navigate(['Home/' + this.trueHome]);
+    this.userIsLoggingIn = false;
   }
 }
