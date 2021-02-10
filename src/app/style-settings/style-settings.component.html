@@ -105,21 +105,6 @@
                           [(ngModel)]="content.SubPageId"
                         />
 
-                        <!-- Text Body -->
-                        <div class="row">
-                          <div class="col-6">
-                            <label><b>Text</b></label>
-                            <div>
-                              <input
-                                name="TextBody"
-                                #TextBody="ngModel"
-                                [(ngModel)]="content.TextBody"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="input-group-append"></div>
-
                         <!-- Animation -->
 
                         <div class="row">
@@ -170,22 +155,6 @@
                         />
                         <div class="input-group-append"></div>
 
-                        <!-- Background Image -->
-                        <div class="row">
-                          <div class="col-6">
-                            <label><b>Background Image</b></label>
-                            <div>
-                              <input
-                                name="backgroundImage"
-                                #backgroundImage="ngModel"
-                                [(ngModel)]="content.backgroundImage"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="input-group-append"></div>
-
                         <!-- Background Attachment -->
                         <div class="row">
                           <div class="col-6">
@@ -197,6 +166,21 @@
                             name="backgroundAttachment"
                             #backgroundAttachment="ngModel"
                             [(ngModel)]="content.backgroundAttachment"
+                          />
+                        </div>
+                        <div class="input-group-append"></div>
+
+                        <!-- Background Color -->
+                        <div class="row">
+                          <div class="col-6">
+                            <label><b>Background Color</b></label>
+                          </div>
+                        </div>
+                        <div>
+                          <input
+                            name="backgroundColor"
+                            #backgroundColor="ngModel"
+                            [(ngModel)]="content.backgroundColor"
                           />
                         </div>
                         <div class="input-group-append"></div>
@@ -255,6 +239,22 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Background Image -->
+                        <div class="row">
+                          <div class="col-6">
+                            <label><b>Background Image</b></label>
+                            <div>
+                              <input
+                                name="backgroundImage"
+                                #backgroundImage="ngModel"
+                                [(ngModel)]="content.backgroundImage"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="input-group-append"></div>
+
                         <!-- Background Position -->
                         <div class="row">
                           <div class="col-6">
@@ -296,21 +296,6 @@
                             name="backgroundSize"
                             #backgroundSize="ngModel"
                             [(ngModel)]="content.backgroundSize"
-                          />
-                        </div>
-                        <div class="input-group-append"></div>
-
-                        <!-- Background Color -->
-                        <div class="row">
-                          <div class="col-6">
-                            <label><b>Background Color</b></label>
-                          </div>
-                        </div>
-                        <div>
-                          <input
-                            name="backgroundColor"
-                            #backgroundColor="ngModel"
-                            [(ngModel)]="content.backgroundColor"
                           />
                         </div>
                         <div class="input-group-append"></div>
@@ -775,6 +760,45 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Height -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Height</b></label>
+                              <div>
+                                <input
+                                  name="height"
+                                  #height="ngModel"
+                                  [(ngModel)]="content.height"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="height"></label>
+                              <select
+                                id="height"
+                                name="height"
+                                [(ngModel)]="content.height"
+                                class="form-control"
+                              >
+                                <option value="100px">100px</option>
+                                <option value="200px">200px</option>
+                                <option value="400px">400px</option>
+                                <option value="600px">600px</option>
+                                <option value="800px">800px</option>
+                                <option value="1000px">1000px</option>
+                                <option value="1500px">1500px</option>
+                                <option value="2000px">2000px</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- HyperLink -->
                         <div class="row">
                           <div class="col-6">
@@ -826,45 +850,6 @@
                           [(ngModel)]="content.ImageUrl"
                         />
                         <div class="input-group-append"></div>
-
-                        <!-- Height -->
-
-                        <div class="row">
-                          <div class="col-6">
-                            <div>
-                              <label><b>Height</b></label>
-                              <div>
-                                <input
-                                  name="height"
-                                  #height="ngModel"
-                                  [(ngModel)]="content.height"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="col-6">
-                            <div class="form-group">
-                              <label for="height"></label>
-                              <select
-                                id="height"
-                                name="height"
-                                [(ngModel)]="content.height"
-                                class="form-control"
-                              >
-                                <option value="100px">100px</option>
-                                <option value="200px">200px</option>
-                                <option value="400px">400px</option>
-                                <option value="600px">600px</option>
-                                <option value="800px">800px</option>
-                                <option value="1000px">1000px</option>
-                                <option value="1500px">1500px</option>
-                                <option value="2000px">2000px</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="col-6"></div>
-                        </div>
 
                         <!-- Left -->
 
@@ -1263,6 +1248,21 @@
                           </div>
                           <div class="col-6"></div>
                         </div>
+
+                        <!-- Text Body -->
+                        <div class="row">
+                          <div class="col-6">
+                            <label><b>Text</b></label>
+                            <div>
+                              <input
+                                name="TextBody"
+                                #TextBody="ngModel"
+                                [(ngModel)]="content.TextBody"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-group-append"></div>
 
                         <!-- Text Align -->
 
