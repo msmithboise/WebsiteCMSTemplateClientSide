@@ -190,10 +190,13 @@ export class NavbarComponent implements OnInit {
     this.pageDescriptionSnapshot = pageDescription;
 
     //We want to compare the Id passed in on hover and
-    this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
-      //this should compare the pageId of each sub page to the last number that was hovered over
-      (x) => x.PageId.toString() === this.lastHoveredNum.toString()
-    );
+
+    if (this.SubPageLocalStorage != null) {
+      this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
+        //this should compare the pageId of each sub page to the last number that was hovered over
+        (x) => x.PageId.toString() === this.lastHoveredNum.toString()
+      );
+    }
   }
 
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
