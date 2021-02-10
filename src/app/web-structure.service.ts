@@ -15,10 +15,10 @@ export class WebStructureService {
   //For Production:
   // public globalApi = this.setProdApi();
   //For Testing:
-  public globalApi = this.setTestApi();
+  // public globalApi = this.setTestApi();
 
   // public globalApi = 'http://api.riveroflifeidaho.com/api';
-  // public globalApi = 'http://api.freedomstartsnow.com/api';
+  public globalApi = 'http://api.freedomstartsnow.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -33,23 +33,58 @@ export class WebStructureService {
   public baseUrl: string;
   public FinalProdUrl: string;
   public pagesByClientUrlArray: CustomPage[];
+  public ClientUrl = this.findClientUrl();
   constructor(private http: HttpClient, public cookie: CookieService) {}
 
   setTestApi() {
     return 'http://localhost:54704/api';
   }
 
+  findClientUrl() {
+    var fullUrl = window.location.href;
+
+    console.log('full url', fullUrl);
+
+    var urlArray = fullUrl.split('/');
+    console.log('urlArray when split', urlArray);
+
+    var myUrl = urlArray[2];
+    console.log('urlArray[2]', myUrl);
+
+    var prodUrl = myUrl.split('.');
+
+    console.log('prod url when split at .', prodUrl);
+
+    if (prodUrl[0] == 'com') {
+      var prodUrlFinal = prodUrl[1];
+    }
+
+    if (prodUrl[1] == 'com') {
+      prodUrlFinal = prodUrl[0];
+    }
+
+    if (prodUrl[2] == 'com') {
+      prodUrlFinal = prodUrl[1];
+    }
+
+    console.log('prodUrlFinal', prodUrlFinal);
+
+    var testUrl = 'localhost4200';
+
+    if (myUrl == 'localhost:4200') {
+      this.FinalProdUrl = testUrl;
+      return 'localhost4200';
+    } else {
+      this.FinalProdUrl = prodUrlFinal;
+      console.log('finalProdUrl', this.FinalProdUrl);
+      return prodUrlFinal;
+    }
+  }
+
   setProdApi() {
-    var urlCookie = this.cookie.get('url');
+    var finalClientUrl = this.findClientUrl();
 
-    var testUrl = urlCookie.split('.');
-    this.baseUrl = testUrl[1];
-
-    var prodUrl = this.baseUrl.split('.');
-
-    var prodUrlFinal = prodUrl[1];
-
-    var finalApi = 'http://api.' + prodUrl + '.com/api';
+    var finalApi = 'http://api.' + finalClientUrl + '.com/api';
 
     return finalApi;
   }

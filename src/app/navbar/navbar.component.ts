@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.getLoginData();
     this.grabAllContentByPageId();
-    this.getNavBarData();
+    // this.getNavBarData();
     this.grabNavbarByClient();
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
@@ -81,7 +81,9 @@ export class NavbarComponent implements OnInit {
   }
 
   grabNavbarByClient() {
-    var url = this.webStructureService.FinalProdUrl;
+    var url = this.webStructureService.findClientUrl();
+
+    console.log('clienturl in navbar  ', url);
 
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;

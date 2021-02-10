@@ -22,9 +22,26 @@ import { NewsComponent } from './news/news.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
+  //For test
+  // {
+  //   path: '',
+  //   redirectTo: '/Home/1031',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
+
+  //for riveroflife
+  //  {
+  //   path: '',
+  //   redirectTo: '/Home/1',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
+
+  //for freedomstartsnow
   {
     path: '',
-    redirectTo: '/Home/0',
+    redirectTo: '/Home/6',
     pathMatch: 'full',
     canActivate: [NullPageGuard],
   },
@@ -33,6 +50,7 @@ const routes: Routes = [
     component: CustomPageComponent,
     canActivate: [NullPageGuard],
   },
+
   {
     path: ':pageDescription/:pageId',
     component: CustomPageComponent,

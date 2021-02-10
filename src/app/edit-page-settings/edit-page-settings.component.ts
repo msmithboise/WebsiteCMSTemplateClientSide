@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomPage } from '../models/custom-page.model';
 import { Subpage } from '../models/subpage.model';
+import { NullPageGuardService } from '../null-page-guard.service';
 import { CustomPageService } from '../services/custom-page.service';
 import { SubpageService } from '../services/subpage.service';
+import { WebStructureService } from '../web-structure.service';
 import { WebcontentService } from '../WebContent/webcontent.service';
 
 @Component({
@@ -19,6 +21,8 @@ export class EditPageSettingsComponent implements OnInit {
     public toastr: ToastrService,
     public subPageService: SubpageService,
     public webContentService: WebcontentService,
+    public webStructureService: WebStructureService,
+    public nullPageGuardService: NullPageGuardService,
     public router: Router
   ) {}
 
@@ -31,7 +35,7 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   addNewPage(form: NgForm) {
-    form.value.ClientUrl = this.customPageService.grabUrl();
+    form.value.ClientUrl = this.nullPageGuardService.grabUrl();
 
     this.customPageService
       .postWebPageContent(form.value)
