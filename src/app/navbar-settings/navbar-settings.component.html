@@ -92,6 +92,20 @@
                                 [(ngModel)]="content.NavBarBgColor"
                                 class="form-control"
                               >
+                                <option value="transparent">transparent</option>
+                                <option value="#ffffff">neutral white</option>
+                                <option value="#f6f6f6">
+                                  neutral off-white
+                                </option>
+                                <option
+                                  value="#cccccc
+                              "
+                                >
+                                  neutral pink
+                                </option>
+                                <option value="#999999">neutral tan</option>
+                                <option value="#4d4d4d">neutral brown</option>
+                                <option value="#222222">neutral black</option>
                                 <option value="red">red</option>
                                 <option value="pink">pink</option>
                                 <option value="black">black</option>
@@ -133,6 +147,19 @@
                                 [(ngModel)]="content.NavBarFontColor"
                                 class="form-control"
                               >
+                                <option value="#ffffff">neutral white</option>
+                                <option value="#f6f6f6">
+                                  neutral off-white
+                                </option>
+                                <option
+                                  value="#cccccc
+                            "
+                                >
+                                  neutral pink
+                                </option>
+                                <option value="#999999">neutral tan</option>
+                                <option value="#4d4d4d">neutral brown</option>
+                                <option value="#222222">neutral black</option>
                                 <option value="red">red</option>
                                 <option value="pink">pink</option>
                                 <option value="black">black</option>
@@ -273,6 +300,40 @@
                                 <option value="1">1 (Default)</option>
                                 <option value="0.5">0.5</option>
                                 <option value="0.2">0.2)</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- NavBarZIndex -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>zIndex</b></label>
+                              <div>
+                                <input
+                                  name="NavZIndex"
+                                  #NavZIndex="ngModel"
+                                  [(ngModel)]="content.NavZIndex"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavZIndex"></label>
+                              <select
+                                id="NavZIndex"
+                                name="NavZIndex"
+                                [(ngModel)]="content.NavZIndex"
+                                class="form-control"
+                              >
+                                <option value="1">1 (Default)</option>
+                                <option value="2">2</option>
+                                <option value="3">3)</option>
                               </select>
                             </div>
                           </div>

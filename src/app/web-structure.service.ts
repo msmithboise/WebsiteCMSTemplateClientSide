@@ -18,7 +18,7 @@ export class WebStructureService {
   public globalApi = this.setTestApi();
 
   // public globalApi = 'http://api.riveroflifeidaho.com/api';
-  //public globalApi = 'http://api.freedomstartsnow.com/api';
+  // public globalApi = 'http://api.freedomstartsnow.com/api';
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];

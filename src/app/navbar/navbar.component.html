@@ -5,7 +5,8 @@
       backgroundColor: setting.NavBarBgColor,
       color: setting.NavBarFontColor,
       position: setting.NavBarPosition,
-      opacity: setting.NavBarOpacity
+      opacity: setting.NavBarOpacity,
+      zIndex: setting.NavZIndex
     }"
   >
     <!-- Logo -->
@@ -52,14 +53,14 @@
           </div>
         </li>
         <!-- Subpages dropdown content -->
-        <div class="dropdown">
+        <!-- <div class="dropdown">
           <a class="dropbtn nav-link"></a>
           <div class="dropdown-content">
             <div *ngFor="let subPage of subPageService.subPageArray">
               <a href="#">{{ subPage.SubPageDescription }}</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </ul>
     </div>
 
