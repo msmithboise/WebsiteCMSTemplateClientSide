@@ -12,7 +12,7 @@
   >
     <!-- Logo -->
 
-    <div *ngIf="setting.LogoUrl == ' '">
+    <div *ngIf="setting.LogoUrl != ''">
       <img
         src="{{ setting.LogoUrl }}"
         [ngStyle]="{

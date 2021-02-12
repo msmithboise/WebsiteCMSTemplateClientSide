@@ -87,6 +87,10 @@ export class NavbarComponent implements OnInit {
 
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
+      console.log(
+        'res in navbar service',
+        this.navBarService.navBarByClientUrlArray
+      );
     });
   }
 
