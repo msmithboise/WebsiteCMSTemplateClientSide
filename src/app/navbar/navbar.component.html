@@ -6,17 +6,21 @@
       color: setting.NavBarFontColor,
       position: setting.NavBarPosition,
       opacity: setting.NavBarOpacity,
-      zIndex: setting.NavZIndex
+      zIndex: setting.NavZIndex,
+      height: setting.NavHeight
     }"
   >
     <!-- Logo -->
-    <img
-      src="{{ setting.LogoUrl }}"
-      [ngStyle]="{
-        width: setting.LogoWidth,
-        height: setting.LogoHeight
-      }"
-    />
+
+    <div *ngIf="setting.LogoUrl == ' '">
+      <img
+        src="{{ setting.LogoUrl }}"
+        [ngStyle]="{
+          width: setting.LogoWidth,
+          height: setting.LogoHeight
+        }"
+      />
+    </div>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li
