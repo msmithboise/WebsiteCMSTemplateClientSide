@@ -216,6 +216,41 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- NavBar Font Letter Spacing -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Letter Spacing</b></label>
+                              <div>
+                                <input
+                                  name="NavFontLetterSpacing"
+                                  #NavFontLetterSpacing="ngModel"
+                                  [(ngModel)]="content.NavFontLetterSpacing"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavFontLetterSpacing"></label>
+                              <select
+                                id="NavFontLetterSpacing"
+                                name="NavFontLetterSpacing"
+                                [(ngModel)]="content.NavFontLetterSpacing"
+                                class="form-control"
+                              >
+                                <option value="3px">3px</option>
+                                <option value="10px">10px</option>
+
+                                <option value="-3px">-3px</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Logo width -->
 
                         <div class="row">
