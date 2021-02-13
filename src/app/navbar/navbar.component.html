@@ -7,7 +7,8 @@
       position: setting.NavBarPosition,
       opacity: setting.NavBarOpacity,
       zIndex: setting.NavZIndex,
-      height: setting.NavHeight
+      height: setting.NavHeight,
+      width: setting.NavWidth
     }"
   >
     <!-- Logo -->
@@ -32,7 +33,7 @@
               [ngStyle]="{
                 cursor: 'pointer',
                 color: setting.NavBarFontColor,
-                fontSize: '18px',
+                fontSize: setting.NavFontSize,
                 fontFamily: setting.NavFontFamily
               }"
               (mouseover)="

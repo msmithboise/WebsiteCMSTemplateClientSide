@@ -176,6 +176,46 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- NavBar Font size -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Font Size</b></label>
+                              <div>
+                                <input
+                                  name="NavFontSize"
+                                  #NavFontSize="ngModel"
+                                  [(ngModel)]="content.NavFontSize"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavFontSize"></label>
+                              <select
+                                id="NavFontSize"
+                                name="NavFontSize"
+                                [(ngModel)]="content.NavFontSize"
+                                class="form-control"
+                              >
+                                <option value="12px">12px</option>
+                                <option value="18px">18px</option>
+                                <option value="25px">25px</option>
+
+                                <option value="50px">50px</option>
+
+                                <option value="60px">60px</option>
+                                <option value="72px">72px</option>
+                                <option value="100px">100px</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Logo width -->
 
                         <div class="row">
@@ -368,6 +408,40 @@
                                 <option value="50px">50px</option>
                                 <option value="60px">60px</option>
                                 <option value="70px">70px</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- NavBar Width -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Bar Width</b></label>
+                              <div>
+                                <input
+                                  name="NavWidth"
+                                  #NavWidth="ngModel"
+                                  [(ngModel)]="content.NavWidth"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavWidth"></label>
+                              <select
+                                id="NavWidth"
+                                name="NavWidth"
+                                [(ngModel)]="content.NavWidth"
+                                class="form-control"
+                              >
+                                <option value="900px">900px</option>
+                                <option value="1000px">1000px</option>
+                                <option value="1200px">1200px</option>
                               </select>
                             </div>
                           </div>
