@@ -3,7 +3,7 @@
     class="navbar navbar-expand-xl navbar-dark"
     [ngStyle]="{
       backgroundColor: setting.NavBarBgColor,
-      color: setting.NavBarFontColor,
+
       position: setting.NavBarPosition,
       opacity: setting.NavBarOpacity,
       zIndex: setting.NavZIndex,
@@ -29,13 +29,12 @@
         >
           <div (click)="onClick(page.PageId, page.PageDescription)">
             <a
-              style="
-                cursor: pointer;
-                font-size: 18px;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular',
-                  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-                  sans-serif;
-              "
+              [ngStyle]="{
+                cursor: 'pointer',
+                color: setting.NavBarFontColor,
+                fontSize: '18px',
+                fontFamily: setting.NavFontFamily
+              }"
               (mouseover)="
                 getPageByIdOnHover(page.PageId, page.PageDescription)
               "
