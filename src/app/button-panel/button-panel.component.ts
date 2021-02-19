@@ -467,6 +467,8 @@ export class ButtonPanelComponent implements OnInit {
     HyperLink: new FormControl(''),
     pageId: new FormControl(''),
     columnId: new FormControl(''),
+    transitionDuration: new FormControl(''),
+    buttonHoverText: new FormControl(''),
   });
 
   submitButtonData(form: FormGroup) {
@@ -478,6 +480,8 @@ export class ButtonPanelComponent implements OnInit {
     newButtonForm.pageId = this.webContentService.pageIdSnapshot;
     var colId = localStorage.getItem('passedId');
 
+    newButtonForm.transitionDuration = '0.4s';
+    newButtonForm.buttonHoverText = newButtonForm.buttonText;
     newButtonForm.columnId = Number(colId);
 
     this.webContentService
