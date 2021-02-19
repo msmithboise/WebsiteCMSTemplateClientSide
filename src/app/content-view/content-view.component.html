@@ -14,7 +14,13 @@
 
     <div *ngIf="content.buttonText != null">
       <a [href]="content.HyperLink">
-        <button [ngStyle]="myButton(content)">{{ content.buttonText }}</button>
+        <button
+          (mouseover)="buttonHover()"
+          (mouseleave)="buttonNonHover()"
+          [ngStyle]="myButton(content)"
+        >
+          {{ content.buttonText }}
+        </button>
       </a>
     </div>
     <!-- <button
