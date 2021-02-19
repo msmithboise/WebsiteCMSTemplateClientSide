@@ -13,7 +13,7 @@
     <!-- Button -->
 
     <div *ngIf="content.buttonText != null">
-      <button>{{ content.buttonText }}</button>
+      <button [ngStyle]="myButton(content)">{{ content.buttonText }}</button>
     </div>
     <!-- <button
       (mouseover)="buttonHover()"
