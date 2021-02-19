@@ -4,11 +4,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
 
 @Component({
   selector: 'app-content-view',
   templateUrl: './content-view.component.html',
   styleUrls: ['./content-view.component.css'],
+  animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
 })
 export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
