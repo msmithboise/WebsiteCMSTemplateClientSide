@@ -17,8 +17,13 @@ export class WebStructureService {
   //For Testing:
   public globalApi = this.setTestApi();
 
-  // public globalApi = 'http://api.riveroflifeidaho.com/api';
-  // public globalApi = 'http://api.freedomstartsnow.com/api';
+  //I think i will need to simply change it from http to https
+
+  //public globalApi = 'https://api.riveroflifeidaho.com/api';
+  //public globalApi = 'http://api.freedomstartsnow.com/api';
+  //public globalApi = 'http://api.hindsitedevelopment.com/api';
+
+  //public globalApi = this.determineIfHttps();
 
   readonly webApi = this.globalApi;
   public rowsArray: Row[];
@@ -35,6 +40,16 @@ export class WebStructureService {
   public pagesByClientUrlArray: CustomPage[];
   public ClientUrl = this.findClientUrl();
   constructor(private http: HttpClient, public cookie: CookieService) {}
+
+  determineIfHttps() {
+    if (window.location.href == 'https://www.hindsitedevelopment.com/#/') {
+      console.log('https');
+      return 'https://api.hindsitedevelopment.com/api';
+    } else {
+      console.log('http');
+      return 'http://api.hindsitedevelopment.com/api';
+    }
+  }
 
   setTestApi() {
     return 'http://localhost:54704/api';

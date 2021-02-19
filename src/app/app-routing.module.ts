@@ -30,8 +30,16 @@ const routes: Routes = [
     canActivate: [NullPageGuard],
   },
 
+  //for hindsitedevelopment
+  // {
+  //   path: '',
+  //   redirectTo: '/Home/9',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
+
   //for riveroflife
-  //  {
+  // {
   //   path: '',
   //   redirectTo: '/Home/1',
   //   pathMatch: 'full',

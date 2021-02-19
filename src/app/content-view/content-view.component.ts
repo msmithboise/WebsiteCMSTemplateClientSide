@@ -1,3 +1,4 @@
+import { syntaxError } from '@angular/compiler';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WebStructureService } from '../web-structure.service';
@@ -17,6 +18,7 @@ export class ContentViewComponent implements OnInit {
   public screenHeight: number;
   public fontAwesomeIcon: string;
   public innerWidth: number;
+  public hover: boolean;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -42,9 +44,29 @@ export class ContentViewComponent implements OnInit {
     return newAddress;
   }
 
+  myButton() {
+    var styles = {
+      backgroundColor: 'white',
+      color: 'black',
+      border: '2px solid #4CAF50',
+    };
+    return styles;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
+  }
+
+  buttonNonHover() {
+    this.hover == false;
+    console.log('button is NOT being hovered');
+  }
+
+  buttonHover() {
+    this.hover == true;
+
+    console.log('button is being hovered');
   }
 
   isMobile() {
