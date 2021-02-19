@@ -20,6 +20,8 @@ export class ContentViewComponent implements OnInit {
   public innerWidth: number;
   public hover: boolean;
   public buttonStyles: Webcontent;
+  public originalButtonColor: string;
+  public originalButtonFontSize: string;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -61,15 +63,20 @@ export class ContentViewComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  buttonNonHover() {
+  buttonNonHover(content: Webcontent) {
     this.hover == false;
-    console.log('button is NOT being hovered');
+
+    return (
+      (content.backgroundColor = this.originalButtonColor),
+      (content.fontSize = this.originalButtonFontSize)
+    );
   }
 
-  buttonHover() {
-    this.hover == true;
+  buttonHover(content: Webcontent) {
+    this.originalButtonColor = content.backgroundColor;
+    this.originalButtonFontSize = content.fontSize;
 
-    console.log('button is being hovered');
+    return (content.backgroundColor = 'red'), (content.fontSize = '50px');
   }
 
   isMobile() {
