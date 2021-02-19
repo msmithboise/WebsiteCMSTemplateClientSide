@@ -11,11 +11,14 @@
     </div> -->
 
     <!-- Button -->
-    <div [@rubberBand]="rubberState"></div>
+    <div style="font-size: 50px" [@rubberBand]>
+      <h1>TEST</h1>
+    </div>
 
     <div *ngIf="content.buttonText != null">
       <a [href]="content.HyperLink">
         <button
+          @fade
           (mouseover)="buttonHover(content)"
           (mouseleave)="buttonNonHover(content)"
           [ngStyle]="myButton(content)"

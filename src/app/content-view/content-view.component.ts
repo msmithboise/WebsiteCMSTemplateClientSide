@@ -9,6 +9,13 @@ import {
   fadeOutOnLeaveAnimation,
   rubberBandAnimation,
 } from 'angular-animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-content-view',
@@ -18,6 +25,12 @@ import {
     fadeInOnEnterAnimation(),
     fadeOutOnLeaveAnimation(),
     rubberBandAnimation(),
+    trigger('fade', [
+      transition('void => *', [
+        style({ backgroundColor: 'yellow', opacity: 0 }),
+        animate(2000, style({ backgroundColor: 'white', opacity: 1 })),
+      ]),
+    ]),
   ],
 })
 export class ContentViewComponent implements OnInit {
