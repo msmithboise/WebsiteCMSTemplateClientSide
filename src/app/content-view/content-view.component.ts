@@ -25,6 +25,7 @@ export class ContentViewComponent implements OnInit {
   public defaultButtonTextColor: string;
   public defaultButtonText: string;
   public defaultButtonLetterSpacing: string;
+  public defaultButtonFontSize: string;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -76,7 +77,8 @@ export class ContentViewComponent implements OnInit {
       (content.fontSize = this.originalButtonFontSize),
       (content.color = this.defaultButtonTextColor),
       (content.buttonText = this.defaultButtonText),
-      (content.letterSpacing = this.defaultButtonLetterSpacing)
+      (content.letterSpacing = this.defaultButtonLetterSpacing),
+      (content.fontSize = this.defaultButtonFontSize)
     );
   }
 
@@ -86,13 +88,15 @@ export class ContentViewComponent implements OnInit {
     this.defaultButtonTextColor = content.color;
     this.defaultButtonText = content.buttonText;
     this.defaultButtonLetterSpacing = content.letterSpacing;
+    this.defaultButtonFontSize = content.fontSize;
 
     return (
       (content.backgroundColor = content.buttonHoverBgColor),
       // (content.fontSize = '50px'),
       (content.color = content.buttonHoverTextColor),
       (content.buttonText = content.buttonHoverText),
-      (content.letterSpacing = content.buttonHoverImageOverlay)
+      (content.letterSpacing = content.buttonHoverImageOverlay),
+      (content.fontSize = content.customField)
     );
   }
 
