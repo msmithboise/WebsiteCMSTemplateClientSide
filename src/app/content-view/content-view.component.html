@@ -4,8 +4,6 @@
 
     <div *ngIf="content.SocialMediaLink != null"></div>
 
-    <div [@fadeInOnEnter] [@fadeOutOnLeave]>Text</div>
-
     <!-- color picker
     <div style="text-align: center">
       <input type="text" id="hex" />
@@ -13,6 +11,7 @@
     </div> -->
 
     <!-- Button -->
+    <div [@rubberBand]="rubberState"></div>
 
     <div *ngIf="content.buttonText != null">
       <a [href]="content.HyperLink">
@@ -381,37 +380,39 @@
       </a>
     </div>
 
-    <!-- Hero Image-->
-    <div
-      *ngIf="
-        (content.backgroundImage != null && content.HyperLink == null) ||
-        content.HyperLink == ''
-      "
-    >
-      <img
-        class="responsive"
-        src="{{ content.backgroundImage }}"
-        [ngStyle]="{
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: content.backgroundSize,
-          position: content.position,
-          opacity: content.opacity,
-          backgroundPosition: content.backgroundPosition,
-          display: content.display,
-          marginLeft: content.marginLeft,
-          marginRight: content.marginRight,
-          textAlign: 'center',
-          resize: 'both',
-          overflow: 'auto',
-          height: content.height,
-          width: this.screenWidth,
-          objectFit: 'cover',
-          zIndex: content.zIndex,
-          transform: content.transform
-        }"
-      />
+    <div [@fadeInOnEnter] [@fadeOutOnLeave]>
+      <div
+        *ngIf="
+          (content.backgroundImage != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.backgroundImage }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            display: content.display,
+            marginLeft: content.marginLeft,
+            marginRight: content.marginRight,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.height,
+            width: this.screenWidth,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
+      </div>
     </div>
+    <!-- Hero Image-->
 
     <!-- Gallery Image With HyperLink -->
 

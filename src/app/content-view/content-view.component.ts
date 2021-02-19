@@ -7,13 +7,18 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
+  rubberBandAnimation,
 } from 'angular-animations';
 
 @Component({
   selector: 'app-content-view',
   templateUrl: './content-view.component.html',
   styleUrls: ['./content-view.component.css'],
-  animations: [fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation()],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation(),
+    rubberBandAnimation(),
+  ],
 })
 export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
