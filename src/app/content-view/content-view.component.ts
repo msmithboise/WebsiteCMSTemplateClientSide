@@ -82,7 +82,7 @@ export class ContentViewComponent implements OnInit {
     this.defaultButtonTextColor = content.color;
 
     return (
-      (content.backgroundColor = '#222222'),
+      (content.backgroundColor = content.buttonHoverBgColor),
       // (content.fontSize = '50px'),
       (content.color = content.buttonHoverTextColor)
     );
