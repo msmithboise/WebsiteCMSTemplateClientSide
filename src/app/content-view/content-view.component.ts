@@ -54,6 +54,7 @@ export class ContentViewComponent implements OnInit {
       fontSize: content.fontSize,
       fontFamily: content.fontFamily,
       letterSpacing: content.letterSpacing,
+      transitionDuration: '0.4s',
     };
     return styles;
   }
