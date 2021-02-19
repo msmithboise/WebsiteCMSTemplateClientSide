@@ -22,6 +22,7 @@ export class ContentViewComponent implements OnInit {
   public buttonStyles: Webcontent;
   public originalButtonColor: string;
   public originalButtonFontSize: string;
+  public defaultButtonTextColor: string;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -50,6 +51,7 @@ export class ContentViewComponent implements OnInit {
   myButton(content: Webcontent) {
     var styles = {
       backgroundColor: content.backgroundColor,
+
       color: content.color,
       fontSize: content.fontSize,
       fontFamily: content.fontFamily,
@@ -69,15 +71,21 @@ export class ContentViewComponent implements OnInit {
 
     return (
       (content.backgroundColor = this.originalButtonColor),
-      (content.fontSize = this.originalButtonFontSize)
+      (content.fontSize = this.originalButtonFontSize),
+      (content.color = this.defaultButtonTextColor)
     );
   }
 
   buttonHover(content: Webcontent) {
     this.originalButtonColor = content.backgroundColor;
     this.originalButtonFontSize = content.fontSize;
+    this.defaultButtonTextColor = content.color;
 
-    return (content.backgroundColor = 'red'), (content.fontSize = '50px');
+    return (
+      (content.backgroundColor = '#222222'),
+      // (content.fontSize = '50px'),
+      (content.color = content.buttonHoverTextColor)
+    );
   }
 
   isMobile() {
