@@ -13,7 +13,9 @@
     <!-- Button -->
 
     <div *ngIf="content.buttonText != null">
-      <button [ngStyle]="myButton(content)">{{ content.buttonText }}</button>
+      <a [href]="content.HyperLink">
+        <button [ngStyle]="myButton(content)">{{ content.buttonText }}</button>
+      </a>
     </div>
     <!-- <button
       (mouseover)="buttonHover()"

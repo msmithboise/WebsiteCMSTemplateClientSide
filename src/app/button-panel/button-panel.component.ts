@@ -464,6 +464,7 @@ export class ButtonPanelComponent implements OnInit {
   // To create button
   buttonFormTemplate = new FormGroup({
     buttonText: new FormControl(''),
+    HyperLink: new FormControl(''),
     pageId: new FormControl(''),
     columnId: new FormControl(''),
   });
