@@ -12,14 +12,16 @@
 
     <!-- Button -->
 
-    <div *ngIf="content.buttonText != null"></div>
-    <button
+    <div *ngIf="content.buttonText != null">
+      <button>{{ content.buttonText }}</button>
+    </div>
+    <!-- <button
       (mouseover)="buttonHover()"
       (mouseleave)="buttonNonHover()"
       [ngStyle]="myButton()"
     >
       Test Button
-    </button>
+    </button> -->
 
     <!-- Audio -->
     <div

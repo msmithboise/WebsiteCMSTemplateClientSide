@@ -463,7 +463,7 @@ export class ButtonPanelComponent implements OnInit {
 
   // To create button
   buttonFormTemplate = new FormGroup({
-    buttonText: new FormControl('', Validators.required),
+    buttonText: new FormControl(''),
     pageId: new FormControl(''),
     columnId: new FormControl(''),
   });

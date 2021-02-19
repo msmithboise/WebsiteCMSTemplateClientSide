@@ -282,6 +282,19 @@
                 />
               </div>
 
+              <!--  Button -->
+
+              <div *ngIf="text.buttonText">
+                <label>Button</label>
+                <div class="input-group"></div>
+                <input
+                  name="buttonText"
+                  #buttonText="ngModel"
+                  [(ngModel)]="text.buttonText"
+                  class="formStyle"
+                />
+              </div>
+
               <!-- Audio -->
 
               <div *ngIf="text.AudioUrl">
