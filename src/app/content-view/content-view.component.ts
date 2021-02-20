@@ -26,10 +26,8 @@ import {
     fadeOutOnLeaveAnimation(),
     rubberBandAnimation(),
     trigger('fade', [
-      transition('void => *', [
-        style({ backgroundColor: 'yellow', opacity: 0 }),
-        animate(2000, style({ backgroundColor: 'white', opacity: 1 })),
-      ]),
+      state('void', style({ opacity: 0 })),
+      transition('void <=> *', [animate(2000)]),
     ]),
   ],
 })
