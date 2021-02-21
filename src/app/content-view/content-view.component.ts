@@ -15,6 +15,7 @@ import {
   heartBeatAnimation,
   heartBeatOnEnterAnimation,
   bounceInAnimation,
+  slideInLeftOnEnterAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -36,6 +37,7 @@ import {
     bounceAnimation(),
     slideInUpAnimation(),
     slideInUpOnEnterAnimation(),
+    slideInLeftOnEnterAnimation(),
     heartBeatAnimation(),
     heartBeatOnEnterAnimation(),
     bounceInOnEnterAnimation(),
