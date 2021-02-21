@@ -8,9 +8,12 @@ import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
   rubberBandAnimation,
+  bounceAnimation,
+  slideInUpAnimation,
 } from 'angular-animations';
 import {
   animate,
+  keyframes,
   state,
   style,
   transition,
@@ -25,9 +28,24 @@ import {
     fadeInOnEnterAnimation(),
     fadeOutOnLeaveAnimation(),
     rubberBandAnimation(),
+    bounceAnimation(),
+    slideInUpAnimation(),
     trigger('fade', [
       state('void', style({ opacity: 0 })),
       transition('void <=> *', [animate(2000)]),
+    ]),
+    trigger('openSesame', [
+      transition('void <=> *', [
+        animate(
+          '1s',
+          keyframes([
+            style({ opacity: 0.1, offset: 0.1 }),
+            style({ opacity: 0.6, offset: 0.2 }),
+            style({ opacity: 1, offset: 0.5 }),
+            style({ opacity: 0.2, offset: 0.7 }),
+          ])
+        ),
+      ]),
     ]),
   ],
 })
@@ -47,6 +65,9 @@ export class ContentViewComponent implements OnInit {
   public defaultButtonText: string;
   public defaultButtonLetterSpacing: string;
   public defaultButtonFontSize: string;
+  public animation: string;
+  public animationState: boolean;
+  public animationWithState: boolean;
 
   constructor(
     public webStructureService: WebStructureService,
@@ -58,6 +79,22 @@ export class ContentViewComponent implements OnInit {
     this.getScreenSize();
     this.isMobile();
     this.setFontAwesomeIcon();
+    this.setAnimation();
+  }
+
+  setAnimation() {
+    //this.animation = 'fadeInOnEnter';
+    this.animation = 'bounce';
+  }
+
+  animate() {
+    console.log('animating...');
+    console.log('selected animation:', this.animation);
+    this.animationState = false;
+    setTimeout(() => {
+      this.animationState = true;
+      this.animationWithState = !this.animationWithState;
+    }, 1);
   }
 
   setFontAwesomeIcon() {

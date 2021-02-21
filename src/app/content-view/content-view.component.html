@@ -19,6 +19,7 @@
       <a [href]="content.HyperLink">
         <button
           @fade
+          @openSesame
           (mouseover)="buttonHover(content)"
           (mouseleave)="buttonNonHover(content)"
           [ngStyle]="myButton(content)"
@@ -383,38 +384,49 @@
       </a>
     </div>
 
-    <div [@fadeInOnEnter] [@fadeOutOnLeave]>
-      <div
-        *ngIf="
-          (content.backgroundImage != null && content.HyperLink == null) ||
-          content.HyperLink == ''
-        "
-      >
-        <img
-          class="responsive"
-          src="{{ content.backgroundImage }}"
-          [ngStyle]="{
-            backgroundAttachment: content.backgroundAttachment,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: content.backgroundSize,
-            position: content.position,
-            opacity: content.opacity,
-            backgroundPosition: content.backgroundPosition,
-            display: content.display,
-            marginLeft: content.marginLeft,
-            marginRight: content.marginRight,
-            textAlign: 'center',
-            resize: 'both',
-            overflow: 'auto',
-            height: content.height,
-            width: this.screenWidth,
-            objectFit: 'cover',
-            zIndex: content.zIndex,
-            transform: content.transform
-          }"
-        />
+    <!-- bg image (CURRENTLY USED) -->
+
+    <!-- Testing animation switch statement -->
+    <!-- <div [@fadeInOnEnter] [@fadeOutOnLeave]> -->
+    <div [ngSwitch]="animation">
+      <div *ngSwitchCase="'bounce'" [@bounce]="animationState">
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </div>
       </div>
     </div>
+    <!-- </div> -->
+    <div>
+      <button (click)="animate()">Animate</button>
+    </div>
+
     <!-- Hero Image-->
 
     <!-- Gallery Image With HyperLink -->
