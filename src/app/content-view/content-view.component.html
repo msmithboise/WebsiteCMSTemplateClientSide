@@ -1099,110 +1099,161 @@
       </div>
     </div>
 
-    <!-- Hero Image with HYPERLINK-->
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT)-->
     <div
       *ngIf="
-        content.backgroundImage != null &&
-        content.HyperLink != null &&
-        content.HyperLink != ''
+        content.animationName == null ||
+        content.animationName == '' ||
+        content.animationName == 'none'
       "
+      [@fadeInOnEnter]
     >
-      <a [href]="content.HyperLink">
-        <img
-          class="responsive"
-          src="{{ content.backgroundImage }}"
-          [ngStyle]="{
-            backgroundAttachment: content.backgroundAttachment,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: content.backgroundSize,
-            position: content.position,
-            opacity: content.opacity,
-            backgroundPosition: content.backgroundPosition,
-            display: content.display,
-            marginLeft: content.marginLeft,
-            marginRight: content.marginRight,
-            textAlign: 'center',
-            resize: 'both',
-            overflow: 'auto',
-            height: content.height,
-            width: this.screenWidth,
-            objectFit: 'cover',
-            zIndex: content.zIndex,
-            transform: content.transform
-          }"
-        />
-      </a>
+      <div
+        *ngIf="
+          content.backgroundImage != null &&
+          content.HyperLink != null &&
+          content.HyperLink != ''
+        "
+      >
+        <a [href]="content.HyperLink">
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </a>
+      </div>
     </div>
 
-    <!-- bg image (Currently used) -->
-    <div [@fadeInOnEnter] [@fadeOutOnLeave]>
+    <!-- bg image (Currently used) DEFAULT Animation: None -->
+    <div *ngIf="content.animationName == null || content.animationName == ''">
       <div
         *ngIf="
           (content.backgroundImage != null && content.HyperLink == null) ||
           content.HyperLink == ''
         "
       >
-        <img
-          class="responsive"
-          src="{{ content.backgroundImage }}"
-          [ngStyle]="{
-            backgroundAttachment: content.backgroundAttachment,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: content.backgroundSize,
-            position: content.position,
-            opacity: content.opacity,
-            backgroundPosition: content.backgroundPosition,
-            display: content.display,
-            marginLeft: content.marginLeft,
-            marginRight: content.marginRight,
-            textAlign: 'center',
-            resize: 'both',
-            overflow: 'auto',
-            height: content.height,
-            width: this.screenWidth,
-            objectFit: 'cover',
-            zIndex: content.zIndex,
-            transform: content.transform
-          }"
-        />
+        <div [@fadeInOnEnter]>
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </div>
       </div>
     </div>
-    <!-- Hero Image-->
 
-    <!-- Gallery Image With HyperLink -->
+    <!-- bg image (Currently used) DEFAULT Animation: fadeInOnEnter -->
 
-    <div
-      *ngIf="
-        content.ImageUrl != null &&
-        content.HyperLink != null &&
-        content.HyperLink != ''
-      "
-    >
-      <a [href]="content.HyperLink">
-        <img
-          class="responsive"
-          src="{{ content.ImageUrl }}"
-          [ngStyle]="{
-            backgroundAttachment: content.backgroundAttachment,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: content.backgroundSize,
-            position: content.position,
-            opacity: content.opacity,
-            backgroundPosition: content.backgroundPosition,
-            display: content.display,
-            marginLeft: content.marginLeft,
-            marginRight: content.marginRight,
-            textAlign: 'center',
-            resize: 'both',
-            overflow: 'auto',
-            height: content.height + 'px',
-            width: content.width + 'px',
-            objectFit: 'cover',
-            zIndex: content.zIndex,
-            transform: content.transform
-          }"
-        />
-      </a>
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'fadeInOnEnter'" [@fadeInOnEnter]="animationState">
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image (Currently used) DEFAULT Animation: slideInLeftOnEnter -->
+
+    <div [ngSwitch]="content.animationName">
+      <div
+        *ngSwitchCase="'slideInLeftOnEnter'"
+        [@slideInLeftOnEnter]="animationState"
+      >
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Gallery Image -->
