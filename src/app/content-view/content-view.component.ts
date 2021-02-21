@@ -16,6 +16,7 @@ import {
   heartBeatOnEnterAnimation,
   bounceInAnimation,
   slideInLeftOnEnterAnimation,
+  pulseAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -41,6 +42,7 @@ import {
     heartBeatAnimation(),
     heartBeatOnEnterAnimation(),
     bounceInOnEnterAnimation(),
+    pulseAnimation(),
 
     trigger('fade', [
       state('void', style({ opacity: 0 })),

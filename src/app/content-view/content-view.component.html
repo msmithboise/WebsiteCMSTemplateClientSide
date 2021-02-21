@@ -622,32 +622,43 @@
       </div>
     </div>
 
-    <!-- <div [@bounceInOnEnter]>
-      <div>Bounce in on enter</div>
+    <!-- <div><button (click)="animate()">Animate</button></div>
+    -->
+
+    <!-- Button Default Animation: none -->
+    <div *ngIf="content.animationName == null">
+      <div *ngIf="content.buttonText != null">
+        <a [href]="content.HyperLink">
+          <button
+            @fade
+            @openSesame
+            (mouseover)="buttonHover(content)"
+            (mouseleave)="buttonNonHover(content)"
+            [ngStyle]="myButton(content)"
+          >
+            {{ content.buttonText }}
+          </button>
+        </a>
+      </div>
     </div>
 
-    <div><button (click)="animate()">Animate</button></div> -->
-
-    <div *ngIf="content.buttonText != null">
-      <a [href]="content.HyperLink">
-        <button
-          @fade
-          @openSesame
-          (mouseover)="buttonHover(content)"
-          (mouseleave)="buttonNonHover(content)"
-          [ngStyle]="myButton(content)"
-        >
-          {{ content.buttonText }}
-        </button>
-      </a>
+    <!-- Button Default Animation: Pulse -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'pulse'" [@pulse]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
-    <!-- <button
-      (mouseover)="buttonHover()"
-      (mouseleave)="buttonNonHover()"
-      [ngStyle]="myButton()"
-    >
-      Test Button
-    </button> -->
 
     <!-- Audio -->
     <div
