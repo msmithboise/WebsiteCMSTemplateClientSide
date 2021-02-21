@@ -1099,7 +1099,7 @@
       </div>
     </div>
 
-    <!-- Hero Image with HYPERLINK (USED BY DEFAULT)-->
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: None-->
     <div
       *ngIf="
         content.animationName == null ||
@@ -1140,6 +1140,129 @@
             }"
           />
         </a>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: Flip-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'flip'" [@flip]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: bounce-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'bounce'" [@bounce]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: bounce-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'pulse'" [@pulse]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
       </div>
     </div>
 
