@@ -7,9 +7,12 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
+  bounceInOnEnterAnimation,
   rubberBandAnimation,
   bounceAnimation,
   slideInUpAnimation,
+  heartBeatAnimation,
+  bounceInAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -30,6 +33,9 @@ import {
     rubberBandAnimation(),
     bounceAnimation(),
     slideInUpAnimation(),
+    heartBeatAnimation(),
+    bounceInOnEnterAnimation(),
+
     trigger('fade', [
       state('void', style({ opacity: 0 })),
       transition('void <=> *', [animate(2000)]),
@@ -66,6 +72,7 @@ export class ContentViewComponent implements OnInit {
   public defaultButtonLetterSpacing: string;
   public defaultButtonFontSize: string;
   public animation: string;
+  public animationTwo: string;
   public animationState: boolean;
   public animationWithState: boolean;
 
@@ -84,7 +91,8 @@ export class ContentViewComponent implements OnInit {
 
   setAnimation() {
     //this.animation = 'fadeInOnEnter';
-    this.animation = 'bounce';
+    this.animation = 'slideInUp';
+    this.animationTwo = 'heartBeat';
   }
 
   animate() {

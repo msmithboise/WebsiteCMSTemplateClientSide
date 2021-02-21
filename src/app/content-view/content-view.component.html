@@ -10,10 +10,29 @@
       <input type="color" id="color" value="#222222" />
     </div> -->
 
-    <!-- Button -->
-    <div style="font-size: 50px" [@rubberBand]>
-      <h1>TEST</h1>
+    <!-- Animate On Click -->
+    <div [ngSwitch]="animation">
+      <div *ngSwitchCase="'slideInUp'" [@slideInUp]="animationState">
+        <div>Animate This Text</div>
+      </div>
     </div>
+
+    <!-- Animate On Enter -->
+    <div [ngSwitch]="animationTwo">
+      <div *ngSwitchCase="'heartBeat'" [@heartBeat]="animationState">
+        <div>Animate This Text On Enter</div>
+      </div>
+    </div>
+
+    <div [@fadeInOnEnter]>
+      <div>Fade this text</div>
+    </div>
+
+    <div [@bounceInOnEnter]>
+      <div>Bounce in on enter</div>
+    </div>
+
+    <div><button (click)="animate()">Animate</button></div>
 
     <div *ngIf="content.buttonText != null">
       <a [href]="content.HyperLink">
@@ -384,49 +403,39 @@
       </a>
     </div>
 
-    <!-- bg image (CURRENTLY USED) -->
-
-    <!-- Testing animation switch statement -->
-    <!-- <div [@fadeInOnEnter] [@fadeOutOnLeave]> -->
-    <div [ngSwitch]="animation">
-      <div *ngSwitchCase="'bounce'" [@bounce]="animationState">
-        <div
-          *ngIf="
-            (content.backgroundImage != null && content.HyperLink == null) ||
-            content.HyperLink == ''
-          "
-        >
-          <img
-            class="responsive"
-            src="{{ content.backgroundImage }}"
-            [ngStyle]="{
-              backgroundAttachment: content.backgroundAttachment,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: content.backgroundSize,
-              position: content.position,
-              opacity: content.opacity,
-              backgroundPosition: content.backgroundPosition,
-              display: content.display,
-              marginLeft: content.marginLeft,
-              marginRight: content.marginRight,
-              textAlign: 'center',
-              resize: 'both',
-              overflow: 'auto',
-              height: content.height,
-              width: this.screenWidth,
-              objectFit: 'cover',
-              zIndex: content.zIndex,
-              transform: content.transform
-            }"
-          />
-        </div>
+    <!-- bg image (Currently used) -->
+    <div [@fadeInOnEnter] [@fadeOutOnLeave]>
+      <div
+        *ngIf="
+          (content.backgroundImage != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.backgroundImage }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            display: content.display,
+            marginLeft: content.marginLeft,
+            marginRight: content.marginRight,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.height,
+            width: this.screenWidth,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
       </div>
     </div>
-    <!-- </div> -->
-    <div>
-      <button (click)="animate()">Animate</button>
-    </div>
-
     <!-- Hero Image-->
 
     <!-- Gallery Image With HyperLink -->
