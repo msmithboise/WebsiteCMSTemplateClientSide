@@ -20,6 +20,7 @@ import {
   jelloAnimation,
   hueRotateAnimation,
   headShakeAnimation,
+  zoomInAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -49,6 +50,7 @@ import {
     jelloAnimation(),
     hueRotateAnimation(),
     headShakeAnimation(),
+    zoomInAnimation(),
     trigger('fade', [
       state('void', style({ opacity: 0 })),
       transition('void <=> *', [animate(2000)]),

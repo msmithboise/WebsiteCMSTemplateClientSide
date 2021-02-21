@@ -768,6 +768,24 @@
       </div>
     </div>
 
+    <!-- Button Default Animation: zoomIn -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'zoomIn'" [@zoomIn]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Audio -->
     <div
       *ngIf="content.AudioUrl != null"
