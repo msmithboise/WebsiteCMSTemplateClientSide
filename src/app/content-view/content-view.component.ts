@@ -11,7 +11,9 @@ import {
   rubberBandAnimation,
   bounceAnimation,
   slideInUpAnimation,
+  slideInUpOnEnterAnimation,
   heartBeatAnimation,
+  heartBeatOnEnterAnimation,
   bounceInAnimation,
 } from 'angular-animations';
 import {
@@ -33,7 +35,9 @@ import {
     rubberBandAnimation(),
     bounceAnimation(),
     slideInUpAnimation(),
+    slideInUpOnEnterAnimation(),
     heartBeatAnimation(),
+    heartBeatOnEnterAnimation(),
     bounceInOnEnterAnimation(),
 
     trigger('fade', [
