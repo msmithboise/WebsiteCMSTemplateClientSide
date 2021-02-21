@@ -22,6 +22,7 @@ import {
   headShakeAnimation,
   zoomInAnimation,
   flipAnimation,
+  flashAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -53,6 +54,7 @@ import {
     headShakeAnimation(),
     zoomInAnimation(),
     flipAnimation(),
+    flashAnimation(),
     trigger('fade', [
       state('void', style({ opacity: 0 })),
       transition('void <=> *', [animate(2000)]),

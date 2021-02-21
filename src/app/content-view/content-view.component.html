@@ -1266,6 +1266,252 @@
       </div>
     </div>
 
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: headShake-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'headShake'" [@headShake]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: heartBeat-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'heartBeat'" [@heartBeat]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: jello-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'jello'" [@jello]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: rubberBand-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'rubberBand'" [@rubberBand]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: flash-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'flash'" [@flash]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image with HYPERLINK (USED BY DEFAULT) animation: hueRotate-->
+
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'hueRotate'" [@hueRotate]="animationState">
+        <div
+          *ngIf="
+            content.backgroundImage != null &&
+            content.HyperLink != null &&
+            content.HyperLink != ''
+          "
+        >
+          <a [href]="content.HyperLink">
+            <img
+              (mouseover)="animate()"
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- bg image (Currently used) DEFAULT Animation: None -->
     <div *ngIf="content.animationName == null || content.animationName == ''">
       <div
