@@ -660,6 +660,114 @@
       </div>
     </div>
 
+    <!-- Button Default Animation: Jello -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'jello'" [@jello]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Default Animation: Hue Rotate -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'hueRotate'" [@hueRotate]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Default Animation: rubberBand -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'rubberBand'" [@rubberBand]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Default Animation: bounce -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'bounce'" [@bounce]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Default Animation: heartBeat -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'heartBeat'" [@heartBeat]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Default Animation: headShake -->
+    <div [ngSwitch]="content.animationName">
+      <div *ngSwitchCase="'headShake'" [@headShake]="animationState">
+        <div *ngIf="content.buttonText != null">
+          <a [href]="content.HyperLink">
+            <button
+              @fade
+              @openSesame
+              (mouseover)="animate()"
+              [ngStyle]="myButton(content)"
+            >
+              {{ content.buttonText }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Audio -->
     <div
       *ngIf="content.AudioUrl != null"

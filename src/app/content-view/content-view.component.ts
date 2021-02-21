@@ -17,6 +17,9 @@ import {
   bounceInAnimation,
   slideInLeftOnEnterAnimation,
   pulseAnimation,
+  jelloAnimation,
+  hueRotateAnimation,
+  headShakeAnimation,
 } from 'angular-animations';
 import {
   animate,
@@ -43,7 +46,9 @@ import {
     heartBeatOnEnterAnimation(),
     bounceInOnEnterAnimation(),
     pulseAnimation(),
-
+    jelloAnimation(),
+    hueRotateAnimation(),
+    headShakeAnimation(),
     trigger('fade', [
       state('void', style({ opacity: 0 })),
       transition('void <=> *', [animate(2000)]),
