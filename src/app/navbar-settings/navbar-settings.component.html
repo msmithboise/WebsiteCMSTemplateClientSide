@@ -47,6 +47,16 @@
                         (submit)="onSubmit(form)"
                         id="myForm"
                       >
+                        <button
+                          class="btn btn-primary"
+                          (click)="onSubmit(form)"
+                        >
+                          Save Changes
+                        </button>
+
+                        <div style="padding: 50px"></div>
+
+                        <div class="input-group-append"></div>
                         <!-- NavBarId -->
 
                         <input
@@ -290,6 +300,146 @@
                         </div>
 
                         <div class="input-group-append"></div>
+
+                        <!-- Logo Left -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Logo Left</b></label>
+                              <div>
+                                <input
+                                  name="LogoLeft"
+                                  #LogoLeft="ngModel"
+                                  [(ngModel)]="content.LogoLeft"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="LogoLeft"></label>
+                              <select
+                                id="LogoLeft"
+                                name="LogoLeft"
+                                [(ngModel)]="content.LogoLeft"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Logo Right -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Logo Right</b></label>
+                              <div>
+                                <input
+                                  name="LogoRight"
+                                  #LogoRight="ngModel"
+                                  [(ngModel)]="content.LogoRight"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="LogoRight"></label>
+                              <select
+                                id="LogoRight"
+                                name="LogoRight"
+                                [(ngModel)]="content.LogoRight"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Logo Top -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Logo Top</b></label>
+                              <div>
+                                <input
+                                  name="LogoTop"
+                                  #LogoTop="ngModel"
+                                  [(ngModel)]="content.LogoTop"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="LogoTop"></label>
+                              <select
+                                id="LogoTop"
+                                name="LogoTop"
+                                [(ngModel)]="content.LogoTop"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Logo Bottom -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Logo Bottom</b></label>
+                              <div>
+                                <input
+                                  name="LogoBottom"
+                                  #LogoBottom="ngModel"
+                                  [(ngModel)]="content.LogoBottom"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="LogoBottom"></label>
+                              <select
+                                id="LogoBottom"
+                                name="LogoBottom"
+                                [(ngModel)]="content.LogoBottom"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
 
                         <!-- Logo Position -->
 
