@@ -261,6 +261,146 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Nav Right -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Right</b></label>
+                              <div>
+                                <input
+                                  name="NavRight"
+                                  #NavRight="ngModel"
+                                  [(ngModel)]="content.NavRight"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavRight"></label>
+                              <select
+                                id="NavRight"
+                                name="NavRight"
+                                [(ngModel)]="content.NavRight"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Nav Left -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Left</b></label>
+                              <div>
+                                <input
+                                  name="NavLeft"
+                                  #NavLeft="ngModel"
+                                  [(ngModel)]="content.NavLeft"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavLeft"></label>
+                              <select
+                                id="NavLeft"
+                                name="NavLeft"
+                                [(ngModel)]="content.NavLeft"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Nav Top -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Top</b></label>
+                              <div>
+                                <input
+                                  name="NavTop"
+                                  #NavTop="ngModel"
+                                  [(ngModel)]="content.NavTop"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavTop"></label>
+                              <select
+                                id="NavTop"
+                                name="NavTop"
+                                [(ngModel)]="content.NavTop"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Nav Bottom -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Bottom</b></label>
+                              <div>
+                                <input
+                                  name="NavBottom"
+                                  #NavBottom="ngModel"
+                                  [(ngModel)]="content.NavBottom"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavBottom"></label>
+                              <select
+                                id="NavBottom"
+                                name="NavBottom"
+                                [(ngModel)]="content.NavRight"
+                                class="form-control"
+                              >
+                                <option value="20%">20%</option>
+                                <option value="25%">25%</option>
+
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Logo width -->
 
                         <div class="row">
@@ -520,6 +660,42 @@
                                 id="NavBarPosition"
                                 name="NavBarPosition"
                                 [(ngModel)]="content.NavBarPosition"
+                                class="form-control"
+                              >
+                                <option value="static">static</option>
+                                <option value="relative">relative</option>
+                                <option value="fixed">fixed</option>
+                                <option value="absolute">absolute</option>
+                                <option value="sticky">sticky</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Nav Link Position -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label><b>Nav Link Position</b></label>
+                              <div>
+                                <input
+                                  name="NavBarWebKit"
+                                  #NavBarWebKit="ngModel"
+                                  [(ngModel)]="content.NavBarWebKit"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="NavBarWebKit"></label>
+                              <select
+                                id="NavBarWebKit"
+                                name="NavBarWebKit"
+                                [(ngModel)]="content.NavBarWebKit"
                                 class="form-control"
                               >
                                 <option value="static">static</option>

@@ -11,6 +11,8 @@
       width: setting.NavWidth
     }"
   >
+    <!-- Desktop Nav Settings -->
+
     <!-- Logo -->
 
     <div *ngIf="setting.LogoUrl != ''">
@@ -27,7 +29,17 @@
         }"
       />
     </div>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div
+      class="collapse navbar-collapse"
+      id="collapsibleNavbar"
+      [ngStyle]="{
+        top: setting.NavTop,
+        bottom: setting.NavBottom,
+        left: setting.NavLeft,
+        right: setting.NavRight,
+        position: setting.NavBarWebKit
+      }"
+    >
       <ul class="navbar-nav">
         <li
           class="nav-item"
