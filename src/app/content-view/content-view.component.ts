@@ -186,7 +186,7 @@ export class ContentViewComponent implements OnInit {
   }
 
   isMobile() {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 800) {
       return true;
     }
   }

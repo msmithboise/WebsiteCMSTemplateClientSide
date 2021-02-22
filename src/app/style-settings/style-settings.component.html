@@ -219,8 +219,12 @@
                                 <option value="slideInLeftOnEnter">
                                   slide in left on enter (Text)
                                 </option>
-                                <option value="pulse">pulse (Buttons, Image w/ HyperLink)</option>
-                                <option value="jello">jello (Buttons, Image w/ HyperLink)</option>
+                                <option value="pulse">
+                                  pulse (Buttons, Image w/ HyperLink)
+                                </option>
+                                <option value="jello">
+                                  jello (Buttons, Image w/ HyperLink)
+                                </option>
                                 <option value="hueRotate">
                                   hueRotate (Buttons)
                                 </option>
@@ -1869,6 +1873,63 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Left (Mobile)-->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label
+                                ><b>Left (Mobile)</b
+                                ><button
+                                  type="button"
+                                  class="btn mr-2"
+                                  placement="right"
+                                  ngbTooltip="This affects the horizontal position your image or text when screen resolution is mobile.  Use this when needing to center your text or image when 'position' is set to 'absolute'. Ex: 50% would place move it 50% into the center from the left."
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="#C349BF"
+                                    class="bi bi-question-circle-fill"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                    />
+                                  </svg></button
+                              ></label>
+                              <div>
+                                <input
+                                  name="customFieldTwo"
+                                  #customFieldTwo="ngModel"
+                                  [(ngModel)]="content.customFieldTwo"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="customFieldTwo"></label>
+                              <select
+                                id="customFieldTwo"
+                                name="customFieldTwo"
+                                [(ngModel)]="content.customFieldTwo"
+                                class="form-control"
+                              >
+                                <option value="auto">auto</option>
+                                <option value="initial">initial</option>
+                                <option value="20px">20px</option>
+                                <option value="-20px">-20px</option>
+                                <option value="25%">25%</option>
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Letter Spacing -->
 
                         <div class="row">
@@ -2724,6 +2785,63 @@
                                 id="top"
                                 name="top"
                                 [(ngModel)]="content.top"
+                                class="form-control"
+                              >
+                                <option value="auto">auto</option>
+                                <option value="initial">initial</option>
+                                <option value="20px">20px</option>
+                                <option value="-20px">-20px</option>
+                                <option value="25%">25%</option>
+                                <option value="50%">50%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Top Mobile -->
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label
+                                ><b>Top (Mobile)</b
+                                ><button
+                                  type="button"
+                                  class="btn mr-2"
+                                  placement="right"
+                                  ngbTooltip="This affects the vertical position of a positioned element. Ex: while setting 'position' to 'absolute', you can use this to push your text from the top by setting it to 50%."
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="#C349BF"
+                                    class="bi bi-question-circle-fill"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                    />
+                                  </svg></button
+                              ></label>
+                              <div>
+                                <input
+                                  name="customFieldThree"
+                                  #customFieldThree="ngModel"
+                                  [(ngModel)]="content.customFieldThree"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="customFieldThree"></label>
+                              <select
+                                id="customFieldThree"
+                                name="customFieldThree"
+                                [(ngModel)]="content.customFieldThree"
                                 class="form-control"
                               >
                                 <option value="auto">auto</option>
