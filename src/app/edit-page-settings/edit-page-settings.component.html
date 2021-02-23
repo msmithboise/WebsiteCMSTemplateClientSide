@@ -153,59 +153,61 @@
                   >
                     Sub Pages
                   </button> -->
-                  <form #form="ngForm" (submit)="addNewPage(form)">
-                    <div class="input-group"></div>
+                  <div class="container-fluid">
+                    <form #form="ngForm" (submit)="addNewPage(form)">
+                      <div class="input-group"></div>
 
-                    <!-- Page Id -->
+                      <!-- Page Id -->
 
-                    <input
-                      name="PageId"
-                      type="hidden"
-                      #TextId="ngModel"
-                      [(ngModel)]="page.PageId"
-                    />
+                      <input
+                        name="PageId"
+                        type="hidden"
+                        #TextId="ngModel"
+                        [(ngModel)]="page.PageId"
+                      />
 
-                    <!-- Page Description -->
-                    <label class="label-color"> Page Description</label>
-                    <input
-                      name="PageDescription"
-                      type="text"
-                      class="form-control col-sm-9 formStyle"
-                      #PageDescription="ngModel"
-                      [(ngModel)]="page.PageDescription"
-                    />
+                      <!-- Page Description -->
+                      <label class="label-color"> Page Description</label>
+                      <input
+                        name="PageDescription"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #PageDescription="ngModel"
+                        [(ngModel)]="page.PageDescription"
+                      />
 
-                    <!-- Page Color -->
-                    <label class="label-color"> Page Color</label>
-                    <input
-                      name="PageColor"
-                      type="text"
-                      class="form-control col-sm-9 formStyle"
-                      #PageColor="ngModel"
-                      [(ngModel)]="page.PageColor"
-                    />
-                    <button (click)="addNewPage(form)">Submit changes</button>
-                    <div style="height: 20px"></div>
+                      <!-- Page Color -->
+                      <label class="label-color"> Page Color</label>
+                      <input
+                        name="PageColor"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #PageColor="ngModel"
+                        [(ngModel)]="page.PageColor"
+                      />
+                      <div style="height: 20px"></div>
 
-                    <label class="label-color" style="font-size: 14px"
-                      ><h1>Published</h1></label
-                    >
-                    <input
-                      class="check"
-                      type="checkbox"
-                      (change)="onChange($event.target.checked)"
-                      #isPublished="ngModel"
-                      [(ngModel)]="page.isPublished"
-                      [ngModelOptions]="{ standalone: true }"
-                    />
-                  </form>
+                      <label class="checkbox">Published</label>
+                      <input
+                        class="check"
+                        type="checkbox"
+                        (change)="onChange($event.target.checked)"
+                        #isPublished="ngModel"
+                        [(ngModel)]="page.isPublished"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </form>
+                    <button class="btn btn-primary" (click)="addNewPage(form)">
+                      Save changes
+                    </button>
+                  </div>
 
                   <!-- --------------------------------------------------------------------------- -->
 
                   <!-- <button
                     class="btn btn-danger float-right"
                     (click)="deleteDialogue(text.Id)"
-                  >
+                    >
                     Delete
                   </button> -->
                 </div>

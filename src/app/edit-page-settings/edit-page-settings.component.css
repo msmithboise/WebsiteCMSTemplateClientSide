@@ -19,6 +19,11 @@ label {
   color: #01d0b0;
 }
 
+.checkbox {
+  color: #01d0b0;
+  padding-right: 10px;
+}
+
 .modal {
   background-color: #1e1e2f;
 }
