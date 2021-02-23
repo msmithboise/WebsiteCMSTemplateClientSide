@@ -178,7 +178,7 @@
         >
           <li
             class="nav-item"
-            *ngFor="let page of customPageService.customPageArray"
+            *ngFor="let page of navBarService.navLinksByClientUrl"
           >
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
@@ -239,7 +239,7 @@
         >
           <li
             class="nav-item"
-            *ngFor="let page of customPageService.customPageArray"
+            *ngFor="let page of navBarService.navLinksByClientUrl"
           >
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a

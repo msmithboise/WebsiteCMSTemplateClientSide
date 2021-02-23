@@ -74,7 +74,8 @@ export class NavbarComponent implements OnInit {
     this.grabNavbarByClient();
     this.setSubPagesToLocalStorage();
     //grab custom page data on navbar load
-    this.callCustomPageService();
+    this.grabPageData();
+    //this.callCustomPageService();
     this.changePhoto();
     this.getSubPageLinks();
     this.checkForCookie();
@@ -84,6 +85,23 @@ export class NavbarComponent implements OnInit {
     if (window.innerWidth < 800) {
       return true;
     }
+  }
+
+  async grabPageData() {
+    var url = this.customPageService.grabUrl();
+
+    var data = this.navBarService.getNavBarLinksFromPages(url);
+
+    data.subscribe((res) => {
+      this.navBarService.navLinksByClientUrl = res;
+      console.log('data from navbar: ', this.navBarService.navLinksByClientUrl);
+
+      this.navBarService.navLinksByClientUrl.forEach((element) => {
+        if (element.IsPrivate) {
+          element.PageDescription = '';
+        }
+      });
+    });
   }
 
   grabNavbarByClient() {

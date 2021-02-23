@@ -37,6 +37,11 @@ export class EditPageSettingsComponent implements OnInit {
   addNewPage(form: NgForm) {
     form.value.ClientUrl = this.nullPageGuardService.grabUrl();
 
+    console.log(
+      'true home in custompageservice: ',
+      this.customPageService.trueHomeId
+    );
+
     this.customPageService
       .postWebPageContent(form.value)
       .subscribe((res: CustomPage[]) => {

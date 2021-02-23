@@ -50,11 +50,11 @@ export class CustomPageService {
 
         //Testing hiding home nav link
 
-        res.forEach((element) => {
-          if (element.PageDescription == 'Home') {
-            element.PageDescription = '';
-          }
-        });
+        // res.forEach((element) => {
+        //   if (element.PageDescription == 'Home') {
+        //     element.PageDescription = '';
+        //   }
+        // });
 
         if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
           res.forEach((element) => {
