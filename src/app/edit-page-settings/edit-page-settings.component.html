@@ -187,13 +187,16 @@
                     <button (click)="addNewPage(form)">Submit changes</button>
                     <div style="height: 20px"></div>
 
-                    <label class="label-color"><h1>Hidden</h1></label>
+                    <label class="label-color" style="font-size: 14px"
+                      ><h1>Published</h1></label
+                    >
                     <input
                       class="check"
                       type="checkbox"
                       (change)="onChange($event.target.checked)"
-                      #isPrivate="ngModel"
-                      [(ngModel)]="page.isPrivate"
+                      #isPublished="ngModel"
+                      [(ngModel)]="page.isPublished"
+                      [ngModelOptions]="{ standalone: true }"
                     />
                   </form>
 

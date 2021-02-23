@@ -48,6 +48,7 @@ export class NavbarComponent implements OnInit {
   public isLoggedIn: boolean = false;
   public currentUserArray: User[];
   public hasCookieToken: boolean = false;
+  public publishedNavLinks: CustomPage[] = [];
 
   constructor(
     public customPageService: CustomPageService,
@@ -99,8 +100,11 @@ export class NavbarComponent implements OnInit {
       for (let i = 0; i < this.navBarService.navLinksByClientUrl.length; i++) {
         const element = this.navBarService.navLinksByClientUrl[i];
 
-        if (element.IsPrivate) {
-          this.navBarService.navLinksByClientUrl.splice(i, 1);
+        //this.navBarService.navLinksByClientUrl.splice(i, 1);
+        if (element.isPublished == true) {
+          console.log(element);
+          this.publishedNavLinks.push(element);
+          console.log('publishednavlinks after push', this.publishedNavLinks);
         }
       }
     });

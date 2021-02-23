@@ -17,6 +17,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class EditPageSettingsComponent implements OnInit {
   public isChecked: boolean;
+  public isPagePublished: boolean;
   constructor(
     public customPageService: CustomPageService,
     public toastr: ToastrService,
@@ -37,15 +38,23 @@ export class EditPageSettingsComponent implements OnInit {
 
   onChange(isChecked: boolean) {
     this.isChecked = isChecked;
+
+    if (this.isChecked) {
+      this.isPagePublished = true;
+      console.log('isPagePublished: ', this.isPagePublished);
+    } else {
+      this.isPagePublished = false;
+      console.log('isPagePublished: ', this.isPagePublished);
+    }
   }
 
   addNewPage(form: NgForm) {
     form.value.ClientUrl = this.nullPageGuardService.grabUrl();
 
     if (this.isChecked) {
-      form.value.isPrivate = true;
+      form.value.IsPublished = true;
     } else {
-      form.value.isPrivate = false;
+      form.value.IsPublished = false;
     }
 
     console.log(

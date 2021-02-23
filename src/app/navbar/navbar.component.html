@@ -176,10 +176,7 @@
             position: setting.NavBarWebKit
           }"
         >
-          <li
-            class="nav-item"
-            *ngFor="let page of navBarService.navLinksByClientUrl"
-          >
+          <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
                 [ngStyle]="{
@@ -237,10 +234,7 @@
             position: setting.NavBarWebKit
           }"
         >
-          <li
-            class="nav-item"
-            *ngFor="let page of navBarService.navLinksByClientUrl"
-          >
+          <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
                 [ngStyle]="{
