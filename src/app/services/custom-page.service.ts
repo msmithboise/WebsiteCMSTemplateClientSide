@@ -48,6 +48,14 @@ export class CustomPageService {
         this.customPageArray = res;
         console.log('custompagearray custompageservice', this.customPageArray);
 
+        //Testing hiding home nav link
+
+        res.forEach((element) => {
+          if (element.PageDescription == 'Home') {
+            element.PageDescription = '';
+          }
+        });
+
         if (this.pageNumArray == null || this.pageNumArray.length <= 0) {
           res.forEach((element) => {
             this.pageNumArray.push(element.PageId);
