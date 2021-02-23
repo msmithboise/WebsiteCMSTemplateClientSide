@@ -2,7 +2,10 @@
   <!-- Check for cookies before displaying dashboard button -->
   <div *ngFor="let user of this.currentUserArray">
     <div *ngIf="this.hasCookieToken && user.IsLoggedIn">
-      <nav class="navbar navbar-expand-xl navbar-light">
+      <nav
+        class="navbar navbar-expand-xl navbar-dark"
+        [ngStyle]="{ backgroundColor: '#222222' }"
+      >
         <div
           style="
             text-align: center;
