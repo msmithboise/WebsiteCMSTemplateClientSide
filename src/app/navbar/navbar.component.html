@@ -143,61 +143,128 @@
         }"
       />
     </div>
-    <div
-      class="collapse navbar-collapse"
-      id="collapsibleNavbar"
-      [ngStyle]="{
-        top: setting.NavTop,
-        bottom: setting.NavBottom,
-        left: setting.NavLeft,
-        right: setting.NavRight,
-        position: setting.NavBarWebKit
-      }"
-    >
-      <ul class="navbar-nav">
-        <li
-          class="nav-item"
-          *ngFor="let page of customPageService.customPageArray"
+
+    <!-- If screen is mobile -->
+    <div *ngIf="isMobile()">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul
+          class="navbar-nav"
+          [ngStyle]="{
+            top: setting.NavTop,
+            bottom: setting.NavBottom,
+
+            right: setting.NavRight,
+            position: setting.NavBarWebKit
+          }"
         >
-          <div (click)="onClick(page.PageId, page.PageDescription)">
-            <a
-              [ngStyle]="{
-                cursor: 'pointer',
-                color: setting.NavBarFontColor,
-                fontSize: setting.NavFontSize,
-                fontFamily: setting.NavFontFamily,
-                letterSpacing: setting.NavFontLetterSpacing
-              }"
-              (mouseover)="
-                getPageByIdOnHover(page.PageId, page.PageDescription)
-              "
-              class="dropbtn nav-link"
-              >{{ page.PageDescription }}</a
-            >
-          </div>
-          <div class="dropdown">
-            <div class="dropdown-content">
-              <div *ngFor="let subPage of this.SubPageLocalStorage">
-                <a
-                  (click)="
-                    navToSubPage(subPage.SubPageId, subPage.SubPageDescription)
-                  "
-                  >{{ subPage.SubPageDescription }}</a
-                >
+          <li
+            class="nav-item"
+            *ngFor="let page of customPageService.customPageArray"
+          >
+            <div (click)="onClick(page.PageId, page.PageDescription)">
+              <a
+                [ngStyle]="{
+                  cursor: 'pointer',
+                  color: setting.NavBarFontColor,
+                  fontSize: setting.NavFontSize,
+                  fontFamily: setting.NavFontFamily,
+                  letterSpacing: setting.NavFontLetterSpacing
+                }"
+                (mouseover)="
+                  getPageByIdOnHover(page.PageId, page.PageDescription)
+                "
+                class="dropbtn nav-link"
+                >{{ page.PageDescription }}</a
+              >
+            </div>
+            <div class="dropdown">
+              <div class="dropdown-content">
+                <div *ngFor="let subPage of this.SubPageLocalStorage">
+                  <a
+                    (click)="
+                      navToSubPage(
+                        subPage.SubPageId,
+                        subPage.SubPageDescription
+                      )
+                    "
+                    >{{ subPage.SubPageDescription }}</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        <!-- Subpages dropdown content -->
-        <!-- <div class="dropdown">
-          <a class="dropbtn nav-link"></a>
-          <div class="dropdown-content">
-            <div *ngFor="let subPage of subPageService.subPageArray">
-              <a href="#">{{ subPage.SubPageDescription }}</a>
+          </li>
+          <!-- Subpages dropdown content -->
+          <!-- <div class="dropdown">
+            <a class="dropbtn nav-link"></a>
+            <div class="dropdown-content">
+              <div *ngFor="let subPage of subPageService.subPageArray">
+                <a href="#">{{ subPage.SubPageDescription }}</a>
+              </div>
             </div>
-          </div>
-        </div> -->
-      </ul>
+          </div> -->
+        </ul>
+      </div>
+    </div>
+
+    <div *ngIf="!isMobile()">
+      <div>
+        <ul
+          class="navbar-nav"
+          [ngStyle]="{
+            top: setting.NavTop,
+            bottom: setting.NavBottom,
+            left: setting.NavLeft,
+            right: setting.NavRight,
+            position: setting.NavBarWebKit
+          }"
+        >
+          <li
+            class="nav-item"
+            *ngFor="let page of customPageService.customPageArray"
+          >
+            <div (click)="onClick(page.PageId, page.PageDescription)">
+              <a
+                [ngStyle]="{
+                  cursor: 'pointer',
+                  color: setting.NavBarFontColor,
+                  fontSize: setting.NavFontSize,
+                  fontFamily: setting.NavFontFamily,
+                  letterSpacing: setting.NavFontLetterSpacing
+                }"
+                (mouseover)="
+                  getPageByIdOnHover(page.PageId, page.PageDescription)
+                "
+                class="dropbtn nav-link"
+                >{{ page.PageDescription }}</a
+              >
+            </div>
+            <div class="dropdown">
+              <div class="dropdown-content">
+                <div *ngFor="let subPage of this.SubPageLocalStorage">
+                  <a
+                    (click)="
+                      navToSubPage(
+                        subPage.SubPageId,
+                        subPage.SubPageDescription
+                      )
+                    "
+                    >{{ subPage.SubPageDescription }}</a
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Subpages dropdown content -->
+          <!-- <div class="dropdown">
+            <a class="dropbtn nav-link"></a>
+            <div class="dropdown-content">
+              <div *ngFor="let subPage of subPageService.subPageArray">
+                <a href="#">{{ subPage.SubPageDescription }}</a>
+              </div>
+            </div>
+          </div> -->
+        </ul>
+      </div>
     </div>
   </nav>
 </div>

@@ -80,6 +80,12 @@ export class NavbarComponent implements OnInit {
     this.checkForCookie();
   }
 
+  isMobile() {
+    if (window.innerWidth < 800) {
+      return true;
+    }
+  }
+
   grabNavbarByClient() {
     var url = this.webStructureService.findClientUrl();
 
