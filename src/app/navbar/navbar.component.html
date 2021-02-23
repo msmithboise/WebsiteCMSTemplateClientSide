@@ -1,4 +1,109 @@
 <div *ngFor="let setting of navBarService.navBarByClientUrlArray">
+  <!-- Check for cookies before displaying dashboard button -->
+  <div *ngFor="let user of this.currentUserArray">
+    <div *ngIf="this.hasCookieToken && user.IsLoggedIn">
+      <nav class="navbar navbar-expand-xl navbar-light">
+        <div
+          style="
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+              'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 18px;
+          "
+        >
+          Hello, {{ user.UserName }}.
+          <div>
+            <div>
+              <button
+                class="btn btn-light btn-sm mb-3"
+                (click)="openPageSettings()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-pencil-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                  />
+                </svg>
+                Dashboard
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Check for cookies before displaying logout button -->
+
+        <div *ngIf="this.hasCookieToken == true">
+          <div *ngIf="user.IsLoggedIn">
+            <div *ngFor="let data of this.userService.loggedInUserArray">
+              <div style="padding: 10px"></div>
+              <a
+                routerLink="/portal"
+                class="btn btn-light btn-sm mb-3"
+                (click)="Logout(data)"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-door-open"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"
+                  />
+                  <path
+                    d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"
+                  /></svg
+                >Logout</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- News Button trigger modal -->
+
+        <div *ngIf="this.hasCookieToken == true">
+          <div *ngIf="user.IsLoggedIn">
+            <div style="padding-left: 35px; padding-top: 20px">
+              <button
+                (click)="navToNewsPage()"
+                class="btn btn-light btn-sm mb-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-newspaper"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"
+                  />
+                  <path
+                    d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"
+                  />
+                </svg>
+                News
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Desktop Nav Settings -->
   <nav
     class="navbar navbar-expand-xl navbar-dark"
     [ngStyle]="{
@@ -11,8 +116,14 @@
       width: setting.NavWidth
     }"
   >
-    <!-- Desktop Nav Settings -->
-
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <!-- Logo -->
 
     <div *ngIf="setting.LogoUrl != ''">
@@ -85,114 +196,5 @@
         </div> -->
       </ul>
     </div>
-
-    <!-- Check for cookies before displaying dashboard button -->
-    <div *ngFor="let user of this.currentUserArray">
-      <div *ngIf="this.hasCookieToken == true">
-        <div
-          *ngIf="user.IsLoggedIn"
-          style="
-            text-align: center;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-              'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 18px;
-          "
-        >
-          Hello, {{ user.UserName }}.
-          <div>
-            <div>
-              <button
-                class="btn btn-light btn-sm mb-3"
-                (click)="openPageSettings()"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-pencil-square"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-                  />
-                </svg>
-                Dashboard
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Check for cookies before displaying logout button -->
-    <div *ngFor="let user of this.currentUserArray">
-      <div *ngIf="this.hasCookieToken == true">
-        <div *ngIf="user.IsLoggedIn">
-          <div *ngFor="let data of this.userService.loggedInUserArray">
-            <div style="padding: 10px"></div>
-            <a
-              routerLink="/portal"
-              class="btn btn-light btn-sm mb-3"
-              (click)="Logout(data)"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-door-open"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"
-                />
-                <path
-                  d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"
-                /></svg
-              >Logout</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- News Button trigger modal -->
-    <div *ngFor="let user of this.currentUserArray">
-      <div *ngIf="this.hasCookieToken == true">
-        <div *ngIf="user.IsLoggedIn">
-          <div style="padding-left: 35px; padding-top: 20px">
-            <button (click)="navToNewsPage()" class="btn btn-light btn-sm mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-newspaper"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"
-                />
-                <path
-                  d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"
-                />
-              </svg>
-              News
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#collapsibleNavbar"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </nav>
 </div>
