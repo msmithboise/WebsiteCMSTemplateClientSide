@@ -96,11 +96,13 @@ export class NavbarComponent implements OnInit {
       this.navBarService.navLinksByClientUrl = res;
       console.log('data from navbar: ', this.navBarService.navLinksByClientUrl);
 
-      this.navBarService.navLinksByClientUrl.forEach((element) => {
+      for (let i = 0; i < this.navBarService.navLinksByClientUrl.length; i++) {
+        const element = this.navBarService.navLinksByClientUrl[i];
+
         if (element.IsPrivate) {
-          element.PageDescription = '';
+          this.navBarService.navLinksByClientUrl.splice(i, 1);
         }
-      });
+      }
     });
   }
 

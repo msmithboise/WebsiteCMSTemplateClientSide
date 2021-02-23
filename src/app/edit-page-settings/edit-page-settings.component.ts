@@ -16,6 +16,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   styleUrls: ['./edit-page-settings.component.css'],
 })
 export class EditPageSettingsComponent implements OnInit {
+  public isChecked: boolean;
   constructor(
     public customPageService: CustomPageService,
     public toastr: ToastrService,
@@ -34,8 +35,18 @@ export class EditPageSettingsComponent implements OnInit {
     this.customPageService.getCustomPageContent();
   }
 
+  onChange(isChecked: boolean) {
+    this.isChecked = isChecked;
+  }
+
   addNewPage(form: NgForm) {
     form.value.ClientUrl = this.nullPageGuardService.grabUrl();
+
+    if (this.isChecked) {
+      form.value.isPrivate = true;
+    } else {
+      form.value.isPrivate = false;
+    }
 
     console.log(
       'true home in custompageservice: ',
