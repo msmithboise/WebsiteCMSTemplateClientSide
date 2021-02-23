@@ -127,9 +127,28 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Logo -->
+    <!-- Logo With Hyperlink -->
 
-    <div *ngIf="setting.LogoUrl != ''">
+    <div *ngIf="setting.LogoUrl != '' && setting.LogoHyperLink != null">
+      <a [href]="setting.LogoHyperLink">
+        <img
+          src="{{ setting.LogoUrl }}"
+          [ngStyle]="{
+            bottom: setting.LogoBottom,
+            top: setting.LogoTop,
+            right: setting.LogoRight,
+            left: setting.LogoLeft,
+            position: setting.LogoPosition,
+            width: setting.LogoWidth,
+            height: setting.LogoHeight
+          }"
+        />
+      </a>
+    </div>
+
+    <!-- Logo Without HyperLink-->
+
+    <div *ngIf="setting.LogoUrl != '' && setting.LogoHyperLink == null">
       <img
         src="{{ setting.LogoUrl }}"
         [ngStyle]="{
@@ -207,7 +226,7 @@
     </div>
 
     <div *ngIf="!isMobile()">
-      <div>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul
           class="navbar-nav"
           [ngStyle]="{
