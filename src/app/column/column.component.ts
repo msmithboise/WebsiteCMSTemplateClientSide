@@ -140,8 +140,33 @@ export class ColumnComponent implements OnInit {
     });
   }
 
+  editColumnFormTemplate = new FormGroup({
+    columnId: new FormControl(''),
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+    columnClass: new FormControl(''),
+  });
+
   onColumnSubmit(form: FormGroup) {
     this.addColumn(form);
+  }
+
+  onEditColumnSubmit(form: FormGroup) {
+    this.editColumn(form);
+  }
+
+  editColumn(form: FormGroup) {
+    var newRowId = Number(localStorage.getItem('passedRowId'));
+
+    var newColumn = this.columnFormTemplate.value;
+    newColumn.pageId = this.webContentService.pageIdSnapshot;
+    newColumn.columnId = this.columnId;
+    newColumn.rowId = newRowId;
+
+    this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
+      this.grabAllContentByPageId();
+      this.refreshRows();
+    });
   }
 
   addColumn(form: FormGroup) {
