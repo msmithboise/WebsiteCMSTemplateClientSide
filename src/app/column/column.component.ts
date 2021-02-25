@@ -35,6 +35,10 @@ export class ColumnComponent implements OnInit {
     this.getContentListsByColumnId();
   }
 
+  selectColumnToEdit() {
+    console.log('editing column...');
+  }
+
   refreshRows() {
     this.refreshEvent.next('refreshRows');
   }

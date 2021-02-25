@@ -49,7 +49,7 @@ const routes: Routes = [
   //for freedomstartsnow
   // {
   //   path: '',
-  //   redirectTo: '/Home/6',
+  //   redirectTo: '/Home/13',
   //   pathMatch: 'full',
   //   canActivate: [NullPageGuard],
   // },
