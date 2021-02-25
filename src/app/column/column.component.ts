@@ -36,7 +36,7 @@ export class ColumnComponent implements OnInit {
   }
 
   selectColumnToEdit() {
-    console.log('editing column...');
+    console.log('editing column...', this.columnId);
   }
 
   refreshRows() {
