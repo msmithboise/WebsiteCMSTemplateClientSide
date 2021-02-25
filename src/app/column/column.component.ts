@@ -14,6 +14,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class ColumnComponent implements OnInit {
   @Input() columnId: number;
+  @Input() columnClass: string;
   @Output() refreshEvent = new EventEmitter<any>();
 
   public pageId: number;
@@ -37,6 +38,7 @@ export class ColumnComponent implements OnInit {
 
   selectColumnToEdit() {
     console.log('editing column...', this.columnId);
+    console.log('column size: ', this.columnClass);
   }
 
   refreshRows() {
