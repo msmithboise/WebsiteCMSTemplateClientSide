@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
   public currentUserArray: User[];
   public hasCookieToken: boolean = false;
   public publishedNavLinks: CustomPage[] = [];
+  public storedHoveredPageId: number;
 
   constructor(
     public customPageService: CustomPageService,
@@ -219,15 +220,25 @@ export class NavbarComponent implements OnInit {
   }
 
   clearSubPages() {
-    // console.log('clearing...');
-    this.navBarService.subPageNavLinks = [];
-    console.log('after clear: ', this.navBarService.subPageNavLinks);
+    this.navBarService.subPageNavLinks.forEach((element) => {
+      console.log('element in clear method: ', element);
+      if (element.ParentId != this.storedHoveredPageId) {
+        this.navBarService.subPageNavLinks = [];
+        console.log('after clear: ', this.navBarService.subPageNavLinks);
+      }
+    });
+    this.storedHoveredPageId = null;
+    console.log('storedPageId: ', this.storedHoveredPageId);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
+    this.storedHoveredPageId = null;
 
-    this.lastHoveredNum = passedInPageId; //1
+    this.lastHoveredNum = passedInPageId; //
+    console.log(passedInPageId);
+    this.storedHoveredPageId = passedInPageId;
+    console.log('stored pageid: ', this.storedHoveredPageId);
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
 
@@ -240,8 +251,10 @@ export class NavbarComponent implements OnInit {
       // console.log('element.ParentId: ', element.ParentId);
       // console.log('passedInPageId: ', passedInPageId);
       if (element.ParentId == passedInPageId) {
-        this.navBarService.subPageNavLinks.push(element);
-        console.log(element);
+        if (!this.navBarService.subPageNavLinks.includes(element)) {
+          this.navBarService.subPageNavLinks.push(element);
+          console.log(element);
+        }
       }
     });
     console.log('subPage nav links:  ', this.navBarService.subPageNavLinks);

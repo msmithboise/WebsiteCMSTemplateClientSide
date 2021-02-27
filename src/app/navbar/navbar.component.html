@@ -179,7 +179,7 @@
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div
               (click)="onClick(page.PageId, page.PageDescription)"
-              (mouseleave)="clearSubPages()"
+              (mouseout)="clearSubPages()"
               (mouseover)="
                 getPageByIdOnHover(page.PageId, page.PageDescription)
               "
