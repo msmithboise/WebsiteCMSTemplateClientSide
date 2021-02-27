@@ -9,4 +9,7 @@ export class CustomPage {
   ClientId: number;
   ClientUrl: string;
   ClientApi: string;
+  OriginId: number;
+  ParentId: number;
+  ChildId: number;
 }
