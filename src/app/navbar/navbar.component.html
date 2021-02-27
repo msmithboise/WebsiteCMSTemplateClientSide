@@ -177,7 +177,13 @@
           }"
         >
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div (click)="onClick(page.PageId, page.PageDescription)">
+            <div
+              (click)="onClick(page.PageId, page.PageDescription)"
+              (mouseleave)="clearSubPages()"
+              (mouseover)="
+                getPageByIdOnHover(page.PageId, page.PageDescription)
+              "
+            >
               <a
                 [ngStyle]="{
                   cursor: 'pointer',
@@ -186,17 +192,13 @@
                   fontFamily: setting.NavFontFamily,
                   letterSpacing: setting.NavFontLetterSpacing
                 }"
-                (mouseleave)="clearSubPages()"
-                (mouseover)="
-                  getPageByIdOnHover(page.PageId, page.PageDescription)
-                "
                 class="dropbtn nav-link"
                 >{{ page.PageDescription }}</a
               >
             </div>
             <div class="dropdown">
               <div class="dropdown-content">
-                <div *ngFor="let subPage of this.SubPageLocalStorage">
+                <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
                   <a
                     (click)="
                       navToSubPage(
@@ -204,21 +206,21 @@
                         subPage.SubPageDescription
                       )
                     "
-                    >{{ subPage.SubPageDescription }}</a
+                    >{{ subPage.PageDescription }}</a
                   >
                 </div>
               </div>
             </div>
           </li>
           <!-- Subpages dropdown content -->
-          <!-- <div class="dropdown">
+          <div class="dropdown">
             <a class="dropbtn nav-link"></a>
             <div class="dropdown-content">
-              <div *ngFor="let subPage of subPageService.subPageArray">
-                <a href="#">{{ subPage.SubPageDescription }}</a>
+              <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
+                <a href="#">{{ subPage.PageDescription }}</a>
               </div>
             </div>
-          </div> -->
+          </div>
         </ul>
       </div>
     </div>
@@ -248,6 +250,7 @@
                 (mouseover)="
                   getPageByIdOnHover(page.PageId, page.PageDescription)
                 "
+                (mouseleave)="clearSubPages()"
                 class="dropbtn nav-link"
                 >{{ page.PageDescription }}</a
               >

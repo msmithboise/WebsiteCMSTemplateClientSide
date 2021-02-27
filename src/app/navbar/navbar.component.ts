@@ -219,9 +219,9 @@ export class NavbarComponent implements OnInit {
   }
 
   clearSubPages() {
-    console.log('clearing...');
-    // console.log('after clear: ', this.navBarService.subPageNavLinks);
-    // this.navBarService.subPageNavLinks = [];
+    // console.log('clearing...');
+    this.navBarService.subPageNavLinks = [];
+    console.log('after clear: ', this.navBarService.subPageNavLinks);
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
