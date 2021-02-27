@@ -238,23 +238,7 @@
           }"
         >
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div (click)="onClick(page.PageId, page.PageDescription)">
-              <a
-                [ngStyle]="{
-                  cursor: 'pointer',
-                  color: setting.NavBarFontColor,
-                  fontSize: setting.NavFontSize,
-                  fontFamily: setting.NavFontFamily,
-                  letterSpacing: setting.NavFontLetterSpacing
-                }"
-                (mouseover)="
-                  getPageByIdOnHover(page.PageId, page.PageDescription)
-                "
-                (mouseleave)="clearSubPages()"
-                class="dropbtn nav-link"
-                >{{ page.PageDescription }}</a
-              >
-            </div>
+            <div (click)="onClick(page.PageId, page.PageDescription)"></div>
             <div class="dropdown">
               <div class="dropdown-content">
                 <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
@@ -270,16 +254,30 @@
                 </div>
               </div>
             </div>
-          </li>
-          <!-- Subpages dropdown content -->
-          <div class="dropdown">
-            <a class="dropbtn nav-link"></a>
-            <div class="dropdown-content">
-              <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                <a href="#">{{ subPage.PageDescription }}</a>
+            <div class="dropdown">
+              <a
+                [ngStyle]="{
+                  cursor: 'pointer',
+                  color: setting.NavBarFontColor,
+                  fontSize: setting.NavFontSize,
+                  fontFamily: setting.NavFontFamily,
+                  letterSpacing: setting.NavFontLetterSpacing
+                }"
+                (mouseover)="
+                  getPageByIdOnHover(page.PageId, page.PageDescription)
+                "
+                (mouseout)="clearSubPages()"
+                class="dropbtn nav-link"
+                >{{ page.PageDescription }}</a
+              >
+              <div class="dropdown-content">
+                <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
+                  <a href="#">{{ subPage.PageDescription }}</a>
+                </div>
               </div>
             </div>
-          </div>
+          </li>
+          <!-- Subpages dropdown content -->
         </ul>
       </div>
     </div>
