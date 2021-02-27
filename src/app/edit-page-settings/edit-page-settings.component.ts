@@ -33,6 +33,8 @@ export class EditPageSettingsComponent implements OnInit {
     this.grabAllPages();
   }
 
+  savePageChanges(form: NgForm) {}
+
   getOriginPageId(pageId: number) {
     this.storedPageId = pageId;
     console.log('origin pageId:  ', this.storedPageId);

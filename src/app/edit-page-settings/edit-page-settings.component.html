@@ -274,6 +274,18 @@
                       />
                       <div style="height: 20px"></div>
 
+                      <!-- ParentId -->
+                      <label class="label-color"> Parent Id</label>
+                      <input
+                        name="ParentId"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #ParentId="ngModel"
+                        [(ngModel)]="page.ParentId"
+                      />
+                      <div style="height: 20px"></div>
+
+                      <!-- IsPublished -->
                       <label class="checkbox">Published</label>
                       <input
                         class="check"
