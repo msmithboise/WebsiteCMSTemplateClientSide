@@ -186,6 +186,7 @@
                   fontFamily: setting.NavFontFamily,
                   letterSpacing: setting.NavFontLetterSpacing
                 }"
+                (mouseleave)="clearSubPages()"
                 (mouseover)="
                   getPageByIdOnHover(page.PageId, page.PageDescription)
                 "

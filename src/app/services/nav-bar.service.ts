@@ -13,6 +13,7 @@ export class NavBarService {
   public navBarArray: Navbar[];
   public navBarByClientUrlArray: Navbar[];
   public navLinksByClientUrl: CustomPage[];
+  public subPageNavLinks: CustomPage[] = [];
 
   constructor(
     public http: HttpClient,

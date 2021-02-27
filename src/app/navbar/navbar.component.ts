@@ -102,9 +102,9 @@ export class NavbarComponent implements OnInit {
 
         //this.navBarService.navLinksByClientUrl.splice(i, 1);
         if (element.isPublished == true) {
-          console.log(element);
+          // console.log(element);
           this.publishedNavLinks.push(element);
-          console.log('publishednavlinks after push', this.publishedNavLinks);
+          //console.log('publishednavlinks after push', this.publishedNavLinks);
         }
       }
     });
@@ -218,35 +218,59 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  clearSubPages() {
+    console.log('clearing...');
+    // console.log('after clear: ', this.navBarService.subPageNavLinks);
+    // this.navBarService.subPageNavLinks = [];
+  }
+
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
-    this.SubPageLocalStorage = this.untouchedStorage;
+    // this.SubPageLocalStorage = this.untouchedStorage;
 
     this.lastHoveredNum = passedInPageId; //1
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
 
+    //create a new list navbarService.SubPageLinks
+
+    //For each page in navBarService.navBarByClientUrlArray that has a parent id of the passedInPageId
+
+    this.publishedNavLinks.forEach((element) => {
+      // console.log('element: ', element);
+      // console.log('element.ParentId: ', element.ParentId);
+      // console.log('passedInPageId: ', passedInPageId);
+      if (element.ParentId == passedInPageId) {
+        this.navBarService.subPageNavLinks.push(element);
+      }
+    });
+    console.log('subPage nav links:  ', this.navBarService.subPageNavLinks);
+
+    //Add those pages to subPageLinks list
+
+    //When Mouse off, remove all links from the list (so we dont get duplicate pages...)
+
     //We want to compare the Id passed in on hover and
 
-    if (this.SubPageLocalStorage != null) {
-      this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
-        //this should compare the pageId of each sub page to the last number that was hovered over
-        (x) => x.PageId.toString() === this.lastHoveredNum.toString()
-      );
-    }
+    // if (this.SubPageLocalStorage != null) {
+    //   this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
+    //     //this should compare the pageId of each sub page to the last number that was hovered over
+    //     (x) => x.PageId.toString() === this.lastHoveredNum.toString()
+    //   );
+    // }
   }
 
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
-    this.SubPageLocalStorage = this.untouchedStorage;
+    // this.SubPageLocalStorage = this.untouchedStorage;
 
     this.lastHoveredNum = passedInPageId; //1
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
 
     //We want to compare the Id passed in on hover and
-    this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
-      //this should compare the pageId of each sub page to the last number that was hovered over
-      (x) => x.PageId.toString() === this.lastHoveredNum.toString()
-    );
+    // this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
+    //this should compare the pageId of each sub page to the last number that was hovered over
+    // (x) => x.PageId.toString() === this.lastHoveredNum.toString()
+    //);
   }
 
   setSubPagesToLocalStorage() {
