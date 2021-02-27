@@ -241,6 +241,7 @@ export class NavbarComponent implements OnInit {
       // console.log('passedInPageId: ', passedInPageId);
       if (element.ParentId == passedInPageId) {
         this.navBarService.subPageNavLinks.push(element);
+        console.log(element);
       }
     });
     console.log('subPage nav links:  ', this.navBarService.subPageNavLinks);
