@@ -18,6 +18,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 export class EditPageSettingsComponent implements OnInit {
   public isChecked: boolean;
   public isPagePublished: boolean;
+  public storedPageId: number;
   constructor(
     public customPageService: CustomPageService,
     public toastr: ToastrService,
@@ -30,6 +31,11 @@ export class EditPageSettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.grabAllPages();
+  }
+
+  getOriginPageId(pageId: number) {
+    console.log('origin pageId:  ', pageId);
+    this.storedPageId = pageId;
   }
 
   grabAllPages() {
