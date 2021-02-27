@@ -133,6 +133,11 @@ export class CustomPageService {
     return this.http.post(this.webApi + '/CustomPages', formData);
   }
 
+  //post subpage
+  postSubPageContent(formData: CustomPage) {
+    return this.http.post(this.webApi + '/SubPagesByClientUrl', formData);
+  }
+
   //Delete
   deleteCustomPage(id: number) {
     return this.http.delete(this.webApi + '/CustomPages/' + id);

@@ -34,8 +34,36 @@ export class EditPageSettingsComponent implements OnInit {
   }
 
   getOriginPageId(pageId: number) {
-    console.log('origin pageId:  ', pageId);
     this.storedPageId = pageId;
+    console.log('origin pageId:  ', this.storedPageId);
+  }
+
+  addNewSubPage(form: NgForm) {
+    console.log('adding subpage...');
+
+    form.value.ClientUrl = this.nullPageGuardService.grabUrl();
+    form.value.ParentId = this.storedPageId;
+    console.log('parenturl on subpage add:  ', form.value.ParentId);
+
+    if (this.isChecked) {
+      form.value.IsPublished = true;
+    } else {
+      form.value.IsPublished = false;
+    }
+
+    this.customPageService
+      .postSubPageContent(form.value)
+      .subscribe((res: CustomPage[]) => {
+        this.customPageService.customPageArray = res;
+        console.log(
+          'subpages in custompage array',
+          this.customPageService.customPageArray
+        );
+
+        this.grabAllPages();
+        location.reload();
+        this.toastr.success('Page created!');
+      });
   }
 
   grabAllPages() {
