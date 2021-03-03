@@ -14,6 +14,7 @@ export class NavBarService {
   public navBarByClientUrlArray: Navbar[];
   public navLinksByClientUrl: CustomPage[];
   public subPageNavLinks: CustomPage[] = [];
+  public subPageLinks: CustomPage[] = [];
 
   constructor(
     public http: HttpClient,
@@ -44,6 +45,12 @@ export class NavBarService {
   getNavBarLinksFromPages(url: string) {
     return this.http.get<CustomPage[]>(
       this.webApi + '/PagesByClientUrl/' + url
+    );
+  }
+
+  getSubPageLinks(id: number) {
+    return this.http.get<CustomPage[]>(
+      this.webApi + '/SubPagesByClientUrl/' + id
     );
   }
 }

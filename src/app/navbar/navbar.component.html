@@ -257,30 +257,21 @@
                   (mouseover)="
                     getPageByIdOnHover(page.PageId, page.PageDescription)
                   "
-                  (mouseout)="
-                    clearSubPages(
-                      page.PageId,
-                      page.PageDescription,
-                      page.ParentId
-                    )
-                  "
                   class="dropbtn nav-link"
                   >{{ page.PageDescription }}</a
                 >
 
                 <!-- subpages -->
                 <div class="dropdown-content">
-                  <div
-                    *ngFor="let subPage of this.navBarService.subPageNavLinks"
-                  >
+                  <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
-                      href="#"
-                      (mouseover)="
-                        getPageByIdOnHover(
-                          subPage.PageId,
-                          subPage.PageDescription
-                        )
-                      "
+                      [ngStyle]="{
+                        cursor: 'pointer',
+                        color: setting.NavBarFontColor,
+                        fontSize: setting.NavFontSize,
+                        fontFamily: setting.NavFontFamily,
+                        letterSpacing: setting.NavFontLetterSpacing
+                      }"
                       (click)="onClick(subPage.PageId, subPage.PageDescription)"
                       >{{ subPage.PageDescription }}</a
                     >

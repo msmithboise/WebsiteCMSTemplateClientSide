@@ -218,22 +218,26 @@ export class NavbarComponent implements OnInit {
 
   clearSubPages(pageId: number, pageDescription: string, parentId: number) {
     //this needs to be if subpageparent id doesnt match the origin page id...
-    if (this.storedSubParentId != this.storedHoveredPageId) {
-      this.navBarService.subPageNavLinks = [];
-      //console.log('clear!');
-      this.storedHoveredPageId = null;
-      this.storedSubParentId = null;
-    }
+
+    // this.navBarService.subPageNavLinks = [];
+    //console.log('clear!');
+    this.storedHoveredPageId = null;
+    this.storedSubParentId = null;
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
 
+    this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
+      this.navBarService.subPageLinks = res;
+      console.log(res);
+    });
+
     //I think i need to clear the old data when I hover again to the next link...
 
-    this.lastHoveredNum = passedInPageId; //
-    console.log('lasthovered id', passedInPageId);
-    this.storedHoveredPageId = passedInPageId;
+    // this.lastHoveredNum = passedInPageId; //
+    // console.log('lasthovered id', passedInPageId);
+    // this.storedHoveredPageId = passedInPageId;
     // console.log('stored id', passedInPageId);
     //console.log(pageDescription);
 
@@ -242,15 +246,15 @@ export class NavbarComponent implements OnInit {
 
     //console.log(this.publishedNavLinks);
 
-    this.publishedNavLinks.forEach((element) => {
-      if (element.ParentId == passedInPageId) {
-        if (!this.navBarService.subPageNavLinks.includes(element)) {
-          this.navBarService.subPageNavLinks.push(element);
-          this.storedSubParentId = element.ParentId;
-          //  console.log('sub parent id', this.storedSubParentId);
-        }
-      }
-    });
+    // this.publishedNavLinks.forEach((element) => {
+    //   if (element.ParentId == passedInPageId) {
+    //     if (!this.navBarService.subPageNavLinks.includes(element)) {
+    //       this.navBarService.subPageNavLinks.push(element);
+
+    //       //  console.log('sub parent id', this.storedSubParentId);
+    //     }
+    //   }
+    // });
   }
 
   getSubPageIdOnHover(
