@@ -177,14 +177,18 @@
           }"
         >
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div
-              (click)="onClick(page.PageId, page.PageDescription)"
-              (mouseout)="clearSubPages()"
-              (mouseover)="
-                getPageByIdOnHover(page.PageId, page.PageDescription)
-              "
-            >
+            <div (click)="onClick(page.PageId, page.PageDescription)">
               <a
+                (mouseleave)="
+                  clearSubPages(
+                    page.PageId,
+                    page.PageDescription,
+                    page.ParentId
+                  )
+                "
+                (mouseover)="
+                  getPageByIdOnHover(page.PageId, page.PageDescription)
+                "
                 [ngStyle]="{
                   cursor: 'pointer',
                   color: setting.NavBarFontColor,
@@ -225,6 +229,7 @@
       </div>
     </div>
 
+    <!-- If screen is NOT mobile -->
     <div *ngIf="!isMobile()">
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul
@@ -238,41 +243,49 @@
           }"
         >
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div (click)="onClick(page.PageId, page.PageDescription)"></div>
-            <div class="dropdown">
-              <div class="dropdown-content">
-                <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                  <a
-                    (click)="
-                      navToSubPage(
-                        subPage.SubPageId,
-                        subPage.SubPageDescription
-                      )
-                    "
-                    >{{ subPage.PageDescription }}</a
+            <div>
+              <div class="dropdown">
+                <a
+                  (click)="onClick(page.PageId, page.PageDescription)"
+                  [ngStyle]="{
+                    cursor: 'pointer',
+                    color: setting.NavBarFontColor,
+                    fontSize: setting.NavFontSize,
+                    fontFamily: setting.NavFontFamily,
+                    letterSpacing: setting.NavFontLetterSpacing
+                  }"
+                  (mouseover)="
+                    getPageByIdOnHover(page.PageId, page.PageDescription)
+                  "
+                  (mouseout)="
+                    clearSubPages(
+                      page.PageId,
+                      page.PageDescription,
+                      page.ParentId
+                    )
+                  "
+                  class="dropbtn nav-link"
+                  >{{ page.PageDescription }}</a
+                >
+
+                <!-- subpages -->
+                <div class="dropdown-content">
+                  <div
+                    *ngFor="let subPage of this.navBarService.subPageNavLinks"
                   >
-                </div>
-              </div>
-            </div>
-            <div class="dropdown">
-              <a
-                [ngStyle]="{
-                  cursor: 'pointer',
-                  color: setting.NavBarFontColor,
-                  fontSize: setting.NavFontSize,
-                  fontFamily: setting.NavFontFamily,
-                  letterSpacing: setting.NavFontLetterSpacing
-                }"
-                (mouseover)="
-                  getPageByIdOnHover(page.PageId, page.PageDescription)
-                "
-                (mouseout)="clearSubPages()"
-                class="dropbtn nav-link"
-                >{{ page.PageDescription }}</a
-              >
-              <div class="dropdown-content">
-                <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                  <a href="#">{{ subPage.PageDescription }}</a>
+                    <a
+                      href="#"
+                      (mouseover)="
+                        getSubPageIdOnHover(
+                          subPage.PageId,
+                          subPage.PageDescription,
+                          subPage.ParentId
+                        )
+                      "
+                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
+                      >{{ subPage.PageDescription }}</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>

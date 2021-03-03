@@ -50,6 +50,8 @@ export class NavbarComponent implements OnInit {
   public hasCookieToken: boolean = false;
   public publishedNavLinks: CustomPage[] = [];
   public storedHoveredPageId: number;
+  public navHovered: boolean;
+  public storedSubParentId: number;
 
   constructor(
     public customPageService: CustomPageService,
@@ -219,60 +221,50 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  clearSubPages() {
-    this.navBarService.subPageNavLinks.forEach((element) => {
-      console.log('element in clear method: ', element);
-      if (element.ParentId != this.storedHoveredPageId) {
-        this.navBarService.subPageNavLinks = [];
-        console.log('after clear: ', this.navBarService.subPageNavLinks);
-      }
-    });
-    this.storedHoveredPageId = null;
-    console.log('storedPageId: ', this.storedHoveredPageId);
+  clearSubPages(pageId: number, pageDescription: string, parentId: number) {
+    //this needs to be if subpageparent id doesnt match the origin page id...
+    if (this.storedSubParentId != this.storedHoveredPageId) {
+      this.navBarService.subPageNavLinks = [];
+      console.log('clear!');
+      this.storedHoveredPageId = null;
+      this.storedSubParentId = null;
+    }
   }
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
-    this.storedHoveredPageId = null;
+
+    //I think i need to clear the old data when I hover again to the next link...
 
     this.lastHoveredNum = passedInPageId; //
-    console.log(passedInPageId);
+    console.log('pageID', passedInPageId);
     this.storedHoveredPageId = passedInPageId;
-    console.log('stored pageid: ', this.storedHoveredPageId);
+    console.log('stored id', passedInPageId);
+    console.log(pageDescription);
+
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
 
-    //create a new list navbarService.SubPageLinks
-
-    //For each page in navBarService.navBarByClientUrlArray that has a parent id of the passedInPageId
-
     this.publishedNavLinks.forEach((element) => {
-      // console.log('element: ', element);
-      // console.log('element.ParentId: ', element.ParentId);
-      // console.log('passedInPageId: ', passedInPageId);
       if (element.ParentId == passedInPageId) {
         if (!this.navBarService.subPageNavLinks.includes(element)) {
           this.navBarService.subPageNavLinks.push(element);
-          console.log(element);
+          this.storedSubParentId = element.ParentId;
+          console.log('sub parent id', this.storedSubParentId);
         }
       }
     });
-    console.log('subPage nav links:  ', this.navBarService.subPageNavLinks);
-
-    //Add those pages to subPageLinks list
-
-    //When Mouse off, remove all links from the list (so we dont get duplicate pages...)
-
-    //We want to compare the Id passed in on hover and
-
-    // if (this.SubPageLocalStorage != null) {
-    //   this.SubPageLocalStorage = this.SubPageLocalStorage.filter(
-    //     //this should compare the pageId of each sub page to the last number that was hovered over
-    //     (x) => x.PageId.toString() === this.lastHoveredNum.toString()
-    //   );
-    // }
   }
 
+  getSubPageIdOnHover(
+    subPageId: number,
+    subPageDescription: string,
+    parentId: number
+  ) {
+    console.log('subpageid: ', subPageId);
+    console.log(subPageDescription);
+    console.log('parentId', parentId);
+  }
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
 
@@ -347,6 +339,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick(pageId: string, pageDescription: string) {
+    console.log('passing through', pageId + ' ' + pageDescription);
     this.router.navigate([pageDescription + '/' + pageId]);
   }
 
