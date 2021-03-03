@@ -98,7 +98,6 @@ export class NavbarComponent implements OnInit {
 
     data.subscribe((res) => {
       this.navBarService.navLinksByClientUrl = res;
-      console.log('data from navbar: ', this.navBarService.navLinksByClientUrl);
 
       for (let i = 0; i < this.navBarService.navLinksByClientUrl.length; i++) {
         const element = this.navBarService.navLinksByClientUrl[i];
@@ -120,10 +119,6 @@ export class NavbarComponent implements OnInit {
 
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
-      console.log(
-        'res in navbar service',
-        this.navBarService.navBarByClientUrlArray
-      );
     });
   }
 
@@ -225,7 +220,7 @@ export class NavbarComponent implements OnInit {
     //this needs to be if subpageparent id doesnt match the origin page id...
     if (this.storedSubParentId != this.storedHoveredPageId) {
       this.navBarService.subPageNavLinks = [];
-      console.log('clear!');
+      //console.log('clear!');
       this.storedHoveredPageId = null;
       this.storedSubParentId = null;
     }
@@ -237,20 +232,22 @@ export class NavbarComponent implements OnInit {
     //I think i need to clear the old data when I hover again to the next link...
 
     this.lastHoveredNum = passedInPageId; //
-    console.log('pageID', passedInPageId);
+    console.log('lasthovered id', passedInPageId);
     this.storedHoveredPageId = passedInPageId;
-    console.log('stored id', passedInPageId);
-    console.log(pageDescription);
+    // console.log('stored id', passedInPageId);
+    //console.log(pageDescription);
 
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
+
+    //console.log(this.publishedNavLinks);
 
     this.publishedNavLinks.forEach((element) => {
       if (element.ParentId == passedInPageId) {
         if (!this.navBarService.subPageNavLinks.includes(element)) {
           this.navBarService.subPageNavLinks.push(element);
           this.storedSubParentId = element.ParentId;
-          console.log('sub parent id', this.storedSubParentId);
+          //  console.log('sub parent id', this.storedSubParentId);
         }
       }
     });
@@ -261,9 +258,9 @@ export class NavbarComponent implements OnInit {
     subPageDescription: string,
     parentId: number
   ) {
-    console.log('subpageid: ', subPageId);
-    console.log(subPageDescription);
-    console.log('parentId', parentId);
+    //console.log('subpageid: ', subPageId);
+    //console.log(subPageDescription);
+    //console.log('parentId', parentId);
   }
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
@@ -341,6 +338,8 @@ export class NavbarComponent implements OnInit {
   onClick(pageId: string, pageDescription: string) {
     console.log('passing through', pageId + ' ' + pageDescription);
     this.router.navigate([pageDescription + '/' + pageId]);
+    console.log(pageDescription + '/' + pageId);
+    this.navBarService.subPageNavLinks = [];
   }
 
   getSubPageAllContent() {

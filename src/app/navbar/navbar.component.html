@@ -276,10 +276,9 @@
                     <a
                       href="#"
                       (mouseover)="
-                        getSubPageIdOnHover(
+                        getPageByIdOnHover(
                           subPage.PageId,
-                          subPage.PageDescription,
-                          subPage.ParentId
+                          subPage.PageDescription
                         )
                       "
                       (click)="onClick(subPage.PageId, subPage.PageDescription)"

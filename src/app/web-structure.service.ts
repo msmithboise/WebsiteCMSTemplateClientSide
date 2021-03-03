@@ -58,17 +58,17 @@ export class WebStructureService {
   findClientUrl() {
     var fullUrl = window.location.href;
 
-    console.log('full url', fullUrl);
+    // console.log('full full url', fullUrl);
 
     var urlArray = fullUrl.split('/');
-    console.log('urlArray when split', urlArray);
+    //console.log('urlArray when split', urlArray);
 
     var myUrl = urlArray[2];
-    console.log('urlArray[2]', myUrl);
+    //console.log('urlArray[2]', myUrl);
 
     var prodUrl = myUrl.split('.');
 
-    console.log('prod url when split at .', prodUrl);
+    // console.log('prod url when split at .', prodUrl);
 
     if (prodUrl[0] == 'com') {
       var prodUrlFinal = prodUrl[1];
@@ -82,7 +82,7 @@ export class WebStructureService {
       prodUrlFinal = prodUrl[1];
     }
 
-    console.log('prodUrlFinal', prodUrlFinal);
+    // console.log('prodUrlFinal', prodUrlFinal);
 
     var testUrl = 'localhost4200';
 
