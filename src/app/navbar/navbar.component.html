@@ -265,6 +265,13 @@
                 <div class="dropdown-content">
                   <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
+                      (mouseover)="
+                        getSubPageIdOnHover(
+                          subPage.PageId,
+                          subPage.PageDescription,
+                          subPage.ParentId
+                        )
+                      "
                       [ngStyle]="{
                         cursor: 'pointer',
                         color: setting.NavBarFontColor,

@@ -103,7 +103,7 @@ export class NavbarComponent implements OnInit {
         const element = this.navBarService.navLinksByClientUrl[i];
 
         //this.navBarService.navLinksByClientUrl.splice(i, 1);
-        if (element.isPublished == true) {
+        if (element.isPublished == true && element.ParentId == null) {
           // console.log(element);
           this.publishedNavLinks.push(element);
           //console.log('publishednavlinks after push', this.publishedNavLinks);
@@ -262,9 +262,9 @@ export class NavbarComponent implements OnInit {
     subPageDescription: string,
     parentId: number
   ) {
-    //console.log('subpageid: ', subPageId);
-    //console.log(subPageDescription);
-    //console.log('parentId', parentId);
+    console.log('subpageid: ', subPageId);
+    console.log(subPageDescription);
+    console.log('parentId', parentId);
   }
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
