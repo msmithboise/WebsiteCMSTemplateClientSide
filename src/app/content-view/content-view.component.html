@@ -1513,7 +1513,13 @@
     </div>
 
     <!-- bg image (Currently used) DEFAULT Animation: None -->
-    <div *ngIf="content.animationName == null || content.animationName == ''">
+    <div
+      *ngIf="
+        content.animationName == null ||
+        content.animationName == '' ||
+        content.animationName == 'none'
+      "
+    >
       <div
         *ngIf="
           (content.backgroundImage != null && content.HyperLink == null) ||
