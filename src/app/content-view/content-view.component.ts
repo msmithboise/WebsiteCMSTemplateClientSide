@@ -51,6 +51,7 @@ import {
     pulseAnimation(),
     jelloAnimation(),
     hueRotateAnimation(),
+
     headShakeAnimation(),
     zoomInAnimation(),
     flipAnimation(),

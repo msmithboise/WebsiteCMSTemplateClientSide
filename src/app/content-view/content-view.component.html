@@ -1561,7 +1561,8 @@
         <div
           *ngIf="
             (content.backgroundImage != null && content.HyperLink == null) ||
-            content.HyperLink == ''
+            content.HyperLink == '' ||
+            content.animationName != 'none'
           "
         >
           <img
@@ -1601,7 +1602,49 @@
         <div
           *ngIf="
             (content.backgroundImage != null && content.HyperLink == null) ||
-            content.HyperLink == ''
+            content.HyperLink == '' ||
+            content.animationName != 'none'
+          "
+        >
+          <img
+            class="responsive"
+            src="{{ content.backgroundImage }}"
+            [ngStyle]="{
+              backgroundAttachment: content.backgroundAttachment,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: content.backgroundSize,
+              position: content.position,
+              opacity: content.opacity,
+              backgroundPosition: content.backgroundPosition,
+              display: content.display,
+              marginLeft: content.marginLeft,
+              marginRight: content.marginRight,
+              textAlign: 'center',
+              resize: 'both',
+              overflow: 'auto',
+              height: content.height,
+              width: this.screenWidth,
+              objectFit: 'cover',
+              zIndex: content.zIndex,
+              transform: content.transform
+            }"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image (Currently used) DEFAULT Animation: slideInUpOnEnter -->
+
+    <div [ngSwitch]="content.animationName">
+      <div
+        *ngSwitchCase="'slideInUpOnEnter'"
+        [@slideInUpOnEnter]="animationState"
+      >
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == '' ||
+            content.animationName != 'none'
           "
         >
           <img
