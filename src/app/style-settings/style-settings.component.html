@@ -105,18 +105,18 @@
                           [(ngModel)]="content.SubPageId"
                         />
 
-                        <!-- Animation -->
+                        <!-- CSS Animations -->
 
-                        <!-- <div class="row">
+                        <div class="row">
                           <div class="col-6">
                             <div>
                               <label
-                                ><b>Animation</b>
+                                ><b>CSS Animations</b>
                                 <button
                                   type="button"
                                   class="btn mr-2"
                                   placement="right"
-                                  ngbTooltip="An animation lets text or an image gradually change from one style to another.  See https://www.w3schools.com/cssref/css3_pr_animation.asp for more info."
+                                  ngbTooltip="Use form to create your own animation.  See https://www.w3schools.com/cssref/css3_pr_animation.asp for more info."
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@
                             </div>
                           </div>
                           <div class="col-6"></div>
-                        </div> -->
+                        </div>
 
                         <!-- Animation Name -->
 
@@ -169,12 +169,12 @@
                           <div class="col-6">
                             <div>
                               <label
-                                ><b>Animation Name</b>
+                                ><b>Pre-built Animations</b>
                                 <button
                                   type="button"
                                   class="btn mr-2"
                                   placement="right"
-                                  ngbTooltip="An animation lets text or an image gradually change from one style to another.  See https://www.w3schools.com/cssref/css3_pr_animation.asp for more info."
+                                  ngbTooltip="An animation lets text or an image gradually change from one style to another.  Use this form to use our already built animations for you.  See https://www.w3schools.com/cssref/css3_pr_animation.asp for more info."
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2928,6 +2928,57 @@
                           <div class="col-6"></div>
                         </div>
 
+                        <!-- Transition Delay -->
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label
+                                ><b>Transition Delay</b
+                                ><button
+                                  type="button"
+                                  class="btn mr-2"
+                                  placement="right"
+                                  ngbTooltip="The transition-delay property specifies when the transition effect will start."
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="#C349BF"
+                                    class="bi bi-question-circle-fill"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                    />
+                                  </svg></button
+                              ></label>
+                              <div>
+                                <input
+                                  name="transitionDelay"
+                                  #transitionDelay="ngModel"
+                                  [(ngModel)]="content.transitionDelay"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="transitionDelay"></label>
+                              <select
+                                id="transitionDelay"
+                                name="transitionDelay"
+                                [(ngModel)]="content.transitionDelay"
+                                class="form-control"
+                              >
+                                <option value="0.4s">0.4s</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
                         <!-- Transition Duration -->
                         <div class="row">
                           <div class="col-6">
@@ -2938,7 +2989,7 @@
                                   type="button"
                                   class="btn mr-2"
                                   placement="right"
-                                  ngbTooltip="This sets the style of the text decoration.  If you set 'text-decoration-line' to 'underline', you could set your underline to be 'wavy'."
+                                  ngbTooltip="The transition-duration property specifies how many seconds (s) or milliseconds (ms) a transition effect takes to complete."
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2973,6 +3024,114 @@
                                 class="form-control"
                               >
                                 <option value="0.4s">0.4s</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Transition Property -->
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label
+                                ><b>Transition Property</b
+                                ><button
+                                  type="button"
+                                  class="btn mr-2"
+                                  placement="right"
+                                  ngbTooltip="property specifies the name of the CSS property the transition effect is for (the transition effect will start when the specified CSS property changes)."
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="#C349BF"
+                                    class="bi bi-question-circle-fill"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                    />
+                                  </svg></button
+                              ></label>
+                              <div>
+                                <input
+                                  name="transitionProperty"
+                                  #transitionProperty="ngModel"
+                                  [(ngModel)]="content.transitionProperty"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="transitionProperty"></label>
+                              <select
+                                id="transitionProperty"
+                                name="transitionProperty"
+                                [(ngModel)]="content.transitionProperty"
+                                class="form-control"
+                              >
+                                <option value="0.4s">0.4s</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6"></div>
+                        </div>
+
+                        <!-- Transition TimingFunction -->
+                        <div class="row">
+                          <div class="col-6">
+                            <div>
+                              <label
+                                ><b>Transition TimingFunction</b
+                                ><button
+                                  type="button"
+                                  class="btn mr-2"
+                                  placement="right"
+                                  ngbTooltip="This property allows a transition effect to change speed over its duration."
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="#C349BF"
+                                    class="bi bi-question-circle-fill"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                    />
+                                  </svg></button
+                              ></label>
+                              <div>
+                                <input
+                                  name="transitionTimingFunction"
+                                  #transitionTimingFunction="ngModel"
+                                  [(ngModel)]="content.transitionTimingFunction"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="transitionTimingFunction"></label>
+                              <select
+                                id="transitionTimingFunction"
+                                name="transitionTimingFunction"
+                                [(ngModel)]="content.transitionTimingFunction"
+                                class="form-control"
+                              >
+                                <option value="ease">ease</option>
+                                <option value="linear">linear</option>
+                                <option value="ease-in">ease-in</option>
+                                <option value="ease-out">ease-out</option>
+                                <option value="ease-in-out">ease-in-out</option>
+                                <option value="step-start">step-start</option>
+                                <option value="step-end">step-end</option>
                               </select>
                             </div>
                           </div>

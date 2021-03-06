@@ -33,6 +33,7 @@
               class="customText"
               [ngStyle]="{
                 fontSize: content.fontSize,
+
                 color: content.color,
                 backgroundAttachment: content.backgroundAttachment,
                 backgroundClip: content.backgroundClip,
@@ -1381,7 +1382,9 @@
                 width: this.screenWidth,
                 objectFit: 'cover',
                 zIndex: content.zIndex,
-                transform: content.transform
+                transform: content.transform,
+                transitionDuration: content.transitionDuration,
+                transitionDelay: content.transitionDelay
               }"
             />
           </a>
