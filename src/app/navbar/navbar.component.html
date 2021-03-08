@@ -262,7 +262,7 @@
                 >
 
                 <!-- subpages -->
-                <div class="dropdown-content">
+                <div class="dropdown-content dropdown-child">
                   <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
                       (mouseover)="
@@ -283,20 +283,26 @@
                       >{{ subPage.PageDescription }}</a
                     >
                   </div>
-                  <div
-                    *ngFor="let subPage of this.navBarService.subPageChildLinks"
-                  >
-                    <a
-                      [ngStyle]="{
-                        cursor: 'pointer',
-                        color: setting.NavBarFontColor,
-                        fontSize: setting.NavFontSize,
-                        fontFamily: setting.NavFontFamily,
-                        letterSpacing: setting.NavFontLetterSpacing
-                      }"
-                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
-                      >{{ subPage.PageDescription }}</a
+                  <div class="dropdown-content-child">
+                    <div
+                      *ngFor="
+                        let subPage of this.navBarService.subPageChildLinks
+                      "
                     >
+                      <a
+                        [ngStyle]="{
+                          cursor: 'pointer',
+                          color: setting.NavBarFontColor,
+                          fontSize: setting.NavFontSize,
+                          fontFamily: setting.NavFontFamily,
+                          letterSpacing: setting.NavFontLetterSpacing
+                        }"
+                        (click)="
+                          onClick(subPage.PageId, subPage.PageDescription)
+                        "
+                        >{{ subPage.PageDescription }}</a
+                      >
+                    </div>
                   </div>
                 </div>
               </div>

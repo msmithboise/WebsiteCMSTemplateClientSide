@@ -51,8 +51,42 @@
   display: block;
 }
 
+/* Child subpages */
+.dropdown-chld {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content-child {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 101;
+}
+
+/* Links inside the dropdown */
+.dropdown-content-child a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-child a:hover {
+  background-color: #9b9b9b;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown-child:hover .dropdown-content-child {
+  display: block;
+}
+
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+.dropdown-child:hover .dropbtn {
   background-color: #9b9b9b;
 }
 
