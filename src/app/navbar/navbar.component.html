@@ -283,6 +283,21 @@
                       >{{ subPage.PageDescription }}</a
                     >
                   </div>
+                  <div
+                    *ngFor="let subPage of this.navBarService.subPageChildLinks"
+                  >
+                    <a
+                      [ngStyle]="{
+                        cursor: 'pointer',
+                        color: setting.NavBarFontColor,
+                        fontSize: setting.NavFontSize,
+                        fontFamily: setting.NavFontFamily,
+                        letterSpacing: setting.NavFontLetterSpacing
+                      }"
+                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
+                      >{{ subPage.PageDescription }}</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
