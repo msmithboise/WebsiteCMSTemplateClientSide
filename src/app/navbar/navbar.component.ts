@@ -271,6 +271,21 @@ export class NavbarComponent implements OnInit {
       console.log(res);
     });
   }
+
+  getChildSubPageIdOnHover(
+    subPageId: number,
+    subPageDescription: string,
+    parentId: number
+  ) {
+    console.log('subpageid: ', subPageId);
+    console.log(subPageDescription);
+    console.log('parentId', parentId);
+
+    this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
+      this.navBarService.subPageChildLinksTwo = res;
+      console.log(res);
+    });
+  }
   getPageByIdOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
 

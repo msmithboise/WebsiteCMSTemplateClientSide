@@ -242,6 +242,7 @@
             position: setting.NavBarWebKit
           }"
         >
+          <!-- 1st Level Page -->
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div>
               <div class="dropdown">
@@ -261,7 +262,7 @@
                   >{{ page.PageDescription }}</a
                 >
 
-                <!-- subpages -->
+                <!-- 2nd Level Page -->
                 <div class="dropdown-content dropdown-child">
                   <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
@@ -283,13 +284,21 @@
                       >{{ subPage.PageDescription }}</a
                     >
                   </div>
-                  <div class="dropdown-content-child">
+                  <!-- 3rd Level Page -->
+                  <div class="dropdown-content-child dropdown-child-two">
                     <div
                       *ngFor="
                         let subPage of this.navBarService.subPageChildLinks
                       "
                     >
                       <a
+                        (mouseover)="
+                          getChildSubPageIdOnHover(
+                            subPage.PageId,
+                            subPage.PageDescription,
+                            subPage.ParentId
+                          )
+                        "
                         [ngStyle]="{
                           cursor: 'pointer',
                           color: setting.NavBarFontColor,
@@ -302,6 +311,29 @@
                         "
                         >{{ subPage.PageDescription }}</a
                       >
+                    </div>
+                    <!-- 4th Level Page -->
+                    <div class="dropdown-content-child">
+                      <div
+                        *ngFor="
+                          let subPage of this.navBarService.subPageChildLinksTwo
+                        "
+                      >
+                        <a
+                          [ngStyle]="{
+                            cursor: 'pointer',
+                            color: setting.NavBarFontColor,
+                            fontSize: setting.NavFontSize,
+                            fontFamily: setting.NavFontFamily,
+                            letterSpacing: setting.NavFontLetterSpacing
+                          }"
+                          (click)="
+                            onClick(subPage.PageId, subPage.PageDescription)
+                          "
+                          >{{ subPage.PageDescription }}</a
+                        >
+                      </div>
+                      <!-- 4th Level Page -->
                     </div>
                   </div>
                 </div>
