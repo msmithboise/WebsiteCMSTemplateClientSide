@@ -245,7 +245,7 @@
           <!-- 1st Level Page -->
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div>
-              <div class="dropdown">
+              <div class="dropdown-one">
                 <a
                   (click)="onClick(page.PageId, page.PageDescription)"
                   [ngStyle]="{
@@ -263,7 +263,7 @@
                 >
 
                 <!-- 2nd Level Page -->
-                <div class="dropdown-content dropdown-child">
+                <div class="dropdown-content-one dropdown-child">
                   <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
                       (mouseover)="
