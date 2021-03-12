@@ -225,7 +225,7 @@ export class NavbarComponent implements OnInit {
     this.storedSubParentId = null;
   }
 
-  getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
+  getSubPageOneOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
     this.navBarService.subPageLinks = [];
@@ -239,7 +239,7 @@ export class NavbarComponent implements OnInit {
     this.pageDescriptionSnapshot = pageDescription;
   }
 
-  getSubPageIdOnHover(
+  getSubPageTwoOnHover(
     subPageId: number,
     subPageDescription: string,
     parentId: number
@@ -256,7 +256,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  getChildSubPageIdOnHover(
+  getSubPageThreeOnHover(
     subPageId: number,
     subPageDescription: string,
     parentId: number
