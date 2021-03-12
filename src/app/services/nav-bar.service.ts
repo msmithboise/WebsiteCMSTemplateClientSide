@@ -14,9 +14,9 @@ export class NavBarService {
   public navBarByClientUrlArray: Navbar[];
   public navLinksByClientUrl: CustomPage[];
   public subPageNavLinks: CustomPage[] = [];
-  public subPageLinks: CustomPage[] = [];
-  public subPageChildLinks: CustomPage[] = [];
-  public subPageChildLinksTwo: CustomPage[] = [];
+  public subPageOneArray: CustomPage[] = [];
+  public subPageTwoArray: CustomPage[] = [];
+  public subPageThreeArray: CustomPage[] = [];
 
   constructor(
     public http: HttpClient,

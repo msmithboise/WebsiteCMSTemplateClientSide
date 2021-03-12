@@ -266,7 +266,9 @@
                 <!-- 2nd Level Page (Dropdown two, Content One Products)-->
                 <div class="dropdown-content-one dropdown-two">
                   <div
-                    *ngFor="let subPageOne of this.navBarService.subPageLinks"
+                    *ngFor="
+                      let subPageOne of this.navBarService.subPageOneArray
+                    "
                   >
                     <a
                       (mouseover)="
@@ -293,7 +295,7 @@
                   <div class="dropdown-content-two dropdown-three">
                     <div
                       *ngFor="
-                        let subPageTwo of this.navBarService.subPageChildLinks
+                        let subPageTwo of this.navBarService.subPageTwoArray
                       "
                     >
                       <a
@@ -322,7 +324,7 @@
                       <div
                         *ngFor="
                           let subPageThree of this.navBarService
-                            .subPageChildLinksTwo
+                            .subPageThreeArray
                         "
                       >
                         <a

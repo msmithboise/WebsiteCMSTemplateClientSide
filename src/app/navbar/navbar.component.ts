@@ -228,10 +228,10 @@ export class NavbarComponent implements OnInit {
   getSubPageOneOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
-    this.navBarService.subPageLinks = [];
+    this.navBarService.subPageOneArray = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
-      this.navBarService.subPageLinks = res;
+      this.navBarService.subPageOneArray = res;
       console.log(res);
     });
 
@@ -248,10 +248,10 @@ export class NavbarComponent implements OnInit {
     console.log(subPageDescription);
     console.log('parentId', parentId);
 
-    this.navBarService.subPageChildLinks = [];
+    this.navBarService.subPageTwoArray = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
-      this.navBarService.subPageChildLinks = res;
+      this.navBarService.subPageTwoArray = res;
       console.log(res);
     });
   }
@@ -265,10 +265,10 @@ export class NavbarComponent implements OnInit {
     console.log(subPageDescription);
     console.log('parentId', parentId);
 
-    this.navBarService.subPageChildLinksTwo = [];
+    this.navBarService.subPageThreeArray = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
-      this.navBarService.subPageChildLinksTwo = res;
+      this.navBarService.subPageThreeArray = res;
       console.log(res);
     });
   }
