@@ -265,13 +265,15 @@
 
                 <!-- 2nd Level Page (Dropdown two, Content One Products)-->
                 <div class="dropdown-content-one dropdown-two">
-                  <div *ngFor="let subPage of this.navBarService.subPageLinks">
+                  <div
+                    *ngFor="let subPageOne of this.navBarService.subPageLinks"
+                  >
                     <a
                       (mouseover)="
                         getSubPageIdOnHover(
-                          subPage.PageId,
-                          subPage.PageDescription,
-                          subPage.ParentId
+                          subPageOne.PageId,
+                          subPageOne.PageDescription,
+                          subPageOne.ParentId
                         )
                       "
                       [ngStyle]="{
@@ -281,23 +283,25 @@
                         fontFamily: setting.NavFontFamily,
                         letterSpacing: setting.NavFontLetterSpacing
                       }"
-                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
-                      >{{ subPage.PageDescription }}</a
+                      (click)="
+                        onClick(subPageOne.PageId, subPageOne.PageDescription)
+                      "
+                      >{{ subPageOne.PageDescription }}</a
                     >
                   </div>
                   <!-- 3rd Level Page (Dropdown Three, Content Two Firearms)-->
                   <div class="dropdown-content-two dropdown-three">
                     <div
                       *ngFor="
-                        let subPage of this.navBarService.subPageChildLinks
+                        let subPageTwo of this.navBarService.subPageChildLinks
                       "
                     >
                       <a
                         (mouseover)="
                           getChildSubPageIdOnHover(
-                            subPage.PageId,
-                            subPage.PageDescription,
-                            subPage.ParentId
+                            subPageTwo.PageId,
+                            subPageTwo.PageDescription,
+                            subPageTwo.ParentId
                           )
                         "
                         [ngStyle]="{
@@ -308,16 +312,17 @@
                           letterSpacing: setting.NavFontLetterSpacing
                         }"
                         (click)="
-                          onClick(subPage.PageId, subPage.PageDescription)
+                          onClick(subPageTwo.PageId, subPageTwo.PageDescription)
                         "
-                        >{{ subPage.PageDescription }}</a
+                        >{{ subPageTwo.PageDescription }}</a
                       >
                     </div>
 
-                    <div class="dropdown-four">
+                    <div class="dropdown-four dropdown-content-three">
                       <div
                         *ngFor="
-                          let subPage of this.navBarService.subPageChildLinksTwo
+                          let subPageThree of this.navBarService
+                            .subPageChildLinksTwo
                         "
                       >
                         <a
@@ -329,9 +334,12 @@
                             letterSpacing: setting.NavFontLetterSpacing
                           }"
                           (click)="
-                            onClick(subPage.PageId, subPage.PageDescription)
+                            onClick(
+                              subPageThree.PageId,
+                              subPageThree.PageDescription
+                            )
                           "
-                          >{{ subPage.PageDescription }}</a
+                          >{{ subPageThree.PageDescription }}</a
                         >
                       </div>
                     </div>
