@@ -227,34 +227,16 @@ export class NavbarComponent implements OnInit {
 
   getPageByIdOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
+    //clear the old data when I hover again to the next link...
+    this.navBarService.subPageLinks = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageLinks = res;
       console.log(res);
     });
 
-    //I think i need to clear the old data when I hover again to the next link...
-
-    // this.lastHoveredNum = passedInPageId; //
-    // console.log('lasthovered id', passedInPageId);
-    // this.storedHoveredPageId = passedInPageId;
-    // console.log('stored id', passedInPageId);
-    //console.log(pageDescription);
-
     this.pageIdSnapshot = passedInPageId.toString();
     this.pageDescriptionSnapshot = pageDescription;
-
-    //console.log(this.publishedNavLinks);
-
-    // this.publishedNavLinks.forEach((element) => {
-    //   if (element.ParentId == passedInPageId) {
-    //     if (!this.navBarService.subPageNavLinks.includes(element)) {
-    //       this.navBarService.subPageNavLinks.push(element);
-
-    //       //  console.log('sub parent id', this.storedSubParentId);
-    //     }
-    //   }
-    // });
   }
 
   getSubPageIdOnHover(
@@ -265,6 +247,8 @@ export class NavbarComponent implements OnInit {
     console.log('subpageid: ', subPageId);
     console.log(subPageDescription);
     console.log('parentId', parentId);
+
+    this.navBarService.subPageChildLinks = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
       this.navBarService.subPageChildLinks = res;
@@ -280,6 +264,8 @@ export class NavbarComponent implements OnInit {
     console.log('subpageid: ', subPageId);
     console.log(subPageDescription);
     console.log('parentId', parentId);
+
+    this.navBarService.subPageChildLinksTwo = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
       this.navBarService.subPageChildLinksTwo = res;
