@@ -245,6 +245,7 @@
           <!-- 1st Level Page -->
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
             <div>
+              <!-- Dropdown One True Calbre -->
               <div class="dropdown-one">
                 <a
                   (click)="onClick(page.PageId, page.PageDescription)"
@@ -262,8 +263,8 @@
                   >{{ page.PageDescription }}</a
                 >
 
-                <!-- 2nd Level Page -->
-                <div class="dropdown-content-one dropdown-child">
+                <!-- 2nd Level Page (Dropdown two, Content One Products)-->
+                <div class="dropdown-content-one dropdown-two">
                   <div *ngFor="let subPage of this.navBarService.subPageLinks">
                     <a
                       (mouseover)="
@@ -284,8 +285,8 @@
                       >{{ subPage.PageDescription }}</a
                     >
                   </div>
-                  <!-- 3rd Level Page -->
-                  <div class="dropdown-content-child dropdown-child-two">
+                  <!-- 3rd Level Page (Dropdown Three, Content Two Firearms)-->
+                  <div class="dropdown-content-two dropdown-three">
                     <div
                       *ngFor="
                         let subPage of this.navBarService.subPageChildLinks
@@ -312,31 +313,30 @@
                         >{{ subPage.PageDescription }}</a
                       >
                     </div>
-                    <!-- 4th Level Page -->
-                    <div class="dropdown-content-child">
-                      <div
-                        *ngFor="
-                          let subPage of this.navBarService.subPageChildLinksTwo
-                        "
-                      >
-                        <a
-                          [ngStyle]="{
-                            cursor: 'pointer',
-                            color: setting.NavBarFontColor,
-                            fontSize: setting.NavFontSize,
-                            fontFamily: setting.NavFontFamily,
-                            letterSpacing: setting.NavFontLetterSpacing
-                          }"
-                          (click)="
-                            onClick(subPage.PageId, subPage.PageDescription)
-                          "
-                          >{{ subPage.PageDescription }}</a
-                        >
-                      </div>
-                      <!-- 4th Level Page -->
-                    </div>
                   </div>
                 </div>
+
+                <!-- 4th Level Page (dropdown four, content three Auto Semi)-->
+                <!-- <div class="dropdown-four">
+                  <div
+                    *ngFor="
+                      let subPage of this.navBarService.subPageChildLinksTwo
+                    "
+                  >
+                    <a
+                      [ngStyle]="{
+                        cursor: 'pointer',
+                        color: setting.NavBarFontColor,
+                        fontSize: setting.NavFontSize,
+                        fontFamily: setting.NavFontFamily,
+                        letterSpacing: setting.NavFontLetterSpacing
+                      }"
+                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
+                      >{{ subPage.PageDescription }}</a
+                    >
+                  </div>
+                </div> -->
+                <!-- 4th Level Page -->
               </div>
             </div>
           </li>

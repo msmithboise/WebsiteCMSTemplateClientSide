@@ -23,6 +23,37 @@
   display: inline-block;
 }
 
+.dropdown-two {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-three {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-four {
+  position: relative;
+  display: inline-block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown-one:hover .dropdown-content-one {
+  display: block;
+}
+
+.dropdown-two:hover .dropdown-content-two {
+  display: block;
+}
+
+.dropdown-three:hover .dropdown-content-three {
+  display: block;
+}
+
+.dropdown-four:hover .dropdown-content-four {
+  display: block;
+}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content-one {
   display: none;
@@ -46,15 +77,10 @@
   background-color: #9b9b9b;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown-one:hover .dropdown-content-one {
-  display: block;
-}
-
 /* Child subpages */
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content-child {
+.dropdown-content-two {
   display: none;
   position: absolute;
 
@@ -68,7 +94,7 @@
 }
 
 /* Links inside the dropdown */
-.dropdown-content-child a {
+.dropdown-content-two a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -76,25 +102,25 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content-child a:hover {
+.dropdown-content-two a:hover {
   background-color: #9b9b9b;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown-child:hover .dropdown-content-child {
+.dropdown-two:hover .dropdown-content-two {
   display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown-child:hover .dropbtn {
+.dropdown-two:hover .dropbtn {
   background-color: #9b9b9b;
 }
 
 /* Child subpages 4th Level*/
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content-child-two {
-  display: none;
+.dropdown-content-three {
+  display: block;
   position: absolute;
 
   top: 0;
@@ -107,7 +133,7 @@
 }
 
 /* Links inside the dropdown */
-.dropdown-content-child-two a {
+.dropdown-content-three a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -115,17 +141,17 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content-child-two a:hover {
+.dropdown-content-three a:hover {
   background-color: #9b9b9b;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown-child-two:hover .dropdown-content-child-two {
+.dropdown-three:hover .dropdown-content-child-three {
   display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown-child-two:hover .dropbtn {
+.dropdown-three:hover .dropbtn {
   background-color: #9b9b9b;
 }
 
