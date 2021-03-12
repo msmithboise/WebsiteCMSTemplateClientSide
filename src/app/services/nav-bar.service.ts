@@ -17,6 +17,7 @@ export class NavBarService {
   public subPageOneArray: CustomPage[] = [];
   public subPageTwoArray: CustomPage[] = [];
   public subPageThreeArray: CustomPage[] = [];
+  public subPageFourArray: CustomPage[] = [];
 
   constructor(
     public http: HttpClient,

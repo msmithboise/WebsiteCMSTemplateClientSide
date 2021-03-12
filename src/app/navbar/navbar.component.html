@@ -328,6 +328,13 @@
                         "
                       >
                         <a
+                          (mouseover)="
+                            getSubPageFourOnHover(
+                              subPageThree.PageId,
+                              subPageThree.PageDescription,
+                              subPageThree.ParentId
+                            )
+                          "
                           [ngStyle]="{
                             cursor: 'pointer',
                             color: setting.NavBarFontColor,
@@ -344,11 +351,36 @@
                           >{{ subPageThree.PageDescription }}</a
                         >
                       </div>
+                      <!-- 4th Level Page (dropdown four, content three AK-47)-->
+                      <div class="dropdown-five dropdown-content-four">
+                        <div
+                          *ngFor="
+                            let subPageFour of this.navBarService
+                              .subPageFourArray
+                          "
+                        >
+                          <a
+                            [ngStyle]="{
+                              cursor: 'pointer',
+                              color: setting.NavBarFontColor,
+                              fontSize: setting.NavFontSize,
+                              fontFamily: setting.NavFontFamily,
+                              letterSpacing: setting.NavFontLetterSpacing
+                            }"
+                            (click)="
+                              onClick(
+                                subPageFour.PageId,
+                                subPageFour.PageDescription
+                              )
+                            "
+                            >{{ subPageFour.PageDescription }}</a
+                          >
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- 4th Level Page (dropdown four, content three Auto Semi)-->
                 <!-- 4th Level Page -->
               </div>
             </div>
