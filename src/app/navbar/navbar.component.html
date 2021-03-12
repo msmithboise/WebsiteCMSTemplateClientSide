@@ -313,29 +313,32 @@
                         >{{ subPage.PageDescription }}</a
                       >
                     </div>
+
+                    <div class="dropdown-four">
+                      <div
+                        *ngFor="
+                          let subPage of this.navBarService.subPageChildLinksTwo
+                        "
+                      >
+                        <a
+                          [ngStyle]="{
+                            cursor: 'pointer',
+                            color: setting.NavBarFontColor,
+                            fontSize: setting.NavFontSize,
+                            fontFamily: setting.NavFontFamily,
+                            letterSpacing: setting.NavFontLetterSpacing
+                          }"
+                          (click)="
+                            onClick(subPage.PageId, subPage.PageDescription)
+                          "
+                          >{{ subPage.PageDescription }}</a
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <!-- 4th Level Page (dropdown four, content three Auto Semi)-->
-                <!-- <div class="dropdown-four">
-                  <div
-                    *ngFor="
-                      let subPage of this.navBarService.subPageChildLinksTwo
-                    "
-                  >
-                    <a
-                      [ngStyle]="{
-                        cursor: 'pointer',
-                        color: setting.NavBarFontColor,
-                        fontSize: setting.NavFontSize,
-                        fontFamily: setting.NavFontFamily,
-                        letterSpacing: setting.NavFontLetterSpacing
-                      }"
-                      (click)="onClick(subPage.PageId, subPage.PageDescription)"
-                      >{{ subPage.PageDescription }}</a
-                    >
-                  </div>
-                </div> -->
                 <!-- 4th Level Page -->
               </div>
             </div>
