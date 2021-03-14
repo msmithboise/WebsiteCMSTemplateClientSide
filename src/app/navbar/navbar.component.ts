@@ -230,6 +230,9 @@ export class NavbarComponent implements OnInit {
   getSubPageOneOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
+    console.log('pageId', passedInPageId);
+    console.log('pageDesc', pageDescription);
+
     this.navBarService.subPageOneArray = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {

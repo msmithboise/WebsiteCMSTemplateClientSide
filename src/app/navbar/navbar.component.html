@@ -203,22 +203,32 @@
               >
             </div>
 
-            <!-- Button Collapse content  (Where subpages will show) -->
+            <!-- <div class="dropdown">
+              <div class="dropdown-content">
+                
+              </div>
+            </div> -->
             <div class="container">
               <div id="subpage-dropdown" class="collapse">
-                WHERE WE ARE
-                <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                  <a href="#">{{ subPage.PageDescription }}</a>
+                <div *ngFor="let subPage of this.navBarService.subPageOneArray">
+                  <a
+                    [ngStyle]="{
+                      borderStyle: 'solid',
+                      border: 'black',
+                      cursor: 'pointer',
+                      color: setting.NavBarFontColor,
+                      fontSize: setting.NavFontSize,
+                      fontFamily: setting.NavFontFamily,
+                      letterSpacing: setting.NavFontLetterSpacing
+                    }"
+                    href="#"
+                    >{{ subPage.PageDescription }}</a
+                  >
                 </div>
               </div>
             </div>
-
-            <!-- <div class="dropdown">
-              <div class="dropdown-content">
-               
-              </div>
-            </div> -->
           </li>
+          <!-- Button Collapse content  (Where subpages will show) -->
           <!-- Subpages dropdown content -->
           <div class="dropdown">
             <a class="dropbtn nav-link"></a>
