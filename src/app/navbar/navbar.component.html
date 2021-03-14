@@ -168,12 +168,14 @@
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
         >&times;</a
       >
-      <ul class="nav-item" *ngFor="let page of publishedNavLinks">
+      <ul class="mainlinks" *ngFor="let page of publishedNavLinks">
         <a
-          (click)="getSubPageOneOnClick(page.PageId, page.PageDescription)"
+          (click)="
+            getSubPageOneOnClick(page.PageId, page.PageDescription, page)
+          "
           [ngStyle]="{
             cursor: 'pointer',
-            color: '#ffffff',
+
             fontSize: setting.NavFontSize,
             fontFamily: setting.NavFontFamily,
             letterSpacing: setting.NavFontLetterSpacing
@@ -250,7 +252,7 @@
                 data-toggle="collapse"
                 data-target="#subpage-dropdown"
                 (click)="
-                  getSubPageOneOnClick(page.PageId, page.PageDescription)
+                  getSubPageOneOnClick(page.PageId, page.PageDescription, page)
                 "
                 [ngStyle]="{
                   cursor: 'pointer',

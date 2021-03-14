@@ -245,7 +245,11 @@ export class NavbarComponent implements OnInit {
     console.log('closing subpage one');
   }
 
-  getSubPageOneOnClick(passedInPageId: number, pageDescription: string) {
+  getSubPageOneOnClick(
+    passedInPageId: number,
+    pageDescription: string,
+    parentPage: CustomPage
+  ) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
 
@@ -254,6 +258,7 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageOneArray = res;
       console.log(res);
+      this.navBarService.subPageOneArray.unshift(parentPage);
     });
 
     this.openSubPageOneNav();
