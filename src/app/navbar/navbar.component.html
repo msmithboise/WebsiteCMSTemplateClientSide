@@ -188,8 +188,8 @@
                     page.ParentId
                   )
                 "
-                (mouseover)="
-                  getSubPageOneOnHover(page.PageId, page.PageDescription)
+                (click)="
+                  getSubPageOneOnClick(page.PageId, page.PageDescription)
                 "
                 [ngStyle]="{
                   cursor: 'pointer',

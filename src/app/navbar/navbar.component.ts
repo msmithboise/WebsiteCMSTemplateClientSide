@@ -225,6 +225,23 @@ export class NavbarComponent implements OnInit {
     this.storedSubParentId = null;
   }
 
+  //Mobile Nav bar
+
+  getSubPageOneOnClick(passedInPageId: number, pageDescription: string) {
+    // this.SubPageLocalStorage = this.untouchedStorage;
+    //clear the old data when I hover again to the next link...
+    this.navBarService.subPageOneArray = [];
+
+    this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
+      this.navBarService.subPageOneArray = res;
+      console.log(res);
+    });
+
+    this.pageIdSnapshot = passedInPageId.toString();
+    this.pageDescriptionSnapshot = pageDescription;
+  }
+
+  //Desktop nav bar
   getSubPageOneOnHover(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
