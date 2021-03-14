@@ -177,8 +177,10 @@
           }"
         >
           <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div (click)="onClick(page.PageId, page.PageDescription)">
+            <div>
               <a
+                data-toggle="collapse"
+                data-target="#subpage-dropdown"
                 (mouseleave)="
                   clearSubPages(
                     page.PageId,
@@ -200,21 +202,22 @@
                 >{{ page.PageDescription }}</a
               >
             </div>
-            <div class="dropdown">
-              <div class="dropdown-content">
+
+            <!-- Button Collapse content  (Where subpages will show) -->
+            <div class="container">
+              <div id="subpage-dropdown" class="collapse">
+                WHERE WE ARE
                 <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                  <a
-                    (click)="
-                      navToSubPage(
-                        subPage.SubPageId,
-                        subPage.SubPageDescription
-                      )
-                    "
-                    >{{ subPage.PageDescription }}</a
-                  >
+                  <a href="#">{{ subPage.PageDescription }}</a>
                 </div>
               </div>
             </div>
+
+            <!-- <div class="dropdown">
+              <div class="dropdown-content">
+               
+              </div>
+            </div> -->
           </li>
           <!-- Subpages dropdown content -->
           <div class="dropdown">
