@@ -229,20 +229,25 @@ export class NavbarComponent implements OnInit {
   //Mobile Nav bar
 
   closeNav() {
-    document.getElementById('mySidenav').style.width = '0';
+    document.getElementById('mainPageSideNav').style.width = '0';
   }
 
   openNav() {
-    document.getElementById('mySidenav').style.width = '250px';
+    document.getElementById('mainPageSideNav').style.width = '250px';
+  }
+
+  openSubPageOneNav() {
+    document.getElementById('subPageOneSideNav').style.width = '250px';
+  }
+
+  closeSubPageOneNav() {
+    document.getElementById('subPageOneSideNav').style.width = '0';
+    console.log('closing subpage one');
   }
 
   getSubPageOneOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
-    console.log('pageId', passedInPageId);
-
-    this.storedId = passedInPageId;
-    console.log('pageDesc', pageDescription);
 
     this.navBarService.subPageOneArray = [];
 
@@ -250,6 +255,8 @@ export class NavbarComponent implements OnInit {
       this.navBarService.subPageOneArray = res;
       console.log(res);
     });
+
+    this.openSubPageOneNav();
   }
 
   //Desktop nav bar

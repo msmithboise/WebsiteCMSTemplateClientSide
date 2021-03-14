@@ -163,13 +163,14 @@
       />
     </div>
 
-    <!-- SideNav bar -->
-    <div id="mySidenav" class="sidenav">
+    <!-- SideNav bar Main Page -->
+    <div id="mainPageSideNav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
         >&times;</a
       >
       <ul class="nav-item" *ngFor="let page of publishedNavLinks">
         <a
+          (click)="getSubPageOneOnClick(page.PageId, page.PageDescription)"
           [ngStyle]="{
             cursor: 'pointer',
             color: '#ffffff',
@@ -177,7 +178,6 @@
             fontFamily: setting.NavFontFamily,
             letterSpacing: setting.NavFontLetterSpacing
           }"
-          href="#"
           >{{ page.PageDescription }}</a
         >
       </ul>
@@ -194,6 +194,42 @@
       (click)="openNav()"
       >&#9776;</span
     >
+
+    <!-- SideNav bar SubpageOne -->
+    <div id="subPageOneSideNav" class="sidenav">
+      <a
+        href="javascript:void(0)"
+        class="closebtn"
+        (click)="closeSubPageOneNav()"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-arrow-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+          /></svg
+      ></a>
+      <ul
+        class="nav-item"
+        *ngFor="let subPageOne of this.navBarService.subPageOneArray"
+      >
+        <a
+          [ngStyle]="{
+            cursor: 'pointer',
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing
+          }"
+          >{{ subPageOne.PageDescription }}</a
+        >
+      </ul>
+    </div>
 
     <!-- If screen is mobile -->
     <div *ngIf="isMobile()">
