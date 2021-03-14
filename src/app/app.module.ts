@@ -53,6 +53,7 @@ import { NewsComponent } from './news/news.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './auth-guard.service';
 import { NullPageGuardService } from './null-page-guard.service';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -93,8 +94,10 @@ import { NullPageGuardService } from './null-page-guard.service';
     ButtonPanelComponent,
     NewsComponent,
     PageNotFoundComponent,
+    SidenavComponent,
   ],
   imports: [
+    MatSliderModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
