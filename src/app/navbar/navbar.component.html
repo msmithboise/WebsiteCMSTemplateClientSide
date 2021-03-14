@@ -119,14 +119,14 @@
       width: setting.NavWidth
     }"
   >
-    <button
+    <!-- <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#testNav"
     >
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
     <!-- Logo With Hyperlink -->
 
     <div *ngIf="setting.LogoUrl != '' && setting.LogoHyperLink != null">
@@ -146,35 +146,34 @@
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="testNav">
-      <mat-drawer-container
-        class="example-container"
-        [hasBackdrop]="hasBackdrop.value"
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+        >&times;</a
       >
-        <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
-        <mat-drawer-content>
-          <mat-form-field>
-            <mat-label>Sidenav mode</mat-label>
-            <mat-select #mode value="side">
-              <mat-option value="side">Side</mat-option>
-              <mat-option value="over">Over</mat-option>
-              <mat-option value="push">Push</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Has backdrop</mat-label>
-            <mat-select #hasBackdrop>
-              <mat-option>Unset</mat-option>
-              <mat-option [value]="true">True</mat-option>
-              <mat-option [value]="false">False</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <button mat-raised-button (click)="drawer.toggle()">
-            Toggle drawer
-          </button>
-        </mat-drawer-content>
-      </mat-drawer-container>
+      <a
+        [ngStyle]="{
+          cursor: 'pointer',
+          color: '#ffffff',
+          fontSize: setting.NavFontSize,
+          fontFamily: setting.NavFontFamily,
+          letterSpacing: setting.NavFontLetterSpacing
+        }"
+        href="#"
+        >About</a
+      >
     </div>
+
+    <span
+      [ngStyle]="{
+        cursor: 'pointer',
+        color: setting.NavBarFontColor,
+        fontSize: '25px',
+        fontFamily: setting.NavFontFamily,
+        letterSpacing: setting.NavFontLetterSpacing
+      }"
+      (click)="openNav()"
+      >&#9776; open</span
+    >
 
     <!-- Logo Without HyperLink-->
 

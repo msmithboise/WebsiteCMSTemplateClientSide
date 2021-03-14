@@ -228,6 +228,14 @@ export class NavbarComponent implements OnInit {
 
   //Mobile Nav bar
 
+  closeNav() {
+    document.getElementById('mySidenav').style.width = '0';
+  }
+
+  openNav() {
+    document.getElementById('mySidenav').style.width = '250px';
+  }
+
   getSubPageOneOnClick(passedInPageId: number, pageDescription: string) {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
