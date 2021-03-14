@@ -146,35 +146,6 @@
       </a>
     </div>
 
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
-        >&times;</a
-      >
-      <a
-        [ngStyle]="{
-          cursor: 'pointer',
-          color: '#ffffff',
-          fontSize: setting.NavFontSize,
-          fontFamily: setting.NavFontFamily,
-          letterSpacing: setting.NavFontLetterSpacing
-        }"
-        href="#"
-        >About</a
-      >
-    </div>
-
-    <span
-      [ngStyle]="{
-        cursor: 'pointer',
-        color: setting.NavBarFontColor,
-        fontSize: '25px',
-        fontFamily: setting.NavFontFamily,
-        letterSpacing: setting.NavFontLetterSpacing
-      }"
-      (click)="openNav()"
-      >&#9776; open</span
-    >
-
     <!-- Logo Without HyperLink-->
 
     <div *ngIf="setting.LogoUrl != '' && setting.LogoHyperLink == null">
@@ -191,6 +162,38 @@
         }"
       />
     </div>
+
+    <!-- SideNav bar -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+        >&times;</a
+      >
+      <ul class="nav-item" *ngFor="let page of publishedNavLinks">
+        <a
+          [ngStyle]="{
+            cursor: 'pointer',
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing
+          }"
+          href="#"
+          >{{ page.PageDescription }}</a
+        >
+      </ul>
+    </div>
+
+    <span
+      [ngStyle]="{
+        cursor: 'pointer',
+        color: setting.NavBarFontColor,
+        fontSize: '25px',
+        fontFamily: setting.NavFontFamily,
+        letterSpacing: setting.NavFontLetterSpacing
+      }"
+      (click)="openNav()"
+      >&#9776;</span
+    >
 
     <!-- If screen is mobile -->
     <div *ngIf="isMobile()">
