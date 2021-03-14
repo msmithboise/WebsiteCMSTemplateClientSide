@@ -52,6 +52,7 @@ export class NavbarComponent implements OnInit {
   public storedHoveredPageId: number;
   public navHovered: boolean;
   public storedSubParentId: number;
+  public storedId: number;
 
   constructor(
     public customPageService: CustomPageService,
@@ -231,6 +232,8 @@ export class NavbarComponent implements OnInit {
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
     console.log('pageId', passedInPageId);
+
+    this.storedId = passedInPageId;
     console.log('pageDesc', pageDescription);
 
     this.navBarService.subPageOneArray = [];
@@ -239,9 +242,6 @@ export class NavbarComponent implements OnInit {
       this.navBarService.subPageOneArray = res;
       console.log(res);
     });
-
-    this.pageIdSnapshot = passedInPageId.toString();
-    this.pageDescriptionSnapshot = pageDescription;
   }
 
   //Desktop nav bar

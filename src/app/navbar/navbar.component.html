@@ -123,7 +123,7 @@
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
-      data-target="#collapsibleNavbar"
+      data-target="#testNav"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -144,6 +144,36 @@
           }"
         />
       </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="testNav">
+      <mat-drawer-container
+        class="example-container"
+        [hasBackdrop]="hasBackdrop.value"
+      >
+        <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
+        <mat-drawer-content>
+          <mat-form-field>
+            <mat-label>Sidenav mode</mat-label>
+            <mat-select #mode value="side">
+              <mat-option value="side">Side</mat-option>
+              <mat-option value="over">Over</mat-option>
+              <mat-option value="push">Push</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Has backdrop</mat-label>
+            <mat-select #hasBackdrop>
+              <mat-option>Unset</mat-option>
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button (click)="drawer.toggle()">
+            Toggle drawer
+          </button>
+        </mat-drawer-content>
+      </mat-drawer-container>
     </div>
 
     <!-- Logo Without HyperLink-->
@@ -181,13 +211,6 @@
               <a
                 data-toggle="collapse"
                 data-target="#subpage-dropdown"
-                (mouseleave)="
-                  clearSubPages(
-                    page.PageId,
-                    page.PageDescription,
-                    page.ParentId
-                  )
-                "
                 (click)="
                   getSubPageOneOnClick(page.PageId, page.PageDescription)
                 "
@@ -208,9 +231,11 @@
                 
               </div>
             </div> -->
-            <div class="container">
-              <div id="subpage-dropdown" class="collapse">
-                <div *ngFor="let subPage of this.navBarService.subPageOneArray">
+          </li>
+          <div class="container">
+            <div id="subpage-dropdown" class="collapse">
+              <div *ngFor="let subPage of this.navBarService.subPageOneArray">
+                <div *ngIf="subPage != null">
                   <a
                     [ngStyle]="{
                       borderStyle: 'solid',
@@ -227,7 +252,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </div>
           <!-- Button Collapse content  (Where subpages will show) -->
           <!-- Subpages dropdown content -->
           <div class="dropdown">
