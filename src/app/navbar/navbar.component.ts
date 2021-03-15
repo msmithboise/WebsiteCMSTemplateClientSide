@@ -54,6 +54,8 @@ export class NavbarComponent implements OnInit {
   public storedSubParentId: number;
   public storedId: number;
   public subPageOneHeader: string;
+  public subPageOneHeaderId: number;
+
   public subPageTwoHeader: string;
   public subPageThreeHeader: string;
   public subPageFourHeader: string;
@@ -303,11 +305,19 @@ export class NavbarComponent implements OnInit {
       } else {
         ('array NOT empty');
         console.log(this.navBarService.subPageOneArray);
-        this.navBarService.subPageOneArray.unshift(parentPage);
-        this.subPageOneHeader = parentPage.PageDescription.toUpperCase();
+        //this.navBarService.subPageOneArray.unshift(parentPage);
+        this.subPageOneHeader = parentPage.PageDescription;
+        this.subPageOneHeaderId = parentPage.PageId;
+
         this.openSubPageOneNav();
       }
     });
+  }
+
+  navToSubPageOneHeader(header: string, headerId: number) {
+    console.log('header:  ', header);
+    console.log('headerId:  ', headerId);
+    this.onSideNavClick(headerId.toString(), header);
   }
 
   getSubPageTwoOnClick(
