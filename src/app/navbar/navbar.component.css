@@ -462,7 +462,8 @@ option {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  opacity: 0.9;
+  z-index: 3;
   top: 0;
   left: 0;
   background-color: #222222;
