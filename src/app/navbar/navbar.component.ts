@@ -295,6 +295,7 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageOneArray = res;
       console.log(res);
+      //If there are no pages in the array, simply redirect to that page, otherwise open up the side nav menu for that page.
       if (this.navBarService.subPageOneArray.length <= 0) {
         this.onSideNavClick(passedInPageId.toString(), pageDescription);
         console.log('array empty');
@@ -322,11 +323,19 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageTwoArray = res;
       console.log(res);
-      this.navBarService.subPageTwoArray.unshift(parentPage);
-      this.subPageTwoHeader = parentPage.PageDescription.toUpperCase();
+      //If there are no pages in the array, simply redirect to that page, otherwise open up the side nav menu for that page.
+      if (this.navBarService.subPageTwoArray.length <= 0) {
+        this.onSideNavClick(passedInPageId.toString(), pageDescription);
+        console.log('array empty');
+        console.log(this.navBarService.subPageTwoArray);
+      } else {
+        ('array NOT empty');
+        console.log(this.navBarService.subPageTwoArray);
+        this.navBarService.subPageTwoArray.unshift(parentPage);
+        this.subPageTwoHeader = parentPage.PageDescription.toUpperCase();
+        this.openSubPageTwoNav();
+      }
     });
-
-    this.openSubPageTwoNav();
   }
 
   getSubPageThreeOnClick(
