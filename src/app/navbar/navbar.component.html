@@ -227,10 +227,7 @@
             cursor: 'pointer'
           }"
           (click)="
-            navToSubPageOneHeader(
-              this.subPageOneHeader,
-              this.subPageOneHeaderId
-            )
+            navToSubPageHeader(this.subPageOneHeader, this.subPageOneHeaderId)
           "
         >
           {{ this.subPageOneHeader }}
@@ -279,16 +276,23 @@
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
           /></svg
       ></a>
-      <div
-        [ngStyle]="{
-          color: '#ffffff',
-          fontSize: setting.NavFontSize,
-          fontFamily: setting.NavFontFamily,
-          letterSpacing: setting.NavFontLetterSpacing
-        }"
-      >
-        <h1>{{ this.subPageTwoHeader }}</h1>
-      </div>
+      <ul class="mainlinks">
+        <a
+          [ngStyle]="{
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing,
+
+            cursor: 'pointer'
+          }"
+          (click)="
+            navToSubPageHeader(this.subPageTwoHeader, this.subPageTwoHeaderId)
+          "
+        >
+          {{ this.subPageTwoHeader }}
+        </a>
+      </ul>
       <ul
         class="mainlinks"
         *ngFor="let subPageTwo of this.navBarService.subPageTwoArray"
