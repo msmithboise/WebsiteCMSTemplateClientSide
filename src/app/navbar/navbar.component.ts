@@ -246,7 +246,6 @@ export class NavbarComponent implements OnInit {
 
   closeSubPageOneNav() {
     document.getElementById('subPageOneSideNav').style.width = '0';
-    console.log('closing subpage one');
   }
 
   openSubPageTwoNav() {
@@ -255,7 +254,6 @@ export class NavbarComponent implements OnInit {
 
   closeSubPageTwoNav() {
     document.getElementById('subPageTwoSideNav').style.width = '0';
-    console.log('closing subpage one');
   }
 
   openSubPageThreeNav() {
@@ -264,7 +262,6 @@ export class NavbarComponent implements OnInit {
 
   closeSubPageThreeNav() {
     document.getElementById('subPageThreeSideNav').style.width = '0';
-    console.log('closing subpage one');
   }
 
   openSubPageFourNav() {
@@ -273,7 +270,16 @@ export class NavbarComponent implements OnInit {
 
   closeSubPageFourNav() {
     document.getElementById('subPageFourSideNav').style.width = '0';
-    console.log('closing subpage one');
+  }
+
+  onSideNavClick(pageId: string, pageDescription: string) {
+    console.log(
+      'passing through side nav link:  ',
+      pageId + ' ' + pageDescription
+    );
+    this.router.navigate([pageDescription + '/' + pageId]);
+    console.log(pageDescription + '/' + pageId);
+    this.navBarService.subPageNavLinks = [];
   }
 
   getSubPageOneOnClick(
@@ -289,11 +295,18 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageOneArray = res;
       console.log(res);
-      this.navBarService.subPageOneArray.unshift(parentPage);
-      this.subPageOneHeader = parentPage.PageDescription.toUpperCase();
+      if (this.navBarService.subPageOneArray.length <= 0) {
+        this.onSideNavClick(passedInPageId.toString(), pageDescription);
+        console.log('array empty');
+        console.log(this.navBarService.subPageOneArray);
+      } else {
+        ('array NOT empty');
+        console.log(this.navBarService.subPageOneArray);
+        this.navBarService.subPageOneArray.unshift(parentPage);
+        this.subPageOneHeader = parentPage.PageDescription.toUpperCase();
+        this.openSubPageOneNav();
+      }
     });
-
-    this.openSubPageOneNav();
   }
 
   getSubPageTwoOnClick(
