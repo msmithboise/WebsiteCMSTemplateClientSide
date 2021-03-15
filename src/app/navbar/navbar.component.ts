@@ -56,6 +56,7 @@ export class NavbarComponent implements OnInit {
   public subPageOneHeader: string;
   public subPageTwoHeader: string;
   public subPageThreeHeader: string;
+  public subPageFourHeader: string;
 
   constructor(
     public customPageService: CustomPageService,
@@ -266,6 +267,15 @@ export class NavbarComponent implements OnInit {
     console.log('closing subpage one');
   }
 
+  openSubPageFourNav() {
+    document.getElementById('subPageFourSideNav').style.width = '250px';
+  }
+
+  closeSubPageFourNav() {
+    document.getElementById('subPageFourSideNav').style.width = '0';
+    console.log('closing subpage one');
+  }
+
   getSubPageOneOnClick(
     passedInPageId: number,
     pageDescription: string,
@@ -324,6 +334,26 @@ export class NavbarComponent implements OnInit {
     });
 
     this.openSubPageThreeNav();
+  }
+
+  getSubPageFourOnClick(
+    passedInPageId: number,
+    pageDescription: string,
+    parentPage: CustomPage
+  ) {
+    this.navBarService.subPageFourArray = [];
+
+    console.log('subpageFouronclick: ', passedInPageId);
+    console.log('subpageFouronclick: ', pageDescription);
+
+    this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
+      this.navBarService.subPageFourArray = res;
+      console.log(res);
+      this.navBarService.subPageFourArray.unshift(parentPage);
+      this.subPageFourHeader = parentPage.PageDescription.toUpperCase();
+    });
+
+    this.openSubPageFourNav();
   }
 
   //Desktop nav bar
