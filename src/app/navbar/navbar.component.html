@@ -232,6 +232,13 @@
         *ngFor="let subPageOne of this.navBarService.subPageOneArray"
       >
         <a
+          (click)="
+            getSubPageTwoOnClick(
+              subPageOne.PageId,
+              subPageOne.PageDescription,
+              subPageOne
+            )
+          "
           [ngStyle]="{
             cursor: 'pointer',
             color: '#ffffff',
@@ -244,78 +251,50 @@
       </ul>
     </div>
 
-    <!-- If screen is mobile -->
-    <div *ngIf="isMobile()">
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul
-          class="navbar-nav"
-          [ngStyle]="{
-            top: setting.NavTop,
-            bottom: setting.NavBottom,
-
-            right: setting.NavRight,
-            position: setting.NavBarWebKit
-          }"
+    <!-- SideNav bar SubpageTwo -->
+    <div id="subPageTwoSideNav" class="sidenav">
+      <a
+        href="javascript:void(0)"
+        class="closebtn"
+        (click)="closeSubPageTwoNav()"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-arrow-left"
+          viewBox="0 0 16 16"
         >
-          <li class="nav-item" *ngFor="let page of publishedNavLinks">
-            <div>
-              <a
-                data-toggle="collapse"
-                data-target="#subpage-dropdown"
-                (click)="
-                  getSubPageOneOnClick(page.PageId, page.PageDescription, page)
-                "
-                [ngStyle]="{
-                  cursor: 'pointer',
-                  color: setting.NavBarFontColor,
-                  fontSize: setting.NavFontSize,
-                  fontFamily: setting.NavFontFamily,
-                  letterSpacing: setting.NavFontLetterSpacing
-                }"
-                class="dropbtn nav-link"
-                >{{ page.PageDescription }}</a
-              >
-            </div>
-
-            <!-- <div class="dropdown">
-              <div class="dropdown-content">
-                
-              </div>
-            </div> -->
-          </li>
-          <div class="container">
-            <div id="subpage-dropdown" class="collapse">
-              <div *ngFor="let subPage of this.navBarService.subPageOneArray">
-                <div *ngIf="subPage != null">
-                  <a
-                    [ngStyle]="{
-                      borderStyle: 'solid',
-                      border: 'black',
-                      cursor: 'pointer',
-                      color: setting.NavBarFontColor,
-                      fontSize: setting.NavFontSize,
-                      fontFamily: setting.NavFontFamily,
-                      letterSpacing: setting.NavFontLetterSpacing
-                    }"
-                    href="#"
-                    >{{ subPage.PageDescription }}</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Button Collapse content  (Where subpages will show) -->
-          <!-- Subpages dropdown content -->
-          <div class="dropdown">
-            <a class="dropbtn nav-link"></a>
-            <div class="dropdown-content">
-              <div *ngFor="let subPage of this.navBarService.subPageNavLinks">
-                <a href="#">{{ subPage.PageDescription }}</a>
-              </div>
-            </div>
-          </div>
-        </ul>
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+          /></svg
+      ></a>
+      <div
+        [ngStyle]="{
+          color: '#ffffff',
+          fontSize: setting.NavFontSize,
+          fontFamily: setting.NavFontFamily,
+          letterSpacing: setting.NavFontLetterSpacing
+        }"
+      >
+        <h1>{{ this.subPageTwoHeader }}</h1>
       </div>
+      <ul
+        class="nav-item"
+        *ngFor="let subPageTwo of this.navBarService.subPageTwoArray"
+      >
+        <a
+          [ngStyle]="{
+            cursor: 'pointer',
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing
+          }"
+          >{{ subPageTwo.PageDescription }}</a
+        >
+      </ul>
     </div>
 
     <!-- If screen is NOT mobile -->
