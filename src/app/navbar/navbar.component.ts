@@ -351,11 +351,19 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageThreeArray = res;
       console.log(res);
-      this.navBarService.subPageThreeArray.unshift(parentPage);
-      this.subPageThreeHeader = parentPage.PageDescription.toUpperCase();
+      //If there are no pages in the array, simply redirect to that page, otherwise open up the side nav menu for that page.
+      if (this.navBarService.subPageThreeArray.length <= 0) {
+        this.onSideNavClick(passedInPageId.toString(), pageDescription);
+        console.log('array empty');
+        console.log(this.navBarService.subPageThreeArray);
+      } else {
+        ('array NOT empty');
+        console.log(this.navBarService.subPageThreeArray);
+        this.navBarService.subPageThreeArray.unshift(parentPage);
+        this.subPageThreeHeader = parentPage.PageDescription.toUpperCase();
+        this.openSubPageThreeNav();
+      }
     });
-
-    this.openSubPageThreeNav();
   }
 
   getSubPageFourOnClick(
@@ -371,11 +379,18 @@ export class NavbarComponent implements OnInit {
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
       this.navBarService.subPageFourArray = res;
       console.log(res);
-      this.navBarService.subPageFourArray.unshift(parentPage);
-      this.subPageFourHeader = parentPage.PageDescription.toUpperCase();
+      if (this.navBarService.subPageFourArray.length <= 0) {
+        this.onSideNavClick(passedInPageId.toString(), pageDescription);
+        console.log('array empty');
+        console.log(this.navBarService.subPageFourArray);
+      } else {
+        ('array NOT empty');
+        console.log(this.navBarService.subPageFourArray);
+        this.navBarService.subPageFourArray.unshift(parentPage);
+        this.subPageFourHeader = parentPage.PageDescription.toUpperCase();
+        this.openSubPageFourNav();
+      }
     });
-
-    this.openSubPageFourNav();
   }
 
   //Desktop nav bar
