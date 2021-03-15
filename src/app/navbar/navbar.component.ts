@@ -53,6 +53,7 @@ export class NavbarComponent implements OnInit {
   public navHovered: boolean;
   public storedSubParentId: number;
   public storedId: number;
+  public subPageOneHeader: string;
 
   constructor(
     public customPageService: CustomPageService,
@@ -259,6 +260,7 @@ export class NavbarComponent implements OnInit {
       this.navBarService.subPageOneArray = res;
       console.log(res);
       this.navBarService.subPageOneArray.unshift(parentPage);
+      this.subPageOneHeader = parentPage.PageDescription.toUpperCase();
     });
 
     this.openSubPageOneNav();
