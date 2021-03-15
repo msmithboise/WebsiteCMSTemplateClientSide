@@ -317,7 +317,7 @@
       </ul>
     </div>
 
-    <!-- SideNav bar SubpageThree -->
+    <!-- SideNav bar SubpageThree (Auto semi auto) -->
     <div id="subPageThreeSideNav" class="sidenav">
       <a
         href="javascript:void(0)"
@@ -336,16 +336,26 @@
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
           /></svg
       ></a>
-      <div
-        [ngStyle]="{
-          color: '#ffffff',
-          fontSize: setting.NavFontSize,
-          fontFamily: setting.NavFontFamily,
-          letterSpacing: setting.NavFontLetterSpacing
-        }"
-      >
-        <h1>{{ this.subPageThreeHeader }}</h1>
-      </div>
+      <ul class="mainlinks">
+        <a
+          [ngStyle]="{
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing,
+
+            cursor: 'pointer'
+          }"
+          (click)="
+            navToSubPageHeader(
+              this.subPageThreeHeader,
+              this.subPageThreeHeaderId
+            )
+          "
+        >
+          {{ this.subPageThreeHeader }}
+        </a>
+      </ul>
       <ul
         class="mainlinks"
         *ngFor="let subPageThree of this.navBarService.subPageThreeArray"
@@ -370,7 +380,7 @@
       </ul>
     </div>
 
-    <!-- SideNav bar SubpageFour -->
+    <!-- SideNav bar SubpageFour (Ak 47) -->
     <div id="subPageFourSideNav" class="sidenav">
       <a
         href="javascript:void(0)"
@@ -389,16 +399,23 @@
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
           /></svg
       ></a>
-      <div
-        [ngStyle]="{
-          color: '#ffffff',
-          fontSize: setting.NavFontSize,
-          fontFamily: setting.NavFontFamily,
-          letterSpacing: setting.NavFontLetterSpacing
-        }"
-      >
-        <h1>{{ this.subPageFourHeader }}</h1>
-      </div>
+      <ul class="mainlinks">
+        <a
+          [ngStyle]="{
+            color: '#ffffff',
+            fontSize: setting.NavFontSize,
+            fontFamily: setting.NavFontFamily,
+            letterSpacing: setting.NavFontLetterSpacing,
+
+            cursor: 'pointer'
+          }"
+          (click)="
+            navToSubPageHeader(this.subPageFourHeader, this.subPageFourHeaderId)
+          "
+        >
+          {{ this.subPageFourHeader }}
+        </a>
+      </ul>
       <ul
         class="mainlinks"
         *ngFor="let subPageFour of this.navBarService.subPageFourArray"

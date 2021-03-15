@@ -58,7 +58,9 @@ export class NavbarComponent implements OnInit {
   public subPageTwoHeader: string;
   public subPageTwoHeaderId: number;
   public subPageThreeHeader: string;
+  public subPageThreeHeaderId: number;
   public subPageFourHeader: string;
+  public subPageFourHeaderId: number;
 
   constructor(
     public customPageService: CustomPageService,
@@ -370,8 +372,10 @@ export class NavbarComponent implements OnInit {
       } else {
         ('array NOT empty');
         console.log(this.navBarService.subPageThreeArray);
-        this.navBarService.subPageThreeArray.unshift(parentPage);
-        this.subPageThreeHeader = parentPage.PageDescription.toUpperCase();
+        // this.navBarService.subPageThreeArray.unshift(parentPage);
+        this.subPageThreeHeader = parentPage.PageDescription;
+        this.subPageThreeHeaderId = parentPage.PageId;
+
         this.openSubPageThreeNav();
       }
     });
@@ -397,8 +401,10 @@ export class NavbarComponent implements OnInit {
       } else {
         ('array NOT empty');
         console.log(this.navBarService.subPageFourArray);
-        this.navBarService.subPageFourArray.unshift(parentPage);
-        this.subPageFourHeader = parentPage.PageDescription.toUpperCase();
+        // this.navBarService.subPageFourArray.unshift(parentPage);
+        this.subPageFourHeader = parentPage.PageDescription;
+        this.subPageFourHeaderId = parentPage.PageId;
+
         this.openSubPageFourNav();
       }
     });
