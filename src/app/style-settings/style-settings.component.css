@@ -1,5 +1,23 @@
-.card-body {
+.card-body-desktop {
   background-color: #27293d;
+}
+
+.card-body-mobile {
+  /* background-color: #1f8ff16e; */
+  /* background-color: #3ad3bc77; */
+  background-color: #ce4cc86e;
+}
+
+.card-body-tablet {
+  /* background-color: #1f8ff16e; */
+  background-color: #3ad3bc77;
+  /* background-color: #ce4cc86e; */
+}
+
+.card-body-laptop {
+  background-color: #1f8ff16e;
+  /* background-color: #3ad3bc77; */
+  /* background-color: #ce4cc86e; */
 }
 
 .container-fluid {
@@ -13,6 +31,14 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.desktop-label {
+  color: #1f8ef1;
+}
+
+.mobile-label {
+  color: #3ad3bc;
 }
 
 label {
