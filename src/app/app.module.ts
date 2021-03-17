@@ -97,6 +97,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuardService } from './auth-guard.service';
 import { NullPageGuardService } from './null-page-guard.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { SettingsTabsComponent } from './settings-tabs/settings-tabs.component';
 
 @NgModule({
   declarations: [
@@ -138,6 +139,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     NewsComponent,
     PageNotFoundComponent,
     SidenavComponent,
+    SettingsTabsComponent,
   ],
   imports: [
     A11yModule,
