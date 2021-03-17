@@ -249,3 +249,22 @@ input {
       border-color: transparent;
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
     } */
+
+/* Styles for tab labels */
+.mat-tab-label {
+  background-color: transparent;
+  color: #c74ac2;
+  font-weight: 700;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+  background-color: transparent;
+  color: #c74ac2;
+  font-weight: 700;
+}
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+  background-color: green;
+}

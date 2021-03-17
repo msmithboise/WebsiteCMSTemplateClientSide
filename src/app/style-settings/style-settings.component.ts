@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
   selector: 'app-style-settings',
   templateUrl: './style-settings.component.html',
   styleUrls: ['./style-settings.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StyleSettingsComponent implements OnInit {
   public textId = +this.route.snapshot.paramMap.get('textId');
