@@ -1,14 +1,14 @@
 /* Styles for tab labels */
 .mat-tab-label {
   background-color: transparent;
-  color: red;
+  color: #c74ac2;
   font-weight: 700;
 }
 
 /* Styles for the active tab label */
 .mat-tab-label.mat-tab-label-active {
   background-color: transparent;
-  color: red;
+  color: #c74ac2;
   font-weight: 700;
 }
 
