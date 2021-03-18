@@ -282,22 +282,18 @@ export class PageSettingsComponent implements OnInit {
   });
 
   createTemplate() {
-    var newRowId = Number(localStorage.getItem('passedRowId'));
-
+    console.log('calling templateController');
+    //Call default template controller
     var newTemplateForm = this.templateForm.value;
-
-    //newTemplateForm.rowId = newRowId;
-
     this.route.params.subscribe((params) => {
       newTemplateForm.pageId = params.pageId;
     });
+    this.templateService
+      .setDefaultTemplate(newTemplateForm)
+      .subscribe((res) => {
+        JSON.stringify(res);
+      });
 
-    //Add first row
-    this.webStructureService
-      .postRowsByPageId(newTemplateForm)
-      .subscribe((res) => {});
-
-    //Add column size of 12
-    this.addTemplateColumn();
+    //var newRowId = Number(localStorage.getItem('passedRowId'));
   }
 }
