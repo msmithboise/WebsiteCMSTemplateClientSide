@@ -205,14 +205,14 @@ export class ContentViewComponent implements OnInit {
 
   //768px - 1024px
   isTablet() {
-    if (window.innerWidth > 768 && window.innerWidth < 1024) {
+    if (window.innerWidth > 768 && window.innerWidth <= 1024) {
       return true;
     }
   }
 
   // 1024px - 2560px
   isLaptop() {
-    if (window.innerWidth > 1024 && window.innerWidth < 1399) {
+    if (window.innerWidth > 1024 && window.innerWidth <= 1400) {
       return true;
     }
   }
