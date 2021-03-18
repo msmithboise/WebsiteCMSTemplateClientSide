@@ -153,6 +153,8 @@ export class ContentViewComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
+
+    console.log(this.innerWidth);
   }
 
   buttonNonHover(content: Webcontent) {
@@ -186,8 +188,30 @@ export class ContentViewComponent implements OnInit {
     );
   }
 
+  // 320px - 768px
   isMobile() {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < 768) {
+      return true;
+    }
+  }
+
+  // 2560px >
+  isDesktop() {
+    if (window.innerWidth > 1500) {
+      return true;
+    }
+  }
+
+  //768px - 1024px
+  isTablet() {
+    if (window.innerWidth > 769 && window.innerWidth < 1023) {
+      return true;
+    }
+  }
+
+  // 1024px - 2560px
+  isLaptop() {
+    if (window.innerWidth > 1024 && window.innerWidth < 1499) {
       return true;
     }
   }

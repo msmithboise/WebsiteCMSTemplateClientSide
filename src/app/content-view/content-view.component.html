@@ -1515,44 +1515,90 @@
       </div>
     </div>
 
-    <!-- bg image (Currently used) DEFAULT Animation: None -->
-    <div
-      *ngIf="
-        content.animationName == null ||
-        content.animationName == '' ||
-        content.animationName == 'none'
-      "
-    >
+    <!-- bg image MOBILE (Currently used) DEFAULT Animation: None -->
+    <div *ngIf="this.isMobile()">
       <div
         *ngIf="
-          (content.backgroundImage != null && content.HyperLink == null) ||
-          content.HyperLink == ''
+          content.animationName == null ||
+          content.animationName == '' ||
+          content.animationName == 'none'
         "
       >
-        <div [@fadeInOnEnter]>
-          <img
-            class="responsive"
-            src="{{ content.backgroundImage }}"
-            [ngStyle]="{
-              backgroundAttachment: content.backgroundAttachment,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: content.backgroundSize,
-              position: content.position,
-              opacity: content.opacity,
-              backgroundPosition: content.backgroundPosition,
-              display: content.display,
-              marginLeft: content.marginLeft,
-              marginRight: content.marginRight,
-              textAlign: 'center',
-              resize: 'both',
-              overflow: 'auto',
-              height: content.height,
-              width: this.screenWidth,
-              objectFit: 'cover',
-              zIndex: content.zIndex,
-              transform: content.transform
-            }"
-          />
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <div [@fadeInOnEnter]>
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.heightMobile,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image Desktop (Currently used) DEFAULT Animation: None -->
+    <div *ngIf="this.isDesktop()">
+      <div
+        *ngIf="
+          content.animationName == null ||
+          content.animationName == '' ||
+          content.animationName == 'none'
+        "
+      >
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <div [@fadeInOnEnter]>
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -1674,6 +1720,40 @@
             }"
           />
         </div>
+      </div>
+    </div>
+
+    <!-- Gallery Image MOBILE -->
+    <div *ngIf="this.isMobile()">
+      <div
+        *ngIf="
+          (content.ImageUrl != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.ImageUrl }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSize,
+            position: content.position,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPosition,
+            display: content.display,
+            marginLeft: content.marginLeft,
+            marginRight: content.marginRight,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.heightMobile + 'px',
+            width: content.width + 'px',
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
       </div>
     </div>
 
