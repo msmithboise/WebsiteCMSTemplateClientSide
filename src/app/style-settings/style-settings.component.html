@@ -6754,7 +6754,1723 @@
                               </div>
                               <!-- CARD END -->
                             </mat-tab>
-                            <mat-tab label="Laptop"></mat-tab>
+                            <!-- LAPTOP CARD BEGIN -->
+                            <mat-tab label="Laptop">
+                              <div class="card card-body-laptop">
+                                <button
+                                  class="btn btn-primary"
+                                  (click)="onEditSubmit(form)"
+                                >
+                                  Save Changes
+                                </button>
+                                <div class="modal-body form-group">
+                                  <!-- Id -->
+
+                                  <input
+                                    name="Id"
+                                    type="hidden"
+                                    #Id="ngModel"
+                                    [(ngModel)]="content.Id"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Page Id -->
+
+                                  <input
+                                    name="PageId"
+                                    type="hidden"
+                                    #PageId="ngModel"
+                                    [(ngModel)]="content.PageId"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Column Id -->
+
+                                  <input
+                                    name="ColumnId"
+                                    type="hidden"
+                                    #ColumnId="ngModel"
+                                    [(ngModel)]="content.ColumnId"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- ngIf subpageid != null... input -->
+
+                                  <input
+                                    *ngIf="content.SubPageId != null"
+                                    type="text"
+                                    name="SubPageId"
+                                    type="hidden"
+                                    #SubPageId="ngModel"
+                                    [(ngModel)]="content.SubPageId"
+                                  />
+
+                                  <!-- Body (Image 400px) -->
+                                  <div class="row">
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <input
+                                    name="Body"
+                                    type="hidden"
+                                    #Body="ngModel"
+                                    [(ngModel)]="content.Body"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Background Position -->
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Laptop Background Position</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="This sets the starting position of a background image.  Example:  Setting it to 'Center' will cause the image to move to the center."
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <input
+                                      name="backgroundPositionLaptop"
+                                      #backgroundPositionLaptop="ngModel"
+                                      [(ngModel)]="
+                                        content.backgroundPositionLaptop
+                                      "
+                                    />
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Background Size -->
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Laptop Background Size</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="This sets the size of a background image"
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <input
+                                      name="backgroundSizeLaptop"
+                                      #backgroundSizeLaptop="ngModel"
+                                      [(ngModel)]="content.backgroundSizeLaptop"
+                                    />
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Top</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the vertical position of a positioned element. Ex: while setting 'position' to 'absolute', you can use this to push your text from the top by setting it to 50%."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="topLaptop"
+                                            #topLaptop="ngModel"
+                                            [(ngModel)]="content.topLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="topLaptop"></label>
+                                        <select
+                                          id="topLaptop"
+                                          name="topLaptop"
+                                          [(ngModel)]="content.topLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Bottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="Use this to push up text or an image out of its row.  You would use this to layer text onto an image"
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="bottomLaptop"
+                                            #bottomLaptop="ngModel"
+                                            [(ngModel)]="content.bottomLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="bottomLaptop"></label>
+                                        <select
+                                          id="bottomLaptop"
+                                          name="bottomLaptop"
+                                          [(ngModel)]="content.bottomLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Left</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the horizontal position your image or text.  Use this when needing to center your text or image when 'position' is set to 'absolute'. Ex: 50% would place move it 50% into the center from the left."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="leftLaptop"
+                                            #leftLaptop="ngModel"
+                                            [(ngModel)]="content.leftLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="leftLaptop"></label>
+                                        <select
+                                          id="leftLaptop"
+                                          name="leftLaptop"
+                                          [(ngModel)]="content.leftLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Right</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the horizontal position your image or text.  Use this when needing to center your text or image when 'position' is set to 'absolute'. Ex: 50% would place move it 50% into the center from the right of the page."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="rightLaptop"
+                                            #rightLaptop="ngModel"
+                                            [(ngModel)]="content.rightLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="rightLaptop"></label>
+                                        <select
+                                          id="rightLaptop"
+                                          name="rightLaptop"
+                                          [(ngModel)]="content.rightLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Display -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Display</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This display behavior of an element.  See https://www.w3schools.com/cssref/pr_class_display.asp for more info."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="displayLaptop"
+                                            #displayLaptop="ngModel"
+                                            [(ngModel)]="content.displayLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="displayLaptop"></label>
+                                        <select
+                                          id="displayLaptop"
+                                          name="displayLaptop"
+                                          [(ngModel)]="content.displayLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="none">none</option>
+                                          <option value="inline">inline</option>
+                                          <option value="block">block</option>
+                                          <option value="contents">
+                                            contents
+                                          </option>
+                                          <option value="flex">flex</option>
+                                          <option value="grid">grid</option>
+                                          <option value="inline-block">
+                                            inline-block
+                                          </option>
+                                          <option value="inline-grid">
+                                            inline-grid
+                                          </option>
+                                          <option value="inline-table">
+                                            inline-table
+                                          </option>
+                                          <option value="list-item">
+                                            list-item
+                                          </option>
+                                          <option value="run-in">run-in</option>
+                                          <option value="table">table</option>
+                                          <option value="table-caption">
+                                            table-caption
+                                          </option>
+                                          <option value="table-column-group">
+                                            table-column-group
+                                          </option>
+                                          <option value="table-header-group">
+                                            table-header-group
+                                          </option>
+                                          <option value="table-row-group">
+                                            table-row-group
+                                          </option>
+                                          <option value="table-cell">
+                                            table-cell
+                                          </option>
+                                          <option value="table-column">
+                                            table-column
+                                          </option>
+                                          <option value="table-row">
+                                            table-row
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Embed Url -->
+
+                                  <input
+                                    name="embedUrl"
+                                    type="hidden"
+                                    #embedUrl="ngModel"
+                                    [(ngModel)]="content.embedUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Font -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b> Laptop Font</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The font property is a shorthand property for:
+  
+                                  font-style
+                                  font-variant
+                                  font-weight
+                                  font-size/line-height
+                                  font-family."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="fontLaptop"
+                                            #fontLaptop="ngModel"
+                                            [(ngModel)]="content.fontLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="fontLaptop"></label>
+                                        <select
+                                          id="fontLaptop"
+                                          name="fontLaptop"
+                                          [(ngModel)]="content.fontLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="normal">normal</option>
+                                          <option value="italic">italic</option>
+                                          <option value="oblique">
+                                            oblique
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Font Size -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Font Size </b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The font-size property sets the size of a font."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="fontSizeLaptop"
+                                            #fontSizeLaptop="ngModel"
+                                            [(ngModel)]="content.fontSizeLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="fontSizeLaptop"></label>
+                                        <select
+                                          id="fontSizeLaptop"
+                                          name="fontSizeLaptop"
+                                          [(ngModel)]="content.fontSizeLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="12px">12px</option>
+                                          <option value="16px">16px</option>
+                                          <option value="25px">25px</option>
+
+                                          <option value="50px">50px</option>
+
+                                          <option value="60px">60px</option>
+                                          <option value="72px">72px</option>
+                                          <option value="100px">100px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Height -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Height</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The height property sets the height of your image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="heightLaptop"
+                                            #heightLaptop="ngModel"
+                                            [(ngModel)]="content.heightLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="heightLaptop"></label>
+                                        <select
+                                          id="heightLaptop"
+                                          name="heightLaptop"
+                                          [(ngModel)]="content.heightLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="100px">100px</option>
+                                          <option value="200px">200px</option>
+                                          <option value="400px">400px</option>
+                                          <option value="600px">600px</option>
+                                          <option value="800px">800px</option>
+                                          <option value="1000px">1000px</option>
+                                          <option value="1500px">1500px</option>
+                                          <option value="2000px">2000px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!--Laptop Icon -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Laptop Icon</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="If an icon is set, this is where you can change it.  Note:  An icon is treated like text, change the color with color, the size with font-size."
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                      <div>
+                                        <input
+                                          name="Icon"
+                                          #Icon="ngModel"
+                                          [(ngModel)]="content.Icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Image Url -->
+
+                                  <input
+                                    name="ImageUrl"
+                                    type="hidden"
+                                    #ImageUrl="ngModel"
+                                    [(ngModel)]="content.ImageUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Image Url -->
+
+                                  <input
+                                    name="ImageUrl"
+                                    type="hidden"
+                                    #ImageUrl="ngModel"
+                                    [(ngModel)]="content.ImageUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Letter Spacing -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Letter Spacing</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This increases or decreases the space between characters in your text."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="letterSpacingLaptop"
+                                            #letterSpacingLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.letterSpacingLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label
+                                          for="letterSpacingLaptop"
+                                        ></label>
+                                        <select
+                                          id="letterSpacingLaptop"
+                                          name="letterSpacingLaptop"
+                                          [(ngModel)]="
+                                            content.letterSpacingLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="3px">3px</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="-3px">-3px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Line Height -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Line Height</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The is specifies the height of a line. Ex: You can use this to make a paragraph double spaced by setting this to '2'."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="lineHeightLaptop"
+                                            #lineHeightLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.lineHeightLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="lineHeightLaptop"></label>
+                                        <select
+                                          id="lineHeightLaptop"
+                                          name="lineHeightLaptop"
+                                          [(ngModel)]="content.lineHeightLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                          <option value="7">7</option>
+                                          <option value="8">8</option>
+                                          <option value="9">9</option>
+                                          <option value="10">10</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Margin -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Margin</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the margins for your text or image, and is a shorthand property for the following properties:
+  
+                                  margin-top
+                                  margin-right
+                                  margin-bottom
+                                  margin-left.  Ex setting margin to 10px will add space around your entire text or image"
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginLaptop"
+                                            #marginLaptop="ngModel"
+                                            [(ngModel)]="content.marginLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginLaptop"></label>
+                                        <select
+                                          id="marginLaptop"
+                                          name="marginLaptop"
+                                          [(ngModel)]="content.marginLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Margin Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Margin Top</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Top margin of your text or image.  Ex: setting to 10px will add space to the Top of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginTopLaptop"
+                                            #marginTopLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.marginTopLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginTopLaptop"></label>
+                                        <select
+                                          id="marginTopLaptop"
+                                          name="marginTopLaptop"
+                                          [(ngModel)]="content.marginTopLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Margin Bottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Bottom margin of your text or image.  Ex: setting to 10px will add space to the Bottom of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginBottomLaptop"
+                                            #marginBottomLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.marginBottomLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginBottomLaptop"></label>
+                                        <select
+                                          id="marginBottomLaptop"
+                                          name="marginBottomLaptop"
+                                          [(ngModel)]="
+                                            content.marginBottomLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Margin Left</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the left margin of your text or image.  Ex: setting to 10px will add space to the left of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginLeftLaptop"
+                                            #marginLeftLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.marginLeftLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginLeftLaptop"></label>
+                                        <select
+                                          id="marginLeftLaptop"
+                                          name="marginLeftLaptop"
+                                          [(ngModel)]="content.marginLeftLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Margin Right</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the right margin of your text or image.  Ex: setting to 10px will add space to the right of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginRightLaptop"
+                                            #marginRightLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.marginRightLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginRightLaptop"></label>
+                                        <select
+                                          id="marginRightLaptop"
+                                          name="marginRightLaptop"
+                                          [(ngModel)]="
+                                            content.marginRightLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Padding</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  The padding property is a shorthand property for:
+                                  
+                                  padding-top
+                                  padding-right
+                                  padding-bottom
+                                  padding-left
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingLaptop"
+                                            #paddingLaptop="ngModel"
+                                            [(ngModel)]="content.paddingLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingLaptop"></label>
+                                        <select
+                                          id="paddingLaptop"
+                                          name="paddingLaptop"
+                                          [(ngModel)]="content.paddingLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop PaddingTop</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingTopLaptop"
+                                            #paddingTopLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingTopLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingTopLaptop"></label>
+                                        <select
+                                          id="paddingTopLaptop"
+                                          name="paddingTopLaptop"
+                                          [(ngModel)]="content.paddingTopLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop PaddingBottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingBottomLaptop"
+                                            #paddingBottomLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingBottomLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label
+                                          for="paddingBottomLaptop"
+                                        ></label>
+                                        <select
+                                          id="paddingBottomLaptop"
+                                          name="paddingBottomLaptop"
+                                          [(ngModel)]="
+                                            content.paddingBottomLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop PaddingLeft</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingLeftLaptop"
+                                            #paddingLeftLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingLeftLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingLeftLaptop"></label>
+                                        <select
+                                          id="paddingLeftLaptop"
+                                          name="paddingLeftLaptop"
+                                          [(ngModel)]="
+                                            content.paddingLeftLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop PaddingRight</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingRightLaptop"
+                                            #paddingRightLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingRightLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingRightLaptop"></label>
+                                        <select
+                                          id="paddingRightLaptop"
+                                          name="paddingRightLaptop"
+                                          [(ngModel)]="
+                                            content.paddingRightLaptop
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Position -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Position</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The position property specifies the type of positioning method used for an element.  Ex:  Setting to 'absolute' will allow your text or image to move freely without being restricted to the row it is created in.  This is useful for layering text upon an image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="positionLaptop"
+                                            #positionLaptop="ngModel"
+                                            [(ngModel)]="content.positionLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="positionLaptop"></label>
+                                        <select
+                                          id="positionLaptop"
+                                          name="positionLaptop"
+                                          [(ngModel)]="content.positionLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="static">static</option>
+                                          <option value="relative">
+                                            relative
+                                          </option>
+                                          <option value="fixed">fixed</option>
+                                          <option value="absolute">
+                                            absolute
+                                          </option>
+                                          <option value="sticky">sticky</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Text Align -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Text Align</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This specifies the horizontal alignment of text in an element.  Ex: setting it to 'center' will move the text to the center of the column."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="textAlignLaptop"
+                                            #textAlignLaptop="ngModel"
+                                            [(ngModel)]="
+                                              content.textAlignLaptop
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="textAlignLaptop"></label>
+                                        <select
+                                          id="textAlignLaptop"
+                                          name="textAlignLaptop"
+                                          [(ngModel)]="content.textAlignLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="left">left</option>
+                                          <option value="right">right</option>
+                                          <option value="center">center</option>
+                                          <option value="justify">
+                                            justify
+                                          </option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="inherit">
+                                            inherit
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Width -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Laptop Width</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the width of an image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="widthLaptop"
+                                            #widthLaptop="ngModel"
+                                            [(ngModel)]="content.widthLaptop"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="widthLaptop"></label>
+                                        <select
+                                          id="widthLaptop"
+                                          name="widthLaptop"
+                                          [(ngModel)]="content.widthLaptop"
+                                          class="form-control"
+                                        >
+                                          <option value="100px">100px</option>
+                                          <option value="200px">200px</option>
+                                          <option value="400px">400px</option>
+                                          <option value="600px">600px</option>
+                                          <option value="800px">800px</option>
+                                          <option value="1000px">1000px</option>
+                                          <option value="1500px">1500px</option>
+                                          <option value="2000px">2000px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!--------------------------------------------- form end-------------------------------------------------------------------------------- -->
+
+                                  <button
+                                    class="btn btn-primary"
+                                    (click)="onEditSubmit(form)"
+                                  >
+                                    Save Changes
+                                  </button>
+                                </div>
+                              </div>
+                              <!-- CARD END -->
+                            </mat-tab>
                             <mat-tab label="Desktop"></mat-tab>
 
                             <!--------------------------------------------- form end-------------------------------------------------------------------------------- -->
