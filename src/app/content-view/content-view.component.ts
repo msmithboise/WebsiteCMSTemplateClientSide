@@ -195,9 +195,10 @@ export class ContentViewComponent implements OnInit {
     }
   }
 
+  //my screen 1920px
   // 2560px >
   isDesktop() {
-    if (window.innerWidth > 1500) {
+    if (window.innerWidth > 1400) {
       return true;
     }
   }
@@ -211,7 +212,7 @@ export class ContentViewComponent implements OnInit {
 
   // 1024px - 2560px
   isLaptop() {
-    if (window.innerWidth > 1024 && window.innerWidth < 1499) {
+    if (window.innerWidth > 1024 && window.innerWidth < 1399) {
       return true;
     }
   }
