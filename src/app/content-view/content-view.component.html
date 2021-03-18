@@ -4897,6 +4897,51 @@
           [ngStyle]="{
             backgroundAttachment: content.backgroundAttachment,
             backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSizeMobile,
+            position: content.positionMobile,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPositionMobile,
+            display: content.displayMobile,
+            marginLeft: content.marginLeftMobile,
+            marginRight: content.marginRightMobile,
+            marginTop: content.marginTopMobile,
+            margin: content.marginMobile,
+            left: content.leftMobile,
+            right: content.rightMobile,
+            top: content.topMobile,
+            bottom: content.bottomMobile,
+            padding: content.paddingMobile,
+            paddingTop: content.paddingTopMobile,
+            paddingBottom: content.paddingBottomMobile,
+            paddingLeft: content.paddingLeftMobile,
+            paddingRight: content.paddingRightMobile,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.heightMobile,
+            width: content.widthMobile,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
+      </div>
+    </div>
+
+    <!-- Gallery Image Desktop -->
+    <div *ngIf="this.isDesktop()">
+      <div
+        *ngIf="
+          (content.ImageUrl != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.ImageUrl }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
             backgroundSize: content.backgroundSize,
             position: content.position,
             opacity: content.opacity,
@@ -4907,7 +4952,7 @@
             textAlign: 'center',
             resize: 'both',
             overflow: 'auto',
-            height: content.heightMobile + 'px',
+            height: content.height + 'px',
             width: content.width + 'px',
             objectFit: 'cover',
             zIndex: content.zIndex,
@@ -4917,36 +4962,94 @@
       </div>
     </div>
 
-    <!-- Gallery Image -->
-    <div
-      *ngIf="
-        (content.ImageUrl != null && content.HyperLink == null) ||
-        content.HyperLink == ''
-      "
-    >
-      <img
-        class="responsive"
-        src="{{ content.ImageUrl }}"
-        [ngStyle]="{
-          backgroundAttachment: content.backgroundAttachment,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: content.backgroundSize,
-          position: content.position,
-          opacity: content.opacity,
-          backgroundPosition: content.backgroundPosition,
-          display: content.display,
-          marginLeft: content.marginLeft,
-          marginRight: content.marginRight,
-          textAlign: 'center',
-          resize: 'both',
-          overflow: 'auto',
-          height: content.height + 'px',
-          width: content.width + 'px',
-          objectFit: 'cover',
-          zIndex: content.zIndex,
-          transform: content.transform
-        }"
-      />
+    <!-- Gallery Image Tablet -->
+    <div *ngIf="this.isTablet()">
+      <div
+        *ngIf="
+          (content.ImageUrl != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.ImageUrl }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSizeTablet,
+            position: content.positionTablet,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPositionTablet,
+            display: content.displayTablet,
+            marginLeft: content.marginLeftTablet,
+            marginRight: content.marginRightTablet,
+            marginTop: content.marginTopTablet,
+            margin: content.marginTablet,
+            left: content.leftTablet,
+            right: content.rightTablet,
+            top: content.topTablet,
+            bottom: content.bottomTablet,
+            padding: content.paddingTablet,
+            paddingTop: content.paddingTopTablet,
+            paddingBottom: content.paddingBottomTablet,
+            paddingLeft: content.paddingLeftTablet,
+            paddingRight: content.paddingRightTablet,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.heightTablet,
+            width: content.widthTablet,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
+      </div>
+    </div>
+
+    <!-- Gallery Image Laptop -->
+    <div *ngIf="this.isLaptop()">
+      <div
+        *ngIf="
+          (content.ImageUrl != null && content.HyperLink == null) ||
+          content.HyperLink == ''
+        "
+      >
+        <img
+          class="responsive"
+          src="{{ content.ImageUrl }}"
+          [ngStyle]="{
+            backgroundAttachment: content.backgroundAttachment,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: content.backgroundSizeLaptop,
+            position: content.positionLaptop,
+            opacity: content.opacity,
+            backgroundPosition: content.backgroundPositionLaptop,
+            display: content.displayLaptop,
+            marginLeft: content.marginLeftLaptop,
+            marginRight: content.marginRightLaptop,
+            marginTop: content.marginTopLaptop,
+            margin: content.marginLaptop,
+            left: content.leftLaptop,
+            right: content.rightLaptop,
+            top: content.topLaptop,
+            bottom: content.bottomLaptop,
+            padding: content.paddingLaptop,
+            paddingTop: content.paddingTopLaptop,
+            paddingBottom: content.paddingBottomLaptop,
+            paddingLeft: content.paddingLeftLaptop,
+            paddingRight: content.paddingRightLaptop,
+            textAlign: 'center',
+            resize: 'both',
+            overflow: 'auto',
+            height: content.heightLaptop,
+            width: content.widthLaptop,
+            objectFit: 'cover',
+            zIndex: content.zIndex,
+            transform: content.transform
+          }"
+        />
+      </div>
     </div>
 
     <!-- Text With HYPERLINK -->
