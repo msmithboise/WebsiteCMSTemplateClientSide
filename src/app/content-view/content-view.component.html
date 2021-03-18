@@ -1515,6 +1515,61 @@
       </div>
     </div>
 
+    <!-- bg image Tablet (Currently used) DEFAULT Animation: None -->
+    <div *ngIf="this.isTablet()">
+      <div
+        *ngIf="
+          content.animationName == null ||
+          content.animationName == '' ||
+          content.animationName == 'none'
+        "
+      >
+        <div
+          *ngIf="
+            (content.backgroundImage != null && content.HyperLink == null) ||
+            content.HyperLink == ''
+          "
+        >
+          <div [@fadeInOnEnter]>
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSizeTablet,
+                position: content.positionTablet,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPositionTablet,
+                display: content.displayTablet,
+                marginLeft: content.marginLeftTablet,
+                marginRight: content.marginRightTablet,
+                marginTop: content.marginTopTablet,
+                margin: content.marginTablet,
+                left: content.leftTablet,
+                right: content.rightTablet,
+                top: content.topTablet,
+                bottom: content.bottomTablet,
+                padding: content.paddingTablet,
+                paddingTop: content.paddingTopTablet,
+                paddingBottom: content.paddingBottomTablet,
+                paddingLeft: content.paddingLeftTablet,
+                paddingRight: content.paddingRightTablet,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.heightTablet,
+                width: content.widthTablet,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- bg image MOBILE (Currently used) DEFAULT Animation: None -->
     <div *ngIf="this.isMobile()">
       <div

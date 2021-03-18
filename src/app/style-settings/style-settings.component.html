@@ -5038,12 +5038,1724 @@
                               </div>
                               <!-- CARD END -->
                             </mat-tab>
-                            <mat-tab label="Desktop"></mat-tab>
-                            <mat-tab label="Tablet"></mat-tab>
+                            <mat-tab label="Tablet">
+                              <div class="card card-body-tablet">
+                                <button
+                                  class="btn btn-primary"
+                                  (click)="onEditSubmit(form)"
+                                >
+                                  Save Changes
+                                </button>
+                                <div class="modal-body form-group">
+                                  <!-- Id -->
+
+                                  <input
+                                    name="Id"
+                                    type="hidden"
+                                    #Id="ngModel"
+                                    [(ngModel)]="content.Id"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Page Id -->
+
+                                  <input
+                                    name="PageId"
+                                    type="hidden"
+                                    #PageId="ngModel"
+                                    [(ngModel)]="content.PageId"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Column Id -->
+
+                                  <input
+                                    name="ColumnId"
+                                    type="hidden"
+                                    #ColumnId="ngModel"
+                                    [(ngModel)]="content.ColumnId"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- ngIf subpageid != null... input -->
+
+                                  <input
+                                    *ngIf="content.SubPageId != null"
+                                    type="text"
+                                    name="SubPageId"
+                                    type="hidden"
+                                    #SubPageId="ngModel"
+                                    [(ngModel)]="content.SubPageId"
+                                  />
+
+                                  <!-- Body (Image 400px) -->
+                                  <div class="row">
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <input
+                                    name="Body"
+                                    type="hidden"
+                                    #Body="ngModel"
+                                    [(ngModel)]="content.Body"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Background Position -->
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Tablet Background Position</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="This sets the starting position of a background image.  Example:  Setting it to 'Center' will cause the image to move to the center."
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <input
+                                      name="backgroundPositionTablet"
+                                      #backgroundPositionTablet="ngModel"
+                                      [(ngModel)]="
+                                        content.backgroundPositionTablet
+                                      "
+                                    />
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Background Size -->
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Tablet Background Size</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="This sets the size of a background image"
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <input
+                                      name="backgroundSizeTablet"
+                                      #backgroundSizeTablet="ngModel"
+                                      [(ngModel)]="content.backgroundSizeTablet"
+                                    />
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Top</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the vertical position of a positioned element. Ex: while setting 'position' to 'absolute', you can use this to push your text from the top by setting it to 50%."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="topTablet"
+                                            #topTablet="ngModel"
+                                            [(ngModel)]="content.topTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="topTablet"></label>
+                                        <select
+                                          id="topTablet"
+                                          name="topTablet"
+                                          [(ngModel)]="content.topTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Bottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="Use this to push up text or an image out of its row.  You would use this to layer text onto an image"
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="bottomTablet"
+                                            #bottomTablet="ngModel"
+                                            [(ngModel)]="content.bottomTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="bottomTablet"></label>
+                                        <select
+                                          id="bottomTablet"
+                                          name="bottomTablet"
+                                          [(ngModel)]="content.bottomTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Left</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the horizontal position your image or text.  Use this when needing to center your text or image when 'position' is set to 'absolute'. Ex: 50% would place move it 50% into the center from the left."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="leftTablet"
+                                            #leftTablet="ngModel"
+                                            [(ngModel)]="content.leftTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="leftTablet"></label>
+                                        <select
+                                          id="leftTablet"
+                                          name="leftTablet"
+                                          [(ngModel)]="content.leftTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Right</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This affects the horizontal position your image or text.  Use this when needing to center your text or image when 'position' is set to 'absolute'. Ex: 50% would place move it 50% into the center from the right of the page."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="rightTablet"
+                                            #rightTablet="ngModel"
+                                            [(ngModel)]="content.rightTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="rightTablet"></label>
+                                        <select
+                                          id="rightTablet"
+                                          name="rightTablet"
+                                          [(ngModel)]="content.rightTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="20px">20px</option>
+                                          <option value="-20px">-20px</option>
+                                          <option value="25%">25%</option>
+                                          <option value="50%">50%</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Display -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Display</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This display behavior of an element.  See https://www.w3schools.com/cssref/pr_class_display.asp for more info."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="displayTablet"
+                                            #displayTablet="ngModel"
+                                            [(ngModel)]="content.displayTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="displayTablet"></label>
+                                        <select
+                                          id="displayTablet"
+                                          name="displayTablet"
+                                          [(ngModel)]="content.displayTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="none">none</option>
+                                          <option value="inline">inline</option>
+                                          <option value="block">block</option>
+                                          <option value="contents">
+                                            contents
+                                          </option>
+                                          <option value="flex">flex</option>
+                                          <option value="grid">grid</option>
+                                          <option value="inline-block">
+                                            inline-block
+                                          </option>
+                                          <option value="inline-grid">
+                                            inline-grid
+                                          </option>
+                                          <option value="inline-table">
+                                            inline-table
+                                          </option>
+                                          <option value="list-item">
+                                            list-item
+                                          </option>
+                                          <option value="run-in">run-in</option>
+                                          <option value="table">table</option>
+                                          <option value="table-caption">
+                                            table-caption
+                                          </option>
+                                          <option value="table-column-group">
+                                            table-column-group
+                                          </option>
+                                          <option value="table-header-group">
+                                            table-header-group
+                                          </option>
+                                          <option value="table-row-group">
+                                            table-row-group
+                                          </option>
+                                          <option value="table-cell">
+                                            table-cell
+                                          </option>
+                                          <option value="table-column">
+                                            table-column
+                                          </option>
+                                          <option value="table-row">
+                                            table-row
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Embed Url -->
+
+                                  <input
+                                    name="embedUrl"
+                                    type="hidden"
+                                    #embedUrl="ngModel"
+                                    [(ngModel)]="content.embedUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Font -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b> Tablet Font</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The font property is a shorthand property for:
+  
+                                  font-style
+                                  font-variant
+                                  font-weight
+                                  font-size/line-height
+                                  font-family."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="fontTablet"
+                                            #fontTablet="ngModel"
+                                            [(ngModel)]="content.fontTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="fontTablet"></label>
+                                        <select
+                                          id="fontTablet"
+                                          name="fontTablet"
+                                          [(ngModel)]="content.fontTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="normal">normal</option>
+                                          <option value="italic">italic</option>
+                                          <option value="oblique">
+                                            oblique
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Font Size -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Font Size </b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The font-size property sets the size of a font."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="fontSizeTablet"
+                                            #fontSizeTablet="ngModel"
+                                            [(ngModel)]="content.fontSizeTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="fontSizeTablet"></label>
+                                        <select
+                                          id="fontSizeTablet"
+                                          name="fontSizeTablet"
+                                          [(ngModel)]="content.fontSizeTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="12px">12px</option>
+                                          <option value="16px">16px</option>
+                                          <option value="25px">25px</option>
+
+                                          <option value="50px">50px</option>
+
+                                          <option value="60px">60px</option>
+                                          <option value="72px">72px</option>
+                                          <option value="100px">100px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Height -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Height</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The height property sets the height of your image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="heightTablet"
+                                            #heightTablet="ngModel"
+                                            [(ngModel)]="content.heightTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="heightTablet"></label>
+                                        <select
+                                          id="heightTablet"
+                                          name="heightTablet"
+                                          [(ngModel)]="content.heightTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="100px">100px</option>
+                                          <option value="200px">200px</option>
+                                          <option value="400px">400px</option>
+                                          <option value="600px">600px</option>
+                                          <option value="800px">800px</option>
+                                          <option value="1000px">1000px</option>
+                                          <option value="1500px">1500px</option>
+                                          <option value="2000px">2000px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!--Tablet Icon -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <label
+                                        ><b>Tablet Icon</b
+                                        ><button
+                                          type="button"
+                                          class="btn mr-2"
+                                          placement="right"
+                                          ngbTooltip="If an icon is set, this is where you can change it.  Note:  An icon is treated like text, change the color with color, the size with font-size."
+                                        >
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="#C349BF"
+                                            class="bi bi-question-circle-fill"
+                                            viewBox="0 0 16 16"
+                                          >
+                                            <path
+                                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                            />
+                                          </svg></button
+                                      ></label>
+                                      <div>
+                                        <input
+                                          name="Icon"
+                                          #Icon="ngModel"
+                                          [(ngModel)]="content.Icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Image Url -->
+
+                                  <input
+                                    name="ImageUrl"
+                                    type="hidden"
+                                    #ImageUrl="ngModel"
+                                    [(ngModel)]="content.ImageUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Image Url -->
+
+                                  <input
+                                    name="ImageUrl"
+                                    type="hidden"
+                                    #ImageUrl="ngModel"
+                                    [(ngModel)]="content.ImageUrl"
+                                  />
+                                  <div class="input-group-append"></div>
+
+                                  <!-- Letter Spacing -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Letter Spacing</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This increases or decreases the space between characters in your text."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="letterSpacingTablet"
+                                            #letterSpacingTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.letterSpacingTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label
+                                          for="letterSpacingTablet"
+                                        ></label>
+                                        <select
+                                          id="letterSpacingTablet"
+                                          name="letterSpacingTablet"
+                                          [(ngModel)]="
+                                            content.letterSpacingTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="3px">3px</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="-3px">-3px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Line Height -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Line Height</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The is specifies the height of a line. Ex: You can use this to make a paragraph double spaced by setting this to '2'."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="lineHeightTablet"
+                                            #lineHeightTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.lineHeightTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="lineHeightTablet"></label>
+                                        <select
+                                          id="lineHeightTablet"
+                                          name="lineHeightTablet"
+                                          [(ngModel)]="content.lineHeightTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                          <option value="7">7</option>
+                                          <option value="8">8</option>
+                                          <option value="9">9</option>
+                                          <option value="10">10</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Margin -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Margin</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the margins for your text or image, and is a shorthand property for the following properties:
+  
+                                  margin-top
+                                  margin-right
+                                  margin-bottom
+                                  margin-left.  Ex setting margin to 10px will add space around your entire text or image"
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginTablet"
+                                            #marginTablet="ngModel"
+                                            [(ngModel)]="content.marginTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginTablet"></label>
+                                        <select
+                                          id="marginTablet"
+                                          name="marginTablet"
+                                          [(ngModel)]="content.marginTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Margin Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Margin Top</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Top margin of your text or image.  Ex: setting to 10px will add space to the Top of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginTopTablet"
+                                            #marginTopTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.marginTopTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginTopTablet"></label>
+                                        <select
+                                          id="marginTopTablet"
+                                          name="marginTopTablet"
+                                          [(ngModel)]="content.marginTopTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Margin Bottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Bottom margin of your text or image.  Ex: setting to 10px will add space to the Bottom of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginBottomTablet"
+                                            #marginBottomTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.marginBottomTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginBottomTablet"></label>
+                                        <select
+                                          id="marginBottomTablet"
+                                          name="marginBottomTablet"
+                                          [(ngModel)]="
+                                            content.marginBottomTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Margin Left</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the left margin of your text or image.  Ex: setting to 10px will add space to the left of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginLeftTablet"
+                                            #marginLeftTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.marginLeftTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginLeftTablet"></label>
+                                        <select
+                                          id="marginLeftTablet"
+                                          name="marginLeftTablet"
+                                          [(ngModel)]="content.marginLeftTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Margin Right</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the right margin of your text or image.  Ex: setting to 10px will add space to the right of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginRightTablet"
+                                            #marginRightTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.marginRightTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginRightTablet"></label>
+                                        <select
+                                          id="marginRightTablet"
+                                          name="marginRightTablet"
+                                          [(ngModel)]="
+                                            content.marginRightTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Padding</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  The padding property is a shorthand property for:
+                                  
+                                  padding-top
+                                  padding-right
+                                  padding-bottom
+                                  padding-left
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingTablet"
+                                            #paddingTablet="ngModel"
+                                            [(ngModel)]="content.paddingTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingTablet"></label>
+                                        <select
+                                          id="paddingTablet"
+                                          name="paddingTablet"
+                                          [(ngModel)]="content.paddingTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet PaddingTop</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingTopTablet"
+                                            #paddingTopTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingTopTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingTopTablet"></label>
+                                        <select
+                                          id="paddingTopTablet"
+                                          name="paddingTopTablet"
+                                          [(ngModel)]="content.paddingTopTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet PaddingBottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingBottomTablet"
+                                            #paddingBottomTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingBottomTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label
+                                          for="paddingBottomTablet"
+                                        ></label>
+                                        <select
+                                          id="paddingBottomTablet"
+                                          name="paddingBottomTablet"
+                                          [(ngModel)]="
+                                            content.paddingBottomTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet PaddingLeft</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingLeftTablet"
+                                            #paddingLeftTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingLeftTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingLeftTablet"></label>
+                                        <select
+                                          id="paddingLeftTablet"
+                                          name="paddingLeftTablet"
+                                          [(ngModel)]="
+                                            content.paddingLeftTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet PaddingRight</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingRightTablet"
+                                            #paddingRightTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingRightTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingRightTablet"></label>
+                                        <select
+                                          id="paddingRightTablet"
+                                          name="paddingRightTablet"
+                                          [(ngModel)]="
+                                            content.paddingRightTablet
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Position -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Position</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="The position property specifies the type of positioning method used for an element.  Ex:  Setting to 'absolute' will allow your text or image to move freely without being restricted to the row it is created in.  This is useful for layering text upon an image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="positionTablet"
+                                            #positionTablet="ngModel"
+                                            [(ngModel)]="content.positionTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="positionTablet"></label>
+                                        <select
+                                          id="positionTablet"
+                                          name="positionTablet"
+                                          [(ngModel)]="content.positionTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="static">static</option>
+                                          <option value="relative">
+                                            relative
+                                          </option>
+                                          <option value="fixed">fixed</option>
+                                          <option value="absolute">
+                                            absolute
+                                          </option>
+                                          <option value="sticky">sticky</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Text Align -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Text Align</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This specifies the horizontal alignment of text in an element.  Ex: setting it to 'center' will move the text to the center of the column."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="textAlignTablet"
+                                            #textAlignTablet="ngModel"
+                                            [(ngModel)]="
+                                              content.textAlignTablet
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="textAlignTablet"></label>
+                                        <select
+                                          id="textAlignTablet"
+                                          name="textAlignTablet"
+                                          [(ngModel)]="content.textAlignTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="left">left</option>
+                                          <option value="right">right</option>
+                                          <option value="center">center</option>
+                                          <option value="justify">
+                                            justify
+                                          </option>
+                                          <option value="initial">
+                                            initial
+                                          </option>
+                                          <option value="inherit">
+                                            inherit
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Width -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Tablet Width</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the width of an image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="widthTablet"
+                                            #widthTablet="ngModel"
+                                            [(ngModel)]="content.widthTablet"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="widthTablet"></label>
+                                        <select
+                                          id="widthTablet"
+                                          name="widthTablet"
+                                          [(ngModel)]="content.widthTablet"
+                                          class="form-control"
+                                        >
+                                          <option value="100px">100px</option>
+                                          <option value="200px">200px</option>
+                                          <option value="400px">400px</option>
+                                          <option value="600px">600px</option>
+                                          <option value="800px">800px</option>
+                                          <option value="1000px">1000px</option>
+                                          <option value="1500px">1500px</option>
+                                          <option value="2000px">2000px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!--------------------------------------------- form end-------------------------------------------------------------------------------- -->
+
+                                  <button
+                                    class="btn btn-primary"
+                                    (click)="onEditSubmit(form)"
+                                  >
+                                    Save Changes
+                                  </button>
+                                </div>
+                              </div>
+                              <!-- CARD END -->
+                            </mat-tab>
                             <mat-tab label="Laptop"></mat-tab>
-                            <mat-tab label="Text Styling"></mat-tab>
-                            <mat-tab label="Image Styling"></mat-tab>
-                            <mat-tab label="Animation"></mat-tab>
+                            <mat-tab label="Desktop"></mat-tab>
 
                             <!--------------------------------------------- form end-------------------------------------------------------------------------------- -->
                           </form>

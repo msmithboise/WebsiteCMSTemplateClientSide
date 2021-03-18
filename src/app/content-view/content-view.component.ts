@@ -190,7 +190,7 @@ export class ContentViewComponent implements OnInit {
 
   // 320px - 768px
   isMobile() {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 768) {
       return true;
     }
   }
@@ -205,7 +205,7 @@ export class ContentViewComponent implements OnInit {
 
   //768px - 1024px
   isTablet() {
-    if (window.innerWidth > 769 && window.innerWidth < 1023) {
+    if (window.innerWidth > 768 && window.innerWidth < 1024) {
       return true;
     }
   }
