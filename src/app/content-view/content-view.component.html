@@ -3885,42 +3885,202 @@
     </div>
 
     <!-- bg image (Currently used) DEFAULT Animation: slideInUpOnEnter -->
-
-    <div [ngSwitch]="content.animationName">
-      <div
-        *ngSwitchCase="'slideInUpOnEnter'"
-        [@slideInUpOnEnter]="animationState"
-      >
+    <div *ngIf="this.isDesktop()">
+      <div [ngSwitch]="content.animationName">
         <div
-          *ngIf="
-            (content.backgroundImage != null && content.HyperLink == null) ||
-            content.HyperLink == '' ||
-            content.animationName != 'none'
-          "
+          *ngSwitchCase="'slideInUpOnEnter'"
+          [@slideInUpOnEnter]="animationState"
         >
-          <img
-            class="responsive"
-            src="{{ content.backgroundImage }}"
-            [ngStyle]="{
-              backgroundAttachment: content.backgroundAttachment,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: content.backgroundSize,
-              position: content.position,
-              opacity: content.opacity,
-              backgroundPosition: content.backgroundPosition,
-              display: content.display,
-              marginLeft: content.marginLeft,
-              marginRight: content.marginRight,
-              textAlign: 'center',
-              resize: 'both',
-              overflow: 'auto',
-              height: content.height,
-              width: this.screenWidth,
-              objectFit: 'cover',
-              zIndex: content.zIndex,
-              transform: content.transform
-            }"
-          />
+          <div
+            *ngIf="
+              (content.backgroundImage != null && content.HyperLink == null) ||
+              content.HyperLink == '' ||
+              content.animationName != 'none'
+            "
+          >
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSize,
+                position: content.position,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPosition,
+                display: content.display,
+                marginLeft: content.marginLeft,
+                marginRight: content.marginRight,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.height,
+                width: this.screenWidth,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image (Currently used) Mobile Animation: slideInUpOnEnter -->
+    <div *ngIf="this.isMobile()">
+      <div [ngSwitch]="content.animationName">
+        <div
+          *ngSwitchCase="'slideInUpOnEnter'"
+          [@slideInUpOnEnter]="animationState"
+        >
+          <div
+            *ngIf="
+              (content.backgroundImage != null && content.HyperLink == null) ||
+              content.HyperLink == '' ||
+              content.animationName != 'none'
+            "
+          >
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSizeMobile,
+                position: content.positionMobile,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPositionMobile,
+                display: content.displayMobile,
+                marginLeft: content.marginLeftMobile,
+                marginRight: content.marginRightMobile,
+                marginTop: content.marginTopMobile,
+                margin: content.marginMobile,
+                left: content.leftMobile,
+                right: content.rightMobile,
+                top: content.topMobile,
+                bottom: content.bottomMobile,
+                padding: content.paddingMobile,
+                paddingTop: content.paddingTopMobile,
+                paddingBottom: content.paddingBottomMobile,
+                paddingLeft: content.paddingLeftMobile,
+                paddingRight: content.paddingRightMobile,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.heightMobile,
+                width: content.widthMobile,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image (Currently used) Tablet Animation: slideInUpOnEnter -->
+    <div *ngIf="this.isTablet()">
+      <div [ngSwitch]="content.animationName">
+        <div
+          *ngSwitchCase="'slideInUpOnEnter'"
+          [@slideInUpOnEnter]="animationState"
+        >
+          <div
+            *ngIf="
+              (content.backgroundImage != null && content.HyperLink == null) ||
+              content.HyperLink == '' ||
+              content.animationName != 'none'
+            "
+          >
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSizeTablet,
+                position: content.positionTablet,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPositionTablet,
+                display: content.displayTablet,
+                marginLeft: content.marginLeftTablet,
+                marginRight: content.marginRightTablet,
+                marginTop: content.marginTopTablet,
+                margin: content.marginTablet,
+                left: content.leftTablet,
+                right: content.rightTablet,
+                top: content.topTablet,
+                bottom: content.bottomTablet,
+                padding: content.paddingTablet,
+                paddingTop: content.paddingTopTablet,
+                paddingBottom: content.paddingBottomTablet,
+                paddingLeft: content.paddingLeftTablet,
+                paddingRight: content.paddingRightTablet,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.heightTablet,
+                width: content.widthTablet,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bg image (Currently used) Laptop Animation: slideInUpOnEnter -->
+    <div *ngIf="this.isLaptop()">
+      <div [ngSwitch]="content.animationName">
+        <div
+          *ngSwitchCase="'slideInUpOnEnter'"
+          [@slideInUpOnEnter]="animationState"
+        >
+          <div
+            *ngIf="
+              (content.backgroundImage != null && content.HyperLink == null) ||
+              content.HyperLink == '' ||
+              content.animationName != 'none'
+            "
+          >
+            <img
+              class="responsive"
+              src="{{ content.backgroundImage }}"
+              [ngStyle]="{
+                backgroundAttachment: content.backgroundAttachment,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: content.backgroundSizeLaptop,
+                position: content.positionLaptop,
+                opacity: content.opacity,
+                backgroundPosition: content.backgroundPositionLaptop,
+                display: content.displayLaptop,
+                marginLeft: content.marginLeftLaptop,
+                marginRight: content.marginRightLaptop,
+                marginTop: content.marginTopLaptop,
+                margin: content.marginLaptop,
+                left: content.leftLaptop,
+                right: content.rightLaptop,
+                top: content.topLaptop,
+                bottom: content.bottomLaptop,
+                padding: content.paddingLaptop,
+                paddingTop: content.paddingTopLaptop,
+                paddingBottom: content.paddingBottomLaptop,
+                paddingLeft: content.paddingLeftLaptop,
+                paddingRight: content.paddingRightLaptop,
+                textAlign: 'center',
+                resize: 'both',
+                overflow: 'auto',
+                height: content.heightLaptop,
+                width: content.widthLaptop,
+                objectFit: 'cover',
+                zIndex: content.zIndex,
+                transform: content.transform
+              }"
+            />
+          </div>
         </div>
       </div>
     </div>
