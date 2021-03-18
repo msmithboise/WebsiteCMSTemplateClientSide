@@ -16,6 +16,7 @@ import {
   heartBeatOnEnterAnimation,
   bounceInAnimation,
   slideInLeftOnEnterAnimation,
+  slideInRightOnEnterAnimation,
   pulseAnimation,
   jelloAnimation,
   hueRotateAnimation,
@@ -45,6 +46,8 @@ import {
     slideInUpAnimation(),
     slideInUpOnEnterAnimation(),
     slideInLeftOnEnterAnimation(),
+    slideInRightOnEnterAnimation(),
+
     heartBeatAnimation(),
     heartBeatOnEnterAnimation(),
     bounceInOnEnterAnimation(),
