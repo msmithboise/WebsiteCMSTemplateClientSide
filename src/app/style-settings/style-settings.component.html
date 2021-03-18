@@ -4110,6 +4110,122 @@
                                     <div class="col-6"></div>
                                   </div>
 
+                                  <!-- Margin Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Margin Top</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Top margin of your text or image.  Ex: setting to 10px will add space to the Top of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginTopMobile"
+                                            #marginTopMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.marginTopMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginTopMobile"></label>
+                                        <select
+                                          id="marginTopMobile"
+                                          name="marginTopMobile"
+                                          [(ngModel)]="content.marginTopMobile"
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
+                                  <!-- Margin Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>Margin Bottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="This sets the Bottom margin of your text or image.  Ex: setting to 10px will add space to the Bottom of your text or image."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="marginBottomMobile"
+                                            #marginBottomMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.marginBottomMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="marginBottomMobile"></label>
+                                        <select
+                                          id="marginBottomMobile"
+                                          name="marginBottomMobile"
+                                          [(ngModel)]="
+                                            content.marginBottomMobile
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="auto">auto</option>
+                                          <option value="10px">10px</option>
+
+                                          <option value="10px">20px</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"></div>
+
                                   <!-- Margin Left -->
 
                                   <div class="row">
@@ -4290,6 +4406,302 @@
                                           id="paddingMobile"
                                           name="paddingMobile"
                                           [(ngModel)]="content.paddingMobile"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Top -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>PaddingTop</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingTopMobile"
+                                            #paddingTopMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingTopMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingTopMobile"></label>
+                                        <select
+                                          id="paddingTopMobile"
+                                          name="paddingTopMobile"
+                                          [(ngModel)]="content.paddingTopMobile"
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Bottom -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>PaddingBottom</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingBottomMobile"
+                                            #paddingBottomMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingBottomMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label
+                                          for="paddingBottomMobile"
+                                        ></label>
+                                        <select
+                                          id="paddingBottomMobile"
+                                          name="paddingBottomMobile"
+                                          [(ngModel)]="
+                                            content.paddingBottomMobile
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Left -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>PaddingLeft</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingLeftMobile"
+                                            #paddingLeftMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingLeftMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingLeftMobile"></label>
+                                        <select
+                                          id="paddingLeftMobile"
+                                          name="paddingLeftMobile"
+                                          [(ngModel)]="
+                                            content.paddingLeftMobile
+                                          "
+                                          class="form-control"
+                                        >
+                                          <option value="10px">
+                                            10px (Top/Bottom/Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            10px 10px (Top/Bottom & Right/Left)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 10px (Top & Right/Left &
+                                            Bottom)
+                                          </option>
+                                          <option value="10px">
+                                            15px 20px 25px 10px (Top & Right &
+                                            Bottom & Left)
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6"></div>
+                                  </div>
+
+                                  <!-- Padding Right -->
+
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div>
+                                        <label
+                                          ><b>PaddingRight</b
+                                          ><button
+                                            type="button"
+                                            class="btn mr-2"
+                                            placement="right"
+                                            ngbTooltip="An element's padding is the space between its content and its border.
+  
+                                  
+  
+                                  Ex: Setting 10px will create space around your text or element.
+                                  Note: Padding creates extra space within an element, while margin creates extra space around an element."
+                                          >
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              width="16"
+                                              height="16"
+                                              fill="#C349BF"
+                                              class="bi bi-question-circle-fill"
+                                              viewBox="0 0 16 16"
+                                            >
+                                              <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+                                              />
+                                            </svg></button
+                                        ></label>
+                                        <div>
+                                          <input
+                                            name="paddingRightMobile"
+                                            #paddingRightMobile="ngModel"
+                                            [(ngModel)]="
+                                              content.paddingRightMobile
+                                            "
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                        <label for="paddingRightMobile"></label>
+                                        <select
+                                          id="paddingRightMobile"
+                                          name="paddingRightMobile"
+                                          [(ngModel)]="
+                                            content.paddingRightMobile
+                                          "
                                           class="form-control"
                                         >
                                           <option value="10px">
