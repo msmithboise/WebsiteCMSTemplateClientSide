@@ -293,6 +293,8 @@ export class PageSettingsComponent implements OnInit {
       .subscribe((res) => {
         JSON.stringify(res);
       });
+    this.refresh();
+    this.grabAllContentByPageId();
 
     //var newRowId = Number(localStorage.getItem('passedRowId'));
   }
