@@ -281,6 +281,14 @@ export class PageSettingsComponent implements OnInit {
     pageId: new FormControl(''),
   });
 
+  createTemplateDialogue() {
+    if (confirm('Are you sure you want to create a new template?')) {
+      this.createTemplate();
+      this.refresh();
+      this.grabAllContentByPageId();
+    }
+  }
+
   createTemplate() {
     console.log('calling templateController');
     //Call default template controller
