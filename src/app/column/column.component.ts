@@ -145,6 +145,9 @@ export class ColumnComponent implements OnInit {
     rowId: new FormControl(''),
     pageId: new FormControl(''),
     columnClass: new FormControl(''),
+    columnClassMobile: new FormControl(''),
+    columnClassTablet: new FormControl(''),
+    columnClassLaptop: new FormControl(''),
   });
 
   onColumnSubmit(form: FormGroup) {

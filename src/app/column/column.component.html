@@ -32,14 +32,53 @@
               class="form-inline"
               (submit)="onEditColumnSubmit(editColumnFormTemplate.value)"
             >
-              <div class="form-group">
-                <input
-                  name="columnClass"
-                  class="form-control-lg form-group"
-                  placeholder="Enter New Column Size Here"
-                  type="text"
-                  formControlName="columnClass"
-                />
+              <div class="card">
+                <div class="card-body">
+                  <label>Desktop Column Size: </label>
+                  <input
+                    name="columnClass"
+                    class="form-control-lg form-group"
+                    placeholder="Enter New Column Size Here"
+                    type="text"
+                    formControlName="columnClass"
+                  />
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <label>Mobile Column Size: </label>
+                    <input
+                      name="columnClassMobile"
+                      class="form-control-lg form-group"
+                      placeholder="Enter New Mobile Column Size Here"
+                      type="text"
+                      formControlName="columnClassMobile"
+                    />
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <label>Tablet Column Size: </label>
+                    <input
+                      name="columnClassTablet"
+                      class="form-control-lg form-group"
+                      placeholder="Enter New Tablet Column Size Here"
+                      type="text"
+                      formControlName="columnClassTablet"
+                    />
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <label>Laptop Column Size: </label>
+                    <input
+                      name="columnClassLaptop"
+                      class="form-control-lg form-group"
+                      placeholder="Enter New Laptop Column Size Here"
+                      type="text"
+                      formControlName="columnClassLaptop"
+                    />
+                  </div>
+                </div>
               </div>
             </form>
           </div>
