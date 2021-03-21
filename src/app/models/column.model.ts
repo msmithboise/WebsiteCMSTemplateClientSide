@@ -8,4 +8,8 @@ export class Column {
   ElementTagId: number;
   ElementTag: string;
   Id: number;
+  ColumnClassMobile: string;
+  ColumnClassTablet: string;
+  ColumnClassLaptop: string;
+  ColumnClassDesktop: string;
 }
