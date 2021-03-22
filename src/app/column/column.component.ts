@@ -43,16 +43,6 @@ export class ColumnComponent implements OnInit {
     console.log('editing column...', this.columnId);
     console.log('column size: ', this.columnClass);
     console.log('rowId:  ', this.rowId);
-
-    this.webStructureService.getColumnLists(this.rowId).subscribe((res) => {
-      var columnArray = res[0];
-      console.log(columnArray);
-
-      var newArray = columnArray.filter((x) => x.ColumnId == this.columnId);
-      this.filteredColumnList = newArray;
-
-      console.log(this.filteredColumnList);
-    });
   }
 
   refreshRows() {
