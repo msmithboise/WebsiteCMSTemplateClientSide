@@ -113,7 +113,7 @@
   <div *ngFor="let column of this.newColumnList">
     <div *ngIf="column.RowId == this.rowId">
       <!-- <h2 style="color: black">ColumnId: {{ column.ColumnId }}</h2> -->
-
+      <h2 style="color: black; font-size: 14px">Row ID: {{ this.rowId }}</h2>
       <h2 style="color: black; font-size: 14px">
         {{ column.ColumnClass }}
       </h2>
