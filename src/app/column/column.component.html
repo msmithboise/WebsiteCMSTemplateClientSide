@@ -18,6 +18,7 @@
             <h5 class="modal-title" id="editColumnModalLabel">
               Please enter a column size between 1-12
             </h5>
+
             <button
               type="button"
               class="close"
@@ -29,54 +30,18 @@
           </div>
           <div class="modal-body">
             <form
-              [formGroup]="columnFormTemplate"
-              class="form-inline"
+              #form="ngForm"
               (submit)="onEditColumnSubmit(editColumnFormTemplate.value)"
+              id="myForm"
             >
               <div class="card">
                 <div class="card-body">
                   <label>Desktop Column Size: </label>
-                  <input
-                    name="columnClass"
-                    class="form-control-lg form-group"
-                    placeholder="Enter New Column Size Here"
-                    type="text"
-                    formControlName="columnClass"
-                  />
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Mobile Column Size: </label>
+                  <div *ngFor="let column of this.filteredColumnList">
                     <input
-                      name="columnClassMobile"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Mobile Column Size Here"
-                      type="text"
-                      formControlName="columnClassMobile"
-                    />
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Tablet Column Size: </label>
-                    <input
-                      name="columnClassTablet"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Tablet Column Size Here"
-                      type="text"
-                      formControlName="columnClassTablet"
-                    />
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Laptop Column Size: </label>
-                    <input
-                      name="columnClassLaptop"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Laptop Column Size Here"
-                      type="text"
-                      formControlName="columnClassLaptop"
+                      name="ColumnClass"
+                      #ColumnClass="ngModel"
+                      [(ngModel)]="column.ColumnClass"
                     />
                   </div>
                 </div>

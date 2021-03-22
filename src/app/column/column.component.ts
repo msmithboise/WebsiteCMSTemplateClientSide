@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Column } from '../models/column.model';
 import { CustomImageService } from '../services/custom-image.service';
 import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
@@ -15,12 +16,14 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 export class ColumnComponent implements OnInit {
   @Input() columnId: number;
   @Input() columnClass: string;
+  @Input() rowId: number;
   @Output() refreshEvent = new EventEmitter<any>();
 
   public pageId: number;
   public pageDescription: string;
   public contentList: Webcontent[];
   public newContentList: Webcontent[];
+  public filteredColumnList: Column[];
 
   constructor(
     public webStructureService: WebStructureService,
@@ -39,6 +42,17 @@ export class ColumnComponent implements OnInit {
   selectColumnToEdit() {
     console.log('editing column...', this.columnId);
     console.log('column size: ', this.columnClass);
+    console.log('rowId:  ', this.rowId);
+
+    this.webStructureService.getColumnLists(this.rowId).subscribe((res) => {
+      var columnArray = res[0];
+      console.log(columnArray);
+
+      var newArray = columnArray.filter((x) => x.ColumnId == this.columnId);
+      this.filteredColumnList = newArray;
+
+      console.log(this.filteredColumnList);
+    });
   }
 
   refreshRows() {
@@ -162,7 +176,7 @@ export class ColumnComponent implements OnInit {
   }
 
   editColumn(form: FormGroup) {
-    var newRowId = Number(localStorage.getItem('passedRowId'));
+    var newRowId = this.rowId;
 
     var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
@@ -176,7 +190,7 @@ export class ColumnComponent implements OnInit {
   }
 
   addColumn(form: FormGroup) {
-    var newRowId = Number(localStorage.getItem('passedRowId'));
+    var newRowId = this.rowId;
 
     var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
