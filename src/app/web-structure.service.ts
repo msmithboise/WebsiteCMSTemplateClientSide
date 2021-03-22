@@ -157,6 +157,6 @@ export class WebStructureService {
 
   // Get content lists
   getContentLists(columnId: number) {
-    return this.http.get<Column>(this.webApi + '/Content/' + columnId);
+    return this.http.get<Webcontent>(this.webApi + '/Content/' + columnId);
   }
 }
