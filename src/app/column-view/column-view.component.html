@@ -1,4 +1,16 @@
-<div *ngIf="isDesktop()">
+<div class="row">
+  <div
+    *ngFor="let column of this.newColumnList"
+    [ngClass]="column.ColumnClass"
+    style="height: 100%"
+  >
+    <div *ngIf="column.RowId == this.rowId">
+      <app-content-view [columnId]="column.ColumnId"></app-content-view>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngIf="isDesktop()">
   <div class="row">
     <div
       *ngFor="let column of this.newColumnList"
@@ -10,9 +22,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div *ngIf="isMobile()">
+<!-- <div *ngIf="isMobile()">
   <div class="row">
     <div
       *ngFor="let column of this.newColumnList"
@@ -24,9 +36,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div *ngIf="isTablet()">
+<!-- <div *ngIf="isTablet()">
   <div class="row">
     <div
       *ngFor="let column of this.newColumnList"
@@ -38,9 +50,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div *ngIf="isLaptop()">
+<!-- <div *ngIf="isLaptop()">
   <div class="row">
     <div
       *ngFor="let column of this.newColumnList"
@@ -52,6 +64,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- If(isMobile()) ? [ngClass]="column.ColumnClassMobile" -->

@@ -37,15 +37,11 @@ export class EditPageSettingsComponent implements OnInit {
 
   getOriginPageId(pageId: number) {
     this.storedPageId = pageId;
-    console.log('origin pageId:  ', this.storedPageId);
   }
 
   addNewSubPage(form: NgForm) {
-    console.log('adding subpage...');
-
     form.value.ClientUrl = this.nullPageGuardService.grabUrl();
     form.value.ParentId = this.storedPageId;
-    console.log('parenturl on subpage add:  ', form.value.ParentId);
 
     if (this.isChecked) {
       form.value.IsPublished = true;
@@ -57,10 +53,6 @@ export class EditPageSettingsComponent implements OnInit {
       .postSubPageContent(form.value)
       .subscribe((res: CustomPage[]) => {
         this.customPageService.customPageArray = res;
-        console.log(
-          'subpages in custompage array',
-          this.customPageService.customPageArray
-        );
 
         this.grabAllPages();
         location.reload();
@@ -77,10 +69,8 @@ export class EditPageSettingsComponent implements OnInit {
 
     if (this.isChecked) {
       this.isPagePublished = true;
-      console.log('isPagePublished: ', this.isPagePublished);
     } else {
       this.isPagePublished = false;
-      console.log('isPagePublished: ', this.isPagePublished);
     }
   }
 
@@ -92,11 +82,6 @@ export class EditPageSettingsComponent implements OnInit {
     } else {
       form.value.IsPublished = false;
     }
-
-    console.log(
-      'true home in custompageservice: ',
-      this.customPageService.trueHomeId
-    );
 
     this.customPageService
       .postWebPageContent(form.value)

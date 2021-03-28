@@ -43,10 +43,8 @@ export class WebStructureService {
 
   determineIfHttps() {
     if (window.location.href == 'https://www.hindsitedevelopment.com/#/') {
-      console.log('https');
       return 'https://api.hindsitedevelopment.com/api';
     } else {
-      console.log('http');
       return 'http://api.hindsitedevelopment.com/api';
     }
   }
@@ -58,17 +56,11 @@ export class WebStructureService {
   findClientUrl() {
     var fullUrl = window.location.href;
 
-    // console.log('full full url', fullUrl);
-
     var urlArray = fullUrl.split('/');
-    //console.log('urlArray when split', urlArray);
 
     var myUrl = urlArray[2];
-    //console.log('urlArray[2]', myUrl);
 
     var prodUrl = myUrl.split('.');
-
-    // console.log('prod url when split at .', prodUrl);
 
     if (prodUrl[0] == 'com') {
       var prodUrlFinal = prodUrl[1];
@@ -82,8 +74,6 @@ export class WebStructureService {
       prodUrlFinal = prodUrl[1];
     }
 
-    // console.log('prodUrlFinal', prodUrlFinal);
-
     var testUrl = 'localhost4200';
 
     if (myUrl == 'localhost:4200') {
@@ -91,7 +81,7 @@ export class WebStructureService {
       return 'localhost4200';
     } else {
       this.FinalProdUrl = prodUrlFinal;
-      console.log('finalProdUrl', this.FinalProdUrl);
+
       return prodUrlFinal;
     }
   }

@@ -270,7 +270,6 @@ export class CustomPageComponent implements OnInit {
 
   //Post text box one
   postCustomPageData() {
-    console.log('posting PAGE DATA');
     this.customPageService
       .createCustomPage(this.customPageService.pageFormData)
       .subscribe((res: CustomPage[]) => {
@@ -279,7 +278,6 @@ export class CustomPageComponent implements OnInit {
   }
 
   insertCustomPageRecord(form: NgForm) {
-    console.log('inserting page record');
     this.customPageService.createCustomPage(form.value).subscribe((res) => {
       this.customPageService.getCustomPageContent();
     });

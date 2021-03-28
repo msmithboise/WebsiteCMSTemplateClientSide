@@ -119,8 +119,6 @@ export class ContentViewComponent implements OnInit {
   }
 
   animate() {
-    console.log('animating...');
-    console.log('selected animation:', this.animation);
     this.animationState = false;
     setTimeout(() => {
       this.animationState = true;
@@ -156,8 +154,6 @@ export class ContentViewComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
-
-    console.log(this.innerWidth);
   }
 
   buttonNonHover(content: Webcontent) {
