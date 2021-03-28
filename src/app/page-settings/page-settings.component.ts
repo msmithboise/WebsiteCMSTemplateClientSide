@@ -290,7 +290,6 @@ export class PageSettingsComponent implements OnInit {
   }
 
   createTemplate() {
-    console.log('calling templateController');
     //Call default template controller
     var newTemplateForm = this.templateForm.value;
     this.route.params.subscribe((params) => {

@@ -39,14 +39,12 @@ export class CustomPageService {
   getCustomPageContent() {
     var url = this.grabUrl();
 
-    console.log('url in custompage service', url);
     //var url = 'hindsitedevelopment.com';
 
     this.http
       .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
       .subscribe((res) => {
         this.customPageArray = res;
-        console.log('custompagearray custompageservice', this.customPageArray);
 
         //Testing hiding home nav link
 
@@ -61,7 +59,6 @@ export class CustomPageService {
             this.pageNumArray.push(element.PageId);
           });
         }
-        console.log('numpagearray', this.pageNumArray);
 
         this.setTrueHomePage();
       });
