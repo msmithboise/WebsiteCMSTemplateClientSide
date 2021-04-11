@@ -46,14 +46,12 @@ export class ColumnComponent implements OnInit {
 
   selectColumnToEdit() {
     this.editColumnId = this.columnId;
-    console.log('editing column...', this.editColumnId);
+
     this.editColumnRowId = this.rowId;
-    console.log('rowId:  ', this.editColumnRowId);
 
     this.cookie.set('editColumnId', this.editColumnId.toString());
     this.cookie.set('editColumnRowId', this.editColumnRowId.toString());
     this.editColumnClass = this.columnClass;
-    console.log('column size: ', this.editColumnClass);
   }
 
   refreshRows() {
@@ -177,7 +175,6 @@ export class ColumnComponent implements OnInit {
   }
 
   editColumn(form: FormGroup) {
-    console.log('saving column...');
     var newRowId = this.rowId;
 
     var columnIdCookie = Number(this.cookie.get('editColumnId'));
@@ -186,9 +183,8 @@ export class ColumnComponent implements OnInit {
     var newColumn = this.columnFormTemplate.value;
     newColumn.pageId = this.webContentService.pageIdSnapshot;
     newColumn.columnId = columnIdCookie;
-    console.log('newColumn.columnId', newColumn.columnId);
+
     newColumn.rowId = columnRowIdCookie;
-    console.log('newColumn.rowId', newColumn.rowId);
 
     this.webStructureService.postColumnsByRowId(newColumn).subscribe((res) => {
       this.grabAllContentByPageId();
