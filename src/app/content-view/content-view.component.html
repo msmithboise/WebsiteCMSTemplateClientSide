@@ -7534,6 +7534,624 @@
       </div>
     </div>
 
+    <!--Desktop Text With HYPERLINK, Animation: fadeInOnEnter -->
+
+    <div
+      *ngIf="content.animationName != null || content.animationName != 'none'"
+    >
+      <div [ngSwitch]="content.animationName">
+        <div *ngSwitchCase="'fadeInOnEnter'" [@fadeInOnEnter]="animationState">
+          <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
+            <div *ngIf="isDesktop()">
+              <div [ngStyle]="{}">
+                <a [href]="content.HyperLink">
+                  <h1
+                    class="customText"
+                    [ngStyle]="{
+                      fontSize: content.fontSize,
+
+                      color: content.color,
+                      backgroundAttachment: content.backgroundAttachment,
+                      backgroundClip: content.backgroundClip,
+
+                      backgroundOrigin: content.backgroundOrigin,
+                      backgroundPosition: content.backgroundPosition,
+                      backgroundRepeat: content.backgroundRepeat,
+                      backgroundSize: content.backgroundSize,
+                      background: content.background,
+                      border: content.border,
+                      borderBottom: content.borderBottom,
+                      borderBottomColor: content.borderBottomColor,
+                      borderBottomLeftRadius: content.borderBottomLeftRadius,
+                      borderBottomRightRadius: content.borderBottomRightRadius,
+                      borderBottomStyle: content.borderBottomStyle,
+                      borderBottomWidth: content.borderBottomWidth,
+                      borderColor: content.borderColor,
+                      borderImage: content.borderImage,
+                      borderImageOutset: content.borderImageOutset,
+                      borderImageRepeat: content.borderImageRepeat,
+                      borderImageSlice: content.borderImageSlice,
+                      borderImageSource: content.borderImageSource,
+                      borderImageWidth: content.borderImageWidth,
+                      borderLeft: content.borderLeft,
+                      borderLeftColor: content.borderLeftColor,
+                      borderLeftStyle: content.borderLeftStyle,
+                      borderLeftWidth: content.borderLeftWidth,
+                      borderStyle: content.borderStyle,
+                      borderTop: content.borderTop,
+                      borderTopColor: content.borderTopColor,
+                      borderTopLeftRadius: content.borderTopLeftRadius,
+                      borderTopRightRadius: content.borderTopRightRadius,
+                      borderTopStyle: content.borderTopStyle,
+                      borderTopWidth: content.borderTopWidth,
+                      borderWidth: content.borderWidth,
+                      boxShadow: content.boxShadow,
+                      animation: content.animation,
+                      textAlign: content.textAlign,
+                      paddingTop: content.paddingTop,
+                      paddingBottom: content.paddingBottom,
+                      paddingLeft: content.paddingLeft,
+                      paddingRight: content.paddingRight,
+                      marginTop: content.marginTop,
+                      marginBottom: content.marginBottom,
+                      marginLeft: content.marginLeft,
+                      marginRight: content.marginRight,
+                      lineHeight: content.lineHeight,
+                      fontFamily: content.fontFamily,
+                      clear: content.clear,
+                      clip: content.clip,
+                      cursor: content.cursor,
+                      fontVariant: content.fontVariant,
+                      fontWeight: content.fontWieght,
+
+                      left: content.left,
+                      letterSpacing: content.letterSpacing,
+                      listStyle: content.listStyle,
+                      listStyleImage: content.listStyleImage,
+                      listStyleType: content.listStyleType,
+                      margin: content.margin,
+                      pageBreakAfter: content.pageBreakAfter,
+                      pageBreakBefore: content.pageBreakBefore,
+                      position: content.position,
+                      strokeDasharray: content.strokeDasharray,
+                      strokeDashoffset: content.strokeDashoffset,
+                      strokeWidth: content.strokeWidth,
+                      textDecoration: content.textDecoration,
+                      textIndent: content.textIndent,
+                      textTransform: content.textTransform,
+                      top: content.top,
+                      right: content.right,
+                      bottom: content.bottom,
+                      verticalAlign: content.verticalAlign,
+                      visibility: content.visibility,
+                      width: content.width,
+                      zIndex: content.zIndex,
+                      display: content.display,
+                      cssFloat: content.cssFloat,
+                      filter: content.filter,
+                      backgroundColor: content.backgroundColor,
+                      lineBreak: content.lineBreak,
+                      opacity: content.opacity,
+                      outline: content.outline,
+                      outlineColor: content.outlineColor,
+                      outlineOffset: content.outlineOffset,
+                      outlineWidth: content.outlineWidth,
+                      padding: content.padding,
+                      paddingBlock: content.paddingBlock,
+                      paddingBlockEnd: content.paddingBlockEnd,
+                      paddingBlockStart: content.paddingBlockStart,
+                      paddingInLineEnd: content.paddingInLineEnd,
+                      paddingInLineStart: content.paddingInLineStart,
+                      pageBreakInside: content.pageBreakInside,
+                      rotate: content.rotate,
+                      textAlignLast: content.textAlignLast,
+                      textCombineUpright: content.textCombineUpright,
+                      textDecorationColor: content.textDecorationColor,
+                      textDecorationLine: content.textDecorationLine,
+                      textDecorationSkipInk: content.textDecorationSkipInk,
+                      textDecorationStyle: content.textDecorationStyle,
+                      textDecorationThickness: content.textDecorationThickness,
+                      textEmphasis: content.textEmphasis,
+                      textEmphasisColor: content.textEmphasisColor,
+                      textEmphasisPosition: content.textEmphasisPosition,
+                      textEmphasisStyle: content.textEmphasisStyle,
+                      textJustify: content.textJustify,
+                      textOrientation: content.textOrientation,
+                      textRendering: content.textRendering,
+                      textShadow: content.textShadow,
+                      textUnderLineOffset: content.textUnderLineOffSet,
+                      textUnderLinePosition: content.textUnderLinePosition,
+                      transformBox: content.transformBox,
+                      transformOrigin: content.transformOrigin,
+                      transition: content.transition,
+                      transitionDelay: content.transitionDelay,
+                      transitionDuration: content.transitionDuration,
+                      transitionProperty: content.transitionProperty,
+                      transitionTimingFunction:
+                        content.transitionTimingFunction,
+                      translate: content.translate,
+                      whiteSpace: content.whiteSpace,
+                      wordBreak: content.wordBreak,
+                      wordSpacing: content.wordSpacing,
+                      wordWrap: content.wordWrap,
+                      flex: content.flex,
+                      alignContent: content.alignContent,
+                      alignItems: content.alignItems,
+                      alignSelf: content.alignSelf
+                    }"
+                  >
+                    {{ content.TextBody }}
+                  </h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Mobile Text With HYPERLINK, Animation: fadeInOnEnter -->
+
+    <div
+      *ngIf="content.animationName != null || content.animationName != 'none'"
+    >
+      <div [ngSwitch]="content.animationName">
+        <div *ngSwitchCase="'fadeInOnEnter'" [@fadeInOnEnter]="animationState">
+          <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
+            <div *ngIf="isMobile()">
+              <div [ngStyle]="{}">
+                <a [href]="content.HyperLink">
+                  <h1
+                    class="customText"
+                    [ngStyle]="{
+                      color: content.color,
+                      backgroundAttachment: content.backgroundAttachment,
+                      backgroundClip: content.backgroundClip,
+
+                      backgroundOrigin: content.backgroundOrigin,
+                      backgroundPosition: content.backgroundPositionMobile,
+                      backgroundRepeat: content.backgroundRepeat,
+                      backgroundSize: content.backgroundSizeMobile,
+                      background: content.background,
+                      border: content.border,
+                      borderBottom: content.borderBottom,
+                      borderBottomColor: content.borderBottomColor,
+                      borderBottomLeftRadius: content.borderBottomLeftRadius,
+                      borderBottomRightRadius: content.borderBottomRightRadius,
+                      borderBottomStyle: content.borderBottomStyle,
+                      borderBottomWidth: content.borderBottomWidth,
+                      borderColor: content.borderColor,
+                      borderImage: content.borderImage,
+                      borderImageOutset: content.borderImageOutset,
+                      borderImageRepeat: content.borderImageRepeat,
+                      borderImageSlice: content.borderImageSlice,
+                      borderImageSource: content.borderImageSource,
+                      borderImageWidth: content.borderImageWidth,
+                      borderLeft: content.borderLeft,
+                      borderLeftColor: content.borderLeftColor,
+                      borderLeftStyle: content.borderLeftStyle,
+                      borderLeftWidth: content.borderLeftWidth,
+                      borderStyle: content.borderStyle,
+                      borderTop: content.borderTop,
+                      borderTopColor: content.borderTopColor,
+                      borderTopLeftRadius: content.borderTopLeftRadius,
+                      borderTopRightRadius: content.borderTopRightRadius,
+                      borderTopStyle: content.borderTopStyle,
+                      borderTopWidth: content.borderTopWidth,
+                      borderWidth: content.borderWidth,
+                      boxShadow: content.boxShadow,
+                      animation: content.animation,
+                      textAlign: content.textAlign,
+                      paddingTop: content.paddingTop,
+                      paddingBottom: content.paddingBottom,
+                      paddingLeft: content.paddingLeft,
+                      paddingRight: content.paddingRight,
+                      marginTop: content.marginTopMobile,
+                      marginBottom: content.marginBottomMobile,
+                      marginLeft: content.marginLeftMobile,
+                      marginRight: content.marginRightMobile,
+                      lineHeight: content.lineHeightMobile,
+                      fontFamily: content.fontFamily,
+                      clear: content.clear,
+                      clip: content.clip,
+                      cursor: content.cursor,
+                      fontVariant: content.fontVariant,
+                      fontWeight: content.fontWieght,
+                      fontSize: content.fontSizeMobile,
+                      left: content.leftMobile,
+                      letterSpacing: content.letterSpacingMobile,
+                      listStyle: content.listStyle,
+                      listStyleImage: content.listStyleImage,
+                      listStyleType: content.listStyleType,
+                      margin: content.marginMobile,
+                      pageBreakAfter: content.pageBreakAfter,
+                      pageBreakBefore: content.pageBreakBefore,
+                      position: content.positionMobile,
+                      strokeDasharray: content.strokeDasharray,
+                      strokeDashoffset: content.strokeDashoffset,
+                      strokeWidth: content.strokeWidth,
+                      textDecoration: content.textDecoration,
+                      textIndent: content.textIndent,
+                      textTransform: content.textTransform,
+                      top: content.topMobile,
+                      right: content.rightMobile,
+                      bottom: content.bottomMobile,
+                      verticalAlign: content.verticalAlign,
+                      visibility: content.visibility,
+                      width: content.widthMobile,
+                      zIndex: content.zIndex,
+                      display: content.displayMobile,
+                      cssFloat: content.cssFloat,
+                      filter: content.filter,
+                      backgroundColor: content.backgroundColor,
+                      lineBreak: content.lineBreak,
+                      opacity: content.opacity,
+                      outline: content.outline,
+                      outlineColor: content.outlineColor,
+                      outlineOffset: content.outlineOffset,
+                      outlineWidth: content.outlineWidth,
+                      padding: content.paddingMobile,
+                      paddingBlock: content.paddingBlock,
+                      paddingBlockEnd: content.paddingBlockEnd,
+                      paddingBlockStart: content.paddingBlockStart,
+                      paddingInLineEnd: content.paddingInLineEnd,
+                      paddingInLineStart: content.paddingInLineStart,
+                      pageBreakInside: content.pageBreakInside,
+                      rotate: content.rotate,
+                      textAlignLast: content.textAlignLast,
+                      textCombineUpright: content.textCombineUpright,
+                      textDecorationColor: content.textDecorationColor,
+                      textDecorationLine: content.textDecorationLine,
+                      textDecorationSkipInk: content.textDecorationSkipInk,
+                      textDecorationStyle: content.textDecorationStyle,
+                      textDecorationThickness: content.textDecorationThickness,
+                      textEmphasis: content.textEmphasis,
+                      textEmphasisColor: content.textEmphasisColor,
+                      textEmphasisPosition: content.textEmphasisPosition,
+                      textEmphasisStyle: content.textEmphasisStyle,
+                      textJustify: content.textJustify,
+                      textOrientation: content.textOrientation,
+                      textRendering: content.textRendering,
+                      textShadow: content.textShadow,
+                      textUnderLineOffset: content.textUnderLineOffSet,
+                      textUnderLinePosition: content.textUnderLinePosition,
+                      transformBox: content.transformBox,
+                      transformOrigin: content.transformOrigin,
+                      transition: content.transition,
+                      transitionDelay: content.transitionDelay,
+                      transitionDuration: content.transitionDuration,
+                      transitionProperty: content.transitionProperty,
+                      transitionTimingFunction:
+                        content.transitionTimingFunction,
+                      translate: content.translate,
+                      whiteSpace: content.whiteSpace,
+                      wordBreak: content.wordBreak,
+                      wordSpacing: content.wordSpacing,
+                      wordWrap: content.wordWrap,
+                      flex: content.flex,
+                      alignContent: content.alignContent,
+                      alignItems: content.alignItems,
+                      alignSelf: content.alignSelf
+                    }"
+                  >
+                    {{ content.TextBody }}
+                  </h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Tablet Text With HYPERLINK, Animation: fadeInOnEnter -->
+
+    <div
+      *ngIf="content.animationName != null || content.animationName != 'none'"
+    >
+      <div [ngSwitch]="content.animationName">
+        <div *ngSwitchCase="'fadeInOnEnter'" [@fadeInOnEnter]="animationState">
+          <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
+            <div *ngIf="isTablet()">
+              <div [ngStyle]="{}">
+                <a [href]="content.HyperLink">
+                  <h1
+                    class="customText"
+                    [ngStyle]="{
+                      color: content.color,
+                      backgroundAttachment: content.backgroundAttachment,
+                      backgroundClip: content.backgroundClip,
+
+                      backgroundOrigin: content.backgroundOrigin,
+                      backgroundPosition: content.backgroundPositionTablet,
+                      backgroundRepeat: content.backgroundRepeat,
+                      backgroundSize: content.backgroundSizeTablet,
+                      background: content.background,
+                      border: content.border,
+                      borderBottom: content.borderBottom,
+                      borderBottomColor: content.borderBottomColor,
+                      borderBottomLeftRadius: content.borderBottomLeftRadius,
+                      borderBottomRightRadius: content.borderBottomRightRadius,
+                      borderBottomStyle: content.borderBottomStyle,
+                      borderBottomWidth: content.borderBottomWidth,
+                      borderColor: content.borderColor,
+                      borderImage: content.borderImage,
+                      borderImageOutset: content.borderImageOutset,
+                      borderImageRepeat: content.borderImageRepeat,
+                      borderImageSlice: content.borderImageSlice,
+                      borderImageSource: content.borderImageSource,
+                      borderImageWidth: content.borderImageWidth,
+                      borderLeft: content.borderLeft,
+                      borderLeftColor: content.borderLeftColor,
+                      borderLeftStyle: content.borderLeftStyle,
+                      borderLeftWidth: content.borderLeftWidth,
+                      borderStyle: content.borderStyle,
+                      borderTop: content.borderTop,
+                      borderTopColor: content.borderTopColor,
+                      borderTopLeftRadius: content.borderTopLeftRadius,
+                      borderTopRightRadius: content.borderTopRightRadius,
+                      borderTopStyle: content.borderTopStyle,
+                      borderTopWidth: content.borderTopWidth,
+                      borderWidth: content.borderWidth,
+                      boxShadow: content.boxShadow,
+                      animation: content.animation,
+                      textAlign: content.textAlign,
+                      paddingTop: content.paddingTop,
+                      paddingBottom: content.paddingBottom,
+                      paddingLeft: content.paddingLeft,
+                      paddingRight: content.paddingRight,
+                      marginTop: content.marginTopTablet,
+                      marginBottom: content.marginBottomTablet,
+                      marginLeft: content.marginLeftTablet,
+                      marginRight: content.marginRightTablet,
+                      lineHeight: content.lineHeightTablet,
+                      fontFamily: content.fontFamily,
+                      clear: content.clear,
+                      clip: content.clip,
+                      cursor: content.cursor,
+                      fontVariant: content.fontVariant,
+                      fontWeight: content.fontWieght,
+                      fontSize: content.fontSizeTablet,
+                      left: content.leftTablet,
+                      letterSpacing: content.letterSpacingTablet,
+                      listStyle: content.listStyle,
+                      listStyleImage: content.listStyleImage,
+                      listStyleType: content.listStyleType,
+                      margin: content.marginTablet,
+                      pageBreakAfter: content.pageBreakAfter,
+                      pageBreakBefore: content.pageBreakBefore,
+                      position: content.positionTablet,
+                      strokeDasharray: content.strokeDasharray,
+                      strokeDashoffset: content.strokeDashoffset,
+                      strokeWidth: content.strokeWidth,
+                      textDecoration: content.textDecoration,
+                      textIndent: content.textIndent,
+                      textTransform: content.textTransform,
+                      top: content.topTablet,
+                      right: content.rightTablet,
+                      bottom: content.bottomTablet,
+                      verticalAlign: content.verticalAlign,
+                      visibility: content.visibility,
+                      width: content.widthTablet,
+                      zIndex: content.zIndex,
+                      display: content.displayTablet,
+                      cssFloat: content.cssFloat,
+                      filter: content.filter,
+                      backgroundColor: content.backgroundColor,
+                      lineBreak: content.lineBreak,
+                      opacity: content.opacity,
+                      outline: content.outline,
+                      outlineColor: content.outlineColor,
+                      outlineOffset: content.outlineOffset,
+                      outlineWidth: content.outlineWidth,
+                      padding: content.paddingTablet,
+                      paddingBlock: content.paddingBlock,
+                      paddingBlockEnd: content.paddingBlockEnd,
+                      paddingBlockStart: content.paddingBlockStart,
+                      paddingInLineEnd: content.paddingInLineEnd,
+                      paddingInLineStart: content.paddingInLineStart,
+                      pageBreakInside: content.pageBreakInside,
+                      rotate: content.rotate,
+                      textAlignLast: content.textAlignLast,
+                      textCombineUpright: content.textCombineUpright,
+                      textDecorationColor: content.textDecorationColor,
+                      textDecorationLine: content.textDecorationLine,
+                      textDecorationSkipInk: content.textDecorationSkipInk,
+                      textDecorationStyle: content.textDecorationStyle,
+                      textDecorationThickness: content.textDecorationThickness,
+                      textEmphasis: content.textEmphasis,
+                      textEmphasisColor: content.textEmphasisColor,
+                      textEmphasisPosition: content.textEmphasisPosition,
+                      textEmphasisStyle: content.textEmphasisStyle,
+                      textJustify: content.textJustify,
+                      textOrientation: content.textOrientation,
+                      textRendering: content.textRendering,
+                      textShadow: content.textShadow,
+                      textUnderLineOffset: content.textUnderLineOffSet,
+                      textUnderLinePosition: content.textUnderLinePosition,
+                      transformBox: content.transformBox,
+                      transformOrigin: content.transformOrigin,
+                      transition: content.transition,
+                      transitionDelay: content.transitionDelay,
+                      transitionDuration: content.transitionDuration,
+                      transitionProperty: content.transitionProperty,
+                      transitionTimingFunction:
+                        content.transitionTimingFunction,
+                      translate: content.translate,
+                      whiteSpace: content.whiteSpace,
+                      wordBreak: content.wordBreak,
+                      wordSpacing: content.wordSpacing,
+                      wordWrap: content.wordWrap,
+                      flex: content.flex,
+                      alignContent: content.alignContent,
+                      alignItems: content.alignItems,
+                      alignSelf: content.alignSelf
+                    }"
+                  >
+                    {{ content.TextBody }}
+                  </h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Laptop Text With HYPERLINK, Animation: fadeInOnEnter -->
+
+    <div
+      *ngIf="content.animationName != null || content.animationName != 'none'"
+    >
+      <div [ngSwitch]="content.animationName">
+        <div *ngSwitchCase="'fadeInOnEnter'" [@fadeInOnEnter]="animationState">
+          <div *ngIf="content.HyperLink != null && content.HyperLink != ''">
+            <div *ngIf="isLaptop()">
+              <div [ngStyle]="{}">
+                <a [href]="content.HyperLink">
+                  <h1
+                    class="customText"
+                    [ngStyle]="{
+                      color: content.color,
+                      backgroundAttachment: content.backgroundAttachment,
+                      backgroundClip: content.backgroundClip,
+
+                      backgroundOrigin: content.backgroundOrigin,
+                      backgroundPosition: content.backgroundPositionLaptop,
+                      backgroundRepeat: content.backgroundRepeat,
+                      backgroundSize: content.backgroundSizeLaptop,
+                      background: content.background,
+                      border: content.border,
+                      borderBottom: content.borderBottom,
+                      borderBottomColor: content.borderBottomColor,
+                      borderBottomLeftRadius: content.borderBottomLeftRadius,
+                      borderBottomRightRadius: content.borderBottomRightRadius,
+                      borderBottomStyle: content.borderBottomStyle,
+                      borderBottomWidth: content.borderBottomWidth,
+                      borderColor: content.borderColor,
+                      borderImage: content.borderImage,
+                      borderImageOutset: content.borderImageOutset,
+                      borderImageRepeat: content.borderImageRepeat,
+                      borderImageSlice: content.borderImageSlice,
+                      borderImageSource: content.borderImageSource,
+                      borderImageWidth: content.borderImageWidth,
+                      borderLeft: content.borderLeft,
+                      borderLeftColor: content.borderLeftColor,
+                      borderLeftStyle: content.borderLeftStyle,
+                      borderLeftWidth: content.borderLeftWidth,
+                      borderStyle: content.borderStyle,
+                      borderTop: content.borderTop,
+                      borderTopColor: content.borderTopColor,
+                      borderTopLeftRadius: content.borderTopLeftRadius,
+                      borderTopRightRadius: content.borderTopRightRadius,
+                      borderTopStyle: content.borderTopStyle,
+                      borderTopWidth: content.borderTopWidth,
+                      borderWidth: content.borderWidth,
+                      boxShadow: content.boxShadow,
+                      animation: content.animation,
+                      textAlign: content.textAlign,
+                      paddingTop: content.paddingTop,
+                      paddingBottom: content.paddingBottom,
+                      paddingLeft: content.paddingLeft,
+                      paddingRight: content.paddingRight,
+                      marginTop: content.marginTopLaptop,
+                      marginBottom: content.marginBottomLaptop,
+                      marginLeft: content.marginLeftLaptop,
+                      marginRight: content.marginRightLaptop,
+                      lineHeight: content.lineHeightLaptop,
+                      fontFamily: content.fontFamily,
+                      clear: content.clear,
+                      clip: content.clip,
+                      cursor: content.cursor,
+                      fontVariant: content.fontVariant,
+                      fontWeight: content.fontWieght,
+                      fontSize: content.fontSizeLaptop,
+                      left: content.leftLaptop,
+                      letterSpacing: content.letterSpacingLaptop,
+                      listStyle: content.listStyle,
+                      listStyleImage: content.listStyleImage,
+                      listStyleType: content.listStyleType,
+                      margin: content.marginLaptop,
+                      pageBreakAfter: content.pageBreakAfter,
+                      pageBreakBefore: content.pageBreakBefore,
+                      position: content.positionLaptop,
+                      strokeDasharray: content.strokeDasharray,
+                      strokeDashoffset: content.strokeDashoffset,
+                      strokeWidth: content.strokeWidth,
+                      textDecoration: content.textDecoration,
+                      textIndent: content.textIndent,
+                      textTransform: content.textTransform,
+                      top: content.topLaptop,
+                      right: content.rightLaptop,
+                      bottom: content.bottomLaptop,
+                      verticalAlign: content.verticalAlign,
+                      visibility: content.visibility,
+                      width: content.widthLaptop,
+                      zIndex: content.zIndex,
+                      display: content.displayLaptop,
+                      cssFloat: content.cssFloat,
+                      filter: content.filter,
+                      backgroundColor: content.backgroundColor,
+                      lineBreak: content.lineBreak,
+                      opacity: content.opacity,
+                      outline: content.outline,
+                      outlineColor: content.outlineColor,
+                      outlineOffset: content.outlineOffset,
+                      outlineWidth: content.outlineWidth,
+                      padding: content.paddingLaptop,
+                      paddingBlock: content.paddingBlock,
+                      paddingBlockEnd: content.paddingBlockEnd,
+                      paddingBlockStart: content.paddingBlockStart,
+                      paddingInLineEnd: content.paddingInLineEnd,
+                      paddingInLineStart: content.paddingInLineStart,
+                      pageBreakInside: content.pageBreakInside,
+                      rotate: content.rotate,
+                      textAlignLast: content.textAlignLast,
+                      textCombineUpright: content.textCombineUpright,
+                      textDecorationColor: content.textDecorationColor,
+                      textDecorationLine: content.textDecorationLine,
+                      textDecorationSkipInk: content.textDecorationSkipInk,
+                      textDecorationStyle: content.textDecorationStyle,
+                      textDecorationThickness: content.textDecorationThickness,
+                      textEmphasis: content.textEmphasis,
+                      textEmphasisColor: content.textEmphasisColor,
+                      textEmphasisPosition: content.textEmphasisPosition,
+                      textEmphasisStyle: content.textEmphasisStyle,
+                      textJustify: content.textJustify,
+                      textOrientation: content.textOrientation,
+                      textRendering: content.textRendering,
+                      textShadow: content.textShadow,
+                      textUnderLineOffset: content.textUnderLineOffSet,
+                      textUnderLinePosition: content.textUnderLinePosition,
+                      transformBox: content.transformBox,
+                      transformOrigin: content.transformOrigin,
+                      transition: content.transition,
+                      transitionDelay: content.transitionDelay,
+                      transitionDuration: content.transitionDuration,
+                      transitionProperty: content.transitionProperty,
+                      transitionTimingFunction:
+                        content.transitionTimingFunction,
+                      translate: content.translate,
+                      whiteSpace: content.whiteSpace,
+                      wordBreak: content.wordBreak,
+                      wordSpacing: content.wordSpacing,
+                      wordWrap: content.wordWrap,
+                      flex: content.flex,
+                      alignContent: content.alignContent,
+                      alignItems: content.alignItems,
+                      alignSelf: content.alignSelf
+                    }"
+                  >
+                    {{ content.TextBody }}
+                  </h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Youtube videos -->
 
     <div *ngIf="content.embedUrl != null">
