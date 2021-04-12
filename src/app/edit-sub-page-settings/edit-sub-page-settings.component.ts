@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Subpage } from '../models/subpage.model';
 import { SubpageService } from '../services/subpage.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-edit-sub-page-settings',
@@ -21,7 +22,8 @@ export class EditSubPageSettingsComponent implements OnInit {
     public subPageService: SubpageService,
     private route: ActivatedRoute,
     public toastr: ToastrService,
-    public router: Router
+    public router: Router,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit() {
@@ -53,6 +55,8 @@ export class EditSubPageSettingsComponent implements OnInit {
     this.subPageService
       .getSubPagesByPageId(this.pageId)
       .subscribe((res: Subpage[]) => {
+        console.log('edit-sub-page-settings: getSubPagesByPageId');
+        this.webStructureService.getRequests++;
         this.subPageService.subPageByPageIdArray = res;
       });
   }
@@ -94,6 +98,8 @@ export class EditSubPageSettingsComponent implements OnInit {
   getSubPages() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
       this.subPageService.subPageArray = res;
+      console.log('edit-sub-page-settings: getSubPages');
+      this.webStructureService.getRequests++;
     });
   }
 

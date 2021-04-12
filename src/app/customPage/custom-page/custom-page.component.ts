@@ -121,6 +121,7 @@ export class CustomPageComponent implements OnInit {
 
   checkForToken() {
     if (localStorage.getItem('userToken') == '') {
+      console.log('getting userToken');
       this.webStructureService.hasToken = false;
       this.authService.removeToken;
       localStorage.removeItem('userToken');
@@ -137,6 +138,8 @@ export class CustomPageComponent implements OnInit {
     });
 
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      console.log('custom-page: getRowsByPageId');
+      this.webStructureService.getRequests++;
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
     });
@@ -206,6 +209,8 @@ export class CustomPageComponent implements OnInit {
 
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
+      console.log('custom-page: grabAllUserData');
+      this.webStructureService.getRequests++;
       this.userService.userArray = res;
     });
   }
@@ -249,6 +254,8 @@ export class CustomPageComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('custom-page: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }
@@ -259,6 +266,8 @@ export class CustomPageComponent implements OnInit {
     this.customPageService
       .getPageById(this.pageIdSnapshot)
       .subscribe((res: CustomPage) => {
+        console.log('custom-page: getPageById');
+        this.webStructureService.getRequests++;
         this.customPageService.customPageArrayById = res;
       });
   }

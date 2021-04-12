@@ -37,6 +37,8 @@ export class WebpageService {
       .get(this.rootURL + '/HomePage')
       .toPromise()
       .then((res) => (this.webContentList = res as Webpage[]));
+    console.log('webpage service: getWebPageContent');
+    this.webStructureService.getRequests++;
   }
 
   getTextBoxOneContent() {
@@ -44,10 +46,14 @@ export class WebpageService {
       .get(this.rootURL + '/TextBoxOne')
       .toPromise()
       .then((res) => (this.textBoxOneContent = res as Textbox[]));
+    console.log('webpage service: getTextBoxOneContent');
+    this.webStructureService.getRequests++;
   }
 
   //Get for imageUrl
   getContent(): Observable<Webpage[]> {
+    console.log('webpage service: getContent');
+    this.webStructureService.getRequests++;
     return this.http.get<Webpage[]>(this.rootURL + '/HomePage');
   }
 

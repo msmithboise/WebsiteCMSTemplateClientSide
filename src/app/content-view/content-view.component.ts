@@ -228,6 +228,9 @@ export class ContentViewComponent implements OnInit {
     this.webStructureService
       .getContentLists(this.columnId)
       .subscribe((res: Webcontent) => {
+        this.webStructureService.getRequests++;
+        console.log('content-view: getContentListsByColumnId');
+
         this.contentList = res[0];
 
         for (let i = 0; i < this.contentList.length; i++) {

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomImageService } from '../services/custom-image.service';
+import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
 
@@ -22,6 +23,7 @@ export class StyleSettingsComponent implements OnInit {
 
   constructor(
     public webContentService: WebcontentService,
+    public webStructureService: WebStructureService,
     public customImageService: CustomImageService,
     private route: ActivatedRoute,
     public toastr: ToastrService,
@@ -36,6 +38,8 @@ export class StyleSettingsComponent implements OnInit {
     this.webContentService
       .getEditContentById(this.textId)
       .subscribe((res: Webcontent[]) => {
+        console.log('style-settings: grabAllContentByTextId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentByIdArray = res;
       });
   }

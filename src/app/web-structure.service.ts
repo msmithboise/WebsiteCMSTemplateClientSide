@@ -16,6 +16,7 @@ export class WebStructureService {
   // public globalApi = this.setProdApi();
   //For Testing:
   public globalApi = this.setTestApi();
+  public getRequests = 0;
 
   //I think i will need to simply change it from http to https
 

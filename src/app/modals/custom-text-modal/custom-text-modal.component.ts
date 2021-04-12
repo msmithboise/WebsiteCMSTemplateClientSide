@@ -13,6 +13,7 @@ import { Webcontent } from 'src/app/WebContent/webcontent.model';
 import { UserService } from 'src/app/services/user.service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
+import { WebStructureService } from 'src/app/web-structure.service';
 
 @Component({
   selector: 'app-custom-text-modal',
@@ -40,7 +41,8 @@ export class CustomTextModalComponent implements OnInit {
     public customImageService: CustomImageService,
     public userService: UserService,
     public toastr: ToastrService,
-    public defaultTemplateService: DefaultTemplateService
+    public defaultTemplateService: DefaultTemplateService,
+    public webStructureService: WebStructureService
   ) {}
 
   open(content) {
@@ -82,6 +84,8 @@ export class CustomTextModalComponent implements OnInit {
   }
 
   grabAllContentByPageId() {
+    console.log('custom-text-modal: grabAllContentByPageId');
+    this.webStructureService.getRequests++;
     this.webContentService.pageIdSnapshot = +this.route.snapshot.paramMap.get(
       'pageId'
     );
@@ -155,6 +159,8 @@ export class CustomTextModalComponent implements OnInit {
     this.webContentService
       .getEditContentById(webContentId)
       .subscribe((res: Webcontent[]) => {
+        console.log('custom-text-modal: selectItemToEdit');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentByIdArray = res;
       });
   }

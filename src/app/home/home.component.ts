@@ -12,6 +12,7 @@ import { TextboxComponent } from '../components/textbox/textbox.component';
 import { Textbox } from '../textbox.model';
 import { TextboxService } from '../shared/textbox.service';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-home',
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit, OnChanges {
   //For each service added, it must be added to the home constructor to communicate with the component
   constructor(
     public service: WebpageService,
-    public textBoxService: TextboxService
+    public textBoxService: TextboxService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +61,8 @@ export class HomeComponent implements OnInit, OnChanges {
   //Get Text box one
   callTextBoxService() {
     this.textBoxService.getTextBoxOneContent().subscribe((res: Textbox[]) => {
+      console.log('home: callTextBoxService');
+      this.webStructureService.getRequests++;
       this.textBoxService.textBoxContentArray = res;
       this.oTextBox.populateTextBoxOneFormOnLoad();
       this.editTextBoxOneStyling();

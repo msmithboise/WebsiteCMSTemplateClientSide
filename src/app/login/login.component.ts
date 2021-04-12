@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
       this.userService.userArray = res;
+      console.log('login: grabAllUserData');
+      this.webStructureService.getRequests++;
     });
   }
 
@@ -147,6 +149,9 @@ export class LoginComponent implements OnInit {
       var data = await this.http
         .get<CustomPage[]>(this.webApi + '/PagesByClientUrl/' + url)
         .toPromise();
+
+      console.log('login: findTrueHome');
+      this.webStructureService.getRequests++;
 
       data.forEach((element) => {
         pageNumArray.push(element.PageId);

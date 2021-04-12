@@ -62,6 +62,8 @@ export class EditPageSettingsComponent implements OnInit {
 
   grabAllPages() {
     this.customPageService.getCustomPageContent();
+    console.log('edit-page-settings: grabAllPages');
+    this.webStructureService.getRequests++;
   }
 
   onChange(isChecked: boolean) {
@@ -136,6 +138,8 @@ export class EditPageSettingsComponent implements OnInit {
 
   getSubPages(pageId: number, pageDescription: string) {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      console.log('edit-page-settings: getSubPages');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageArray = res;
 
       this.router.navigate([

@@ -4,6 +4,7 @@ import { CustomPage } from '../models/custom-page.model';
 import { Subpage } from '../models/subpage.model';
 import { CustomPageService } from '../services/custom-page.service';
 import { SubpageService } from '../services/subpage.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-dashboard-sidebar',
@@ -18,7 +19,8 @@ export class DashboardSidebarComponent implements OnInit {
     private route: ActivatedRoute,
     public customPageService: CustomPageService,
     public router: Router,
-    public subPageService: SubpageService
+    public subPageService: SubpageService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -32,12 +34,16 @@ export class DashboardSidebarComponent implements OnInit {
 
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      console.log('custom-page: callCustomSubPageService');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageArray = res;
     });
   }
 
   callCustomPageService() {
     this.customPageService.getCustomPageContent();
+    console.log('dashboard-sidebar: callCustomPageService');
+    this.webStructureService.getRequests++;
   }
 
   dashboardSubNav(

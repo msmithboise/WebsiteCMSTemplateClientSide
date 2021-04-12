@@ -107,6 +107,8 @@ export class NavbarComponent implements OnInit {
 
     data.subscribe((res) => {
       this.navBarService.navLinksByClientUrl = res;
+      console.log('navbar: grabPageData');
+      this.webStructureService.getRequests++;
 
       for (let i = 0; i < this.navBarService.navLinksByClientUrl.length; i++) {
         const element = this.navBarService.navLinksByClientUrl[i];
@@ -124,6 +126,8 @@ export class NavbarComponent implements OnInit {
 
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
       this.navBarService.navBarByClientUrlArray = res;
+      console.log('navbar: grabNavbarByClient');
+      this.webStructureService.getRequests++;
     });
   }
 
@@ -149,6 +153,8 @@ export class NavbarComponent implements OnInit {
 
   getNavBarData() {
     this.navBarService.getNavBarData().subscribe((res) => {
+      console.log('navbar: getNavBarData');
+      this.webStructureService.getRequests++;
       this.navBarService.navBarArray = res;
     });
   }
@@ -162,12 +168,16 @@ export class NavbarComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.pageId)
       .subscribe((res: Webcontent[]) => {
+        console.log('navbar: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }
 
   getLoginData() {
     this.userService.getLoggedInUser().subscribe((res: User[]) => {
+      console.log('navbar: getLoginData');
+      this.webStructureService.getRequests++;
       this.currentUserArray = res;
     });
   }
@@ -185,6 +195,8 @@ export class NavbarComponent implements OnInit {
 
     this.userService.userArray[0].isLoggedIn = false;
     this.userService.postLogoutData(data).subscribe((res: User[]) => {
+      console.log('navbar: Logout');
+      this.webStructureService.getRequests++;
       this.userService.userArray = res;
     });
     this.router.navigate(['portal']);
@@ -283,6 +295,8 @@ export class NavbarComponent implements OnInit {
     pageDescription: string,
     parentPage: CustomPage
   ) {
+    console.log('navbar: getSubPageOneOnClick');
+    this.webStructureService.getRequests++;
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
 
@@ -315,6 +329,8 @@ export class NavbarComponent implements OnInit {
     pageDescription: string,
     parentPage: CustomPage
   ) {
+    console.log('navbar: getSubPageTwoOnClick');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageTwoArray = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
@@ -339,6 +355,8 @@ export class NavbarComponent implements OnInit {
     pageDescription: string,
     parentPage: CustomPage
   ) {
+    console.log('navbar: getSubPageThreeOnClick');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageThreeArray = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
@@ -364,6 +382,8 @@ export class NavbarComponent implements OnInit {
     pageDescription: string,
     parentPage: CustomPage
   ) {
+    console.log('navbar: getSubPageFourOnClick');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageFourArray = [];
 
     this.navBarService.getSubPageLinks(passedInPageId).subscribe((res) => {
@@ -385,6 +405,8 @@ export class NavbarComponent implements OnInit {
 
   //Desktop nav bar
   getSubPageOneOnHover(passedInPageId: number, pageDescription: string) {
+    console.log('navbar: getSubPageOneOnHover');
+    this.webStructureService.getRequests++;
     // this.SubPageLocalStorage = this.untouchedStorage;
     //clear the old data when I hover again to the next link...
     this.navBarService.subPageOneArray = [];
@@ -402,6 +424,8 @@ export class NavbarComponent implements OnInit {
     subPageDescription: string,
     parentId: number
   ) {
+    console.log('navbar: getSubPageTwoOnHover');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageTwoArray = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
@@ -414,6 +438,8 @@ export class NavbarComponent implements OnInit {
     subPageDescription: string,
     parentId: number
   ) {
+    console.log('navbar: getSubPageThreeOnHover');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageThreeArray = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
@@ -426,6 +452,8 @@ export class NavbarComponent implements OnInit {
     subPageDescription: string,
     parentId: number
   ) {
+    console.log('navbar: getSubPageFourOnHover');
+    this.webStructureService.getRequests++;
     this.navBarService.subPageFourArray = [];
 
     this.navBarService.getSubPageLinks(subPageId).subscribe((res) => {
@@ -448,6 +476,8 @@ export class NavbarComponent implements OnInit {
 
   setSubPagesToLocalStorage() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      console.log('navbar: setSubPagesToLocalStorage');
+      this.webStructureService.getRequests++;
       this.SubPageLocalStorage = res;
       this.untouchedStorage = res;
     });
@@ -466,6 +496,8 @@ export class NavbarComponent implements OnInit {
 
   getSubPageLinks() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      console.log('navbar: getSubPageLinks');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageArray = res;
     });
   }
@@ -513,6 +545,8 @@ export class NavbarComponent implements OnInit {
 
   getSubPageAllContent() {
     this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
+      console.log('navbar: getSubPageAllContent');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageContentArray = res;
     });
   }
