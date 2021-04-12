@@ -107,7 +107,12 @@ export class NavbarComponent implements OnInit {
 
     data.subscribe((res) => {
       this.navBarService.navLinksByClientUrl = res;
+
       console.log('navbar: grabPageData');
+      console.time('time');
+
+      console.timeLog('time');
+
       this.webStructureService.getRequests++;
 
       for (let i = 0; i < this.navBarService.navLinksByClientUrl.length; i++) {
@@ -118,6 +123,7 @@ export class NavbarComponent implements OnInit {
           this.publishedNavLinks.push(element);
         }
       }
+      console.timeEnd('time');
     });
   }
 

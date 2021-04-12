@@ -27,6 +27,7 @@ import { WebStructureService } from 'src/app/web-structure.service';
 import { Column } from 'src/app/models/column.model';
 import { Row } from 'src/app/models/row.model';
 import { CookieService } from 'ngx-cookie-service';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-custom-page',
@@ -263,12 +264,16 @@ export class CustomPageComponent implements OnInit {
   takePageIdSnapshot() {
     this.pageIdSnapshot = +this.route.snapshot.paramMap.get('pageId');
 
+    console.time('takePageIdSnapshot time');
+
+    console.timeLog('takePageIdSnapshot time');
     this.customPageService
       .getPageById(this.pageIdSnapshot)
       .subscribe((res: CustomPage) => {
-        console.log('custom-page: getPageById');
+        console.log('custom-page: takePageIdSnapshot');
         this.webStructureService.getRequests++;
         this.customPageService.customPageArrayById = res;
+        console.timeEnd('takePageIdSnapshot time');
       });
   }
 
