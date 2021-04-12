@@ -80,8 +80,9 @@ import {
 })
 export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
-  contentList: Webcontent[];
+  contentList = [];
   newContentList: Webcontent[];
+  filteredContentList = [];
   public screenWidth: number;
   public screenHeight: number;
   public fontAwesomeIcon: string;
@@ -225,26 +226,43 @@ export class ContentViewComponent implements OnInit {
   }
 
   getContentListsByColumnId() {
-    this.webStructureService
-      .getContentLists(this.columnId)
-      .subscribe((res: Webcontent) => {
-        this.webStructureService.getRequests++;
-        console.log('content-view: getContentListsByColumnId');
+    if (this.contentList.length <= 0) {
+      this.webStructureService
+        .getContentLists(this.columnId)
+        .subscribe((res: Webcontent) => {
+          this.webStructureService.getRequests++;
+          console.log('content-view: getContentListsByColumnId');
 
-        this.contentList = res[0];
+          //debugger;
+          this.contentList = res[0];
 
-        for (let i = 0; i < this.contentList.length; i++) {
-          const content = this.contentList[i];
+          console.log('content list:  ', this.contentList);
 
-          if (content.ColumnId != this.columnId) {
-            continue;
+          for (let i = 0; i < this.contentList.length; i++) {
+            const content = this.contentList[i];
+            // EX: its saying that contentId: 3743
+
+            // if the column id of the content.ColumnId: 3790 does NOT equal this.columnId 3790
+            //it doesn't  Then continue to the next content
+            // if (content.ColumnId != this.columnId) {
+            //   continue;
+            // }
+            //it does..
+
+            //then if the contentId isnt null, meaning the object exists...
+
+            //take the ENTIRE list we brought back and add it to the newContentList
+
+            if (content.ColumnId == this.columnId) {
+              this.filteredContentList.push(content);
+              console.log('adding to list..', this.filteredContentList);
+
+              //this.newContentList = this.contentList;
+              this.newContentList = this.filteredContentList;
+            }
           }
-
-          if (content.Id != null) {
-            this.newContentList = this.contentList;
-          }
-        }
-      });
+        });
+    }
   }
 
   createLink(hyperLink: string) {
