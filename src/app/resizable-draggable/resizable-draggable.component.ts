@@ -10,6 +10,7 @@ import {
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CustomImageService } from '../services/custom-image.service';
+import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
 
@@ -49,7 +50,8 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   constructor(
     public webContentService: WebcontentService,
     public customImageService: CustomImageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -75,6 +77,8 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
     this.customImageService
       .getWebContentByPageId(this.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('resizable-draggable: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }

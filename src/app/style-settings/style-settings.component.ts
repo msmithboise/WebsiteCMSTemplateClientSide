@@ -89,6 +89,8 @@ export class StyleSettingsComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('style-settings: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }

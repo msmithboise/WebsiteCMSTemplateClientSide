@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,8 @@ export class SignupComponent implements OnInit {
   constructor(
     public userService: UserService,
     public router: Router,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -49,10 +51,14 @@ export class SignupComponent implements OnInit {
   }
   getAllUserData() {
     this.userService.setUserDataToUserArray();
+    console.log('signup: getAllUserData');
+    this.webStructureService.getRequests++;
   }
 
   grabAllUserData() {
     this.userService.getUserData().subscribe((res: User[]) => {
+      console.log('signup: grabAllUserData');
+      this.webStructureService.getRequests++;
       this.userService.userArray = res;
     });
   }

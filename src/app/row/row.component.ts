@@ -87,6 +87,8 @@ export class RowComponent implements OnInit {
   //get all columns
   getAllColumns() {
     this.webStructureService.getColumns().subscribe((res) => {
+      console.log('row: getAllColumns');
+      this.webStructureService.getRequests++;
       this.webStructureService.columnsArray = res;
       this.grabAllContentByPageId();
     });
@@ -97,6 +99,8 @@ export class RowComponent implements OnInit {
     this.webStructureService
       .getColumnLists(this.rowId)
       .subscribe((res: Column) => {
+        console.log('row: getAllColumnsByRowId');
+        this.webStructureService.getRequests++;
         this.columnLists = res[0];
 
         this.newColumnList = this.columnLists;
@@ -134,6 +138,8 @@ export class RowComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('row: getWebContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }

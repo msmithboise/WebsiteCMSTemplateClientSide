@@ -72,6 +72,8 @@ export class NavbarSettingsComponent implements OnInit {
     var url = this.grabUrl();
 
     this.navBarService.getNavBarDataByClientUrl(url).subscribe((res) => {
+      console.log('navbar-settings: grabNavBarData');
+      this.webStructureService.getRequests++;
       this.navBarService.navBarByClientUrlArray = res;
     });
   }

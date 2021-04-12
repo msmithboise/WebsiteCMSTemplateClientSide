@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SubpageService } from '../services/subpage.service';
+import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
 
@@ -26,7 +27,8 @@ export class SubpageComponent implements OnInit {
     public webContentService: WebcontentService,
     private route: ActivatedRoute,
     public router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +58,8 @@ export class SubpageComponent implements OnInit {
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
+        console.log('subpage: getSubPageContentByIds');
+        this.webStructureService.getRequests++;
         this.subPageService.subPageContentArray = res;
       });
   }
@@ -108,6 +112,8 @@ export class SubpageComponent implements OnInit {
       this.subPageService
         .getSubContentByIds(this.pageId, this.subPageId)
         .subscribe((res: Webcontent[]) => {
+          console.log('subpage: subscribeToRoute');
+          this.webStructureService.getRequests++;
           this.subPageService.subPageContentArray = res;
         });
     });
@@ -157,6 +163,8 @@ export class SubpageComponent implements OnInit {
 
   getSubPageAllContent() {
     this.subPageService.getAllSubContent().subscribe((res: Webcontent[]) => {
+      console.log('subpage: getSubPageAllContent');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageContentArray = res;
     });
   }

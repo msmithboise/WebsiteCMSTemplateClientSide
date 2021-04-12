@@ -88,6 +88,8 @@ export class PageSettingsComponent implements OnInit {
 
   getRows() {
     this.webStructureService.getRows().subscribe((res) => {
+      console.log('page-settings: getRows');
+      this.webStructureService.getRequests++;
       this.webStructureService.rowsArray = res;
     });
   }
@@ -98,6 +100,8 @@ export class PageSettingsComponent implements OnInit {
     });
 
     this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      console.log('page-settings: getRowsByPageId');
+      this.webStructureService.getRequests++;
       this.webStructureService.rowsByPageIdArray = res;
       this.grabAllContentByPageId();
     });
@@ -160,6 +164,8 @@ export class PageSettingsComponent implements OnInit {
 
   callCustomSubPageService() {
     this.subPageService.getSubPages().subscribe((res: Subpage[]) => {
+      console.log('page-settings: getSubPages');
+      this.webStructureService.getRequests++;
       this.subPageService.subPageArray = res;
     });
   }
@@ -194,6 +200,8 @@ export class PageSettingsComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('page-settings: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }

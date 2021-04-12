@@ -16,6 +16,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DefaultTemplateService } from 'src/app/services/default-template.service';
 import { SubpageService } from '../services/subpage.service';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-subpage-dashboard',
@@ -48,7 +49,8 @@ export class SubpageDashboardComponent implements OnInit {
     private storage: AngularFireStorage,
     public toastr: ToastrService,
     public router: Router,
-    public subPageService: SubpageService
+    public subPageService: SubpageService,
+    public webStructureService: WebStructureService
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +75,8 @@ export class SubpageDashboardComponent implements OnInit {
     this.subPageService
       .getSubContentByIds(pageId, subPageId)
       .subscribe((res: Webcontent[]) => {
+        console.log('subpage-dashboard: getSubPageContentByIds');
+        this.webStructureService.getRequests++;
         this.subPageService.subPageContentArray = res;
       });
   }
@@ -104,6 +108,8 @@ export class SubpageDashboardComponent implements OnInit {
     this.customImageService
       .getWebContentByPageId(this.webContentService.pageIdSnapshot)
       .subscribe((res: Webcontent[]) => {
+        console.log('subpage-dashboard: grabAllContentByPageId');
+        this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
       });
   }

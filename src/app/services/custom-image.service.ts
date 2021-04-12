@@ -8,12 +8,12 @@ import { WebStructureService } from '../web-structure.service';
   providedIn: 'root',
 })
 export class CustomImageService {
-  readonly webApi = this.webstructureService.globalApi;
+  readonly webApi = this.webStructureService.globalApi;
   public customImageArray: CustomImage[];
 
   constructor(
     private http: HttpClient,
-    public webstructureService: WebStructureService
+    public webStructureService: WebStructureService
   ) {}
 
   //Get Image array
