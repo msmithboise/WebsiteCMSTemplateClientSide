@@ -80,6 +80,7 @@ import {
 })
 export class ContentViewComponent implements OnInit {
   @Input() columnId: number;
+  public columnIdList = [];
   contentList = [];
   newContentList: Webcontent[];
   filteredContentList = [];
@@ -107,10 +108,10 @@ export class ContentViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContentListsByColumnId();
-    this.getScreenSize();
-    this.isMobile();
-    this.setFontAwesomeIcon();
-    this.setAnimation();
+    //this.getScreenSize();
+    //  this.isMobile();
+    //this.setFontAwesomeIcon();
+    //this.setAnimation();
   }
 
   setAnimation() {
@@ -231,31 +232,20 @@ export class ContentViewComponent implements OnInit {
         .getContentLists(this.columnId)
         .subscribe((res: Webcontent) => {
           this.webStructureService.getRequests++;
-          console.log('content-view: getContentListsByColumnId');
+          //console.log('content-view: getContentListsByColumnId');
 
           //debugger;
           this.contentList = res[0];
 
-          console.log('content list:  ', this.contentList);
+          // console.log('GET REQUEST', this.columnId);
+          console.log(this.contentList);
 
           for (let i = 0; i < this.contentList.length; i++) {
             const content = this.contentList[i];
-            // EX: its saying that contentId: 3743
-
-            // if the column id of the content.ColumnId: 3790 does NOT equal this.columnId 3790
-            //it doesn't  Then continue to the next content
-            // if (content.ColumnId != this.columnId) {
-            //   continue;
-            // }
-            //it does..
-
-            //then if the contentId isnt null, meaning the object exists...
-
-            //take the ENTIRE list we brought back and add it to the newContentList
 
             if (content.ColumnId == this.columnId) {
               this.filteredContentList.push(content);
-              console.log('adding to list..', this.filteredContentList);
+              //console.log('adding to list..', this.filteredContentList);
 
               //this.newContentList = this.contentList;
               this.newContentList = this.filteredContentList;
