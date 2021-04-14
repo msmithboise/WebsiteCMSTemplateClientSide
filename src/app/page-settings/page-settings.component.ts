@@ -74,8 +74,21 @@ export class PageSettingsComponent implements OnInit {
   getAllPresets() {
     this.dashboardPresetService.getAllPresets().subscribe((res) => {
       console.log('getting presets...');
-      console.log('presets:  ', res);
+
+      this.dashboardPresetService.dashboardPresetArray = res;
+      console.log(
+        'presets:  ',
+        this.dashboardPresetService.dashboardPresetArray
+      );
     });
+  }
+
+  onPresetSubmit() {
+    console.log('posting presets');
+  }
+
+  insertColorPresets() {
+    this.onPresetSubmit();
   }
 
   getPageDesc() {

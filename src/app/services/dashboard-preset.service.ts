@@ -8,6 +8,7 @@ import { WebStructureService } from '../web-structure.service';
 })
 export class DashboardPresetService {
   readonly webApi = this.webStructureService.globalApi;
+  public dashboardPresetArray: DashboardPreset[];
 
   constructor(
     public http: HttpClient,

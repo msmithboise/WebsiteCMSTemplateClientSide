@@ -44,16 +44,35 @@
 
               <button (click)="getAllPresets()">Customize Dashboard</button>
 
-              <form action="/action_page.php">
-                <label for="favcolor">Select your favorite color:</label>
-                <input
-                  type="color"
-                  id="favcolor"
-                  name="favcolor"
-                  value="#ff0000"
-                /><br /><br />
-                <input type="submit" />
-              </form>
+              <!-- <input
+                              name="Id"
+                              type="hidden"
+                              #Id="ngModel"
+                              [(ngModel)]="content.Id"
+                            />
+                            <div class="input-group-append"></div> -->
+
+              <div
+                *ngFor="
+                  let preset of this.dashboardPresetService.dashboardPresetArray
+                "
+              >
+                <form #form="ngForm">
+                  <label>Color 1:</label>
+                  <input
+                    type="color"
+                    #Id="ngModel"
+                    name="colorOne"
+                    [(ngModel)]="preset.colorOne"
+                  /><br /><br />
+                  <button
+                    class="btn btn-primary"
+                    (click)="onPresetSubmit(form)"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
 
               <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
 
