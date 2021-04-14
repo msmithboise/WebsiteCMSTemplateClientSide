@@ -22,6 +22,7 @@ import { SubpageDashboardComponent } from '../subpage-dashboard/subpage-dashboar
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebStructureService } from '../web-structure.service';
 import { RowComponent } from '../row/row.component';
+import { DashboardPresetService } from '../services/dashboard-preset.service';
 
 @Component({
   selector: 'app-page-settings',
@@ -57,7 +58,8 @@ export class PageSettingsComponent implements OnInit {
     public customPageService: CustomPageService,
     public subPageService: SubpageService,
     public webStructureService: WebStructureService,
-    public templateService: DefaultTemplateService
+    public templateService: DefaultTemplateService,
+    public dashboardPresetService: DashboardPresetService
   ) {}
 
   //This component needs to grab all rows by page id
@@ -67,6 +69,13 @@ export class PageSettingsComponent implements OnInit {
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();
+  }
+
+  getAllPresets() {
+    this.dashboardPresetService.getAllPresets().subscribe((res) => {
+      console.log('getting presets...');
+      console.log('presets:  ', res);
+    });
   }
 
   getPageDesc() {

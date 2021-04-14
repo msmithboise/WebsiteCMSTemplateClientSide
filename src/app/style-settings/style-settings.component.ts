@@ -41,6 +41,10 @@ export class StyleSettingsComponent implements OnInit {
         console.log('style-settings: grabAllContentByTextId');
         this.webStructureService.getRequests++;
         this.webContentService.webContentByIdArray = res;
+        console.log(
+          'this.webContentByIdArray',
+          this.webContentService.webContentByIdArray
+        );
       });
   }
 
@@ -92,6 +96,7 @@ export class StyleSettingsComponent implements OnInit {
         console.log('style-settings: grabAllContentByPageId');
         this.webStructureService.getRequests++;
         this.webContentService.webContentArray = res;
+        console.log(this.webContentService.webContentArray);
       });
   }
 }

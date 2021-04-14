@@ -12,17 +12,19 @@ import { Webcontent } from './WebContent/webcontent.model';
   providedIn: 'root',
 })
 export class WebStructureService {
-  //For Production:
   // public globalApi = this.setProdApi();
-  //For Testing:
-  public globalApi = this.setTestApi();
   public getRequests = 0;
 
   //I think i will need to simply change it from http to https
 
-  //public globalApi = 'https://api.riveroflifeidaho.com/api';
+  //For Testing:
+  public globalApi = this.setTestApi();
+
+  //For Production:
   //public globalApi = 'http://api.freedomstartsnow.com/api';
   //public globalApi = 'http://api.hindsitedevelopment.com/api';
+  // public globalApi = 'http://api.paxifie.com/api';
+  //public globalApi = 'https://api.riveroflifeidaho.com/api';
 
   //public globalApi = this.determineIfHttps();
 

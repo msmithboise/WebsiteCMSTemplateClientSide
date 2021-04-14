@@ -227,32 +227,13 @@ export class ContentViewComponent implements OnInit {
   }
 
   getContentListsByColumnId() {
-    if (this.contentList.length <= 0) {
-      this.webStructureService
-        .getContentLists(this.columnId)
-        .subscribe((res: Webcontent) => {
-          this.webStructureService.getRequests++;
-          //console.log('content-view: getContentListsByColumnId');
-
-          //debugger;
-          this.contentList = res[0];
-
-          // console.log('GET REQUEST', this.columnId);
-          console.log(this.contentList);
-
-          for (let i = 0; i < this.contentList.length; i++) {
-            const content = this.contentList[i];
-
-            if (content.ColumnId == this.columnId) {
-              this.filteredContentList.push(content);
-              //console.log('adding to list..', this.filteredContentList);
-
-              //this.newContentList = this.contentList;
-              this.newContentList = this.filteredContentList;
-            }
-          }
-        });
-    }
+    this.webStructureService
+      .getContentLists(this.columnId)
+      .subscribe((res: Webcontent) => {
+        this.webStructureService.getRequests++;
+        console.log('content-view: getContentListsByColumnId');
+        this.newContentList = res[0];
+      });
   }
 
   createLink(hyperLink: string) {

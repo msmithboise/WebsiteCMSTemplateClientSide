@@ -30,10 +30,25 @@ const routes: Routes = [
     canActivate: [NullPageGuard],
   },
 
+  //for freedomstartsnow
+  // {
+  //   path: '',
+  //   redirectTo: '/Home/13',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
   //for hindsitedevelopment
   // {
   //   path: '',
   //   redirectTo: '/Home/9',
+  //   pathMatch: 'full',
+  //   canActivate: [NullPageGuard],
+  // },
+
+  //for paxifie
+  // {
+  //   path: '',
+  //   redirectTo: '/Home/22',
   //   pathMatch: 'full',
   //   canActivate: [NullPageGuard],
   // },
@@ -46,13 +61,6 @@ const routes: Routes = [
   //   canActivate: [NullPageGuard],
   // },
 
-  //for freedomstartsnow
-  // {
-  //   path: '',
-  //   redirectTo: '/Home/13',
-  //   pathMatch: 'full',
-  //   canActivate: [NullPageGuard],
-  // },
   {
     path: 'customPage/:pageDescription/:pageId',
     component: CustomPageComponent,
