@@ -83,12 +83,16 @@ export class PageSettingsComponent implements OnInit {
     });
   }
 
-  onPresetSubmit() {
+  onPresetSubmit(form: NgForm) {
     console.log('posting presets');
+
+    this.insertColorPresets(form);
   }
 
-  insertColorPresets() {
-    this.onPresetSubmit();
+  insertColorPresets(form: NgForm) {
+    this.dashboardPresetService.postPresets(form.value).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   getPageDesc() {

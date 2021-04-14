@@ -58,6 +58,12 @@
                 "
               >
                 <form #form="ngForm">
+                  <input
+                    type="hidden"
+                    #Id="ngModel"
+                    name="presetId"
+                    [(ngModel)]="preset.presetId"
+                  /><br /><br />
                   <label>Color 1:</label>
                   <input
                     type="color"

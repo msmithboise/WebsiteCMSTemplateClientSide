@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { DashboardPreset } from '../models/dashboard-preset.model';
 import { WebStructureService } from '../web-structure.service';
 
@@ -25,5 +26,10 @@ export class DashboardPresetService {
     return this.http.get<DashboardPreset[]>(
       this.webApi + '/Dashboards/' + clientUrl
     );
+  }
+
+  //Post Presets
+  postPresets(formData: FormGroup) {
+    return this.http.post(this.webApi + '/Dashboards', formData);
   }
 }
