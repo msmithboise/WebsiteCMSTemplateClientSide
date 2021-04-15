@@ -229,6 +229,21 @@
                         name="colorSix"
                         [(ngModel)]="preset.colorSix"
                       /><br /><br />
+                      <!-- Button Text Color -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat',
+                          color: preset.colorFive
+                        }"
+                        >Text 3
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorEight"
+                        [(ngModel)]="preset.colorEight"
+                      /><br /><br />
+
                       <!-- Button Color -->
                       <label
                         [ngStyle]="{
@@ -242,20 +257,6 @@
                         #Id="ngModel"
                         name="colorSeven"
                         [(ngModel)]="preset.colorSeven"
-                      /><br /><br />
-                      <!-- Button Text Color -->
-                      <label
-                        [ngStyle]="{
-                          fontFamily: 'Montserrat',
-                          color: preset.colorFive
-                        }"
-                        >Button Text
-                      </label>
-                      <input
-                        type="color"
-                        #Id="ngModel"
-                        name="colorEight"
-                        [(ngModel)]="preset.colorEight"
                       /><br /><br />
                     </div>
                     <button
