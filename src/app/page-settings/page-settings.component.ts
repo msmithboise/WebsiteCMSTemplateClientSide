@@ -81,10 +81,10 @@ export class PageSettingsComponent implements OnInit {
     form.value.colorTwo = '#ffffff';
     form.value.colorThree = '#ffffff';
     form.value.colorFour = '#ffffff';
-    form.value.colorFive = '#000000';
-    form.value.colorSix = '#000000';
-    form.value.colorSeven = '#000000';
-    form.value.colorEight = '#000000';
+    form.value.colorFive = '#D461EA';
+    form.value.colorSix = '#1FA8A6';
+    form.value.colorSeven = '#222222';
+    form.value.colorEight = '#222222';
 
     this.dashboardPresetService.postPresets(form.value).subscribe((res) => {
       console.log(res);
@@ -102,8 +102,8 @@ export class PageSettingsComponent implements OnInit {
     form.value.colorFour = '#27293D';
     form.value.colorFive = '#E5B9EE';
     form.value.colorSix = '#24FFFB';
-    form.value.colorSeven = '#E0E0E0';
-    form.value.colorEight = '#E0E0E0';
+    form.value.colorSeven = '#B8B7B7';
+    form.value.colorEight = '#B8B7B7';
 
     this.dashboardPresetService.postPresets(form.value).subscribe((res) => {
       console.log(res);
