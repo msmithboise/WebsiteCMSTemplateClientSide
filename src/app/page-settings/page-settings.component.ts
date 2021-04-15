@@ -69,6 +69,7 @@ export class PageSettingsComponent implements OnInit {
     this.callCustomPageService();
     this.callCustomSubPageService();
     this.getRowsByPageId();
+    this.getAllPresets();
   }
 
   getAllPresets() {
