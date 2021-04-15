@@ -18,6 +18,7 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 })
 export class RowComponent implements OnInit {
   @Input() rowId: number;
+  @Input() colorOne: string;
   @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;
   public pageDescription: string;
