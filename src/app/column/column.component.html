@@ -236,7 +236,7 @@
             <!-- Icon -->
 
             <div *ngIf="text.Icon">
-              <label>Icon</label>
+              <label [ngStyle]="{ color: this.colorFive }">Icon</label>
               <div class="input-group"></div>
               <input
                 type="hidden"
@@ -253,7 +253,7 @@
             <!-- Text Body -->
 
             <div *ngIf="text.TextBody">
-              <label>Text Body</label>
+              <label [ngStyle]="{ color: this.colorFive }">Text Body</label>
               <div class="input-group"></div>
               <input
                 type="hidden"
@@ -393,7 +393,9 @@
             <!--  Body (400px image) -->
 
             <div *ngIf="text.Body">
-              <label>Background Image (400px)</label>
+              <label [ngStyle]="{ color: this.colorFive }"
+                >Background Image (400px)</label
+              >
               <div class="input-group"></div>
               <input
                 name="Body"
@@ -406,7 +408,7 @@
             <!--  Button -->
 
             <div *ngIf="text.buttonText">
-              <label>Button</label>
+              <label [ngStyle]="{ color: this.colorFive }">Button</label>
               <div class="input-group"></div>
               <input
                 name="buttonText"
@@ -419,7 +421,7 @@
             <!-- Audio -->
 
             <div *ngIf="text.AudioUrl">
-              <label>Audio Url</label>
+              <label [ngStyle]="{ color: this.colorFive }">Audio Url</label>
               <input
                 name="AudioUrl"
                 #AudioUrl="ngModel"
@@ -451,7 +453,7 @@
     
               <!-- ImageUrl -->
             <div *ngIf="text.ImageUrl">
-              <label>Image Url</label>
+              <label [ngStyle]="{ color: this.colorFive }">Image Url</label>
               <div class="input-group"></div>
               <img
                 class="responsive"
@@ -473,7 +475,9 @@
 
             <!-- Background Image -->
             <div *ngIf="text.backgroundImage">
-              <label>Background Image</label>
+              <label [ngStyle]="{ color: this.colorFive }"
+                >Background Image</label
+              >
               <div class="input-group"></div>
 
               <div *ngIf="text.backgroundImage != null">
@@ -500,7 +504,7 @@
 
             <!-- Youtube Embed -->
             <div *ngIf="text.embedUrl">
-              <label>Embed Url</label>
+              <label [ngStyle]="{ color: this.colorFive }">Embed Url</label>
               <div class="input-group"></div>
               <input
                 name="embedUrl"
@@ -512,7 +516,7 @@
             </div>
             <!-- Google Maps -->
             <div *ngIf="text.MapUrl">
-              <label>Google Map</label>
+              <label [ngStyle]="{ color: this.colorFive }">Google Map</label>
               <div class="input-group"></div>
               <input
                 name="MapUrl"
