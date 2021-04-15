@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomPage } from '../models/custom-page.model';
 import { Subpage } from '../models/subpage.model';
@@ -12,6 +12,7 @@ import { WebStructureService } from '../web-structure.service';
   styleUrls: ['./dashboard-sidebar.component.css'],
 })
 export class DashboardSidebarComponent implements OnInit {
+  @Input() colorFour: string;
   public pageDescription: string;
   public pageId: number;
 

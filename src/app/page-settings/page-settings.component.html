@@ -26,7 +26,9 @@
 
         <!-- Custom styles for this template -->
       </head>
-      <app-dashboard-sidebar></app-dashboard-sidebar>
+      <app-dashboard-sidebar
+        [colorFour]="preset.colorFour"
+      ></app-dashboard-sidebar>
 
       <body>
         <div
@@ -125,6 +127,7 @@
                       name="presetId"
                       [(ngModel)]="preset.presetId"
                     /><br /><br />
+
                     <label>Color 1:</label>
                     <input
                       type="color"
@@ -132,6 +135,7 @@
                       name="colorOne"
                       [(ngModel)]="preset.colorOne"
                     /><br /><br />
+
                     <label>Color 2:</label>
                     <input
                       type="color"
@@ -139,12 +143,21 @@
                       name="colorTwo"
                       [(ngModel)]="preset.colorTwo"
                     /><br /><br />
+
                     <label>Color 3:</label>
                     <input
                       type="color"
                       #Id="ngModel"
                       name="colorThree"
                       [(ngModel)]="preset.colorThree"
+                    /><br /><br />
+
+                    <label>Sidebar</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorFour"
+                      [(ngModel)]="preset.colorFour"
                     /><br /><br />
                     <button
                       class="btn btn-primary"
