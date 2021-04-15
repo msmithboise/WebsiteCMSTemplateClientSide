@@ -42,44 +42,6 @@
                 Dashboard: {{ this.pageDescription }}
               </h1>
 
-              <button (click)="getAllPresets()">Customize Dashboard</button>
-
-              <!-- <input
-                              name="Id"
-                              type="hidden"
-                              #Id="ngModel"
-                              [(ngModel)]="content.Id"
-                            />
-                            <div class="input-group-append"></div> -->
-
-              <div
-                *ngFor="
-                  let preset of this.dashboardPresetService.dashboardPresetArray
-                "
-              >
-                <form #form="ngForm">
-                  <input
-                    type="hidden"
-                    #Id="ngModel"
-                    name="presetId"
-                    [(ngModel)]="preset.presetId"
-                  /><br /><br />
-                  <label>Color 1:</label>
-                  <input
-                    type="color"
-                    #Id="ngModel"
-                    name="colorOne"
-                    [(ngModel)]="preset.colorOne"
-                  /><br /><br />
-                  <button
-                    class="btn btn-primary"
-                    (click)="onPresetSubmit(form)"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-
               <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
 
               <button
@@ -135,6 +97,52 @@
                 </svg>
                 Add Row
               </button>
+
+              <button (click)="getAllPresets()">Customize Dashboard</button>
+
+              <div
+                *ngFor="
+                  let preset of this.dashboardPresetService.dashboardPresetArray
+                "
+              >
+                <h1
+                  [ngStyle]="{
+                    backgroundColor: preset.colorOne,
+                    color: preset.colorTwo,
+                    fontSize: '50px'
+                  }"
+                >
+                  COLOR TEST
+                </h1>
+                <form #form="ngForm">
+                  <input
+                    type="hidden"
+                    #Id="ngModel"
+                    name="presetId"
+                    [(ngModel)]="preset.presetId"
+                  /><br /><br />
+                  <label>Color 1:</label>
+                  <input
+                    type="color"
+                    #Id="ngModel"
+                    name="colorOne"
+                    [(ngModel)]="preset.colorOne"
+                  /><br /><br />
+                  <label>Color 2:</label>
+                  <input
+                    type="color"
+                    #Id="ngModel"
+                    name="colorTwo"
+                    [(ngModel)]="preset.colorTwo"
+                  /><br /><br />
+                  <button
+                    class="btn btn-primary"
+                    (click)="onPresetSubmit(form)"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
 
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
