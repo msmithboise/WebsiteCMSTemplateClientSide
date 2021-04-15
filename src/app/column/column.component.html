@@ -1,452 +1,445 @@
-<div class="card-body">
-  <div class="card-body">
-    <h4 style="color: white">Column ID: {{ this.columnId }}</h4>
-    <!-- <h2 class="h2">Web Content</h2> -->
+<div class="card" [ngStyle]="{ backgroundColor: this.colorTwo }">
+  <h4 style="color: white">Column ID: {{ this.columnId }}</h4>
+  <!-- <h2 class="h2">Web Content</h2> -->
 
-    <!-- Edit Column Modal -->
-    <div
-      class="modal fade"
-      id="editColumnModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="editColumnModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editColumnModalLabel">
-              Please enter a column size between 1-12
-            </h5>
+  <!-- Edit Column Modal -->
+  <div
+    class="modal fade"
+    id="editColumnModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editColumnModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editColumnModalLabel">
+            Please enter a column size between 1-12
+          </h5>
 
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form
-              [formGroup]="columnFormTemplate"
-              class="form-inline"
-              (submit)="onEditColumnSubmit(editColumnFormTemplate.value)"
-            >
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            [formGroup]="columnFormTemplate"
+            class="form-inline"
+            (submit)="onEditColumnSubmit(editColumnFormTemplate.value)"
+          >
+            <div class="card">
+              <div class="card-body">
+                <label>Desktop Column Size: </label>
+
+                <input
+                  name="columnClass"
+                  class="form-control-lg form-group"
+                  placeholder="Enter New Column Size Here"
+                  type="text"
+                  formControlName="columnClass"
+                />
+              </div>
               <div class="card">
                 <div class="card-body">
-                  <label>Desktop Column Size: </label>
-
+                  <label>Mobile Column Size: </label>
                   <input
-                    name="columnClass"
+                    name="columnClassMobile"
                     class="form-control-lg form-group"
-                    placeholder="Enter New Column Size Here"
+                    placeholder="Enter New Mobile Column Size Here"
                     type="text"
-                    formControlName="columnClass"
+                    formControlName="columnClassMobile"
                   />
                 </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Mobile Column Size: </label>
-                    <input
-                      name="columnClassMobile"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Mobile Column Size Here"
-                      type="text"
-                      formControlName="columnClassMobile"
-                    />
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Tablet Column Size: </label>
-                    <input
-                      name="columnClassTablet"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Tablet Column Size Here"
-                      type="text"
-                      formControlName="columnClassTablet"
-                    />
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <label>Laptop Column Size: </label>
-                    <input
-                      name="columnClassLaptop"
-                      class="form-control-lg form-group"
-                      placeholder="Enter New Laptop Column Size Here"
-                      type="text"
-                      formControlName="columnClassLaptop"
-                    />
-                  </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <label>Tablet Column Size: </label>
+                  <input
+                    name="columnClassTablet"
+                    class="form-control-lg form-group"
+                    placeholder="Enter New Tablet Column Size Here"
+                    type="text"
+                    formControlName="columnClassTablet"
+                  />
                 </div>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              (click)="onEditColumnSubmit(editColumnFormTemplate.value)"
-              type="button"
-              class="btn btn-primary"
-              data-dismiss="modal"
-            >
-              Save changes
-            </button>
-          </div>
+              <div class="card">
+                <div class="card-body">
+                  <label>Laptop Column Size: </label>
+                  <input
+                    name="columnClassLaptop"
+                    class="form-control-lg form-group"
+                    placeholder="Enter New Laptop Column Size Here"
+                    type="text"
+                    formControlName="columnClassLaptop"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button
+            (click)="onEditColumnSubmit(editColumnFormTemplate.value)"
+            type="button"
+            class="btn btn-primary"
+            data-dismiss="modal"
+          >
+            Save changes
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Edit Column Button-->
-    <button
-      style="float: right"
-      type="button"
-      class="btn btn-sm btn-outline-secondary text-button"
-      data-toggle="modal"
-      data-target="#editColumnModal"
-      (click)="selectColumnToEdit()"
+  <!-- Edit Column Button-->
+  <button
+    style="float: right"
+    type="button"
+    class="btn btn-sm btn-outline-secondary text-button"
+    data-toggle="modal"
+    data-target="#editColumnModal"
+    (click)="selectColumnToEdit()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-pencil"
+      viewBox="0 0 16 16"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-pencil"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
-        />
-      </svg>
-      Edit Column
-    </button>
+      <path
+        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+      />
+    </svg>
+    Edit Column
+  </button>
 
-    <!-- Delete Column Button-->
-    <button
-      style="float: right"
-      type="button"
-      class="btn btn-sm btn-outline-secondary text-button"
-      (click)="deleteColumnDialogue(this.columnId)"
+  <!-- Delete Column Button-->
+  <button
+    style="float: right"
+    type="button"
+    class="btn btn-sm btn-outline-secondary text-button"
+    (click)="deleteColumnDialogue(this.columnId)"
+  >
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 16 16"
+      class="bi bi-trash"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 16 16"
-        class="bi bi-trash"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-        />
-        <path
-          fill-rule="evenodd"
-          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-        />
-      </svg>
-      Delete Column
-    </button>
+      <path
+        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+      />
+      <path
+        fill-rule="evenodd"
+        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+      />
+    </svg>
+    Delete Column
+  </button>
 
-    <app-button-panel
-      (refreshEvent)="refreshColumns()"
-      [columnId]="this.columnId"
-    ></app-button-panel>
-    <div *ngFor="let text of this.newContentList; let i = index">
-      <div *ngIf="text.ColumnId == this.columnId">
-        <!-- <h3 style="color: violet">ContentId: {{ text.Id }}</h3> -->
+  <app-button-panel
+    (refreshEvent)="refreshColumns()"
+    [columnId]="this.columnId"
+  ></app-button-panel>
+  <div *ngFor="let text of this.newContentList; let i = index">
+    <div *ngIf="text.ColumnId == this.columnId">
+      <!-- <h3 style="color: violet">ContentId: {{ text.Id }}</h3> -->
 
-        <!-- // For all of the content tied to each column id... -->
-        <div>
-          <!-- Delete button -->
+      <!-- // For all of the content tied to each column id... -->
+      <div>
+        <!-- Delete button -->
 
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-secondary embed-button float-right"
-            (click)="deleteDialogue(text.Id)"
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary embed-button float-right"
+          (click)="deleteDialogue(text.Id)"
+        >
+          <svg
+            width="1.5em"
+            height="1.5em"
+            viewBox="0 0 16 16"
+            class="bi bi-trash"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              width="1.5em"
-              height="1.5em"
-              viewBox="0 0 16 16"
-              class="bi bi-trash"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-              />
-            </svg>
-          </button>
+            <path
+              d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+            />
+          </svg>
+        </button>
 
-          <!-- Edit button -->
+        <!-- Edit button -->
 
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-secondary embed-button float-right"
-            (click)="selectItemToEdit(text.Id, text.ColumnId)"
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary embed-button float-right"
+          (click)="selectItemToEdit(text.Id, text.ColumnId)"
+        >
+          <svg
+            width="1.5em"
+            height="1.5em"
+            viewBox="0 0 16 16"
+            class="bi bi-pencil"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              width="1.5em"
-              height="1.5em"
-              viewBox="0 0 16 16"
-              class="bi bi-pencil"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
-              />
-            </svg>
-          </button>
+            <path
+              fill-rule="evenodd"
+              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+            />
+          </svg>
+        </button>
 
-          <div class="input-group"></div>
-          <div class="modal-body form-group">
-            <form
-              #form="ngForm"
-              (submit)="onContentSubmit(form)"
-              id="myForm"
-              class="border-bottom"
-            >
-              <!-- Id -->
+        <div class="input-group"></div>
+        <div class="modal-body form-group">
+          <form
+            #form="ngForm"
+            (submit)="onContentSubmit(form)"
+            id="myForm"
+            class="border-bottom"
+          >
+            <!-- Id -->
 
+            <input
+              name="Id"
+              type="hidden"
+              #TextId="ngModel"
+              [(ngModel)]="text.Id"
+            />
+
+            <!-- Text Id -->
+            <input
+              name="ColumnId"
+              type="hidden"
+              #ColumnId="ngModel"
+              [(ngModel)]="text.ColumnId"
+            />
+
+            <!-- Icon -->
+
+            <div *ngIf="text.Icon">
+              <label>Icon</label>
+              <div class="input-group"></div>
               <input
-                name="Id"
                 type="hidden"
-                #TextId="ngModel"
-                [(ngModel)]="text.Id"
+                name="Icon"
+                #Icon="ngModel"
+                [(ngModel)]="text.Icon"
+                class="formStyle"
               />
+              <span [ngStyle]="{ fontSize: text.fontSize, color: text.color }">
+                <i [class]="text.Icon"></i>
+              </span>
+            </div>
 
-              <!-- Text Id -->
+            <!-- Text Body -->
+
+            <div *ngIf="text.TextBody">
+              <label>Text Body</label>
+              <div class="input-group"></div>
               <input
-                name="ColumnId"
                 type="hidden"
-                #ColumnId="ngModel"
-                [(ngModel)]="text.ColumnId"
+                name="TextBody"
+                #TextBody="ngModel"
+                [(ngModel)]="text.TextBody"
+                class="formStyle"
               />
+            </div>
 
-              <!-- Icon -->
+            <div [ngStyle]="{}">
+              <h1
+                class="customText"
+                [ngStyle]="{
+                  color: '#ffffff',
+                  backgroundAttachment: text.backgroundAttachment,
+                  backgroundClip: text.backgroundClip,
 
-              <div *ngIf="text.Icon">
-                <label>Icon</label>
-                <div class="input-group"></div>
-                <input
-                  type="hidden"
-                  name="Icon"
-                  #Icon="ngModel"
-                  [(ngModel)]="text.Icon"
-                  class="formStyle"
-                />
-                <span
-                  [ngStyle]="{ fontSize: text.fontSize, color: text.color }"
-                >
-                  <i [class]="text.Icon"></i>
-                </span>
-              </div>
+                  backgroundOrigin: text.backgroundOrigin,
+                  backgroundPosition: text.backgroundPosition,
+                  backgroundRepeat: text.backgroundRepeat,
+                  backgroundSize: text.backgroundSize,
+                  background: text.background,
+                  border: text.border,
+                  borderBottom: text.borderBottom,
+                  borderBottomColor: text.borderBottomColor,
+                  borderBottomLeftRadius: text.borderBottomLeftRadius,
+                  borderBottomRightRadius: text.borderBottomRightRadius,
+                  borderBottomStyle: text.borderBottomStyle,
+                  borderBottomWidth: text.borderBottomWidth,
+                  borderColor: text.borderColor,
+                  borderImage: text.borderImage,
+                  borderImageOutset: text.borderImageOutset,
+                  borderImageRepeat: text.borderImageRepeat,
+                  borderImageSlice: text.borderImageSlice,
+                  borderImageSource: text.borderImageSource,
+                  borderImageWidth: text.borderImageWidth,
+                  borderLeft: text.borderLeft,
+                  borderLeftColor: text.borderLeftColor,
+                  borderLeftStyle: text.borderLeftStyle,
+                  borderLeftWidth: text.borderLeftWidth,
+                  borderStyle: text.borderStyle,
+                  borderTop: text.borderTop,
+                  borderTopColor: text.borderTopColor,
+                  borderTopLeftRadius: text.borderTopLeftRadius,
+                  borderTopRightRadius: text.borderTopRightRadius,
+                  borderTopStyle: text.borderTopStyle,
+                  borderTopWidth: text.borderTopWidth,
+                  borderWidth: text.borderWidth,
+                  boxShadow: text.boxShadow,
+                  animation: text.animation,
 
-              <!-- Text Body -->
+                  lineHeight: text.lineHeight,
+                  fontFamily: text.fontFamily,
+                  clear: text.clear,
+                  clip: text.clip,
+                  cursor: text.cursor,
+                  fontVariant: text.fontVariant,
+                  fontWeight: text.fontWieght,
 
-              <div *ngIf="text.TextBody">
-                <label>Text Body</label>
-                <div class="input-group"></div>
-                <input
-                  type="hidden"
-                  name="TextBody"
-                  #TextBody="ngModel"
-                  [(ngModel)]="text.TextBody"
-                  class="formStyle"
-                />
-              </div>
+                  letterSpacing: text.letterSpacing,
+                  listStyle: text.listStyle,
+                  listStyleImage: text.listStyleImage,
+                  listStyleType: text.listStyleType,
+                  margin: text.margin,
+                  pageBreakAfter: text.pageBreakAfter,
+                  pageBreakBefore: text.pageBreakBefore,
+                  position: text.position,
+                  strokeDasharray: text.strokeDasharray,
+                  strokeDashoffset: text.strokeDashoffset,
+                  strokeWidth: text.strokeWidth,
+                  textDecoration: text.textDecoration,
+                  textIndent: text.textIndent,
+                  textTransform: text.textTransform,
 
-              <div [ngStyle]="{}">
-                <h1
-                  class="customText"
-                  [ngStyle]="{
-                    color: '#ffffff',
-                    backgroundAttachment: text.backgroundAttachment,
-                    backgroundClip: text.backgroundClip,
+                  verticalAlign: text.verticalAlign,
+                  visibility: text.visibility,
+                  width: text.width,
+                  zIndex: text.zIndex,
+                  display: text.display,
+                  cssFloat: text.cssFloat,
+                  filter: text.filter,
+                  backgroundColor: text.backgroundColor,
+                  lineBreak: text.lineBreak,
+                  opacity: text.opacity,
+                  outline: text.outline,
+                  outlineColor: text.outlineColor,
+                  outlineOffset: text.outlineOffset,
+                  outlineWidth: text.outlineWidth,
+                  padding: text.padding,
+                  paddingBlock: text.paddingBlock,
+                  paddingBlockEnd: text.paddingBlockEnd,
+                  paddingBlockStart: text.paddingBlockStart,
+                  paddingInLineEnd: text.paddingInLineEnd,
+                  paddingInLineStart: text.paddingInLineStart,
+                  pageBreakInside: text.pageBreakInside,
+                  rotate: text.rotate,
+                  textAlignLast: text.textAlignLast,
+                  textCombineUpright: text.textCombineUpright,
+                  textDecorationColor: text.textDecorationColor,
+                  textDecorationLine: text.textDecorationLine,
+                  textDecorationSkipInk: text.textDecorationSkipInk,
+                  textDecorationStyle: text.textDecorationStyle,
+                  textDecorationThickness: text.textDecorationThickness,
+                  textEmphasis: text.textEmphasis,
+                  textEmphasisColor: text.textEmphasisColor,
+                  textEmphasisPosition: text.textEmphasisPosition,
+                  textEmphasisStyle: text.textEmphasisStyle,
+                  textJustify: text.textJustify,
+                  textOrientation: text.textOrientation,
+                  textRendering: text.textRendering,
+                  textShadow: text.textShadow,
+                  textUnderLineOffset: text.textUnderLineOffSet,
+                  textUnderLinePosition: text.textUnderLinePosition,
+                  transformBox: text.transformBox,
+                  transformOrigin: text.transformOrigin,
+                  transition: text.transition,
+                  transitionDelay: text.transitionDelay,
+                  transitionDuration: text.transitionDuration,
+                  transitionProperty: text.transitionProperty,
+                  transitionTimingFunction: text.transitionTimingFunction,
+                  translate: text.translate,
+                  whiteSpace: text.whiteSpace,
+                  wordBreak: text.wordBreak,
+                  wordSpacing: text.wordSpacing,
+                  wordWrap: text.wordWrap,
+                  flex: text.flex,
+                  aligntext: text.aligntext,
+                  alignItems: text.alignItems,
+                  alignSelf: text.alignSelf
+                }"
+              >
+                {{ text.TextBody }}
+              </h1>
+            </div>
 
-                    backgroundOrigin: text.backgroundOrigin,
-                    backgroundPosition: text.backgroundPosition,
-                    backgroundRepeat: text.backgroundRepeat,
-                    backgroundSize: text.backgroundSize,
-                    background: text.background,
-                    border: text.border,
-                    borderBottom: text.borderBottom,
-                    borderBottomColor: text.borderBottomColor,
-                    borderBottomLeftRadius: text.borderBottomLeftRadius,
-                    borderBottomRightRadius: text.borderBottomRightRadius,
-                    borderBottomStyle: text.borderBottomStyle,
-                    borderBottomWidth: text.borderBottomWidth,
-                    borderColor: text.borderColor,
-                    borderImage: text.borderImage,
-                    borderImageOutset: text.borderImageOutset,
-                    borderImageRepeat: text.borderImageRepeat,
-                    borderImageSlice: text.borderImageSlice,
-                    borderImageSource: text.borderImageSource,
-                    borderImageWidth: text.borderImageWidth,
-                    borderLeft: text.borderLeft,
-                    borderLeftColor: text.borderLeftColor,
-                    borderLeftStyle: text.borderLeftStyle,
-                    borderLeftWidth: text.borderLeftWidth,
-                    borderStyle: text.borderStyle,
-                    borderTop: text.borderTop,
-                    borderTopColor: text.borderTopColor,
-                    borderTopLeftRadius: text.borderTopLeftRadius,
-                    borderTopRightRadius: text.borderTopRightRadius,
-                    borderTopStyle: text.borderTopStyle,
-                    borderTopWidth: text.borderTopWidth,
-                    borderWidth: text.borderWidth,
-                    boxShadow: text.boxShadow,
-                    animation: text.animation,
+            <!--  Body (400px image) -->
 
-                    lineHeight: text.lineHeight,
-                    fontFamily: text.fontFamily,
-                    clear: text.clear,
-                    clip: text.clip,
-                    cursor: text.cursor,
-                    fontVariant: text.fontVariant,
-                    fontWeight: text.fontWieght,
+            <div *ngIf="text.Body">
+              <label>Background Image (400px)</label>
+              <div class="input-group"></div>
+              <input
+                name="Body"
+                #Body="ngModel"
+                [(ngModel)]="text.Body"
+                class="formStyle"
+              />
+            </div>
 
-                    letterSpacing: text.letterSpacing,
-                    listStyle: text.listStyle,
-                    listStyleImage: text.listStyleImage,
-                    listStyleType: text.listStyleType,
-                    margin: text.margin,
-                    pageBreakAfter: text.pageBreakAfter,
-                    pageBreakBefore: text.pageBreakBefore,
-                    position: text.position,
-                    strokeDasharray: text.strokeDasharray,
-                    strokeDashoffset: text.strokeDashoffset,
-                    strokeWidth: text.strokeWidth,
-                    textDecoration: text.textDecoration,
-                    textIndent: text.textIndent,
-                    textTransform: text.textTransform,
+            <!--  Button -->
 
-                    verticalAlign: text.verticalAlign,
-                    visibility: text.visibility,
-                    width: text.width,
-                    zIndex: text.zIndex,
-                    display: text.display,
-                    cssFloat: text.cssFloat,
-                    filter: text.filter,
-                    backgroundColor: text.backgroundColor,
-                    lineBreak: text.lineBreak,
-                    opacity: text.opacity,
-                    outline: text.outline,
-                    outlineColor: text.outlineColor,
-                    outlineOffset: text.outlineOffset,
-                    outlineWidth: text.outlineWidth,
-                    padding: text.padding,
-                    paddingBlock: text.paddingBlock,
-                    paddingBlockEnd: text.paddingBlockEnd,
-                    paddingBlockStart: text.paddingBlockStart,
-                    paddingInLineEnd: text.paddingInLineEnd,
-                    paddingInLineStart: text.paddingInLineStart,
-                    pageBreakInside: text.pageBreakInside,
-                    rotate: text.rotate,
-                    textAlignLast: text.textAlignLast,
-                    textCombineUpright: text.textCombineUpright,
-                    textDecorationColor: text.textDecorationColor,
-                    textDecorationLine: text.textDecorationLine,
-                    textDecorationSkipInk: text.textDecorationSkipInk,
-                    textDecorationStyle: text.textDecorationStyle,
-                    textDecorationThickness: text.textDecorationThickness,
-                    textEmphasis: text.textEmphasis,
-                    textEmphasisColor: text.textEmphasisColor,
-                    textEmphasisPosition: text.textEmphasisPosition,
-                    textEmphasisStyle: text.textEmphasisStyle,
-                    textJustify: text.textJustify,
-                    textOrientation: text.textOrientation,
-                    textRendering: text.textRendering,
-                    textShadow: text.textShadow,
-                    textUnderLineOffset: text.textUnderLineOffSet,
-                    textUnderLinePosition: text.textUnderLinePosition,
-                    transformBox: text.transformBox,
-                    transformOrigin: text.transformOrigin,
-                    transition: text.transition,
-                    transitionDelay: text.transitionDelay,
-                    transitionDuration: text.transitionDuration,
-                    transitionProperty: text.transitionProperty,
-                    transitionTimingFunction: text.transitionTimingFunction,
-                    translate: text.translate,
-                    whiteSpace: text.whiteSpace,
-                    wordBreak: text.wordBreak,
-                    wordSpacing: text.wordSpacing,
-                    wordWrap: text.wordWrap,
-                    flex: text.flex,
-                    aligntext: text.aligntext,
-                    alignItems: text.alignItems,
-                    alignSelf: text.alignSelf
-                  }"
-                >
-                  {{ text.TextBody }}
-                </h1>
-              </div>
+            <div *ngIf="text.buttonText">
+              <label>Button</label>
+              <div class="input-group"></div>
+              <input
+                name="buttonText"
+                #buttonText="ngModel"
+                [(ngModel)]="text.buttonText"
+                class="formStyle"
+              />
+            </div>
 
-              <!--  Body (400px image) -->
+            <!-- Audio -->
 
-              <div *ngIf="text.Body">
-                <label>Background Image (400px)</label>
-                <div class="input-group"></div>
-                <input
-                  name="Body"
-                  #Body="ngModel"
-                  [(ngModel)]="text.Body"
-                  class="formStyle"
-                />
-              </div>
+            <div *ngIf="text.AudioUrl">
+              <label>Audio Url</label>
+              <input
+                name="AudioUrl"
+                #AudioUrl="ngModel"
+                [(ngModel)]="text.AudioUrl"
+                class="formStyle"
+              />
+            </div>
 
-              <!--  Button -->
+            <!-- Row-->
 
-              <div *ngIf="text.buttonText">
-                <label>Button</label>
-                <div class="input-group"></div>
-                <input
-                  name="buttonText"
-                  #buttonText="ngModel"
-                  [(ngModel)]="text.buttonText"
-                  class="formStyle"
-                />
-              </div>
+            <div *ngIf="text.RowId">
+              <input
+                type="hidden"
+                name="RowId"
+                #RowId="ngModel"
+                [(ngModel)]="text.RowId"
+              />
+            </div>
 
-              <!-- Audio -->
-
-              <div *ngIf="text.AudioUrl">
-                <label>Audio Url</label>
-                <input
-                  name="AudioUrl"
-                  #AudioUrl="ngModel"
-                  [(ngModel)]="text.AudioUrl"
-                  class="formStyle"
-                />
-              </div>
-
-              <!-- Row-->
-
-              <div *ngIf="text.RowId">
-                <input
-                  type="hidden"
-                  name="RowId"
-                  #RowId="ngModel"
-                  [(ngModel)]="text.RowId"
-                />
-              </div>
-
-              <!-- PageId
+            <!-- PageId
     
               <input
                 name="PageId"
@@ -457,80 +450,79 @@
               />
     
               <!-- ImageUrl -->
-              <div *ngIf="text.ImageUrl">
-                <label>Image Url</label>
-                <div class="input-group"></div>
+            <div *ngIf="text.ImageUrl">
+              <label>Image Url</label>
+              <div class="input-group"></div>
+              <img
+                class="responsive"
+                src="{{ text.ImageUrl }}"
+                [ngStyle]="{
+                  height: '200px',
+                  width: '200px'
+                }"
+              />
+              <input
+                type="hidden"
+                name="ImageUrl"
+                #ImageUrl="ngModel"
+                [(ngModel)]="text.ImageUrl"
+                class="formStyle"
+              />
+              <div class="input-group-append"></div>
+            </div>
+
+            <!-- Background Image -->
+            <div *ngIf="text.backgroundImage">
+              <label>Background Image</label>
+              <div class="input-group"></div>
+
+              <div *ngIf="text.backgroundImage != null">
                 <img
                   class="responsive"
-                  src="{{ text.ImageUrl }}"
+                  src="{{ text.backgroundImage }}"
                   [ngStyle]="{
                     height: '200px',
                     width: '200px'
                   }"
                 />
-                <input
-                  type="hidden"
-                  name="ImageUrl"
-                  #ImageUrl="ngModel"
-                  [(ngModel)]="text.ImageUrl"
-                  class="formStyle"
-                />
-                <div class="input-group-append"></div>
               </div>
 
-              <!-- Background Image -->
-              <div *ngIf="text.backgroundImage">
-                <label>Background Image</label>
-                <div class="input-group"></div>
+              <input
+                type="hidden"
+                name="backgroundImage"
+                #backgroundImage="ngModel"
+                [(ngModel)]="text.backgroundImage"
+                class="formStyle"
+              />
 
-                <div *ngIf="text.backgroundImage != null">
-                  <img
-                    class="responsive"
-                    src="{{ text.backgroundImage }}"
-                    [ngStyle]="{
-                      height: '200px',
-                      width: '200px'
-                    }"
-                  />
-                </div>
+              <div class="input-group-append"></div>
+            </div>
 
-                <input
-                  type="hidden"
-                  name="backgroundImage"
-                  #backgroundImage="ngModel"
-                  [(ngModel)]="text.backgroundImage"
-                  class="formStyle"
-                />
-
-                <div class="input-group-append"></div>
-              </div>
-
-              <!-- Youtube Embed -->
-              <div *ngIf="text.embedUrl">
-                <label>Embed Url</label>
-                <div class="input-group"></div>
-                <input
-                  name="embedUrl"
-                  #embedUrl="ngModel"
-                  [(ngModel)]="text.embedUrl"
-                  class="formStyle"
-                />
-                <div class="input-group-append"></div>
-              </div>
-              <!-- Google Maps -->
-              <div *ngIf="text.MapUrl">
-                <label>Google Map</label>
-                <div class="input-group"></div>
-                <input
-                  name="MapUrl"
-                  #MapUrl="ngModel"
-                  [(ngModel)]="text.MapUrl"
-                  class="formStyle"
-                />
-                <div class="input-group-append"></div>
-              </div>
-            </form>
-          </div>
+            <!-- Youtube Embed -->
+            <div *ngIf="text.embedUrl">
+              <label>Embed Url</label>
+              <div class="input-group"></div>
+              <input
+                name="embedUrl"
+                #embedUrl="ngModel"
+                [(ngModel)]="text.embedUrl"
+                class="formStyle"
+              />
+              <div class="input-group-append"></div>
+            </div>
+            <!-- Google Maps -->
+            <div *ngIf="text.MapUrl">
+              <label>Google Map</label>
+              <div class="input-group"></div>
+              <input
+                name="MapUrl"
+                #MapUrl="ngModel"
+                [(ngModel)]="text.MapUrl"
+                class="formStyle"
+              />
+              <div class="input-group-append"></div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -103,7 +103,7 @@
                   let preset of this.dashboardPresetService.dashboardPresetArray
                 "
               >
-                <h1
+                <!-- <h1
                   [ngStyle]="{
                     backgroundColor: preset.colorOne,
                     color: preset.colorTwo,
@@ -111,7 +111,7 @@
                   }"
                 >
                   COLOR TEST
-                </h1>
+                </h1> -->
                 <form #form="ngForm">
                   <input
                     type="hidden"
@@ -253,6 +253,7 @@
                 <!-- <h1 style="color: red">RowId: {{ row.RowId }}</h1> -->
                 <!-- For all the rows that are tied to this page id... -->
                 <app-row
+                  [colorTwo]="preset.colorTwo"
                   [colorOne]="preset.colorOne"
                   (refreshEvent)="refresh()"
                   [rowId]="row.RowId"

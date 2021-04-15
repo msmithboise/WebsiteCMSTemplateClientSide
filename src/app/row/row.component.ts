@@ -19,6 +19,8 @@ import { WebcontentService } from '../WebContent/webcontent.service';
 export class RowComponent implements OnInit {
   @Input() rowId: number;
   @Input() colorOne: string;
+  @Input() colorTwo: string;
+
   @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;
   public pageDescription: string;
@@ -40,6 +42,11 @@ export class RowComponent implements OnInit {
   //This component needs to grab all columns by Row Id
   ngOnInit(): void {
     this.getColumnsByRowId(this.rowId);
+    this.test();
+  }
+
+  test() {
+    console.log('row color: ', this.colorTwo);
   }
 
   //Invokes from page-settings (parent)

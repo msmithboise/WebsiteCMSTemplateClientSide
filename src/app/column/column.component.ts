@@ -19,6 +19,7 @@ export class ColumnComponent implements OnInit {
   @Input() columnClass: string;
   @Input() rowId: number;
   @Output() refreshEvent = new EventEmitter<any>();
+  @Input() colorTwo: string;
 
   public pageId: number;
   public pageDescription: string;
@@ -42,6 +43,11 @@ export class ColumnComponent implements OnInit {
   //This component gets all content by column id
   ngOnInit(): void {
     this.getContentListsByColumnId();
+    this.test();
+  }
+
+  test() {
+    console.log('column color: ', this.colorTwo);
   }
 
   selectColumnToEdit() {
