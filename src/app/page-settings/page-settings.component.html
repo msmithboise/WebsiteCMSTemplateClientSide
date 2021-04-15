@@ -48,7 +48,8 @@
                 <h1
                   class="h2"
                   [ngStyle]="{
-                    color: preset.colorFive
+                    color: preset.colorFive,
+                    fontFamily: 'Montserrat'
                   }"
                 >
                   Dashboard: {{ this.pageDescription }}
@@ -60,6 +61,8 @@
                   [ngStyle]="{
                     borderColor: preset.colorSeven,
                     color: preset.colorSix,
+
+                    fontFamily: 'Montserrat',
                     float: 'left'
                   }"
                   type="button"
@@ -92,7 +95,8 @@
                   [ngStyle]="{
                     borderColor: preset.colorSeven,
                     color: preset.colorSix,
-                    float: 'left'
+                    float: 'left',
+                    fontFamily: 'Montserrat'
                   }"
                   type="button"
                   class="btn btn-sm btn-outline-secondary text-button"
@@ -137,7 +141,12 @@
                     /><br /><br />
 
                     <!-- Container -->
-                    <label>Color 1:</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 1:</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -145,7 +154,12 @@
                       [(ngModel)]="preset.colorThree"
                     /><br /><br />
                     <!-- Row -->
-                    <label>Color 2:</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 2:</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -154,7 +168,12 @@
                     /><br /><br />
 
                     <!-- Column -->
-                    <label>Color 3:</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 3:</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -163,7 +182,12 @@
                     /><br /><br />
 
                     <!-- sidebar -->
-                    <label>Color 4</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 4</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -172,7 +196,12 @@
                     /><br /><br />
 
                     <!-- Header text -->
-                    <label>Color 5</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 5</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -181,7 +210,12 @@
                     /><br /><br />
 
                     <!-- Normal Text -->
-                    <label>Color 6</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 6</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -189,7 +223,12 @@
                       [(ngModel)]="preset.colorSix"
                     /><br /><br />
                     <!-- Button Color -->
-                    <label>Color 7</label>
+                    <label
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
+                      >Color 7</label
+                    >
                     <input
                       type="color"
                       #Id="ngModel"
@@ -197,6 +236,9 @@
                       [(ngModel)]="preset.colorSeven"
                     /><br /><br />
                     <button
+                      [ngStyle]="{
+                        fontFamily: 'Montserrat'
+                      }"
                       class="btn btn-primary"
                       (click)="onPresetSubmit(form)"
                     >

@@ -36,7 +36,11 @@
       <li class="nav-item">
         <a
           class="nav-link"
-          [ngStyle]="{ color: this.colorFive, cursor: 'pointer' }"
+          [ngStyle]="{
+            color: this.colorFive,
+            cursor: 'pointer',
+            fontFamily: 'Montserrat'
+          }"
           (click)="openPageSettings()"
         >
           <span data-feather="file"></span>
@@ -46,7 +50,11 @@
       <li class="nav-item">
         <a
           class="nav-link"
-          [ngStyle]="{ color: this.colorFive, cursor: 'pointer' }"
+          [ngStyle]="{
+            color: this.colorFive,
+            cursor: 'pointer',
+            fontFamily: 'Montserrat'
+          }"
           (click)="openNavBarSettings()"
         >
           <span data-feather="file"></span>
@@ -73,7 +81,11 @@
     <div *ngFor="let page of customPageService.customPageArray">
       <div class="nav-item">
         <ul
-          [ngStyle]="{ color: this.colorSix, cursor: 'pointer' }"
+          [ngStyle]="{
+            color: this.colorSix,
+            cursor: 'pointer',
+            fontFamily: 'Montserrat'
+          }"
           (click)="mainPageNav(page.PageDescription, page.PageId)"
           class="nav-link"
         >
