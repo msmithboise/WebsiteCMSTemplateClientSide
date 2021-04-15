@@ -1,79 +1,288 @@
-<div class="container-fluid">
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-      />
-      <meta name="description" content="" />
-      <meta
-        name="author"
-        content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-      />
-      <meta name="generator" content="Jekyll v4.1.1" />
-      <title>Dashboard Template · Bootstrap</title>
+<div *ngFor="let preset of this.dashboardPresetService.dashboardPresetArray">
+  <div
+    class="container-fluid"
+    [ngStyle]="{ backgroundColor: preset.colorThree }"
+  >
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta
+          name="author"
+          content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+        />
+        <meta name="generator" content="Jekyll v4.1.1" />
+        <title>Dashboard Template · Bootstrap</title>
 
-      <link
-        rel="canonical"
-        href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
-      />
+        <link
+          rel="canonical"
+          href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
+        />
 
-      <!-- Custom styles for this template -->
-    </head>
-    <app-dashboard-sidebar></app-dashboard-sidebar>
+        <!-- Custom styles for this template -->
+      </head>
+      <app-dashboard-sidebar></app-dashboard-sidebar>
 
-    <body>
-      <div class="container-fluid" style="height: fit-content">
-        <div class="row">
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-            <div
-              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-            >
-              <h1
-                class="h2"
-                style="
-                  font-family: 'Lucida Sans', 'Lucida Sans Regular',
-                    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-                    sans-serif;
-                "
+      <body>
+        <div
+          class="container-fluid"
+          [ngStyle]="{
+            height: 'fit-content',
+            backgroundColor: preset.colorThree
+          }"
+        >
+          <div class="row">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
               >
-                Dashboard: {{ this.pageDescription }}
-              </h1>
-
-              <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
-
-              <button
-                style="float: left"
-                type="button"
-                class="btn btn-sm btn-outline-secondary text-button"
-                (click)="createTemplateDialogue()"
-              >
-                <svg
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  class="bi bi-plus-square"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
+                <h1
+                  class="h2"
+                  style="
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                      'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                      sans-serif;
+                  "
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                  />
-                </svg>
-                Default Template
-              </button>
+                  Dashboard: {{ this.pageDescription }}
+                </h1>
 
+                <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
+
+                <button
+                  style="float: left"
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary text-button"
+                  (click)="createTemplateDialogue()"
+                >
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-plus-square"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    />
+                  </svg>
+                  Default Template
+                </button>
+
+                <!-- Add Row Button -->
+
+                <button
+                  style="float: left"
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary text-button"
+                  (click)="addRow()"
+                >
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    class="bi bi-plus-square"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    />
+                  </svg>
+                  Add Row
+                </button>
+
+                <div>
+                  <!-- <h1
+                  [ngStyle]="{
+                    backgroundColor: preset.colorOne,
+                    color: preset.colorTwo,
+                    fontSize: '50px'
+                  }"
+                >
+                  COLOR TEST
+                </h1> -->
+                  <form #form="ngForm">
+                    <input
+                      type="hidden"
+                      #Id="ngModel"
+                      name="presetId"
+                      [(ngModel)]="preset.presetId"
+                    /><br /><br />
+                    <label>Color 1:</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorOne"
+                      [(ngModel)]="preset.colorOne"
+                    /><br /><br />
+                    <label>Color 2:</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorTwo"
+                      [(ngModel)]="preset.colorTwo"
+                    /><br /><br />
+                    <label>Color 3:</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorThree"
+                      [(ngModel)]="preset.colorThree"
+                    /><br /><br />
+                    <button
+                      class="btn btn-primary"
+                      (click)="onPresetSubmit(form)"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+
+                <div class="btn-toolbar mb-2 mb-md-0">
+                  <div class="btn-group mr-2">
+                    <!-- Add Link Button trigger modal -->
+
+                    <!--Link Modal -->
+                    <div
+                      class="modal fade"
+                      id="linkModal"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="linkModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="linkModalLabel">
+                              Link
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Link body input form -->
+
+                            <!-- Textbody = description, (or imageUrl, or icon(socialMediaLink)) HyperLink = value -->
+                            <!-- SocialMediaLink can be the icon -->
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="row">
+                                  <form
+                                    [formGroup]="linkFormTemplate"
+                                    class="form-inline formStyle"
+                                    (submit)="
+                                      submitNewLinkData(linkFormTemplate.value)
+                                    "
+                                  >
+                                    <h1>Link</h1>
+
+                                    <!-- HyperLink -->
+                                    <div>
+                                      <input
+                                        name="HyperLink"
+                                        class="form-control-lg form-group"
+                                        placeholder="Add link here"
+                                        type="text"
+                                        formControlName="HyperLink"
+                                      />
+
+                                      <input
+                                        type="hidden"
+                                        name="PageId"
+                                        formControlName="pageId"
+                                      />
+
+                                      <input
+                                        type="hidden"
+                                        name="Id"
+                                        formControlName="Id"
+                                      />
+
+                                      <!-- Sub Page Id -->
+                                      <!-- <input
+                                      type="hidden"
+                                      name="SubPageId"
+                                      formControlName="subPageId"
+                                    /> -->
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              type="button"
+                              (click)="
+                                submitNewLinkData(linkFormTemplate.value)
+                              "
+                              class="btn btn-primary"
+                              data-dismiss="modal"
+                            >
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Existing content display forms -->
+              <div
+                *ngFor="let row of this.webStructureService.rowsByPageIdArray"
+              >
+                <div
+                  *ngFor="
+                    let preset of this.dashboardPresetService
+                      .dashboardPresetArray
+                  "
+                >
+                  <!-- <h1 style="color: red">RowId: {{ row.RowId }}</h1> -->
+                  <!-- For all the rows that are tied to this page id... -->
+                  <app-row
+                    [colorTwo]="preset.colorTwo"
+                    [colorOne]="preset.colorOne"
+                    (refreshEvent)="refresh()"
+                    [rowId]="row.RowId"
+                  ></app-row>
+                </div>
+              </div>
               <!-- Add Row Button -->
 
               <button
-                style="float: left"
                 type="button"
                 class="btn btn-sm btn-outline-secondary text-button"
                 (click)="addRow()"
@@ -97,217 +306,29 @@
                 </svg>
                 Add Row
               </button>
-
-              <div
-                *ngFor="
-                  let preset of this.dashboardPresetService.dashboardPresetArray
-                "
-              >
-                <!-- <h1
-                  [ngStyle]="{
-                    backgroundColor: preset.colorOne,
-                    color: preset.colorTwo,
-                    fontSize: '50px'
-                  }"
-                >
-                  COLOR TEST
-                </h1> -->
-                <form #form="ngForm">
-                  <input
-                    type="hidden"
-                    #Id="ngModel"
-                    name="presetId"
-                    [(ngModel)]="preset.presetId"
-                  /><br /><br />
-                  <label>Color 1:</label>
-                  <input
-                    type="color"
-                    #Id="ngModel"
-                    name="colorOne"
-                    [(ngModel)]="preset.colorOne"
-                  /><br /><br />
-                  <label>Color 2:</label>
-                  <input
-                    type="color"
-                    #Id="ngModel"
-                    name="colorTwo"
-                    [(ngModel)]="preset.colorTwo"
-                  /><br /><br />
-                  <button
-                    class="btn btn-primary"
-                    (click)="onPresetSubmit(form)"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-
-              <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                  <!-- Add Link Button trigger modal -->
-
-                  <!--Link Modal -->
-                  <div
-                    class="modal fade"
-                    id="linkModal"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="linkModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="linkModalLabel">Link</h5>
-                          <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <!-- Link body input form -->
-
-                          <!-- Textbody = description, (or imageUrl, or icon(socialMediaLink)) HyperLink = value -->
-                          <!-- SocialMediaLink can be the icon -->
-                          <div class="card">
-                            <div class="card-body">
-                              <div class="row">
-                                <form
-                                  [formGroup]="linkFormTemplate"
-                                  class="form-inline formStyle"
-                                  (submit)="
-                                    submitNewLinkData(linkFormTemplate.value)
-                                  "
-                                >
-                                  <h1>Link</h1>
-
-                                  <!-- HyperLink -->
-                                  <div>
-                                    <input
-                                      name="HyperLink"
-                                      class="form-control-lg form-group"
-                                      placeholder="Add link here"
-                                      type="text"
-                                      formControlName="HyperLink"
-                                    />
-
-                                    <input
-                                      type="hidden"
-                                      name="PageId"
-                                      formControlName="pageId"
-                                    />
-
-                                    <input
-                                      type="hidden"
-                                      name="Id"
-                                      formControlName="Id"
-                                    />
-
-                                    <!-- Sub Page Id -->
-                                    <!-- <input
-                                      type="hidden"
-                                      name="SubPageId"
-                                      formControlName="subPageId"
-                                    /> -->
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <button
-                            type="button"
-                            (click)="submitNewLinkData(linkFormTemplate.value)"
-                            class="btn btn-primary"
-                            data-dismiss="modal"
-                          >
-                            Save changes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Existing content display forms -->
-            <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
-              <div
-                *ngFor="
-                  let preset of this.dashboardPresetService.dashboardPresetArray
-                "
-              >
-                <!-- <h1 style="color: red">RowId: {{ row.RowId }}</h1> -->
-                <!-- For all the rows that are tied to this page id... -->
-                <app-row
-                  [colorTwo]="preset.colorTwo"
-                  [colorOne]="preset.colorOne"
-                  (refreshEvent)="refresh()"
-                  [rowId]="row.RowId"
-                ></app-row>
-              </div>
-            </div>
-            <!-- Add Row Button -->
-
-            <button
-              type="button"
-              class="btn btn-sm btn-outline-secondary text-button"
-              (click)="addRow()"
-            >
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-plus-square"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                />
-              </svg>
-              Add Row
-            </button>
-          </main>
+            </main>
+          </div>
         </div>
-      </div>
-      <script
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"
-      ></script>
-      <script>
-        window.jQuery ||
-          document.write(
-            '<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>'
-          );
-      </script>
-      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-      <script src="dashboard.js"></script>
-    </body>
-  </html>
+        <script
+          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous"
+        ></script>
+        <script>
+          window.jQuery ||
+            document.write(
+              '<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>'
+            );
+        </script>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="dashboard.js"></script>
+      </body>
+    </html>
 
-  <!-- <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
+    <!-- <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
     Page Settings
   </button> -->
+  </div>
 </div>
