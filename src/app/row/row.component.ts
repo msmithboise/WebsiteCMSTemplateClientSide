@@ -49,7 +49,7 @@ export class RowComponent implements OnInit {
   }
 
   test() {
-    console.log('row color: ', this.colorTwo);
+    console.log('row color: ', this.colorSeven);
   }
 
   //Invokes from page-settings (parent)

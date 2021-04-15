@@ -103,7 +103,11 @@
 
   <!-- Edit Column Button-->
   <button
-    style="float: right"
+    [ngStyle]="{
+      borderColor: this.colorSeven,
+      color: this.colorSix,
+      float: 'right'
+    }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
     data-toggle="modal"
@@ -127,7 +131,11 @@
 
   <!-- Delete Column Button-->
   <button
-    style="float: right"
+    [ngStyle]="{
+      borderColor: this.colorSeven,
+      color: this.colorSix,
+      float: 'right'
+    }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
     (click)="deleteColumnDialogue(this.columnId)"
