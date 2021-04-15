@@ -10,6 +10,7 @@ import { WebStructureService } from '../web-structure.service';
 export class DashboardPresetService {
   readonly webApi = this.webStructureService.globalApi;
   public dashboardPresetArray: DashboardPreset[];
+  public globalFontFamly = 'Work Sans';
 
   constructor(
     public http: HttpClient,

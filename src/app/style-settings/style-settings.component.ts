@@ -21,7 +21,7 @@ export class StyleSettingsComponent implements OnInit {
   public subPageDescription: string;
   public subPageId: number;
   public columnId: number;
-  public myFontFamily = 'Montserrat';
+  public globalFontFamily = this.dashboardPresetService.globalFontFamly;
 
   constructor(
     public webContentService: WebcontentService,

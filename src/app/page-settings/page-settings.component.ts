@@ -48,6 +48,7 @@ export class PageSettingsComponent implements OnInit {
   public pageId: number;
   public templateRowId: number;
   public colorOne: string;
+  public globalFontFamily = this.dashboardPresetService.globalFontFamly;
 
   constructor(
     public webContentService: WebcontentService,
