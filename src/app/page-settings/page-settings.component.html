@@ -132,11 +132,18 @@
                     <input
                       type="color"
                       #Id="ngModel"
+                      name="colorThree"
+                      [(ngModel)]="preset.colorThree"
+                    /><br /><br />
+                    <label>Color 2:</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
                       name="colorOne"
                       [(ngModel)]="preset.colorOne"
                     /><br /><br />
 
-                    <label>Color 2:</label>
+                    <label>Color 3:</label>
                     <input
                       type="color"
                       #Id="ngModel"
@@ -144,20 +151,19 @@
                       [(ngModel)]="preset.colorTwo"
                     /><br /><br />
 
-                    <label>Color 3:</label>
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorThree"
-                      [(ngModel)]="preset.colorThree"
-                    /><br /><br />
-
-                    <label>Sidebar</label>
+                    <label>Color 4</label>
                     <input
                       type="color"
                       #Id="ngModel"
                       name="colorFour"
                       [(ngModel)]="preset.colorFour"
+                    /><br /><br />
+                    <label>Color 5</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorFive"
+                      [(ngModel)]="preset.colorFive"
                     /><br /><br />
                     <button
                       class="btn btn-primary"
