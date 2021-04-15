@@ -58,7 +58,11 @@
   </div>
   <!-- Add Column Button-->
   <button
-    style="float: right"
+    [ngStyle]="{
+      borderColor: this.colorSeven,
+      color: this.colorSix,
+      float: 'right'
+    }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
     data-toggle="modal"
@@ -86,7 +90,11 @@
   </button>
   <!-- Delete Row Button-->
   <button
-    style="float: right"
+    [ngStyle]="{
+      borderColor: this.colorSeven,
+      color: this.colorSix,
+      float: 'right'
+    }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
     (click)="getRowIdToDelete()"
@@ -119,6 +127,7 @@
       </h2>
 
       <app-column
+        [colorSeven]="this.colorSeven"
         [colorSix]="this.colorSix"
         [colorFive]="this.colorFive"
         [colorTwo]="this.colorTwo"

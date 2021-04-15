@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ButtonPanelComponent implements OnInit {
   @Input() columnId: number;
+  @Input() colorSix: string;
+  @Input() colorSeven: string;
   @Output() refreshEvent = new EventEmitter<any>();
   public rowId = '';
   closeResult = '';

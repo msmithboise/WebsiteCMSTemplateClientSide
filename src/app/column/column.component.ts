@@ -22,6 +22,7 @@ export class ColumnComponent implements OnInit {
   @Input() colorTwo: string;
   @Input() colorFive: string;
   @Input() colorSix: string;
+  @Input() colorSeven: string;
 
   public pageId: number;
   public pageDescription: string;
