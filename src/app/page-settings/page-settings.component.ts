@@ -113,15 +113,7 @@ export class PageSettingsComponent implements OnInit {
 
   getAllPresets() {
     this.dashboardPresetService.getAllPresets().subscribe((res) => {
-      console.log('getting presets...');
-
       this.dashboardPresetService.dashboardPresetArray = res;
-      console.log(
-        'presets:  ',
-        this.dashboardPresetService.dashboardPresetArray
-      );
-      this.colorOne = this.dashboardPresetService.dashboardPresetArray[0].colorOne;
-      console.log(this.colorOne);
     });
   }
 

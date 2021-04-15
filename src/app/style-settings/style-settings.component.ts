@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomImageService } from '../services/custom-image.service';
+import { DashboardPresetService } from '../services/dashboard-preset.service';
 import { WebStructureService } from '../web-structure.service';
 import { Webcontent } from '../WebContent/webcontent.model';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -27,11 +28,25 @@ export class StyleSettingsComponent implements OnInit {
     public customImageService: CustomImageService,
     private route: ActivatedRoute,
     public toastr: ToastrService,
-    public router: Router
+    public router: Router,
+    public dashboardPresetService: DashboardPresetService
   ) {}
 
   ngOnInit(): void {
     this.grabAllContentByTextId();
+    this.getAllPresets();
+  }
+
+  getAllPresets() {
+    this.dashboardPresetService.getAllPresets().subscribe((res) => {
+      console.log('getting presets...');
+
+      this.dashboardPresetService.dashboardPresetArray = res;
+      console.log(
+        'presets:  ',
+        this.dashboardPresetService.dashboardPresetArray
+      );
+    });
   }
 
   grabAllContentByTextId() {
