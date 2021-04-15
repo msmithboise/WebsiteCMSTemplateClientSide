@@ -60,7 +60,7 @@
                 <button
                   [ngStyle]="{
                     borderColor: preset.colorSeven,
-                    color: preset.colorSix,
+                    color: preset.colorEight,
 
                     fontFamily: 'Montserrat',
                     float: 'left'
@@ -94,7 +94,7 @@
                 <button
                   [ngStyle]="{
                     borderColor: preset.colorSeven,
-                    color: preset.colorSix,
+                    color: preset.colorEight,
                     float: 'left',
                     fontFamily: 'Montserrat'
                   }"
@@ -243,10 +243,25 @@
                         name="colorSeven"
                         [(ngModel)]="preset.colorSeven"
                       /><br /><br />
+                      <!-- Button Text Color -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat',
+                          color: preset.colorFive
+                        }"
+                        >Button Text
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorEight"
+                        [(ngModel)]="preset.colorEight"
+                      /><br /><br />
                     </div>
                     <button
                       [ngStyle]="{
-                        fontFamily: 'Montserrat'
+                        fontFamily: 'Montserrat',
+                        float: 'center'
                       }"
                       class="btn btn-primary"
                       (click)="onPresetSubmit(form)"
@@ -374,6 +389,7 @@
                   <!-- <h1 style="color: red">RowId: {{ row.RowId }}</h1> -->
                   <!-- For all the rows that are tied to this page id... -->
                   <app-row
+                    [colorEight]="preset.colorEight"
                     [colorSeven]="preset.colorSeven"
                     [colorSix]="preset.colorSix"
                     [colorFive]="preset.colorFive"

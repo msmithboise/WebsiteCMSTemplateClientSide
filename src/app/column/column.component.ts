@@ -23,6 +23,7 @@ export class ColumnComponent implements OnInit {
   @Input() colorFive: string;
   @Input() colorSix: string;
   @Input() colorSeven: string;
+  @Input() colorEight: string;
 
   public pageId: number;
   public pageDescription: string;
@@ -50,7 +51,7 @@ export class ColumnComponent implements OnInit {
   }
 
   test() {
-    console.log('column color: ', this.colorTwo);
+    console.log('column color: ', this.colorEight);
   }
 
   selectColumnToEdit() {

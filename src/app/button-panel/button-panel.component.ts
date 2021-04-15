@@ -14,6 +14,8 @@ export class ButtonPanelComponent implements OnInit {
   @Input() columnId: number;
   @Input() colorSix: string;
   @Input() colorSeven: string;
+  @Input() colorEight: string;
+
   @Output() refreshEvent = new EventEmitter<any>();
   public rowId = '';
   closeResult = '';
@@ -42,7 +44,13 @@ export class ButtonPanelComponent implements OnInit {
     public toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.test();
+  }
+
+  test() {
+    console.log('column color: ', this.colorEight);
+  }
 
   refreshContent() {
     this.refreshEvent.next('refreshColumns');

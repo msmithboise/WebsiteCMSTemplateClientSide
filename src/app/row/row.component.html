@@ -60,7 +60,7 @@
   <button
     [ngStyle]="{
       borderColor: this.colorSeven,
-      color: this.colorSix,
+      color: this.colorEight,
       float: 'right',
 
       fontFamily: 'Montserrat'
@@ -94,7 +94,7 @@
   <button
     [ngStyle]="{
       borderColor: this.colorSeven,
-      color: this.colorSix,
+      color: this.colorEight,
       float: 'right',
       fontFamily: 'Montserrat'
     }"
@@ -144,6 +144,7 @@
       </h2>
 
       <app-column
+        [colorEight]="this.colorEight"
         [colorSeven]="this.colorSeven"
         [colorSix]="this.colorSix"
         [colorFive]="this.colorFive"
