@@ -1,9 +1,9 @@
-.card-body {
-  background-color: #27293d;
+.colors {
+  display: flex;
 }
 
-.container-fluid {
-  background-color: #1e1e2f;
+.card-body {
+  background-color: #27293d;
 }
 
 .bd-placeholder-img {
@@ -143,10 +143,6 @@ body {
 
 .card-body {
   background-color: #27293d;
-}
-
-.container-fluid {
-  background-color: #1e1e2f;
 }
 
 .btn-primary {

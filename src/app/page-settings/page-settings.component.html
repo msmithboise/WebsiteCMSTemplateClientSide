@@ -133,108 +133,110 @@
                   COLOR TEST
                 </h1> -->
                   <form #form="ngForm">
-                    <input
-                      type="hidden"
-                      #Id="ngModel"
-                      name="presetId"
-                      [(ngModel)]="preset.presetId"
-                    /><br /><br />
+                    <div class="colors">
+                      <input
+                        type="hidden"
+                        #Id="ngModel"
+                        name="presetId"
+                        [(ngModel)]="preset.presetId"
+                      /><br /><br />
 
-                    <!-- Container -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 1:</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorThree"
-                      [(ngModel)]="preset.colorThree"
-                    /><br /><br />
-                    <!-- Row -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 2:</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorOne"
-                      [(ngModel)]="preset.colorOne"
-                    /><br /><br />
+                      <!-- Container -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Background
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorThree"
+                        [(ngModel)]="preset.colorThree"
+                      /><br /><br />
+                      <!-- Row -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Rows
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorOne"
+                        [(ngModel)]="preset.colorOne"
+                      /><br /><br />
 
-                    <!-- Column -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 3:</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorTwo"
-                      [(ngModel)]="preset.colorTwo"
-                    /><br /><br />
+                      <!-- Column -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Columns
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorTwo"
+                        [(ngModel)]="preset.colorTwo"
+                      /><br /><br />
 
-                    <!-- sidebar -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 4</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorFour"
-                      [(ngModel)]="preset.colorFour"
-                    /><br /><br />
+                      <!-- sidebar -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Sidebar
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorFour"
+                        [(ngModel)]="preset.colorFour"
+                      /><br /><br />
 
-                    <!-- Header text -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 5</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorFive"
-                      [(ngModel)]="preset.colorFive"
-                    /><br /><br />
+                      <!-- Header text -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Text 1
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorFive"
+                        [(ngModel)]="preset.colorFive"
+                      /><br /><br />
 
-                    <!-- Normal Text -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 6</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorSix"
-                      [(ngModel)]="preset.colorSix"
-                    /><br /><br />
-                    <!-- Button Color -->
-                    <label
-                      [ngStyle]="{
-                        fontFamily: 'Montserrat'
-                      }"
-                      >Color 7</label
-                    >
-                    <input
-                      type="color"
-                      #Id="ngModel"
-                      name="colorSeven"
-                      [(ngModel)]="preset.colorSeven"
-                    /><br /><br />
+                      <!-- Normal Text -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Text 2
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorSix"
+                        [(ngModel)]="preset.colorSix"
+                      /><br /><br />
+                      <!-- Button Color -->
+                      <label
+                        [ngStyle]="{
+                          fontFamily: 'Montserrat'
+                        }"
+                        >Buttons
+                      </label>
+                      <input
+                        type="color"
+                        #Id="ngModel"
+                        name="colorSeven"
+                        [(ngModel)]="preset.colorSeven"
+                      /><br /><br />
+                    </div>
                     <button
                       [ngStyle]="{
                         fontFamily: 'Montserrat'
