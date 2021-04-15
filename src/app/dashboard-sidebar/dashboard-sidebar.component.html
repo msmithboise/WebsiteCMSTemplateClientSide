@@ -68,12 +68,12 @@
     <h6
       class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
     >
-      <span>Main Pages</span>
+      <span [ngStyle]="{ color: this.colorFive }">Pages</span>
     </h6>
     <div *ngFor="let page of customPageService.customPageArray">
       <div class="nav-item">
         <ul
-          style="cursor: pointer"
+          [ngStyle]="{ color: this.colorSix, cursor: 'pointer' }"
           (click)="mainPageNav(page.PageDescription, page.PageId)"
           class="nav-link"
         >
@@ -105,7 +105,7 @@
     <h6
       class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
     >
-      <span>Sub Pages</span>
+      <!-- <span>Sub Pages</span> -->
     </h6>
     <div *ngFor="let subPage of subPageService.subPageArray">
       <div class="nav-item">

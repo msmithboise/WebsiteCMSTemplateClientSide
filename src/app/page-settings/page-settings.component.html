@@ -27,6 +27,8 @@
         <!-- Custom styles for this template -->
       </head>
       <app-dashboard-sidebar
+        [colorFive]="preset.colorFive"
+        [colorSix]="preset.colorSix"
         [colorFour]="preset.colorFour"
       ></app-dashboard-sidebar>
 
@@ -45,11 +47,9 @@
               >
                 <h1
                   class="h2"
-                  style="
-                    font-family: 'Lucida Sans', 'Lucida Sans Regular',
-                      'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-                      sans-serif;
-                  "
+                  [ngStyle]="{
+                    color: preset.colorFive
+                  }"
                 >
                   Dashboard: {{ this.pageDescription }}
                 </h1>
@@ -128,6 +128,7 @@
                       [(ngModel)]="preset.presetId"
                     /><br /><br />
 
+                    <!-- Container -->
                     <label>Color 1:</label>
                     <input
                       type="color"
@@ -135,6 +136,7 @@
                       name="colorThree"
                       [(ngModel)]="preset.colorThree"
                     /><br /><br />
+                    <!-- Row -->
                     <label>Color 2:</label>
                     <input
                       type="color"
@@ -143,6 +145,7 @@
                       [(ngModel)]="preset.colorOne"
                     /><br /><br />
 
+                    <!-- Column -->
                     <label>Color 3:</label>
                     <input
                       type="color"
@@ -151,6 +154,7 @@
                       [(ngModel)]="preset.colorTwo"
                     /><br /><br />
 
+                    <!-- sidebar -->
                     <label>Color 4</label>
                     <input
                       type="color"
@@ -158,12 +162,23 @@
                       name="colorFour"
                       [(ngModel)]="preset.colorFour"
                     /><br /><br />
+
+                    <!-- Header text -->
                     <label>Color 5</label>
                     <input
                       type="color"
                       #Id="ngModel"
                       name="colorFive"
                       [(ngModel)]="preset.colorFive"
+                    /><br /><br />
+
+                    <!-- Normal Text -->
+                    <label>Color 6</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorSix"
+                      [(ngModel)]="preset.colorSix"
                     /><br /><br />
                     <button
                       class="btn btn-primary"
@@ -292,6 +307,8 @@
                   <!-- <h1 style="color: red">RowId: {{ row.RowId }}</h1> -->
                   <!-- For all the rows that are tied to this page id... -->
                   <app-row
+                    [colorSix]="preset.colorSix"
+                    [colorFive]="preset.colorFive"
                     [colorTwo]="preset.colorTwo"
                     [colorOne]="preset.colorOne"
                     (refreshEvent)="refresh()"

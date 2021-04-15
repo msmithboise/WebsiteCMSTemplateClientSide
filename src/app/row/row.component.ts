@@ -20,6 +20,8 @@ export class RowComponent implements OnInit {
   @Input() rowId: number;
   @Input() colorOne: string;
   @Input() colorTwo: string;
+  @Input() colorFive: string;
+  @Input() colorSix: string;
 
   @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;

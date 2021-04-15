@@ -20,6 +20,8 @@ export class ColumnComponent implements OnInit {
   @Input() rowId: number;
   @Output() refreshEvent = new EventEmitter<any>();
   @Input() colorTwo: string;
+  @Input() colorFive: string;
+  @Input() colorSix: string;
 
   public pageId: number;
   public pageDescription: string;

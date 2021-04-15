@@ -13,6 +13,9 @@ import { WebStructureService } from '../web-structure.service';
 })
 export class DashboardSidebarComponent implements OnInit {
   @Input() colorFour: string;
+  @Input() colorFive: string;
+  @Input() colorSix: string;
+
   public pageDescription: string;
   public pageId: number;
 
