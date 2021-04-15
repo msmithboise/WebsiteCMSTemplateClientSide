@@ -47,6 +47,7 @@ export class PageSettingsComponent implements OnInit {
   public pageDescription: string;
   public pageId: number;
   public templateRowId: number;
+  public colorOne: string;
 
   constructor(
     public webContentService: WebcontentService,
@@ -71,6 +72,44 @@ export class PageSettingsComponent implements OnInit {
     this.getRowsByPageId();
     this.getAllPresets();
   }
+  lightMode(form: NgForm) {
+    this.insertLightPresets(form);
+  }
+
+  insertLightPresets(form: NgForm) {
+    form.value.colorOne = '#ffffff';
+    form.value.colorTwo = '#ffffff';
+    form.value.colorThree = '#ffffff';
+    form.value.colorFour = '#ffffff';
+    form.value.colorFive = '#000000';
+    form.value.colorSix = '#000000';
+    form.value.colorSeven = '#000000';
+    form.value.colorEight = '#000000';
+
+    this.dashboardPresetService.postPresets(form.value).subscribe((res) => {
+      console.log(res);
+      this.getAllPresets();
+    });
+  }
+
+  darkMode(form: NgForm) {
+    this.insertDarkPresets(form);
+  }
+  insertDarkPresets(form: NgForm) {
+    form.value.colorOne = '#27293D';
+    form.value.colorTwo = '#27293D';
+    form.value.colorThree = '#27293D';
+    form.value.colorFour = '#27293D';
+    form.value.colorFive = '#E5B9EE';
+    form.value.colorSix = '#24FFFB';
+    form.value.colorSeven = '#E0E0E0';
+    form.value.colorEight = '#E0E0E0';
+
+    this.dashboardPresetService.postPresets(form.value).subscribe((res) => {
+      console.log(res);
+      this.getAllPresets();
+    });
+  }
 
   getAllPresets() {
     this.dashboardPresetService.getAllPresets().subscribe((res) => {
@@ -81,6 +120,8 @@ export class PageSettingsComponent implements OnInit {
         'presets:  ',
         this.dashboardPresetService.dashboardPresetArray
       );
+      this.colorOne = this.dashboardPresetService.dashboardPresetArray[0].colorOne;
+      console.log(this.colorOne);
     });
   }
 
