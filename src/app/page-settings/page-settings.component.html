@@ -57,7 +57,11 @@
                 <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
 
                 <button
-                  style="float: left"
+                  [ngStyle]="{
+                    borderColor: preset.colorSeven,
+                    color: preset.colorSix,
+                    float: 'left'
+                  }"
                   type="button"
                   class="btn btn-sm btn-outline-secondary text-button"
                   (click)="createTemplateDialogue()"
@@ -85,7 +89,11 @@
                 <!-- Add Row Button -->
 
                 <button
-                  style="float: left"
+                  [ngStyle]="{
+                    borderColor: preset.colorSeven,
+                    color: preset.colorSix,
+                    float: 'left'
+                  }"
                   type="button"
                   class="btn btn-sm btn-outline-secondary text-button"
                   (click)="addRow()"
@@ -179,6 +187,14 @@
                       #Id="ngModel"
                       name="colorSix"
                       [(ngModel)]="preset.colorSix"
+                    /><br /><br />
+                    <!-- Button Color -->
+                    <label>Color 7</label>
+                    <input
+                      type="color"
+                      #Id="ngModel"
+                      name="colorSeven"
+                      [(ngModel)]="preset.colorSeven"
                     /><br /><br />
                     <button
                       class="btn btn-primary"
