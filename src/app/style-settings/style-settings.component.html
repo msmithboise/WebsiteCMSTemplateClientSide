@@ -35,14 +35,13 @@
               <!-- Get Requests: {{ this.webStructureService.getRequests }} -->
             </h1>
 
-            <mat-tab-group>
-              <mat-tab
-                id="tab "
-                [ngStyle]="{
-                  color: preset.colorSix
-                }"
-                label="Global"
-              >
+            <mat-tab-group
+              [ngStyle]="{
+                color: preset.colorFive,
+                fontFamily: this.globalFontFamily
+              }"
+            >
+              <mat-tab id="tab " label="Global">
                 <!-- Global CARD BEGIN -->
                 <div
                   class="card"
@@ -138,6 +137,14 @@
                             ></label>
                             <div>
                               <input
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 name="TextBody"
                                 #TextBody="ngModel"
                                 [(ngModel)]="content.TextBody"
@@ -181,6 +188,10 @@
                             ></label>
                             <div>
                               <input
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 name="backgroundImage"
                                 #backgroundImage="ngModel"
                                 [(ngModel)]="content.backgroundImage"
@@ -228,6 +239,10 @@
                               </label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="animation"
                                   #animation="ngModel"
                                   [(ngModel)]="content.animation"
@@ -300,6 +315,10 @@
                               </label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="animationName"
                                   #animationName="ngModel"
                                   [(ngModel)]="content.animationName"
@@ -374,6 +393,10 @@
                         </div>
 
                         <input
+                          [ngStyle]="{
+                            color: preset.colorFive,
+                            backgroundColor: preset.colorThree
+                          }"
                           name="Body"
                           type="hidden"
                           #Body="ngModel"
@@ -413,6 +436,10 @@
                         </div>
                         <div>
                           <input
+                            [ngStyle]="{
+                              color: preset.colorFive,
+                              backgroundColor: preset.colorThree
+                            }"
                             name="backgroundAttachment"
                             #backgroundAttachment="ngModel"
                             [(ngModel)]="content.backgroundAttachment"
@@ -495,6 +522,10 @@
                         </div>
                         <div>
                           <input
+                            [ngStyle]="{
+                              color: preset.colorFive,
+                              backgroundColor: preset.colorThree
+                            }"
                             name="backgroundColor"
                             #backgroundColor="ngModel"
                             [(ngModel)]="content.backgroundColor"
@@ -534,6 +565,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="background"
                                   #background="ngModel"
                                   [(ngModel)]="content.background"
@@ -618,6 +653,10 @@
                         </div>
                         <div>
                           <input
+                            [ngStyle]="{
+                              color: preset.colorFive,
+                              backgroundColor: preset.colorThree
+                            }"
                             name="backgroundPosition"
                             #backgroundPosition="ngModel"
                             [(ngModel)]="content.backgroundPosition"
@@ -657,6 +696,10 @@
                         </div>
                         <div>
                           <input
+                            [ngStyle]="{
+                              color: preset.colorFive,
+                              backgroundColor: preset.colorThree
+                            }"
                             name="backgroundRepeat"
                             #backgroundRepeat="ngModel"
                             [(ngModel)]="content.backgroundRepeat"
@@ -696,6 +739,10 @@
                         </div>
                         <div>
                           <input
+                            [ngStyle]="{
+                              color: preset.colorFive,
+                              backgroundColor: preset.colorThree
+                            }"
                             name="backgroundSize"
                             #backgroundSize="ngModel"
                             [(ngModel)]="content.backgroundSize"
@@ -740,6 +787,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="border"
                                   #border="ngModel"
                                   [(ngModel)]="content.border"
@@ -804,6 +855,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="bottom"
                                   #bottom="ngModel"
                                   [(ngModel)]="content.bottom"
@@ -871,6 +926,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="boxShadow"
                                   #boxShadow="ngModel"
                                   [(ngModel)]="content.boxShadow"
@@ -942,6 +1001,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="buttonText"
                                   #buttonText="ngModel"
                                   [(ngModel)]="content.buttonText"
@@ -987,6 +1050,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="buttonHoverText"
                                   #buttonHoverText="ngModel"
                                   [(ngModel)]="content.buttonHoverText"
@@ -1041,6 +1108,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="buttonHoverBgColor"
                                   #buttonHoverBgColor="ngModel"
                                   [(ngModel)]="content.buttonHoverBgColor"
@@ -1126,6 +1197,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="buttonHoverTextColor"
                                   #buttonHoverTextColor="ngModel"
                                   [(ngModel)]="content.buttonHoverTextColor"
@@ -1211,6 +1286,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="customField"
                                   #customField="ngModel"
                                   [(ngModel)]="content.customField"
@@ -1281,6 +1360,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="buttonHoverImageOverlay"
                                   #buttonHoverImageOverlay="ngModel"
                                   [(ngModel)]="content.buttonHoverImageOverlay"
@@ -1344,6 +1427,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="color"
                                   #color="ngModel"
                                   [(ngModel)]="content.color"
@@ -1429,6 +1516,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="display"
                                   #display="ngModel"
                                   [(ngModel)]="content.display"
@@ -1494,6 +1585,10 @@
                         <!-- Embed Url -->
 
                         <input
+                          [ngStyle]="{
+                            color: preset.colorFive,
+                            backgroundColor: preset.colorThree
+                          }"
                           name="embedUrl"
                           type="hidden"
                           #embedUrl="ngModel"
@@ -1539,6 +1634,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="font"
                                   #font="ngModel"
                                   [(ngModel)]="content.font"
@@ -1604,6 +1703,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="fontFamily"
                                   #fontFamily="ngModel"
                                   [(ngModel)]="content.fontFamily"
@@ -1869,6 +1972,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="fontSize"
                                   #fontSize="ngModel"
                                   [(ngModel)]="content.fontSize"
@@ -1939,6 +2046,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="fontVariant"
                                   #fontVariant="ngModel"
                                   [(ngModel)]="content.fontVariant"
@@ -2002,6 +2113,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="fontWieght"
                                   #fontWieght="ngModel"
                                   [(ngModel)]="content.fontWieght"
@@ -2070,6 +2185,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="height"
                                   #height="ngModel"
                                   [(ngModel)]="content.height"
@@ -2138,6 +2257,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="HyperLink"
                                   #HyperLink="ngModel"
                                   [(ngModel)]="content.HyperLink"
@@ -2178,6 +2301,10 @@
                             ></label>
                             <div>
                               <input
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 name="Icon"
                                 #Icon="ngModel"
                                 [(ngModel)]="content.Icon"
@@ -2190,6 +2317,10 @@
                         <!-- Image Url -->
 
                         <input
+                          [ngStyle]="{
+                            color: preset.colorFive,
+                            backgroundColor: preset.colorThree
+                          }"
                           name="ImageUrl"
                           type="hidden"
                           #ImageUrl="ngModel"
@@ -2200,6 +2331,10 @@
                         <!-- Image Url -->
 
                         <input
+                          [ngStyle]="{
+                            color: preset.colorFive,
+                            backgroundColor: preset.colorThree
+                          }"
                           name="ImageUrl"
                           type="hidden"
                           #ImageUrl="ngModel"
@@ -2239,6 +2374,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="left"
                                   #left="ngModel"
                                   [(ngModel)]="content.left"
@@ -2306,6 +2445,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="letterSpacing"
                                   #letterSpacing="ngModel"
                                   [(ngModel)]="content.letterSpacing"
@@ -2371,6 +2514,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="lineHeight"
                                   #lineHeight="ngModel"
                                   [(ngModel)]="content.lineHeight"
@@ -2447,6 +2594,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="margin"
                                   #margin="ngModel"
                                   [(ngModel)]="content.margin"
@@ -2521,6 +2672,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="marginTop"
                                   #marginTop="ngModel"
                                   [(ngModel)]="content.marginTop"
@@ -2586,6 +2741,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="marginBottom"
                                   #marginBottom="ngModel"
                                   [(ngModel)]="content.marginBottom"
@@ -2651,6 +2810,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="marginLeft"
                                   #marginLeft="ngModel"
                                   [(ngModel)]="content.marginLeft"
@@ -2716,6 +2879,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="marginRight"
                                   #marginRight="ngModel"
                                   [(ngModel)]="content.marginRight"
@@ -2791,6 +2958,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="opacity"
                                   #opacity="ngModel"
                                   [(ngModel)]="content.opacity"
@@ -2865,6 +3036,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="padding"
                                   #padding="ngModel"
                                   [(ngModel)]="content.padding"
@@ -2944,6 +3119,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="paddingTop"
                                   #paddingTop="ngModel"
                                   [(ngModel)]="content.paddingTop"
@@ -3023,6 +3202,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="paddingBottom"
                                   #paddingBottom="ngModel"
                                   [(ngModel)]="content.paddingBottom"
@@ -3102,6 +3285,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="paddingLeft"
                                   #paddingLeft="ngModel"
                                   [(ngModel)]="content.paddingLeft"
@@ -3181,6 +3368,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="paddingRight"
                                   #paddingRight="ngModel"
                                   [(ngModel)]="content.paddingRight"
@@ -3255,6 +3446,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="position"
                                   #position="ngModel"
                                   [(ngModel)]="content.position"
@@ -3321,6 +3516,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="right"
                                   #right="ngModel"
                                   [(ngModel)]="content.right"
@@ -3388,6 +3587,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="textAlign"
                                   #textAlign="ngModel"
                                   [(ngModel)]="content.textAlign"
@@ -3455,6 +3658,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="textDecorationColor"
                                   #textDecorationColor="ngModel"
                                   [(ngModel)]="content.textDecorationColor"
@@ -3526,6 +3733,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="textDecorationLine"
                                   #textDecorationLine="ngModel"
                                   [(ngModel)]="content.textDecorationLine"
@@ -3595,6 +3806,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="textDecorationStyle"
                                   #textDecorationStyle="ngModel"
                                   [(ngModel)]="content.textDecorationStyle"
@@ -3659,6 +3874,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="top"
                                   #top="ngModel"
                                   [(ngModel)]="content.top"
@@ -3726,6 +3945,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="transform"
                                   #transform="ngModel"
                                   [(ngModel)]="content.transform"
@@ -3807,6 +4030,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="transitionDelay"
                                   #transitionDelay="ngModel"
                                   [(ngModel)]="content.transitionDelay"
@@ -3868,6 +4095,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="transitionDuration"
                                   #transitionDuration="ngModel"
                                   [(ngModel)]="content.transitionDuration"
@@ -3929,6 +4160,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="transitionProperty"
                                   #transitionProperty="ngModel"
                                   [(ngModel)]="content.transitionProperty"
@@ -3990,6 +4225,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="transitionTimingFunction"
                                   #transitionTimingFunction="ngModel"
                                   [(ngModel)]="content.transitionTimingFunction"
@@ -4057,6 +4296,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="width"
                                   #width="ngModel"
                                   [(ngModel)]="content.width"
@@ -4131,6 +4374,10 @@
                               ></label>
                               <div>
                                 <input
+                                  [ngStyle]="{
+                                    color: preset.colorFive,
+                                    backgroundColor: preset.colorThree
+                                  }"
                                   name="zIndex"
                                   #zIndex="ngModel"
                                   [(ngModel)]="content.zIndex"

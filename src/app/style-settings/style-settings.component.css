@@ -170,7 +170,8 @@ body {
 }
 
 input {
-  background-color: #27293d;
+  /* background-color: #27293d;
+  color: #ffffff; */
   padding: 20px;
   width: 400px;
   margin-bottom: 20px;
@@ -182,7 +183,6 @@ input {
   border-left-style: none;
   font-size: 1.5em;
   font-weight: 100;
-  color: #ffffff;
 }
 
 /* .sidebar .nav-link {
