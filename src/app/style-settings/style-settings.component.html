@@ -31,34 +31,6 @@
               Style Settings
             </h1>
 
-            <!--Save changes button -->
-
-            <button
-              [ngStyle]="{
-                borderColor: preset.colorSeven,
-                color: preset.colorEight,
-                float: 'right',
-                fontFamily: this.globalFontFamily
-              }"
-              type="button"
-              class="btn btn-sm btn-outline-secondary text-button"
-              (click)="onEditSubmit(form)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-save"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"
-                />
-              </svg>
-              Save Changes
-            </button>
-
             <h1>
               <!-- Get Requests: {{ this.webStructureService.getRequests }} -->
             </h1>
@@ -82,6 +54,34 @@
                       let content of this.webContentService.webContentByIdArray
                     "
                   >
+                    <!--Save changes button -->
+
+                    <button
+                      [ngStyle]="{
+                        borderColor: preset.colorSeven,
+                        color: preset.colorEight,
+                        float: 'right',
+                        fontFamily: this.globalFontFamily
+                      }"
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary text-button"
+                      (click)="onEditSubmit(form)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-save"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"
+                        />
+                      </svg>
+                      Save Changes
+                    </button>
+
                     <div class="modal-body form-group">
                       <form
                         #form="ngForm"
@@ -159,10 +159,6 @@
                             ></label>
                             <div>
                               <input
-                                [ngStyle]="{
-                                  color: preset.colorFive,
-                                  backgroundColor: preset.colorThree
-                                }"
                                 [ngStyle]="{
                                   color: preset.colorFive,
                                   backgroundColor: preset.colorThree
@@ -283,6 +279,10 @@
                                 for="animation"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="animation"
                                 name="animation"
                                 [(ngModel)]="content.animation"
@@ -359,6 +359,10 @@
                                 for="animationName"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="animationName"
                                 name="animationName"
                                 [(ngModel)]="content.animationName"
@@ -508,6 +512,10 @@
                                 for="backgroundColor"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="backgroundColor"
                                 name="backgroundColor"
                                 [(ngModel)]="content.backgroundColor"
@@ -609,6 +617,10 @@
                                 for="background"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="background"
                                 name="background"
                                 [(ngModel)]="content.background"
@@ -831,6 +843,10 @@
                                 for="border"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="border"
                                 name="border"
                                 [(ngModel)]="content.border"
@@ -899,6 +915,10 @@
                                 for="bottom"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="bottom"
                                 name="bottom"
                                 [(ngModel)]="content.bottom"
@@ -970,6 +990,10 @@
                                 for="boxShadow"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="boxShadow"
                                 name="boxShadow"
                                 [(ngModel)]="content.boxShadow"
@@ -1152,6 +1176,10 @@
                                 for="buttonHoverBgColor"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="buttonHoverBgColor"
                                 name="buttonHoverBgColor"
                                 [(ngModel)]="content.buttonHoverBgColor"
@@ -1241,6 +1269,10 @@
                                 for="buttonHoverTextColor"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="buttonHoverTextColor"
                                 name="buttonHoverTextColor"
                                 [(ngModel)]="content.buttonHoverTextColor"
@@ -1330,6 +1362,10 @@
                                 for="customField"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="customField"
                                 name="customField"
                                 [(ngModel)]="content.customField"
@@ -1404,6 +1440,10 @@
                                 for="buttonHoverImageOverlay"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="buttonHoverImageOverlay"
                                 name="buttonHoverImageOverlay"
                                 [(ngModel)]="content.buttonHoverImageOverlay"
@@ -1471,6 +1511,10 @@
                                 for="color"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="color"
                                 name="color"
                                 [(ngModel)]="content.color"
@@ -1560,6 +1604,10 @@
                                 for="display"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="display"
                                 name="display"
                                 [(ngModel)]="content.display"
@@ -1678,6 +1726,10 @@
                                 for="font"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="font"
                                 name="font"
                                 [(ngModel)]="content.font"
@@ -1747,6 +1799,10 @@
                                 for="fontFamily"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="fontFamily"
                                 name="fontFamily"
                                 [(ngModel)]="content.fontFamily"
@@ -2016,6 +2072,10 @@
                                 for="fontSize"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="fontSize"
                                 name="fontSize"
                                 [(ngModel)]="content.fontSize"
@@ -2090,6 +2150,10 @@
                                 for="fontVariant"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="fontVariant"
                                 name="fontVariant"
                                 [(ngModel)]="content.fontVariant"
@@ -2157,6 +2221,10 @@
                                 for="fontWieght"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="fontWieght"
                                 name="fontWieght"
                                 [(ngModel)]="content.fontWieght"
@@ -2229,6 +2297,10 @@
                                 for="height"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="height"
                                 name="height"
                                 [(ngModel)]="content.height"
@@ -2418,6 +2490,10 @@
                                 for="left"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="left"
                                 name="left"
                                 [(ngModel)]="content.left"
@@ -2489,6 +2565,10 @@
                                 for="letterSpacing"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="letterSpacing"
                                 name="letterSpacing"
                                 [(ngModel)]="content.letterSpacing"
@@ -2558,6 +2638,10 @@
                                 for="lineHeight"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="lineHeight"
                                 name="lineHeight"
                                 [(ngModel)]="content.lineHeight"
@@ -2638,6 +2722,10 @@
                                 for="margin"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="margin"
                                 name="margin"
                                 [(ngModel)]="content.margin"
@@ -2716,6 +2804,10 @@
                                 for="marginTop"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="marginTop"
                                 name="marginTop"
                                 [(ngModel)]="content.marginTop"
@@ -2785,6 +2877,10 @@
                                 for="marginBottom"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="marginBottom"
                                 name="marginBottom"
                                 [(ngModel)]="content.marginBottom"
@@ -2854,6 +2950,10 @@
                                 for="marginLeft"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="marginLeft"
                                 name="marginLeft"
                                 [(ngModel)]="content.marginLeft"
@@ -2923,6 +3023,10 @@
                                 for="marginRight"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="marginRight"
                                 name="marginRight"
                                 [(ngModel)]="content.marginRight"
@@ -3002,6 +3106,10 @@
                                 for="opacity"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="opacity"
                                 name="opacity"
                                 [(ngModel)]="content.opacity"
@@ -3080,6 +3188,10 @@
                                 for="padding"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="padding"
                                 name="padding"
                                 [(ngModel)]="content.padding"
@@ -3163,6 +3275,10 @@
                                 for="paddingTop"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="paddingTop"
                                 name="paddingTop"
                                 [(ngModel)]="content.paddingTop"
@@ -3246,6 +3362,10 @@
                                 for="paddingBottom"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="paddingBottom"
                                 name="paddingBottom"
                                 [(ngModel)]="content.paddingBottom"
@@ -3329,6 +3449,10 @@
                                 for="paddingLeft"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="paddingLeft"
                                 name="paddingLeft"
                                 [(ngModel)]="content.paddingLeft"
@@ -3412,6 +3536,10 @@
                                 for="paddingRight"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="paddingRight"
                                 name="paddingRight"
                                 [(ngModel)]="content.paddingRight"
@@ -3490,6 +3618,10 @@
                                 for="position"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="position"
                                 name="position"
                                 [(ngModel)]="content.position"
@@ -3560,6 +3692,10 @@
                                 for="right"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="right"
                                 name="right"
                                 [(ngModel)]="content.right"
@@ -3631,6 +3767,10 @@
                                 for="textAlign"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="textAlign"
                                 name="textAlign"
                                 [(ngModel)]="content.textAlign"
@@ -3702,6 +3842,10 @@
                                 for="textDecorationColor"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="textDecorationColor"
                                 name="textDecorationColor"
                                 [(ngModel)]="content.textDecorationColor"
@@ -3777,6 +3921,10 @@
                                 for="textDecorationLine"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="textDecorationLine"
                                 name="textDecorationLine"
                                 [(ngModel)]="content.textDecorationLine"
@@ -3850,6 +3998,10 @@
                                 for="textDecorationStyle"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="textDecorationStyle"
                                 name="textDecorationStyle"
                                 [(ngModel)]="content.textDecorationStyle"
@@ -3918,6 +4070,10 @@
                                 for="top"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="top"
                                 name="top"
                                 [(ngModel)]="content.top"
@@ -3989,6 +4145,10 @@
                                 for="transform"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="transform"
                                 name="transform"
                                 [(ngModel)]="content.transform"
@@ -4074,6 +4234,10 @@
                                 for="transitionDelay"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="transitionDelay"
                                 name="transitionDelay"
                                 [(ngModel)]="content.transitionDelay"
@@ -4139,6 +4303,10 @@
                                 for="transitionDuration"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="transitionDuration"
                                 name="transitionDuration"
                                 [(ngModel)]="content.transitionDuration"
@@ -4204,6 +4372,10 @@
                                 for="transitionProperty"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="transitionProperty"
                                 name="transitionProperty"
                                 [(ngModel)]="content.transitionProperty"
@@ -4269,6 +4441,10 @@
                                 for="transitionTimingFunction"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="transitionTimingFunction"
                                 name="transitionTimingFunction"
                                 [(ngModel)]="content.transitionTimingFunction"
@@ -4340,6 +4516,10 @@
                                 for="width"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="width"
                                 name="width"
                                 [(ngModel)]="content.width"
@@ -4418,6 +4598,10 @@
                                 for="zIndex"
                               ></label>
                               <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 id="zIndex"
                                 name="zIndex"
                                 [(ngModel)]="content.zIndex"
@@ -4664,6 +4848,10 @@
                                       for="topMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="topMobile"
                                       name="topMobile"
                                       [(ngModel)]="content.topMobile"
@@ -4731,6 +4919,10 @@
                                       for="bottomMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="bottomMobile"
                                       name="bottomMobile"
                                       [(ngModel)]="content.bottomMobile"
@@ -4798,6 +4990,10 @@
                                       for="leftMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="leftMobile"
                                       name="leftMobile"
                                       [(ngModel)]="content.leftMobile"
@@ -4865,6 +5061,10 @@
                                       for="rightMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="rightMobile"
                                       name="rightMobile"
                                       [(ngModel)]="content.rightMobile"
@@ -4932,6 +5132,10 @@
                                       for="displayMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="displayMobile"
                                       name="displayMobile"
                                       [(ngModel)]="content.displayMobile"
@@ -5050,6 +5254,10 @@
                                       for="fontMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontMobile"
                                       name="fontMobile"
                                       [(ngModel)]="content.fontMobile"
@@ -5114,6 +5322,10 @@
                                       for="fontSizeMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontSizeMobile"
                                       name="fontSizeMobile"
                                       [(ngModel)]="content.fontSizeMobile"
@@ -5184,6 +5396,10 @@
                                       for="heightMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="heightMobile"
                                       name="heightMobile"
                                       [(ngModel)]="content.heightMobile"
@@ -5315,6 +5531,10 @@
                                       for="letterSpacingMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="letterSpacingMobile"
                                       name="letterSpacingMobile"
                                       [(ngModel)]="content.letterSpacingMobile"
@@ -5380,6 +5600,10 @@
                                       for="lineHeightMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="lineHeightMobile"
                                       name="lineHeightMobile"
                                       [(ngModel)]="content.lineHeightMobile"
@@ -5456,6 +5680,10 @@
                                       for="marginMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginMobile"
                                       name="marginMobile"
                                       [(ngModel)]="content.marginMobile"
@@ -5531,6 +5759,10 @@
                                       for="marginTopMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginTopMobile"
                                       name="marginTopMobile"
                                       [(ngModel)]="content.marginTopMobile"
@@ -5596,6 +5828,10 @@
                                       for="marginBottomMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginBottomMobile"
                                       name="marginBottomMobile"
                                       [(ngModel)]="content.marginBottomMobile"
@@ -5661,6 +5897,10 @@
                                       for="marginLeftMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginLeftMobile"
                                       name="marginLeftMobile"
                                       [(ngModel)]="content.marginLeftMobile"
@@ -5726,6 +5966,10 @@
                                       for="marginRightMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginRightMobile"
                                       name="marginRightMobile"
                                       [(ngModel)]="content.marginRightMobile"
@@ -5812,6 +6056,10 @@
                                       for="paddingMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingMobile"
                                       name="paddingMobile"
                                       [(ngModel)]="content.paddingMobile"
@@ -5892,6 +6140,10 @@
                                       for="paddingTopMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingTopMobile"
                                       name="paddingTopMobile"
                                       [(ngModel)]="content.paddingTopMobile"
@@ -5974,6 +6226,10 @@
                                       for="paddingBottomMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingBottomMobile"
                                       name="paddingBottomMobile"
                                       [(ngModel)]="content.paddingBottomMobile"
@@ -6054,6 +6310,10 @@
                                       for="paddingLeftMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingLeftMobile"
                                       name="paddingLeftMobile"
                                       [(ngModel)]="content.paddingLeftMobile"
@@ -6134,6 +6394,10 @@
                                       for="paddingRightMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingRightMobile"
                                       name="paddingRightMobile"
                                       [(ngModel)]="content.paddingRightMobile"
@@ -6209,6 +6473,10 @@
                                       for="positionMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="positionMobile"
                                       name="positionMobile"
                                       [(ngModel)]="content.positionMobile"
@@ -6273,6 +6541,10 @@
                 fontFamily: this.globalFontFamily
               }" for="textAlignMobile"></label>
                                         <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                           id="textAlignMobile"
                                           name="textAlignMobile"
                                           [(ngModel)]="content.textAlignMobile"
@@ -6346,6 +6618,10 @@
                                       for="widthMobile"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="widthMobile"
                                       name="widthMobile"
                                       [(ngModel)]="content.widthMobile"
@@ -6607,6 +6883,10 @@
                                       for="topTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="topTablet"
                                       name="topTablet"
                                       [(ngModel)]="content.topTablet"
@@ -6674,6 +6954,10 @@
                                       for="bottomTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="bottomTablet"
                                       name="bottomTablet"
                                       [(ngModel)]="content.bottomTablet"
@@ -6741,6 +7025,10 @@
                                       for="leftTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="leftTablet"
                                       name="leftTablet"
                                       [(ngModel)]="content.leftTablet"
@@ -6808,6 +7096,10 @@
                                       for="rightTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="rightTablet"
                                       name="rightTablet"
                                       [(ngModel)]="content.rightTablet"
@@ -6875,6 +7167,10 @@
                                       for="displayTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="displayTablet"
                                       name="displayTablet"
                                       [(ngModel)]="content.displayTablet"
@@ -6993,6 +7289,10 @@
                                       for="fontTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontTablet"
                                       name="fontTablet"
                                       [(ngModel)]="content.fontTablet"
@@ -7057,6 +7357,10 @@
                                       for="fontSizeTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontSizeTablet"
                                       name="fontSizeTablet"
                                       [(ngModel)]="content.fontSizeTablet"
@@ -7127,6 +7431,10 @@
                                       for="heightTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="heightTablet"
                                       name="heightTablet"
                                       [(ngModel)]="content.heightTablet"
@@ -7258,6 +7566,10 @@
                                       for="letterSpacingTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="letterSpacingTablet"
                                       name="letterSpacingTablet"
                                       [(ngModel)]="content.letterSpacingTablet"
@@ -7323,6 +7635,10 @@
                                       for="lineHeightTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="lineHeightTablet"
                                       name="lineHeightTablet"
                                       [(ngModel)]="content.lineHeightTablet"
@@ -7399,6 +7715,10 @@
                                       for="marginTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginTablet"
                                       name="marginTablet"
                                       [(ngModel)]="content.marginTablet"
@@ -7474,6 +7794,10 @@
                                       for="marginTopTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginTopTablet"
                                       name="marginTopTablet"
                                       [(ngModel)]="content.marginTopTablet"
@@ -7539,6 +7863,10 @@
                                       for="marginBottomTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginBottomTablet"
                                       name="marginBottomTablet"
                                       [(ngModel)]="content.marginBottomTablet"
@@ -7604,6 +7932,10 @@
                                       for="marginLeftTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginLeftTablet"
                                       name="marginLeftTablet"
                                       [(ngModel)]="content.marginLeftTablet"
@@ -7669,6 +8001,10 @@
                                       for="marginRightTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginRightTablet"
                                       name="marginRightTablet"
                                       [(ngModel)]="content.marginRightTablet"
@@ -7755,6 +8091,10 @@
                                       for="paddingTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingTablet"
                                       name="paddingTablet"
                                       [(ngModel)]="content.paddingTablet"
@@ -7835,6 +8175,10 @@
                                       for="paddingTopTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingTopTablet"
                                       name="paddingTopTablet"
                                       [(ngModel)]="content.paddingTopTablet"
@@ -7917,6 +8261,10 @@
                                       for="paddingBottomTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingBottomTablet"
                                       name="paddingBottomTablet"
                                       [(ngModel)]="content.paddingBottomTablet"
@@ -7997,6 +8345,10 @@
                                       for="paddingLeftTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingLeftTablet"
                                       name="paddingLeftTablet"
                                       [(ngModel)]="content.paddingLeftTablet"
@@ -8077,6 +8429,10 @@
                                       for="paddingRightTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingRightTablet"
                                       name="paddingRightTablet"
                                       [(ngModel)]="content.paddingRightTablet"
@@ -8152,6 +8508,10 @@
                                       for="positionTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="positionTablet"
                                       name="positionTablet"
                                       [(ngModel)]="content.positionTablet"
@@ -8216,6 +8576,10 @@
                 fontFamily: this.globalFontFamily
               }" for="textAlignTablet"></label>
                                         <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                           id="textAlignTablet"
                                           name="textAlignTablet"
                                           [(ngModel)]="content.textAlignTablet"
@@ -8289,6 +8653,10 @@
                                       for="widthTablet"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="widthTablet"
                                       name="widthTablet"
                                       [(ngModel)]="content.widthTablet"
@@ -8551,6 +8919,10 @@
                                       for="topLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="topLaptop"
                                       name="topLaptop"
                                       [(ngModel)]="content.topLaptop"
@@ -8618,6 +8990,10 @@
                                       for="bottomLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="bottomLaptop"
                                       name="bottomLaptop"
                                       [(ngModel)]="content.bottomLaptop"
@@ -8685,6 +9061,10 @@
                                       for="leftLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="leftLaptop"
                                       name="leftLaptop"
                                       [(ngModel)]="content.leftLaptop"
@@ -8752,6 +9132,10 @@
                                       for="rightLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="rightLaptop"
                                       name="rightLaptop"
                                       [(ngModel)]="content.rightLaptop"
@@ -8819,6 +9203,10 @@
                                       for="displayLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="displayLaptop"
                                       name="displayLaptop"
                                       [(ngModel)]="content.displayLaptop"
@@ -8937,6 +9325,10 @@
                                       for="fontLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontLaptop"
                                       name="fontLaptop"
                                       [(ngModel)]="content.fontLaptop"
@@ -9001,6 +9393,10 @@
                                       for="fontSizeLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="fontSizeLaptop"
                                       name="fontSizeLaptop"
                                       [(ngModel)]="content.fontSizeLaptop"
@@ -9071,6 +9467,10 @@
                                       for="heightLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="heightLaptop"
                                       name="heightLaptop"
                                       [(ngModel)]="content.heightLaptop"
@@ -9202,6 +9602,10 @@
                                       for="letterSpacingLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="letterSpacingLaptop"
                                       name="letterSpacingLaptop"
                                       [(ngModel)]="content.letterSpacingLaptop"
@@ -9267,6 +9671,10 @@
                                       for="lineHeightLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="lineHeightLaptop"
                                       name="lineHeightLaptop"
                                       [(ngModel)]="content.lineHeightLaptop"
@@ -9343,6 +9751,10 @@
                                       for="marginLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginLaptop"
                                       name="marginLaptop"
                                       [(ngModel)]="content.marginLaptop"
@@ -9418,6 +9830,10 @@
                                       for="marginTopLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginTopLaptop"
                                       name="marginTopLaptop"
                                       [(ngModel)]="content.marginTopLaptop"
@@ -9483,6 +9899,10 @@
                                       for="marginBottomLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginBottomLaptop"
                                       name="marginBottomLaptop"
                                       [(ngModel)]="content.marginBottomLaptop"
@@ -9548,6 +9968,10 @@
                                       for="marginLeftLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginLeftLaptop"
                                       name="marginLeftLaptop"
                                       [(ngModel)]="content.marginLeftLaptop"
@@ -9613,6 +10037,10 @@
                                       for="marginRightLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="marginRightLaptop"
                                       name="marginRightLaptop"
                                       [(ngModel)]="content.marginRightLaptop"
@@ -9699,6 +10127,10 @@
                                       for="paddingLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingLaptop"
                                       name="paddingLaptop"
                                       [(ngModel)]="content.paddingLaptop"
@@ -9779,6 +10211,10 @@
                                       for="paddingTopLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingTopLaptop"
                                       name="paddingTopLaptop"
                                       [(ngModel)]="content.paddingTopLaptop"
@@ -9861,6 +10297,10 @@
                                       for="paddingBottomLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingBottomLaptop"
                                       name="paddingBottomLaptop"
                                       [(ngModel)]="content.paddingBottomLaptop"
@@ -9941,6 +10381,10 @@
                                       for="paddingLeftLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingLeftLaptop"
                                       name="paddingLeftLaptop"
                                       [(ngModel)]="content.paddingLeftLaptop"
@@ -10021,6 +10465,10 @@
                                       for="paddingRightLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="paddingRightLaptop"
                                       name="paddingRightLaptop"
                                       [(ngModel)]="content.paddingRightLaptop"
@@ -10096,6 +10544,10 @@
                                       for="positionLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="positionLaptop"
                                       name="positionLaptop"
                                       [(ngModel)]="content.positionLaptop"
@@ -10160,6 +10612,10 @@
                 fontFamily: this.globalFontFamily
               }" for="textAlignLaptop"></label>
                                         <select
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                           id="textAlignLaptop"
                                           name="textAlignLaptop"
                                           [(ngModel)]="content.textAlignLaptop"
@@ -10233,6 +10689,10 @@
                                       for="widthLaptop"
                                     ></label>
                                     <select
+                                      [ngStyle]="{
+                                        color: preset.colorFive,
+                                        backgroundColor: preset.colorThree
+                                      }"
                                       id="widthLaptop"
                                       name="widthLaptop"
                                       [(ngModel)]="content.widthLaptop"
