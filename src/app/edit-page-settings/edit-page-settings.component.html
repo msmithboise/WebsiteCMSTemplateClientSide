@@ -9,6 +9,7 @@
       >
         <div class="row">
           <app-dashboard-sidebar
+            [FontFamily]="preset.FontFamily"
             [colorFive]="preset.colorFive"
             [colorSix]="preset.colorSix"
             [colorFour]="preset.colorFour"
@@ -21,7 +22,7 @@
               <h1
                 [ngStyle]="{
                   color: preset.colorFive,
-                  fontFamily: this.globalFontFamily
+                  fontFamily: preset.FontFamily
                 }"
               >
                 Page Settings
@@ -35,7 +36,7 @@
                       borderColor: preset.colorSeven,
                       color: preset.colorEight,
 
-                      fontFamily: this.globalFontFamily
+                      fontFamily: preset.FontFamily
                     }"
                     type="button"
                     class="btn btn-sm btn-outline-secondary text-button"
@@ -220,13 +221,14 @@
                       <label
                         [ngStyle]="{
                           color: preset.colorSix,
-                          fontFamily: this.globalFontFamily
+                          fontFamily: preset.FontFamily
                         }"
                       >
                         Page Description</label
                       >
                       <input
                         [ngStyle]="{
+                          fontFamily: preset.FontFamily,
                           color: preset.colorFive,
                           backgroundColor: preset.colorThree
                         }"
@@ -241,7 +243,7 @@
                       <label
                         [ngStyle]="{
                           color: preset.colorSix,
-                          fontFamily: this.globalFontFamily
+                          fontFamily: preset.FontFamily
                         }"
                         class="label-color"
                       >
@@ -249,6 +251,7 @@
                       >
                       <input
                         [ngStyle]="{
+                          fontFamily: preset.FontFamily,
                           color: preset.colorFive,
                           backgroundColor: preset.colorThree
                         }"
@@ -264,7 +267,7 @@
                       <label
                         [ngStyle]="{
                           color: preset.colorSix,
-                          fontFamily: this.globalFontFamily
+                          fontFamily: preset.FontFamily
                         }"
                         class="label-color"
                       >
@@ -272,6 +275,7 @@
                       >
                       <input
                         [ngStyle]="{
+                          fontFamily: preset.FontFamily,
                           color: preset.colorFive,
                           backgroundColor: preset.colorThree
                         }"
@@ -288,13 +292,14 @@
                       <label
                         [ngStyle]="{
                           color: preset.colorSix,
-                          fontFamily: this.globalFontFamily
+                          fontFamily: preset.FontFamily
                         }"
                         class="checkbox"
                         >Publish {{ page.PageDescription }}</label
                       >
                       <input
                         [ngStyle]="{
+                          fontFamily: preset.FontFamily,
                           color: preset.colorFive,
                           backgroundColor: preset.colorThree
                         }"
@@ -313,7 +318,7 @@
                         borderColor: preset.colorSeven,
                         color: preset.colorEight,
 
-                        fontFamily: this.globalFontFamily
+                        fontFamily: preset.FontFamily
                       }"
                       type="button"
                       class="btn btn-sm btn-outline-secondary text-button"
@@ -340,7 +345,7 @@
                         borderColor: preset.colorSeven,
                         color: preset.colorEight,
 
-                        fontFamily: this.globalFontFamily
+                        fontFamily: preset.FontFamily
                       }"
                       type="button"
                       class="btn btn-sm btn-outline-secondary text-button"
@@ -374,7 +379,7 @@
                         borderColor: preset.colorSeven,
                         color: preset.colorEight,
                         float: 'left',
-                        fontFamily: this.globalFontFamily
+                        fontFamily: preset.FontFamily
                       }"
                       type="button"
                       class="btn btn-sm btn-outline-secondary text-button float-right"
