@@ -78,12 +78,12 @@ export class PageSettingsComponent implements OnInit {
   }
 
   insertLightPresets(form: NgForm) {
-    form.value.colorOne = '#ffffff';
-    form.value.colorTwo = '#ffffff';
-    form.value.colorThree = '#ffffff';
-    form.value.colorFour = '#ffffff';
-    form.value.colorFive = '#D461EA';
-    form.value.colorSix = '#1FA8A6';
+    form.value.colorOne = '#f6f6f6';
+    form.value.colorTwo = '#f6f6f6';
+    form.value.colorThree = '#f6f6f6';
+    form.value.colorFour = '#f6f6f6';
+    form.value.colorFive = '#222222';
+    form.value.colorSix = '#222222';
     form.value.colorSeven = '#222222';
     form.value.colorEight = '#222222';
 
