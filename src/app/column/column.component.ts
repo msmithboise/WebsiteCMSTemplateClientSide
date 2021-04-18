@@ -53,6 +53,7 @@ export class ColumnComponent implements OnInit {
 
   test() {
     console.log('column color: ', this.colorEight);
+    console.log('col font:  ', this.FontFamily);
   }
 
   selectColumnToEdit() {
