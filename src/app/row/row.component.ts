@@ -24,6 +24,7 @@ export class RowComponent implements OnInit {
   @Input() colorSix: string;
   @Input() colorSeven: string;
   @Input() colorEight: string;
+  @Input() FontFamily: string;
 
   @Output() refreshEvent = new EventEmitter<any>();
   public pageId: number;
@@ -50,7 +51,7 @@ export class RowComponent implements OnInit {
   }
 
   test() {
-    console.log('row color: ', this.colorSeven);
+    console.log('font family: ', this.FontFamily);
   }
 
   //Invokes from page-settings (parent)
