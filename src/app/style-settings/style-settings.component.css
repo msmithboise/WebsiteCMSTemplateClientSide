@@ -258,11 +258,11 @@ input {
     } */
 
 /* Styles for tab labels */
-/* .mat-tab-label {
+.mat-tab-label {
   background-color: transparent;
-  color: #c74ac2;
+  color: #545b62;
   font-weight: 700;
-} */
+}
 
 /* Styles for the active tab label */
 .mat-tab-label.mat-tab-label-active {

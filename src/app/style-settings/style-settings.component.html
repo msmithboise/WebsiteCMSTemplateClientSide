@@ -41,7 +41,14 @@
                 fontFamily: this.globalFontFamily
               }"
             >
-              <mat-tab id="tab " label="Global">
+              <mat-tab
+                id="tab "
+                label="Global"
+                [ngStyle]="{
+                  color: preset.colorFive,
+                  fontFamily: this.globalFontFamily
+                }"
+              >
                 <!-- Global CARD BEGIN -->
                 <div
                   class="card"
@@ -139,6 +146,10 @@
                               }"
                               ><b>Text</b
                               ><button
+                                [ngStyle]="{
+                                  color: preset.colorFive,
+                                  backgroundColor: preset.colorThree
+                                }"
                                 type="button"
                                 class="btn mr-2"
                                 placement="right"
