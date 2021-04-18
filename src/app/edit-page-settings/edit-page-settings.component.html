@@ -1,347 +1,348 @@
 <div *ngFor="let preset of this.dashboardPresetService.dashboardPresetArray">
   <div class="container-fluid">
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta name="description" content="" />
-        <meta
-          name="author"
-          content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-        />
-        <meta name="generator" content="Jekyll v4.1.1" />
-        <title>Dashboard Template · Bootstrap</title>
+    <body>
+      <div
+        class="container-fluid"
+        [ngStyle]="{
+          backgroundColor: preset.colorThree
+        }"
+      >
+        <div class="row">
+          <app-dashboard-sidebar
+            [colorFive]="preset.colorFive"
+            [colorSix]="preset.colorSix"
+            [colorFour]="preset.colorFour"
+          ></app-dashboard-sidebar>
 
-        <link
-          rel="canonical"
-          href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
-        />
-
-        <!-- Custom styles for this template -->
-      </head>
-      <body>
-        <div class="container-fluid">
-          <div class="row">
-            <app-dashboard-sidebar
-              [colorFive]="preset.colorFive"
-              [colorSix]="preset.colorSix"
-              [colorFour]="preset.colorFour"
-            ></app-dashboard-sidebar>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-              <div
-                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+            >
+              <h1
+                [ngStyle]="{
+                  color: preset.colorFive,
+                  fontFamily: this.globalFontFamily
+                }"
               >
-                <h1
+                Page Settings
+              </h1>
+
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <!-- add page Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary text-button"
+                    data-toggle="modal"
+                    data-target="#textModal"
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-pencil-square"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                      />
+                    </svg>
+                    Add Page
+                  </button>
+
+                  <!--Page Modal -->
+                  <div
+                    class="modal fade"
+                    id="textModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="textModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="textModalLabel">
+                            Modal title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Page create form -->
+                          <div class="card-body shadow-lg">
+                            <form #f="ngForm" (submit)="addNewPage(f)">
+                              <div class="input-group-append"></div>
+                              <input
+                                class="form-control-lg form-group formStyle"
+                                name="PageDescription"
+                                placeholder="Enter Page Name here."
+                                type="text"
+                                #PageId="ngModel"
+                                [(ngModel)]="customPageService.pageFormData"
+                              />
+                            </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="addNewPage(f)"
+                            data-dismiss="modal"
+                          >
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Sub Page Modal -->
+                  <div
+                    class="modal fade"
+                    id="subPageModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="subPageModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="subPageModalLabel">
+                            SubPage title
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!--sub Page create form -->
+                          <div class="card-body shadow-lg">
+                            <form #f="ngForm" (submit)="addNewPage(f)">
+                              <div class="input-group-append"></div>
+                              <input
+                                class="form-control-lg form-group formStyle"
+                                name="PageDescription"
+                                placeholder="Enter Page Name here."
+                                type="text"
+                                #PageId="ngModel"
+                                [(ngModel)]="customPageService.pageFormData"
+                              />
+                            </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="addNewSubPage(f)"
+                            data-dismiss="modal"
+                          >
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="container-fluid"
+              [ngStyle]="{
+                backgroundColor: preset.colorOne
+              }"
+            >
+              <div *ngFor="let page of this.customPageService.customPageArray">
+                <div
+                  class="card-body"
                   [ngStyle]="{
-                    color: preset.colorFive,
-                    fontFamily: this.globalFontFamily
+                    backgroundColor: preset.colorOne
                   }"
                 >
-                  Page Settings
-                </h1>
-
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <!-- add page Button trigger modal -->
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary text-button"
-                      data-toggle="modal"
-                      data-target="#textModal"
-                    >
-                      <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        class="bi bi-pencil-square"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-                        />
-                      </svg>
-                      Add Page
-                    </button>
-
-                    <!--Page Modal -->
-                    <div
-                      class="modal fade"
-                      id="textModal"
-                      tabindex="-1"
-                      role="dialog"
-                      aria-labelledby="textModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="textModalLabel">
-                              Modal title
-                            </h5>
-                            <button
-                              type="button"
-                              class="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <!-- Page create form -->
-                            <div class="card-body shadow-lg">
-                              <form #f="ngForm" (submit)="addNewPage(f)">
-                                <div class="input-group-append"></div>
-                                <input
-                                  class="form-control-lg form-group formStyle"
-                                  name="PageDescription"
-                                  placeholder="Enter Page Name here."
-                                  type="text"
-                                  #PageId="ngModel"
-                                  [(ngModel)]="customPageService.pageFormData"
-                                />
-                              </form>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button
-                              type="button"
-                              class="btn btn-primary"
-                              (click)="addNewPage(f)"
-                              data-dismiss="modal"
-                            >
-                              Save changes
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!--Sub Page Modal -->
-                    <div
-                      class="modal fade"
-                      id="subPageModal"
-                      tabindex="-1"
-                      role="dialog"
-                      aria-labelledby="subPageModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="subPageModalLabel">
-                              SubPage title
-                            </h5>
-                            <button
-                              type="button"
-                              class="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <!--sub Page create form -->
-                            <div class="card-body shadow-lg">
-                              <form #f="ngForm" (submit)="addNewPage(f)">
-                                <div class="input-group-append"></div>
-                                <input
-                                  class="form-control-lg form-group formStyle"
-                                  name="PageDescription"
-                                  placeholder="Enter Page Name here."
-                                  type="text"
-                                  #PageId="ngModel"
-                                  [(ngModel)]="customPageService.pageFormData"
-                                />
-                              </form>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button
-                              type="button"
-                              class="btn btn-primary"
-                              (click)="addNewSubPage(f)"
-                              data-dismiss="modal"
-                            >
-                              Save changes
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="container-fluid">
-                <div
-                  *ngFor="let page of this.customPageService.customPageArray"
-                >
-                  <div class="card-body">
-                    <!-- add Sub page Button trigger modal -->
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary text-button float-right"
-                      data-toggle="modal"
-                      data-target="#subPageModal"
-                      (click)="getOriginPageId(page.PageId)"
-                    >
-                      <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        class="bi bi-pencil-square"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-                        />
-                      </svg>
-                      Add Sub Page
-                    </button>
-                    <button
-                      class="btn btn-danger btn-sm float-right"
-                      (click)="
-                        deleteDialogue(page.PageId, page.PageDescription)
-                      "
-                    >
-                      Delete
-                    </button>
-
-                    <!-- <button
-                    class="btn btn-info btn-sm float-right"
-                    (click)="getSubPages(page.PageId, page.PageDescription)"
+                  <!-- add Sub page Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary text-button float-right"
+                    data-toggle="modal"
+                    data-target="#subPageModal"
+                    (click)="getOriginPageId(page.PageId)"
                   >
-                    Sub Pages
-                  </button> -->
-                    <div class="container-fluid">
-                      <form #form="ngForm" (submit)="addNewPage(form)">
-                        <div class="input-group"></div>
-
-                        <!-- Page Id -->
-
-                        <input
-                          name="PageId"
-                          type="hidden"
-                          #TextId="ngModel"
-                          [(ngModel)]="page.PageId"
-                        />
-
-                        <!-- Page Description -->
-                        <label class="label-color"> Page Description</label>
-                        <input
-                          name="PageDescription"
-                          type="text"
-                          class="form-control col-sm-9 formStyle"
-                          #PageDescription="ngModel"
-                          [(ngModel)]="page.PageDescription"
-                        />
-
-                        <!-- Page Color -->
-                        <label class="label-color"> Page Color</label>
-                        <input
-                          name="PageColor"
-                          type="text"
-                          class="form-control col-sm-9 formStyle"
-                          #PageColor="ngModel"
-                          [(ngModel)]="page.PageColor"
-                        />
-                        <div style="height: 20px"></div>
-
-                        <!-- ParentId -->
-                        <label class="label-color"> Parent Id</label>
-                        <input
-                          readonly
-                          name="ParentId"
-                          type="text"
-                          class="form-control col-sm-9 formStyle"
-                          #ParentId="ngModel"
-                          [(ngModel)]="page.ParentId"
-                        />
-                        <div style="height: 20px"></div>
-
-                        <!-- IsPublished -->
-                        <label class="checkbox">Published</label>
-                        <input
-                          class="check"
-                          type="checkbox"
-                          (change)="onChange($event.target.checked)"
-                          #isPublished="ngModel"
-                          [(ngModel)]="page.isPublished"
-                          [ngModelOptions]="{ standalone: true }"
-                        />
-                      </form>
-                      <button
-                        class="btn btn-primary"
-                        (click)="addNewPage(form)"
-                      >
-                        Save changes
-                      </button>
-                    </div>
-
-                    <!-- --------------------------------------------------------------------------- -->
-
-                    <!-- <button
-                    class="btn btn-danger float-right"
-                    (click)="deleteDialogue(text.Id)"
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-pencil-square"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
+                      <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                      />
+                    </svg>
+                    Add Sub Page
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm float-right"
+                    (click)="deleteDialogue(page.PageId, page.PageDescription)"
+                  >
                     Delete
-                  </button> -->
+                  </button>
+
+                  <div
+                    class="container-fluid"
+                    [ngStyle]="{
+                      backgroundColor: preset.colorOne
+                    }"
+                  >
+                    <form #form="ngForm" (submit)="addNewPage(form)">
+                      <div class="input-group"></div>
+
+                      <!-- Page Id -->
+
+                      <input
+                        name="PageId"
+                        type="hidden"
+                        #TextId="ngModel"
+                        [(ngModel)]="page.PageId"
+                      />
+
+                      <!-- Page Description -->
+                      <label
+                        [ngStyle]="{
+                          color: preset.colorSix,
+                          fontFamily: this.globalFontFamily
+                        }"
+                      >
+                        Page Description</label
+                      >
+                      <input
+                        [ngStyle]="{
+                          color: preset.colorFive,
+                          backgroundColor: preset.colorThree
+                        }"
+                        name="PageDescription"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #PageDescription="ngModel"
+                        [(ngModel)]="page.PageDescription"
+                      />
+
+                      <!-- Page Color -->
+                      <label
+                        [ngStyle]="{
+                          color: preset.colorSix,
+                          fontFamily: this.globalFontFamily
+                        }"
+                        class="label-color"
+                      >
+                        Page Color</label
+                      >
+                      <input
+                        [ngStyle]="{
+                          color: preset.colorFive,
+                          backgroundColor: preset.colorThree
+                        }"
+                        name="PageColor"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #PageColor="ngModel"
+                        [(ngModel)]="page.PageColor"
+                      />
+                      <div style="height: 20px"></div>
+
+                      <!-- ParentId -->
+                      <label
+                        [ngStyle]="{
+                          color: preset.colorSix,
+                          fontFamily: this.globalFontFamily
+                        }"
+                        class="label-color"
+                      >
+                        Parent Id</label
+                      >
+                      <input
+                        [ngStyle]="{
+                          color: preset.colorFive,
+                          backgroundColor: preset.colorThree
+                        }"
+                        readonly
+                        name="ParentId"
+                        type="text"
+                        class="form-control col-sm-9 formStyle"
+                        #ParentId="ngModel"
+                        [(ngModel)]="page.ParentId"
+                      />
+                      <div style="height: 20px"></div>
+
+                      <!-- IsPublished -->
+                      <label
+                        [ngStyle]="{
+                          color: preset.colorSix,
+                          fontFamily: this.globalFontFamily
+                        }"
+                        class="checkbox"
+                        >Published</label
+                      >
+                      <input
+                        [ngStyle]="{
+                          color: preset.colorFive,
+                          backgroundColor: preset.colorThree
+                        }"
+                        class="check"
+                        type="checkbox"
+                        (change)="onChange($event.target.checked)"
+                        #isPublished="ngModel"
+                        [(ngModel)]="page.isPublished"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </form>
+                    <button class="btn btn-primary" (click)="addNewPage(form)">
+                      Save changes
+                    </button>
                   </div>
                 </div>
               </div>
-            </main>
-          </div>
+            </div>
+          </main>
         </div>
-        <script
-          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-          crossorigin="anonymous"
-        ></script>
-        <script>
-          window.jQuery ||
-            document.write(
-              '<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>'
-            );
-        </script>
-        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="dashboard.js"></script>
-      </body>
-    </html>
-
-    <!-- <button class="btn btn-success btn-sm mb-3" (click)="openPageSettings()">
-    Page Settings
-  </button> -->
+      </div>
+    </body>
   </div>
 </div>
