@@ -7,6 +7,7 @@
   >
     <div class="row">
       <app-dashboard-sidebar
+        [FontFamily]="preset.FontFamily"
         [colorFive]="preset.colorFive"
         [colorSix]="preset.colorSix"
         [colorFour]="preset.colorFour"
@@ -25,7 +26,7 @@
             <h1
               [ngStyle]="{
                 color: preset.colorFive,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }"
             >
               Style Settings
@@ -38,7 +39,7 @@
             <mat-tab-group
               [ngStyle]="{
                 color: preset.colorFive,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }"
             >
               <mat-tab
@@ -46,7 +47,7 @@
                 label="Global"
                 [ngStyle]="{
                   color: preset.colorFive,
-                  fontFamily: this.globalFontFamily
+                  fontFamily: preset.FontFamily
                 }"
               >
                 <!-- Global CARD BEGIN -->
@@ -74,7 +75,7 @@
                             borderColor: preset.colorSeven,
                             color: preset.colorEight,
                             float: 'right',
-                            fontFamily: this.globalFontFamily
+                            fontFamily: preset.FontFamily
                           }"
                           type="button"
                           class="btn btn-sm btn-outline-secondary text-button"
@@ -142,7 +143,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Text</b
                               ><button
@@ -189,11 +190,11 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Image</b
                               ><button
@@ -239,11 +240,11 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>CSS Animations</b>
                                 <button
@@ -285,7 +286,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="animation"
                               ></label>
@@ -319,11 +320,11 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Pre-built Animations</b>
                                 <button
@@ -365,7 +366,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="animationName"
                               ></label>
@@ -447,7 +448,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Attachment</b
                               ><button
@@ -490,7 +491,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Color</b
                               ><button
@@ -518,7 +519,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="backgroundColor"
                               ></label>
@@ -582,7 +583,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Background Gradient</b
                                 ><button
@@ -623,7 +624,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="background"
                               ></label>
@@ -672,7 +673,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Position</b
                               ><button
@@ -715,7 +716,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Repeat</b
                               ><button
@@ -758,7 +759,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Background Size</b
                               ><button
@@ -803,7 +804,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Border </b
                                 ><button
@@ -849,7 +850,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="border"
                               ></label>
@@ -880,7 +881,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Bottom</b
                                 ><button
@@ -921,7 +922,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="bottom"
                               ></label>
@@ -955,7 +956,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Box Shadow</b
                                 ><button
@@ -996,7 +997,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="boxShadow"
                               ></label>
@@ -1034,7 +1035,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Text</b
                                 ><button
@@ -1083,7 +1084,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Text (Hover)</b
                                 ><button
@@ -1124,7 +1125,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="buttonHoverText"
                               ></label>
@@ -1141,7 +1142,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Background Color(Hover)</b
                                 ><button
@@ -1182,7 +1183,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="buttonHoverBgColor"
                               ></label>
@@ -1234,7 +1235,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Text Color(Hover)</b
                                 ><button
@@ -1275,7 +1276,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="buttonHoverTextColor"
                               ></label>
@@ -1327,7 +1328,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Text Font Size(Hover)</b
                                 ><button
@@ -1368,7 +1369,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="customField"
                               ></label>
@@ -1405,7 +1406,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Button Text Letter Spacing(Hover)</b
                                 ><button
@@ -1446,7 +1447,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="buttonHoverImageOverlay"
                               ></label>
@@ -1476,7 +1477,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Color</b
                                 ><button
@@ -1517,7 +1518,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="color"
                               ></label>
@@ -1569,7 +1570,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Display</b
                                 ><button
@@ -1610,7 +1611,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="display"
                               ></label>
@@ -1685,7 +1686,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Font</b
                                 ><button
@@ -1732,7 +1733,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="font"
                               ></label>
@@ -1763,7 +1764,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Font Family</b
                                 ><button
@@ -1805,7 +1806,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="fontFamily"
                               ></label>
@@ -2037,7 +2038,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Font Size </b
                                 ><button
@@ -2078,7 +2079,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="fontSize"
                               ></label>
@@ -2115,7 +2116,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Font Variant</b
                                 ><button
@@ -2156,7 +2157,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="fontVariant"
                               ></label>
@@ -2186,7 +2187,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Font Weight</b
                                 ><button
@@ -2227,7 +2228,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="fontWieght"
                               ></label>
@@ -2262,7 +2263,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Height</b
                                 ><button
@@ -2303,7 +2304,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="height"
                               ></label>
@@ -2338,7 +2339,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>HyperLink </b
                                 ><button
@@ -2382,7 +2383,7 @@
                             <label
                               [ngStyle]="{
                                 color: preset.colorSix,
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               ><b>Icon</b
                               ><button
@@ -2455,7 +2456,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Left</b
                                 ><button
@@ -2496,7 +2497,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="left"
                               ></label>
@@ -2530,7 +2531,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Letter Spacing</b
                                 ><button
@@ -2571,7 +2572,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="letterSpacing"
                               ></label>
@@ -2603,7 +2604,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Line Height</b
                                 ><button
@@ -2644,7 +2645,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="lineHeight"
                               ></label>
@@ -2682,7 +2683,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Margin</b
                                 ><button
@@ -2728,7 +2729,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="margin"
                               ></label>
@@ -2769,7 +2770,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Margin Top</b
                                 ><button
@@ -2810,7 +2811,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="marginTop"
                               ></label>
@@ -2842,7 +2843,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Margin Bottom</b
                                 ><button
@@ -2883,7 +2884,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="marginBottom"
                               ></label>
@@ -2915,7 +2916,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Margin Left</b
                                 ><button
@@ -2956,7 +2957,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="marginLeft"
                               ></label>
@@ -2988,7 +2989,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Margin Right</b
                                 ><button
@@ -3029,7 +3030,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="marginRight"
                               ></label>
@@ -3071,7 +3072,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Opacity</b
                                 ><button
@@ -3112,7 +3113,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="opacity"
                               ></label>
@@ -3143,7 +3144,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Padding</b
                                 ><button
@@ -3194,7 +3195,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="padding"
                               ></label>
@@ -3235,7 +3236,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Padding Top</b
                                 ><button
@@ -3281,7 +3282,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="paddingTop"
                               ></label>
@@ -3322,7 +3323,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Padding Bottom</b
                                 ><button
@@ -3368,7 +3369,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="paddingBottom"
                               ></label>
@@ -3409,7 +3410,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Padding Left</b
                                 ><button
@@ -3455,7 +3456,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="paddingLeft"
                               ></label>
@@ -3496,7 +3497,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Padding Right</b
                                 ><button
@@ -3542,7 +3543,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="paddingRight"
                               ></label>
@@ -3583,7 +3584,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Position</b
                                 ><button
@@ -3624,7 +3625,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="position"
                               ></label>
@@ -3657,7 +3658,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Right</b
                                 ><button
@@ -3698,7 +3699,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="right"
                               ></label>
@@ -3732,7 +3733,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Text Align</b
                                 ><button
@@ -3773,7 +3774,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="textAlign"
                               ></label>
@@ -3807,7 +3808,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Text Decoration Color</b
                                 ><button
@@ -3848,7 +3849,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="textDecorationColor"
                               ></label>
@@ -3886,7 +3887,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Text Decoration Line</b
                                 ><button
@@ -3927,7 +3928,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="textDecorationLine"
                               ></label>
@@ -3963,7 +3964,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Text Decoration Style</b
                                 ><button
@@ -4004,7 +4005,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="textDecorationStyle"
                               ></label>
@@ -4035,7 +4036,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Top</b
                                 ><button
@@ -4076,7 +4077,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="top"
                               ></label>
@@ -4110,7 +4111,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Transform</b
                                 ><button
@@ -4151,7 +4152,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="transform"
                               ></label>
@@ -4199,7 +4200,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Transition Delay</b
                                 ><button
@@ -4240,7 +4241,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="transitionDelay"
                               ></label>
@@ -4268,7 +4269,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Transition Duration</b
                                 ><button
@@ -4309,7 +4310,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="transitionDuration"
                               ></label>
@@ -4337,7 +4338,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Transition Property</b
                                 ><button
@@ -4378,7 +4379,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="transitionProperty"
                               ></label>
@@ -4406,7 +4407,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Transition TimingFunction</b
                                 ><button
@@ -4447,7 +4448,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="transitionTimingFunction"
                               ></label>
@@ -4481,7 +4482,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Width</b
                                 ><button
@@ -4522,7 +4523,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="width"
                               ></label>
@@ -4558,7 +4559,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 ><b>Z Index</b
                                 ><button
@@ -4604,7 +4605,7 @@
                               <label
                                 [ngStyle]="{
                                   color: preset.colorSix,
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 for="zIndex"
                               ></label>
@@ -4643,7 +4644,7 @@
                                 borderColor: preset.colorSeven,
                                 color: preset.colorEight,
                                 float: 'right',
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               type="button"
                               class="btn btn-sm btn-outline-secondary text-button"
@@ -4724,7 +4725,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Text Mobile</b
                                     ><button
@@ -4767,7 +4768,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Mobile Background Position</b
                                     ><button
@@ -4810,7 +4811,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Mobile Background Size</b
                                     ><button
@@ -4855,7 +4856,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Top</b
                                       ><button
@@ -4896,7 +4897,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="topMobile"
                                     ></label>
@@ -4930,7 +4931,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Bottom</b
                                       ><button
@@ -4971,7 +4972,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="bottomMobile"
                                     ></label>
@@ -5005,7 +5006,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Left</b
                                       ><button
@@ -5046,7 +5047,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="leftMobile"
                                     ></label>
@@ -5080,7 +5081,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Right</b
                                       ><button
@@ -5121,7 +5122,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="rightMobile"
                                     ></label>
@@ -5155,7 +5156,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Display</b
                                       ><button
@@ -5196,7 +5197,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="displayMobile"
                                     ></label>
@@ -5279,7 +5280,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b> Mobile Font</b
                                       ><button
@@ -5326,7 +5327,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontMobile"
                                     ></label>
@@ -5357,7 +5358,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Font Size </b
                                       ><button
@@ -5398,7 +5399,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontSizeMobile"
                                     ></label>
@@ -5435,7 +5436,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Height</b
                                       ><button
@@ -5476,7 +5477,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="heightMobile"
                                     ></label>
@@ -5511,7 +5512,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Mobile Icon</b
                                     ><button
@@ -5584,7 +5585,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Letter Spacing</b
                                       ><button
@@ -5627,7 +5628,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="letterSpacingMobile"
                                     ></label>
@@ -5659,7 +5660,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Line Height</b
                                       ><button
@@ -5700,7 +5701,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="lineHeightMobile"
                                     ></label>
@@ -5738,7 +5739,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Margin</b
                                       ><button
@@ -5784,7 +5785,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginMobile"
                                     ></label>
@@ -5826,7 +5827,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Margin Top</b
                                       ><button
@@ -5867,7 +5868,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginTopMobile"
                                     ></label>
@@ -5899,7 +5900,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Margin Bottom</b
                                       ><button
@@ -5940,7 +5941,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginBottomMobile"
                                     ></label>
@@ -5972,7 +5973,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Margin Left</b
                                       ><button
@@ -6013,7 +6014,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginLeftMobile"
                                     ></label>
@@ -6045,7 +6046,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Margin Right</b
                                       ><button
@@ -6086,7 +6087,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginRightMobile"
                                     ></label>
@@ -6129,7 +6130,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Padding</b
                                       ><button
@@ -6180,7 +6181,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingMobile"
                                     ></label>
@@ -6222,7 +6223,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile PaddingTop</b
                                       ><button
@@ -6268,7 +6269,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingTopMobile"
                                     ></label>
@@ -6310,7 +6311,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile PaddingBottom</b
                                       ><button
@@ -6358,7 +6359,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingBottomMobile"
                                     ></label>
@@ -6400,7 +6401,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile PaddingLeft</b
                                       ><button
@@ -6446,7 +6447,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingLeftMobile"
                                     ></label>
@@ -6488,7 +6489,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile PaddingRight</b
                                       ><button
@@ -6534,7 +6535,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingRightMobile"
                                     ></label>
@@ -6576,7 +6577,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Position</b
                                       ><button
@@ -6617,7 +6618,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="positionMobile"
                                     ></label>
@@ -6649,7 +6650,7 @@
                                       <div>
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }"
                                           ><b>Mobile Text Align</b
                                           ><button
@@ -6691,7 +6692,7 @@
                                       <div class="form-group">
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }" for="textAlignMobile"></label>
                                         <select
                                 [ngStyle]="{
@@ -6729,7 +6730,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Mobile Width</b
                                       ><button
@@ -6770,7 +6771,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="widthMobile"
                                     ></label>
@@ -6824,7 +6825,7 @@
                                 borderColor: preset.colorSeven,
                                 color: preset.colorEight,
                                 float: 'right',
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               type="button"
                               class="btn btn-sm btn-outline-secondary text-button"
@@ -6926,7 +6927,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Text Tablet</b
                                     ><button
@@ -6969,7 +6970,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Tablet Background Position</b
                                     ><button
@@ -7012,7 +7013,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Tablet Background Size</b
                                     ><button
@@ -7057,7 +7058,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Top</b
                                       ><button
@@ -7098,7 +7099,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="topTablet"
                                     ></label>
@@ -7132,7 +7133,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Bottom</b
                                       ><button
@@ -7173,7 +7174,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="bottomTablet"
                                     ></label>
@@ -7207,7 +7208,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Left</b
                                       ><button
@@ -7248,7 +7249,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="leftTablet"
                                     ></label>
@@ -7282,7 +7283,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Right</b
                                       ><button
@@ -7323,7 +7324,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="rightTablet"
                                     ></label>
@@ -7357,7 +7358,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Display</b
                                       ><button
@@ -7398,7 +7399,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="displayTablet"
                                     ></label>
@@ -7481,7 +7482,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b> Tablet Font</b
                                       ><button
@@ -7528,7 +7529,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontTablet"
                                     ></label>
@@ -7559,7 +7560,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Font Size </b
                                       ><button
@@ -7600,7 +7601,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontSizeTablet"
                                     ></label>
@@ -7637,7 +7638,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Height</b
                                       ><button
@@ -7678,7 +7679,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="heightTablet"
                                     ></label>
@@ -7713,7 +7714,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Tablet Icon</b
                                     ><button
@@ -7786,7 +7787,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Letter Spacing</b
                                       ><button
@@ -7829,7 +7830,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="letterSpacingTablet"
                                     ></label>
@@ -7861,7 +7862,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Line Height</b
                                       ><button
@@ -7902,7 +7903,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="lineHeightTablet"
                                     ></label>
@@ -7940,7 +7941,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Margin</b
                                       ><button
@@ -7986,7 +7987,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginTablet"
                                     ></label>
@@ -8028,7 +8029,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Margin Top</b
                                       ><button
@@ -8069,7 +8070,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginTopTablet"
                                     ></label>
@@ -8101,7 +8102,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Margin Bottom</b
                                       ><button
@@ -8142,7 +8143,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginBottomTablet"
                                     ></label>
@@ -8174,7 +8175,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Margin Left</b
                                       ><button
@@ -8215,7 +8216,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginLeftTablet"
                                     ></label>
@@ -8247,7 +8248,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Margin Right</b
                                       ><button
@@ -8288,7 +8289,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginRightTablet"
                                     ></label>
@@ -8331,7 +8332,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Padding</b
                                       ><button
@@ -8382,7 +8383,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingTablet"
                                     ></label>
@@ -8424,7 +8425,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet PaddingTop</b
                                       ><button
@@ -8470,7 +8471,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingTopTablet"
                                     ></label>
@@ -8512,7 +8513,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet PaddingBottom</b
                                       ><button
@@ -8560,7 +8561,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingBottomTablet"
                                     ></label>
@@ -8602,7 +8603,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet PaddingLeft</b
                                       ><button
@@ -8648,7 +8649,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingLeftTablet"
                                     ></label>
@@ -8690,7 +8691,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet PaddingRight</b
                                       ><button
@@ -8736,7 +8737,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingRightTablet"
                                     ></label>
@@ -8778,7 +8779,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Position</b
                                       ><button
@@ -8819,7 +8820,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="positionTablet"
                                     ></label>
@@ -8851,7 +8852,7 @@
                                       <div>
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }"
                                           ><b>Tablet Text Align</b
                                           ><button
@@ -8893,7 +8894,7 @@
                                       <div class="form-group">
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }" for="textAlignTablet"></label>
                                         <select
                                 [ngStyle]="{
@@ -8931,7 +8932,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Tablet Width</b
                                       ><button
@@ -8972,7 +8973,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="widthTablet"
                                     ></label>
@@ -9009,7 +9010,7 @@
                                   borderColor: preset.colorSeven,
                                   color: preset.colorEight,
                                   float: 'right',
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary text-button"
@@ -9049,7 +9050,7 @@
                                 borderColor: preset.colorSeven,
                                 color: preset.colorEight,
                                 float: 'right',
-                                fontFamily: this.globalFontFamily
+                                fontFamily: preset.FontFamily
                               }"
                               type="button"
                               class="btn btn-sm btn-outline-secondary text-button"
@@ -9151,7 +9152,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Text Laptop</b
                                     ><button
@@ -9194,7 +9195,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Laptop Background Position</b
                                     ><button
@@ -9237,7 +9238,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Laptop Background Size</b
                                     ><button
@@ -9282,7 +9283,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Top</b
                                       ><button
@@ -9323,7 +9324,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="topLaptop"
                                     ></label>
@@ -9357,7 +9358,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Bottom</b
                                       ><button
@@ -9398,7 +9399,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="bottomLaptop"
                                     ></label>
@@ -9432,7 +9433,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Left</b
                                       ><button
@@ -9473,7 +9474,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="leftLaptop"
                                     ></label>
@@ -9507,7 +9508,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Right</b
                                       ><button
@@ -9548,7 +9549,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="rightLaptop"
                                     ></label>
@@ -9582,7 +9583,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Display</b
                                       ><button
@@ -9623,7 +9624,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="displayLaptop"
                                     ></label>
@@ -9706,7 +9707,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b> Laptop Font</b
                                       ><button
@@ -9753,7 +9754,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontLaptop"
                                     ></label>
@@ -9784,7 +9785,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Font Size </b
                                       ><button
@@ -9825,7 +9826,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="fontSizeLaptop"
                                     ></label>
@@ -9862,7 +9863,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Height</b
                                       ><button
@@ -9903,7 +9904,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="heightLaptop"
                                     ></label>
@@ -9938,7 +9939,7 @@
                                   <label
                                     [ngStyle]="{
                                       color: preset.colorSix,
-                                      fontFamily: this.globalFontFamily
+                                      fontFamily: preset.FontFamily
                                     }"
                                     ><b>Laptop Icon</b
                                     ><button
@@ -10011,7 +10012,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Letter Spacing</b
                                       ><button
@@ -10054,7 +10055,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="letterSpacingLaptop"
                                     ></label>
@@ -10086,7 +10087,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Line Height</b
                                       ><button
@@ -10127,7 +10128,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="lineHeightLaptop"
                                     ></label>
@@ -10165,7 +10166,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Margin</b
                                       ><button
@@ -10211,7 +10212,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginLaptop"
                                     ></label>
@@ -10253,7 +10254,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Margin Top</b
                                       ><button
@@ -10294,7 +10295,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginTopLaptop"
                                     ></label>
@@ -10326,7 +10327,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Margin Bottom</b
                                       ><button
@@ -10367,7 +10368,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginBottomLaptop"
                                     ></label>
@@ -10399,7 +10400,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Margin Left</b
                                       ><button
@@ -10440,7 +10441,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginLeftLaptop"
                                     ></label>
@@ -10472,7 +10473,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Margin Right</b
                                       ><button
@@ -10513,7 +10514,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="marginRightLaptop"
                                     ></label>
@@ -10556,7 +10557,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Padding</b
                                       ><button
@@ -10607,7 +10608,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingLaptop"
                                     ></label>
@@ -10649,7 +10650,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop PaddingTop</b
                                       ><button
@@ -10695,7 +10696,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingTopLaptop"
                                     ></label>
@@ -10737,7 +10738,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop PaddingBottom</b
                                       ><button
@@ -10785,7 +10786,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingBottomLaptop"
                                     ></label>
@@ -10827,7 +10828,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop PaddingLeft</b
                                       ><button
@@ -10873,7 +10874,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingLeftLaptop"
                                     ></label>
@@ -10915,7 +10916,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop PaddingRight</b
                                       ><button
@@ -10961,7 +10962,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="paddingRightLaptop"
                                     ></label>
@@ -11003,7 +11004,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Position</b
                                       ><button
@@ -11044,7 +11045,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="positionLaptop"
                                     ></label>
@@ -11076,7 +11077,7 @@
                                       <div>
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }"
                                           ><b>Laptop Text Align</b
                                           ><button
@@ -11118,7 +11119,7 @@
                                       <div class="form-group">
                                         <label [ngStyle]="{
                 color: preset.colorSix,
-                fontFamily: this.globalFontFamily
+                fontFamily: preset.FontFamily
               }" for="textAlignLaptop"></label>
                                         <select
                                 [ngStyle]="{
@@ -11156,7 +11157,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       ><b>Laptop Width</b
                                       ><button
@@ -11197,7 +11198,7 @@
                                     <label
                                       [ngStyle]="{
                                         color: preset.colorSix,
-                                        fontFamily: this.globalFontFamily
+                                        fontFamily: preset.FontFamily
                                       }"
                                       for="widthLaptop"
                                     ></label>
@@ -11234,7 +11235,7 @@
                                   borderColor: preset.colorSeven,
                                   color: preset.colorEight,
                                   float: 'right',
-                                  fontFamily: this.globalFontFamily
+                                  fontFamily: preset.FontFamily
                                 }"
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary text-button"
@@ -11269,7 +11270,7 @@
                           borderColor: preset.colorSeven,
                           color: preset.colorEight,
                           float: 'right',
-                          fontFamily: this.globalFontFamily
+                          fontFamily: preset.FontFamily
                         }"
                         type="button"
                         class="btn btn-sm btn-outline-secondary text-button"
