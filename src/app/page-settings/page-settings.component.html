@@ -388,8 +388,10 @@
                           <select
                             (change)="onFontSubmit(form, preset.FontFamily)"
                             [ngStyle]="{
+                              borderColor: preset.colorSeven,
                               color: preset.colorFive,
-                              backgroundColor: preset.colorThree
+                              backgroundColor: preset.colorThree,
+                              fontFamily: preset.FontFamily
                             }"
                             id="FontFamily"
                             name="FontFamily"
