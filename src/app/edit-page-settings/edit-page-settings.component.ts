@@ -6,6 +6,7 @@ import { CustomPage } from '../models/custom-page.model';
 import { Subpage } from '../models/subpage.model';
 import { NullPageGuardService } from '../null-page-guard.service';
 import { CustomPageService } from '../services/custom-page.service';
+import { DashboardPresetService } from '../services/dashboard-preset.service';
 import { SubpageService } from '../services/subpage.service';
 import { WebStructureService } from '../web-structure.service';
 import { WebcontentService } from '../WebContent/webcontent.service';
@@ -19,6 +20,7 @@ export class EditPageSettingsComponent implements OnInit {
   public isChecked: boolean;
   public isPagePublished: boolean;
   public storedPageId: number;
+  public globalFontFamily = this.dashboardPresetService.globalFontFamly;
   constructor(
     public customPageService: CustomPageService,
     public toastr: ToastrService,
@@ -26,11 +28,19 @@ export class EditPageSettingsComponent implements OnInit {
     public webContentService: WebcontentService,
     public webStructureService: WebStructureService,
     public nullPageGuardService: NullPageGuardService,
-    public router: Router
+    public router: Router,
+    public dashboardPresetService: DashboardPresetService
   ) {}
 
   ngOnInit(): void {
     this.grabAllPages();
+    this.getAllPresets();
+  }
+
+  getAllPresets() {
+    this.dashboardPresetService.getAllPresets().subscribe((res) => {
+      this.dashboardPresetService.dashboardPresetArray = res;
+    });
   }
 
   savePageChanges(form: NgForm) {}
