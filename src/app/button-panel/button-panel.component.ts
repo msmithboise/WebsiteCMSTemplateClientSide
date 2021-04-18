@@ -15,6 +15,7 @@ export class ButtonPanelComponent implements OnInit {
   @Input() colorSix: string;
   @Input() colorSeven: string;
   @Input() colorEight: string;
+  @Input() FontFamily: string;
 
   @Output() refreshEvent = new EventEmitter<any>();
   public rowId = '';
@@ -49,7 +50,7 @@ export class ButtonPanelComponent implements OnInit {
   }
 
   test() {
-    console.log('column color: ', this.colorEight);
+    console.log('font family: ', this.FontFamily);
   }
 
   refreshContent() {

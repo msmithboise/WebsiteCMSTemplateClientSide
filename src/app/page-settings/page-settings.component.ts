@@ -118,6 +118,12 @@ export class PageSettingsComponent implements OnInit {
     });
   }
 
+  onFontSubmit(form: NgForm, font: string) {
+    document.getElementById('FontFamily').style.fontFamily = font;
+
+    this.insertColorPresets(form);
+  }
+
   onPresetSubmit(form: NgForm) {
     console.log('posting presets');
 

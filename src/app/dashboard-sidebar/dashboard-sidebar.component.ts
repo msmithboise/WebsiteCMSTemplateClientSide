@@ -15,6 +15,7 @@ export class DashboardSidebarComponent implements OnInit {
   @Input() colorFour: string;
   @Input() colorFive: string;
   @Input() colorSix: string;
+  @Input() FontFamily: string;
 
   public pageDescription: string;
   public pageId: number;

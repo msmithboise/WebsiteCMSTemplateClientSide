@@ -3,7 +3,7 @@
     [ngStyle]="{
       color: this.colorSix,
       fontSize: '14px',
-      fontFamily: 'Montserrat'
+      fontFamily: this.FontFamily
     }"
   >
     Column ID: {{ this.columnId }}
@@ -115,7 +115,7 @@
       borderColor: this.colorSeven,
       color: this.colorSix,
       float: 'right',
-      fontFamily: 'Montserrat'
+      fontFamily: this.FontFamily
     }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
@@ -144,7 +144,7 @@
       borderColor: this.colorSeven,
       color: this.colorSix,
       float: 'right',
-      fontFamily: 'Montserrat'
+      fontFamily: this.FontFamily
     }"
     type="button"
     class="btn btn-sm btn-outline-secondary text-button"
@@ -170,6 +170,7 @@
   </button>
 
   <app-button-panel
+    [FontFamily]="this.FontFamily"
     [colorEight]="this.colorEight"
     [colorSix]="this.colorSix"
     [colorSeven]="this.colorSeven"
@@ -258,7 +259,10 @@
 
             <div *ngIf="text.Icon">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Icon</label
               >
               <div class="input-group"></div>
@@ -278,7 +282,10 @@
 
             <div *ngIf="text.TextBody">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Text Body</label
               >
               <div class="input-group"></div>
@@ -421,7 +428,10 @@
 
             <div *ngIf="text.Body">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Background Image (400px)</label
               >
               <div class="input-group"></div>
@@ -437,7 +447,10 @@
 
             <div *ngIf="text.buttonText">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Button</label
               >
               <div class="input-group"></div>
@@ -453,7 +466,10 @@
 
             <div *ngIf="text.AudioUrl">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Audio Url</label
               >
               <input
@@ -488,7 +504,10 @@
               <!-- ImageUrl -->
             <div *ngIf="text.ImageUrl">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Image Url</label
               >
               <div class="input-group"></div>
@@ -513,7 +532,10 @@
             <!-- Background Image -->
             <div *ngIf="text.backgroundImage">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Background Image</label
               >
               <div class="input-group"></div>
@@ -543,7 +565,10 @@
             <!-- Youtube Embed -->
             <div *ngIf="text.embedUrl">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Embed Url</label
               >
               <div class="input-group"></div>
@@ -558,7 +583,10 @@
             <!-- Google Maps -->
             <div *ngIf="text.MapUrl">
               <label
-                [ngStyle]="{ color: this.colorSix, fontFamily: 'Montserrat' }"
+                [ngStyle]="{
+                  color: this.colorSix,
+                  fontFamily: this.FontFamily
+                }"
                 >Google Map</label
               >
               <div class="input-group"></div>
