@@ -71,7 +71,7 @@ body {
 #list-container {
   background-color: lightBlue;
   cursor: default;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   height: 100px;
   padding: 10px;
 }
@@ -82,15 +82,12 @@ body {
 #container2 {
   background-color: lightGreen;
   cursor: default;
-  overflow-x: auto;
-  width: 250px;
+  /* overflow-x: auto; */
+  /* width: 250px; */
   padding: 20px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 #hlist {
   padding: 10px;
   margin: 10px;
-}
-#hlist li {
-  display: inline;
 }
