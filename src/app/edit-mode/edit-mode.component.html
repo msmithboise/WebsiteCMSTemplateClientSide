@@ -1,4 +1,4 @@
-<div class="wrapper"></div>
+<!-- <div #autoscroll class="wrapper"></div>
 
 <div
   class="dragula_container"
@@ -7,7 +7,48 @@
 >
   <div *ngFor="let character of characters">
     <div class="character">
-      {{ character.firstName }} {{ character.lastName }}
+      {{ character.firstName }}
     </div>
   </div>
 </div>
+
+<div #autoscroll2 class="scrollable-wrapper">
+  <div
+    class="dragula_container"
+    dragula="DRAGULA_CONTAINER"
+    [(dragulaModel)]="selectedCharacters"
+  >
+    <div *ngFor="let character of selectedCharacters">
+      <div class="character">
+        {{ character.firstName }}
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div id="list-container">
+  <ol id="list" type="1">
+    <li>zero</li>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+  </ol>
+</div>
+<div id="container2">
+  <ol id="hlist">
+    <li>four</li>
+    <li>five</li>
+    <li>six</li>
+    <li>seven</li>
+    <li>eight</li>
+    <li>nine</li>
+    <li>ten</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+  </ol>
+</div>
+<script src="https://unpkg.com/dragula@3.7.2/dist/dragula.js"></script>
+<script src="https://unpkg.com/dom-autoscroller@2.2.3/dist/dom-autoscroller.js"></script>

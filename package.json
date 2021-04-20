@@ -27,6 +27,7 @@
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.0",
     "bootstrap-icons": "^1.0.0",
+    "dom-autoscroller": "^2.3.4",
     "firebase": "^7.19.1",
     "ng2-dragula": "^2.1.1",
     "ngx-cookie-service": "^10.1.1",
