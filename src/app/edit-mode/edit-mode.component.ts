@@ -26,13 +26,14 @@ export class EditModeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.createDragulaGroup();
-    this.scroll();
+    this.dragulaInit();
   }
 
-  scroll() {
+  dragulaInit() {
     var drake = dragula([
       document.querySelector('#list'),
       document.querySelector('#hlist'),
+      document.querySelector('#ilist'),
     ]);
 
     var scroll = autoScroll(
