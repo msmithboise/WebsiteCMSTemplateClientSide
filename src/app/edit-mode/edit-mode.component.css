@@ -91,3 +91,52 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
+/* for side nav */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  opacity: 0.9;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: #222222;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #1a60e0b6;
+}
+
+.mainlinks a:hover {
+  color: #1a60e0b6;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

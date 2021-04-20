@@ -86,4 +86,12 @@ export class EditModeComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  closeNav() {
+    document.getElementById('editModeNav').style.width = '0';
+  }
+
+  openNav() {
+    document.getElementById('editModeNav').style.width = '250px';
+  }
 }
