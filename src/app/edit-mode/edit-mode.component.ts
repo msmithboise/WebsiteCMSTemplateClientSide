@@ -22,11 +22,23 @@ export class EditModeComponent implements OnInit {
 
   selectedCharacters = [];
 
-  constructor(private dragulaService: DragulaService) {}
+  constructor(private dragulaService: DragulaService) {
+    dragulaService.createGroup('VAMPIRES', {
+      removeOnSpill: true,
+      copy: true,
+      // copy: (el, source) => {
+      //   return source.id === '#left';
+      // },
+      // accepts: (el, target, source, sibling) => {
+      //   // To avoid dragging from right to left container
+      //   return target.id !== 'left';
+      // },
+    });
+  }
 
   ngOnInit(): void {
     // this.createDragulaGroup();
-    this.dragulaInit();
+    // this.dragulaInit();
   }
 
   dragulaInit() {

@@ -27,7 +27,7 @@
 </div> -->
 
 <div id="list-container">
-  <ul id="left" type="1">
+  <ul [dragula]="'VAMPIRES'" id="left" type="1">
     <li>Text</li>
     <li>Image</li>
     <li>Button</li>
@@ -39,6 +39,7 @@
   <div>
     <div class="row">
       <div
+        [dragula]="'VAMPIRES'"
         style="border-style: solid; border-color: black"
         id="right"
         class="col-3"
