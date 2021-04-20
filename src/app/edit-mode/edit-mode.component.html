@@ -1,17 +1,21 @@
 <div id="list-container">
-  <ul *ngFor="let tool of toolbox" [dragula]="'VAMPIRES'" id="left" type="1">
-    <li>{{ tool.feature }}</li>
+  <ul [dragula]="'FEATURES'" id="left" type="1" [(dragulaModel)]="toolbox">
+    <li *ngFor="let tool of toolbox">{{ tool.feature }}</li>
   </ul>
 </div>
 <div class="container-fluid">
   <div>
     <div class="row">
       <div
-        [dragula]="'VAMPIRES'"
+        [(dragulaModel)]="newToolBox"
+        (click)="onClick()"
+        [dragula]="'FEATURES'"
         style="border-style: solid; border-color: black"
         id="right"
         class="col-3"
-      ></div>
+      >
+        <li *ngFor="let tool of newToolBox">{{ tool.feature }}</li>
+      </div>
     </div>
   </div>
 </div>

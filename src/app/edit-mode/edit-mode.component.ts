@@ -20,10 +20,15 @@ export class EditModeComponent implements OnInit {
     { id: 5, feature: `Video` },
   ];
 
+  public newToolBox = [];
+
   constructor(private dragulaService: DragulaService) {
-    dragulaService.createGroup('VAMPIRES', {
+    dragulaService.createGroup('FEATURES', {
       revertOnSpill: true,
       copy: true,
+      copyItem: (feature: string) => {
+        return feature;
+      },
       // copy: (el, source) => {
       //   return source.id === '#left';
       // },
@@ -37,6 +42,11 @@ export class EditModeComponent implements OnInit {
   ngOnInit(): void {
     // this.createDragulaGroup();
     // this.dragulaInit();
+  }
+
+  onClick() {
+    console.log('feature clicked!');
+    console.log('new tool box', this.newToolBox);
   }
 
   dragulaInit() {
