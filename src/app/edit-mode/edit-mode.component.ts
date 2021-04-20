@@ -12,19 +12,17 @@ import * as dragula from 'dragula';
 
 //@ViewChild('autoscroll') autoscroll: ElementRef;
 export class EditModeComponent implements OnInit {
-  public characters = [
-    { id: 1, firstName: `Text` },
-    { id: 2, firstName: `Background Image` },
-    { id: 3, firstName: `Button` },
-    { id: 4, firstName: `Audio` },
-    { id: 5, firstName: `Video` },
+  public toolbox = [
+    { id: 1, feature: `Text` },
+    { id: 2, feature: `Background Image` },
+    { id: 3, feature: `Button` },
+    { id: 4, feature: `Audio` },
+    { id: 5, feature: `Video` },
   ];
-
-  selectedCharacters = [];
 
   constructor(private dragulaService: DragulaService) {
     dragulaService.createGroup('VAMPIRES', {
-      removeOnSpill: true,
+      revertOnSpill: true,
       copy: true,
       // copy: (el, source) => {
       //   return source.id === '#left';

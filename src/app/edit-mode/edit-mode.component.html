@@ -1,38 +1,6 @@
-<!-- <div #autoscroll class="wrapper"></div>
-
-<div
-  class="dragula_container"
-  dragula="DRAGULA_CONTAINER"
-  [(dragulaModel)]="characters"
->
-  <div *ngFor="let character of characters">
-    <div class="character">
-      {{ character.firstName }}
-    </div>
-  </div>
-</div>
-
-<div #autoscroll2 class="scrollable-wrapper">
-  <div
-    class="dragula_container"
-    dragula="DRAGULA_CONTAINER"
-    [(dragulaModel)]="selectedCharacters"
-  >
-    <div *ngFor="let character of selectedCharacters">
-      <div class="character">
-        {{ character.firstName }}
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div id="list-container">
-  <ul [dragula]="'VAMPIRES'" id="left" type="1">
-    <li>Text</li>
-    <li>Image</li>
-    <li>Button</li>
-    <li>Audio</li>
-    <li>Video</li>
+  <ul *ngFor="let tool of toolbox" [dragula]="'VAMPIRES'" id="left" type="1">
+    <li>{{ tool.feature }}</li>
   </ul>
 </div>
 <div class="container-fluid">
