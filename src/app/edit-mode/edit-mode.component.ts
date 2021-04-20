@@ -1,5 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DragulaService } from 'ng2-dragula';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { DragulaService, DrakeFactory } from 'ng2-dragula';
 
 import autoScroll from 'dom-autoscroller';
 import * as dragula from 'dragula';
@@ -12,7 +18,7 @@ import { WebStructureService } from '../web-structure.service';
 })
 
 //@ViewChild('autoscroll') autoscroll: ElementRef;
-export class EditModeComponent implements OnInit {
+export class EditModeComponent implements OnInit, OnDestroy {
   public toolbox = [
     { id: 1, feature: `Text` },
     { id: 2, feature: `Background Image` },
@@ -26,8 +32,25 @@ export class EditModeComponent implements OnInit {
   constructor(
     private dragulaService: DragulaService,
     public webStructureService: WebStructureService
-  ) {
-    dragulaService.createGroup('FEATURES', {
+  ) {}
+
+  ngOnInit(): void {
+    this.dragInit();
+    // this.createDragulaGroup();
+    // this.dragulaInit();
+  }
+
+  ngOnDestroy() {
+    this.dragulaService.destroy('FEATURES');
+  }
+
+  onClick() {
+    console.log('feature clicked!');
+    console.log('new tool box', this.webStructureService.newToolBox);
+  }
+
+  dragInit() {
+    this.dragulaService.createGroup('FEATURES', {
       revertOnSpill: true,
       copy: true,
       copyItem: (feature: string) => {
@@ -41,16 +64,6 @@ export class EditModeComponent implements OnInit {
         return target.id !== 'left';
       },
     });
-  }
-
-  ngOnInit(): void {
-    // this.createDragulaGroup();
-    // this.dragulaInit();
-  }
-
-  onClick() {
-    console.log('feature clicked!');
-    console.log('new tool box', this.webStructureService.newToolBox);
   }
 
   dragulaInit() {
