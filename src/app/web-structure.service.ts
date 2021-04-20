@@ -41,6 +41,7 @@ export class WebStructureService {
   public baseUrl: string;
   public FinalProdUrl: string;
   public pagesByClientUrlArray: CustomPage[];
+  public newToolBox = [];
   public ClientUrl = this.findClientUrl();
   constructor(private http: HttpClient, public cookie: CookieService) {}
 

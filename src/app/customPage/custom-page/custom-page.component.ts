@@ -91,6 +91,11 @@ export class CustomPageComponent implements OnInit {
     this.getRowsByPageId();
   }
 
+  onFeatureClick() {
+    console.log('feature clicked!');
+    console.log('new tool box', this.webStructureService.newToolBox);
+  }
+
   redirectToTrueHome() {
     this.route.params.subscribe((params) => {
       this.pageId = params.pageId;

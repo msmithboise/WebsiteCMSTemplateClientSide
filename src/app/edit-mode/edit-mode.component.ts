@@ -3,6 +3,7 @@ import { DragulaService } from 'ng2-dragula';
 
 import autoScroll from 'dom-autoscroller';
 import * as dragula from 'dragula';
+import { WebStructureService } from '../web-structure.service';
 
 @Component({
   selector: 'app-edit-mode',
@@ -22,7 +23,10 @@ export class EditModeComponent implements OnInit {
 
   public newToolBox = [];
 
-  constructor(private dragulaService: DragulaService) {
+  constructor(
+    private dragulaService: DragulaService,
+    public webStructureService: WebStructureService
+  ) {
     dragulaService.createGroup('FEATURES', {
       revertOnSpill: true,
       copy: true,
@@ -46,7 +50,7 @@ export class EditModeComponent implements OnInit {
 
   onClick() {
     console.log('feature clicked!');
-    console.log('new tool box', this.newToolBox);
+    console.log('new tool box', this.webStructureService.newToolBox);
   }
 
   dragulaInit() {

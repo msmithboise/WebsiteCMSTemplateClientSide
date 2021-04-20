@@ -1,6 +1,23 @@
 <app-navbar></app-navbar>
 
 <app-edit-mode></app-edit-mode>
+
+<div class="container-fluid">
+  <div class="row">
+    <div
+      [(dragulaModel)]="this.webStructureService.newToolBox"
+      (click)="onFeatureClick()"
+      [dragula]="'FEATURES'"
+      style="border-style: solid; border-color: black"
+      id="right"
+      class="col-3"
+    >
+      <li *ngFor="let tool of this.webStructureService.newToolBox">
+        {{ tool.feature }}
+      </li>
+    </div>
+  </div>
+</div>
 <!-- <h1>Get Requests: {{ this.webStructureService.getRequests }}</h1> -->
 
 <!-- <app-sidenav></app-sidenav> -->
