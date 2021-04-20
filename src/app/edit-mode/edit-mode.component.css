@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.dragula_container {
+  height: 100%;
+  width: 200px;
+  display: inline-block;
+}
+
+.character {
+  padding: 10px;
+  background: white;
+  margin: 5px;
+  border: grey solid 2px;
+  width: 100%;
+}
