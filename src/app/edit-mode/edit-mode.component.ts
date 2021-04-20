@@ -31,9 +31,8 @@ export class EditModeComponent implements OnInit {
 
   dragulaInit() {
     var drake = dragula([
-      document.querySelector('#list'),
-      document.querySelector('#hlist'),
-      document.querySelector('#ilist'),
+      document.querySelector('#left'),
+      document.querySelector('#right'),
     ]);
 
     var scroll = autoScroll(
@@ -49,9 +48,5 @@ export class EditModeComponent implements OnInit {
         },
       }
     );
-  }
-
-  createDragulaGroup() {
-    return this.dragulaService.createGroup('DRAGULA_CONTAINER', {});
   }
 }
