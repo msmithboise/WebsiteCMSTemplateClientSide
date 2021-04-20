@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { NullPageGuardService as NullPageGuard } from '../app/null-page-guard.service';
 import { NewsComponent } from './news/news.component';
+import { EditModeComponent } from './edit-mode/edit-mode.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -92,6 +93,7 @@ const routes: Routes = [
   },
   { path: 'grid', component: GridComponent },
   { path: 'test', component: TestComponent },
+  { path: 'edit', component: EditModeComponent },
 
   {
     path: 'edit-sub-page/:pageDescription/:pageId',

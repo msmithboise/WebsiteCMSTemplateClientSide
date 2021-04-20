@@ -28,6 +28,7 @@
     "bootstrap": "^4.4.0",
     "bootstrap-icons": "^1.0.0",
     "firebase": "^7.19.1",
+    "ng2-dragula": "^2.1.1",
     "ngx-cookie-service": "^10.1.1",
     "ngx-toastr": "^13.0.0",
     "rxjs": "~6.5.4",

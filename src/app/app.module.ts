@@ -98,6 +98,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { NullPageGuardService } from './null-page-guard.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SettingsTabsComponent } from './settings-tabs/settings-tabs.component';
+import { EditModeComponent } from './edit-mode/edit-mode.component';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -140,6 +142,7 @@ import { SettingsTabsComponent } from './settings-tabs/settings-tabs.component';
     PageNotFoundComponent,
     SidenavComponent,
     SettingsTabsComponent,
+    EditModeComponent,
   ],
   imports: [
     A11yModule,
@@ -148,6 +151,7 @@ import { SettingsTabsComponent } from './settings-tabs/settings-tabs.component';
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,
+    DragulaModule.forRoot(),
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
