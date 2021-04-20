@@ -70,9 +70,9 @@ body {
 }
 #list-container {
   background-color: lightBlue;
-  cursor: default;
+  cursor: pointer;
   /* overflow-y: auto; */
-  height: 100px;
+  height: 200px;
   padding: 10px;
 }
 #list {
@@ -81,7 +81,7 @@ body {
 }
 #container2 {
   background-color: lightGreen;
-  cursor: default;
+  cursor: pointer;
   /* overflow-x: auto; */
   /* width: 250px; */
   padding: 20px;

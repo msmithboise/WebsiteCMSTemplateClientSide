@@ -25,7 +25,7 @@ export class EditModeComponent implements OnInit {
   constructor(private dragulaService: DragulaService) {}
 
   ngOnInit(): void {
-    this.createDragulaGroup();
+    // this.createDragulaGroup();
     this.scroll();
   }
 
