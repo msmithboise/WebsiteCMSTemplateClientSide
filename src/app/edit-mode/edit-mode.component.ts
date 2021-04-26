@@ -10,6 +10,9 @@ import { DragulaService, DrakeFactory } from 'ng2-dragula';
 import autoScroll from 'dom-autoscroller';
 import * as dragula from 'dragula';
 import { WebStructureService } from '../web-structure.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { WebcontentService } from '../WebContent/webcontent.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-mode',
@@ -30,10 +33,13 @@ export class EditModeComponent implements OnInit, OnDestroy {
   public rows = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
   public newFeatures = [];
+  public pageId: number;
 
   constructor(
     private dragulaService: DragulaService,
-    public webStructureService: WebStructureService
+    public webStructureService: WebStructureService,
+    public webContentService: WebcontentService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +51,39 @@ export class EditModeComponent implements OnInit, OnDestroy {
 
   onRowDrag() {
     console.log('row dragged/added!');
+  }
+
+  rowFormTemplate = new FormGroup({
+    rowId: new FormControl(''),
+    pageId: new FormControl(''),
+  });
+
+  addRowByDrag() {
+    var newRow = this.rowFormTemplate.value;
+    newRow.pageId = this.webContentService.pageIdSnapshot;
+    newRow.RowId += newRow.RowId++;
+
+    this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
+      this.refresh();
+      //this.grabAllContentByPageId();
+    });
+  }
+
+  refresh() {
+    this.getRowsByPageId();
+  }
+
+  getRowsByPageId() {
+    this.route.params.subscribe((params) => {
+      this.pageId = params.pageId;
+    });
+
+    this.webStructureService.getRowsByPageId(this.pageId).subscribe((res) => {
+      console.log('page-settings: getRowsByPageId');
+      this.webStructureService.getRequests++;
+      this.webStructureService.rowsByPageIdArray = res;
+      // this.grabAllContentByPageId();
+    });
   }
 
   ngOnDestroy() {
