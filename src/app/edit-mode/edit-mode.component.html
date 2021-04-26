@@ -2,6 +2,7 @@
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
   <ul class="mainlinks">
     <div id="list-container">
+      <h1>FEATURES</h1>
       <div
         [dragula]="'FEATURES'"
         id="left"
@@ -9,9 +10,13 @@
         [(dragulaModel)]="features"
       >
         <div *ngFor="let feature of features">
-          <h1>{{ feature.text }}</h1>
+          <h2>{{ feature.text }}</h2>
+          <h2>{{ feature.image }}</h2>
+          <h2>{{ feature.audio }}</h2>
+          <h2>{{ feature.video }}</h2>
         </div>
       </div>
+      <h1>STRUCTURES</h1>
     </div>
   </ul>
 </div>

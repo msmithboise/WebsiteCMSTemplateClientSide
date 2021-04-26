@@ -60,8 +60,8 @@ export class EditModeComponent implements OnInit, OnDestroy {
     this.dragulaService.createGroup('ROWS', {
       revertOnSpill: true,
       copy: true,
-      copyItem: (feature: string) => {
-        return feature;
+      copyItem: (row: string) => {
+        return row;
       },
       // copy: (el, source) => {
       //   return source.id === '#left';
