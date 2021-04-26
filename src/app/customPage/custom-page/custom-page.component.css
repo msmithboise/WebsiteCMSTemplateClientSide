@@ -129,8 +129,8 @@ a:active {
   border-color: black;
 }
 
-.testRow {
-  border: blue;
+.rowDrag {
+  border: rgb(78, 10, 10);
   border-style: dashed;
   height: 100px;
 }

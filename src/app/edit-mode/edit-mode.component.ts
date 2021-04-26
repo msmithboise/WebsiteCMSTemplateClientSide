@@ -90,6 +90,7 @@ export class EditModeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.dragulaService.destroy('FEATURES');
+    this.dragulaService.destroy('ROWS');
   }
 
   onClick() {
@@ -111,6 +112,15 @@ export class EditModeComponent implements OnInit, OnDestroy {
         // To avoid dragging from right to left container
         return target.id !== 'left';
       },
+    });
+
+    this.dragulaService.drag('ROWS').subscribe((res) => {
+      console.log('dragging row');
+    });
+
+    this.dragulaService.drop('ROWS').subscribe((res) => {
+      console.log('dropped row');
+      this.addRowByDrag();
     });
   }
 

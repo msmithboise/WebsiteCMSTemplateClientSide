@@ -61,14 +61,16 @@
         this.customPageService.customPageArrayById.PageColor
       "
       class="container-fluid"
+      [(dragulaModel)]="this.webStructureService.dragContainer"
+      [dragula]="'ROWS'"
+      id="containerRight"
     >
       <!-- Foreach row on specified page -->
 
       <!-- For all the rows that are tied to this page id... -->
 
-      <div class="container-fluid">
-        <div class="row">
-          <div
+      <!-- a test of feature dragging -->
+      <!-- <div
             [(dragulaModel)]="this.webStructureService.dragColumn"
             (click)="onFeatureClick()"
             [dragula]="'FEATURES'"
@@ -81,9 +83,8 @@
               {{ feature.audio }}
               {{ feature.video }}
             </li>
-          </div>
-        </div>
-      </div>
+          </div> -->
+
       <app-row-view> </app-row-view>
     </div>
   </div>
