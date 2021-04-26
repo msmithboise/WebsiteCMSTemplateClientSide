@@ -43,6 +43,7 @@ export class WebStructureService {
   public pagesByClientUrlArray: CustomPage[];
   public dragColumn = [];
   public dragContainer = [];
+  public isEditMode = false;
 
   public ClientUrl = this.findClientUrl();
   constructor(private http: HttpClient, public cookie: CookieService) {}

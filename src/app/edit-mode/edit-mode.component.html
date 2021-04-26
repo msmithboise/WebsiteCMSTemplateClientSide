@@ -1,5 +1,7 @@
 <div id="editModeNav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" (click)="closeEditMode()"
+    >&times;</a
+  >
   <ul class="mainlinks">
     <div id="list-container">
       <h1>FEATURES</h1>
@@ -26,7 +28,7 @@
   </ul>
 </div>
 
-<button (click)="openNav()">EDIT MODE</button>
+<button (click)="openEditMode()">EDIT MODE</button>
 
 <script src="https://unpkg.com/dragula@3.7.2/dist/dragula.js"></script>
 <script src="https://unpkg.com/dom-autoscroller@2.2.3/dist/dom-autoscroller.js"></script>
