@@ -129,6 +129,14 @@ export class EditModeComponent implements OnInit, OnDestroy {
         return target.id !== 'left';
       },
     });
+
+    this.dragulaService.drag('FEATURES').subscribe((res) => {
+      console.log('dragging feature');
+    });
+
+    this.dragulaService.drop('FEATURES').subscribe((res) => {
+      console.log('dropped feature');
+    });
   }
 
   dragulaInit() {
