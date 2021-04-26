@@ -35,5 +35,13 @@ export class TestComponent implements OnInit {
     this.localArray.push(res);
   }
 
+  test() {
+    var array = ['hi', 'good morning', 'good bye'];
+
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+    }
+  }
+
   //The solution seems to have a get grab each array but push it into a new array and then ngFor that...
 }

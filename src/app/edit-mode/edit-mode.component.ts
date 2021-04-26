@@ -27,6 +27,8 @@ export class EditModeComponent implements OnInit, OnDestroy {
     { id: 5, feature: `Video` },
   ];
 
+  public rows = [{ id: 1 }, { id: 2 }, { id: 3 }];
+
   public newToolBox = [];
 
   constructor(
@@ -35,7 +37,8 @@ export class EditModeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.dragInit();
+    this.dragFeatureInit();
+    this.dragRowInit();
     // this.createDragulaGroup();
     // this.dragulaInit();
   }
@@ -49,7 +52,24 @@ export class EditModeComponent implements OnInit, OnDestroy {
     console.log('new tool box', this.webStructureService.newToolBox);
   }
 
-  dragInit() {
+  dragRowInit() {
+    this.dragulaService.createGroup('ROWS', {
+      revertOnSpill: true,
+      copy: true,
+      copyItem: (feature: string) => {
+        return feature;
+      },
+      // copy: (el, source) => {
+      //   return source.id === '#left';
+      // },
+      accepts: (el, target, source, sibling) => {
+        // To avoid dragging from right to left container
+        return target.id !== 'left';
+      },
+    });
+  }
+
+  dragFeatureInit() {
     this.dragulaService.createGroup('FEATURES', {
       revertOnSpill: true,
       copy: true,
