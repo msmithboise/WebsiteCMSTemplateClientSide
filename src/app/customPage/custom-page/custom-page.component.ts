@@ -93,7 +93,7 @@ export class CustomPageComponent implements OnInit {
 
   onFeatureClick() {
     console.log('feature clicked!');
-    console.log('new tool box', this.webStructureService.newToolBox);
+    console.log('new tool box', this.webStructureService.newFeatures);
   }
 
   redirectToTrueHome() {

@@ -19,17 +19,17 @@ import { WebStructureService } from '../web-structure.service';
 
 //@ViewChild('autoscroll') autoscroll: ElementRef;
 export class EditModeComponent implements OnInit, OnDestroy {
-  public toolbox = [
-    { id: 1, feature: `Text` },
-    { id: 2, feature: `Background Image` },
-    { id: 3, feature: `Button` },
-    { id: 4, feature: `Audio` },
-    { id: 5, feature: `Video` },
+  public features = [
+    { id: 1, text: `Text` },
+    { id: 2, image: `Background Image` },
+    { id: 3, button: `Button` },
+    { id: 4, audio: `Audio` },
+    { id: 5, video: `Video` },
   ];
 
   public rows = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
-  public newToolBox = [];
+  public newFeatures = [];
 
   constructor(
     private dragulaService: DragulaService,
@@ -43,13 +43,17 @@ export class EditModeComponent implements OnInit, OnDestroy {
     // this.dragulaInit();
   }
 
+  onRowDrag() {
+    console.log('row dragged/added!');
+  }
+
   ngOnDestroy() {
     this.dragulaService.destroy('FEATURES');
   }
 
   onClick() {
     console.log('feature clicked!');
-    console.log('new tool box', this.webStructureService.newToolBox);
+    console.log('new tool box', this.webStructureService.newFeatures);
   }
 
   dragRowInit() {

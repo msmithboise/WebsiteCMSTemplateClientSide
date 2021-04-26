@@ -2,9 +2,16 @@
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
   <ul class="mainlinks">
     <div id="list-container">
-      <ul [dragula]="'FEATURES'" id="left" type="1" [(dragulaModel)]="toolbox">
-        <li *ngFor="let tool of toolbox">{{ tool.feature }}</li>
-      </ul>
+      <div
+        [dragula]="'FEATURES'"
+        id="left"
+        type="1"
+        [(dragulaModel)]="features"
+      >
+        <div *ngFor="let feature of features">
+          <h1>{{ feature.text }}</h1>
+        </div>
+      </div>
     </div>
   </ul>
 </div>

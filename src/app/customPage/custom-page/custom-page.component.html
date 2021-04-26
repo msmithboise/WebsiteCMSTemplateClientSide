@@ -69,15 +69,15 @@
       <div class="container-fluid">
         <div class="row">
           <div
-            [(dragulaModel)]="this.webStructureService.newToolBox"
+            [(dragulaModel)]="this.webStructureService.newFeatures"
             (click)="onFeatureClick()"
             [dragula]="'FEATURES'"
             style="border-style: solid; border-color: black"
             id="right"
             class="col-3"
           >
-            <li *ngFor="let tool of this.webStructureService.newToolBox">
-              {{ tool.feature }}
+            <li *ngFor="let feature of this.webStructureService.newFeatures">
+              {{ feature.text }}
             </li>
           </div>
         </div>
