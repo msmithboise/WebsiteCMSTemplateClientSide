@@ -93,7 +93,7 @@ export class CustomPageComponent implements OnInit {
 
   onFeatureClick() {
     console.log('feature clicked!');
-    console.log('new features', this.webStructureService.newFeatures);
+    console.log('new features', this.webStructureService.dragColumn);
   }
 
   redirectToTrueHome() {

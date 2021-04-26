@@ -32,7 +32,9 @@ export class EditModeComponent implements OnInit, OnDestroy {
 
   public rows = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
-  public newFeatures = [];
+  public dragContainer = [];
+
+  public dragColumn = [];
   public pageId: number;
 
   constructor(
@@ -92,7 +94,7 @@ export class EditModeComponent implements OnInit, OnDestroy {
 
   onClick() {
     console.log('feature clicked!');
-    console.log('new tool box', this.webStructureService.newFeatures);
+    console.log('new tool box', this.webStructureService.dragColumn);
   }
 
   dragRowInit() {

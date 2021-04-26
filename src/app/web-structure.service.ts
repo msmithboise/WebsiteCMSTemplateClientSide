@@ -41,7 +41,7 @@ export class WebStructureService {
   public baseUrl: string;
   public FinalProdUrl: string;
   public pagesByClientUrlArray: CustomPage[];
-  public newFeatures = [];
+  public dragColumn = [];
   public ClientUrl = this.findClientUrl();
   constructor(private http: HttpClient, public cookie: CookieService) {}
 

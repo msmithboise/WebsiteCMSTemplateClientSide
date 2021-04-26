@@ -124,8 +124,12 @@ a:active {
   border: red;
   border-style: solid;
 } */
+.testCol {
+  border-style: solid;
+  border-color: black;
+}
 
-.row {
+.testRow {
   border: blue;
   border-style: dashed;
   height: 100px;
