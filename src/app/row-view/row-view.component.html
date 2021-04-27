@@ -1,5 +1,11 @@
 <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
-  <div [ngClass]="row.RowClass">
+  <div
+    style="border-color: red; border-style: dashed"
+    [ngClass]="row.RowClass"
+    [(dragulaModel)]="this.webStructureService.rowsByPageIdArray"
+    [dragula]="'ROWS'"
+    id="containerRight"
+  >
     <app-column-view style="height: 100%" [rowId]="row.RowId">
     </app-column-view>
     <!-- <div class="col-4">one</div>
