@@ -62,27 +62,19 @@
       "
       class="container-fluid"
     >
-      <!-- Foreach row on specified page -->
-
-      <!-- For all the rows that are tied to this page id... -->
-
-      <!-- a test of feature dragging -->
-      <!-- <div
-            [(dragulaModel)]="this.webStructureService.dragColumn"
-            (click)="onFeatureClick()"
-            [dragula]="'FEATURES'"
-            id="right"
-            class="col-3 testCol"
-          >
-            <li *ngFor="let feature of this.webStructureService.dragColumn">
-              {{ feature.text }}
-              {{ feature.image }}
-              {{ feature.audio }}
-              {{ feature.video }}
-            </li>
-          </div> -->
-
-      <app-row-view> </app-row-view>
+      <div *ngFor="let row of this.webStructureService.rowsByPageIdArray">
+        <div
+          style="border-color: red; border-style: dashed"
+          [ngClass]="row.RowClass"
+          [(dragulaModel)]="this.webStructureService.rowsByPageIdArray"
+          [dragula]="'ROWS'"
+          id="containerRight"
+        >
+          <app-column-view style="height: 100%" [rowId]="row.RowId">
+            {{ row.RowId }}
+          </app-column-view>
+        </div>
+      </div>
     </div>
   </div>
   <!-- <button class="btn btn-info" (click)="resizeToggled()">Resize Images</button> -->

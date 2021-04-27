@@ -1,3 +1,8 @@
+app-column-view {
+  height: 100%;
+  width: 100%;
+}
+
 .fade-in {
   animation: fadeIn ease 10s;
   -webkit-animation: fadeIn ease 10s;
