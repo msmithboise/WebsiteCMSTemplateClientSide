@@ -28,6 +28,7 @@ import { Column } from 'src/app/models/column.model';
 import { Row } from 'src/app/models/row.model';
 import { CookieService } from 'ngx-cookie-service';
 import { getLocaleDateTimeFormat } from '@angular/common';
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-custom-page',
@@ -52,7 +53,8 @@ export class CustomPageComponent implements OnInit {
     public router: Router,
     public defaultTemplateService: DefaultTemplateService,
     public webStructureService: WebStructureService,
-    public cookie: CookieService
+    public cookie: CookieService,
+    public dragulaService: DragulaService
   ) {}
 
   public photo =
@@ -77,6 +79,7 @@ export class CustomPageComponent implements OnInit {
   public rowIds = [];
   public columnIds = [];
   public hasToken: boolean = false;
+  public selectedRowId: string;
 
   ngOnInit(): void {
     this.grabUrl();
@@ -88,6 +91,15 @@ export class CustomPageComponent implements OnInit {
     this.grabAllContentByPageId();
     this.grabAllUserData();
     this.createTestArray();
+    this.getRowsByPageId();
+  }
+
+  getRowId(rowId: string) {
+    console.log('rowId:  ', rowId);
+    this.selectedRowId = rowId;
+  }
+
+  refresh() {
     this.getRowsByPageId();
   }
 

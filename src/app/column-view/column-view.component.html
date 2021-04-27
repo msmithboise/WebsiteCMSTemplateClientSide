@@ -15,7 +15,7 @@
     <div
       *ngFor="let column of this.newColumnList"
       [ngClass]="column.ColumnClass"
-      style="height: 100%"
+      style="height: 100%; border-style: solid; border-color: black"
     >
       <div *ngIf="column.RowId == this.rowId">
         <app-content-view [columnId]="column.ColumnId"></app-content-view>

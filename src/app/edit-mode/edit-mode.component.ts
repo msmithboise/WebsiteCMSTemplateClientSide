@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -22,6 +23,7 @@ import { ActivatedRoute } from '@angular/router';
 
 //@ViewChild('autoscroll') autoscroll: ElementRef;
 export class EditModeComponent implements OnInit, OnDestroy {
+  @Input() selectedRowId: string;
   public features = [
     { id: 1, text: `Text` },
     { id: 2, image: `Background Image` },
@@ -61,9 +63,13 @@ export class EditModeComponent implements OnInit, OnDestroy {
   });
 
   addRowByDrag() {
+    var parsedRowId = Number(this.selectedRowId);
+
+    console.log('parsed row id;  ', parsedRowId);
+
     var newRow = this.rowFormTemplate.value;
     newRow.pageId = this.webContentService.pageIdSnapshot;
-    newRow.RowId += newRow.RowId++;
+    newRow.rowId = parsedRowId++;
 
     this.webStructureService.postRowsByPageId(newRow).subscribe((res) => {
       this.refresh();
@@ -73,6 +79,11 @@ export class EditModeComponent implements OnInit, OnDestroy {
 
   refresh() {
     this.getRowsByPageId();
+  }
+
+  resetRowId() {
+    this.selectedRowId = '0';
+    console.log('reset row id', this.selectedRowId);
   }
 
   getRowsByPageId() {
@@ -98,6 +109,11 @@ export class EditModeComponent implements OnInit, OnDestroy {
     console.log('new tool box', this.webStructureService.dragColumn);
   }
 
+  getRowIdOnDrag() {
+    console.log('getting row id on drag...');
+    console.log('passed row id:  ', this.selectedRowId);
+  }
+
   dragRowInit() {
     this.dragulaService.createGroup('ROWS', {
       revertOnSpill: true,
@@ -114,12 +130,13 @@ export class EditModeComponent implements OnInit, OnDestroy {
       },
     });
 
-    this.dragulaService.drag('ROWS').subscribe((res) => {
-      console.log('dragging row');
-    });
+    var newRowId;
+
+    this.dragulaService.drag('ROWS').subscribe((res) => {});
 
     this.dragulaService.drop('ROWS').subscribe((res) => {
       console.log('dropped row');
+
       this.addRowByDrag();
     });
   }

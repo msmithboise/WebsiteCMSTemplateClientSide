@@ -21,7 +21,12 @@
       <h1>STRUCTURES</h1>
       <div [dragula]="'ROWS'" id="left" type="1" [(dragulaModel)]="rows">
         <div>
-          <h2 style="border-style: dashed; border-color: red">Row</h2>
+          <h2
+            (mousedown)="resetRowId()"
+            style="border-style: dashed; border-color: red"
+          >
+            Row
+          </h2>
         </div>
       </div>
     </div>
